@@ -18,7 +18,7 @@ if (NOT TR_ENUM_BITMASK_INCLUDE_DIR)
     message(FATAL_ERROR "EnumBitmask.hpp directory not specified!")
 endif()
 if (NOT TR_EXTERNAL_MODULE_DIR)
-    message(FATAL_ERROR "Path to extermal module directory not specified!")
+    message(FATAL_ERROR "Path to external module directory not specified!")
 endif()
 
 find_package(Boost REQUIRED)
