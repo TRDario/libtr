@@ -1,0 +1,40 @@
+cmake_minimum_required(VERSION 3.30.0 FATAL_ERROR)
+
+set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD "0e5b6991-d74f-4b3d-a41c-cf096e0b2508")
+
+project(tr LANGUAGES CXX)
+set(CMAKE_CXX_MODULE_STD 1)
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_DEBUG_POSTFIX d)
+
+if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    set(CMAKE_CXX_FLAGS "-Wall -Wpedantic -stdlib=libc++")
+else()
+    message(FATAL_ERROR "Non-Clang compilers currently not supported!")
+endif()
+
+if (NOT TR_ENUM_BITMASK_INCLUDE_DIR)
+    message(FATAL_ERROR "EnumBitmask.hpp directory not specified!")
+endif()
+if (NOT TR_EXTERNAL_MODULE_DIR)
+    message(FATAL_ERROR "Path to extermal module directory not specified!")
+endif()
+
+find_package(Boost REQUIRED)
+find_package(glm REQUIRED)
+find_package(GLEW REQUIRED)
+find_package(OpenAL REQUIRED)
+find_package(SDL2 REQUIRED)
+find_package(SDL2_image REQUIRED)
+find_package(SDL2_ttf REQUIRED)
+find_package(SndFile REQUIRED)
+
+file(GLOB TR_MODULES CONFIGURE_DEPENDS src/*.cppm)
+
+add_library(tr)
+target_compile_features(tr PRIVATE cxx_std_23)
+target_sources(tr PRIVATE FILE_SET CXX_MODULES BASE_DIRS ${CMAKE_CURRENT_SOURCE_DIR} ${TR_EXTERNAL_MODULE_DIR})
+target_sources(tr PRIVATE FILE_SET CXX_MODULES FILES ${TR_MODULES} ${TR_EXTERNAL_MODULE_DIR}/boost.cppm ${TR_EXTERNAL_MODULE_DIR}/glm.cppm)
+target_include_directories(tr PRIVATE ${TR_ENUM_BITMASK_INCLUDE_DIR})
+set_target_properties(tr PROPERTIES DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
