@@ -399,3 +399,7 @@ FodyWeavers.xsd
 
 # Build directory
 build/
+
+# doxygen files except Doxyfile
+doxygen/*
+!doxygen/Doxyfile

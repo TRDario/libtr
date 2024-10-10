@@ -9,7 +9,7 @@ If you plan to use this library for any reason, it is important to stress that i
 
 ## Documentation ##
 
-TO-DO.
+WIP.
 
 ## Examples ##
 
