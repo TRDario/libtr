@@ -33,7 +33,7 @@ export namespace tr {
         /**************************************************************************************************************
          * Constructs a file error with a path.
          *
-         * @exception May throw std::bad_alloc due to copying the string.
+         * @exception std::bad_alloc If copying the string failed.
 	     **************************************************************************************************************/
         FileError(const std::filesystem::path& path);
 
@@ -85,7 +85,8 @@ export namespace tr {
     /******************************************************************************************************************
 	 * Opens a file for writing with extra checks.
      *
-     * @exception May throw FileNotFound, FileOpenError.
+     * @exception FileNotFound If the file path does not lead to a regular file.
+     * @exception FileOpenError If the file at path cannot be opened.
      *
      * @param[in] path The file path. Must be a valid, writable file, otherwise one of FileNotFound, FileOpenError
      * may be thrown.
@@ -98,7 +99,8 @@ export namespace tr {
     /******************************************************************************************************************
 	 * Opens a file for reading with extra checks.
      *
-     * @exception May throw FileNotFound, FileOpenError.
+     * @exception FileNotFound If the file path does not lead to a regular file.
+     * @exception FileOpenError If the file at path cannot be opened.
      *
      * @param[in] path The file path. Must be a valid, readable file, otherwise one of FileNotFound, FileOpenError
      * may be thrown.
@@ -112,7 +114,7 @@ export namespace tr {
 	/******************************************************************************************************************
 	 * Reads binary data into an existing object.
      *
-     * @exception May throw an exception if the stream throws one.
+     * @exception std::ios_base::failure If the stream throws an error.
      *
      * @param[in] is The input stream.
      * @param[out] out The output object.
@@ -123,7 +125,7 @@ export namespace tr {
 	/******************************************************************************************************************
 	 * Reads binary data into a new object.
      *
-     * @exception May throw an exception if the stream throws one.
+     * @exception std::ios_base::failure If the stream throws an error.
      *
      * @param[in] is The input stream.
      *
@@ -135,7 +137,7 @@ export namespace tr {
 	/******************************************************************************************************************
 	 * Reads binary data into a contiguous range.
      *
-     * @exception May throw an exception if the stream throws one.
+     * @exception std::ios_base::failure If the stream throws an error.
      *
      * @param[in] is The input stream.
      * @param[out] out The output range.
@@ -147,7 +149,7 @@ export namespace tr {
 	/******************************************************************************************************************
 	 * Flushes the rest of the stream into an output iterator.
      *
-     * @exception May throw an exception if the stream throws one, or if the iterator throws one.
+     * @exception std::ios_base::failure If the stream throws an error.
      *
      * @param[in] is The input stream.
      * @param[out] out The output iterator.
@@ -160,7 +162,8 @@ export namespace tr {
      *
      * @em Container must satisfy @em BinaryFlushableContainer.
      *
-     * @exception May throw an exception if the stream throws one, or if the container construction throws one.
+     * @exception std::ios_base::failure If the stream throws an error.
+     * @exception std::bad_alloc If container construction fails.
      *
      * @param[in] is The input stream.
      *
@@ -173,7 +176,7 @@ export namespace tr {
 	/******************************************************************************************************************
 	 * Writes an object's binary data to stream.
      *
-     * @exception May throw an exception if the stream throws one.
+     * @exception std::ios_base::failure If the stream throws an error.
      *
      * @param[out] os The output stream.
      * @param[in] in The input object.
@@ -184,7 +187,7 @@ export namespace tr {
 	/******************************************************************************************************************
 	 * Writes a contiguous range's binary data to stream.
      *
-     * @exception May throw an exception if the stream throws one.
+     * @exception std::ios_base::failure If the stream throws an error.
      *
      * @param[out] os The output stream.
      * @param[in] range The input range.
@@ -195,7 +198,7 @@ export namespace tr {
 	/******************************************************************************************************************
 	 * Writes a C-string to stream.
      *
-     * @exception May throw an exception if the stream throws one.
+     * @exception std::ios_base::failure If the stream throws an error.
      *
      * @param[out] os The output stream.
      * @param[in] cstr The input string.
