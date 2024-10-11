@@ -4,25 +4,59 @@ module;
 export module tr:path;
 
 import std;
-import boost;
 
 export namespace tr {
+    /******************************************************************************************************************
+    * Error in getting the executable directory path.
+    ******************************************************************************************************************/
     struct ExeDirInitError : std::exception {
+        /**************************************************************************************************************
+         * Gets an error message.
+         *
+         * @return An explanatory error message.
+	     **************************************************************************************************************/
         virtual const char* what() const noexcept;
     };
+
+    /******************************************************************************************************************
+    * Error in getting the executable directory path.
+    ******************************************************************************************************************/
     struct UserDirInitError : std::exception {
+        /**************************************************************************************************************
+         * Gets an error message.
+         *
+         * @return An explanatory error message.
+	     **************************************************************************************************************/
         virtual const char* what() const noexcept;
     };
 
-    // Gets a path to the executable directory.
-	std::filesystem::path getExeDir();
-	// Gets a path to the user directory given an organization and application name.
-	std::filesystem::path getUserDir(const char* org, const char* app);
-}
 
-export namespace std::filesystem {
-    // Taken from https://stackoverflow.com/a/68734587.
-    template <class CharT> void validate(boost::any& v, vector<basic_string<CharT>> const& s, path* p, int);
+    /******************************************************************************************************************
+    * Gets a path to the executable directory.
+    *
+    * This function should only be called once at the beginning of the program as it may be relatively expensive.
+    *
+    * @exception ExeDirInitError If getting the path failed.
+    * @exception std::bad_alloc If allocating the path failed.
+    *
+    * @return A fath to the executable directory.
+    ******************************************************************************************************************/
+	std::filesystem::path getExeDir();
+	
+    /******************************************************************************************************************
+    * Gets a path to a safe user directory where data can be stored.
+    *
+    * This function should only be called once at the beginning of the program as it may be relatively expensive.
+    *
+    * @exception UserDirInitError If getting the path failed.
+    * @exception std::bad_alloc If allocating the path failed.
+    *
+    * @param org The organization name, used so that all applications under this organization share a folder.
+    * @param app The application name, used to that a specific subdirectory be made for the application.
+    *
+    * @return A path to the executable directory.
+    ******************************************************************************************************************/
+	std::filesystem::path getUserDir(const char* org, const char* app);
 }
 
 // IMPLEMENTATION
@@ -59,24 +93,4 @@ std::filesystem::path tr::getUserDir(const char* org, const char* app)
     std::filesystem::path userdir { cUserdir.get() };
     SDL_QuitSubSystem(SDL_INIT_VIDEO);
     return userdir;
-}
-
-template <class CharT>
-void std::filesystem::validate(boost::any& v, vector<basic_string<CharT>> const& s, path* p, int)
-{
-    assert(s.size() == 1);
-    basic_stringstream<CharT> ss;
-
-    for (auto& el : s) {
-        ss << quoted(el);
-    }
-
-    path converted;
-    ss >> noskipws >> converted;
-
-    if (ss.peek(); !ss.eof()) {
-        throw runtime_error("excess path characters");
-    }
-
-    v = std::move(converted);
 }
