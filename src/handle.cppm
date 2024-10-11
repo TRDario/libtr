@@ -161,9 +161,9 @@ export namespace tr {
 		 * @link Handle<T, EmptyValue, Deleter>::get(NoEmptyHandleCheck) const get(NoEmptyHandleCheck) @endlink
 		 * may be used in cases where the empty value is an expected input.
 		 *
-		 * @return The handle's base type value.
+		 * @return A reference to the handle's base type value.
 		 **************************************************************************************************************/
-		constexpr T get() const noexcept;
+		constexpr const T& get() const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the handle's base type value.
@@ -172,9 +172,9 @@ export namespace tr {
 		 * 
 		 * @link Handle<T, EmptyValue, Deleter>::get() const get() @endlink should be used in cases where this isn't necessary.
 		 *
-		 * @return The handle's base type value.
+		 * @return A reference to the handle's base type value.
 		 **************************************************************************************************************/
-		constexpr T get(NoEmptyHandleCheck) const noexcept;
+		constexpr const T& get(NoEmptyHandleCheck) const noexcept;
 
 
 		/**************************************************************************************************************
@@ -291,14 +291,14 @@ constexpr tr::Handle<T, EmptyValue, Deleter>::operator bool() const noexcept
 }
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
-constexpr T tr::Handle<T, EmptyValue, Deleter>::get() const noexcept
+constexpr const T& tr::Handle<T, EmptyValue, Deleter>::get() const noexcept
 {
 	assert(_base != EmptyValue);
 	return _base;
 }
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
-constexpr T tr::Handle<T, EmptyValue, Deleter>::get(NoEmptyHandleCheck) const noexcept
+constexpr const T& tr::Handle<T, EmptyValue, Deleter>::get(NoEmptyHandleCheck) const noexcept
 {
 	return _base;
 }
