@@ -8,6 +8,7 @@ import std;
 import :bitmap_format;
 
 export namespace tr {
+	/// @private
     std::pair<GLenum, GLenum> bitmapToGLFormat(BitmapFormat format) noexcept;
 }
 

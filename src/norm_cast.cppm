@@ -1,3 +1,11 @@
+/**
+ * @file norm_cast.cppm
+ * @brief Provides a cast between normalized integers and floats.
+ */
+
+module;
+#include <cassert>
+
 export module tr:norm_cast;
 
 import std;
@@ -5,10 +13,47 @@ import :concepts;
 import :integer;
 
 export namespace tr {
-	template <FloatingPoint To, FloatingPoint From> constexpr To norm_cast(From from) noexcept;
-	template <FloatingPoint To, std::integral From> constexpr To norm_cast(From from) noexcept;
-	template <std::integral To, FloatingPoint From> constexpr To norm_cast(From from) noexcept;
-	template <std::integral To, std::integral From> constexpr To norm_cast(From from) noexcept;
+	/******************************************************************************************************************
+    * Converts a floating point number in the range [0-1] to another floating point number in the range [0-1].
+	*
+	* @param from A floating point number in the range [0-1]. A failed assertion may be triggered if a value outside
+	*             this range is passed.
+	*
+	* @return A floating point number in the range [0-1].
+    ******************************************************************************************************************/
+	template <FloatingPoint To, FloatingPoint From>
+	constexpr To norm_cast(From from) noexcept;
+
+	/******************************************************************************************************************
+    * Converts a normalized integer value to a floating point number in the range [0-1].
+	*
+	* @param from A normalized integer value.
+	*
+	* @return A floating point number in the range [0-1].
+    ******************************************************************************************************************/
+	template <FloatingPoint To, std::integral From>
+	constexpr To norm_cast(From from) noexcept;
+
+	/******************************************************************************************************************
+    * Converts a floating point number in the range [0-1] to a normalized integer.
+	*
+	* @param from A floating point number in the range [0-1]. A failed assertion may be triggered if a value outside
+	*             this range is passed.
+	*
+	* @return A normalized integer.
+    ******************************************************************************************************************/
+	template <std::integral To, FloatingPoint From>
+	constexpr To norm_cast(From from) noexcept;
+
+	/******************************************************************************************************************
+    * Converts a normalized integer value to another normalied integer value.
+	*
+	* @param from A normalized integer value.
+	*
+	* @return A normalized integer value.
+    ******************************************************************************************************************/
+	template <std::integral To, std::integral From>
+	constexpr To norm_cast(From from) noexcept;
 }
 
 // IMPLEMENTATION
@@ -16,6 +61,7 @@ export namespace tr {
 template <tr::FloatingPoint To, tr::FloatingPoint From>
 constexpr To tr::norm_cast(From from) noexcept
 {
+	assert(from >= 0 && from <= 1);
 	return To(from);
 }
 
@@ -28,6 +74,7 @@ constexpr To tr::norm_cast(From from) noexcept
 template <std::integral To, tr::FloatingPoint From>
 constexpr To tr::norm_cast(From from) noexcept
 {
+	assert(from >= 0 && from <= 1);
 	return To(double(from) * std::numeric_limits<To>::max());
 }
 
