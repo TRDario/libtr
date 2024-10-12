@@ -9,7 +9,9 @@ If you plan to use this library for any reason, it is important to stress that i
 
 ## Documentation ##
 
-WIP.
+Documentation can be built with Doxygen, or can be viewed [here](https://trdario.github.io/libtr/).
+
+Currently work-in-progress.
 
 ## Examples ##
 
