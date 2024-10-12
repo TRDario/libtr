@@ -10,24 +10,57 @@ import :handle;
 import :texture;
 
 export namespace tr {
+    /******************************************************************************************************************
+	 * Error thrown on a failed renderbuffer bad allocation.
+	 ******************************************************************************************************************/
     struct RenderbufferBadAlloc : std::bad_alloc {
-        RenderbufferBadAlloc() noexcept = default;
-		constexpr virtual const char* what() const noexcept { return "failed renderbuffer allocation"; };
+        /**************************************************************************************************************
+         * Gets an error message.
+         *
+         * @return An explanatory error message.
+	     **************************************************************************************************************/
+		constexpr virtual const char* what() const noexcept;
     };
 
+    /******************************************************************************************************************
+	 * Image buffer optimized for use as a render target in a framebuffer.
+     *
+     * Wrapper over an OpenGL renderbuffer.
+	 ******************************************************************************************************************/
 	class Renderbuffer {
 	public:
-		// Creates a blank renderbuffer.
+		/**************************************************************************************************************
+        * Allocates a blank renderbuffer.
+        *
+        * @exception RenderbufferBadAlloc If allocating the renderbuffer failed.
+        *
+        * @param size The size of the renderbuffer in pixels.
+        * @param format The pixel format of the renderbuffer.
+        **************************************************************************************************************/
 		Renderbuffer(glm::ivec2 size, TextureFormat format);
 
-		friend bool operator==(const Renderbuffer& lhs, const Renderbuffer& rhs) noexcept;
+        /**************************************************************************************************************
+        * Equality comparison operator.
+        **************************************************************************************************************/
+		bool operator==(const Renderbuffer& rhs) const noexcept;
 
-		// Gets the size of the renderbuffer.
+
+		/**************************************************************************************************************
+        * Gets the size of the renderbuffer.
+        *
+        * @return The size of the renderbuffer in pixels.
+        **************************************************************************************************************/
 		glm::ivec2 size() const noexcept;
 
+
+        /**************************************************************************************************************
+        * Sets the debug label of the renderbuffer.
+        *
+        * @param label The new label of the renderbuffer.
+        **************************************************************************************************************/
         void setLabel(std::string_view label) noexcept;
 	private:
-		struct Deleter { void operator()(GLuint id) noexcept; };
+		struct Deleter { void operator()(GLuint id) noexcept; /**< @private */ };
 
 		Handle<GLuint, 0, Deleter> _id;
 		glm::ivec2 				   _size;
@@ -39,6 +72,11 @@ export namespace tr {
 }
 
 // IMPLEMENTATION
+
+constexpr const char* tr::RenderbufferBadAlloc::what() const noexcept
+{
+    return "failed renderbuffer allocation";
+}
 
 tr::Renderbuffer::Renderbuffer(glm::ivec2 size, TextureFormat format)
     : _size { size }
@@ -59,9 +97,9 @@ void tr::Renderbuffer::Deleter::operator()(GLuint id) noexcept
 }
 
 
-bool tr::operator==(const Renderbuffer& lhs, const Renderbuffer& rhs) noexcept
+bool tr::Renderbuffer::operator==(const Renderbuffer& rhs) const noexcept
 {
-    return lhs._id == rhs._id;
+    return _id == rhs._id;
 }
 
 glm::ivec2 tr::Renderbuffer::size() const noexcept
