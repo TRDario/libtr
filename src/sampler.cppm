@@ -7,7 +7,6 @@ export module tr:sampler;
 import std;
 import :color;
 import :handle;
-import :integer;
 
 export namespace tr {
 	// Enum representing a texture wrapping type.
@@ -96,8 +95,8 @@ export namespace tr {
 
         void setLabel(std::string_view label) noexcept;
 	private:
-		struct Deleter { void operator()(unsigned int id) noexcept; };
-		Handle<unsigned int, 0, Deleter> _id;
+		struct Deleter { void operator()(GLuint id) noexcept; };
+		Handle<GLuint, 0, Deleter> _id;
 
 		friend class TextureUnit;
 	};
@@ -107,50 +106,50 @@ export namespace tr {
 
 tr::Sampler::Sampler() noexcept
 {
-    unsigned int id;
+    GLuint id;
     glCreateSamplers(1, &id);
     _id.reset(id);
 }
 
-void tr::Sampler::Deleter::operator()(unsigned int id) noexcept
+void tr::Sampler::Deleter::operator()(GLuint id) noexcept
 {
     glDeleteSamplers(1, &id);
 }
 
 tr::MinFilter tr::Sampler::minFilter() const noexcept
 {
-    int glFilter;
+    GLint glFilter;
     glGetSamplerParameteriv(_id.get(), GL_TEXTURE_MIN_FILTER, &glFilter);
     return MinFilter(glFilter);
 }
 
 tr::MagFilter tr::Sampler::magFilter() const noexcept
 {
-    int glFilter;
+    GLint glFilter;
     glGetSamplerParameteriv(_id.get(), GL_TEXTURE_MAG_FILTER, &glFilter);
     return MagFilter(glFilter);
 }
 
 void tr::Sampler::setMinFilter(MinFilter filter) noexcept
 {
-    glSamplerParameteri(_id.get(), GL_TEXTURE_MIN_FILTER, int(filter));
+    glSamplerParameteri(_id.get(), GL_TEXTURE_MIN_FILTER, GLint(filter));
 }
 
 void tr::Sampler::setMagFilter(MagFilter filter) noexcept
 {
-    glSamplerParameteri(_id.get(), GL_TEXTURE_MAG_FILTER, int(filter));
+    glSamplerParameteri(_id.get(), GL_TEXTURE_MAG_FILTER, GLint(filter));
 }
 
 int tr::Sampler::minLOD() const noexcept
 {
-    int lod;
+    GLint lod;
     glGetSamplerParameteriv(_id.get(), GL_TEXTURE_MIN_LOD, &lod);
     return lod;
 }
 
 int tr::Sampler::maxLOD() const noexcept
 {
-    int lod;
+    GLint lod;
     glGetSamplerParameteriv(_id.get(), GL_TEXTURE_MAX_LOD, &lod);
     return lod;
 }
@@ -167,7 +166,7 @@ void tr::Sampler::setMaxLOD(int lod) noexcept
 
 std::optional<tr::Compare> tr::Sampler::comparisonMode() const noexcept
 {
-    int compareMode;
+    GLint compareMode;
     glGetSamplerParameteriv(_id.get(), GL_TEXTURE_COMPARE_MODE, &compareMode);
     if (compareMode == GL_NONE) {
         return std::nullopt;
@@ -184,26 +183,26 @@ void tr::Sampler::disableComparison() noexcept
 void tr::Sampler::setComparisonMode(Compare op) noexcept
 {
     glSamplerParameteri(_id.get(), GL_TEXTURE_COMPARE_MODE, GL_COMPARE_REF_TO_TEXTURE);
-    glSamplerParameteri(_id.get(), GL_TEXTURE_COMPARE_FUNC, int(op));
+    glSamplerParameteri(_id.get(), GL_TEXTURE_COMPARE_FUNC, GLint(op));
 }
 
 tr::Wrap tr::Sampler::wrapS() const noexcept
 {
-    int glWrap;
+    GLint glWrap;
     glGetSamplerParameteriv(_id.get(), GL_TEXTURE_WRAP_S, &glWrap);
     return Wrap(glWrap);
 }
 
 tr::Wrap tr::Sampler::wrapT() const noexcept
 {
-    int glWrap;
+    GLint glWrap;
     glGetSamplerParameteriv(_id.get(), GL_TEXTURE_WRAP_T, &glWrap);
     return Wrap(glWrap);
 }
 
 tr::Wrap tr::Sampler::wrapR() const noexcept
 {
-    int glWrap;
+    GLint glWrap;
     glGetSamplerParameteriv(_id.get(), GL_TEXTURE_WRAP_R, &glWrap);
     return Wrap(glWrap);
 }

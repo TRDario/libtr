@@ -12,7 +12,6 @@ import :framebuffer;
 import :geometry;
 import :handle;
 import :index_buffer;
-import :integer;
 import :sampler;
 import :sdl;
 import :shader;
@@ -96,7 +95,7 @@ export namespace tr {
 	DEFINE_BITMASK_OPERATORS(Clear);
 
     // Enum representing vsync behavior.
-	enum class VSync : Si8 {
+	enum class VSync : std::int8_t {
 		ADAPTIVE = -1, // Vsync is enabled, but late swaps happen immediately instead of waiting for the next retrace.
 		DISABLED,      // Vsync is disabled.
 		ENABLED        // Vsync is enabled.
@@ -142,7 +141,7 @@ export namespace tr {
         void setVertexFormat(const VertexFormat& format) noexcept;
 
         // Sets the context's active vertex buffer.
-        void setVertexBuffer(VertexBuffer& buffer, VertexBuffer::Size offset, Size vertexStride) noexcept;
+        void setVertexBuffer(VertexBuffer& buffer, std::size_t offset, std::size_t vertexStride) noexcept;
         // Sets the context's active index buffer.
         void setIndexBuffer(IndexBuffer& buffer) noexcept;
 
@@ -161,7 +160,7 @@ export namespace tr {
 		// func - The function used for the depth test.
 		// comp - The value that will be compared against in the function.
 		// mask - The value of the stencil mask.
-		void setStencilTest(StencilFace face, Compare func, int comp, Ui32 mask) noexcept;
+		void setStencilTest(StencilFace face, Compare func, int comp, std::uint32_t mask) noexcept;
 		// Sets the operation performed on the stencil buffer in various circumstances. 
 		// face - The face(s) this function applies to.
 		// sfail - The operation used in case of a stencil test fail.
@@ -171,7 +170,7 @@ export namespace tr {
 		// Sets the stencil mask that enables and disables writing of individual bits in stencil buffers.
 		// face - The face(s) this mask applies to.
 		// mask - A bitmask where 0 means the bit cannot be written and 1 means it can be written.
-		void setStencilMask(StencilFace face, Ui32 mask) noexcept;
+		void setStencilMask(StencilFace face, std::uint32_t mask) noexcept;
 
 		// Sets whether the depth test is performed.
 		void useDepthTest(bool use) noexcept;
@@ -197,13 +196,13 @@ export namespace tr {
 		// components - The components to be cleared, multiple may be ORed together.
 		void clear(Clear components) noexcept;
 
-        void draw(Primitive type, VertexBuffer::Size offset, VertexBuffer::Size vertices);
-        void drawInstances(Primitive type, VertexBuffer::Size offset, VertexBuffer::Size vertices, int instances);
-        void drawIndexed(Primitive type, IndexBuffer::Size offset, IndexBuffer::Size indices);
-        void drawIndexedInstances(Primitive type, IndexBuffer::Size offset, IndexBuffer::Size indices, int instances);
+        void draw(Primitive type, std::size_t offset, std::size_t vertices);
+        void drawInstances(Primitive type, std::size_t offset, std::size_t vertices, int instances);
+        void drawIndexed(Primitive type, std::size_t offset, std::size_t indices);
+        void drawIndexedInstances(Primitive type, std::size_t offset, std::size_t indices, int instances);
     private:
         struct Deleter { void operator()(SDL_GLContext context) noexcept; };
-        struct PipelineDeleter { void operator()(unsigned int id) noexcept; };
+        struct PipelineDeleter { void operator()(GLuint id) noexcept; };
         std::unique_ptr<void, Deleter>           _impl;
         Handle<unsigned int, 0, PipelineDeleter> _pipeline;
     public:
@@ -238,7 +237,7 @@ SDL_GLContext tr::createContext(SDL_Window* window)
 
 unsigned int tr::createPipeline() noexcept
 {
-    unsigned int id;
+    GLuint id;
     glGenProgramPipelines(1, &id);
     glBindProgramPipeline(id);
     #ifndef NDEBUG
@@ -259,7 +258,7 @@ void tr::GLContext::Deleter::operator()(SDL_GLContext context) noexcept
     SDL_GL_DeleteContext(context);
 }
 
-void tr::GLContext::PipelineDeleter::operator()(unsigned int id) noexcept
+void tr::GLContext::PipelineDeleter::operator()(GLuint id) noexcept
 {
     glDeleteProgramPipelines(1, &id);
 }
@@ -333,7 +332,7 @@ void tr::GLContext::useStencilTest(bool use) noexcept
     use ? glEnable(GL_STENCIL_TEST) : glDisable(GL_STENCIL_TEST);
 }
 
-void tr::GLContext::setStencilTest(StencilFace face, Compare func, int comp, Ui32 mask) noexcept
+void tr::GLContext::setStencilTest(StencilFace face, Compare func, int comp, std::uint32_t mask) noexcept
 {
     glStencilFuncSeparate(GLenum(face), GLenum(func), comp, mask);
 }
@@ -343,7 +342,7 @@ void tr::GLContext::setStencilOperation(StencilFace face, StencilOperation sfail
     glStencilOpSeparate(GLenum(face), GLenum(sfail), GLenum(dfail), GLenum(dpass));
 }
 
-void tr::GLContext::setStencilMask(StencilFace face, Ui32 mask) noexcept
+void tr::GLContext::setStencilMask(StencilFace face, std::uint32_t mask) noexcept
 {
     glStencilMaskSeparate(GLenum(face), mask);
 }
@@ -404,7 +403,7 @@ void tr::GLContext::setVertexFormat(const VertexFormat& format) noexcept
     format.bind();
 }
 
-void tr::GLContext::setVertexBuffer(VertexBuffer& buffer, VertexBuffer::Size offset, Size vertexStride) noexcept
+void tr::GLContext::setVertexBuffer(VertexBuffer& buffer, std::size_t offset, std::size_t vertexStride) noexcept
 {
 	assert(buffer._buffer.has_value());
     glBindVertexBuffer(0, buffer._buffer->_id.get(), offset, vertexStride);
@@ -416,22 +415,22 @@ void tr::GLContext::setIndexBuffer(IndexBuffer& buffer) noexcept
     buffer._buffer->bind();
 }
 
-void tr::GLContext::draw(Primitive type, VertexBuffer::Size offset, VertexBuffer::Size vertices)
+void tr::GLContext::draw(Primitive type, std::size_t offset, std::size_t vertices)
 {
     glDrawArrays(GLenum(type), offset, vertices);
 }
 
-void tr::GLContext::drawInstances(Primitive type, VertexBuffer::Size offset, VertexBuffer::Size vertices, int instances)
+void tr::GLContext::drawInstances(Primitive type, std::size_t offset, std::size_t vertices, int instances)
 {
     glDrawArraysInstanced(GLenum(type), offset, vertices, instances);
 }
 
-void tr::GLContext::drawIndexed(Primitive type, IndexBuffer::Size offset, IndexBuffer::Size indices)
+void tr::GLContext::drawIndexed(Primitive type, std::size_t offset, std::size_t indices)
 {
     glDrawElements(GLenum(type), indices, GL_UNSIGNED_SHORT, (const void*)(offset));
 }
 
-void tr::GLContext::drawIndexedInstances(Primitive type, IndexBuffer::Size offset, IndexBuffer::Size indices, int instances)
+void tr::GLContext::drawIndexedInstances(Primitive type, std::size_t offset, std::size_t indices, int instances)
 {
     glDrawElementsInstanced(GLenum(type), indices, GL_UNSIGNED_SHORT, (const void*)(offset), instances);
 }

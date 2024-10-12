@@ -7,7 +7,6 @@ export module tr:iostream;
 
 import std;
 import :concepts;
-import :integer;
 
 export namespace tr {
     /******************************************************************************************************************
@@ -16,7 +15,7 @@ export namespace tr {
      * To satisfy this requirement, a container must be a contiguous range of char-sized values.
 	 ******************************************************************************************************************/
 	template <class T>
-    concept BinaryFlushableContainer = std::ranges::contiguous_range<T> && sizeof(typename T::value_type) == sizeof(Byte);
+    concept BinaryFlushableContainer = std::ranges::contiguous_range<T> && sizeof(typename T::value_type) == sizeof(std::byte);
 
 
     /******************************************************************************************************************

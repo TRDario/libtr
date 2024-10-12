@@ -4,7 +4,6 @@ import std;
 import glm;
 import :angle;
 import :concepts;
-import :integer;
 
 export namespace tr {
     template <int S, class T> struct Rect {

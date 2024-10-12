@@ -3,13 +3,12 @@ export module tr:color_cast;
 import std;
 import :color;
 import :concepts;
-import :integer;
 import :norm_cast;
 
 namespace tr {
-	consteval Size umax(Ui8 bits) noexcept
+	consteval std::size_t umax(std::uint8_t bits) noexcept
 	{
-		return (Size { 1 } << bits) - 1;
+		return (std::size_t { 1 } << bits) - 1;
 	}
 
 	export template <BuiltinColor To, SpecializationOf<R> From>
@@ -20,7 +19,7 @@ namespace tr {
 		}
 		else {
 			using T = decltype(To::r);
-			constexpr auto UI32_MAX { std::numeric_limits<Ui32>::max() };
+			constexpr auto UI32_MAX { std::numeric_limits<std::uint32_t>::max() };
 
 			if constexpr (SpecializationOf<To, R>) {
 				return { norm_cast<T>(from.r) };
@@ -41,52 +40,52 @@ namespace tr {
 				return { 0, 0, norm_cast<T>(from.r), norm_cast<T>(1.0) };
 			}
 			else if constexpr (std::same_as<To, RGB_Ui8_2_3_3>) {
-				return { Ui8(norm_cast<Ui32>(from.r) * umax(2) / UI32_MAX), 0, 0 };
+				return { std::uint8_t(norm_cast<std::uint32_t>(from.r) * umax(2) / UI32_MAX), 0, 0 };
 			}
 			else if constexpr (std::same_as<To, RGB_Ui16_5_6_5>) {
-				return { Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX), 0, 0 };
+				return { std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX), 0, 0 };
 			}
 			else if constexpr (std::same_as<To, BGR_Ui8_3_3_2>) {
-				return { 0, 0, Ui8(norm_cast<Ui32>(from.r) * umax(2) / UI32_MAX) };
+				return { 0, 0, std::uint8_t(norm_cast<std::uint32_t>(from.r) * umax(2) / UI32_MAX) };
 			}
 			else if constexpr (std::same_as<To, BGR_Ui16_5_6_5>) {
-				return { 0, 0, Ui16(norm_cast<Ui32>(from.r) * umax(2) / UI32_MAX) };
+				return { 0, 0, std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(2) / UI32_MAX) };
 			}
 			else if constexpr (std::same_as<To, RGBA_Ui16_4_4_4_4>) {
-				return { Ui16(norm_cast<Ui32>(from.r) * umax(4) / UI32_MAX), 0, 0, Ui16(umax(4)) };
+				return { std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(4) / UI32_MAX), 0, 0, std::uint16_t(umax(4)) };
 			}
 			else if constexpr (std::same_as<To, RGBA_Ui16_5_5_5_1>) {
-				return { Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX), 0, 0, Ui16(umax(1)) };
+				return { std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX), 0, 0, std::uint16_t(umax(1)) };
 			}
 			else if constexpr (std::same_as<To, RGBA_Ui32_10_10_10_2>) {
-				return { Ui32(norm_cast<Ui32>(from.r) * umax(10) / UI32_MAX), 0, 0, Ui32(umax(2)) };
+				return { std::uint32_t(norm_cast<std::uint32_t>(from.r) * umax(10) / UI32_MAX), 0, 0, std::uint32_t(umax(2)) };
 			}
 			else if constexpr (std::same_as<To, ABGR_Ui16_4_4_4_4>) {
-				return { Ui16(umax(4)), 0, 0, Ui16(norm_cast<Ui32>(from.r) * umax(4) / UI32_MAX) };
+				return { std::uint16_t(umax(4)), 0, 0, std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(4) / UI32_MAX) };
 			}
 			else if constexpr (std::same_as<To, ABGR_Ui16_1_5_5_5>) {
-				return { Ui16(umax(1)), 0, 0, Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX) };
+				return { std::uint16_t(umax(1)), 0, 0, std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX) };
 			}
 			else if constexpr (std::same_as<To, ABGR_Ui32_2_10_10_10>) {
-				return { Ui32(umax(2)), 0, 0, Ui32(norm_cast<Ui32>(from.r) * umax(10) / UI32_MAX) };
+				return { std::uint32_t(umax(2)), 0, 0, std::uint32_t(norm_cast<std::uint32_t>(from.r) * umax(10) / UI32_MAX) };
 			}
 			else if constexpr (std::same_as<To, BGRA_Ui16_4_4_4_4>) {
-				return { 0, 0, Ui16(norm_cast<Ui32>(from.r) * umax(4) / UI32_MAX), Ui16(umax(4)) };
+				return { 0, 0, std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(4) / UI32_MAX), std::uint16_t(umax(4)) };
 			}
 			else if constexpr (std::same_as<To, BGRA_Ui16_5_5_5_1>) {
-				return { 0, 0, Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX), Ui16(umax(1)) };
+				return { 0, 0, std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX), std::uint16_t(umax(1)) };
 			}
 			else if constexpr (std::same_as<To, BGRA_Ui32_10_10_10_2>) {
-				return { 0, 0, Ui32(norm_cast<Ui32>(from.r) * umax(10) / UI32_MAX), Ui32(umax(2)) };
+				return { 0, 0, std::uint32_t(norm_cast<std::uint32_t>(from.r) * umax(10) / UI32_MAX), std::uint32_t(umax(2)) };
 			}
 			else if constexpr (std::same_as<To, ARGB_Ui16_4_4_4_4>) {
-				return { Ui16(umax(4)), Ui16(norm_cast<Ui32>(from.r) * umax(4) / UI32_MAX), 0, 0 };
+				return { std::uint16_t(umax(4)), std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(4) / UI32_MAX), 0, 0 };
 			}
 			else if constexpr (std::same_as<To, ARGB_Ui16_1_5_5_5>) {
-				return { Ui16(umax(1)), Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX), 0, 0 };
+				return { std::uint16_t(umax(1)), std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX), 0, 0 };
 			}
 			else if constexpr (std::same_as<To, ARGB_Ui32_2_10_10_10>) {
-				return { Ui32(umax(2)), Ui32(norm_cast<Ui32>(from.r) * umax(10) / UI32_MAX), 0, 0 };
+				return { std::uint32_t(umax(2)), std::uint32_t(norm_cast<std::uint32_t>(from.r) * umax(10) / UI32_MAX), 0, 0 };
 			}
 		}
 	}
@@ -99,7 +98,7 @@ namespace tr {
 		}
 		else {
 			using T = decltype(To::g);
-			constexpr auto UI32_MAX { std::numeric_limits<Ui32>::max() };
+			constexpr auto UI32_MAX { std::numeric_limits<std::uint32_t>::max() };
 
 			if constexpr (SpecializationOf<To, G>) {
 				return { norm_cast<T>(from.g) };
@@ -117,52 +116,52 @@ namespace tr {
 				return { 0, norm_cast<T>(from.g), 0, norm_cast<T>(1.0) };
 			}
 			else if constexpr (std::same_as<To, RGB_Ui8_2_3_3>) {
-				return { 0, Ui8(color_cast<G<Ui8>>(from).g * umax(3) / UI32_MAX), 0 };
+				return { 0, std::uint8_t(color_cast<G<std::uint8_t>>(from).g * umax(3) / UI32_MAX), 0 };
 			}
 			else if constexpr (std::same_as<To, RGB_Ui16_5_6_5>) {
-				return { 0, Ui16(color_cast<G<Ui8>>(from).g * umax(6) / UI32_MAX), 0 };
+				return { 0, std::uint16_t(color_cast<G<std::uint8_t>>(from).g * umax(6) / UI32_MAX), 0 };
 			}
 			else if constexpr (std::same_as<To, BGR_Ui8_3_3_2>) {
-				return { 0, Ui8(color_cast<G<Ui8>>(from).g * umax(3) / UI32_MAX), 0 };
+				return { 0, std::uint8_t(color_cast<G<std::uint8_t>>(from).g * umax(3) / UI32_MAX), 0 };
 			}
 			else if constexpr (std::same_as<To, BGR_Ui16_5_6_5>) {
-				return { 0, Ui16(color_cast<G<Ui8>>(from).g * umax(6) / UI32_MAX), 0 };
+				return { 0, std::uint16_t(color_cast<G<std::uint8_t>>(from).g * umax(6) / UI32_MAX), 0 };
 			}
 			else if constexpr (std::same_as<To, RGBA_Ui16_4_4_4_4>) {
-				return { 0, Ui16(color_cast<G<Ui8>>(from).g * umax(4) / UI32_MAX), 0, Ui16(umax(4)) };
+				return { 0, std::uint16_t(color_cast<G<std::uint8_t>>(from).g * umax(4) / UI32_MAX), 0, std::uint16_t(umax(4)) };
 			}
 			else if constexpr (std::same_as<To, RGBA_Ui16_5_5_5_1>) {
-				return { 0, Ui16(color_cast<G<Ui8>>(from).g * umax(5) / UI32_MAX), 0, Ui16(umax(1)) };
+				return { 0, std::uint16_t(color_cast<G<std::uint8_t>>(from).g * umax(5) / UI32_MAX), 0, std::uint16_t(umax(1)) };
 			}
 			else if constexpr (std::same_as<To, RGBA_Ui32_10_10_10_2>) {
-				return { 0, Ui32(color_cast<G<Ui16>>(from).g * umax(10) / UI32_MAX), 0, Ui32(umax(2)) };
+				return { 0, std::uint32_t(color_cast<G<std::uint16_t>>(from).g * umax(10) / UI32_MAX), 0, std::uint32_t(umax(2)) };
 			}
 			else if constexpr (std::same_as<To, ABGR_Ui16_4_4_4_4>) {
-				return { Ui16(umax(4)), 0, Ui16(color_cast<G<Ui8>>(from).g * umax(4) / UI32_MAX), 0 };
+				return { std::uint16_t(umax(4)), 0, std::uint16_t(color_cast<G<std::uint8_t>>(from).g * umax(4) / UI32_MAX), 0 };
 			}
 			else if constexpr (std::same_as<To, ABGR_Ui16_1_5_5_5>) {
-				return { Ui16(umax(1)), 0, Ui16(color_cast<G<Ui8>>(from).g * umax(5) / UI32_MAX), 0 };
+				return { std::uint16_t(umax(1)), 0, std::uint16_t(color_cast<G<std::uint8_t>>(from).g * umax(5) / UI32_MAX), 0 };
 			}
 			else if constexpr (std::same_as<To, ABGR_Ui32_2_10_10_10>) {
-				return { Ui32(umax(2)), 0, Ui32(color_cast<G<Ui16>>(from).g * umax(10) / UI32_MAX), 0 };
+				return { std::uint32_t(umax(2)), 0, std::uint32_t(color_cast<G<std::uint16_t>>(from).g * umax(10) / UI32_MAX), 0 };
 			}
 			else if constexpr (std::same_as<To, BGRA_Ui16_4_4_4_4>) {
-				return { 0, Ui16(color_cast<G<Ui8>>(from).g * umax(4) / UI32_MAX), 0, Ui16(umax(4)) };
+				return { 0, std::uint16_t(color_cast<G<std::uint8_t>>(from).g * umax(4) / UI32_MAX), 0, std::uint16_t(umax(4)) };
 			}
 			else if constexpr (std::same_as<To, BGRA_Ui16_5_5_5_1>) {
-				return { 0, Ui16(color_cast<G<Ui8>>(from).g * umax(5) / UI32_MAX), 0, Ui16(umax(1)) };
+				return { 0, std::uint16_t(color_cast<G<std::uint8_t>>(from).g * umax(5) / UI32_MAX), 0, std::uint16_t(umax(1)) };
 			}
 			else if constexpr (std::same_as<To, BGRA_Ui32_10_10_10_2>) {
-				return { 0, Ui32(color_cast<G<Ui16>>(from).g * umax(10) / UI32_MAX), 0, Ui32(umax(2)) };
+				return { 0, std::uint32_t(color_cast<G<std::uint16_t>>(from).g * umax(10) / UI32_MAX), 0, std::uint32_t(umax(2)) };
 			}
 			else if constexpr (std::same_as<To, ARGB_Ui16_4_4_4_4>) {
-				return { Ui16(umax(4)), 0, Ui16(color_cast<G<Ui8>>(from).g * umax(4) / UI32_MAX), 0 };
+				return { std::uint16_t(umax(4)), 0, std::uint16_t(color_cast<G<std::uint8_t>>(from).g * umax(4) / UI32_MAX), 0 };
 			}
 			else if constexpr (std::same_as<To, ARGB_Ui16_1_5_5_5>) {
-				return { Ui16(umax(1)), 0, Ui16(color_cast<G<Ui8>>(from).g * umax(5) / UI32_MAX), 0 };
+				return { std::uint16_t(umax(1)), 0, std::uint16_t(color_cast<G<std::uint8_t>>(from).g * umax(5) / UI32_MAX), 0 };
 			}
 			else if constexpr (std::same_as<To, ARGB_Ui32_2_10_10_10>) {
-				return { Ui32(umax(2)), 0, Ui32(color_cast<G<Ui16>>(from).g * umax(10) / UI32_MAX), 0 };
+				return { std::uint32_t(umax(2)), 0, std::uint32_t(color_cast<G<std::uint16_t>>(from).g * umax(10) / UI32_MAX), 0 };
 			}
 		}
 	}
@@ -175,7 +174,7 @@ namespace tr {
 		}
 		else {
 			using T = decltype(To::b);
-			constexpr auto UI32_MAX { std::numeric_limits<Ui32>::max() };
+			constexpr auto UI32_MAX { std::numeric_limits<std::uint32_t>::max() };
 
 			if constexpr (SpecializationOf<To, B>) {
 				return { norm_cast<T>(from.b) };
@@ -193,52 +192,52 @@ namespace tr {
 				return { norm_cast<T>(from.b), 0, 0, norm_cast<T>(1.0) };
 			}
 			else if constexpr (std::same_as<To, RGB_Ui8_2_3_3>) {
-				return { 0, 0, Ui8(norm_cast<Ui32>(from.b) * umax(3) / UI32_MAX) };
+				return { 0, 0, std::uint8_t(norm_cast<std::uint32_t>(from.b) * umax(3) / UI32_MAX) };
 			}
 			else if constexpr (std::same_as<To, RGB_Ui16_5_6_5>) {
-				return { 0, 0, Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX) };
+				return { 0, 0, std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX) };
 			}
 			else if constexpr (std::same_as<To, BGR_Ui8_3_3_2>) {
-				return { Ui8(norm_cast<Ui32>(from.b) * umax(3) / UI32_MAX), 0, 0 };
+				return { std::uint8_t(norm_cast<std::uint32_t>(from.b) * umax(3) / UI32_MAX), 0, 0 };
 			}
 			else if constexpr (std::same_as<To, BGR_Ui16_5_6_5>) {
-				return { Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX), 0, 0 };
+				return { std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX), 0, 0 };
 			}
 			else if constexpr (std::same_as<To, RGBA_Ui16_4_4_4_4>) {
-				return { 0, 0, Ui16(norm_cast<Ui32>(from.b) * umax(4) / UI32_MAX), Ui16(umax(4)) };
+				return { 0, 0, std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(4) / UI32_MAX), std::uint16_t(umax(4)) };
 			}
 			else if constexpr (std::same_as<To, RGBA_Ui16_5_5_5_1>) {
-				return { 0, 0, Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX), Ui16(umax(1)) };
+				return { 0, 0, std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX), std::uint16_t(umax(1)) };
 			}
 			else if constexpr (std::same_as<To, RGBA_Ui32_10_10_10_2>) {
-				return { 0, 0, Ui32(norm_cast<Ui32>(from.b) * umax(10) / UI32_MAX), Ui32(umax(2)) };
+				return { 0, 0, std::uint32_t(norm_cast<std::uint32_t>(from.b) * umax(10) / UI32_MAX), std::uint32_t(umax(2)) };
 			}
 			else if constexpr (std::same_as<To, ABGR_Ui16_4_4_4_4>) {
-				return { Ui16(umax(4)), Ui16(norm_cast<Ui32>(from.b) * umax(4) / UI32_MAX), 0, 0 };
+				return { std::uint16_t(umax(4)), std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(4) / UI32_MAX), 0, 0 };
 			}
 			else if constexpr (std::same_as<To, ABGR_Ui16_1_5_5_5>) {
-				return { Ui16(umax(1)), Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX), 0, 0 };
+				return { std::uint16_t(umax(1)), std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX), 0, 0 };
 			}
 			else if constexpr (std::same_as<To, ABGR_Ui32_2_10_10_10>) {
-				return { Ui32(umax(2)), Ui32(norm_cast<Ui32>(from.b) * umax(10) / UI32_MAX), 0, 0 };
+				return { std::uint32_t(umax(2)), std::uint32_t(norm_cast<std::uint32_t>(from.b) * umax(10) / UI32_MAX), 0, 0 };
 			}
 			else if constexpr (std::same_as<To, BGRA_Ui16_4_4_4_4>) {
-				return { Ui16(norm_cast<Ui32>(from.b) * umax(4) / UI32_MAX), 0, 0, Ui16(umax(4)) };
+				return { std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(4) / UI32_MAX), 0, 0, std::uint16_t(umax(4)) };
 			}
 			else if constexpr (std::same_as<To, BGRA_Ui16_5_5_5_1>) {
-				return { Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX), 0, 0, Ui16(umax(1)) };
+				return { std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX), 0, 0, std::uint16_t(umax(1)) };
 			}
 			else if constexpr (std::same_as<To, BGRA_Ui32_10_10_10_2>) {
-				return { Ui32(norm_cast<Ui32>(from.b) * umax(10) / UI32_MAX), 0, 0, Ui32(umax(2)) };
+				return { std::uint32_t(norm_cast<std::uint32_t>(from.b) * umax(10) / UI32_MAX), 0, 0, std::uint32_t(umax(2)) };
 			}
 			else if constexpr (std::same_as<To, ARGB_Ui16_4_4_4_4>) {
-				return { Ui16(umax(4)), 0, 0, Ui16(norm_cast<Ui32>(from.b) * umax(4) / UI32_MAX) };
+				return { std::uint16_t(umax(4)), 0, 0, std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(4) / UI32_MAX) };
 			}
 			else if constexpr (std::same_as<To, ARGB_Ui16_1_5_5_5>) {
-				return { Ui16(umax(1)), 0, 0, Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX) };
+				return { std::uint16_t(umax(1)), 0, 0, std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX) };
 			}
 			else if constexpr (std::same_as<To, ARGB_Ui32_2_10_10_10>) {
-				return { Ui32(umax(2)), 0, 0, Ui32(norm_cast<Ui32>(from.b) * umax(10) / UI32_MAX) };
+				return { std::uint32_t(umax(2)), 0, 0, std::uint32_t(norm_cast<std::uint32_t>(from.b) * umax(10) / UI32_MAX) };
 			}
 		}
 	}
@@ -251,7 +250,7 @@ namespace tr {
 		}
 		else {
 			using T = decltype(To::r);
-			constexpr auto UI32_MAX { std::numeric_limits<Ui32>::max() };
+			constexpr auto UI32_MAX { std::numeric_limits<std::uint32_t>::max() };
 
 			if constexpr (SpecializationOf<To, R>) {
 				return { norm_cast<T>(from.r) };
@@ -273,125 +272,125 @@ namespace tr {
 			}
 			else if constexpr (std::same_as<To, RGB_Ui8_2_3_3>) {
 				return {
-					Ui8(norm_cast<Ui32>(from.r) * umax(2) / UI32_MAX),
-					Ui8(norm_cast<Ui32>(from.g) * umax(3) / UI32_MAX),
+					std::uint8_t(norm_cast<std::uint32_t>(from.r) * umax(2) / UI32_MAX),
+					std::uint8_t(norm_cast<std::uint32_t>(from.g) * umax(3) / UI32_MAX),
 					0
 				};
 			}
 			else if constexpr (std::same_as<To, RGB_Ui16_5_6_5>) {
 				return {
-					Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX),
-					Ui16(norm_cast<Ui32>(from.g) * umax(6) / UI32_MAX),
+					std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX),
+					std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(6) / UI32_MAX),
 					0
 				};
 			}
 			else if constexpr (std::same_as<To, BGR_Ui8_3_3_2>) {
 				return {
 					0,
-					Ui8(norm_cast<Ui32>(from.g) * umax(3) / UI32_MAX),
-					Ui8(norm_cast<Ui32>(from.r) * umax(2) / UI32_MAX)
+					std::uint8_t(norm_cast<std::uint32_t>(from.g) * umax(3) / UI32_MAX),
+					std::uint8_t(norm_cast<std::uint32_t>(from.r) * umax(2) / UI32_MAX)
 				};
 			}
 			else if constexpr (std::same_as<To, BGR_Ui16_5_6_5>) {
 				return {
 					0,
-					Ui16(norm_cast<Ui32>(from.g) * umax(6) / UI32_MAX),
-					Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX)
+					std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(6) / UI32_MAX),
+					std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX)
 				};
 			}
 			else if constexpr (std::same_as<To, RGBA_Ui16_4_4_4_4>) {
 				return {
-					Ui16(norm_cast<Ui32>(from.r) * umax(4) / UI32_MAX),
-					Ui16(norm_cast<Ui32>(from.g) * umax(4) / UI32_MAX),
+					std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(4) / UI32_MAX),
+					std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(4) / UI32_MAX),
 					0,
-					Ui16(umax(4))
+					std::uint16_t(umax(4))
 				};
 			}
 			else if constexpr (std::same_as<To, RGBA_Ui16_5_5_5_1>) {
 				return {
-					Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX),
-					Ui16(norm_cast<Ui32>(from.g) * umax(5) / UI32_MAX),
+					std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX),
+					std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(5) / UI32_MAX),
 					0,
-					Ui16(umax(1))
+					std::uint16_t(umax(1))
 				};
 			}
 			else if constexpr (std::same_as<To, RGBA_Ui32_10_10_10_2>) {
 				return {
-					Ui32(norm_cast<Ui32>(from.r) * umax(10) / UI32_MAX),
-					Ui32(norm_cast<Ui32>(from.g) * umax(10) / UI32_MAX),
+					std::uint32_t(norm_cast<std::uint32_t>(from.r) * umax(10) / UI32_MAX),
+					std::uint32_t(norm_cast<std::uint32_t>(from.g) * umax(10) / UI32_MAX),
 					0,
-					Ui32(umax(2))
+					std::uint32_t(umax(2))
 				};
 			}
 			else if constexpr (std::same_as<To, ABGR_Ui16_4_4_4_4>) {
 				return {
-					Ui16(umax(4)),
+					std::uint16_t(umax(4)),
 					0,
-					Ui16(norm_cast<Ui32>(from.g) * umax(4) / UI32_MAX),
-					Ui16(norm_cast<Ui32>(from.r) * umax(4) / UI32_MAX)
+					std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(4) / UI32_MAX),
+					std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(4) / UI32_MAX)
 				};
 			}
 			else if constexpr (std::same_as<To, ABGR_Ui16_1_5_5_5>) {
 				return {
-					Ui16(umax(1)),
+					std::uint16_t(umax(1)),
 					0,
-					Ui16(norm_cast<Ui32>(from.g) * umax(5) / UI32_MAX),
-					Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX)
+					std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(5) / UI32_MAX),
+					std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX)
 				};
 			}
 			else if constexpr (std::same_as<To, ABGR_Ui32_2_10_10_10>) {
 				return {
-					Ui32(umax(2)),
+					std::uint32_t(umax(2)),
 					0,
-					Ui32(norm_cast<Ui32>(from.g) * umax(10) / UI32_MAX),
-					Ui32(norm_cast<Ui32>(from.r) * umax(10) / UI32_MAX)
+					std::uint32_t(norm_cast<std::uint32_t>(from.g) * umax(10) / UI32_MAX),
+					std::uint32_t(norm_cast<std::uint32_t>(from.r) * umax(10) / UI32_MAX)
 				};
 			}
 			else if constexpr (std::same_as<To, BGRA_Ui16_4_4_4_4>) {
 				return {
 					0,
-					Ui16(norm_cast<Ui32>(from.g) * umax(4) / UI32_MAX),
-					Ui16(norm_cast<Ui32>(from.r) * umax(4) / UI32_MAX),
-					Ui16(umax(4))
+					std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(4) / UI32_MAX),
+					std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(4) / UI32_MAX),
+					std::uint16_t(umax(4))
 				};
 			}
 			else if constexpr (std::same_as<To, BGRA_Ui16_5_5_5_1>) {
 				return {
 					0,
-					Ui16(norm_cast<Ui32>(from.g) * umax(5) / UI32_MAX),
-					Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX),
-					Ui16(umax(1))
+					std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(5) / UI32_MAX),
+					std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX),
+					std::uint16_t(umax(1))
 				};
 			}
 			else if constexpr (std::same_as<To, BGRA_Ui32_10_10_10_2>) {
 				return {
 					0,
-					Ui32(norm_cast<Ui32>(from.g) * umax(10) / UI32_MAX),
-					Ui32(norm_cast<Ui32>(from.r) * umax(10) / UI32_MAX),
-					Ui32(umax(2))
+					std::uint32_t(norm_cast<std::uint32_t>(from.g) * umax(10) / UI32_MAX),
+					std::uint32_t(norm_cast<std::uint32_t>(from.r) * umax(10) / UI32_MAX),
+					std::uint32_t(umax(2))
 				};
 			}
 			else if constexpr (std::same_as<To, ARGB_Ui16_4_4_4_4>) {
 				return {
-					Ui16(umax(4)),
-					Ui16(norm_cast<Ui32>(from.r) * umax(4) / UI32_MAX),
-					Ui16(norm_cast<Ui32>(from.g) * umax(4) / UI32_MAX),
+					std::uint16_t(umax(4)),
+					std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(4) / UI32_MAX),
+					std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(4) / UI32_MAX),
 					0
 				};
 			}
 			else if constexpr (std::same_as<To, ARGB_Ui16_1_5_5_5>) {
 				return {
-					Ui16(umax(1)),
-					Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX),
-					Ui16(norm_cast<Ui32>(from.g) * umax(5) / UI32_MAX),
+					std::uint16_t(umax(1)),
+					std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX),
+					std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(5) / UI32_MAX),
 					0
 				};
 			}
 			else if constexpr (std::same_as<To, ARGB_Ui32_2_10_10_10>) {
 				return {
-					Ui32(umax(2)),
-					Ui32(norm_cast<Ui32>(from.r) * umax(10) / UI32_MAX),
-					Ui32(norm_cast<Ui32>(from.g) * umax(10) / UI32_MAX),
+					std::uint32_t(umax(2)),
+					std::uint32_t(norm_cast<std::uint32_t>(from.r) * umax(10) / UI32_MAX),
+					std::uint32_t(norm_cast<std::uint32_t>(from.g) * umax(10) / UI32_MAX),
 					0
 				};
 			}
@@ -402,7 +401,7 @@ namespace tr {
 	constexpr To color_cast(const From& from) noexcept
 	{
 		using T = decltype(To::r);
-		constexpr auto UI32_MAX { std::numeric_limits<Ui32>::max() };
+		constexpr auto UI32_MAX { std::numeric_limits<std::uint32_t>::max() };
 
 		if constexpr (SpecializationOf<To, R>) {
 			return { norm_cast<T>(from.r) };
@@ -424,126 +423,126 @@ namespace tr {
 		}
 		else if constexpr (std::same_as<To, RGB_Ui8_2_3_3>) {
 			return {
-				Ui8(norm_cast<Ui32>(from.r) * umax(2) / UI32_MAX),
-				Ui8(norm_cast<Ui32>(from.g) * umax(3) / UI32_MAX),
-				Ui8(norm_cast<Ui32>(from.b) * umax(3) / UI32_MAX)
+				std::uint8_t(norm_cast<std::uint32_t>(from.r) * umax(2) / UI32_MAX),
+				std::uint8_t(norm_cast<std::uint32_t>(from.g) * umax(3) / UI32_MAX),
+				std::uint8_t(norm_cast<std::uint32_t>(from.b) * umax(3) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, RGB_Ui16_5_6_5>) {
 			return {
-				Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(6) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX)
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(6) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, BGR_Ui8_3_3_2>) {
 			return {
-				Ui8(norm_cast<Ui32>(from.b) * umax(3) / UI32_MAX),
-				Ui8(norm_cast<Ui32>(from.g) * umax(3) / UI32_MAX),
-				Ui8(norm_cast<Ui32>(from.r) * umax(2) / UI32_MAX)
+				std::uint8_t(norm_cast<std::uint32_t>(from.b) * umax(3) / UI32_MAX),
+				std::uint8_t(norm_cast<std::uint32_t>(from.g) * umax(3) / UI32_MAX),
+				std::uint8_t(norm_cast<std::uint32_t>(from.r) * umax(2) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, BGR_Ui16_5_6_5>) {
 			return {
-				Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(6) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX)
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(6) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, RGBA_Ui16_4_4_4_4>) {
 			return {
-				Ui16(norm_cast<Ui32>(from.r) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.b) * umax(4) / UI32_MAX),
-				Ui16(umax(4))
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(4) / UI32_MAX),
+				std::uint16_t(umax(4))
 			};
 		}
 		else if constexpr (std::same_as<To, RGBA_Ui16_5_5_5_1>) {
 			return {
-				Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX),
-				Ui16(umax(1))
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX),
+				std::uint16_t(umax(1))
 			};
 		}
 		else if constexpr (std::same_as<To, RGBA_Ui32_10_10_10_2>) {
 			return {
-				Ui32(norm_cast<Ui32>(from.r) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.g) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.b) * umax(10) / UI32_MAX),
-				Ui32(umax(2))
+				std::uint32_t(norm_cast<std::uint32_t>(from.r) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.g) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.b) * umax(10) / UI32_MAX),
+				std::uint32_t(umax(2))
 			};
 		}
 		else if constexpr (std::same_as<To, ABGR_Ui16_4_4_4_4>) {
 			return {
-				Ui16(umax(4)),
-				Ui16(norm_cast<Ui32>(from.b) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.r) * umax(4) / UI32_MAX)
+				std::uint16_t(umax(4)),
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(4) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, ABGR_Ui16_1_5_5_5>) {
 			return {
-				Ui16(umax(1)),
-				Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX)
+				std::uint16_t(umax(1)),
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, ABGR_Ui32_2_10_10_10>) {
 			return {
-				Ui32(umax(2)),
-				Ui32(norm_cast<Ui32>(from.b) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.g) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.r) * umax(10) / UI32_MAX)
+				std::uint32_t(umax(2)),
+				std::uint32_t(norm_cast<std::uint32_t>(from.b) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.g) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.r) * umax(10) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, BGRA_Ui16_4_4_4_4>) {
 			return {
-				Ui16(norm_cast<Ui32>(from.b) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.r) * umax(4) / UI32_MAX),
-				Ui16(umax(4))
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(4) / UI32_MAX),
+				std::uint16_t(umax(4))
 			};
 		}
 		else if constexpr (std::same_as<To, BGRA_Ui16_5_5_5_1>) {
 			return {
-				Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX),
-				Ui16(umax(1))
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX),
+				std::uint16_t(umax(1))
 			};
 		}
 		else if constexpr (std::same_as<To, BGRA_Ui32_10_10_10_2>) {
 			return {
-				Ui32(norm_cast<Ui32>(from.b) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.g) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.r) * umax(10) / UI32_MAX),
-				Ui32(umax(2))
+				std::uint32_t(norm_cast<std::uint32_t>(from.b) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.g) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.r) * umax(10) / UI32_MAX),
+				std::uint32_t(umax(2))
 			};
 		}
 		else if constexpr (std::same_as<To, ARGB_Ui16_4_4_4_4>) {
 			return {
-				Ui16(umax(4)),
-				Ui16(norm_cast<Ui32>(from.r) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.b) * umax(4) / UI32_MAX)
+				std::uint16_t(umax(4)),
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(4) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, ARGB_Ui16_1_5_5_5>) {
 			return {
-				Ui16(umax(1)),
-				Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX)
+				std::uint16_t(umax(1)),
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, ARGB_Ui32_2_10_10_10>) {
 			return {
-				Ui32(umax(2)),
-				Ui32(norm_cast<Ui32>(from.r) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.g) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.b) * umax(10) / UI32_MAX)
+				std::uint32_t(umax(2)),
+				std::uint32_t(norm_cast<std::uint32_t>(from.r) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.g) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.b) * umax(10) / UI32_MAX)
 			};
 		}
 	}
@@ -552,7 +551,7 @@ namespace tr {
 	constexpr To color_cast(const From& from) noexcept
 	{
 		using T = decltype(To::r);
-		constexpr auto UI32_MAX { std::numeric_limits<Ui32>::max() };
+		constexpr auto UI32_MAX { std::numeric_limits<std::uint32_t>::max() };
 
 		if constexpr (SpecializationOf<To, R>) {
 			return { norm_cast<T>(from.r) };
@@ -574,126 +573,126 @@ namespace tr {
 		}
 		else if constexpr (std::same_as<To, RGB_Ui8_2_3_3>) {
 			return {
-				Ui8(norm_cast<Ui32>(from.r) * umax(2) / UI32_MAX),
-				Ui8(norm_cast<Ui32>(from.g) * umax(3) / UI32_MAX),
-				Ui8(norm_cast<Ui32>(from.b) * umax(3) / UI32_MAX)
+				std::uint8_t(norm_cast<std::uint32_t>(from.r) * umax(2) / UI32_MAX),
+				std::uint8_t(norm_cast<std::uint32_t>(from.g) * umax(3) / UI32_MAX),
+				std::uint8_t(norm_cast<std::uint32_t>(from.b) * umax(3) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, RGB_Ui16_5_6_5>) {
 			return {
-				Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(6) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX)
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(6) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, BGR_Ui8_3_3_2>) {
 			return {
-				Ui8(norm_cast<Ui32>(from.b) * umax(3) / UI32_MAX),
-				Ui8(norm_cast<Ui32>(from.g) * umax(3) / UI32_MAX),
-				Ui8(norm_cast<Ui32>(from.r) * umax(2) / UI32_MAX)
+				std::uint8_t(norm_cast<std::uint32_t>(from.b) * umax(3) / UI32_MAX),
+				std::uint8_t(norm_cast<std::uint32_t>(from.g) * umax(3) / UI32_MAX),
+				std::uint8_t(norm_cast<std::uint32_t>(from.r) * umax(2) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, BGR_Ui16_5_6_5>) {
 			return {
-				Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(6) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX)
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(6) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, RGBA_Ui16_4_4_4_4>) {
 			return {
-				Ui16(norm_cast<Ui32>(from.r) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.b) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.a) * umax(4) / UI32_MAX)
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.a) * umax(4) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, RGBA_Ui16_5_5_5_1>) {
 			return {
-				Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui16>(from.a) * umax(1) / UI32_MAX)
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint16_t>(from.a) * umax(1) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, RGBA_Ui32_10_10_10_2>) {
 			return {
-				Ui32(norm_cast<Ui32>(from.r) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.g) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.b) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.a) * umax(2) / UI32_MAX)
+				std::uint32_t(norm_cast<std::uint32_t>(from.r) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.g) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.b) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.a) * umax(2) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, ABGR_Ui16_4_4_4_4>) {
 			return {
-				Ui16(norm_cast<Ui32>(from.a) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.b) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.r) * umax(4) / UI32_MAX)
+				std::uint16_t(norm_cast<std::uint32_t>(from.a) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(4) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, ABGR_Ui16_1_5_5_5>) {
 			return {
-				Ui16(norm_cast<Ui32>(from.a) * umax(1) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX)
+				std::uint16_t(norm_cast<std::uint32_t>(from.a) * umax(1) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, ABGR_Ui32_2_10_10_10>) {
 			return {
-				Ui32(norm_cast<Ui32>(from.a) * umax(2) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.b) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.g) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.r) * umax(10) / UI32_MAX)
+				std::uint32_t(norm_cast<std::uint32_t>(from.a) * umax(2) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.b) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.g) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.r) * umax(10) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, BGRA_Ui16_4_4_4_4>) {
 			return {
-				Ui16(norm_cast<Ui32>(from.b) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.r) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui16>(from.a) * umax(4) / UI32_MAX)
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint16_t>(from.a) * umax(4) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, BGRA_Ui16_5_5_5_1>) {
 			return {
-				Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui16>(from.a) * umax(1) / UI32_MAX)
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint16_t>(from.a) * umax(1) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, BGRA_Ui32_10_10_10_2>) {
 			return {
-				Ui32(norm_cast<Ui32>(from.b) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.g) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.r) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.a) * umax(2) / UI32_MAX)
+				std::uint32_t(norm_cast<std::uint32_t>(from.b) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.g) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.r) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.a) * umax(2) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, ARGB_Ui16_4_4_4_4>) {
 			return {
-				Ui16(norm_cast<Ui32>(from.a) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.r) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(4) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.b) * umax(4) / UI32_MAX)
+				std::uint16_t(norm_cast<std::uint32_t>(from.a) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(4) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(4) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, ARGB_Ui16_1_5_5_5>) {
 			return {
-				Ui16(norm_cast<Ui32>(from.a) * umax(1) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.r) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.g) * umax(5) / UI32_MAX),
-				Ui16(norm_cast<Ui32>(from.b) * umax(5) / UI32_MAX)
+				std::uint16_t(norm_cast<std::uint32_t>(from.a) * umax(1) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.r) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.g) * umax(5) / UI32_MAX),
+				std::uint16_t(norm_cast<std::uint32_t>(from.b) * umax(5) / UI32_MAX)
 			};
 		}
 		else if constexpr (std::same_as<To, ARGB_Ui32_2_10_10_10>) {
 			return {
-				Ui32(norm_cast<Ui32>(from.a) * umax(2) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.r) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.g) * umax(10) / UI32_MAX),
-				Ui32(norm_cast<Ui32>(from.b) * umax(10) / UI32_MAX)
+				std::uint32_t(norm_cast<std::uint32_t>(from.a) * umax(2) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.r) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.g) * umax(10) / UI32_MAX),
+				std::uint32_t(norm_cast<std::uint32_t>(from.b) * umax(10) / UI32_MAX)
 			};
 		}
 	}
@@ -701,7 +700,7 @@ namespace tr {
 	export template <BuiltinColor To> constexpr To color_cast(const RGB_Ui8_2_3_3& from) noexcept
 	{
 		if constexpr (std::same_as<To, RGB8>) {
-			return { Ui8(from.r * 255 / umax(2)), Ui8(from.g * 255 / umax(3)), Ui8(from.b * 255 / umax(3)), };
+			return { std::uint8_t(from.r * 255 / umax(2)), std::uint8_t(from.g * 255 / umax(3)), std::uint8_t(from.b * 255 / umax(3)), };
 		}
 		else {
 			return color_cast<To>(color_cast<RGB8>(from));
@@ -711,7 +710,7 @@ namespace tr {
 	export template <BuiltinColor To> constexpr To color_cast(const RGB_Ui16_5_6_5& from) noexcept
 	{
 		if constexpr (std::same_as<To, RGB8>) {
-			return { Ui8(from.r * 255 / umax(5)), Ui8(from.g * 255 / umax(6)), Ui8(from.b * 255 / umax(5)), };
+			return { std::uint8_t(from.r * 255 / umax(5)), std::uint8_t(from.g * 255 / umax(6)), std::uint8_t(from.b * 255 / umax(5)), };
 		}
 		else {
 			return color_cast<To>(color_cast<RGB8>(from));
@@ -721,7 +720,7 @@ namespace tr {
 	export template <BuiltinColor To> constexpr To color_cast(const BGR_Ui8_3_3_2& from) noexcept
 	{
 		if constexpr (std::same_as<To, RGB8>) {
-			return { Ui8(from.r * 255 / umax(2)), Ui8(from.g * 255 / umax(3)), Ui8(from.b * 255 / umax(3)), };
+			return { std::uint8_t(from.r * 255 / umax(2)), std::uint8_t(from.g * 255 / umax(3)), std::uint8_t(from.b * 255 / umax(3)), };
 		}
 		else {
 			return color_cast<To>(color_cast<RGB8>(from));
@@ -731,7 +730,7 @@ namespace tr {
 	export template <BuiltinColor To> constexpr To color_cast(const BGR_Ui16_5_6_5& from) noexcept
 	{
 		if constexpr (std::same_as<To, RGB8>) {
-			return { Ui8(from.r * 255 / umax(5)), Ui8(from.g * 255 / umax(6)), Ui8(from.b * 255 / umax(5)), };
+			return { std::uint8_t(from.r * 255 / umax(5)), std::uint8_t(from.g * 255 / umax(6)), std::uint8_t(from.b * 255 / umax(5)), };
 		}
 		else {
 			return color_cast<To>(color_cast<RGB8>(from));
@@ -740,121 +739,121 @@ namespace tr {
 
 	export template <BuiltinColor To> constexpr To color_cast(const RGBA_Ui16_4_4_4_4& from) noexcept
 	{
-		if constexpr (std::same_as<To, RGBA<Ui8>>) {
-			return { Ui8(from.r * 255 / umax(4)), Ui8(from.g * 255 / umax(4)), Ui8(from.b * 255 / umax(4)), Ui8(from.a * 255 / umax(4)) };
+		if constexpr (std::same_as<To, RGBA<std::uint8_t>>) {
+			return { std::uint8_t(from.r * 255 / umax(4)), std::uint8_t(from.g * 255 / umax(4)), std::uint8_t(from.b * 255 / umax(4)), std::uint8_t(from.a * 255 / umax(4)) };
 		}
 		else {
-			return color_cast<To>(color_cast<RGBA<Ui8>>(from));
+			return color_cast<To>(color_cast<RGBA<std::uint8_t>>(from));
 		}
 	}
 
 	export template <BuiltinColor To> constexpr To color_cast(const RGBA_Ui16_5_5_5_1& from) noexcept
 	{
-		if constexpr (std::same_as<To, RGBA<Ui8>>) {
-			return { Ui8(from.r * 255 / umax(5)), Ui8(from.g * 255 / umax(5)), Ui8(from.b * 255 / umax(5)), Ui8(from.a * 255 / umax(1)) };
+		if constexpr (std::same_as<To, RGBA<std::uint8_t>>) {
+			return { std::uint8_t(from.r * 255 / umax(5)), std::uint8_t(from.g * 255 / umax(5)), std::uint8_t(from.b * 255 / umax(5)), std::uint8_t(from.a * 255 / umax(1)) };
 		}
 		else {
-			return color_cast<To>(color_cast<RGBA<Ui8>>(from));
+			return color_cast<To>(color_cast<RGBA<std::uint8_t>>(from));
 		}
 	}
 
 	export template <BuiltinColor To> constexpr To color_cast(const RGBA_Ui32_10_10_10_2& from) noexcept
 	{
-		if constexpr (std::same_as<To, RGBA<Ui16>>) {
-			return { Ui16(from.r * 65535 / umax(10)), Ui16(from.g * 65535 / umax(10)), Ui16(from.b * 65535 / umax(10)), Ui16(from.a * 65535 / umax(2)) };
+		if constexpr (std::same_as<To, RGBA<std::uint16_t>>) {
+			return { std::uint16_t(from.r * 65535 / umax(10)), std::uint16_t(from.g * 65535 / umax(10)), std::uint16_t(from.b * 65535 / umax(10)), std::uint16_t(from.a * 65535 / umax(2)) };
 		}
 		else {
-			return color_cast<To>(color_cast<RGBA<Ui16>>(from));
+			return color_cast<To>(color_cast<RGBA<std::uint16_t>>(from));
 		}
 	}
 
 	export template <BuiltinColor To> constexpr To color_cast(const ABGR_Ui16_4_4_4_4& from) noexcept
 	{
-		if constexpr (std::same_as<To, RGBA<Ui8>>) {
-			return { Ui8(from.r * 255 / umax(4)), Ui8(from.g * 255 / umax(4)), Ui8(from.b * 255 / umax(4)), Ui8(from.a * 255 / umax(4)) };
+		if constexpr (std::same_as<To, RGBA<std::uint8_t>>) {
+			return { std::uint8_t(from.r * 255 / umax(4)), std::uint8_t(from.g * 255 / umax(4)), std::uint8_t(from.b * 255 / umax(4)), std::uint8_t(from.a * 255 / umax(4)) };
 		}
 		else {
-			return color_cast<To>(color_cast<RGBA<Ui8>>(from));
+			return color_cast<To>(color_cast<RGBA<std::uint8_t>>(from));
 		}
 	}
 
 	export template <BuiltinColor To> constexpr To color_cast(const ABGR_Ui16_1_5_5_5& from) noexcept
 	{
-		if constexpr (std::same_as<To, RGBA<Ui8>>) {
-			return { Ui8(from.r * 255 / umax(5)), Ui8(from.g * 255 / umax(5)), Ui8(from.b * 255 / umax(5)), Ui8(from.a * 255 / umax(1)) };
+		if constexpr (std::same_as<To, RGBA<std::uint8_t>>) {
+			return { std::uint8_t(from.r * 255 / umax(5)), std::uint8_t(from.g * 255 / umax(5)), std::uint8_t(from.b * 255 / umax(5)), std::uint8_t(from.a * 255 / umax(1)) };
 		}
 		else {
-			return color_cast<To>(color_cast<RGBA<Ui8>>(from));
+			return color_cast<To>(color_cast<RGBA<std::uint8_t>>(from));
 		}
 	}
 
 	export template <BuiltinColor To> constexpr To color_cast(const ABGR_Ui32_2_10_10_10& from) noexcept
 	{
-		if constexpr (std::same_as<To, RGBA<Ui16>>) {
-			return { Ui16(from.r * 65535 / umax(10)), Ui16(from.g * 65535 / umax(10)), Ui16(from.b * 65535 / umax(10)), Ui16(from.a * 65535 / umax(2)) };
+		if constexpr (std::same_as<To, RGBA<std::uint16_t>>) {
+			return { std::uint16_t(from.r * 65535 / umax(10)), std::uint16_t(from.g * 65535 / umax(10)), std::uint16_t(from.b * 65535 / umax(10)), std::uint16_t(from.a * 65535 / umax(2)) };
 		}
 		else {
-			return color_cast<To>(color_cast<RGBA<Ui16>>(from));
+			return color_cast<To>(color_cast<RGBA<std::uint16_t>>(from));
 		}
 	}
 
 	export template <BuiltinColor To> constexpr To color_cast(const BGRA_Ui16_4_4_4_4& from) noexcept
 	{
-		if constexpr (std::same_as<To, RGBA<Ui8>>) {
-			return { Ui8(from.r * 255 / umax(4)), Ui8(from.g * 255 / umax(4)), Ui8(from.b * 255 / umax(4)), Ui8(from.a * 255 / umax(4)) };
+		if constexpr (std::same_as<To, RGBA<std::uint8_t>>) {
+			return { std::uint8_t(from.r * 255 / umax(4)), std::uint8_t(from.g * 255 / umax(4)), std::uint8_t(from.b * 255 / umax(4)), std::uint8_t(from.a * 255 / umax(4)) };
 		}
 		else {
-			return color_cast<To>(color_cast<RGBA<Ui8>>(from));
+			return color_cast<To>(color_cast<RGBA<std::uint8_t>>(from));
 		}
 	}
 
 	export template <BuiltinColor To> constexpr To color_cast(const BGRA_Ui16_5_5_5_1& from) noexcept
 	{
-		if constexpr (std::same_as<To, RGBA<Ui8>>) {
-			return { Ui8(from.r * 255 / umax(5)), Ui8(from.g * 255 / umax(5)), Ui8(from.b * 255 / umax(5)), Ui8(from.a * 255 / umax(1)) };
+		if constexpr (std::same_as<To, RGBA<std::uint8_t>>) {
+			return { std::uint8_t(from.r * 255 / umax(5)), std::uint8_t(from.g * 255 / umax(5)), std::uint8_t(from.b * 255 / umax(5)), std::uint8_t(from.a * 255 / umax(1)) };
 		}
 		else {
-			return color_cast<To>(color_cast<RGBA<Ui8>>(from));
+			return color_cast<To>(color_cast<RGBA<std::uint8_t>>(from));
 		}
 	}
 
 	export template <BuiltinColor To> constexpr To color_cast(const BGRA_Ui32_10_10_10_2& from) noexcept
 	{
-		if constexpr (std::same_as<To, RGBA<Ui16>>) {
-			return { Ui16(from.r * 65535 / umax(10)), Ui16(from.g * 65535 / umax(10)), Ui16(from.b * 65535 / umax(10)), Ui16(from.a * 65535 / umax(2)) };
+		if constexpr (std::same_as<To, RGBA<std::uint16_t>>) {
+			return { std::uint16_t(from.r * 65535 / umax(10)), std::uint16_t(from.g * 65535 / umax(10)), std::uint16_t(from.b * 65535 / umax(10)), std::uint16_t(from.a * 65535 / umax(2)) };
 		}
 		else {
-			return color_cast<To>(color_cast<RGBA<Ui16>>(from));
+			return color_cast<To>(color_cast<RGBA<std::uint16_t>>(from));
 		}
 	}
 
 	export template <BuiltinColor To> constexpr To color_cast(const ARGB_Ui16_4_4_4_4& from) noexcept
 	{
-		if constexpr (std::same_as<To, RGBA<Ui8>>) {
-			return { Ui8(from.r * 255 / umax(4)), Ui8(from.g * 255 / umax(4)), Ui8(from.b * 255 / umax(4)), Ui8(from.a * 255 / umax(4)) };
+		if constexpr (std::same_as<To, RGBA<std::uint8_t>>) {
+			return { std::uint8_t(from.r * 255 / umax(4)), std::uint8_t(from.g * 255 / umax(4)), std::uint8_t(from.b * 255 / umax(4)), std::uint8_t(from.a * 255 / umax(4)) };
 		}
 		else {
-			return color_cast<To>(color_cast<RGBA<Ui8>>(from));
+			return color_cast<To>(color_cast<RGBA<std::uint8_t>>(from));
 		}
 	}
 
 	export template <BuiltinColor To> constexpr To color_cast(const ARGB_Ui16_1_5_5_5& from) noexcept
 	{
-		if constexpr (std::same_as<To, RGBA<Ui8>>) {
-			return { Ui8(from.r * 255 / umax(5)), Ui8(from.g * 255 / umax(5)), Ui8(from.b * 255 / umax(5)), Ui8(from.a * 255 / umax(1)) };
+		if constexpr (std::same_as<To, RGBA<std::uint8_t>>) {
+			return { std::uint8_t(from.r * 255 / umax(5)), std::uint8_t(from.g * 255 / umax(5)), std::uint8_t(from.b * 255 / umax(5)), std::uint8_t(from.a * 255 / umax(1)) };
 		}
 		else {
-			return color_cast<To>(color_cast<RGBA<Ui8>>(from));
+			return color_cast<To>(color_cast<RGBA<std::uint8_t>>(from));
 		}
 	}
 
 	export template <BuiltinColor To> constexpr To color_cast(const ARGB_Ui32_2_10_10_10& from) noexcept
 	{
-		if constexpr (std::same_as<To, RGBA<Ui16>>) {
-			return { Ui16(from.r * 65535 / umax(10)), Ui16(from.g * 65535 / umax(10)), Ui16(from.b * 65535 / umax(10)), Ui16(from.a * 65535 / umax(2)) };
+		if constexpr (std::same_as<To, RGBA<std::uint16_t>>) {
+			return { std::uint16_t(from.r * 65535 / umax(10)), std::uint16_t(from.g * 65535 / umax(10)), std::uint16_t(from.b * 65535 / umax(10)), std::uint16_t(from.a * 65535 / umax(2)) };
 		}
 		else {
-			return color_cast<To>(color_cast<RGBA<Ui16>>(from));
+			return color_cast<To>(color_cast<RGBA<std::uint16_t>>(from));
 		}
 	}
 
@@ -890,7 +889,7 @@ namespace tr {
 				return arg >= 0 ? arg : -arg;
 			};
 			constexpr auto eucMod = [] (float arg, float modulo) {
-				const float mod { arg - modulo * Si64(arg / modulo) };
+				const float mod { arg - modulo * std::int64_t(arg / modulo) };
 				return mod >= 0 ? mod : mod + modulo;
 			};
 
@@ -922,7 +921,7 @@ namespace tr {
 		static constexpr HSV fromIntermediate(const RGBAF& from) noexcept
 		{
 			constexpr auto eucMod = [] (float arg, float modulo) {
-				const float mod { arg - modulo * Si64(arg / modulo) };
+				const float mod { arg - modulo * std::int64_t(arg / modulo) };
 				return mod >= 0 ? mod : mod + modulo;
 			};
 

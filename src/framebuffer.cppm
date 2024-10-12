@@ -37,11 +37,11 @@ export namespace tr {
 		DepthRange depthRange() const noexcept;
 		void setDepthRange(DepthRange range) noexcept;
 	protected:
-		unsigned int _id;
-		RectI2 	     _viewport;
-		DepthRange   _depthRange;
+		GLuint     _id;
+		RectI2 	   _viewport;
+		DepthRange _depthRange;
 
-		BasicFramebuffer(unsigned int id, RectI2 viewport, DepthRange depthRange) noexcept;
+		BasicFramebuffer(GLuint id, RectI2 viewport, DepthRange depthRange) noexcept;
 
 		// Binds the framebuffer for reading.
 		void bindRead() const noexcept;
@@ -115,22 +115,22 @@ export namespace tr {
 // IMPLEMENTATION
 
 namespace tr {
-    unsigned int createFramebuffer() noexcept;
-    unsigned int findBoundWriteFramebuffer() noexcept;
+    GLuint createFramebuffer() noexcept;
+    GLuint findBoundWriteFramebuffer() noexcept;
     GLenum getGLAttachment(Framebuffer::Slot slot) noexcept;
 }
 
-unsigned int tr::createFramebuffer() noexcept
+GLuint tr::createFramebuffer() noexcept
 {
-    unsigned int id;
+    GLuint id;
     glCreateFramebuffers(1, &id);
     return id;
 }
 
 // Queries OpenGL for the currently bound write framebuffer.
-unsigned int tr::findBoundWriteFramebuffer() noexcept
+GLuint tr::findBoundWriteFramebuffer() noexcept
 {
-    int id;
+    GLint id;
     glGetIntegerv(GL_FRAMEBUFFER_BINDING, &id);
     return id;
 }
@@ -147,7 +147,7 @@ GLenum tr::getGLAttachment(Framebuffer::Slot slot) noexcept
     }
 }
 
-tr::BasicFramebuffer::BasicFramebuffer(unsigned int id, RectI2 viewport, DepthRange depthRange) noexcept
+tr::BasicFramebuffer::BasicFramebuffer(GLuint id, RectI2 viewport, DepthRange depthRange) noexcept
     : _id { id }
     , _viewport { viewport }
     , _depthRange { depthRange }

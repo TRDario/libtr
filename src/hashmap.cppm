@@ -8,7 +8,6 @@ export module tr:hashmap;
 import std;
 import boost;
 import :concepts;
-import :integer;
 
 export namespace tr {
 	/// @private
@@ -32,10 +31,10 @@ export namespace tr {
 		using is_transparent = std::true_type;
 
 		/// @private
-        template <Size Cap> auto operator()(const boost::static_string<Cap>& str) const noexcept;
+        template <std::size_t Cap> auto operator()(const boost::static_string<Cap>& str) const noexcept;
 
 		/// @private
-		inline 				auto operator()(std::string_view str) 			      const noexcept;
+		inline auto operator()(std::string_view str) const noexcept;
 	};
 
 	/// @private
@@ -63,7 +62,7 @@ export namespace tr {
 	/******************************************************************************************************************
 	 * Typedef for a static_string-key hash map.
 	 ******************************************************************************************************************/
-	template <Size Cap, class Value>
+	template <std::size_t Cap, class Value>
 	using StaticStringHashMap = std::unordered_map<boost::static_string<Cap>, Value, StaticStringHash, StringEquals>;
 }
 
@@ -80,7 +79,7 @@ namespace tr {
 		return std::hash<std::string_view>{}(str);
 	}
 
-	template <Size Cap>
+	template <std::size_t Cap>
 	auto StaticStringHash::operator()(const boost::static_string<Cap>& arg) const noexcept
 	{
 		return std::hash<std::string_view>{}(std::string_view(arg));

@@ -6,7 +6,6 @@ export module tr:gl_buffer;
 
 import std;
 import :handle;
-import :integer;
 
 export namespace tr {
     class GLBufferMap;
@@ -21,12 +20,10 @@ export namespace tr {
     // Base OpenGL buffer class.
     class GLBuffer {
     public:
-        using Size = Si64;
-
         friend bool operator==(const GLBuffer& lhs, const GLBuffer& rhs) noexcept;
     protected:
 		// Enum representing an OpenGL buffer target.
-		enum class Target : Ui32 {
+		enum class Target : std::uint32_t {
 			ARRAY_BUFFER 				= 0x8892,
 			ATOMIC_COUNTER_BUFFER 		= 0x92C0,
 			COPY_READ_BUFFER 			= 0x8F36,
@@ -43,7 +40,7 @@ export namespace tr {
 			UNIFORM_BUFFER				= 0x8A11
 		};
 		// Enum representing buffer creation flags.
-		enum class Flag : Ui32 {
+		enum class Flag : std::uint32_t {
 			NONE 			= 0x0,
 			READABLE 		= 0x1,
 			WRITABLE 		= 0x2,
@@ -100,35 +97,35 @@ export namespace tr {
 			PERSISTENT 			= 0x40,
 			COHERENT 			= 0x80
 		};
-        struct Deleter { void operator()(unsigned int id) noexcept; };
+        struct Deleter { void operator()(GLuint id) noexcept; };
 
         // Creates an uninitialized buffer.
-		GLBuffer(Target target, Size size, Flag flags);
+		GLBuffer(Target target, std::size_t size, Flag flags);
 		// Creates an initialized buffer.
-		GLBuffer(Target target, std::span<const Byte> data, Flag flags);
+		GLBuffer(Target target, std::span<const std::byte> data, Flag flags);
 
-		Size size() const noexcept;
-		std::vector<Byte> copyRegion(Size offset, Size size) const;
+		std::size_t size() const noexcept;
+		std::vector<std::byte> copyRegion(std::size_t offset, std::size_t size) const;
 
-        void setRegion(Size offset, std::span<const Byte> data) noexcept;
+        void setRegion(std::size_t offset, std::span<const std::byte> data) noexcept;
 
 		bool mapped() const noexcept;
-		GLBufferMap mapRegion(Size offset, Size size, MapFlag flags);
+		GLBufferMap mapRegion(std::size_t offset, std::size_t size, MapFlag flags);
 
         // Resets the buffer's target binding point.
 		void resetTarget(Target newTarget) noexcept;
 		// Binds the buffer to a target (or std::nullopt to bind to the default target).
 		void bind(std::optional<Target> target = std::nullopt) const noexcept;
 		// Binds the buffer to an indexed target (or std::nullopt to bind to the default target).
-		void bindIndexed(std::optional<Target> target, Ui32 index) const noexcept;
+		void bindIndexed(std::optional<Target> target, std::uint32_t index) const noexcept;
 		// Binds a range of the buffer to an indexed target (or std::nullopt to bind to the default target).
-		void bindIndexedRange(std::optional<Target> target, Ui32 index, Size offset, Size size) const noexcept;
+		void bindIndexedRange(std::optional<Target> target, std::uint32_t index, std::size_t offset, std::size_t size) const noexcept;
 
 		void setLabel(std::string_view label) noexcept;
 
-		Handle<unsigned int, 0, Deleter> _id;
-		Target                           _target;
-		Size                             _size;
+		Handle<GLuint, 0, Deleter> _id;
+		Target                     _target;
+		std::size_t                _size;
 
 		friend class Shader;
 		friend class GLContext;
@@ -139,14 +136,14 @@ export namespace tr {
     // GL buffer map base class.
     class GLBufferMap {
     public:
-        operator std::span<Byte>() const noexcept;
-        std::span<Byte> span() const noexcept;
+        operator std::span<std::byte>() const noexcept;
+        std::span<std::byte> span() const noexcept;
     private:
-        struct Unmapper { void operator()(unsigned int buffer) noexcept; };
-        Handle<unsigned int, 0, Unmapper> _buffer;
-        std::span<Byte> 				  _span;
+        struct Unmapper { void operator()(GLuint buffer) noexcept; };
+        Handle<GLuint, 0, Unmapper> _buffer;
+        std::span<std::byte> 		_span;
 
-        GLBufferMap(unsigned int buffer, std::span<Byte> span) noexcept;
+        GLBufferMap(GLuint buffer, std::span<std::byte> span) noexcept;
 
         friend class GLBuffer;
     };
@@ -154,16 +151,16 @@ export namespace tr {
 
 // IMPLEMENTATION
 
-void tr::GLBuffer::Deleter::operator()(unsigned int id) noexcept
+void tr::GLBuffer::Deleter::operator()(GLuint id) noexcept
 {
     glDeleteBuffers(1, &id);
 }
 
-tr::GLBuffer::GLBuffer(Target target, Size size, Flag flags)
+tr::GLBuffer::GLBuffer(Target target, std::size_t size, Flag flags)
     : _target { target }
     , _size { size }
 {
-    unsigned int id;
+    GLuint id;
     glCreateBuffers(1, &id);
     _id.reset(id);
 
@@ -173,11 +170,11 @@ tr::GLBuffer::GLBuffer(Target target, Size size, Flag flags)
     }
 }
 
-tr::GLBuffer::GLBuffer(Target target, std::span<const Byte> data, Flag flags)
+tr::GLBuffer::GLBuffer(Target target, std::span<const std::byte> data, Flag flags)
     : _target { target }
     , _size ( data.size() )
 {
-    unsigned int id;
+    GLuint id;
     glCreateBuffers(1, &id);
     _id.reset(id);
 
@@ -197,23 +194,23 @@ void tr::GLBuffer::setLabel(std::string_view label) noexcept
     glObjectLabel(GL_BUFFER, _id.get(), label.size(), label.data());
 }
 
-tr::GLBuffer::Size tr::GLBuffer::size() const noexcept
+std::size_t tr::GLBuffer::size() const noexcept
 {
     return _size;
 }
 
-std::vector<tr::Byte> tr::GLBuffer::copyRegion(Size offset, Size size) const
+std::vector<std::byte> tr::GLBuffer::copyRegion(std::size_t offset, std::size_t size) const
 {
 	if (size == 0) {
 		return {};
 	}
     assert(offset + size <= _size);
-    std::vector<Byte> data(size);
+    std::vector<std::byte> data(size);
     glGetNamedBufferSubData(_id.get(), offset, size, data.data());
     return data;
 }
 
-void tr::GLBuffer::setRegion(Size offset, std::span<const Byte> data) noexcept
+void tr::GLBuffer::setRegion(std::size_t offset, std::span<const std::byte> data) noexcept
 {
     assert(offset + data.size() <= _size);
     glNamedBufferSubData(_id.get(), offset, data.size(), data.data());
@@ -226,11 +223,11 @@ bool tr::GLBuffer::mapped() const noexcept
     return mapped;
 }
 
-tr::GLBufferMap tr::GLBuffer::mapRegion(Size offset, Size size, MapFlag flags)
+tr::GLBufferMap tr::GLBuffer::mapRegion(std::size_t offset, std::size_t size, MapFlag flags)
 {
     assert(!mapped());
     assert(offset + size <= _size);
-    auto ptr { (Byte*)(glMapNamedBufferRange(_id.get(), offset, size, GLenum(flags))) };
+    auto ptr { (std::byte*)(glMapNamedBufferRange(_id.get(), offset, size, GLenum(flags))) };
     if (glGetError() == GL_OUT_OF_MEMORY) {
         throw GLMapBadAlloc {};
     }
@@ -247,32 +244,32 @@ void tr::GLBuffer::bind(std::optional<Target> target) const noexcept
     glBindBuffer(GLenum(target.value_or(_target)), _id.get());
 }
 
-void tr::GLBuffer::bindIndexed(std::optional<Target> target, Ui32 index) const noexcept
+void tr::GLBuffer::bindIndexed(std::optional<Target> target, std::uint32_t index) const noexcept
 {
     glBindBufferBase(GLenum(target.value_or(_target)), index, _id.get());
 }
 
-void tr::GLBuffer::bindIndexedRange(std::optional<Target> target, Ui32 index, Size offset, Size size) const noexcept
+void tr::GLBuffer::bindIndexedRange(std::optional<Target> target, std::uint32_t index, std::size_t offset, std::size_t size) const noexcept
 {
     glBindBufferRange(GLenum(target.value_or(_target)), index, _id.get(), offset, size);
 }
 
-tr::GLBufferMap::GLBufferMap(unsigned int buffer, std::span<Byte> span) noexcept
+tr::GLBufferMap::GLBufferMap(GLuint buffer, std::span<std::byte> span) noexcept
     : _buffer { buffer }
     , _span { span }
 {}
 
-tr::GLBufferMap::operator std::span<Byte>() const noexcept
+tr::GLBufferMap::operator std::span<std::byte>() const noexcept
 {
     return _span;
 }
 
-std::span<tr::Byte> tr::GLBufferMap::span() const noexcept
+std::span<std::byte> tr::GLBufferMap::span() const noexcept
 {
     return _span;
 }
 
-void tr::GLBufferMap::Unmapper::operator()(unsigned int buffer) noexcept
+void tr::GLBufferMap::Unmapper::operator()(GLuint buffer) noexcept
 {
     glUnmapNamedBuffer(buffer);
 }

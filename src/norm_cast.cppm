@@ -10,7 +10,6 @@ export module tr:norm_cast;
 
 import std;
 import :concepts;
-import :integer;
 
 export namespace tr {
 	/******************************************************************************************************************
@@ -85,9 +84,9 @@ constexpr To tr::norm_cast(From from) noexcept
 		return To(double(from) / std::numeric_limits<From>::max() * std::numeric_limits<To>::max());
 	}
 	else if constexpr (std::signed_integral<To> || std::signed_integral<From>) {
-		return To(Si64(from) * std::numeric_limits<To>::max() / std::numeric_limits<From>::max());
+		return To(std::int64_t(from) * std::numeric_limits<To>::max() / std::numeric_limits<From>::max());
 	}
 	else {
-		return To(Ui64(from) * std::numeric_limits<To>::max() / std::numeric_limits<From>::max());
+		return To(std::uint64_t(from) * std::numeric_limits<To>::max() / std::numeric_limits<From>::max());
 	}
 }

@@ -22,7 +22,6 @@ export import :gl_context;
 export import :handle;
 export import :hashmap;
 export import :index_buffer;
-export import :integer;
 export import :iostream;
 export import :keyboard;
 export import :listener;

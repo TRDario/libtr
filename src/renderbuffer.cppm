@@ -27,10 +27,10 @@ export namespace tr {
 
         void setLabel(std::string_view label) noexcept;
 	private:
-		struct Deleter { void operator()(unsigned int id) noexcept; };
+		struct Deleter { void operator()(GLuint id) noexcept; };
 
-		Handle<unsigned int, 0, Deleter> _id;
-		glm::ivec2 						 _size;
+		Handle<GLuint, 0, Deleter> _id;
+		glm::ivec2 				   _size;
 
 		void bind() const noexcept;
 
@@ -43,7 +43,7 @@ export namespace tr {
 tr::Renderbuffer::Renderbuffer(glm::ivec2 size, TextureFormat format)
     : _size { size }
 {
-    unsigned int id;
+    GLuint id;
     glCreateRenderbuffers(1, &id);
     _id.reset(id);
 
@@ -53,7 +53,7 @@ tr::Renderbuffer::Renderbuffer(glm::ivec2 size, TextureFormat format)
     }
 }
 
-void tr::Renderbuffer::Deleter::operator()(unsigned int id) noexcept
+void tr::Renderbuffer::Deleter::operator()(GLuint id) noexcept
 {
     glDeleteRenderbuffers(1, &id);
 }

@@ -10,7 +10,6 @@ export module tr:ranges;
 
 import std;
 import :concepts;
-import :integer;
 
 export namespace tr {
 	/******************************************************************************************************************
@@ -23,7 +22,7 @@ export namespace tr {
     * @return A span over the range's bytes.
     ******************************************************************************************************************/
 	template <StandardLayoutRange T>
-    auto asBytes(const T& range) noexcept;
+    auto rangeBytes(const T& range) noexcept;
 
 	/******************************************************************************************************************
     * Gets a view of an object as a span of immutable bytes.
@@ -34,8 +33,8 @@ export namespace tr {
     *
     * @return A span over the object's bytes.
     ******************************************************************************************************************/
-    template <StandardLayout T> requires (!StandardLayoutRange<T>)
-    std::span<const Byte, sizeof(T)> asBytes(const T& object) noexcept;
+    template <StandardLayout T>
+    std::span<const std::byte, sizeof(T)> asBytes(const T& object) noexcept;
 
     /******************************************************************************************************************
     * Gets a view of a contiguous range as a span of mutable bytes.
@@ -47,7 +46,7 @@ export namespace tr {
     * @return A mutable span over the range's bytes.
     ******************************************************************************************************************/
 	template <StandardLayoutRange T>
-    auto asMutBytes(T& range) noexcept;
+    auto rangeMutBytes(T& range) noexcept;
 
 	/******************************************************************************************************************
     * Gets a view of an object as a span of mutable bytes.
@@ -58,8 +57,8 @@ export namespace tr {
     *
     * @return A mutable span over the object's bytes.
     ******************************************************************************************************************/
-    template <StandardLayout T> requires (!StandardLayoutRange<T>)
-    std::span<Byte, sizeof(T)> asMutBytes(T& object) noexcept;
+    template <StandardLayout T>
+    std::span<std::byte, sizeof(T)> asMutBytes(T& object) noexcept;
 
     /******************************************************************************************************************
     * Reinterprets a span of mutable bytes as a span of objects.
@@ -71,8 +70,8 @@ export namespace tr {
     *
     * @return A mutable span over objects.
     ******************************************************************************************************************/
-	template <StandardLayout T, Size S>
-    auto asObjects(std::span<Byte, S> bytes) noexcept;
+	template <StandardLayout T, std::size_t S>
+    auto asObjects(std::span<std::byte, S> bytes) noexcept;
 
 	/******************************************************************************************************************
     * Reinterprets a span of immutable bytes as a span of const objects.
@@ -84,8 +83,8 @@ export namespace tr {
     *
     * @return A span over const objects.
     ******************************************************************************************************************/
-	template <StandardLayout T, Size S>
-    auto asObjects(std::span<const Byte, S> bytes) noexcept;
+	template <StandardLayout T, std::size_t S>
+    auto asObjects(std::span<const std::byte, S> bytes) noexcept;
 
 
     /******************************************************************************************************************
@@ -115,31 +114,31 @@ export namespace tr {
 // IMPLEMENTATION
 
 template <tr::StandardLayoutRange T>
-auto tr::asBytes(const T& range) noexcept
+auto tr::rangeBytes(const T& range) noexcept
 {
     return std::as_bytes(std::span { range });
 }
 
 template <tr::StandardLayoutRange T>
-auto tr::asMutBytes(T& range) noexcept
+auto tr::rangeMutBytes(T& range) noexcept
 {
     return std::as_writable_bytes(std::span { range });
 }
 
-template <tr::StandardLayout T> requires (!tr::StandardLayoutRange<T>)
-std::span<const tr::Byte, sizeof(T)> tr::asBytes(const T& object) noexcept
+template <tr::StandardLayout T>
+std::span<const std::byte, sizeof(T)> tr::asBytes(const T& object) noexcept
 {
     return std::as_bytes(std::span<const T, 1> { std::addressof(object), 1 });
 }
 
-template <tr::StandardLayout T>  requires (!tr::StandardLayoutRange<T>)
-std::span<tr::Byte, sizeof(T)> tr::asMutBytes(T& object) noexcept 
+template <tr::StandardLayout T>
+std::span<std::byte, sizeof(T)> tr::asMutBytes(T& object) noexcept 
 {
     return std::as_writable_bytes(std::span<T, 1> { std::addressof(object), 1 });
 }
 
-template <tr::StandardLayout T, tr::Size S>
-auto tr::asObjects(std::span<Byte, S> bytes) noexcept
+template <tr::StandardLayout T, std::size_t S>
+auto tr::asObjects(std::span<std::byte, S> bytes) noexcept
 {
     if constexpr (S != std::dynamic_extent) {
         static_assert(S % sizeof(T) == 0, "Cannot reinterpret byte span due to size / sizeof(T) not being an integer.");
@@ -151,8 +150,8 @@ auto tr::asObjects(std::span<Byte, S> bytes) noexcept
     }
 }
 
-template <tr::StandardLayout T, tr::Size S>
-auto tr::asObjects(std::span<const Byte, S> bytes) noexcept
+template <tr::StandardLayout T, std::size_t S>
+auto tr::asObjects(std::span<const std::byte, S> bytes) noexcept
 {
     if constexpr (S != std::dynamic_extent) {
         static_assert(S % sizeof(T) == 0, "Cannot reinterpret byte span due to size / sizeof(T) not being an integer.");

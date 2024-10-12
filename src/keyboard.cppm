@@ -6,12 +6,11 @@ module;
 export module tr:keyboard;
 
 import std;
-import :integer;
 
 export namespace tr {
 	class Scancode;
 	class Keycode;
-	enum class Keymods : Ui16;
+	enum class Keymods : std::uint16_t;
 
 	// Keyboard functions.
 	namespace keyboard {
@@ -160,7 +159,7 @@ export namespace tr {
 	};
 
 	// Enum representing a key modifier.
-	enum class Keymods : Ui16 {
+	enum class Keymods : std::uint16_t {
 		NONE = 0x0000,
 		LSHIFT = 0x0001,
 		RSHIFT = 0x0002,

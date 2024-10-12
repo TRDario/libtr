@@ -12,7 +12,6 @@ import :bitmap;
 import :bitmap_to_gl_format;
 import :geometry;
 import :handle;
-import :integer;
 
 export namespace tr {
 	enum class TextureFormat {
@@ -131,9 +130,9 @@ export namespace tr {
 
 		void setLabel(std::string_view label) noexcept;
 	protected:
-		struct Deleter { void operator()(unsigned int id) noexcept; };
-		Handle<unsigned int, 0, Deleter> _id;
-		GLenum 							 _target;
+		struct Deleter { void operator()(GLuint id) noexcept; };
+		Handle<GLuint, 0, Deleter> _id;
+		GLenum 					   _target;
 
 		Texture(GLenum target) noexcept;
 
@@ -234,12 +233,12 @@ glm::ivec2 tr::determineArrayTextureSize(std::span<SubBitmap> layers)
 tr::Texture::Texture(GLenum target) noexcept
 	: _target { target }
 {
-	unsigned int id;
+	GLuint id;
 	glCreateTextures(target, 1, &id);
 	_id.reset(id);
 }
 
-void tr::Texture::Deleter::operator()(unsigned int id) noexcept
+void tr::Texture::Deleter::operator()(GLuint id) noexcept
 {
 	glDeleteTextures(1, &id);
 }
@@ -410,7 +409,7 @@ tr::Texture2D::Texture2D(glm::ivec2 size, int mipmaps, TextureFormat format)
 	assert(mipmaps > 0);
 	mipmaps = mipmaps == ALL_MIPMAPS ? std::floor(std::log2(std::max(size.x, size.y))) + 1 : mipmaps;
 
-	glTextureStorage2D(_id.get(), mipmaps, Ui32(format), size.x, size.y);
+	glTextureStorage2D(_id.get(), mipmaps, std::uint32_t(format), size.x, size.y);
 	if (glGetError() == GL_OUT_OF_MEMORY) {
 		throw TextureBadAlloc {};
 	}
@@ -444,7 +443,7 @@ tr::ArrayTexture2D::ArrayTexture2D(glm::ivec2 size, int layers, int mipmaps, Tex
 	assert(mipmaps > 0);
 	mipmaps = mipmaps == ALL_MIPMAPS ? std::floor(std::log2(std::max(size.x, size.y))) + 1 : mipmaps;
 
-	glTextureStorage3D(_id.get(), mipmaps, Ui32(format), size.x, size.y, layers);
+	glTextureStorage3D(_id.get(), mipmaps, std::uint32_t(format), size.x, size.y, layers);
 	if (glGetError() == GL_OUT_OF_MEMORY) {
 		throw TextureBadAlloc {};
 	}
@@ -485,7 +484,7 @@ tr::Texture3D::Texture3D(glm::ivec3 size, int mipmaps, TextureFormat format)
 	assert(mipmaps > 0);
 	mipmaps = mipmaps == ALL_MIPMAPS ? std::floor(std::log2(std::max(size.x, size.y))) + 1 : mipmaps;
 
-	glTextureStorage3D(_id.get(), mipmaps, Ui32(format), size.x, size.y, size.z);
+	glTextureStorage3D(_id.get(), mipmaps, std::uint32_t(format), size.x, size.y, size.z);
 	if (glGetError() == GL_OUT_OF_MEMORY) {
 		throw TextureBadAlloc {};
 	}

@@ -7,7 +7,6 @@ export module tr:display;
 import std;
 import glm;
 import :geometry;
-import :integer;
 import :bitmap_format;
 
 export namespace tr {
@@ -78,9 +77,12 @@ tr::DisplayInfo::DisplayInfo(int id) noexcept
 
 std::optional<tr::DisplayInfo> tr::DisplayInfo::fromCoords(glm::ivec2 globalCoords) noexcept
 {
-    auto displays { std::views::iota(0, displayCount()) | std::views::transform([] (auto i) { return DisplayInfo { i }; }) };
-    auto it { std::ranges::find_if(displays, [&] (auto display) { return within(globalCoords, display.bounds()); }) };
-    return it != displays.end() ? std::optional { *it } : std::nullopt;
+	for (int i = 0; i < displayCount(); ++i) {
+		if (within(globalCoords, DisplayInfo { i }.bounds())) {
+			return DisplayInfo { i };
+		}
+	}
+	return std::nullopt;
 }
 
 tr::RectI2 tr::DisplayInfo::bounds() const noexcept
@@ -134,7 +136,7 @@ tr::DisplayMode tr::DisplayInfo::desktopMode() const noexcept
 
 std::optional<tr::DisplayMode> tr::DisplayInfo::closestModeTo(const DisplayMode& mode) const noexcept
 {
-    SDL_DisplayMode target { Ui32(BitmapFormat::Type(mode.format)), mode.size.x, mode.size.y, mode.refreshRate };
+    SDL_DisplayMode target { std::uint32_t(BitmapFormat::Type(mode.format)), mode.size.x, mode.size.y, mode.refreshRate };
     SDL_DisplayMode sdlMode;
     return SDL_GetClosestDisplayMode(_id, &target, &sdlMode) != nullptr ? std::optional { toDisplayMode(sdlMode) } : std::nullopt;
 }

@@ -6,52 +6,49 @@ export module tr:vertex_buffer;
 
 import std;
 import :gl_buffer;
-import :integer;
 
 export namespace tr {
     class VertexBuffer {
     public:
-        using Size = GLBuffer::Size;
-
         // Creates an empty vertex buffer.
         VertexBuffer() noexcept;
         // Creates an uninitialized vertex buffer.
         // The label is an internal identifier for debugging.
-		VertexBuffer(Size capacity);
+		VertexBuffer(std::size_t capacity);
 		// Creates a vertex buffer initialized to some data.
         // The label is an internal identifier for debugging.
-		VertexBuffer(std::span<const Byte> data);
+		VertexBuffer(std::span<const std::byte> data);
 
         // Gets whether the buffer is empty.
         bool empty() const noexcept;
         // Gets the size of the buffer contents.
-        Size size() const noexcept;
+        std::size_t size() const noexcept;
         // Gets the capacity of the buffer.
-        Size capacity() const noexcept;
+        std::size_t capacity() const noexcept;
 
         // Clears the contents of the buffer.
         void clear() noexcept;
         // Sets the contents of the buffer.
         // A reallocation will be performed if the data is larger than the capacity of the buffer.
-        void set(std::span<const Byte> data);
+        void set(std::span<const std::byte> data);
         // Sets a subsection of the buffer.
-		void setRegion(Size offset, std::span<const Byte> data) noexcept;
+		void setRegion(std::size_t offset, std::span<const std::byte> data) noexcept;
 
 		bool mapped() const noexcept;
         // Maps the buffer, invalidating the previous contents in the process and resetting its size.
         // A reallocation will be performed if the new size is larger than the capacity of the buffer.
-        GLBufferMap mapNew(Size size);
+        GLBufferMap mapNew(std::size_t size);
 		// Maps a region of the buffer.
-		GLBufferMap mapRegion(Size offset, Size size);
+		GLBufferMap mapRegion(std::size_t offset, std::size_t size);
 
         void setLabel(std::string label) noexcept;
     private:
         std::optional<GLBuffer> _buffer;
-        Size                    _size; // Size of the allocated portion of the buffer.
+        std::size_t             _size; // Size of the allocated portion of the buffer.
         std::string             _label;
 
         // Resizes the buffer, reallocating if needed.
-        void resize(Size newSize);
+        void resize(std::size_t newSize);
 
         friend class GLContext;
     };
@@ -65,14 +62,14 @@ tr::VertexBuffer::VertexBuffer() noexcept
     : _size { 0 }
 {}
 
-tr::VertexBuffer::VertexBuffer(Size capacity)
+tr::VertexBuffer::VertexBuffer(std::size_t capacity)
     : _buffer { { GLBuffer::Target::ARRAY_BUFFER, capacity, GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE } }
     , _size { 0 }
 {}
 
-tr::VertexBuffer::VertexBuffer(std::span<const Byte> data)
+tr::VertexBuffer::VertexBuffer(std::span<const std::byte> data)
     : _buffer { { GLBuffer::Target::ARRAY_BUFFER, data, GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE } }
-    , _size { Size(data.size()) }
+    , _size { std::size_t(data.size()) }
 {}
 
 bool tr::VertexBuffer::empty() const noexcept
@@ -80,12 +77,12 @@ bool tr::VertexBuffer::empty() const noexcept
     return _size == 0;
 }
 
-tr::VertexBuffer::Size tr::VertexBuffer::size() const noexcept
+std::size_t tr::VertexBuffer::size() const noexcept
 {
     return _size;
 }
 
-tr::VertexBuffer::Size tr::VertexBuffer::capacity() const noexcept
+std::size_t tr::VertexBuffer::capacity() const noexcept
 {
     return _buffer.has_value() ? _buffer->size() : 0;
 }
@@ -95,14 +92,14 @@ void tr::VertexBuffer::clear() noexcept
     resize(0);
 }
 
-void tr::VertexBuffer::set(std::span<const Byte> data)
+void tr::VertexBuffer::set(std::span<const std::byte> data)
 {
     assert(!data.empty());
     resize(data.size());
     _buffer->setRegion(0, data);
 }
 
-void tr::VertexBuffer::setRegion(Size offset, std::span<const Byte> data) noexcept
+void tr::VertexBuffer::setRegion(std::size_t offset, std::span<const std::byte> data) noexcept
 {
     assert(!data.empty());
     assert(offset + data.size() <= _size);
@@ -114,19 +111,19 @@ bool tr::VertexBuffer::mapped() const noexcept
     return _buffer.has_value() && _buffer->mapped();
 }
 
-tr::GLBufferMap tr::VertexBuffer::mapNew(Size size)
+tr::GLBufferMap tr::VertexBuffer::mapNew(std::size_t size)
 {
     resize(size);
     return _buffer->mapRegion(0, _size, GLBuffer::MapFlag::WRITABLE | GLBuffer::MapFlag::INVALIDATE_BUFFER);
 }
 
-tr::GLBufferMap tr::VertexBuffer::mapRegion(Size offset, Size size)
+tr::GLBufferMap tr::VertexBuffer::mapRegion(std::size_t offset, std::size_t size)
 {
     assert(offset + size <= _size);
     return _buffer->mapRegion(offset, size, GLBuffer::MapFlag::WRITABLE);
 }
 
-void tr::VertexBuffer::resize(Size newSize)
+void tr::VertexBuffer::resize(std::size_t newSize)
 {
     if (newSize > capacity()) {
         _buffer = GLBuffer { GLBuffer::Target::ARRAY_BUFFER, newSize, GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE };

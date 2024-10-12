@@ -51,7 +51,7 @@ export namespace tr {
         **************************************************************************************************************/
         void setTexture(const Texture& texture) noexcept;
     private:
-        struct Deleter { void operator()(unsigned int id) noexcept; /**< @private */ };
+        struct Deleter { void operator()(GLuint id) noexcept; /**< @private */ };
         Handle<unsigned int, -1U, Deleter> _id;
 
         friend class Shader;
@@ -82,7 +82,7 @@ tr::TextureUnit::TextureUnit() noexcept
     }
 }
 
-void tr::TextureUnit::Deleter::operator()(unsigned int id) noexcept
+void tr::TextureUnit::Deleter::operator()(GLuint id) noexcept
 {
     _texUnitPool[id] = false;
 }

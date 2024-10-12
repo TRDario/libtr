@@ -9,7 +9,6 @@ import glm;
 import :gl_buffer;
 import :handle;
 import :hashmap;
-import :integer;
 import :iostream;
 import :shader_buffer;
 import :texture_unit;
@@ -33,7 +32,7 @@ export namespace tr {
 	class Shader {
 	public:
 		// Enum representing a shader type.
-		enum class Type : Ui32 {
+		enum class Type : std::uint32_t {
 			VERTEX 		 = 0x8B31,
 			TESS_CONTROL = 0x8E88,
 			TESS_EVAL 	 = 0x8E87,
@@ -86,9 +85,9 @@ export namespace tr {
 		// Sets a i32vec4 array uniform.
 		void setUniform(int index, std::span<const glm::ivec4> value) noexcept;
 
-		// Sets a Ui32 uniform.
+		// Sets a std::uint32_t uniform.
 		void setUniform(int index, unsigned int value) noexcept;
-		// Sets a Ui32 array uniform.
+		// Sets a std::uint32_t array uniform.
 		void setUniform(int index, std::span<const unsigned int> value) noexcept;
 		// Sets a u32vec2 uniform.
 		void setUniform(int index, glm::uvec2 value) noexcept;
@@ -184,9 +183,9 @@ export namespace tr {
 
 		void setLabel(std::string_view label) noexcept;
 	private:
-		struct Deleter { void operator()(unsigned int id) noexcept; };
-		Handle<unsigned int, 0, Deleter> _id;
-		Type 							 _type;
+		struct Deleter { void operator()(GLuint id) noexcept; };
+		Handle<GLuint, 0, Deleter> _id;
+		Type 					   _type;
 
 		void loadCacheFile(const std::filesystem::path& path);
 
@@ -296,7 +295,7 @@ void tr::Shader::loadCacheFile(const std::filesystem::path& path)
 		throw InvalidShaderCacheFile { path };
 	}
 	readBinary(file, _type);
-	auto format { readBinary<Ui32>(file) };
+	auto format { readBinary<std::uint32_t>(file) };
 	auto data { flushBinary<std::vector<char>>(file) };
 
 	_id.reset(glCreateProgram());
@@ -308,7 +307,7 @@ void tr::Shader::loadCacheFile(const std::filesystem::path& path)
 	}
 }
 
-void tr::Shader::Deleter::operator()(unsigned int id) noexcept
+void tr::Shader::Deleter::operator()(GLuint id) noexcept
 {
 	glDeleteProgram(id);
 }
@@ -687,7 +686,7 @@ bool tr::Shader::saveCache(const std::filesystem::path& path) noexcept
 	}
 
 	int size;
-	Ui32 format;
+	std::uint32_t format;
 	glGetProgramiv(_id.get(), GL_PROGRAM_BINARY_LENGTH, &size);
 	std::vector<char> data(size);
 	glGetProgramBinary(_id.get(), size, nullptr, &format, data.data());

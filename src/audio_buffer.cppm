@@ -6,7 +6,6 @@ export module tr:audio_buffer;
 
 import std;
 import :handle;
-import :integer;
 import :iostream;
 import :ranges;
 
@@ -42,13 +41,13 @@ export namespace tr {
 		int size() const noexcept;
 
 		// Sets the data of the buffer.
-		void set(std::span<const Byte> data, AudioFormat format, int frequency);
+		void set(std::span<const std::byte> data, AudioFormat format, int frequency);
 	protected:
 		/// The OpenAL ID of the buffer.
-		unsigned int _id;
+		ALuint _id;
 
 		// Constructs a audio buffer view from an OpenAL id.
-		AudioBufferView(unsigned int id) noexcept;
+		AudioBufferView(ALuint id) noexcept;
 
 		friend class AudioBuffer;
 		friend class AudioSource;
@@ -60,7 +59,7 @@ export namespace tr {
 		// Constructs an empty audio buffer.
 		AudioBuffer();
 		// Constructs an initialized audio buffer.
-		AudioBuffer(std::span<const Byte> data, AudioFormat format, int frequency);
+		AudioBuffer(std::span<const std::byte> data, AudioFormat format, int frequency);
 
 		friend bool operator==(const AudioBuffer&, const AudioBuffer&) noexcept = default;
 
@@ -76,10 +75,10 @@ export namespace tr {
 		int size() const noexcept;
 
 		// Sets the data of the buffer.
-		void set(std::span<const Byte> data, AudioFormat format, int frequency);
+		void set(std::span<const std::byte> data, AudioFormat format, int frequency);
 	private:
-		struct Deleter { void operator()(unsigned int id) noexcept; };
-		Handle<unsigned int, 0, Deleter> _id;
+		struct Deleter { void operator()(ALuint id) noexcept; };
+		Handle<ALuint, 0, Deleter> _id;
 	};
 
     struct UnsupportedAudioFile : FileError {
@@ -92,7 +91,7 @@ export namespace tr {
 
 // IMPLEMENTATION
 
-tr::AudioBufferView::AudioBufferView(unsigned int id) noexcept
+tr::AudioBufferView::AudioBufferView(ALuint id) noexcept
     : _id { id }
 {}
 
@@ -124,7 +123,7 @@ int tr::AudioBufferView::size() const noexcept
     return value;
 }
 
-void tr::AudioBufferView::set(std::span<const Byte> data, AudioFormat format, int frequency)
+void tr::AudioBufferView::set(std::span<const std::byte> data, AudioFormat format, int frequency)
 {
     alBufferData(_id, ALenum(format), data.data(), data.size(), frequency);
     if (alGetError() == AL_OUT_OF_MEMORY) {
@@ -134,7 +133,7 @@ void tr::AudioBufferView::set(std::span<const Byte> data, AudioFormat format, in
 
 tr::AudioBuffer::AudioBuffer()
 {
-    unsigned int id;
+    ALuint id;
     alGenBuffers(1, &id);
     if (alGetError() == AL_OUT_OF_MEMORY) {
         throw AudioBufferBadAlloc {};
@@ -142,12 +141,12 @@ tr::AudioBuffer::AudioBuffer()
     _id.reset(id);
 }
 
-tr::AudioBuffer::AudioBuffer(std::span<const Byte> data, AudioFormat format, int frequency)
+tr::AudioBuffer::AudioBuffer(std::span<const std::byte> data, AudioFormat format, int frequency)
 {
     set(data, format, frequency);
 }
 
-void tr::AudioBuffer::Deleter::operator()(unsigned int id) noexcept
+void tr::AudioBuffer::Deleter::operator()(ALuint id) noexcept
 {
     alDeleteBuffers(1, &id);
 }
@@ -183,10 +182,10 @@ tr::AudioBuffer tr::loadAudio(const std::filesystem::path& path)
         sf_command(file, SFC_SET_SCALE_FLOAT_INT_READ, nullptr, true);
     }
 
-    std::vector<Si16> data(info.frames * info.channels);
+    std::vector<std::int16_t> data(info.frames * info.channels);
     sf_readf_short(file, data.data(), info.frames);
     sf_close(file);
-    return AudioBuffer(asBytes(data), info.channels == 2 ? AudioFormat::STEREO16 : AudioFormat::MONO16, info.samplerate);
+    return AudioBuffer(rangeBytes(data), info.channels == 2 ? AudioFormat::STEREO16 : AudioFormat::MONO16, info.samplerate);
 }
 
 tr::AudioBuffer::operator AudioBufferView() const noexcept
@@ -214,7 +213,7 @@ int tr::AudioBuffer::size() const noexcept
     return AudioBufferView(*this).size();
 }
 
-void tr::AudioBuffer::set(std::span<const Byte> data, AudioFormat format, int frequency)
+void tr::AudioBuffer::set(std::span<const std::byte> data, AudioFormat format, int frequency)
 {
     AudioBufferView(*this).set(data, format, frequency);
 }

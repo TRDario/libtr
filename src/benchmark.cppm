@@ -8,7 +8,6 @@ export namespace tr {
 	class Benchmark {
 	public:
 		using Deque = std::deque<std::pair<TimePoint, Duration>>;
-		using Size = Deque::size_type;
 
 		// Constructs a blank benchmark.
 		Benchmark() noexcept;

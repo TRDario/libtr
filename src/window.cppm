@@ -10,18 +10,17 @@ import glm;
 import :bitmap;
 import :display;
 import :geometry;
-import :integer;
 import :bitmap_format;
 
 export namespace tr {
 	// Enum representing a window mode.
-	enum class WindowMode : Ui32 {
+	enum class WindowMode : std::uint32_t {
 		WINDOWED,
 		FULLSCREEN = 0x1,
 		BORDERLESS = 0x1001
 	};
 	// Enum representing a window flag.
-	enum class WindowFlag : Ui32 {
+	enum class WindowFlag : std::uint32_t {
 		DEFAULT       = 0x0,
 		SHOWN         = SDL_WINDOW_SHOWN,        // The window is visible.
 		HIDDEN        = SDL_WINDOW_HIDDEN,       // The window is not visible.
@@ -260,7 +259,7 @@ tr::DisplayMode tr::WindowView::fullscreenMode() const noexcept
 bool tr::WindowView::setFullscreenMode(const DisplayMode& dmode) const noexcept
 {
 	assert(_impl != nullptr);
-    SDL_DisplayMode sdlMode { Ui32(BitmapFormat::Type(dmode.format)), dmode.size.x, dmode.size.y, dmode.refreshRate };
+    SDL_DisplayMode sdlMode { std::uint32_t(BitmapFormat::Type(dmode.format)), dmode.size.x, dmode.size.y, dmode.refreshRate };
     return !SDL_SetWindowDisplayMode(_impl, &sdlMode);
 }
 
@@ -273,7 +272,7 @@ tr::WindowMode tr::WindowView::windowMode() const noexcept
 bool tr::WindowView::setWindowMode(WindowMode mode) const noexcept
 {
 	assert(_impl != nullptr);
-    return !SDL_SetWindowFullscreen(_impl, Ui32(mode));
+    return !SDL_SetWindowFullscreen(_impl, std::uint32_t(mode));
 }
 
 bool tr::WindowView::resizable() const noexcept
@@ -480,7 +479,7 @@ void tr::WindowView::swap() const noexcept
 }
 
 tr::Window::Window(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFlag flags)
-    : WindowView { SDL_CreateWindow(title, pos.x, pos.y, size.x, size.y, Ui32(flags) | SDL_WINDOW_OPENGL) }
+    : WindowView { SDL_CreateWindow(title, pos.x, pos.y, size.x, size.y, std::uint32_t(flags) | SDL_WINDOW_OPENGL) }
 {
     if (_impl == nullptr) {
         throw std::runtime_error { std::format("Failed to open {}x{} window ({}).", size.x, size.y, SDL_GetError()) };

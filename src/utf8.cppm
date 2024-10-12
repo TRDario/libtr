@@ -9,7 +9,6 @@ module;
 export module tr:utf8;
 
 import std;
-import :integer;
 
 export namespace tr {
     /******************************************************************************************************************
@@ -22,7 +21,7 @@ export namespace tr {
         /**************************************************************************************************************
         * @em ForwardIterator typedef requirement.
         **************************************************************************************************************/
-        using value_type = Ui32;
+        using value_type = std::uint32_t;
 
         /**************************************************************************************************************
         * @em ForwardIterator typedef requirement.
@@ -64,7 +63,7 @@ export namespace tr {
         *
         * @return A Unicode codepoint.
         ***************************************************************************************************************/
-        constexpr Ui32 operator*() const noexcept;
+        constexpr std::uint32_t operator*() const noexcept;
 
         /**************************************************************************************************************
         * Pre-increments the iterator.
@@ -125,7 +124,7 @@ export namespace tr {
      *
      * @return The length as if produced by @code std::distance(utf8Begin(str), utf8End(str)) @endcode
 	 ******************************************************************************************************************/
-    constexpr Size utf8Length(std::string_view str) noexcept;
+    constexpr std::size_t utf8Length(std::string_view str) noexcept;
 }
 
 // IMPLEMENTATION
@@ -136,17 +135,17 @@ constexpr tr::Utf8ConstIt::Utf8ConstIt(const char* ptr) noexcept
     assert(_impl != nullptr);
 }
 
-constexpr tr::Ui32 tr::Utf8ConstIt::operator*() const noexcept
+constexpr std::uint32_t tr::Utf8ConstIt::operator*() const noexcept
 {
     assert(_impl != nullptr);
 
-    if (Ui8(*_impl) < 0x80) {
+    if (std::uint8_t(*_impl) < 0x80) {
         return *_impl;
     }
-    else if (Ui8(*_impl) < 0xE0) {
+    else if (std::uint8_t(*_impl) < 0xE0) {
         return ((_impl[0] & 0x1F) << 6) + (_impl[1] & 0x3F);
     }
-    else if (Ui8(*_impl) < 0xF0) {
+    else if (std::uint8_t(*_impl) < 0xF0) {
         return ((_impl[0] & 0xF) << 12) + ((_impl[1] & 0x3F) << 6) + (_impl[2] & 0x3F);
     }
     else {
@@ -158,13 +157,13 @@ constexpr tr::Utf8ConstIt& tr::Utf8ConstIt::operator++() noexcept
 {
     assert(_impl != nullptr);
 
-    if (Ui8(*_impl) < 0x80) {
+    if (std::uint8_t(*_impl) < 0x80) {
         ++_impl;
     }
-    else if (Ui8(*_impl) < 0xE0) {
+    else if (std::uint8_t(*_impl) < 0xE0) {
         _impl += 2;
     }
-    else if (Ui8(*_impl) < 0xF0) {
+    else if (std::uint8_t(*_impl) < 0xF0) {
         _impl += 3;
     }
     else {
@@ -201,7 +200,7 @@ constexpr std::ranges::subrange<tr::Utf8ConstIt> tr::utf8Range(std::string_view 
     return { utf8Begin(str), utf8End(str) };
 }
 
-constexpr tr::Size tr::utf8Length(std::string_view str) noexcept
+constexpr std::size_t tr::utf8Length(std::string_view str) noexcept
 {
     return std::distance(utf8Begin(str), utf8End(str));
 }

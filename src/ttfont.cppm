@@ -11,7 +11,6 @@ import glm;
 import :bitmap;
 import :color;
 import :handle;
-import :integer;
 import :iostream;
 import :sdl;
 
@@ -67,7 +66,7 @@ export namespace tr {
 		struct GlyphMetrics {
 			glm::ivec2 min; // Min x/y of the glyph.
 			glm::ivec2 max; // Max x/y of the glyph.
-			Si32       adv; // The advance of the glyph.
+			std::int32_t       adv; // The advance of the glyph.
 		};
 
 		// Loads a TTF font from file.
@@ -96,8 +95,8 @@ export namespace tr {
 		Style style() const noexcept;
 		void setStyle(Style style) noexcept;
 
-		bool contains(Ui32 glyph) const noexcept;
-		GlyphMetrics glyphMetrics(Ui32 glyph) const noexcept;
+		bool contains(std::uint32_t glyph) const noexcept;
+		GlyphMetrics glyphMetrics(std::uint32_t glyph) const noexcept;
 
 		bool resize(int size) noexcept;
 		// Resizes the font with the target resolution.
@@ -108,30 +107,30 @@ export namespace tr {
         glm::ivec2 textSize(const std::string& text) const noexcept;
 
 		// Renders an alpha-blended glyph to a 32-bit bitmap.
-		Bitmap render(Ui32 cp, RGBA8 color) const;
+		Bitmap render(std::uint32_t cp, RGBA8 color) const;
 		// Renders alpha-blended text to a 32-bit bitmap.
 		Bitmap render(const char* text, RGBA8 color) const;
         // Renders alpha-blended text to a 32-bit bitmap.
 		Bitmap render(const std::string& text, RGBA8 color) const;
 		// Renders multiline, wrapped alpha-blended text to a 32-bit bitmap.
 		// width - The max horizontal width of a line. 0 means only newlines break.
-		Bitmap renderWrapped(const char* text, RGBA8 color, Ui32 width, Align align) const;
+		Bitmap renderWrapped(const char* text, RGBA8 color, std::uint32_t width, Align align) const;
         // Renders multiline, wrapped alpha-blended text to a 32-bit bitmap.
 		// width - The max horizontal width of a line. 0 means only newlines break.
-		Bitmap renderWrapped(const std::string& text, RGBA8 color, Ui32 width, Align align) const;
+		Bitmap renderWrapped(const std::string& text, RGBA8 color, std::uint32_t width, Align align) const;
 
         // Renders an alpha-blended glyph to a 32-bit bitmap.
-		Bitmap renderOutlined(Ui32 cp, RGBA8 color, RGBA8 outlineColor, int outlineThickness) const;
+		Bitmap renderOutlined(std::uint32_t cp, RGBA8 color, RGBA8 outlineColor, int outlineThickness) const;
 		// Renders outlined alpha-blended text to a 32-bit bitmap.
 		Bitmap renderOutlined(const char* text, RGBA8 color, RGBA8 outlineColor, int outlineThickness) const;
         // Renders outlined alpha-blended text to a 32-bit bitmap.
 		Bitmap renderOutlined(const std::string& text, RGBA8 color, RGBA8 outlineColor, int outlineThickness) const;
 		// Renders outlined multiline, wrapped alpha-blended text to a 32-bit bitmap.
 		// width - The max horizontal width of a line. 0 means only newlines break.
-		Bitmap renderWrappedOutlined(const char* text, RGBA8 color, Ui32 width, Align align, RGBA8 outlineColor, int outlineThickness) const;
+		Bitmap renderWrappedOutlined(const char* text, RGBA8 color, std::uint32_t width, Align align, RGBA8 outlineColor, int outlineThickness) const;
         // Renders outlined multiline, wrapped alpha-blended text to a 32-bit bitmap.
 		// width - The max horizontal width of a line. 0 means only newlines break.
-		Bitmap renderWrappedOutlined(const std::string& text, RGBA8 color, Ui32 width, Align align, RGBA8 outlineColor, int outlineThickness) const;
+		Bitmap renderWrappedOutlined(const std::string& text, RGBA8 color, std::uint32_t width, Align align, RGBA8 outlineColor, int outlineThickness) const;
 	private:
 		struct Deleter { void operator()(TTF_Font* font) noexcept; };
 		std::unique_ptr<TTF_Font, Deleter> _impl;
@@ -144,10 +143,10 @@ export namespace tr {
 
 namespace tr {
     // Fixes certain edge artifacts when rendering partially transparent text.
-    void fixAlphaArtifacts(Bitmap& bitmap, Ui8 maxAlpha) noexcept;
+    void fixAlphaArtifacts(Bitmap& bitmap, std::uint8_t maxAlpha) noexcept;
 }
 
-void tr::fixAlphaArtifacts(Bitmap& bitmap, Ui8 maxAlpha) noexcept
+void tr::fixAlphaArtifacts(Bitmap& bitmap, std::uint8_t maxAlpha) noexcept
 {
     for (auto pixel : bitmap) {
         RGBA8 color { pixel };
@@ -176,7 +175,7 @@ tr::Version tr::SDL_TTF::freetypeVersion() const noexcept
 {
     int major, minor, patch;
     TTF_GetFreeTypeVersion(&major, &minor, &patch);
-    return { Ui8(major), Ui8(minor), Ui8(patch) };
+    return { std::uint8_t(major), std::uint8_t(minor), std::uint8_t(patch) };
 }
 
 const char* tr::TTFontLoadError::what() const noexcept
@@ -282,12 +281,12 @@ void tr::TTFont::setStyle(Style style) noexcept
     TTF_SetFontStyle(_impl.get(), int(style));
 }
 
-bool tr::TTFont::contains(Ui32 cp) const noexcept
+bool tr::TTFont::contains(std::uint32_t cp) const noexcept
 {
     return TTF_GlyphIsProvided32(_impl.get(), cp);
 }
 
-tr::TTFont::GlyphMetrics tr::TTFont::glyphMetrics(Ui32 cp) const noexcept
+tr::TTFont::GlyphMetrics tr::TTFont::glyphMetrics(std::uint32_t cp) const noexcept
 {
     assert(contains(cp));
     GlyphMetrics metrics;
@@ -317,7 +316,7 @@ glm::ivec2 tr::TTFont::textSize(const std::string& text) const noexcept
     return textSize(text.c_str());
 }
 
-tr::Bitmap tr::TTFont::render(Ui32 cp, RGBA8 color) const
+tr::Bitmap tr::TTFont::render(std::uint32_t cp, RGBA8 color) const
 {
     return Bitmap { TTF_RenderGlyph32_Blended(_impl.get(), cp, std::bit_cast<SDL_Color>(color)) };
 }
@@ -336,7 +335,7 @@ tr::Bitmap tr::TTFont::render(const std::string& text, RGBA8 color) const
     return render(text.c_str(), color);
 }
 
-tr::Bitmap tr::TTFont::renderWrapped(const char* text, RGBA8 color, Ui32 width, Align align) const
+tr::Bitmap tr::TTFont::renderWrapped(const char* text, RGBA8 color, std::uint32_t width, Align align) const
 {
     TTF_SetFontWrappedAlign(_impl.get(), int(align));
     Bitmap render { TTF_RenderUTF8_Blended_Wrapped(_impl.get(), text, std::bit_cast<SDL_Color>(color), width) };
@@ -346,12 +345,12 @@ tr::Bitmap tr::TTFont::renderWrapped(const char* text, RGBA8 color, Ui32 width, 
     return render;
 }
 
-tr::Bitmap tr::TTFont::renderWrapped(const std::string& text, RGBA8 color, Ui32 width, Align align) const
+tr::Bitmap tr::TTFont::renderWrapped(const std::string& text, RGBA8 color, std::uint32_t width, Align align) const
 {
     return renderWrapped(text.c_str(), color, width, align);
 }
 
-tr::Bitmap tr::TTFont::renderOutlined(Ui32 cp, RGBA8 color, RGBA8 outlineColor, int outlineThickness) const
+tr::Bitmap tr::TTFont::renderOutlined(std::uint32_t cp, RGBA8 color, RGBA8 outlineColor, int outlineThickness) const
 {
     Bitmap fill { render(cp, color) };
     TTF_SetFontOutline(_impl.get(), outlineThickness);
@@ -376,7 +375,7 @@ tr::Bitmap tr::TTFont::renderOutlined(const std::string& text, RGBA8 color, RGBA
     return renderOutlined(text.c_str(), color, outlineColor, outlineThickness);
 }
 
-tr::Bitmap tr::TTFont::renderWrappedOutlined(const char* text, RGBA8 color, Ui32 width, Align align, RGBA8 outlineColor, int outlineThickness) const
+tr::Bitmap tr::TTFont::renderWrappedOutlined(const char* text, RGBA8 color, std::uint32_t width, Align align, RGBA8 outlineColor, int outlineThickness) const
 {
     Bitmap fill { renderWrapped(text, color, width == 0 ? width : width - 2 * outlineThickness, align) };
     TTF_SetFontOutline(_impl.get(), outlineThickness);
@@ -386,7 +385,7 @@ tr::Bitmap tr::TTFont::renderWrappedOutlined(const char* text, RGBA8 color, Ui32
     return outline;
 }
 
-tr::Bitmap tr::TTFont::renderWrappedOutlined(const std::string& text, RGBA8 color, Ui32 width, Align align, RGBA8 outlineColor, int outlineThickness) const
+tr::Bitmap tr::TTFont::renderWrappedOutlined(const std::string& text, RGBA8 color, std::uint32_t width, Align align, RGBA8 outlineColor, int outlineThickness) const
 {
     return renderWrappedOutlined(text.c_str(), color, width, align, outlineColor, outlineThickness);
 }

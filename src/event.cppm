@@ -8,7 +8,6 @@ import std;
 import glm;
 import boost;
 import :chrono;
-import :integer;
 import :keyboard;
 import :mouse;
 import :sdl;
@@ -18,23 +17,23 @@ using namespace std::chrono_literals;
 
 export namespace tr {
 	// Generates a new valid event type id.
-	Ui32 generateEventType() noexcept;
+	std::uint32_t generateEventType() noexcept;
 
 	namespace EventType {
-		inline constexpr Ui32 KEY_DOWN   	   { 0x300 };
-		inline constexpr Ui32 KEY_UP     	   { 0x301 };
-		inline constexpr Ui32 TEXT_EDIT  	   { 0x302 };
-		inline constexpr Ui32 TEXT_INPUT       { 0x303 };
-		inline constexpr Ui32 KEYMAP_CHANGE	   { 0x304 };
-		inline constexpr Ui32 CLIPBOARD_UPDATE { 0x900 };
-		inline constexpr Ui32 MOUSE_MOTION	   { 0x400 };
-		inline constexpr Ui32 MOUSE_DOWN	   { 0x401 };
-		inline constexpr Ui32 MOUSE_UP		   { 0x402 };
-		inline constexpr Ui32 MOUSE_WHEEL	   { 0x403 };
-		inline constexpr Ui32 QUIT 			   { 0x100 };
-		inline constexpr Ui32 WINDOW		   { 0x200 };
-		inline const 	 Ui32 TICK 			   { generateEventType() };
-		inline const 	 Ui32 DRAW 			   { generateEventType() };
+		inline constexpr std::uint32_t KEY_DOWN   	    { 0x300 };
+		inline constexpr std::uint32_t KEY_UP     	    { 0x301 };
+		inline constexpr std::uint32_t TEXT_EDIT  	    { 0x302 };
+		inline constexpr std::uint32_t TEXT_INPUT       { 0x303 };
+		inline constexpr std::uint32_t KEYMAP_CHANGE	{ 0x304 };
+		inline constexpr std::uint32_t CLIPBOARD_UPDATE { 0x900 };
+		inline constexpr std::uint32_t MOUSE_MOTION	    { 0x400 };
+		inline constexpr std::uint32_t MOUSE_DOWN	    { 0x401 };
+		inline constexpr std::uint32_t MOUSE_UP		    { 0x402 };
+		inline constexpr std::uint32_t MOUSE_WHEEL	    { 0x403 };
+		inline constexpr std::uint32_t QUIT 			{ 0x100 };
+		inline constexpr std::uint32_t WINDOW		    { 0x200 };
+		inline const 	 std::uint32_t TICK 			{ generateEventType() };
+		inline const 	 std::uint32_t DRAW 			{ generateEventType() };
 	}
 	
 	struct KeyDownEvent          { WindowView win; bool repeat; KeyInfo key; };
@@ -42,7 +41,7 @@ export namespace tr {
 	struct TextEditEvent         { WindowView win; boost::static_string<31> text; int selbeg; int sellen; };
 	struct TextInputEvent        { WindowView win; boost::static_string<31> text; };
 	struct MouseMotionEvent 	 { WindowView win; MouseButtonMask buttons; glm::ivec2 pos; glm::ivec2 delta; };
-	struct MouseDownEvent 		 { WindowView win; MouseButton button; Ui8 clicks; glm::ivec2 pos; };
+	struct MouseDownEvent 		 { WindowView win; MouseButton button; std::uint8_t clicks; glm::ivec2 pos; };
 	struct MouseUpEvent			 { WindowView win; MouseButton button; glm::ivec2 pos; };
 	struct MouseWheelEvent		 { WindowView win; glm::vec2 delta; glm::ivec2 mousePos; };
 	struct WindowEnterEvent		 { WindowView win; };
@@ -61,13 +60,13 @@ export namespace tr {
 	struct WindowCloseEvent      { WindowView win; };
 	struct HitTestEvent 		 { WindowView win; };
 	using  WindowEvent = std::variant<WindowEnterEvent, WindowLeaveEvent, WindowShowEvent, WindowHideEvent, WindowExposeEvent, WindowMotionEvent, WindowResizeEvent, WindowSizeChangeEvent, WindowMinimizeEvent, WindowMaximizeEvent, WindowRestoreEvent, WindowGainFocusEvent, WindowLoseFocusEvent, WindowCloseEvent, HitTestEvent>;
-	struct TickEvent 			 { Ui32 id; };
+	struct TickEvent 			 { std::uint32_t id; };
 
 	// Intermediate interface between custom event types and Event.
 	struct CustomEventBase {
-		Ui32     type;
-		Ui32     uint;
-		Si32     sint;
+		std::uint32_t     type;
+		std::uint32_t     uint;
+		std::int32_t     sint;
 		std::any any1;
 		std::any any2;
 	};
@@ -78,7 +77,7 @@ export namespace tr {
 		Event(const CustomEventBase& custom);
 
 		// Gets the type ID of the event.
-		Ui32 type() const noexcept;
+		std::uint32_t type() const noexcept;
 
 		operator KeyDownEvent() const noexcept;
 		operator KeyUpEvent() const noexcept;
@@ -104,9 +103,9 @@ export namespace tr {
 	// Ticker handle.
 	enum class Ticker : int {};
 	// Sentinel value that signals that a ticker should tick forever.
-	[[maybe_unused]] inline constexpr Ui32 TICK_FOREVER { 0 };
+	[[maybe_unused]] inline constexpr std::uint32_t TICK_FOREVER { 0 };
 	// Sentinel value that signals that no draw events should be emitted.
-	[[maybe_unused]] inline constexpr Ui32 NO_DRAW_EVENTS { 0 };
+	[[maybe_unused]] inline constexpr std::uint32_t NO_DRAW_EVENTS { 0 };
 
 	// Class representing the event queue.
 	class EventQueue {
@@ -127,7 +126,7 @@ export namespace tr {
 		std::optional<Event> waitForEventTimeout(std::chrono::milliseconds timeout) noexcept;
 
 		// Adds a ticker that generates tick events at a regular interval.
-		Ticker addTicker(Si32 id, MillisecondsD interval, Ui32 nticks);
+		Ticker addTicker(std::int32_t id, MillisecondsD interval, std::uint32_t nticks);
 		// Halts a ticker.
 		void removeTicker(Ticker ticker) noexcept;
 
@@ -142,14 +141,14 @@ export namespace tr {
 		// Data used by a ticker.
 		struct TickerData {
 			EventQueue&   queue;
-			Si32 		  id;
+			std::int32_t  id;
 			MillisecondsD preciseInterval;
 			MillisecondsD accumulatedError; // The accumulated error caused by imprecise SDL timers, used for correction.
-			Ui32 		  ticksLeft; 	    // The number of ticks left before automatically halting or TICK_FOREVER.
+			std::uint32_t ticksLeft; 	    // The number of ticks left before automatically halting or TICK_FOREVER.
 		};
 
-		static Ui32 tickerCallback(Ui32 interval, void* ptr) noexcept;
-		static Ui32 drawTickerCallback(Ui32 interval, void* ptr) noexcept;
+		static std::uint32_t tickerCallback(std::uint32_t interval, void* ptr) noexcept;
+		static std::uint32_t drawTickerCallback(std::uint32_t interval, void* ptr) noexcept;
 
 		std::unordered_map<int, std::unique_ptr<TickerData>> _tickerData;
 		int 							                     _drawTicker = 0; // The ID of the draw event ticker.
@@ -164,7 +163,7 @@ tr::Event::operator T() const noexcept
 	return T(getCustomEventBase());
 }
 
-tr::Ui32 tr::generateEventType() noexcept 
+std::uint32_t tr::generateEventType() noexcept 
 {
     return SDL_RegisterEvents(1);
 }
@@ -178,7 +177,7 @@ tr::Event::Event(const CustomEventBase& custom)
     _impl.user.data2 = new std::any { std::move(custom.any2) };
 }
 
-tr::Ui32 tr::Event::type() const noexcept
+std::uint32_t tr::Event::type() const noexcept
 {
     return _impl.type;
 }
@@ -399,7 +398,7 @@ std::optional<tr::Event> tr::EventQueue::waitForEventTimeout(std::chrono::millis
     }
 }
 
-tr::Ticker tr::EventQueue::addTicker(Si32 id, MillisecondsD interval, Ui32 nticks)
+tr::Ticker tr::EventQueue::addTicker(std::int32_t id, MillisecondsD interval, std::uint32_t nticks)
 {
     auto tickerData { std::make_unique<TickerData>(std::ref(*this), id, interval, 0.0ms, nticks) };
     auto ticker { SDL_AddTimer(interval.count(), tickerCallback, tickerData.get()) };
@@ -414,13 +413,13 @@ tr::Ticker tr::EventQueue::addTicker(Si32 id, MillisecondsD interval, Ui32 ntick
 void tr::EventQueue::removeTicker(Ticker ticker) noexcept
 {
     SDL_RemoveTimer(SDL_TimerID(ticker));
-    _tickerData.erase(Ui32(ticker));
+    _tickerData.erase(std::uint32_t(ticker));
 }
 
-tr::Ui32 tr::EventQueue::tickerCallback(Ui32 interval, void* ptr) noexcept
+std::uint32_t tr::EventQueue::tickerCallback(std::uint32_t interval, void* ptr) noexcept
 {
     auto& data { *(TickerData*)(ptr) };
-    data.queue.pushEvent(CustomEventBase { .type = EventType::TICK, .uint = Ui32(data.id) });
+    data.queue.pushEvent(CustomEventBase { .type = EventType::TICK, .uint = std::uint32_t(data.id) });
     if (data.ticksLeft != TICK_FOREVER && --data.ticksLeft == 0) {
         return 0;
     }
@@ -436,7 +435,7 @@ tr::Ui32 tr::EventQueue::tickerCallback(Ui32 interval, void* ptr) noexcept
     }
 }
 
-tr::Ui32 tr::EventQueue::drawTickerCallback(Ui32 interval, void* ptr) noexcept
+std::uint32_t tr::EventQueue::drawTickerCallback(std::uint32_t interval, void* ptr) noexcept
 {
     auto& data { *(TickerData*)(ptr) };
     data.queue.pushEvent(CustomEventBase { .type = EventType::DRAW });

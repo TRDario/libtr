@@ -10,7 +10,6 @@ import boost;
 import :audio_buffer;
 import :audio_source;
 import :chrono;
-import :integer;
 import :iostream;
 
 #ifdef _WIN32
@@ -375,7 +374,7 @@ void tr::AudioStream::refillFreeBuffers()
 
 void tr::AudioStream::refillBuffers(std::span<AudioBufferView> buffers)
 {
-    static boost::container::static_vector<Si16, AUDIO_STREAM_BUFFER_SIZE * 2> dataBuffer;
+    static boost::container::static_vector<std::int16_t, AUDIO_STREAM_BUFFER_SIZE * 2> dataBuffer;
     boost::container::static_vector<AudioBufferView, 4> queueBuffers;
     for (auto& buffer : buffers) {
         auto& loopPoints { std::ranges::find(_buffers, buffer)->loopPoints };
@@ -405,7 +404,7 @@ void tr::AudioStream::refillBuffers(std::span<AudioBufferView> buffers)
                 }
             }
         }
-        buffer.set(asBytes(dataBuffer), _channels == 2 ? AudioFormat::STEREO16 : AudioFormat::MONO16, _sampleRate);
+        buffer.set(rangeBytes(dataBuffer), _channels == 2 ? AudioFormat::STEREO16 : AudioFormat::MONO16, _sampleRate);
     }
 
     if (!queueBuffers.empty()) {

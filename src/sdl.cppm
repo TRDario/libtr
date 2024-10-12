@@ -5,22 +5,21 @@ export module tr:sdl;
 
 import std;
 import :handle;
-import :integer;
 
 export namespace tr {
     // OpenGL context attributes.
     struct GLAttrs {
         bool debugContext = false;
-        Ui8  depthBits = 0;
-        Ui8  stencilBits = 0;
-        Ui8  multisamples = 0;
+        std::uint8_t  depthBits = 0;
+        std::uint8_t  stencilBits = 0;
+        std::uint8_t  multisamples = 0;
     };
 
     // Version structure
     struct Version {
-        Ui8 major;
-        Ui8 minor;
-        Ui8 patch;
+        std::uint8_t major;
+        std::uint8_t minor;
+        std::uint8_t patch;
     };
 
     // SDL error exception.

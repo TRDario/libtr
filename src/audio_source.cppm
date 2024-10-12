@@ -11,7 +11,6 @@ import :angle;
 import :audio_buffer;
 import :chrono;
 import :handle;
-import :integer;
 import :ranges;
 
 export namespace tr {
@@ -21,7 +20,7 @@ export namespace tr {
 		LISTENER  // Coordinates relative to the listener's position
 	};
 	// Enum representing an audio source state.
-	enum class AudioState : Ui8 {
+	enum class AudioState : std::uint8_t {
 		INITIAL, // The source has not been played yet.
 		PLAYING, // The source is playing.
 		PAUSED,  // The source is paused.
@@ -30,7 +29,7 @@ export namespace tr {
 	// 0-length direction vector representing an omnidirectional audio source.
 	inline constexpr glm::vec3 OMNIDIRECTIONAL { 0, 0, 0 };
 	// Sentinel value that tells the unqueueBuffers function to unqueue all processed buffers.
-	inline constexpr Size UNQUEUE_PROCESSED { std::numeric_limits<Size>().max() };
+	inline constexpr std::size_t UNQUEUE_PROCESSED { std::numeric_limits<std::size_t>().max() };
 
 	// OpenAL audio source class.
 	class AudioSource {
@@ -131,15 +130,15 @@ export namespace tr {
 		void setBuffer(std::optional<AudioBufferView> buf) noexcept;
 
 		// Gets the number of queued buffers.
-		Size queuedBuffers() const noexcept;
+		std::size_t queuedBuffers() const noexcept;
 		// Gets the number of processed queued buffers.
-		Size processedBuffers() const noexcept;
+		std::size_t processedBuffers() const noexcept;
 
 		// Sets a queue of buffers for the source to use in a sequence.
 		void queueBuffers(std::span<AudioBufferView> bufs) noexcept;
 		// Removes at most max (or all processed buffers with UNQUEUE_PROCESSED) of buffers from the source's queue.
 		// References to the unqueued buffers are returned.
-		std::vector<AudioBufferView> unqueueBuffers(Size max = UNQUEUE_PROCESSED);
+		std::vector<AudioBufferView> unqueueBuffers(std::size_t max = UNQUEUE_PROCESSED);
 
 		// Gets the source's playback position within the current buffer.
 		SecondsF offset() const noexcept;
@@ -151,10 +150,10 @@ export namespace tr {
 		// Sets the source's playback position within the current buffer.
 		void setOffset(int off) noexcept;
 	private:
-		struct Deleter { void operator()(unsigned int id) noexcept; };
+		struct Deleter { void operator()(ALuint id) noexcept; };
 
 		// The OpenAL ID of the source.
-		Handle<unsigned int, 0, Deleter> _id;
+		Handle<ALuint, 0, Deleter> _id;
 
 		friend class AudioStream;
 	};
@@ -164,7 +163,7 @@ export namespace tr {
 
 tr::AudioSource::AudioSource()
 {
-    unsigned int id;
+    ALuint id;
     alGenSources(1, &id);
     if (alGetError() == AL_OUT_OF_MEMORY) {
         throw std::bad_alloc {};
@@ -177,7 +176,7 @@ tr::AudioSource::AudioSource(AudioBufferView buffer)
     setBuffer(buffer);
 }
 
-void tr::AudioSource::Deleter::operator()(unsigned int id) noexcept
+void tr::AudioSource::Deleter::operator()(ALuint id) noexcept
 {
     alDeleteSources(1, &id);
 }
@@ -418,14 +417,14 @@ void tr::AudioSource::setBuffer(std::optional<AudioBufferView> buffer) noexcept
     alSourcei(_id.get(), AL_DIRECT_CHANNELS_SOFT, buffer ? buffer->channels() == 2 : false);
 }
 
-tr::Size tr::AudioSource::queuedBuffers() const noexcept
+std::size_t tr::AudioSource::queuedBuffers() const noexcept
 {
     int queued;
     alGetSourcei(_id.get(), AL_BUFFERS_QUEUED, &queued);
     return queued;
 }
 
-tr::Size tr::AudioSource::processedBuffers() const noexcept
+std::size_t tr::AudioSource::processedBuffers() const noexcept
 {
     int processed;
     alGetSourcei(_id.get(), AL_BUFFERS_PROCESSED, &processed);
@@ -438,7 +437,7 @@ void tr::AudioSource::queueBuffers(std::span<AudioBufferView> abufs) noexcept
     assert(alGetError() != AL_INVALID_OPERATION);
 }
 
-std::vector<tr::AudioBufferView> tr::AudioSource::unqueueBuffers(Size max)
+std::vector<tr::AudioBufferView> tr::AudioSource::unqueueBuffers(std::size_t max)
 {
     std::vector<unsigned int> ids(std::min(max, processedBuffers()));
     if (!ids.empty()) {

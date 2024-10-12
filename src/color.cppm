@@ -2,7 +2,6 @@ export module tr:color;
 
 import std;
 import :concepts;
-import :integer;
 
 export namespace tr {
 	// Concept restricting valid color datatypes.
@@ -52,101 +51,101 @@ export namespace tr {
 		};
 		struct HSV { float h, s, v; };
 
-		using RGB8 = RGB<Ui8>;
-		using RGBA8 = RGBA<Ui8>;
+		using RGB8 = RGB<std::uint8_t>;
+		using RGBA8 = RGBA<std::uint8_t>;
 		using RGBAF = RGBA<float>;
 
 		struct RGB_Ui8_2_3_3 {
-			Ui8 r : 2;
-			Ui8 g : 3;
-			Ui8 b : 3;
+			std::uint8_t r : 2;
+			std::uint8_t g : 3;
+			std::uint8_t b : 3;
 		};
 		struct RGB_Ui16_5_6_5 {
-			Ui16 r : 5;
-			Ui16 g : 6;
-			Ui16 b : 5;
+			std::uint16_t r : 5;
+			std::uint16_t g : 6;
+			std::uint16_t b : 5;
 		};
 		struct BGR_Ui8_3_3_2 {
-			Ui8 b : 3;
-			Ui8 g : 3;
-			Ui8 r : 2;
+			std::uint8_t b : 3;
+			std::uint8_t g : 3;
+			std::uint8_t r : 2;
 		};
 		struct BGR_Ui16_5_6_5 {
-			Ui16 b : 5;
-			Ui16 g : 6;
-			Ui16 r : 5;
+			std::uint16_t b : 5;
+			std::uint16_t g : 6;
+			std::uint16_t r : 5;
 		};
 		struct RGBA_Ui16_4_4_4_4 {
-			Ui16 r : 4;
-			Ui16 g : 4;
-			Ui16 b : 4;
-			Ui16 a : 4;
+			std::uint16_t r : 4;
+			std::uint16_t g : 4;
+			std::uint16_t b : 4;
+			std::uint16_t a : 4;
 		};
 		struct RGBA_Ui16_5_5_5_1 {
-			Ui16 r : 5;
-			Ui16 g : 5;
-			Ui16 b : 5;
-			Ui16 a : 1;
+			std::uint16_t r : 5;
+			std::uint16_t g : 5;
+			std::uint16_t b : 5;
+			std::uint16_t a : 1;
 		};
 		struct RGBA_Ui32_10_10_10_2 {
-			Ui32 r : 10;
-			Ui32 g : 10;
-			Ui32 b : 10;
-			Ui32 a : 2;
+			std::uint32_t r : 10;
+			std::uint32_t g : 10;
+			std::uint32_t b : 10;
+			std::uint32_t a : 2;
 		};
 		struct ABGR_Ui16_4_4_4_4 {
-			Ui16 a : 4;
-			Ui16 b : 4;
-			Ui16 g : 4;
-			Ui16 r : 4;
+			std::uint16_t a : 4;
+			std::uint16_t b : 4;
+			std::uint16_t g : 4;
+			std::uint16_t r : 4;
 		};
 		struct ABGR_Ui16_1_5_5_5 {
-			Ui16 a : 1;
-			Ui16 b : 5;
-			Ui16 g : 5;
-			Ui16 r : 5;
+			std::uint16_t a : 1;
+			std::uint16_t b : 5;
+			std::uint16_t g : 5;
+			std::uint16_t r : 5;
 		};
 		struct ABGR_Ui32_2_10_10_10 {
-			Ui32 a : 2;
-			Ui32 b : 10;
-			Ui32 g : 10;
-			Ui32 r : 10;
+			std::uint32_t a : 2;
+			std::uint32_t b : 10;
+			std::uint32_t g : 10;
+			std::uint32_t r : 10;
 		};
 		struct BGRA_Ui16_4_4_4_4 {
-			Ui16 b : 4;
-			Ui16 g : 4;
-			Ui16 r : 4;
-			Ui16 a : 4;
+			std::uint16_t b : 4;
+			std::uint16_t g : 4;
+			std::uint16_t r : 4;
+			std::uint16_t a : 4;
 		};
 		struct BGRA_Ui16_5_5_5_1 {
-			Ui16 b : 5;
-			Ui16 g : 5;
-			Ui16 r : 5;
-			Ui16 a : 1;
+			std::uint16_t b : 5;
+			std::uint16_t g : 5;
+			std::uint16_t r : 5;
+			std::uint16_t a : 1;
 		};
 		struct BGRA_Ui32_10_10_10_2 {
-			Ui32 b : 10;
-			Ui32 g : 10;
-			Ui32 r : 10;
-			Ui32 a : 2;
+			std::uint32_t b : 10;
+			std::uint32_t g : 10;
+			std::uint32_t r : 10;
+			std::uint32_t a : 2;
 		};
 		struct ARGB_Ui16_4_4_4_4 {
-			Ui16 a : 4;
-			Ui16 r : 4;
-			Ui16 g : 4;
-			Ui16 b : 4;
+			std::uint16_t a : 4;
+			std::uint16_t r : 4;
+			std::uint16_t g : 4;
+			std::uint16_t b : 4;
 		};
 		struct ARGB_Ui16_1_5_5_5 {
-			Ui16 a : 1;
-			Ui16 r : 5;
-			Ui16 g : 5;
-			Ui16 b : 5;
+			std::uint16_t a : 1;
+			std::uint16_t r : 5;
+			std::uint16_t g : 5;
+			std::uint16_t b : 5;
 		};
 		struct ARGB_Ui32_2_10_10_10 {
-			Ui32 a : 2;
-			Ui32 r : 10;
-			Ui32 g : 10;
-			Ui32 b : 10;
+			std::uint32_t a : 2;
+			std::uint32_t r : 10;
+			std::uint32_t g : 10;
+			std::uint32_t b : 10;
 		};
 	}
 

@@ -11,7 +11,6 @@ import glm;
 import :color;
 import :geometry;
 import :handle;
-import :integer;
 import :iostream;
 import :bitmap_format;
 import :sdl;
@@ -161,9 +160,9 @@ export namespace tr {
 		// Creates a blank bitmap.
 		Bitmap(glm::ivec2 size, BitmapFormat format);
 		// Creates a bitmap from raw pixel data.
-		Bitmap(glm::ivec2 size, std::span<const Byte> pixelData, BitmapFormat dataFormat);
+		Bitmap(glm::ivec2 size, std::span<const std::byte> pixelData, BitmapFormat dataFormat);
 		// Loads an embedded bitmap file.
-		Bitmap(std::span<const Byte> embeddedFile);
+		Bitmap(std::span<const std::byte> embeddedFile);
 		// Loads a bitmap from file.
 		Bitmap(const std::filesystem::path& path);
 		// Clones a bitmap.
@@ -302,18 +301,18 @@ T tr::checkNotNull(T ptr)
 
 tr::RGBA8 tr::getPixelColor(const void* data, SDL_PixelFormat* format)
 {
-    Ui32 value;
+    std::uint32_t value;
     switch (format->BytesPerPixel) {
     case 1:
-        value = *((const Ui8*)(data));
+        value = *((const std::uint8_t*)(data));
     case 2:
-        value = *((const Ui16*)(data));
+        value = *((const std::uint16_t*)(data));
     case 3:
-        value = ((const Ui8*)(data))[0] << 16 |
-                ((const Ui8*)(data))[1] << 8  |
-                ((const Ui8*)(data))[2];
+        value = ((const std::uint8_t*)(data))[0] << 16 |
+                ((const std::uint8_t*)(data))[1] << 8  |
+                ((const std::uint8_t*)(data))[2];
     case 4:
-        value = *((const Ui32*)(data));
+        value = *((const std::uint32_t*)(data));
     }
 
     RGBA8 color;
@@ -392,7 +391,7 @@ tr::SubBitmap::Iterator tr::SubBitmap::cend() const noexcept
 
 const void* tr::SubBitmap::data() const noexcept
 {
-    return (const Byte*)(_bitmap.get().data()) + pitch() * _rect.tl.y + format().pixelBytes() * _rect.tl.x;
+    return (const std::byte*)(_bitmap.get().data()) + pitch() * _rect.tl.y + format().pixelBytes() * _rect.tl.x;
 }
 
 tr::BitmapFormat tr::SubBitmap::format() const noexcept
@@ -421,7 +420,7 @@ tr::SubBitmap::PixelRef::operator RGBA8() const noexcept
 }
 
 tr::SubBitmap::Iterator::Iterator(SubBitmap bitmap, glm::ivec2 pos) noexcept
-    : _pixel { (const Byte*)(bitmap.data()) + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x, bitmap._bitmap.get()._impl.get()->format }
+    : _pixel { (const std::byte*)(bitmap.data()) + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x, bitmap._bitmap.get()._impl.get()->format }
     , _bitmapSize { bitmap.size() }
     , _pitch { bitmap.pitch() }
     , _pos { pos }
@@ -490,7 +489,7 @@ tr::SubBitmap::Iterator& tr::SubBitmap::Iterator::operator+=(int diff) noexcept
         --lines;
         diff += _bitmapSize.x;
     }
-    _pixel._impl = (const Byte*)(_pixel._impl) + _pitch * lines + _pixel._format->BytesPerPixel * diff;
+    _pixel._impl = (const std::byte*)(_pixel._impl) + _pitch * lines + _pixel._format->BytesPerPixel * diff;
     return *this;
 }
 
@@ -583,11 +582,11 @@ tr::Bitmap::Bitmap(glm::ivec2 size, BitmapFormat format)
     : _impl { checkNotNull(SDL_CreateRGBSurfaceWithFormat(0, size.x, size.y, format.pixelBits(), SDL_PixelFormatEnum(BitmapFormat::Type(format)))) }
 {}
 
-tr::Bitmap::Bitmap(glm::ivec2 size, std::span<const Byte> pixelData, BitmapFormat dataFormat)
-    : _impl { checkNotNull(SDL_CreateRGBSurfaceWithFormat(0, size.x, size.y, dataFormat.pixelBits(), Ui32(BitmapFormat::Type(dataFormat)))) }
+tr::Bitmap::Bitmap(glm::ivec2 size, std::span<const std::byte> pixelData, BitmapFormat dataFormat)
+    : _impl { checkNotNull(SDL_CreateRGBSurfaceWithFormat(0, size.x, size.y, dataFormat.pixelBits(), std::uint32_t(BitmapFormat::Type(dataFormat)))) }
 {}
 
-tr::Bitmap::Bitmap(std::span<const Byte> embeddedFile)
+tr::Bitmap::Bitmap(std::span<const std::byte> embeddedFile)
     : _impl { checkNotNull(IMG_Load_RW(SDL_RWFromConstMem(embeddedFile.data(), embeddedFile.size()), true)) }
 {}
 
@@ -608,7 +607,7 @@ tr::Bitmap::Bitmap(const std::filesystem::path& path)
 }
 
 tr::Bitmap::Bitmap(const Bitmap& bitmap, BitmapFormat format)
-    : _impl { checkNotNull(SDL_ConvertSurfaceFormat(bitmap._impl.get(), Ui32(BitmapFormat::Type(format)), 0)) }
+    : _impl { checkNotNull(SDL_ConvertSurfaceFormat(bitmap._impl.get(), std::uint32_t(BitmapFormat::Type(format)), 0)) }
 {}
 
 tr::Bitmap::Bitmap(SubBitmap source, BitmapFormat format)
@@ -802,24 +801,24 @@ tr::Bitmap::PixelRef& tr::Bitmap::PixelRef::operator=(RGBA8 color) noexcept
     auto formatted { SDL_MapRGBA(_format, color.r, color.g, color.b, color.a) };
     switch (_format->BytesPerPixel) {
     case 1:
-        *((Ui8*)(_impl)) = formatted;
+        *((std::uint8_t*)(_impl)) = formatted;
         break;
     case 2:
-        *(Ui16*)(_impl) = formatted;
+        *(std::uint16_t*)(_impl) = formatted;
         break;
     case 3:
-        ((Ui8*)(_impl))[0] = Ui8(formatted >> 16);
-        ((Ui8*)(_impl))[1] = Ui8(formatted >> 8);
-        ((Ui8*)(_impl))[2] = Ui8(formatted);
+        ((std::uint8_t*)(_impl))[0] = std::uint8_t(formatted >> 16);
+        ((std::uint8_t*)(_impl))[1] = std::uint8_t(formatted >> 8);
+        ((std::uint8_t*)(_impl))[2] = std::uint8_t(formatted);
         break;
     case 4:
-        *(Ui32*)(_impl) = formatted;
+        *(std::uint32_t*)(_impl) = formatted;
     }
     return *this;
 }
 
 tr::Bitmap::MutIt::MutIt(Bitmap& bitmap, glm::ivec2 pos) noexcept
-    : _pixel { (Byte*)(bitmap.data()) + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x, bitmap._impl.get()->format }
+    : _pixel { (std::byte*)(bitmap.data()) + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x, bitmap._impl.get()->format }
     , _bitmap { &bitmap }
     , _pos { pos }
 {}
@@ -890,7 +889,7 @@ tr::Bitmap::MutIt& tr::Bitmap::MutIt::operator+=(int diff) noexcept
         --lines;
         diff += bitmapSize.x;
     }
-    _pixel._impl = (Byte*)(_pixel._impl) + _bitmap->pitch() * lines + _pixel._format->BytesPerPixel * diff;
+    _pixel._impl = (std::byte*)(_pixel._impl) + _bitmap->pitch() * lines + _pixel._format->BytesPerPixel * diff;
     _pos += glm::ivec2 { diff, lines };
     return *this;
 }

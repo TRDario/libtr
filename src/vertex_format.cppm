@@ -5,7 +5,6 @@ export module tr:vertex_format;
 
 import std;
 import :handle;
-import :integer;
 
 export namespace tr {
 	// Class representing a single-precision floating point vertex attribute.
@@ -29,18 +28,18 @@ export namespace tr {
 
 		Type type;
 		// The number of elements in the attribute (1 - 4).
-		Ui8 elements;
+		std::uint8_t elements;
 		// Whether integer data is normalized when converted to floating point.
 		bool normalized;
 		// The relative position of the attribute within an element in bytes.
-		Ui32 offset;
+		std::uint32_t offset;
 	};
 	// Class representing a double-precision floating point vertex attribute.
 	struct VertexAttributeD {
 		// The number of elements in the attribute (1 - 4).
-		Ui8 elements;
+		std::uint8_t elements;
 		// The relative position of the attribute within an element in bytes.
-		Ui32 offset;
+		std::uint32_t offset;
 	};
 	// Class representing an integral vertex attribute.
 	struct VertexAttributeI {
@@ -58,9 +57,9 @@ export namespace tr {
 
 		Type type;
 		// The number of elements in the attribute (1 - 4).
-		Ui8 elements;
+		std::uint8_t elements;
 		// The relative position of the attribute within an element in bytes.
-		Ui32 offset;
+		std::uint32_t offset;
 	};
 	// A typedef representing a generic vertex attribute.
 	using VertexAttribute = std::variant<VertexAttributeF, VertexAttributeD, VertexAttributeI>;
@@ -76,8 +75,8 @@ export namespace tr {
         // Sets the debug label for the format.
         void setLabel(std::string_view label) noexcept;
 	private:
-		struct Deleter { void operator()(unsigned int id) noexcept; };
-		Handle<unsigned int, 0, Deleter> _id;
+		struct Deleter { void operator()(GLuint id) noexcept; };
+		Handle<GLuint, 0, Deleter> _id;
 
 		// Binds the vertex format.
 		void bind() const noexcept;
@@ -115,7 +114,7 @@ tr::VertexFormat::VertexFormat(std::span<const VertexAttribute> attrs) noexcept
     _id.reset(vao);
 }
 
-void tr::VertexFormat::Deleter::operator()(unsigned int id) noexcept
+void tr::VertexFormat::Deleter::operator()(GLuint id) noexcept
 {
     glDeleteVertexArrays(1, &id);
 }

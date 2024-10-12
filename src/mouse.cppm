@@ -8,7 +8,6 @@ import std;
 import glm;
 import :bitmap;
 import :geometry;
-import :integer;
 import :sdl;
 
 export namespace tr {
@@ -52,7 +51,7 @@ export namespace tr {
 		// mask - A span of bits determining the mask: 1 is opaque, 0 + white = transparent, 0 + black = inverted color.
 		// size - The size of the cursor graphic, must be multiples of 8.
 		// focus - The focus point of the cursor (where the actual mouse position is relative to the graphic).
-		Cursor(std::span<const Byte> color, std::span<const Byte> mask, glm::ivec2 size, glm::ivec2 focus);
+		Cursor(std::span<const std::byte> color, std::span<const std::byte> mask, glm::ivec2 size, glm::ivec2 focus);
 	private:
 		struct Deleter { void operator()(SDL_Cursor* ptr) noexcept; };
 		std::unique_ptr<SDL_Cursor, Deleter> _impl;
@@ -141,7 +140,7 @@ bool tr::mouse::held(MouseButton button) noexcept
 
 bool tr::mouse::held(MouseButton button, MouseButtonMask mask) noexcept
 {
-    return Ui32(mask) & SDL_BUTTON(Ui32(button));
+    return std::uint32_t(mask) & SDL_BUTTON(std::uint32_t(button));
 }
 
 bool tr::mouse::inRelativeMode() noexcept
@@ -171,10 +170,10 @@ tr::Cursor::Cursor(const Bitmap& bitmap, glm::ivec2 focus)
     : _impl { checkNotNull(SDL_CreateColorCursor(bitmap._impl.get(), focus.x, focus.y)) }
 {}
 
-tr::Cursor::Cursor(std::span<const Byte> color, std::span<const Byte> mask, glm::ivec2 size, glm::ivec2 focus)
+tr::Cursor::Cursor(std::span<const std::byte> color, std::span<const std::byte> mask, glm::ivec2 size, glm::ivec2 focus)
 {
     assert(color.size() == mask.size() && color.size() == size.x * size.y / 64);
-    _impl.reset(checkNotNull(SDL_CreateCursor((const Ui8*)(color.data()), (const Ui8*)(mask.data()), size.x, size.y, focus.x, focus.y)));
+    _impl.reset(checkNotNull(SDL_CreateCursor((const std::uint8_t*)(color.data()), (const std::uint8_t*)(mask.data()), size.x, size.y, focus.x, focus.y)));
 }
 
 void tr::Cursor::Deleter::operator()(SDL_Cursor* ptr) noexcept
