@@ -63,8 +63,7 @@ export namespace tr {
 		 *
 		 * A handle constructed like this is guaranteed to hold a value.
 		 * 
-		 * If <em>EmptyValue</em> is an expected input,
-		 * @link Handle<T, EmptyValue, Deleter>::Handle(T, NoEmptyHandleCheck) Handle(T, NoEmptyHandleCheck) @endlink
+		 * If <em>EmptyValue</em> is an expected input, Handle(T, NoEmptyHandleCheck)
 		 * may be used instead.
 		 *
 		 * @param[in] value
@@ -81,8 +80,7 @@ export namespace tr {
 		 *
 		 * A handle constructed like this may or may not hold a value.
 		 *
-		 * @link Handle<T, EmptyValue, Deleter>::Handle(T) Handle(T) @endlink
-		 * should be used in cases where this isn't necessary.
+		 * Handle(T) should be used in cases where this isn't necessary.
 		 *
 		 * @param[in] value The base type value that will be managed by the handle.
 		 **************************************************************************************************************/
@@ -147,8 +145,7 @@ export namespace tr {
 		constexpr bool has_value() const noexcept;
 
 		/**************************************************************************************************************
-		 * Checks if the handle contains a value, see
-		 * @link Handle<T, EmptyValue, Deleter>::has_value() has_value() @endlink.
+		 * Checks if the handle contains a value, see has_value().
 		 **************************************************************************************************************/
 		constexpr explicit operator bool() const noexcept;
 
@@ -158,8 +155,7 @@ export namespace tr {
 		 *
 		 * Calls to this function are only valid if the handle contains a value, an assertion may be raised otherwise.
 		 * 
-		 * @link Handle<T, EmptyValue, Deleter>::get(NoEmptyHandleCheck) const get(NoEmptyHandleCheck) @endlink
-		 * may be used in cases where the empty value is an expected input.
+		 * get(NoEmptyHandleCheck) may be used in cases where the empty value is an expected input.
 		 *
 		 * @return A reference to the handle's base type value.
 		 **************************************************************************************************************/
@@ -170,7 +166,7 @@ export namespace tr {
 		 *
 		 * This function circuments the notion of an "empty" handle and returns a value even if it's <em>EmptyValue</em>.
 		 * 
-		 * @link Handle<T, EmptyValue, Deleter>::get() const get() @endlink should be used in cases where this isn't necessary.
+		 * get() should be used in cases where this isn't necessary.
 		 *
 		 * @return A reference to the handle's base type value.
 		 **************************************************************************************************************/
@@ -189,8 +185,7 @@ export namespace tr {
 		 *
 		 * If the handle is not empty before this call, <em>Deleter</em> will be called with the contained value.
 		 *
-		 * @link Handle<T, EmptyValue, Deleter>::reset(T, NoEmptyHandleCheck) reset(T, NoEmptyHandleCheck) @endlink
-		 * may be used in cases where the empty value is an expected input.
+		 * reset(T, NoEmptyHandleCheck) may be used in cases where the empty value is an expected input.
 		 *
 		 * @param[in] value
 		 * @parblock
@@ -206,7 +201,7 @@ export namespace tr {
 		 *
 		 * If the handle is not empty before this call, <em>Deleter</em> will be called with the contained value.
 		 *
-		 * @link Handle<T, EmptyValue, Deleter>::reset(T) reset(T) @endlink should be preferred in most cases.
+		 * reset(T) should be preferred in most cases.
 		 *
 		 * @param[in] value
 		 * @parblock

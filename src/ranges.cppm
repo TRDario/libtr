@@ -1,3 +1,8 @@
+/**
+ * @file ranges.cppm
+ * @brief Provides miscellaneous range functionality.
+ */
+
 module;
 #include <cassert>
 

@@ -96,7 +96,7 @@ export namespace tr {
      * @param[in] str A string view that either contains valid UTF-8 data or is empty.
      *
      * @return An iterator to the first Unicode character of the string if @em str is non-empty,
-     * or @link tr::utf8End @endlink if @em str is empty.
+     * or utf8End() if @em str is empty.
 	 ******************************************************************************************************************/
     constexpr Utf8ConstIt utf8Begin(std::string_view str) noexcept;
 
