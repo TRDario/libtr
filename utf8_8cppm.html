@@ -99,7 +99,6 @@ $(function(){ initResizable(false); });
 <p>Provides a Unicode codepoint iterator interface over a UTF-8 string view.  
 </p>
 <div class="textblock"><code>#include &lt;cassert&gt;</code><br />
-<code>import tr:integer;</code><br />
 <code>import std;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -119,9 +118,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a3809827f0ab275429eaae2f63bbf7c63" id="r_a3809827f0ab275429eaae2f63bbf7c63"><td class="memItemLeft" align="right" valign="top">constexpr std::ranges::subrange&lt; <a class="el" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3809827f0ab275429eaae2f63bbf7c63">tr::utf8Range</a> (std::string_view str) noexcept</td></tr>
 <tr class="memdesc:a3809827f0ab275429eaae2f63bbf7c63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a codepoint iterator range pair for a UTF-8 string view.  <br /></td></tr>
 <tr class="separator:a3809827f0ab275429eaae2f63bbf7c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fe8e28ece583e79f959d8d33a8f69a5" id="r_a7fe8e28ece583e79f959d8d33a8f69a5"><td class="memItemLeft" align="right" valign="top">constexpr Size&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7fe8e28ece583e79f959d8d33a8f69a5">tr::utf8Length</a> (std::string_view str) noexcept</td></tr>
-<tr class="memdesc:a7fe8e28ece583e79f959d8d33a8f69a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of unicode characters in a UTF-8 string view.  <br /></td></tr>
-<tr class="separator:a7fe8e28ece583e79f959d8d33a8f69a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af97cb3c8f72d4952bd9fceaf49ae67a6" id="r_af97cb3c8f72d4952bd9fceaf49ae67a6"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af97cb3c8f72d4952bd9fceaf49ae67a6">tr::utf8Length</a> (std::string_view str) noexcept</td></tr>
+<tr class="memdesc:af97cb3c8f72d4952bd9fceaf49ae67a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of unicode characters in a UTF-8 string view.  <br /></td></tr>
+<tr class="separator:af97cb3c8f72d4952bd9fceaf49ae67a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="af27b372fba892816022e8108a1121bcf" name="af27b372fba892816022e8108a1121bcf"></a>
@@ -188,8 +187,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7fe8e28ece583e79f959d8d33a8f69a5" name="a7fe8e28ece583e79f959d8d33a8f69a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fe8e28ece583e79f959d8d33a8f69a5">&#9670;&#160;</a></span>utf8Length()</h2>
+<a id="af97cb3c8f72d4952bd9fceaf49ae67a6" name="af97cb3c8f72d4952bd9fceaf49ae67a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af97cb3c8f72d4952bd9fceaf49ae67a6">&#9670;&#160;</a></span>utf8Length()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,7 +197,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">tr::Size tr::utf8Length </td>
+          <td class="memname">std::size_t tr::utf8Length </td>
           <td>(</td>
           <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
           <td></td>

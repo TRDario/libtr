@@ -93,13 +93,13 @@ $(function(){ initResizable(false); });
 </div><!--header-->
 <div class="contents">
 
-<p>Concept denoting a range trasnformable with tr::positions.  
+<p>Concept denoting a range transformable with tr::positions.  
 <a href="#details">More...</a></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="concepttr_1_1PositionsRange.html">tr::PositionsRange</a> =  std::ranges::range&lt;T&gt; &amp;&amp;</div>
 <div class="line">                                                <span class="keyword">requires</span> (std::ranges::range_value_t&lt;T&gt; val) { val.pos; }</div>
-<div class="ttc" id="aconcepttr_1_1PositionsRange_html"><div class="ttname"><a href="concepttr_1_1PositionsRange.html">tr::PositionsRange</a></div><div class="ttdoc">Concept denoting a range trasnformable with tr::positions.</div><div class="ttdef"><b>Definition</b> vertex.cppm:24</div></div>
+<div class="ttc" id="aconcepttr_1_1PositionsRange_html"><div class="ttname"><a href="concepttr_1_1PositionsRange.html">tr::PositionsRange</a></div><div class="ttdoc">Concept denoting a range transformable with tr::positions.</div><div class="ttdef"><b>Definition</b> vertex.cppm:24</div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>To satisfy this requirement, <em>T</em> must satisfy <em>std::ranges::range</em> and its value type must have a member field "pos". </p>
 </div></div><!-- contents -->

@@ -98,33 +98,31 @@ $(function(){ initResizable(false); });
 <p>Provides miscellaneous range functionality.  
 </p>
 <div class="textblock"><code>#include &lt;cassert&gt;</code><br />
-<code>import tr:integer;</code><br />
+<code>import tr:concepts;</code><br />
 <code>import std;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a60ae68fa514bc7ad75b942d6a1db4dfb" id="r_a60ae68fa514bc7ad75b942d6a1db4dfb"><td class="memTemplParams" colspan="2">template&lt;StandardLayoutRange T&gt; </td></tr>
-<tr class="memitem:a60ae68fa514bc7ad75b942d6a1db4dfb"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a60ae68fa514bc7ad75b942d6a1db4dfb">tr::asBytes</a> (const T &amp;range) noexcept</td></tr>
-<tr class="memdesc:a60ae68fa514bc7ad75b942d6a1db4dfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a view of a contiguous range as a span of immutable bytes.  <br /></td></tr>
-<tr class="separator:a60ae68fa514bc7ad75b942d6a1db4dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a397d9de6acd5b871a9a34d4cb4247d3d" id="r_a397d9de6acd5b871a9a34d4cb4247d3d"><td class="memTemplParams" colspan="2">template&lt;StandardLayout T&gt; <br />
-requires (!StandardLayoutRange&lt;T&gt;)</td></tr>
-<tr class="memitem:a397d9de6acd5b871a9a34d4cb4247d3d"><td class="memTemplItemLeft" align="right" valign="top">std::span&lt; const Byte, sizeof(T)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a397d9de6acd5b871a9a34d4cb4247d3d">tr::asBytes</a> (const T &amp;object) noexcept</td></tr>
-<tr class="memdesc:a397d9de6acd5b871a9a34d4cb4247d3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a view of an object as a span of immutable bytes.  <br /></td></tr>
-<tr class="separator:a397d9de6acd5b871a9a34d4cb4247d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3992b225234d991a67d757498034617e" id="r_a3992b225234d991a67d757498034617e"><td class="memTemplParams" colspan="2">template&lt;StandardLayoutRange T&gt; </td></tr>
-<tr class="memitem:a3992b225234d991a67d757498034617e"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3992b225234d991a67d757498034617e">tr::asMutBytes</a> (T &amp;range) noexcept</td></tr>
-<tr class="memdesc:a3992b225234d991a67d757498034617e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a view of a contiguous range as a span of mutable bytes.  <br /></td></tr>
-<tr class="separator:a3992b225234d991a67d757498034617e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36cdf89a76c0ec77eebc43cae9db82ca" id="r_a36cdf89a76c0ec77eebc43cae9db82ca"><td class="memTemplParams" colspan="2">template&lt;StandardLayout T&gt; <br />
-requires (!StandardLayoutRange&lt;T&gt;)</td></tr>
-<tr class="memitem:a36cdf89a76c0ec77eebc43cae9db82ca"><td class="memTemplItemLeft" align="right" valign="top">std::span&lt; Byte, sizeof(T)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a36cdf89a76c0ec77eebc43cae9db82ca">tr::asMutBytes</a> (T &amp;object) noexcept</td></tr>
-<tr class="memdesc:a36cdf89a76c0ec77eebc43cae9db82ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a view of an object as a span of mutable bytes.  <br /></td></tr>
-<tr class="separator:a36cdf89a76c0ec77eebc43cae9db82ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd393730fbc63a1a7fd9b45c93ebbca2" id="r_acd393730fbc63a1a7fd9b45c93ebbca2"><td class="memTemplParams" colspan="2">template&lt;StandardLayout T, Size S&gt; </td></tr>
-<tr class="memitem:acd393730fbc63a1a7fd9b45c93ebbca2"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acd393730fbc63a1a7fd9b45c93ebbca2">tr::asObjects</a> (std::span&lt; Byte, S &gt; bytes) noexcept</td></tr>
-<tr class="memdesc:acd393730fbc63a1a7fd9b45c93ebbca2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reinterprets a span of mutable bytes as a span of objects.  <br /></td></tr>
-<tr class="separator:acd393730fbc63a1a7fd9b45c93ebbca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1257a17328760a08c322c3cf7e1abcf5" id="r_a1257a17328760a08c322c3cf7e1abcf5"><td class="memTemplParams" colspan="2">template&lt;StandardLayoutRange T&gt; </td></tr>
+<tr class="memitem:a1257a17328760a08c322c3cf7e1abcf5"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1257a17328760a08c322c3cf7e1abcf5">tr::rangeBytes</a> (const T &amp;range) noexcept</td></tr>
+<tr class="memdesc:a1257a17328760a08c322c3cf7e1abcf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a view of a contiguous range as a span of immutable bytes.  <br /></td></tr>
+<tr class="separator:a1257a17328760a08c322c3cf7e1abcf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ba33147a328d3e30640eefe93013d45" id="r_a4ba33147a328d3e30640eefe93013d45"><td class="memTemplParams" colspan="2">template&lt;StandardLayout T&gt; </td></tr>
+<tr class="memitem:a4ba33147a328d3e30640eefe93013d45"><td class="memTemplItemLeft" align="right" valign="top">std::span&lt; const std::byte, sizeof(T)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a4ba33147a328d3e30640eefe93013d45">tr::asBytes</a> (const T &amp;object) noexcept</td></tr>
+<tr class="memdesc:a4ba33147a328d3e30640eefe93013d45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a view of an object as a span of immutable bytes.  <br /></td></tr>
+<tr class="separator:a4ba33147a328d3e30640eefe93013d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade12d868b54b5ac30424317e3872aa6d" id="r_ade12d868b54b5ac30424317e3872aa6d"><td class="memTemplParams" colspan="2">template&lt;StandardLayoutRange T&gt; </td></tr>
+<tr class="memitem:ade12d868b54b5ac30424317e3872aa6d"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ade12d868b54b5ac30424317e3872aa6d">tr::rangeMutBytes</a> (T &amp;range) noexcept</td></tr>
+<tr class="memdesc:ade12d868b54b5ac30424317e3872aa6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a view of a contiguous range as a span of mutable bytes.  <br /></td></tr>
+<tr class="separator:ade12d868b54b5ac30424317e3872aa6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aad740532ed0286fd2d518ac7f6e9c0" id="r_a9aad740532ed0286fd2d518ac7f6e9c0"><td class="memTemplParams" colspan="2">template&lt;StandardLayout T&gt; </td></tr>
+<tr class="memitem:a9aad740532ed0286fd2d518ac7f6e9c0"><td class="memTemplItemLeft" align="right" valign="top">std::span&lt; std::byte, sizeof(T)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a9aad740532ed0286fd2d518ac7f6e9c0">tr::asMutBytes</a> (T &amp;object) noexcept</td></tr>
+<tr class="memdesc:a9aad740532ed0286fd2d518ac7f6e9c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a view of an object as a span of mutable bytes.  <br /></td></tr>
+<tr class="separator:a9aad740532ed0286fd2d518ac7f6e9c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d807527758e0390523e4a367410ed13" id="r_a1d807527758e0390523e4a367410ed13"><td class="memTemplParams" colspan="2">template&lt;StandardLayout T, std::size_t S&gt; </td></tr>
+<tr class="memitem:a1d807527758e0390523e4a367410ed13"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1d807527758e0390523e4a367410ed13">tr::asObjects</a> (std::span&lt; std::byte, S &gt; bytes) noexcept</td></tr>
+<tr class="memdesc:a1d807527758e0390523e4a367410ed13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reinterprets a span of mutable bytes as a span of objects.  <br /></td></tr>
+<tr class="separator:a1d807527758e0390523e4a367410ed13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac186319e04a9295cc09a84d5ea618369" id="r_ac186319e04a9295cc09a84d5ea618369"><td class="memTemplParams" colspan="2">template&lt;class R &gt; </td></tr>
 <tr class="memitem:ac186319e04a9295cc09a84d5ea618369"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac186319e04a9295cc09a84d5ea618369">tr::project</a> (auto R::*ptr) noexcept</td></tr>
 <tr class="memdesc:ac186319e04a9295cc09a84d5ea618369"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an adaptor for a transformed view over a range as a range of one of its members.  <br /></td></tr>
@@ -135,20 +133,19 @@ requires (!StandardLayoutRange&lt;T&gt;)</td></tr>
 <tr class="separator:ac8f05cb3910768caf9e6f93ce213c444"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a397d9de6acd5b871a9a34d4cb4247d3d" name="a397d9de6acd5b871a9a34d4cb4247d3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a397d9de6acd5b871a9a34d4cb4247d3d">&#9670;&#160;</a></span>asBytes() <span class="overload">[1/2]</span></h2>
+<a id="a4ba33147a328d3e30640eefe93013d45" name="a4ba33147a328d3e30640eefe93013d45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ba33147a328d3e30640eefe93013d45">&#9670;&#160;</a></span>asBytes()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;StandardLayout T&gt; <br />
-requires (!StandardLayoutRange&lt;T&gt;)</div>
+template&lt;StandardLayout T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::span&lt; const Byte, sizeof(T)&gt; tr::asBytes </td>
+          <td class="memname">std::span&lt; const std::byte, sizeof(T)&gt; tr::asBytes </td>
           <td>(</td>
           <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>object</em></span></td><td>)</td>
           <td></td>
@@ -176,60 +173,19 @@ requires (!StandardLayoutRange&lt;T&gt;)</div>
 
 </div>
 </div>
-<a id="a60ae68fa514bc7ad75b942d6a1db4dfb" name="a60ae68fa514bc7ad75b942d6a1db4dfb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60ae68fa514bc7ad75b942d6a1db4dfb">&#9670;&#160;</a></span>asBytes() <span class="overload">[2/2]</span></h2>
+<a id="a9aad740532ed0286fd2d518ac7f6e9c0" name="a9aad740532ed0286fd2d518ac7f6e9c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aad740532ed0286fd2d518ac7f6e9c0">&#9670;&#160;</a></span>asMutBytes()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;StandardLayoutRange T&gt; </div>
+template&lt;StandardLayout T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto tr::asBytes </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>A type that fulfills <em>StandardLayoutRange</em>.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">range</td><td>The range to get a byte view of.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A span over the range's bytes. </dd></dl>
-
-</div>
-</div>
-<a id="a36cdf89a76c0ec77eebc43cae9db82ca" name="a36cdf89a76c0ec77eebc43cae9db82ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36cdf89a76c0ec77eebc43cae9db82ca">&#9670;&#160;</a></span>asMutBytes() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;StandardLayout T&gt; <br />
-requires (!StandardLayoutRange&lt;T&gt;)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::span&lt; Byte, sizeof(T)&gt; tr::asMutBytes </td>
+          <td class="memname">std::span&lt; std::byte, sizeof(T)&gt; tr::asMutBytes </td>
           <td>(</td>
           <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>object</em></span></td><td>)</td>
           <td></td>
@@ -257,53 +213,13 @@ requires (!StandardLayoutRange&lt;T&gt;)</div>
 
 </div>
 </div>
-<a id="a3992b225234d991a67d757498034617e" name="a3992b225234d991a67d757498034617e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3992b225234d991a67d757498034617e">&#9670;&#160;</a></span>asMutBytes() <span class="overload">[2/2]</span></h2>
+<a id="a1d807527758e0390523e4a367410ed13" name="a1d807527758e0390523e4a367410ed13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d807527758e0390523e4a367410ed13">&#9670;&#160;</a></span>asObjects()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;StandardLayoutRange T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto tr::asMutBytes </td>
-          <td>(</td>
-          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>A type that fulfills <em>StandardLayoutRange</em>.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">range</td><td>The range to get a byte view of.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A mutable span over the range's bytes. </dd></dl>
-
-</div>
-</div>
-<a id="acd393730fbc63a1a7fd9b45c93ebbca2" name="acd393730fbc63a1a7fd9b45c93ebbca2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd393730fbc63a1a7fd9b45c93ebbca2">&#9670;&#160;</a></span>asObjects()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;StandardLayout T, Size S&gt; </div>
+template&lt;StandardLayout T, std::size_t S&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -311,7 +227,7 @@ template&lt;StandardLayout T, Size S&gt; </div>
         <tr>
           <td class="memname">auto tr::asObjects </td>
           <td>(</td>
-          <td class="paramtype">std::span&lt; Byte, S &gt;</td>          <td class="paramname"><span class="paramname"><em>bytes</em></span></td><td>)</td>
+          <td class="paramtype">std::span&lt; std::byte, S &gt;</td>          <td class="paramname"><span class="paramname"><em>bytes</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -417,6 +333,86 @@ template&lt;std::ranges::range R&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The transformed view. </dd></dl>
+
+</div>
+</div>
+<a id="a1257a17328760a08c322c3cf7e1abcf5" name="a1257a17328760a08c322c3cf7e1abcf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1257a17328760a08c322c3cf7e1abcf5">&#9670;&#160;</a></span>rangeBytes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;StandardLayoutRange T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto tr::rangeBytes </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>A type that fulfills <em>StandardLayoutRange</em>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">range</td><td>The range to get a byte view of.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A span over the range's bytes. </dd></dl>
+
+</div>
+</div>
+<a id="ade12d868b54b5ac30424317e3872aa6d" name="ade12d868b54b5ac30424317e3872aa6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade12d868b54b5ac30424317e3872aa6d">&#9670;&#160;</a></span>rangeMutBytes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;StandardLayoutRange T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto tr::rangeMutBytes </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>A type that fulfills <em>StandardLayoutRange</em>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">range</td><td>The range to get a byte view of.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A mutable span over the range's bytes. </dd></dl>
 
 </div>
 </div>

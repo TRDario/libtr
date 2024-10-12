@@ -102,10 +102,10 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a89e55b25a0fbb8506c167f8d01616b20" id="r_a89e55b25a0fbb8506c167f8d01616b20"><td class="memItemLeft" align="right" valign="top"><a id="a89e55b25a0fbb8506c167f8d01616b20" name="a89e55b25a0fbb8506c167f8d01616b20"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b> = Ui32</td></tr>
-<tr class="memdesc:a89e55b25a0fbb8506c167f8d01616b20"><td class="mdescLeft">&#160;</td><td class="mdescRight"><em>ForwardIterator</em> typedef requirement. <br /></td></tr>
-<tr class="separator:a89e55b25a0fbb8506c167f8d01616b20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec3210b1d029fa6e30a22ab065299c18" id="r_aec3210b1d029fa6e30a22ab065299c18"><td class="memItemLeft" align="right" valign="top"><a id="aec3210b1d029fa6e30a22ab065299c18" name="aec3210b1d029fa6e30a22ab065299c18"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>value_type</b> = std::uint32_t</td></tr>
+<tr class="memdesc:aec3210b1d029fa6e30a22ab065299c18"><td class="mdescLeft">&#160;</td><td class="mdescRight"><em>ForwardIterator</em> typedef requirement. <br /></td></tr>
+<tr class="separator:aec3210b1d029fa6e30a22ab065299c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a402b78198c3ae7f8911b12a9a95f7280" id="r_a402b78198c3ae7f8911b12a9a95f7280"><td class="memItemLeft" align="right" valign="top"><a id="a402b78198c3ae7f8911b12a9a95f7280" name="a402b78198c3ae7f8911b12a9a95f7280"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>difference_type</b> = std::ptrdiff_t</td></tr>
 <tr class="memdesc:a402b78198c3ae7f8911b12a9a95f7280"><td class="mdescLeft">&#160;</td><td class="mdescRight"><em>ForwardIterator</em> typedef requirement. <br /></td></tr>
@@ -119,9 +119,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2ae09509e719288f34cf4ea3d1e70964" id="r_a2ae09509e719288f34cf4ea3d1e70964"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ae09509e719288f34cf4ea3d1e70964">Utf8ConstIt</a> (const char *ptr) noexcept</td></tr>
 <tr class="memdesc:a2ae09509e719288f34cf4ea3d1e70964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an iterator pointing to a UTF-8 sequence in memory.  <br /></td></tr>
 <tr class="separator:a2ae09509e719288f34cf4ea3d1e70964"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b93d14db530a4fe1158183a43032ac2" id="r_a4b93d14db530a4fe1158183a43032ac2"><td class="memItemLeft" align="right" valign="top">constexpr Ui32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b93d14db530a4fe1158183a43032ac2">operator*</a> () const noexcept</td></tr>
-<tr class="memdesc:a4b93d14db530a4fe1158183a43032ac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dereferences the iterator.  <br /></td></tr>
-<tr class="separator:a4b93d14db530a4fe1158183a43032ac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab423125e9033a384e9a6c51f4153906f" id="r_ab423125e9033a384e9a6c51f4153906f"><td class="memItemLeft" align="right" valign="top">constexpr std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab423125e9033a384e9a6c51f4153906f">operator*</a> () const noexcept</td></tr>
+<tr class="memdesc:ab423125e9033a384e9a6c51f4153906f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dereferences the iterator.  <br /></td></tr>
+<tr class="separator:ab423125e9033a384e9a6c51f4153906f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a386a75640e9aec7a32b7bf4fa7dcbd6d" id="r_a386a75640e9aec7a32b7bf4fa7dcbd6d"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a386a75640e9aec7a32b7bf4fa7dcbd6d">operator++</a> () noexcept</td></tr>
 <tr class="memdesc:a386a75640e9aec7a32b7bf4fa7dcbd6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pre-increments the iterator.  <br /></td></tr>
 <tr class="separator:a386a75640e9aec7a32b7bf4fa7dcbd6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -190,8 +190,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4b93d14db530a4fe1158183a43032ac2" name="a4b93d14db530a4fe1158183a43032ac2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b93d14db530a4fe1158183a43032ac2">&#9670;&#160;</a></span>operator*()</h2>
+<a id="ab423125e9033a384e9a6c51f4153906f" name="ab423125e9033a384e9a6c51f4153906f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab423125e9033a384e9a6c51f4153906f">&#9670;&#160;</a></span>operator*()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -200,7 +200,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">tr::Ui32 tr::Utf8ConstIt::operator* </td>
+          <td class="memname">std::uint32_t tr::Utf8ConstIt::operator* </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>

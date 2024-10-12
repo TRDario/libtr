@@ -97,7 +97,7 @@ $(function(){ initResizable(false); });
 
 <p>Provides extra hashmap functionality.  
 </p>
-<div class="textblock"><code>import tr:integer;</code><br />
+<div class="textblock"><code>import tr:concepts;</code><br />
 <code>import boost;</code><br />
 <code>import std;</code><br />
 </div><table class="memberdecls">
@@ -114,7 +114,7 @@ template&lt;class Value &gt; </td></tr>
 <tr class="memdesc:a75ea6209bc089aebbd5821b3028643d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typedef for a string-key hash map. <br /></td></tr>
 <tr class="separator:a75ea6209bc089aebbd5821b3028643d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8014c86bab19adcb28b1ba1b58119ce9" id="r_a8014c86bab19adcb28b1ba1b58119ce9"><td class="memTemplParams" colspan="2"><a id="a8014c86bab19adcb28b1ba1b58119ce9" name="a8014c86bab19adcb28b1ba1b58119ce9"></a>
-template&lt;Size Cap, class Value &gt; </td></tr>
+template&lt;std::size_t Cap, class Value &gt; </td></tr>
 <tr class="memitem:a8014c86bab19adcb28b1ba1b58119ce9"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tr::StaticStringHashMap</b> = std::unordered_map&lt;boost::static_string&lt;Cap&gt;, Value, StaticStringHash, StringEquals&gt;</td></tr>
 <tr class="memdesc:a8014c86bab19adcb28b1ba1b58119ce9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typedef for a static_string-key hash map. <br /></td></tr>
 <tr class="separator:a8014c86bab19adcb28b1ba1b58119ce9"><td class="memSeparator" colspan="2">&#160;</td></tr>

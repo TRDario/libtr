@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['noemptyhandlecheck_0',['NoEmptyHandleCheck',['../structtr_1_1NoEmptyHandleCheck.html',1,'tr']]]
+  ['exediriniterror_0',['ExeDirInitError',['../structtr_1_1ExeDirInitError.html',1,'tr']]]
 ];

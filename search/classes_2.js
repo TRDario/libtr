@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['fileerror_0',['FileError',['../classtr_1_1FileError.html',1,'tr']]],
-  ['filenotfound_1',['FileNotFound',['../structtr_1_1FileNotFound.html',1,'tr']]],
-  ['fileopenerror_2',['FileOpenError',['../structtr_1_1FileOpenError.html',1,'tr']]]
+  ['clrvtx2_0',['ClrVtx2',['../structtr_1_1ClrVtx2.html',1,'tr']]],
+  ['colors_1',['Colors',['../structtr_1_1Colors.html',1,'tr']]]
 ];
