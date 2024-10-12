@@ -1,3 +1,8 @@
+/**
+ * @file audio_device.cppm
+ * @brief Provides an audio device class.
+ */
+
 module;
 #include <AL/al.h>
 #include <AL/alc.h>
