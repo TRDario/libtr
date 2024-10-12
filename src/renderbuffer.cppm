@@ -1,3 +1,8 @@
+/**
+ * @file renderbuffer.cppm
+ * @brief Provides a renderbuffer class.
+ */
+
 module;
 #include <cassert>
 #include <GL/glew.h>
