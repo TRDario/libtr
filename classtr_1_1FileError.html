@@ -126,7 +126,8 @@ virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>what<
 <tr class="separator:ac1cf35f6d24c69fe3b3c642c78db506c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Cannot be thrown directly as what() is a pure virtual function. </p>
+<div class="textblock"><p>Generic file error base exception type. </p>
+<p>Cannot be thrown directly as what() is a pure virtual function. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a40619fbc37d069161d0d1215061ca56c" name="a40619fbc37d069161d0d1215061ca56c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a40619fbc37d069161d0d1215061ca56c">&#9670;&#160;</a></span>FileError() <span class="overload">[1/2]</span></h2>
@@ -150,6 +151,8 @@ virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>what<
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs a file error with a path string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>A path string. </td></tr>
@@ -181,6 +184,8 @@ virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>what<
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs a file error with a path. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">path</td><td>A filesystem path.</td></tr>
@@ -219,6 +224,8 @@ virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>what<
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets the path string. </p>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the path string. </dd></dl>
 
 </div>

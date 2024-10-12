@@ -99,7 +99,7 @@ $(function(){ initResizable(false); });
 <div class="contents">
 
 <p>Provides generic vertex types and special views for manipulating ranges of them.  
-</p>
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;cstddef&gt;</code><br />
 <code>import tr:vertex_format;</code><br />
 <code>import glm;</code><br />
@@ -168,7 +168,9 @@ constexpr <a class="el" href="structtr_1_1Colors.html">Colors</a>&#160;</td><td 
 <tr class="memdesc:ae217c35009c80b033d79c54b66c6329b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instance of <a class="el" href="structtr_1_1Colors.html" title="Special view for manipulating colors of a range of vertices.">Colors</a>. <br /></td></tr>
 <tr class="separator:ae217c35009c80b033d79c54b66c6329b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides generic vertex types and special views for manipulating ranges of them. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a1d2b652c0f4a54def34182d8b433aa56" name="a1d2b652c0f4a54def34182d8b433aa56"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1d2b652c0f4a54def34182d8b433aa56">&#9670;&#160;</a></span>operator|() <span class="overload">[1/3]</span></h2>
 
@@ -197,6 +199,8 @@ template&lt;ColorsRange R&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a transformed view over a range of vertices' colors. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">R</td><td>A range type that fulfills <em>ColorsRange</em>.</td></tr>
@@ -241,6 +245,8 @@ template&lt;PositionsRange R&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a transformed view over a range of vertices' positions. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">R</td><td>A range type that fulfills <em>PositionsRange</em>.</td></tr>
@@ -285,6 +291,8 @@ template&lt;UVsRange R&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a transformed view over a range of vertices' UVs. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">R</td><td>A range type that fulfills <em>UVsRange</em>.</td></tr>

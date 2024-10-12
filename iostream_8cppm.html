@@ -98,7 +98,7 @@ $(function(){ initResizable(false); });
 <div class="contents">
 
 <p>Provides miscellaneous input/output functionality.  
-</p>
+<a href="#details">More...</a></p>
 <div class="textblock"><code>import tr:concepts;</code><br />
 <code>import std;</code><br />
 </div><table class="memberdecls">
@@ -160,7 +160,9 @@ Functions</h2></td></tr>
 <tr class="memdesc:ac5f90bbe1a5a9410262b417a1ba4e8d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a C-string to stream.  <br /></td></tr>
 <tr class="separator:ac5f90bbe1a5a9410262b417a1ba4e8d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides miscellaneous input/output functionality. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="abe01d793d646480829aa01f15c0b04f6" name="abe01d793d646480829aa01f15c0b04f6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abe01d793d646480829aa01f15c0b04f6">&#9670;&#160;</a></span>flushBinary() <span class="overload">[1/2]</span></h2>
 
@@ -185,6 +187,8 @@ template&lt;BinaryFlushableContainer Container&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Flushes the rest of the stream into a container. </p>
 <p><em>Container</em> must satisfy <em>BinaryFlushableContainer</em>.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
@@ -231,6 +235,8 @@ template&lt;std::output_iterator&lt; char &gt; It&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Flushes the rest of the stream into an output iterator. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::ios_base::failure</td><td>If the stream throws an error.</td></tr>
@@ -273,6 +279,8 @@ template&lt;std::output_iterator&lt; char &gt; It&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Opens a file for reading with extra checks. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">FileNotFound</td><td>If the file path does not lead to a regular file. </td></tr>
@@ -317,6 +325,8 @@ template&lt;std::output_iterator&lt; char &gt; It&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Opens a file for writing with extra checks. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">FileNotFound</td><td>If the file path does not lead to a regular file. </td></tr>
@@ -359,6 +369,8 @@ template&lt;StandardLayout T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Reads binary data into a new object. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::ios_base::failure</td><td>If the stream throws an error.</td></tr>
@@ -403,6 +415,8 @@ template&lt;StandardLayout T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Reads binary data into an existing object. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::ios_base::failure</td><td>If the stream throws an error.</td></tr>
@@ -447,6 +461,8 @@ template&lt;StandardLayoutRange Range&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Reads binary data into a contiguous range. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::ios_base::failure</td><td>If the stream throws an error.</td></tr>
@@ -489,6 +505,8 @@ template&lt;StandardLayoutRange Range&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Writes a C-string to stream. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::ios_base::failure</td><td>If the stream throws an error.</td></tr>
@@ -533,6 +551,8 @@ template&lt;StandardLayout T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Writes an object's binary data to stream. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::ios_base::failure</td><td>If the stream throws an error.</td></tr>
@@ -577,6 +597,8 @@ template&lt;StandardLayoutRange Range&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Writes a contiguous range's binary data to stream. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::ios_base::failure</td><td>If the stream throws an error.</td></tr>

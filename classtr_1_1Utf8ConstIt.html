@@ -130,7 +130,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae63c68f5fce8ff144f7521329219f2f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The iterator fulfills the <em>ForwardIterator</em> requirements. </p>
+<div class="textblock"><p>Unicode codepoint const iterator for UTF-8 string views. </p>
+<p>The iterator fulfills the <em>ForwardIterator</em> requirements. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a346088f94c351ce754617453099fec8b" name="a346088f94c351ce754617453099fec8b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a346088f94c351ce754617453099fec8b">&#9670;&#160;</a></span>Utf8ConstIt() <span class="overload">[1/2]</span></h2>
@@ -154,6 +155,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Default-constructs an iterator. </p>
 <p>An iterator constructed in this manner is in an non-dereferencable state until a valid value is assigned to it. </p>
 
 </div>
@@ -180,6 +183,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs an iterator pointing to a UTF-8 sequence in memory. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">ptr</td><td>A pointer to a valid UTF-8 char sequence. </td></tr>
@@ -212,6 +217,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Dereferences the iterator. </p>
 <p>The iterator must be in a dereferencable state (i.e., not in a default-constructed state or an iterator created by utf8End()) for a call to this function to be valid.</p>
 <dl class="section return"><dt>Returns</dt><dd>A Unicode codepoint. </dd></dl>
 
@@ -239,6 +246,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Pre-increments the iterator. </p>
 <p>The iterator must be in a dereferencable state (i.e., not in a default-constructed state or an iterator created by utf8End()) for a call to this function to be valid.</p>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the incremented iterator. </dd></dl>
 
@@ -266,6 +275,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Post-increments the iterator. </p>
 <p>The iterator must be in a dereferencable state (i.e., not in a default-constructed state or an iterator created by utf8End()) for a call to this function to be valid.</p>
 <dl class="section return"><dt>Returns</dt><dd>An iterator with the prior state of the incremented iterator. </dd></dl>
 

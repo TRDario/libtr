@@ -96,7 +96,7 @@ $(function(){ initResizable(false); });
 <div class="contents">
 
 <p>Provides miscellaneous range functionality.  
-</p>
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;cassert&gt;</code><br />
 <code>import tr:concepts;</code><br />
 <code>import std;</code><br />
@@ -132,7 +132,9 @@ Functions</h2></td></tr>
 <tr class="memdesc:ac8f05cb3910768caf9e6f93ce213c444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a transformed view over a range as a range of one of its members.  <br /></td></tr>
 <tr class="separator:ac8f05cb3910768caf9e6f93ce213c444"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides miscellaneous range functionality. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a4ba33147a328d3e30640eefe93013d45" name="a4ba33147a328d3e30640eefe93013d45"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4ba33147a328d3e30640eefe93013d45">&#9670;&#160;</a></span>asBytes()</h2>
 
@@ -157,6 +159,8 @@ template&lt;StandardLayout T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets a view of an object as a span of immutable bytes. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>A standard layout type.</td></tr>
@@ -197,6 +201,8 @@ template&lt;StandardLayout T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets a view of an object as a span of mutable bytes. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>A standard layout type.</td></tr>
@@ -237,6 +243,8 @@ template&lt;StandardLayout T, std::size_t S&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Reinterprets a span of mutable bytes as a span of objects. </p>
 <p>Reinterprets a span of immutable bytes as a span of const objects.</p>
 <p>The span must be an integer multiple of the size of the object being cast into. If the span has a static length, the function will fail to compile, and if the span has a dynamic length, a failed assertion may be triggered.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -281,6 +289,8 @@ template&lt;class R &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates an adaptor for a transformed view over a range as a range of one of its members. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ptr</td><td>A class member pointer.</td></tr>
@@ -319,6 +329,8 @@ template&lt;std::ranges::range R&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a transformed view over a range as a range of one of its members. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">R</td><td>A range type.</td></tr>
@@ -360,6 +372,8 @@ template&lt;StandardLayoutRange T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets a view of a contiguous range as a span of immutable bytes. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>A type that fulfills <em>StandardLayoutRange</em>.</td></tr>
@@ -400,6 +414,8 @@ template&lt;StandardLayoutRange T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets a view of a contiguous range as a span of mutable bytes. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>A type that fulfills <em>StandardLayoutRange</em>.</td></tr>

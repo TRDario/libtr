@@ -142,7 +142,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab517ff0547f7afcf2cafa400f479d72b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The benchmark stores timestamps going up to 5s back for calculations like average/min/max. </p>
+<div class="textblock"><p>Simple benchmarking class. </p>
+<p>The benchmark stores timestamps going up to 5s back for calculations like average/min/max. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="af5ff9ce8ba2a91fac4eacb660643a2e4" name="af5ff9ce8ba2a91fac4eacb660643a2e4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af5ff9ce8ba2a91fac4eacb660643a2e4">&#9670;&#160;</a></span>average()</h2>
@@ -166,6 +167,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets the average duration of the available measurements. </p>
 <dl class="section return"><dt>Returns</dt><dd>The average duration of the available measurements, or 0s if no measurements are in the queue. </dd></dl>
 
 </div>
@@ -192,6 +195,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Clears all previous measurements from the queue. </p>
 <p>If a measurement was started but not stopped, it is cancelled. </p>
 
 </div>
@@ -218,6 +223,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets the average number of measurements per second. </p>
 <dl class="section return"><dt>Returns</dt><dd>The average number of measurements per second, or 0 if no measurements are in the queue. </dd></dl>
 
 </div>
@@ -244,6 +251,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets the duration of the latest measurement. </p>
 <dl class="section return"><dt>Returns</dt><dd>The duration of the latest measurement, or 0s if no measurements are in the queue. </dd></dl>
 
 </div>
@@ -270,6 +279,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets the duration of the longest available measurement. </p>
 <dl class="section return"><dt>Returns</dt><dd>The duration of the longest available measurement, or 0s if no measurements are in the queue. </dd></dl>
 
 </div>
@@ -296,6 +307,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets the available measurements. </p>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the measurement queue. </dd></dl>
 
 </div>
@@ -322,6 +335,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets the duration of the shortest available measurement. </p>
 <dl class="section return"><dt>Returns</dt><dd>The duration of the shortest available measurement, or 0s if no measurements are in the queue. </dd></dl>
 
 </div>
@@ -348,6 +363,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Starts a new measurement. </p>
 <p>If a previous measurement was started but not ended, a failed assertion may be raised. </p>
 
 </div>
@@ -374,6 +391,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Stops a measurement. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::bad_alloc</td><td>If the deque failed to allocate memory for the measurement.</td></tr>
