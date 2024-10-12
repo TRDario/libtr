@@ -82,7 +82,7 @@ tr::IndexBufferMap::operator std::span<Ui16>() const noexcept
 
 std::span<tr::Ui16> tr::IndexBufferMap::span() const noexcept
 {
-    return spanFromBytes<Ui16>(GLBufferMap::span());
+    return asObjects<Ui16>(GLBufferMap::span());
 }
 
 tr::IndexBuffer::IndexBuffer() noexcept

@@ -20,4 +20,14 @@ export namespace tr {
 	template <class... Args, template <class...> class Z> struct isSpecializationOf<Z<Args...>, Z> : std::true_type {};
 	template <class T, template <class...> class Z> inline constexpr bool isSpecializationOfV = isSpecializationOf<T, Z>::value;
 	template<class T, template <class...> class Z> concept SpecializationOf = isSpecializationOfV<T, Z>;
+
+	/******************************************************************************************************************
+    * Concept denoting a C++ standard layout object.
+    ******************************************************************************************************************/
+    template <class T> concept StandardLayout = std::is_standard_layout_v<T>;
+	
+	/******************************************************************************************************************
+    * Concept denoting a contiguous range of standard layout objects.
+    ******************************************************************************************************************/
+    template <class T> concept StandardLayoutRange = std::ranges::contiguous_range<T> && StandardLayout<std::ranges::range_value_t<T>>;
 }
