@@ -16,7 +16,7 @@ import :vertex_format;
 
 export namespace tr {
     /******************************************************************************************************************
-    * Concept denoting a range trasnformable with tr::positions.
+    * Concept denoting a range transformable with tr::positions.
     *
     * To satisfy this requirement, @em T must satisfy @em std::ranges::range and its value type must have
     * a member field "pos".
@@ -25,7 +25,7 @@ export namespace tr {
                                                 requires (std::ranges::range_value_t<T> val) { val.pos; };
 
     /******************************************************************************************************************
-    * Concept denoting a range trasnformable with tr::uvs.
+    * Concept denoting a range transformable with tr::uvs.
     *
     * To satisfy this requirement, @em T must satisfy @em std::ranges::range and its value type must have
     * a member field "uv".
@@ -34,7 +34,7 @@ export namespace tr {
                                           requires (std::ranges::range_value_t<T> val) { val.uv; };
 
     /******************************************************************************************************************
-    * Concept denoting a range trasnformable with tr::colors.
+    * Concept denoting a range transformable with tr::colors.
     *
     * To satisfy this requirement, @em T must satisfy @em std::ranges::range and its value type must have
     * a member field "color".
