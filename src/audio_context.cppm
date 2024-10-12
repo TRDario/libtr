@@ -21,7 +21,7 @@ export namespace tr {
         /**************************************************************************************************************
          * Constructs an audio context creation error.
          *
-         * @param name The error string.
+         * @param error The error string.
          *
          * @exception std::bad_alloc If constructing the error string failed.
 	     **************************************************************************************************************/

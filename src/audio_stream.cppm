@@ -134,10 +134,24 @@ export namespace tr {
 // IMPLEMENTATION
 
 namespace tr {
-    inline constexpr int AUDIO_STREAM_BUFFER_SIZE { 8192 };                     // The size of the buffers used in streams.
-    std::forward_list<std::reference_wrapper<AudioStream>> _audioStreams;       // List of active streams.
-    std::mutex                                             _audioStreamsMutex;  // Mutex protecting g_audioStreams.
-    std::thread                                            _audioStreamsThread; // Audio stream refreshing thread.
+    /// @private
+    // The size of the buffers used in streams.
+    inline constexpr int AUDIO_STREAM_BUFFER_SIZE { 8192 };       
+
+    /// @private
+    // List of active streams.
+    std::forward_list<std::reference_wrapper<AudioStream>> _audioStreams;
+
+    /// @private
+    // Mutex protecting g_audioStreams.
+    std::mutex _audioStreamsMutex;
+
+    /// @private
+    // Audio stream refreshing thread.
+    std::thread _audioStreamsThread; 
+
+    /// @private
+    // Audio stream refreshing thread function.
     void audioStreamThread();
 }
 
