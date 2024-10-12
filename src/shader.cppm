@@ -694,7 +694,7 @@ bool tr::Shader::saveCache(const std::filesystem::path& path) noexcept
 	writeBinary(file, "TRSC");
 	writeBinary(file, _type);
 	writeBinary(file, format);
-	writeBinary(file, data);
+	writeBinaryRange(file, data);
 	return true;
 }
 

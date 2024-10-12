@@ -1,3 +1,8 @@
+/**
+ * @file path.cppm
+ * @brief Provides common directory accessors.
+ */
+
 module;
 #include <SDL2/SDL.h>
 

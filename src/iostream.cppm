@@ -1,11 +1,12 @@
 /**
  * @file iostream.cppm
- * @brief Provides various input/output functionality.
+ * @brief Provides miscellaneous input/output functionality.
  */
 
 export module tr:iostream;
 
 import std;
+import :concepts;
 import :integer;
 
 export namespace tr {
@@ -119,7 +120,7 @@ export namespace tr {
      * @param[in] is The input stream.
      * @param[out] out The output object.
 	 ******************************************************************************************************************/
-	template <class T>
+	template <StandardLayout T>
     void readBinary(std::istream& is, T& out);
 
 	/******************************************************************************************************************
@@ -131,7 +132,7 @@ export namespace tr {
      *
      * @return A new object with the extracted value.
 	 ******************************************************************************************************************/
-	template <class T>
+	template <StandardLayout T>
     T readBinary(std::istream& is);
 
 	/******************************************************************************************************************
@@ -142,8 +143,8 @@ export namespace tr {
      * @param[in] is The input stream.
      * @param[out] out The output range.
 	 ******************************************************************************************************************/
-	template <std::ranges::contiguous_range Range>
-    void readBinary(std::istream& is, Range&& out);
+	template <StandardLayoutRange Range>
+    void readBinaryRange(std::istream& is, Range&& out);
 
 
 	/******************************************************************************************************************
@@ -181,7 +182,7 @@ export namespace tr {
      * @param[out] os The output stream.
      * @param[in] in The input object.
 	 ******************************************************************************************************************/
-	template <class T>
+	template <StandardLayout T>
     void writeBinary(std::ostream& os, const T& in);
 
 	/******************************************************************************************************************
@@ -192,8 +193,8 @@ export namespace tr {
      * @param[out] os The output stream.
      * @param[in] range The input range.
 	 ******************************************************************************************************************/
-	template <std::ranges::contiguous_range Range>
-    void writeBinary(std::ostream& os, const Range& range);
+	template <StandardLayoutRange Range>
+    void writeBinaryRange(std::ostream& os, const Range& range);
 
 	/******************************************************************************************************************
 	 * Writes a C-string to stream.
@@ -263,13 +264,13 @@ std::ifstream tr::openFileR(const std::filesystem::path& path, std::ios::openmod
     return file;
 }
 
-template <class T>
+template <tr::StandardLayout T>
 void tr::readBinary(std::istream& is, T& out)
 {
     is.read((char*)(std::addressof(out)), sizeof(T));
 }
 
-template <class T>
+template <tr::StandardLayout T>
 T tr::readBinary(std::istream& is)
 {
     std::array<char, sizeof(T)> bytes;
@@ -277,8 +278,8 @@ T tr::readBinary(std::istream& is)
     return std::bit_cast<T>(bytes);
 }
 
-template <std::ranges::contiguous_range Range>
-void tr::readBinary(std::istream& is, Range&& out)
+template <tr::StandardLayoutRange Range>
+void tr::readBinaryRange(std::istream& is, Range&& out)
 {
     is.read((char*)(std::addressof(*out.begin())), out.size() * sizeof(typename Range::value_type));
 }
@@ -297,14 +298,14 @@ Container tr::flushBinary(std::istream& is)
     return out;
 }
 
-template <class T>
+template <tr::StandardLayout T>
 void tr::writeBinary(std::ostream& os, const T& in)
 {
     os.write((const char*)(std::addressof(in)), sizeof(T));
 }
 
-template <std::ranges::contiguous_range Range>
-void tr::writeBinary(std::ostream& os, const Range& range)
+template <tr::StandardLayoutRange Range>
+void tr::writeBinaryRange(std::ostream& os, const Range& range)
 {
     os.write((const char*)(std::addressof(*range.begin())), range.size() * sizeof(typename Range::value_type));
 }

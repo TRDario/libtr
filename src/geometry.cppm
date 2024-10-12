@@ -75,10 +75,10 @@ export namespace tr {
 	template <std::floating_point T> std::optional<glm::tvec2<T>> intersect(glm::tvec2<T> a1, Angle<T> th1, glm::tvec2<T> a2, glm::tvec2<T> b2) noexcept;
 
 	// Calculates the 2D cross product of two vectors.
-	template <class T1, class T2> constexpr Promoted<T1, T2> cross2(glm::tvec2<T1> a, glm::tvec2<T2> b) noexcept;
+	template <class T1, class T2> constexpr std::common_type_t<T1, T2> cross2(glm::tvec2<T1> a, glm::tvec2<T2> b) noexcept;
 
 	// Generic modulo operation.
-	template <Arithmetic T1, Arithmetic T2> Promoted<T1, T2> mod(T1 v, T2 mod) noexcept;
+	template <Arithmetic T1, Arithmetic T2> std::common_type_t<T1, T2> mod(T1 v, T2 mod) noexcept;
 
 	// Performs a mirror repeat mapping of val to the range min-max.
 	template <Arithmetic T> T mirrorRepeat(T v, T min, T max) noexcept;
@@ -175,7 +175,7 @@ bool tr::within(glm::tvec2<T2> p, const Circle<T1>& c) noexcept
 template <class T1, class T2, class T3>
 constexpr bool tr::collinear(glm::tvec2<T1> a, glm::tvec2<T2> b, glm::tvec2<T3> c) noexcept
 {
-    auto tol { std::abs(std::max<Promoted<T1, T2, T3>>({ a.x, a.y, b.x, b.y, c.x, c.y })) * 0.000001f };
+    auto tol { std::abs(std::max<std::common_type_t<T1, T2, T3>>({ a.x, a.y, b.x, b.y, c.x, c.y })) * 0.000001f };
     return std::abs((b.x - a.x) * (c.y - a.y) - (c.x - a.x) * (b.y - a.y)) < tol;
 }
 
@@ -283,18 +283,18 @@ std::optional<glm::tvec2<T>> tr::intersect(glm::tvec2<T> a1, Angle<T> th1, glm::
 }
 
 template <class T1, class T2>
-constexpr tr::Promoted<T1, T2> tr::cross2(glm::tvec2<T1> a, glm::tvec2<T2> b) noexcept
+constexpr std::common_type_t<T1, T2> tr::cross2(glm::tvec2<T1> a, glm::tvec2<T2> b) noexcept
 {
     return a.x * b.y - a.y * b.x;
 }
 
 template <tr::Arithmetic T1, tr::Arithmetic T2>
-tr::Promoted<T1, T2> tr::mod(T1 v, T2 mod) noexcept
+std::common_type_t<T1, T2> tr::mod(T1 v, T2 mod) noexcept
 {
     if constexpr (std::floating_point<T1> || std::floating_point<T2>) {
-        return std::fmod(Promoted<T1, T2>(v), Promoted<T1, T2>(mod));
+        return std::fmod(std::common_type_t<T1, T2>(v), std::common_type_t<T1, T2>(mod));
     }
-    else return Promoted<T1, T2>(v % mod);
+    else return std::common_type_t<T1, T2>(v % mod);
 }
 
 template <tr::Arithmetic T>
