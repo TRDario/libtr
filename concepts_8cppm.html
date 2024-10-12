@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>libtr: handle.cppm File Reference</title>
+<title>libtr: concepts.cppm File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -90,42 +90,44 @@ $(function(){ initResizable(false); });
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#concepts">Concepts</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">handle.cppm File Reference<div class="ingroups">module <a class="el" href="module__tr.html">tr</a></div></div></div>
+<a href="#typedef-members">Typedefs</a>  </div>
+  <div class="headertitle"><div class="title">concepts.cppm File Reference<div class="ingroups">module <a class="el" href="module__tr.html">tr</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Provides a RAII wrapper over non-pointer handles.  
+<p>Provides miscellaneous concepts.  
 </p>
-<div class="textblock"><code>#include &lt;cassert&gt;</code><br />
+<div class="textblock"><code>#include &lt;half.hpp&gt;</code><br />
 <code>import std;</code><br />
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1NoEmptyHandleCheck.html">tr::NoEmptyHandleCheck</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag struct used in some handle functions to suppress empty value checking.  <a href="structtr_1_1NoEmptyHandleCheck.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1Handle.html">tr::Handle&lt; T, EmptyValue, Deleter &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RAII wrapper over non-pointer handles.  <a href="classtr_1_1Handle.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1HandleType.html">tr::HandleType</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept that denotes a valid handle base type. <br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1FloatingPoint.html">tr::FloatingPoint</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extended floating point concept that includes Half. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1HandleDeleter.html">tr::HandleDeleter</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept that denotes a valid handle deleter type for a Handle of base type <em>HandleT</em>. <br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1Arithmetic.html">tr::Arithmetic</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept wrapper over std::is_arithmetic_v. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1Enumerator.html">tr::Enumerator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept wrapper over std::is_enum_v. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1StandardLayout.html">tr::StandardLayout</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept wrapper over std::is_standard_layout_v. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1SpecializationOf.html">tr::SpecializationOf</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept that denotes a type is a specialization of a certain template. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1StandardLayoutRange.html">tr::StandardLayoutRange</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept denoting a contiguous range of standard layout objects. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a1e7ac718fa682f5f24962b1ff9394da7" id="r_a1e7ac718fa682f5f24962b1ff9394da7"><td class="memItemLeft" align="right" valign="top"><a id="a1e7ac718fa682f5f24962b1ff9394da7" name="a1e7ac718fa682f5f24962b1ff9394da7"></a>
-constexpr <a class="el" href="structtr_1_1NoEmptyHandleCheck.html">NoEmptyHandleCheck</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tr::NO_EMPTY_HANDLE_CHECK</b> {}</td></tr>
-<tr class="memdesc:a1e7ac718fa682f5f24962b1ff9394da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag value used in some handle functions to suppress empty value checking. <br /></td></tr>
-<tr class="separator:a1e7ac718fa682f5f24962b1ff9394da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:aa9fb5ed6efb7979279398a2ed8ab41cc" id="r_aa9fb5ed6efb7979279398a2ed8ab41cc"><td class="memItemLeft" align="right" valign="top"><a id="aa9fb5ed6efb7979279398a2ed8ab41cc" name="aa9fb5ed6efb7979279398a2ed8ab41cc"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>tr::Half</b> = half_float::half</td></tr>
+<tr class="memdesc:aa9fb5ed6efb7979279398a2ed8ab41cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typedef for a 16-bit floating-point type. <br /></td></tr>
+<tr class="separator:aa9fb5ed6efb7979279398a2ed8ab41cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

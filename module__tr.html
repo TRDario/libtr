@@ -114,8 +114,20 @@ Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1ColorsRange.html">tr::ColorsRange</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept denoting a range trasnformable with tr::colors. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1FloatingPoint.html">tr::FloatingPoint</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extended floating point concept that includes Half. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1Arithmetic.html">tr::Arithmetic</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept wrapper over std::is_arithmetic_v. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1Enumerator.html">tr::Enumerator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept wrapper over std::is_enum_v. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1StandardLayout.html">tr::StandardLayout</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept denoting a C++ standard layout object. <br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept wrapper over std::is_standard_layout_v. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1SpecializationOf.html">tr::SpecializationOf</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept that denotes a type is a specialization of a certain template. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1StandardLayoutRange.html">tr::StandardLayoutRange</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept denoting a contiguous range of standard layout objects. <br /></td></tr>
@@ -1096,11 +1108,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Size</b> = Deque::si
 <tr class="separator:a8b9a4e0ca09f5a05a6038c06cca68fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9fb5ed6efb7979279398a2ed8ab41cc" id="r_aa9fb5ed6efb7979279398a2ed8ab41cc"><td class="memItemLeft" align="right" valign="top"><a id="aa9fb5ed6efb7979279398a2ed8ab41cc" name="aa9fb5ed6efb7979279398a2ed8ab41cc"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>tr::Half</b> = half_float::half</td></tr>
+<tr class="memdesc:aa9fb5ed6efb7979279398a2ed8ab41cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typedef for a 16-bit floating-point type. <br /></td></tr>
 <tr class="separator:aa9fb5ed6efb7979279398a2ed8ab41cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae15ed0afc41175afb40b8c2c30af2f16" id="r_ae15ed0afc41175afb40b8c2c30af2f16"><td class="memTemplParams" colspan="2"><a id="ae15ed0afc41175afb40b8c2c30af2f16" name="ae15ed0afc41175afb40b8c2c30af2f16"></a>
-template&lt;class... Ts&gt; </td></tr>
-<tr class="memitem:ae15ed0afc41175afb40b8c2c30af2f16"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tr::Promoted</b> = std::common_type_t&lt;Ts...&gt;</td></tr>
-<tr class="separator:ae15ed0afc41175afb40b8c2c30af2f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4fd3ec324fda698be311d9444e4bbe6" id="r_af4fd3ec324fda698be311d9444e4bbe6"><td class="memItemLeft" align="right" valign="top"><a id="af4fd3ec324fda698be311d9444e4bbe6" name="af4fd3ec324fda698be311d9444e4bbe6"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>tr::Clock</b> = std::chrono::steady_clock</td></tr>
 <tr class="separator:af4fd3ec324fda698be311d9444e4bbe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1524,14 +1533,14 @@ template&lt;std::floating_point T&gt; </td></tr>
 template&lt;std::floating_point T&gt; </td></tr>
 <tr class="memitem:a84ae5194d3edeffb9543117423003baf"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; glm::tvec2&lt; T &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tr::intersect</b> (glm::tvec2&lt; T &gt; a1, Angle&lt; T &gt; th1, glm::tvec2&lt; T &gt; a2, glm::tvec2&lt; T &gt; b2) noexcept</td></tr>
 <tr class="separator:a84ae5194d3edeffb9543117423003baf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2e9a2257454e47b8f6437acf0182592" id="r_ad2e9a2257454e47b8f6437acf0182592"><td class="memTemplParams" colspan="2"><a id="ad2e9a2257454e47b8f6437acf0182592" name="ad2e9a2257454e47b8f6437acf0182592"></a>
+<tr class="memitem:aee714b85d5c784cc52d35e4e6109ee7a" id="r_aee714b85d5c784cc52d35e4e6109ee7a"><td class="memTemplParams" colspan="2"><a id="aee714b85d5c784cc52d35e4e6109ee7a" name="aee714b85d5c784cc52d35e4e6109ee7a"></a>
 template&lt;class T1 , class T2 &gt; </td></tr>
-<tr class="memitem:ad2e9a2257454e47b8f6437acf0182592"><td class="memTemplItemLeft" align="right" valign="top">constexpr Promoted&lt; T1, T2 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tr::cross2</b> (glm::tvec2&lt; T1 &gt; a, glm::tvec2&lt; T2 &gt; b) noexcept</td></tr>
-<tr class="separator:ad2e9a2257454e47b8f6437acf0182592"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a630a8a3b932462aaf28e4c7836ed9531" id="r_a630a8a3b932462aaf28e4c7836ed9531"><td class="memTemplParams" colspan="2"><a id="a630a8a3b932462aaf28e4c7836ed9531" name="a630a8a3b932462aaf28e4c7836ed9531"></a>
+<tr class="memitem:aee714b85d5c784cc52d35e4e6109ee7a"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::common_type_t&lt; T1, T2 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tr::cross2</b> (glm::tvec2&lt; T1 &gt; a, glm::tvec2&lt; T2 &gt; b) noexcept</td></tr>
+<tr class="separator:aee714b85d5c784cc52d35e4e6109ee7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affe84581e25067026831b1a61bcb1186" id="r_affe84581e25067026831b1a61bcb1186"><td class="memTemplParams" colspan="2"><a id="affe84581e25067026831b1a61bcb1186" name="affe84581e25067026831b1a61bcb1186"></a>
 template&lt;Arithmetic T1, Arithmetic T2&gt; </td></tr>
-<tr class="memitem:a630a8a3b932462aaf28e4c7836ed9531"><td class="memTemplItemLeft" align="right" valign="top">Promoted&lt; T1, T2 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tr::mod</b> (T1 v, T2 mod) noexcept</td></tr>
-<tr class="separator:a630a8a3b932462aaf28e4c7836ed9531"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affe84581e25067026831b1a61bcb1186"><td class="memTemplItemLeft" align="right" valign="top">std::common_type_t&lt; T1, T2 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tr::mod</b> (T1 v, T2 mod) noexcept</td></tr>
+<tr class="separator:affe84581e25067026831b1a61bcb1186"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a966677acc6d33fb6426f9cdb14810c7a" id="r_a966677acc6d33fb6426f9cdb14810c7a"><td class="memTemplParams" colspan="2"><a id="a966677acc6d33fb6426f9cdb14810c7a" name="a966677acc6d33fb6426f9cdb14810c7a"></a>
 template&lt;Arithmetic T&gt; </td></tr>
 <tr class="memitem:a966677acc6d33fb6426f9cdb14810c7a"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tr::mirrorRepeat</b> (T v, T min, T max) noexcept</td></tr>
@@ -2043,16 +2052,16 @@ requires (!StandardLayoutRange&lt;T&gt;)</td></tr>
 <tr class="memitem:a397d9de6acd5b871a9a34d4cb4247d3d"><td class="memTemplItemLeft" align="right" valign="top">std::span&lt; const Byte, sizeof(T)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ranges_8cppm.html#a397d9de6acd5b871a9a34d4cb4247d3d">tr::asBytes</a> (const T &amp;object) noexcept</td></tr>
 <tr class="memdesc:a397d9de6acd5b871a9a34d4cb4247d3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a view of an object as a span of immutable bytes.  <br /></td></tr>
 <tr class="separator:a397d9de6acd5b871a9a34d4cb4247d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7512507b978295c527b3bd5fe5b50b62" id="r_a7512507b978295c527b3bd5fe5b50b62"><td class="memTemplParams" colspan="2">template&lt;StandardLayoutRange T&gt; </td></tr>
-<tr class="memitem:a7512507b978295c527b3bd5fe5b50b62"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ranges_8cppm.html#a7512507b978295c527b3bd5fe5b50b62">tr::asMutBytes</a> (T &amp;object) noexcept</td></tr>
-<tr class="memdesc:a7512507b978295c527b3bd5fe5b50b62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a view of a contiguous range as a span of mutable bytes.  <br /></td></tr>
-<tr class="separator:a7512507b978295c527b3bd5fe5b50b62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3992b225234d991a67d757498034617e" id="r_a3992b225234d991a67d757498034617e"><td class="memTemplParams" colspan="2">template&lt;StandardLayoutRange T&gt; </td></tr>
+<tr class="memitem:a3992b225234d991a67d757498034617e"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ranges_8cppm.html#a3992b225234d991a67d757498034617e">tr::asMutBytes</a> (T &amp;range) noexcept</td></tr>
+<tr class="memdesc:a3992b225234d991a67d757498034617e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a view of a contiguous range as a span of mutable bytes.  <br /></td></tr>
+<tr class="separator:a3992b225234d991a67d757498034617e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36cdf89a76c0ec77eebc43cae9db82ca" id="r_a36cdf89a76c0ec77eebc43cae9db82ca"><td class="memTemplParams" colspan="2">template&lt;StandardLayout T&gt; <br />
 requires (!StandardLayoutRange&lt;T&gt;)</td></tr>
 <tr class="memitem:a36cdf89a76c0ec77eebc43cae9db82ca"><td class="memTemplItemLeft" align="right" valign="top">std::span&lt; Byte, sizeof(T)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ranges_8cppm.html#a36cdf89a76c0ec77eebc43cae9db82ca">tr::asMutBytes</a> (T &amp;object) noexcept</td></tr>
 <tr class="memdesc:a36cdf89a76c0ec77eebc43cae9db82ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a view of an object as a span of mutable bytes.  <br /></td></tr>
 <tr class="separator:a36cdf89a76c0ec77eebc43cae9db82ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd393730fbc63a1a7fd9b45c93ebbca2" id="r_acd393730fbc63a1a7fd9b45c93ebbca2"><td class="memTemplParams" colspan="2">template&lt;class T , Size S&gt; </td></tr>
+<tr class="memitem:acd393730fbc63a1a7fd9b45c93ebbca2" id="r_acd393730fbc63a1a7fd9b45c93ebbca2"><td class="memTemplParams" colspan="2">template&lt;StandardLayout T, Size S&gt; </td></tr>
 <tr class="memitem:acd393730fbc63a1a7fd9b45c93ebbca2"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ranges_8cppm.html#acd393730fbc63a1a7fd9b45c93ebbca2">tr::asObjects</a> (std::span&lt; Byte, S &gt; bytes) noexcept</td></tr>
 <tr class="memdesc:acd393730fbc63a1a7fd9b45c93ebbca2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reinterprets a span of mutable bytes as a span of objects.  <br /></td></tr>
 <tr class="separator:acd393730fbc63a1a7fd9b45c93ebbca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3212,14 +3221,26 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (unsig
 <tr class="memitem:a2e687bbc18806495e5e58ec9b41beb36"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtr_1_1Positions.html#a2e687bbc18806495e5e58ec9b41beb36">operator()</a> (R &amp;&amp;range) const noexcept</td></tr>
 <tr class="memdesc:a2e687bbc18806495e5e58ec9b41beb36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a transformed view over a range of vertices' positions.  <br /></td></tr>
 <tr class="separator:a2e687bbc18806495e5e58ec9b41beb36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3557de804e03d5f86af9e2f1c3f4445f" id="r_a3557de804e03d5f86af9e2f1c3f4445f"><td class="memTemplParams" colspan="2">template&lt;PositionsRange R&gt; </td></tr>
+<tr class="memitem:a3557de804e03d5f86af9e2f1c3f4445f"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vertex_8cppm.html#a3557de804e03d5f86af9e2f1c3f4445f">tr::operator|</a> (R &amp;&amp;range, const Positions &amp;) noexcept</td></tr>
+<tr class="memdesc:a3557de804e03d5f86af9e2f1c3f4445f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a transformed view over a range of vertices' positions.  <br /></td></tr>
+<tr class="separator:a3557de804e03d5f86af9e2f1c3f4445f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ef3814c90fcc85b3854798b7805fdd2" id="r_a5ef3814c90fcc85b3854798b7805fdd2"><td class="memTemplParams" colspan="2">template&lt;UVsRange R&gt; </td></tr>
 <tr class="memitem:a5ef3814c90fcc85b3854798b7805fdd2"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtr_1_1UVs.html#a5ef3814c90fcc85b3854798b7805fdd2">operator()</a> (R &amp;&amp;range) const noexcept</td></tr>
 <tr class="memdesc:a5ef3814c90fcc85b3854798b7805fdd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a transformed view over a range of vertices' <a class="el" href="structtr_1_1UVs.html" title="Special view for manipulating UVs of a range of vertices.">UVs</a>.  <br /></td></tr>
 <tr class="separator:a5ef3814c90fcc85b3854798b7805fdd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdeac3b0c7540c16151e816c91f784f0" id="r_afdeac3b0c7540c16151e816c91f784f0"><td class="memTemplParams" colspan="2">template&lt;UVsRange R&gt; </td></tr>
+<tr class="memitem:afdeac3b0c7540c16151e816c91f784f0"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vertex_8cppm.html#afdeac3b0c7540c16151e816c91f784f0">tr::operator|</a> (R &amp;&amp;range, const UVs &amp;) noexcept</td></tr>
+<tr class="memdesc:afdeac3b0c7540c16151e816c91f784f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a transformed view over a range of vertices' <a class="el" href="structtr_1_1UVs.html" title="Special view for manipulating UVs of a range of vertices.">UVs</a>.  <br /></td></tr>
+<tr class="separator:afdeac3b0c7540c16151e816c91f784f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34db316a07abdaf3d3f679e81d31f769" id="r_a34db316a07abdaf3d3f679e81d31f769"><td class="memTemplParams" colspan="2">template&lt;ColorsRange R&gt; </td></tr>
 <tr class="memitem:a34db316a07abdaf3d3f679e81d31f769"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtr_1_1Colors.html#a34db316a07abdaf3d3f679e81d31f769">operator()</a> (R &amp;&amp;range) const noexcept</td></tr>
 <tr class="memdesc:a34db316a07abdaf3d3f679e81d31f769"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a transformed view over a range of vertices' colors.  <br /></td></tr>
 <tr class="separator:a34db316a07abdaf3d3f679e81d31f769"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d2b652c0f4a54def34182d8b433aa56" id="r_a1d2b652c0f4a54def34182d8b433aa56"><td class="memTemplParams" colspan="2">template&lt;ColorsRange R&gt; </td></tr>
+<tr class="memitem:a1d2b652c0f4a54def34182d8b433aa56"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="vertex_8cppm.html#a1d2b652c0f4a54def34182d8b433aa56">tr::operator|</a> (R &amp;&amp;range, const Colors &amp;) noexcept</td></tr>
+<tr class="memdesc:a1d2b652c0f4a54def34182d8b433aa56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a transformed view over a range of vertices' colors.  <br /></td></tr>
+<tr class="separator:a1d2b652c0f4a54def34182d8b433aa56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71299d65dbeb439340b00fc32aa24c57" id="r_a71299d65dbeb439340b00fc32aa24c57"><td class="memItemLeft" align="right" valign="top"><a id="a71299d65dbeb439340b00fc32aa24c57" name="a71299d65dbeb439340b00fc32aa24c57"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>BitmapFormat</b> (Type type) noexcept</td></tr>
 <tr class="separator:a71299d65dbeb439340b00fc32aa24c57"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3547,18 +3568,18 @@ virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>what<
 <tr class="memitem:ad0830420d60ccc61b523706fcf496ebe" id="r_ad0830420d60ccc61b523706fcf496ebe"><td class="memItemLeft" align="right" valign="top">std::ifstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iostream_8cppm.html#ad0830420d60ccc61b523706fcf496ebe">tr::openFileR</a> (const std::filesystem::path &amp;path, std::ios::openmode openmode=std::ios::out)</td></tr>
 <tr class="memdesc:ad0830420d60ccc61b523706fcf496ebe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a file for reading with extra checks.  <br /></td></tr>
 <tr class="separator:ad0830420d60ccc61b523706fcf496ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb3f546b6b97aac72c8518f521338f56" id="r_abb3f546b6b97aac72c8518f521338f56"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:abb3f546b6b97aac72c8518f521338f56" id="r_abb3f546b6b97aac72c8518f521338f56"><td class="memTemplParams" colspan="2">template&lt;StandardLayout T&gt; </td></tr>
 <tr class="memitem:abb3f546b6b97aac72c8518f521338f56"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="iostream_8cppm.html#abb3f546b6b97aac72c8518f521338f56">tr::readBinary</a> (std::istream &amp;is, T &amp;out)</td></tr>
 <tr class="memdesc:abb3f546b6b97aac72c8518f521338f56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads binary data into an existing object.  <br /></td></tr>
 <tr class="separator:abb3f546b6b97aac72c8518f521338f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a5a266fb0a9988c099579df154d2a24" id="r_a5a5a266fb0a9988c099579df154d2a24"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a5a5a266fb0a9988c099579df154d2a24" id="r_a5a5a266fb0a9988c099579df154d2a24"><td class="memTemplParams" colspan="2">template&lt;StandardLayout T&gt; </td></tr>
 <tr class="memitem:a5a5a266fb0a9988c099579df154d2a24"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="iostream_8cppm.html#a5a5a266fb0a9988c099579df154d2a24">tr::readBinary</a> (std::istream &amp;is)</td></tr>
 <tr class="memdesc:a5a5a266fb0a9988c099579df154d2a24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads binary data into a new object.  <br /></td></tr>
 <tr class="separator:a5a5a266fb0a9988c099579df154d2a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40acc05d4419f8032983fccf71d043b9" id="r_a40acc05d4419f8032983fccf71d043b9"><td class="memTemplParams" colspan="2">template&lt;std::ranges::contiguous_range Range&gt; </td></tr>
-<tr class="memitem:a40acc05d4419f8032983fccf71d043b9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="iostream_8cppm.html#a40acc05d4419f8032983fccf71d043b9">tr::readBinary</a> (std::istream &amp;is, Range &amp;&amp;out)</td></tr>
-<tr class="memdesc:a40acc05d4419f8032983fccf71d043b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads binary data into a contiguous range.  <br /></td></tr>
-<tr class="separator:a40acc05d4419f8032983fccf71d043b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21d194e8831d9b864d9c8449ca981f7a" id="r_a21d194e8831d9b864d9c8449ca981f7a"><td class="memTemplParams" colspan="2">template&lt;StandardLayoutRange Range&gt; </td></tr>
+<tr class="memitem:a21d194e8831d9b864d9c8449ca981f7a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="iostream_8cppm.html#a21d194e8831d9b864d9c8449ca981f7a">tr::readBinaryRange</a> (std::istream &amp;is, Range &amp;&amp;out)</td></tr>
+<tr class="memdesc:a21d194e8831d9b864d9c8449ca981f7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads binary data into a contiguous range.  <br /></td></tr>
+<tr class="separator:a21d194e8831d9b864d9c8449ca981f7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cb9e3658a32a63b88f0575c32bfc104" id="r_a9cb9e3658a32a63b88f0575c32bfc104"><td class="memTemplParams" colspan="2">template&lt;std::output_iterator&lt; char &gt; It&gt; </td></tr>
 <tr class="memitem:a9cb9e3658a32a63b88f0575c32bfc104"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="iostream_8cppm.html#a9cb9e3658a32a63b88f0575c32bfc104">tr::flushBinary</a> (std::istream &amp;is, It out)</td></tr>
 <tr class="memdesc:a9cb9e3658a32a63b88f0575c32bfc104"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flushes the rest of the stream into an output iterator.  <br /></td></tr>
@@ -3567,14 +3588,14 @@ virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>what<
 <tr class="memitem:abe01d793d646480829aa01f15c0b04f6"><td class="memTemplItemLeft" align="right" valign="top">Container&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="iostream_8cppm.html#abe01d793d646480829aa01f15c0b04f6">tr::flushBinary</a> (std::istream &amp;is)</td></tr>
 <tr class="memdesc:abe01d793d646480829aa01f15c0b04f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flushes the rest of the stream into a container.  <br /></td></tr>
 <tr class="separator:abe01d793d646480829aa01f15c0b04f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab409e56d6da2e1919ad0a7dd46cecdc2" id="r_ab409e56d6da2e1919ad0a7dd46cecdc2"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:ab409e56d6da2e1919ad0a7dd46cecdc2" id="r_ab409e56d6da2e1919ad0a7dd46cecdc2"><td class="memTemplParams" colspan="2">template&lt;StandardLayout T&gt; </td></tr>
 <tr class="memitem:ab409e56d6da2e1919ad0a7dd46cecdc2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="iostream_8cppm.html#ab409e56d6da2e1919ad0a7dd46cecdc2">tr::writeBinary</a> (std::ostream &amp;os, const T &amp;in)</td></tr>
 <tr class="memdesc:ab409e56d6da2e1919ad0a7dd46cecdc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an object's binary data to stream.  <br /></td></tr>
 <tr class="separator:ab409e56d6da2e1919ad0a7dd46cecdc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9df464520784d4fb1ce5b4830c13598" id="r_aa9df464520784d4fb1ce5b4830c13598"><td class="memTemplParams" colspan="2">template&lt;std::ranges::contiguous_range Range&gt; </td></tr>
-<tr class="memitem:aa9df464520784d4fb1ce5b4830c13598"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="iostream_8cppm.html#aa9df464520784d4fb1ce5b4830c13598">tr::writeBinary</a> (std::ostream &amp;os, const Range &amp;range)</td></tr>
-<tr class="memdesc:aa9df464520784d4fb1ce5b4830c13598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a contiguous range's binary data to stream.  <br /></td></tr>
-<tr class="separator:aa9df464520784d4fb1ce5b4830c13598"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d2a4dfa9cd9afca524a24e28957ce20" id="r_a4d2a4dfa9cd9afca524a24e28957ce20"><td class="memTemplParams" colspan="2">template&lt;StandardLayoutRange Range&gt; </td></tr>
+<tr class="memitem:a4d2a4dfa9cd9afca524a24e28957ce20"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="iostream_8cppm.html#a4d2a4dfa9cd9afca524a24e28957ce20">tr::writeBinaryRange</a> (std::ostream &amp;os, const Range &amp;range)</td></tr>
+<tr class="memdesc:a4d2a4dfa9cd9afca524a24e28957ce20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a contiguous range's binary data to stream.  <br /></td></tr>
+<tr class="separator:a4d2a4dfa9cd9afca524a24e28957ce20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5f90bbe1a5a9410262b417a1ba4e8d3" id="r_ac5f90bbe1a5a9410262b417a1ba4e8d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iostream_8cppm.html#ac5f90bbe1a5a9410262b417a1ba4e8d3">tr::writeBinary</a> (std::ostream &amp;os, const char *cstr)</td></tr>
 <tr class="memdesc:ac5f90bbe1a5a9410262b417a1ba4e8d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a C-string to stream.  <br /></td></tr>
 <tr class="separator:ac5f90bbe1a5a9410262b417a1ba4e8d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -4044,6 +4065,18 @@ glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><b>uv</b></td></tr>
 RGBA8&#160;</td><td class="memItemRight" valign="bottom"><b>color</b></td></tr>
 <tr class="memdesc:afdbd15dc5ea2ea7e0961f659501b5c81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vertex tint color field. <br /></td></tr>
 <tr class="separator:afdbd15dc5ea2ea7e0961f659501b5c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31a7b1cca56e3c10e4478f5b45ceb5bb" id="r_a31a7b1cca56e3c10e4478f5b45ceb5bb"><td class="memItemLeft" align="right" valign="top"><a id="a31a7b1cca56e3c10e4478f5b45ceb5bb" name="a31a7b1cca56e3c10e4478f5b45ceb5bb"></a>
+constexpr Positions&#160;</td><td class="memItemRight" valign="bottom"><b>tr::positions</b></td></tr>
+<tr class="memdesc:a31a7b1cca56e3c10e4478f5b45ceb5bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instance of <a class="el" href="structtr_1_1Positions.html" title="Special view for manipulating positions of a range of vertices.">Positions</a>. <br /></td></tr>
+<tr class="separator:a31a7b1cca56e3c10e4478f5b45ceb5bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b6d376f9261a7e0ce800c9292ae43ec" id="r_a5b6d376f9261a7e0ce800c9292ae43ec"><td class="memItemLeft" align="right" valign="top"><a id="a5b6d376f9261a7e0ce800c9292ae43ec" name="a5b6d376f9261a7e0ce800c9292ae43ec"></a>
+constexpr UVs&#160;</td><td class="memItemRight" valign="bottom"><b>tr::uvs</b></td></tr>
+<tr class="memdesc:a5b6d376f9261a7e0ce800c9292ae43ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instance of <a class="el" href="structtr_1_1UVs.html" title="Special view for manipulating UVs of a range of vertices.">UVs</a>. <br /></td></tr>
+<tr class="separator:a5b6d376f9261a7e0ce800c9292ae43ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae217c35009c80b033d79c54b66c6329b" id="r_ae217c35009c80b033d79c54b66c6329b"><td class="memItemLeft" align="right" valign="top"><a id="ae217c35009c80b033d79c54b66c6329b" name="ae217c35009c80b033d79c54b66c6329b"></a>
+constexpr Colors&#160;</td><td class="memItemRight" valign="bottom"><b>tr::colors</b></td></tr>
+<tr class="memdesc:ae217c35009c80b033d79c54b66c6329b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instance of <a class="el" href="structtr_1_1Colors.html" title="Special view for manipulating colors of a range of vertices.">Colors</a>. <br /></td></tr>
+<tr class="separator:ae217c35009c80b033d79c54b66c6329b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae701905e7dd32560a83150e018fa0ce9" id="r_ae701905e7dd32560a83150e018fa0ce9"><td class="memItemLeft" align="right" valign="top"><a id="ae701905e7dd32560a83150e018fa0ce9" name="ae701905e7dd32560a83150e018fa0ce9"></a>
 static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>BEG</b> { SecondsF::zero() }</td></tr>
 <tr class="separator:ae701905e7dd32560a83150e018fa0ce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -4086,14 +4119,6 @@ Ui8&#160;</td><td class="memItemRight" valign="bottom"><b>minor</b></td></tr>
 <tr class="memitem:ac714e893e7f0227273a89ba0d9f20ae7" id="r_ac714e893e7f0227273a89ba0d9f20ae7"><td class="memItemLeft" align="right" valign="top"><a id="ac714e893e7f0227273a89ba0d9f20ae7" name="ac714e893e7f0227273a89ba0d9f20ae7"></a>
 Ui8&#160;</td><td class="memItemRight" valign="bottom"><b>patch</b></td></tr>
 <tr class="separator:ac714e893e7f0227273a89ba0d9f20ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c40283eb3b82bd0d6d89944b43e3bff" id="r_a1c40283eb3b82bd0d6d89944b43e3bff"><td class="memTemplParams" colspan="2"><a id="a1c40283eb3b82bd0d6d89944b43e3bff" name="a1c40283eb3b82bd0d6d89944b43e3bff"></a>
-template&lt;class... &gt; </td></tr>
-<tr class="memitem:a1c40283eb3b82bd0d6d89944b43e3bff"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tr::ALWAYS_FALSE</b> = false</td></tr>
-<tr class="separator:a1c40283eb3b82bd0d6d89944b43e3bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5903d2c9d6d5d2234aa3cc61fa8a791" id="r_ad5903d2c9d6d5d2234aa3cc61fa8a791"><td class="memTemplParams" colspan="2"><a id="ad5903d2c9d6d5d2234aa3cc61fa8a791" name="ad5903d2c9d6d5d2234aa3cc61fa8a791"></a>
-template&lt;class T , template&lt; class... &gt; class Z&gt; </td></tr>
-<tr class="memitem:ad5903d2c9d6d5d2234aa3cc61fa8a791"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tr::isSpecializationOfV</b> = isSpecializationOf&lt;T, Z&gt;::value</td></tr>
-<tr class="separator:ad5903d2c9d6d5d2234aa3cc61fa8a791"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aabf1d17beb276bdebadd3c54d4e2a3" id="r_a9aabf1d17beb276bdebadd3c54d4e2a3"><td class="memItemLeft" align="right" valign="top"><a id="a9aabf1d17beb276bdebadd3c54d4e2a3" name="a9aabf1d17beb276bdebadd3c54d4e2a3"></a>
 glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><b>min</b></td></tr>
 <tr class="separator:a9aabf1d17beb276bdebadd3c54d4e2a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -4356,104 +4381,106 @@ Ui32&#160;</td><td class="memItemRight" valign="bottom"><b>b</b>: 10</td></tr>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>tr.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>tr.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>angle.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>angle.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>audio_buffer.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>audio_buffer.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>audio_context.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>audio_context.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>audio_device.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>audio_device.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>audio_source.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>audio_source.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>audio_stream.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>audio_stream.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>benchmark.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>benchmark.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>bitmap.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>bitmap.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>bitmap_format.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>bitmap_format.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>bitmap_to_gl_format.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>bitmap_to_gl_format.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>chrono.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>chrono.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>color.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>color.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>color_cast.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>color_cast.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>concepts.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepts_8cppm.html">concepts.cppm</a></td></tr>
+<tr class="memdesc:concepts_8cppm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides miscellaneous concepts. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>display.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>display.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>draw_geometry.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>draw_geometry.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>event.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>event.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>framebuffer.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>framebuffer.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>geometry.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>geometry.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>gl_buffer.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>gl_buffer.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>gl_context.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>gl_context.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<a class="el" href="handle_8cppm.html">handle.cppm</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="handle_8cppm.html">handle.cppm</a></td></tr>
 <tr class="memdesc:handle_8cppm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a RAII wrapper over non-pointer handles. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<a class="el" href="hashmap_8cppm.html">hashmap.cppm</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashmap_8cppm.html">hashmap.cppm</a></td></tr>
 <tr class="memdesc:hashmap_8cppm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides extra hashmap functionality. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>index_buffer.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>index_buffer.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>integer.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>integer.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<a class="el" href="iostream_8cppm.html">iostream.cppm</a></td></tr>
-<tr class="memdesc:iostream_8cppm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides various input/output functionality. <br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iostream_8cppm.html">iostream.cppm</a></td></tr>
+<tr class="memdesc:iostream_8cppm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides miscellaneous input/output functionality. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>keyboard.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>keyboard.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>listener.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>listener.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>mouse.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>mouse.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>norm_cast.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>norm_cast.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>path.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="path_8cppm.html">path.cppm</a></td></tr>
+<tr class="memdesc:path_8cppm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides common directory accessors. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<a class="el" href="ranges_8cppm.html">ranges.cppm</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ranges_8cppm.html">ranges.cppm</a></td></tr>
 <tr class="memdesc:ranges_8cppm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides miscellaneous range functionality. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>renderbuffer.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>renderbuffer.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>sampler.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>sampler.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>sdl.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>sdl.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>shader.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>shader.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>shader_buffer.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>shader_buffer.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>texture.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>texture.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<a class="el" href="texture__unit_8cppm.html">texture_unit.cppm</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="texture__unit_8cppm.html">texture_unit.cppm</a></td></tr>
 <tr class="memdesc:texture__unit_8cppm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides an OpenGL texture unit interface class. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>ttfont.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>ttfont.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<a class="el" href="utf8_8cppm.html">utf8.cppm</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utf8_8cppm.html">utf8.cppm</a></td></tr>
 <tr class="memdesc:utf8_8cppm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a Unicode codepoint iterator interface over a UTF-8 string view. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<a class="el" href="vertex_8cppm.html">vertex.cppm</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vertex_8cppm.html">vertex.cppm</a></td></tr>
 <tr class="memdesc:vertex_8cppm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides generic vertex types and special views for manipulating ranges of them. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>vertex_buffer.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>vertex_buffer.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>vertex_format.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>vertex_format.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom">src/<b>window.cppm</b></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>window.cppm</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
