@@ -16,6 +16,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -110,20 +111,20 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1ClrVtx2.html">tr::ClrVtx2</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Untextured, colored 2D vertex.  <a href="structtr_1_1ClrVtx2.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1Colors.html">tr::Colors</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special view for manipulating colors of a range of vertices.  <a href="structtr_1_1Colors.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1Positions.html">tr::Positions</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special view for manipulating positions of a range of vertices.  <a href="structtr_1_1Positions.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1TexVtx2.html">tr::TexVtx2</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Textured 2D vertex.  <a href="structtr_1_1TexVtx2.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1TintVtx2.html">tr::TintVtx2</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Textured, tinted 2D vertex.  <a href="structtr_1_1TintVtx2.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1Positions.html">tr::Positions</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special view for manipulating positions of a range of vertices.  <a href="structtr_1_1Positions.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1UVs.html">tr::UVs</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special view for manipulating <a class="el" href="structtr_1_1UVs.html" title="Special view for manipulating UVs of a range of vertices.">UVs</a> of a range of vertices.  <a href="structtr_1_1UVs.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1Colors.html">tr::Colors</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special view for manipulating colors of a range of vertices.  <a href="structtr_1_1Colors.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
@@ -140,6 +141,10 @@ Concepts</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a1d2b652c0f4a54def34182d8b433aa56" id="r_a1d2b652c0f4a54def34182d8b433aa56"><td class="memTemplParams" colspan="2">template&lt;ColorsRange R&gt; </td></tr>
+<tr class="memitem:a1d2b652c0f4a54def34182d8b433aa56"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1d2b652c0f4a54def34182d8b433aa56">tr::operator|</a> (R &amp;&amp;range, const <a class="el" href="structtr_1_1Colors.html">Colors</a> &amp;) noexcept</td></tr>
+<tr class="memdesc:a1d2b652c0f4a54def34182d8b433aa56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a transformed view over a range of vertices' colors.  <br /></td></tr>
+<tr class="separator:a1d2b652c0f4a54def34182d8b433aa56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3557de804e03d5f86af9e2f1c3f4445f" id="r_a3557de804e03d5f86af9e2f1c3f4445f"><td class="memTemplParams" colspan="2">template&lt;PositionsRange R&gt; </td></tr>
 <tr class="memitem:a3557de804e03d5f86af9e2f1c3f4445f"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3557de804e03d5f86af9e2f1c3f4445f">tr::operator|</a> (R &amp;&amp;range, const <a class="el" href="structtr_1_1Positions.html">Positions</a> &amp;) noexcept</td></tr>
 <tr class="memdesc:a3557de804e03d5f86af9e2f1c3f4445f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a transformed view over a range of vertices' positions.  <br /></td></tr>
@@ -148,13 +153,13 @@ Functions</h2></td></tr>
 <tr class="memitem:afdeac3b0c7540c16151e816c91f784f0"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#afdeac3b0c7540c16151e816c91f784f0">tr::operator|</a> (R &amp;&amp;range, const <a class="el" href="structtr_1_1UVs.html">UVs</a> &amp;) noexcept</td></tr>
 <tr class="memdesc:afdeac3b0c7540c16151e816c91f784f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a transformed view over a range of vertices' <a class="el" href="structtr_1_1UVs.html" title="Special view for manipulating UVs of a range of vertices.">UVs</a>.  <br /></td></tr>
 <tr class="separator:afdeac3b0c7540c16151e816c91f784f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d2b652c0f4a54def34182d8b433aa56" id="r_a1d2b652c0f4a54def34182d8b433aa56"><td class="memTemplParams" colspan="2">template&lt;ColorsRange R&gt; </td></tr>
-<tr class="memitem:a1d2b652c0f4a54def34182d8b433aa56"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1d2b652c0f4a54def34182d8b433aa56">tr::operator|</a> (R &amp;&amp;range, const <a class="el" href="structtr_1_1Colors.html">Colors</a> &amp;) noexcept</td></tr>
-<tr class="memdesc:a1d2b652c0f4a54def34182d8b433aa56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a transformed view over a range of vertices' colors.  <br /></td></tr>
-<tr class="separator:a1d2b652c0f4a54def34182d8b433aa56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:ae217c35009c80b033d79c54b66c6329b" id="r_ae217c35009c80b033d79c54b66c6329b"><td class="memItemLeft" align="right" valign="top"><a id="ae217c35009c80b033d79c54b66c6329b" name="ae217c35009c80b033d79c54b66c6329b"></a>
+constexpr <a class="el" href="structtr_1_1Colors.html">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tr::colors</b></td></tr>
+<tr class="memdesc:ae217c35009c80b033d79c54b66c6329b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instance of <a class="el" href="structtr_1_1Colors.html" title="Special view for manipulating colors of a range of vertices.">Colors</a>. <br /></td></tr>
+<tr class="separator:ae217c35009c80b033d79c54b66c6329b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31a7b1cca56e3c10e4478f5b45ceb5bb" id="r_a31a7b1cca56e3c10e4478f5b45ceb5bb"><td class="memItemLeft" align="right" valign="top"><a id="a31a7b1cca56e3c10e4478f5b45ceb5bb" name="a31a7b1cca56e3c10e4478f5b45ceb5bb"></a>
 constexpr <a class="el" href="structtr_1_1Positions.html">Positions</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tr::positions</b></td></tr>
 <tr class="memdesc:a31a7b1cca56e3c10e4478f5b45ceb5bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instance of <a class="el" href="structtr_1_1Positions.html" title="Special view for manipulating positions of a range of vertices.">Positions</a>. <br /></td></tr>
@@ -163,10 +168,6 @@ constexpr <a class="el" href="structtr_1_1Positions.html">Positions</a>&#160;</t
 constexpr <a class="el" href="structtr_1_1UVs.html">UVs</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tr::uvs</b></td></tr>
 <tr class="memdesc:a5b6d376f9261a7e0ce800c9292ae43ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instance of <a class="el" href="structtr_1_1UVs.html" title="Special view for manipulating UVs of a range of vertices.">UVs</a>. <br /></td></tr>
 <tr class="separator:a5b6d376f9261a7e0ce800c9292ae43ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae217c35009c80b033d79c54b66c6329b" id="r_ae217c35009c80b033d79c54b66c6329b"><td class="memItemLeft" align="right" valign="top"><a id="ae217c35009c80b033d79c54b66c6329b" name="ae217c35009c80b033d79c54b66c6329b"></a>
-constexpr <a class="el" href="structtr_1_1Colors.html">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tr::colors</b></td></tr>
-<tr class="memdesc:ae217c35009c80b033d79c54b66c6329b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instance of <a class="el" href="structtr_1_1Colors.html" title="Special view for manipulating colors of a range of vertices.">Colors</a>. <br /></td></tr>
-<tr class="separator:ae217c35009c80b033d79c54b66c6329b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Provides generic vertex types and special views for manipulating ranges of them. </p>

@@ -16,6 +16,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -98,9 +99,11 @@ $(function(){ initResizable(false); });
 
 <p>Error thrown when creating an audio context failed.  
  <a href="#details">More...</a></p>
-<div class="dynheader">
-Inheritance diagram for tr::AudioContextCreationError:</div>
-<div class="dyncontent">
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for tr::AudioContextCreationError:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
  <div class="center">
   <img src="structtr_1_1AudioContextCreationError.png" alt=""/>
  </div></div>
@@ -140,7 +143,7 @@ Public Member Functions</h2></td></tr>
 <p>Constructs an audio context creation error. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>The error string.</td></tr>
+    <tr><td class="paramname">error</td><td>The error string.</td></tr>
   </table>
   </dd>
 </dl>

@@ -16,6 +16,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -104,21 +105,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a13039660522666a7602bb6afc0a53042" id="r_a13039660522666a7602bb6afc0a53042"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13039660522666a7602bb6afc0a53042">SDL</a> (const <a class="el" href="structtr_1_1GLAttrs.html">GLAttrs</a> &amp;glAttrs={})</td></tr>
 <tr class="memdesc:a13039660522666a7602bb6afc0a53042"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="classtr_1_1SDL.html" title="SDL library RAII wrapper.">SDL</a> library.  <br /></td></tr>
 <tr class="separator:a13039660522666a7602bb6afc0a53042"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2530bfc52c3f3b1b28b8c6cd3afe3f7" id="r_ab2530bfc52c3f3b1b28b8c6cd3afe3f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtr_1_1Version.html">Version</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2530bfc52c3f3b1b28b8c6cd3afe3f7">version</a> () const noexcept</td></tr>
-<tr class="memdesc:ab2530bfc52c3f3b1b28b8c6cd3afe3f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the version of the <a class="el" href="classtr_1_1SDL.html" title="SDL library RAII wrapper.">SDL</a> library.  <br /></td></tr>
-<tr class="separator:ab2530bfc52c3f3b1b28b8c6cd3afe3f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a112a3e8a144bda25bd2de0423897c3a9" id="r_a112a3e8a144bda25bd2de0423897c3a9"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a112a3e8a144bda25bd2de0423897c3a9">revision</a> () const noexcept</td></tr>
-<tr class="memdesc:a112a3e8a144bda25bd2de0423897c3a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the revision string of the <a class="el" href="classtr_1_1SDL.html" title="SDL library RAII wrapper.">SDL</a> library.  <br /></td></tr>
-<tr class="separator:a112a3e8a144bda25bd2de0423897c3a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addfa7816d8aeb3ed1ca3c3be6b96cb1c" id="r_addfa7816d8aeb3ed1ca3c3be6b96cb1c"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addfa7816d8aeb3ed1ca3c3be6b96cb1c">platform</a> () const noexcept</td></tr>
 <tr class="memdesc:addfa7816d8aeb3ed1ca3c3be6b96cb1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the platform string.  <br /></td></tr>
 <tr class="separator:addfa7816d8aeb3ed1ca3c3be6b96cb1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafe76203dfd5d3b8597de58a7103ed1f" id="r_aafe76203dfd5d3b8597de58a7103ed1f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafe76203dfd5d3b8597de58a7103ed1f">systemRAM</a> () const noexcept</td></tr>
-<tr class="memdesc:aafe76203dfd5d3b8597de58a7103ed1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the amount of system RAM.  <br /></td></tr>
-<tr class="separator:aafe76203dfd5d3b8597de58a7103ed1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a112a3e8a144bda25bd2de0423897c3a9" id="r_a112a3e8a144bda25bd2de0423897c3a9"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a112a3e8a144bda25bd2de0423897c3a9">revision</a> () const noexcept</td></tr>
+<tr class="memdesc:a112a3e8a144bda25bd2de0423897c3a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the revision string of the <a class="el" href="classtr_1_1SDL.html" title="SDL library RAII wrapper.">SDL</a> library.  <br /></td></tr>
+<tr class="separator:a112a3e8a144bda25bd2de0423897c3a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb2de14a16c1ed7a21c7c27f83b7428b" id="r_abb2de14a16c1ed7a21c7c27f83b7428b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb2de14a16c1ed7a21c7c27f83b7428b">systemCores</a> () const noexcept</td></tr>
 <tr class="memdesc:abb2de14a16c1ed7a21c7c27f83b7428b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of system cores.  <br /></td></tr>
 <tr class="separator:abb2de14a16c1ed7a21c7c27f83b7428b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafe76203dfd5d3b8597de58a7103ed1f" id="r_aafe76203dfd5d3b8597de58a7103ed1f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafe76203dfd5d3b8597de58a7103ed1f">systemRAM</a> () const noexcept</td></tr>
+<tr class="memdesc:aafe76203dfd5d3b8597de58a7103ed1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the amount of system RAM.  <br /></td></tr>
+<tr class="separator:aafe76203dfd5d3b8597de58a7103ed1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2530bfc52c3f3b1b28b8c6cd3afe3f7" id="r_ab2530bfc52c3f3b1b28b8c6cd3afe3f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtr_1_1Version.html">Version</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2530bfc52c3f3b1b28b8c6cd3afe3f7">version</a> () const noexcept</td></tr>
+<tr class="memdesc:ab2530bfc52c3f3b1b28b8c6cd3afe3f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the version of the <a class="el" href="classtr_1_1SDL.html" title="SDL library RAII wrapper.">SDL</a> library.  <br /></td></tr>
+<tr class="separator:ab2530bfc52c3f3b1b28b8c6cd3afe3f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classtr_1_1SDL.html" title="SDL library RAII wrapper.">SDL</a> library RAII wrapper. </p>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['sdl_2ecppm_0',['sdl.cppm',['../sdl_8cppm.html',1,'']]],
-  ['shader_5fbuffer_2ecppm_1',['shader_buffer.cppm',['../shader__buffer_8cppm.html',1,'']]]
+  ['ranges_2ecppm_0',['ranges.cppm',['../ranges_8cppm.html',1,'']]],
+  ['renderbuffer_2ecppm_1',['renderbuffer.cppm',['../renderbuffer_8cppm.html',1,'']]]
 ];

@@ -16,6 +16,7 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -104,24 +105,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a499dd3d29cea5e37edec131cc84bd161" id="r_a499dd3d29cea5e37edec131cc84bd161"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a499dd3d29cea5e37edec131cc84bd161">Handle</a> () noexcept</td></tr>
 <tr class="memdesc:a499dd3d29cea5e37edec131cc84bd161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default-constructs a handle.  <br /></td></tr>
 <tr class="separator:a499dd3d29cea5e37edec131cc84bd161"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37f53461f913ec92fcd2f3d59202a756" id="r_a37f53461f913ec92fcd2f3d59202a756"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37f53461f913ec92fcd2f3d59202a756">Handle</a> (<a class="el" href="classtr_1_1Handle.html">Handle</a> &amp;&amp;move) noexcept</td></tr>
+<tr class="memdesc:a37f53461f913ec92fcd2f3d59202a756"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a handle by moving from another handle.  <br /></td></tr>
+<tr class="separator:a37f53461f913ec92fcd2f3d59202a756"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32c55bc5ef1873ba9cba53f2006ebf04" id="r_a32c55bc5ef1873ba9cba53f2006ebf04"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32c55bc5ef1873ba9cba53f2006ebf04">Handle</a> (T value) noexcept</td></tr>
 <tr class="memdesc:a32c55bc5ef1873ba9cba53f2006ebf04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a handle from a base type value.  <br /></td></tr>
 <tr class="separator:a32c55bc5ef1873ba9cba53f2006ebf04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab711a774693e140e2b19642d8b06fe73" id="r_ab711a774693e140e2b19642d8b06fe73"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab711a774693e140e2b19642d8b06fe73">Handle</a> (T value, <a class="el" href="structtr_1_1NoEmptyHandleCheck.html">NoEmptyHandleCheck</a>) noexcept</td></tr>
 <tr class="memdesc:ab711a774693e140e2b19642d8b06fe73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a handle from a base type value without checking for the invalid <em>EmptyValue</em> case.  <br /></td></tr>
 <tr class="separator:ab711a774693e140e2b19642d8b06fe73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37f53461f913ec92fcd2f3d59202a756" id="r_a37f53461f913ec92fcd2f3d59202a756"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37f53461f913ec92fcd2f3d59202a756">Handle</a> (<a class="el" href="classtr_1_1Handle.html">Handle</a> &amp;&amp;move) noexcept</td></tr>
-<tr class="memdesc:a37f53461f913ec92fcd2f3d59202a756"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a handle by moving from another handle.  <br /></td></tr>
-<tr class="separator:a37f53461f913ec92fcd2f3d59202a756"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1f2150f16e90352712ba76f12f9bdd7" id="r_af1f2150f16e90352712ba76f12f9bdd7"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1f2150f16e90352712ba76f12f9bdd7">~Handle</a> () noexcept</td></tr>
 <tr class="memdesc:af1f2150f16e90352712ba76f12f9bdd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the handle.  <br /></td></tr>
 <tr class="separator:af1f2150f16e90352712ba76f12f9bdd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6ed36801123368534f88961bd69cb7f" id="r_aa6ed36801123368534f88961bd69cb7f"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classtr_1_1Handle.html">Handle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6ed36801123368534f88961bd69cb7f">operator=</a> (<a class="el" href="classtr_1_1Handle.html">Handle</a> &amp;&amp;r) noexcept</td></tr>
-<tr class="memdesc:aa6ed36801123368534f88961bd69cb7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move-assigns the handle.  <br /></td></tr>
-<tr class="separator:aa6ed36801123368534f88961bd69cb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad448d9fea3c5af9cd9feebc50e0ec5e4" id="r_ad448d9fea3c5af9cd9feebc50e0ec5e4"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad448d9fea3c5af9cd9feebc50e0ec5e4">operator==</a> (const <a class="el" href="classtr_1_1Handle.html">Handle</a> &amp;r) const noexcept</td></tr>
-<tr class="memdesc:ad448d9fea3c5af9cd9feebc50e0ec5e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality comparison operator.  <br /></td></tr>
-<tr class="separator:ad448d9fea3c5af9cd9feebc50e0ec5e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60852e33eff675327cf0a47dc45d2397" id="r_a60852e33eff675327cf0a47dc45d2397"><td class="memItemLeft" align="right" valign="top">constexpr const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60852e33eff675327cf0a47dc45d2397">get</a> () const noexcept</td></tr>
+<tr class="memdesc:a60852e33eff675327cf0a47dc45d2397"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the handle's base type value.  <br /></td></tr>
+<tr class="separator:a60852e33eff675327cf0a47dc45d2397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2283dd42c1b70d34e5dd1b5e332d0fc9" id="r_a2283dd42c1b70d34e5dd1b5e332d0fc9"><td class="memItemLeft" align="right" valign="top">constexpr const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2283dd42c1b70d34e5dd1b5e332d0fc9">get</a> (<a class="el" href="structtr_1_1NoEmptyHandleCheck.html">NoEmptyHandleCheck</a>) const noexcept</td></tr>
+<tr class="memdesc:a2283dd42c1b70d34e5dd1b5e332d0fc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the handle's base type value.  <br /></td></tr>
+<tr class="separator:a2283dd42c1b70d34e5dd1b5e332d0fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7f3720178f6b868e0f5bd10ad16767e" id="r_ab7f3720178f6b868e0f5bd10ad16767e"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7f3720178f6b868e0f5bd10ad16767e">has_value</a> () const noexcept</td></tr>
 <tr class="memdesc:ab7f3720178f6b868e0f5bd10ad16767e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the handle contains a value.  <br /></td></tr>
 <tr class="separator:ab7f3720178f6b868e0f5bd10ad16767e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,12 +130,12 @@ Public Member Functions</h2></td></tr>
 constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>operator bool</b> () const noexcept</td></tr>
 <tr class="memdesc:a199473bf292fbefde51e7c66340f0304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the handle contains a value, see has_value(). <br /></td></tr>
 <tr class="separator:a199473bf292fbefde51e7c66340f0304"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60852e33eff675327cf0a47dc45d2397" id="r_a60852e33eff675327cf0a47dc45d2397"><td class="memItemLeft" align="right" valign="top">constexpr const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60852e33eff675327cf0a47dc45d2397">get</a> () const noexcept</td></tr>
-<tr class="memdesc:a60852e33eff675327cf0a47dc45d2397"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the handle's base type value.  <br /></td></tr>
-<tr class="separator:a60852e33eff675327cf0a47dc45d2397"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2283dd42c1b70d34e5dd1b5e332d0fc9" id="r_a2283dd42c1b70d34e5dd1b5e332d0fc9"><td class="memItemLeft" align="right" valign="top">constexpr const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2283dd42c1b70d34e5dd1b5e332d0fc9">get</a> (<a class="el" href="structtr_1_1NoEmptyHandleCheck.html">NoEmptyHandleCheck</a>) const noexcept</td></tr>
-<tr class="memdesc:a2283dd42c1b70d34e5dd1b5e332d0fc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the handle's base type value.  <br /></td></tr>
-<tr class="separator:a2283dd42c1b70d34e5dd1b5e332d0fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6ed36801123368534f88961bd69cb7f" id="r_aa6ed36801123368534f88961bd69cb7f"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classtr_1_1Handle.html">Handle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6ed36801123368534f88961bd69cb7f">operator=</a> (<a class="el" href="classtr_1_1Handle.html">Handle</a> &amp;&amp;r) noexcept</td></tr>
+<tr class="memdesc:aa6ed36801123368534f88961bd69cb7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move-assigns the handle.  <br /></td></tr>
+<tr class="separator:aa6ed36801123368534f88961bd69cb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad448d9fea3c5af9cd9feebc50e0ec5e4" id="r_ad448d9fea3c5af9cd9feebc50e0ec5e4"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad448d9fea3c5af9cd9feebc50e0ec5e4">operator==</a> (const <a class="el" href="classtr_1_1Handle.html">Handle</a> &amp;r) const noexcept</td></tr>
+<tr class="memdesc:ad448d9fea3c5af9cd9feebc50e0ec5e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality comparison operator.  <br /></td></tr>
+<tr class="separator:ad448d9fea3c5af9cd9feebc50e0ec5e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae350ebfc8469d797d40e47f06c4ca071" id="r_ae350ebfc8469d797d40e47f06c4ca071"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae350ebfc8469d797d40e47f06c4ca071">reset</a> () noexcept</td></tr>
 <tr class="memdesc:ae350ebfc8469d797d40e47f06c4ca071"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the handle to an empty state.  <br /></td></tr>
 <tr class="separator:ae350ebfc8469d797d40e47f06c4ca071"><td class="memSeparator" colspan="2">&#160;</td></tr>
