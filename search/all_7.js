@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['std_0',['std',['../namespacestd.html',1,'']]]
+  ['ranges_2ecppm_0',['ranges.cppm',['../ranges_8cppm.html',1,'']]]
 ];

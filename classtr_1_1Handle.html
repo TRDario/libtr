@@ -127,7 +127,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab7f3720178f6b868e0f5bd10ad16767e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a199473bf292fbefde51e7c66340f0304" id="r_a199473bf292fbefde51e7c66340f0304"><td class="memItemLeft" align="right" valign="top"><a id="a199473bf292fbefde51e7c66340f0304" name="a199473bf292fbefde51e7c66340f0304"></a>
 constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>operator bool</b> () const noexcept</td></tr>
-<tr class="memdesc:a199473bf292fbefde51e7c66340f0304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the handle contains a value, see <a class="el" href="#ab7f3720178f6b868e0f5bd10ad16767e">has_value() </a>. <br /></td></tr>
+<tr class="memdesc:a199473bf292fbefde51e7c66340f0304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the handle contains a value, see has_value(). <br /></td></tr>
 <tr class="separator:a199473bf292fbefde51e7c66340f0304"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60852e33eff675327cf0a47dc45d2397" id="r_a60852e33eff675327cf0a47dc45d2397"><td class="memItemLeft" align="right" valign="top">constexpr const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60852e33eff675327cf0a47dc45d2397">get</a> () const noexcept</td></tr>
 <tr class="memdesc:a60852e33eff675327cf0a47dc45d2397"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the handle's base type value.  <br /></td></tr>
@@ -218,7 +218,7 @@ template&lt;<a class="el" href="concepttr_1_1HandleType.html">tr::HandleType</a>
 
 <p>Constructs a handle from a base type value. </p>
 <p>A handle constructed like this is guaranteed to hold a value.</p>
-<p>If <em>EmptyValue</em> is an expected input, <a class="el" href="#ab711a774693e140e2b19642d8b06fe73">Handle(T, NoEmptyHandleCheck) </a> may be used instead.</p>
+<p>If <em>EmptyValue</em> is an expected input, Handle(T, NoEmptyHandleCheck) may be used instead.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>
@@ -261,7 +261,7 @@ template&lt;<a class="el" href="concepttr_1_1HandleType.html">tr::HandleType</a>
 
 <p>Constructs a handle from a base type value without checking for the invalid <em>EmptyValue</em> case. </p>
 <p>A handle constructed like this may or may not hold a value.</p>
-<p><a class="el" href="#a32c55bc5ef1873ba9cba53f2006ebf04">Handle(T) </a> should be used in cases where this isn't necessary.</p>
+<p>Handle(T) should be used in cases where this isn't necessary.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The base type value that will be managed by the handle. </td></tr>
@@ -367,7 +367,7 @@ template&lt;<a class="el" href="concepttr_1_1HandleType.html">tr::HandleType</a>
 
 <p>Gets the handle's base type value. </p>
 <p>Calls to this function are only valid if the handle contains a value, an assertion may be raised otherwise.</p>
-<p><a class="el" href="#a2283dd42c1b70d34e5dd1b5e332d0fc9">get(NoEmptyHandleCheck) </a> may be used in cases where the empty value is an expected input.</p>
+<p>get(NoEmptyHandleCheck) may be used in cases where the empty value is an expected input.</p>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the handle's base type value. </dd></dl>
 
 </div>
@@ -399,7 +399,7 @@ template&lt;<a class="el" href="concepttr_1_1HandleType.html">tr::HandleType</a>
 
 <p>Gets the handle's base type value. </p>
 <p>This function circuments the notion of an "empty" handle and returns a value even if it's <em>EmptyValue</em>.</p>
-<p><a class="el" href="#a60852e33eff675327cf0a47dc45d2397">get() </a> should be used in cases where this isn't necessary.</p>
+<p>get() should be used in cases where this isn't necessary.</p>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the handle's base type value. </dd></dl>
 
 </div>
@@ -567,7 +567,7 @@ template&lt;<a class="el" href="concepttr_1_1HandleType.html">tr::HandleType</a>
 
 <p>Resets the handle to a non-empty state. </p>
 <p>If the handle is not empty before this call, <em>Deleter</em> will be called with the contained value.</p>
-<p><a class="el" href="#ae1bb138c8cd178c3dd70e3366123e273">reset(T, NoEmptyHandleCheck) </a> may be used in cases where the empty value is an expected input.</p>
+<p>reset(T, NoEmptyHandleCheck) may be used in cases where the empty value is an expected input.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>
@@ -610,7 +610,7 @@ template&lt;<a class="el" href="concepttr_1_1HandleType.html">tr::HandleType</a>
 
 <p>Resets the handle to a new state. </p>
 <p>If the handle is not empty before this call, <em>Deleter</em> will be called with the contained value.</p>
-<p><a class="el" href="#a0677d3a3d1a1522f5feb341ea63e930d">reset(T) </a> should be preferred in most cases.</p>
+<p>reset(T) should be preferred in most cases.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>

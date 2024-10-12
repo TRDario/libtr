@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>libtr: src Directory Reference</title>
+<title>libtr: src/hashmap.cppm File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,35 +89,39 @@ $(function(){ initResizable(false); });
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">src Directory Reference</div></div>
+  <div class="summary">
+<a href="#typedef-members">Typedefs</a>  </div>
+  <div class="headertitle"><div class="title">hashmap.cppm File Reference<div class="ingroups">module <a class="el" href="module__tr.html">tr</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top"><span class="icondoc"></span>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="handle_8cppm.html">handle.cppm</a></td></tr>
-<tr class="memdesc:handle_8cppm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a RAII wrapper over non-pointer handles. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top"><span class="icondoc"></span>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hashmap_8cppm.html">hashmap.cppm</a></td></tr>
-<tr class="memdesc:hashmap_8cppm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides extra hashmap functionality. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top"><span class="icondoc"></span>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="iostream_8cppm.html">iostream.cppm</a></td></tr>
-<tr class="memdesc:iostream_8cppm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides various input/output functionality. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top"><span class="icondoc"></span>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ranges_8cppm.html">ranges.cppm</a></td></tr>
-<tr class="memdesc:ranges_8cppm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides miscellaneous range functionality. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top"><span class="icondoc"></span>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="texture__unit_8cppm.html">texture_unit.cppm</a></td></tr>
-<tr class="memdesc:texture__unit_8cppm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides an OpenGL texture unit interface class. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top"><span class="icondoc"></span>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utf8_8cppm.html">utf8.cppm</a></td></tr>
-<tr class="memdesc:utf8_8cppm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a Unicode codepoint iterator interface over a UTF-8 string view. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top"><span class="icondoc"></span>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vertex_8cppm.html">vertex.cppm</a></td></tr>
-<tr class="memdesc:vertex_8cppm"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides generic vertex types and special views for manipulating ranges of them. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+
+<p>Provides extra hashmap functionality.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>import tr:integer;</code><br />
+<code>import boost;</code><br />
+<code>import std;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a797dd87a0405a155ce82350b5e3be205" id="r_a797dd87a0405a155ce82350b5e3be205"><td class="memTemplParams" colspan="2"><a id="a797dd87a0405a155ce82350b5e3be205" name="a797dd87a0405a155ce82350b5e3be205"></a>
+template&lt;Enumerator Key, class Value &gt; </td></tr>
+<tr class="memitem:a797dd87a0405a155ce82350b5e3be205"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tr::EnumHashMap</b> = std::unordered_map&lt;Key, Value, EnumHash&lt;Key&gt;&gt;</td></tr>
+<tr class="memdesc:a797dd87a0405a155ce82350b5e3be205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typedef for a enumerator-key hash map. <br /></td></tr>
+<tr class="separator:a797dd87a0405a155ce82350b5e3be205"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75ea6209bc089aebbd5821b3028643d9" id="r_a75ea6209bc089aebbd5821b3028643d9"><td class="memTemplParams" colspan="2"><a id="a75ea6209bc089aebbd5821b3028643d9" name="a75ea6209bc089aebbd5821b3028643d9"></a>
+template&lt;class Value &gt; </td></tr>
+<tr class="memitem:a75ea6209bc089aebbd5821b3028643d9"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tr::StringHashMap</b> = std::unordered_map&lt;std::string, Value, StringHash, StringEquals&gt;</td></tr>
+<tr class="memdesc:a75ea6209bc089aebbd5821b3028643d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typedef for a string-key hash map. <br /></td></tr>
+<tr class="separator:a75ea6209bc089aebbd5821b3028643d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8014c86bab19adcb28b1ba1b58119ce9" id="r_a8014c86bab19adcb28b1ba1b58119ce9"><td class="memTemplParams" colspan="2"><a id="a8014c86bab19adcb28b1ba1b58119ce9" name="a8014c86bab19adcb28b1ba1b58119ce9"></a>
+template&lt;Size Cap, class Value &gt; </td></tr>
+<tr class="memitem:a8014c86bab19adcb28b1ba1b58119ce9"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tr::StaticStringHashMap</b> = std::unordered_map&lt;boost::static_string&lt;Cap&gt;, Value, StaticStringHash, StringEquals&gt;</td></tr>
+<tr class="memdesc:a8014c86bab19adcb28b1ba1b58119ce9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typedef for a static_string-key hash map. <br /></td></tr>
+<tr class="separator:a8014c86bab19adcb28b1ba1b58119ce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides extra hashmap functionality. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
