@@ -1,3 +1,8 @@
+/**
+ * @file audio_context.cppm
+ * @brief Provides an audio context class.
+ */
+
 module;
 #include <AL/al.h>
 #include <AL/alc.h>
@@ -16,7 +21,7 @@ export namespace tr {
         /**************************************************************************************************************
          * Constructs an audio context creation error.
          *
-         * @param name The errr string.
+         * @param name The error string.
          *
          * @exception std::bad_alloc If constructing the error string failed.
 	     **************************************************************************************************************/
