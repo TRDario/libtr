@@ -26,29 +26,29 @@ export namespace tr {
     class TextureUnit {
     public:
         /**************************************************************************************************************
-        * Constructs a new texture unit.
-        *
-        * This function may trigger a failed assertion if the limit of 80 simultaneous texture units is surpassed.
-        **************************************************************************************************************/
+         * Constructs a new texture unit.
+         *
+         * This function may trigger a failed assertion if the limit of 80 simultaneous texture units is surpassed.
+         **************************************************************************************************************/
         TextureUnit() noexcept;
 
 
         /**************************************************************************************************************
-        * Binds a sampler to the texture unit.
-        *
-        * A sampler can be bound to multiple texture units simultaneously.
-        *
-        * @param[in] sampler A sampler object.
-        **************************************************************************************************************/
+         * Binds a sampler to the texture unit.
+         *
+         * A sampler can be bound to multiple texture units simultaneously.
+         *
+         * @param[in] sampler A sampler object.
+         **************************************************************************************************************/
         void setSampler(const Sampler& sampler) noexcept;
 
         /**************************************************************************************************************
-        * Binds a texture to the texture unit.
-        *
-        * A texture can be bound to multiple texture units simultaneously.
-        *
-        * @param[in] texture Any type of texture object.
-        **************************************************************************************************************/
+         * Binds a texture to the texture unit.
+         *
+         * A texture can be bound to multiple texture units simultaneously.
+         *
+         * @param[in] texture Any type of texture object.
+         **************************************************************************************************************/
         void setTexture(const Texture& texture) noexcept;
     private:
         struct Deleter { void operator()(GLuint id) noexcept; /**< @private */ };
