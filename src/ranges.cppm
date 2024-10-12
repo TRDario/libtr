@@ -47,7 +47,7 @@ export namespace tr {
     * @return A mutable span over the range's bytes.
     ******************************************************************************************************************/
 	template <StandardLayoutRange T>
-    auto asMutBytes(T& object) noexcept;
+    auto asMutBytes(T& range) noexcept;
 
 	/******************************************************************************************************************
     * Gets a view of an object as a span of mutable bytes.
@@ -71,8 +71,8 @@ export namespace tr {
     *
     * @return A mutable span over objects.
     ******************************************************************************************************************/
-	template <class T, Size S>
-    inline auto asObjects(std::span<Byte, S> bytes) noexcept;
+	template <StandardLayout T, Size S>
+    auto asObjects(std::span<Byte, S> bytes) noexcept;
 
 	/******************************************************************************************************************
     * Reinterprets a span of immutable bytes as a span of const objects.
@@ -84,8 +84,8 @@ export namespace tr {
     *
     * @return A span over const objects.
     ******************************************************************************************************************/
-	template <class T, Size S>
-    inline auto asObjects(std::span<const Byte, S> bytes) noexcept;
+	template <StandardLayout T, Size S>
+    auto asObjects(std::span<const Byte, S> bytes) noexcept;
 
 
     /******************************************************************************************************************
@@ -138,8 +138,8 @@ std::span<tr::Byte, sizeof(T)> tr::asMutBytes(T& object) noexcept
     return std::as_writable_bytes(std::span<T, 1> { std::addressof(object), 1 });
 }
 
-template <class T, tr::Size S>
-inline auto tr::asObjects(std::span<Byte, S> bytes) noexcept
+template <tr::StandardLayout T, tr::Size S>
+auto tr::asObjects(std::span<Byte, S> bytes) noexcept
 {
     if constexpr (S != std::dynamic_extent) {
         static_assert(S % sizeof(T) == 0, "Cannot reinterpret byte span due to size / sizeof(T) not being an integer.");
@@ -151,8 +151,8 @@ inline auto tr::asObjects(std::span<Byte, S> bytes) noexcept
     }
 }
 
-template <class T, tr::Size S>
-inline auto tr::asObjects(std::span<const Byte, S> bytes) noexcept
+template <tr::StandardLayout T, tr::Size S>
+auto tr::asObjects(std::span<const Byte, S> bytes) noexcept
 {
     if constexpr (S != std::dynamic_extent) {
         static_assert(S % sizeof(T) == 0, "Cannot reinterpret byte span due to size / sizeof(T) not being an integer.");

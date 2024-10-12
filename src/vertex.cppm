@@ -121,19 +121,7 @@ export namespace tr {
     /******************************************************************************************************************
     * Special view for manipulating positions of a range of vertices.
     *******************************************************************************************************************/
-    inline constexpr struct Positions {
-        /**************************************************************************************************************
-        * Creates a transformed view over a range of vertices' positions.
-        *
-        * @tparam R A range type that fulfills <em>PositionsRange</em>.
-        *
-        * @param range The range to transform.
-        *
-        * @return The transformed view.
-        **************************************************************************************************************/
-        template <PositionsRange R>
-        friend constexpr auto operator|(R&& range, const Positions&) noexcept;
-        
+    struct Positions {
         /**************************************************************************************************************
         * Creates a transformed view over a range of vertices' positions.
         *
@@ -145,24 +133,30 @@ export namespace tr {
         **************************************************************************************************************/
         template <PositionsRange R>
         constexpr auto operator()(R&& range) const noexcept;
-    } positions;
+    };
+
+    /******************************************************************************************************************
+    * Creates a transformed view over a range of vertices' positions.
+    *
+    * @tparam R A range type that fulfills <em>PositionsRange</em>.
+    *
+    * @param range The range to transform.
+    *
+    * @return The transformed view.
+    ******************************************************************************************************************/
+    template <PositionsRange R>
+    constexpr auto operator|(R&& range, const Positions&) noexcept;
+
+    /******************************************************************************************************************
+    * Instance of Positions.
+    *******************************************************************************************************************/
+    inline constexpr Positions positions;
+
 
     /******************************************************************************************************************
     * Special view for manipulating UVs of a range of vertices.
     ******************************************************************************************************************/
-    inline constexpr struct UVs {
-        /**************************************************************************************************************
-        * Creates a transformed view over a range of vertices' UVs.
-        *
-        * @tparam R A range type that fulfills <em>UVsRange</em>.
-        *
-        * @param range The range to transform.
-        *
-        * @return The transformed view.
-        **************************************************************************************************************/
-        template <UVsRange R>
-        friend constexpr auto operator|(R&& range, const UVs&) noexcept;
-        
+    struct UVs {
         /**************************************************************************************************************
         * Creates a transformed view over a range of vertices' UVs.
         *
@@ -174,24 +168,30 @@ export namespace tr {
         **************************************************************************************************************/
         template <UVsRange R>
         constexpr auto operator()(R&& range) const noexcept;
-    } uvs;
+    };
+
+    /******************************************************************************************************************
+    * Creates a transformed view over a range of vertices' UVs.
+    *
+    * @tparam R A range type that fulfills <em>UVsRange</em>.
+    *
+    * @param range The range to transform.
+    *
+    * @return The transformed view.
+    ******************************************************************************************************************/
+    template <UVsRange R>
+    constexpr auto operator|(R&& range, const UVs&) noexcept;
+
+    /******************************************************************************************************************
+    * Instance of UVs.
+    *******************************************************************************************************************/
+    inline constexpr UVs uvs;
+
 
     /******************************************************************************************************************
     * Special view for manipulating colors of a range of vertices.
     ******************************************************************************************************************/
-    inline constexpr struct Colors {
-        /**************************************************************************************************************
-        * Creates a transformed view over a range of vertices' colors.
-        *
-        * @tparam R A range type that fulfills <em>ColorsRange</em>.
-        *
-        * @param range The range to transform.
-        *
-        * @return The transformed view.
-        **************************************************************************************************************/
-        template <ColorsRange R>
-        friend constexpr auto operator|(R&& range, const Colors&) noexcept;
-        
+    struct Colors {
         /**************************************************************************************************************
         * Creates a transformed view over a range of vertices' colors.
         *
@@ -203,7 +203,24 @@ export namespace tr {
         **************************************************************************************************************/
         template <ColorsRange R>
         constexpr auto operator()(R&& range) const noexcept;
-    } colors;
+    };
+
+    /******************************************************************************************************************
+    * Creates a transformed view over a range of vertices' colors.
+    *
+    * @tparam R A range type that fulfills <em>ColorsRange</em>.
+    *
+    * @param range The range to transform.
+    *
+    * @return The transformed view.
+    ******************************************************************************************************************/
+    template <ColorsRange R>
+    constexpr auto operator|(R&& range, const Colors&) noexcept;
+
+    /******************************************************************************************************************
+    * Instance of Colors.
+    *******************************************************************************************************************/
+    inline constexpr Colors colors;
 }
 
 // IMPLEMENTATION
