@@ -1,3 +1,8 @@
+/**
+ * @file gl_buffer.cppm
+ * @brief Provides basic OpenGL buffer functionality.
+ */
+
 module;
 #include <cassert>
 #include <GL/glew.h>
@@ -10,18 +15,44 @@ import :handle;
 export namespace tr {
     class GLBufferMap;
 
+	/******************************************************************************************************************
+	 * Error thrown when allocating a GPU buffer fails.
+	 ******************************************************************************************************************/
     struct GLBufferBadAlloc : std::bad_alloc {
-        constexpr virtual const char* what() const noexcept { return "OpenGL buffer allocation error"; };
-    };
-    struct GLMapBadAlloc : std::bad_alloc {
-        constexpr virtual const char* what() const noexcept { return "OpenGL buffer map allocation error"; };
+		/**************************************************************************************************************
+         * Gets an error message.
+         *
+         * @return An explanatory error message.
+	     **************************************************************************************************************/
+        constexpr virtual const char* what() const noexcept;
     };
 
-    // Base OpenGL buffer class.
+	/******************************************************************************************************************
+	 * Error thrown when mapping a GPU buffer fails.
+	 ******************************************************************************************************************/
+    struct GLMapBadAlloc : std::bad_alloc {
+		/**************************************************************************************************************
+         * Gets an error message.
+         *
+         * @return An explanatory error message.
+	     **************************************************************************************************************/
+        constexpr virtual const char* what() const noexcept;
+    };
+
+
+    /******************************************************************************************************************
+	 * Base OpenGL buffer class.
+	 *
+	 * This class is not meant to be used directly.
+	 ******************************************************************************************************************/
     class GLBuffer {
     public:
-        friend bool operator==(const GLBuffer& lhs, const GLBuffer& rhs) noexcept;
+		/******************************************************************************************************************
+		* Equality comparison operator.
+		******************************************************************************************************************/
+        bool operator==(const GLBuffer& rhs) const noexcept;
     protected:
+		/// @private
 		// Enum representing an OpenGL buffer target.
 		enum class Target : std::uint32_t {
 			ARRAY_BUFFER 				= 0x8892,
@@ -39,6 +70,8 @@ export namespace tr {
 			TRANSFORM_FEEDBACK_BUFFER	= 0x8C8E,
 			UNIFORM_BUFFER				= 0x8A11
 		};
+
+		/// @private
 		// Enum representing buffer creation flags.
 		enum class Flag : std::uint32_t {
 			NONE 			= 0x0,
@@ -49,6 +82,8 @@ export namespace tr {
 			DYNAMIC_STORAGE = 0x100,
 			CPU_STORAGE 	= 0x200
 		};
+
+		/// @private
 		// Enum representing a buffer format.
 		enum class Format {
 			R8 			= 0x8229,
@@ -85,6 +120,8 @@ export namespace tr {
 			RGBA_SI32 	= 0x8D82,
 			RGBA_UI32 	= 0x8D70,
 		};
+
+		/// @private
 		// Enum representing a mapping flag.
 		enum class MapFlag {
 			NONE 				= 0x0,
@@ -97,35 +134,69 @@ export namespace tr {
 			PERSISTENT 			= 0x40,
 			COHERENT 			= 0x80
 		};
-        struct Deleter { void operator()(GLuint id) noexcept; };
 
+
+		/// @private
+        struct Deleter { void operator()(GLuint id) noexcept; /**< @private */ };
+
+
+		/// @private
         // Creates an uninitialized buffer.
 		GLBuffer(Target target, std::size_t size, Flag flags);
+
+		/// @private
 		// Creates an initialized buffer.
 		GLBuffer(Target target, std::span<const std::byte> data, Flag flags);
 
+
+		/// @private
 		std::size_t size() const noexcept;
+
+		/// @private
 		std::vector<std::byte> copyRegion(std::size_t offset, std::size_t size) const;
 
+
+		/// @private
         void setRegion(std::size_t offset, std::span<const std::byte> data) noexcept;
 
+
+		/// @private
 		bool mapped() const noexcept;
+
+		/// @private
 		GLBufferMap mapRegion(std::size_t offset, std::size_t size, MapFlag flags);
 
+
+		/// @private
         // Resets the buffer's target binding point.
 		void resetTarget(Target newTarget) noexcept;
+
+		/// @private
 		// Binds the buffer to a target (or std::nullopt to bind to the default target).
 		void bind(std::optional<Target> target = std::nullopt) const noexcept;
+
+		/// @private
 		// Binds the buffer to an indexed target (or std::nullopt to bind to the default target).
 		void bindIndexed(std::optional<Target> target, std::uint32_t index) const noexcept;
+
+		/// @private
 		// Binds a range of the buffer to an indexed target (or std::nullopt to bind to the default target).
 		void bindIndexedRange(std::optional<Target> target, std::uint32_t index, std::size_t offset, std::size_t size) const noexcept;
 
+
+		/// @private
 		void setLabel(std::string_view label) noexcept;
 
+
+		/// @private
 		Handle<GLuint, 0, Deleter> _id;
+
+		/// @private
 		Target                     _target;
+
+		/// @private
 		std::size_t                _size;
+
 
 		friend class Shader;
 		friend class GLContext;
@@ -133,10 +204,23 @@ export namespace tr {
 		friend class IndexBuffer;
     };
 
-    // GL buffer map base class.
+    /******************************************************************************************************************
+	 * RAII wrapper over an OpenGL buffer map.
+	 *
+	 * The buffer is automatically unmapped once the map goes out of scope.
+	 ******************************************************************************************************************/
     class GLBufferMap {
     public:
+		/**************************************************************************************************************
+		 * Casts the map into a regular byte span.
+		 **************************************************************************************************************/
         operator std::span<std::byte>() const noexcept;
+
+		/**************************************************************************************************************
+		 * Casts the map into a regular byte span.
+		 *
+		 * @return A span of bytes. Despite not being const-qualified, they may be read-only dpeending on buffer access.
+		 **************************************************************************************************************/
         std::span<std::byte> span() const noexcept;
     private:
         struct Unmapper { void operator()(GLuint buffer) noexcept; };
@@ -150,6 +234,14 @@ export namespace tr {
 }
 
 // IMPLEMENTATION
+
+constexpr const char* tr::GLBufferBadAlloc::what() const noexcept {
+	return "OpenGL buffer allocation error";
+}
+
+constexpr const char* tr::GLMapBadAlloc::what() const noexcept {
+	return "OpenGL buffer map allocation error";
+}
 
 void tr::GLBuffer::Deleter::operator()(GLuint id) noexcept
 {
@@ -184,9 +276,9 @@ tr::GLBuffer::GLBuffer(Target target, std::span<const std::byte> data, Flag flag
     }
 }
 
-bool tr::operator==(const GLBuffer& lhs, const GLBuffer& rhs) noexcept
+bool tr::GLBuffer::operator==(const GLBuffer& rhs) const noexcept
 {
-    return lhs._id == rhs._id;
+    return _id == rhs._id;
 }
 
 void tr::GLBuffer::setLabel(std::string_view label) noexcept
