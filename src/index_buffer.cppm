@@ -29,7 +29,7 @@ export namespace tr {
         std::span<std::uint16_t> span() const noexcept;
     private:
         IndexBufferMap(GLBufferMap base) noexcept;
-        
+
         friend class IndexBuffer;
     };
 
@@ -181,7 +181,7 @@ export namespace tr {
         /**************************************************************************************************************
 	     * Sets the debug label of the vertex buffer.
          *
-         * @param label The new label of the buffer vertex.
+         * @param label The new label of the index buffer.
 	     **************************************************************************************************************/
         void setLabel(std::string label) noexcept;
     private:
