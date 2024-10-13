@@ -252,6 +252,8 @@ tr::GLBuffer::GLBuffer(Target target, std::size_t size, Flag flags)
     : _target { target }
     , _size { size }
 {
+	assert(size != 0);
+
     GLuint id;
     glCreateBuffers(1, &id);
     _id.reset(id);
@@ -266,6 +268,8 @@ tr::GLBuffer::GLBuffer(Target target, std::span<const std::byte> data, Flag flag
     : _target { target }
     , _size ( data.size() )
 {
+	assert(data.size() != 0);
+
     GLuint id;
     glCreateBuffers(1, &id);
     _id.reset(id);
@@ -318,6 +322,7 @@ bool tr::GLBuffer::mapped() const noexcept
 tr::GLBufferMap tr::GLBuffer::mapRegion(std::size_t offset, std::size_t size, MapFlag flags)
 {
     assert(!mapped());
+	assert(size > 0);
     assert(offset + size <= _size);
     auto ptr { (std::byte*)(glMapNamedBufferRange(_id.get(), offset, size, GLenum(flags))) };
     if (glGetError() == GL_OUT_OF_MEMORY) {
