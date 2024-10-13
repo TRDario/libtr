@@ -1,3 +1,8 @@
+/**
+ * @file vertex_buffer.cppm
+ * @brief Provides a GPU vertex buffer class.
+ */
+
 module;
 #include <cassert>
 #include <magic_enum/magic_enum.hpp>

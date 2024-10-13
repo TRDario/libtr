@@ -1,3 +1,8 @@
+/**
+ * @file index_buffer.cppm
+ * @brief Provides a GPU index buffer class.
+ */
+
 module;
 #include <cassert>
 #include <magic_enum/magic_enum.hpp>

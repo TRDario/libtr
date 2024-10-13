@@ -1,3 +1,8 @@
+/**
+ * @file vertex_format.cppm
+ * @brief Provides a vertex format class.
+ */
+
 module;
 #include <GL/glew.h>
 
