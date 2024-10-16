@@ -1,3 +1,8 @@
+/**
+ * @file sampler.cppm
+ * @brief Provides a texture sampler type.
+ */
+
 module;
 #include <cassert>
 #include <GL/glew.h>
@@ -9,93 +14,233 @@ import :color;
 import :handle;
 
 export namespace tr {
-	// Enum representing a texture wrapping type.
+	/******************************************************************************************************************
+	 * Texture wrapping types.
+	 ******************************************************************************************************************/
 	enum class Wrap {
-		REPEAT        = GL_REPEAT,          // The texture is repeated.
-		MIRROR_REPEAT = GL_MIRRORED_REPEAT, // The texture is repeated and mirrored.
-		EDGE_CLAMP    = GL_CLAMP_TO_EDGE,   // The value of the edge pixel is used.
-		BORDER_CLAMP  = GL_CLAMP_TO_BORDER  // The value of the border color is used.
+		/**************************************************************************************************************
+		 * The texture is repeated.
+		 **************************************************************************************************************/
+		REPEAT = GL_REPEAT,
+
+		/**************************************************************************************************************
+		 * The texture is repeated and mirrored.
+		 **************************************************************************************************************/
+		MIRROR_REPEAT = GL_MIRRORED_REPEAT,
+
+		/**************************************************************************************************************
+		 * The value of the edge pixel is used.
+		 **************************************************************************************************************/
+		EDGE_CLAMP = GL_CLAMP_TO_EDGE,
+
+		/**************************************************************************************************************
+		 * The value of the border color is used.
+		 **************************************************************************************************************/
+		BORDER_CLAMP = GL_CLAMP_TO_BORDER
 	};
-	// Enum representing a minifying filter type.
+	
+	/******************************************************************************************************************
+	 * Minifying filter types.
+	 ******************************************************************************************************************/
 	enum class MinFilter {
-		NEAREST       = GL_NEAREST,                // The value of the texture element that is nearest to the specified texture coordinates is used. 
-		LINEAR        = GL_LINEAR,                 // The average of the four texture elements that are closest to the specified texture coordinates is used. 
-		NMIP_NEAREST  = GL_NEAREST_MIPMAP_NEAREST, // Chooses the mipmap that most closely matches the size of the pixel being textured and uses "nearest".
-		NMIP_LINEAR   = GL_NEAREST_MIPMAP_LINEAR,  // Chooses the mipmap that most closely matches the size of the pixel being textured and uses "linear".
-		LMIPS_NEAREST = GL_LINEAR_MIPMAP_NEAREST,  // Chooses the two mipmaps that most closely match the size of the pixel being textured and uses "nearest".
-		LMIPS_LINEAR  = GL_LINEAR_MIPMAP_LINEAR    // Chooses the two mipmaps that most closely match the size of the pixel being textured and uses "linear".
-	};
-	// Enum representing a magnifying filter type.
-	enum class MagFilter {
-		NEAREST = GL_NEAREST, // The value of the texture element that is nearest to the specified texture coordinates is used. 
-		LINEAR  = GL_LINEAR   // The average of the four texture elements that are closest to the specified texture coordinates is used. 
-	};
-	// Enum representing a comparison function.
-	enum class Compare {
-		NEVER   = GL_NEVER,    // The function always returns false.
-		LESS    = GL_LESS,     // The function returns true if the value is less than the value being compared to.
-		EQUAL   = GL_EQUAL,    // The function returns true if the value is equal to the value being compared to.
-		LEQUAL  = GL_LEQUAL,   // The function returns true if the value is less than or equal to the value being compared to.
-		GREATER = GL_GREATER,  // The function returns true if the value is greater than the value being compared to.
-		NEQUAL  = GL_NOTEQUAL, // The function returns true if the value is not equal to the value being compared to.
-		GEQUAL  = GL_GEQUAL,   // The function returns true if the value is greater than or equal to the value being compared to.
-		ALWAYS  = GL_ALWAYS    // The function always returns true.
+		/**************************************************************************************************************
+		 * The value of the texture element that is nearest to the specified texture coordinates is used. 
+		 **************************************************************************************************************/
+		NEAREST = GL_NEAREST,
+
+		/**************************************************************************************************************
+		 * The average of the four texture elements that are closest to the specified texture coordinates is used.
+		 **************************************************************************************************************/
+		LINEAR = GL_LINEAR,
+
+		/**************************************************************************************************************
+		 * Chooses the mipmap that most closely matches the size of the pixel being textured and uses "nearest".
+		 **************************************************************************************************************/
+		NMIP_NEAREST = GL_NEAREST_MIPMAP_NEAREST,
+
+		/**************************************************************************************************************
+		 * Chooses the mipmap that most closely matches the size of the pixel being textured and uses "linear".
+		 **************************************************************************************************************/
+		NMIP_LINEAR = GL_NEAREST_MIPMAP_LINEAR,
+
+		/**************************************************************************************************************
+		 * Chooses the two mipmaps that most closely match the size of the pixel being textured and uses "nearest".
+		 **************************************************************************************************************/
+		LMIPS_NEAREST = GL_LINEAR_MIPMAP_NEAREST,
+
+		/**************************************************************************************************************
+		 * Chooses the two mipmaps that most closely match the size of the pixel being textured and uses "linear".
+		 **************************************************************************************************************/
+		LMIPS_LINEAR = GL_LINEAR_MIPMAP_LINEAR
 	};
 
-	// Texture sampler class.
+	/******************************************************************************************************************
+	 * Magnifying filter types.
+	 ******************************************************************************************************************/
+	enum class MagFilter {
+		/**************************************************************************************************************
+		 * The value of the texture element that is nearest to the specified texture coordinates is used. 
+		 **************************************************************************************************************/
+		NEAREST = GL_NEAREST,
+
+		/**************************************************************************************************************
+		 * The average of the four texture elements that are closest to the specified texture coordinates is used.
+		 **************************************************************************************************************/
+		LINEAR = GL_LINEAR
+	};
+	
+	/******************************************************************************************************************
+	 * Depth comparison functions.
+	 ******************************************************************************************************************/
+	enum class Compare {
+		/**************************************************************************************************************
+		 * The function always returns false.
+		 **************************************************************************************************************/
+		NEVER = GL_NEVER,
+
+		/**************************************************************************************************************
+		 * The function returns true if the value is less than the value being compared to.
+		 **************************************************************************************************************/
+		LESS = GL_LESS,
+
+		/**************************************************************************************************************
+		 * The function returns true if the value is equal to the value being compared to.
+		 **************************************************************************************************************/
+		EQUAL = GL_EQUAL,
+
+		/**************************************************************************************************************
+		 * The function returns true if the value is less than or equal to the value being compared to.
+		 **************************************************************************************************************/
+		LEQUAL = GL_LEQUAL,
+
+		/**************************************************************************************************************
+		 * The function returns true if the value is greater than the value being compared to.
+		 **************************************************************************************************************/
+		GREATER = GL_GREATER,
+
+		/**************************************************************************************************************
+		 * The function returns true if the value is not equal to the value being compared to.
+		 **************************************************************************************************************/
+		NEQUAL = GL_NOTEQUAL,
+
+		/**************************************************************************************************************
+		 * The function returns true if the value is greater than or equal to the value being compared to.
+		 **************************************************************************************************************/
+		GEQUAL = GL_GEQUAL,
+		
+		/**************************************************************************************************************
+		 * The function always returns true.
+		 **************************************************************************************************************/
+		ALWAYS = GL_ALWAYS
+	};
+
+	/******************************************************************************************************************
+	 * GPU Texture sampler.
+	 *
+	 * An OpenGL context must be open to instantiate and use objects of this type.
+	 ******************************************************************************************************************/
 	class Sampler {
 	public:
+		/**************************************************************************************************************
+		 * Creates a sampler.
+		 **************************************************************************************************************/
 		Sampler() noexcept;
 
+
+		/**************************************************************************************************************
+		 * Equality comparison operator.
+		 **************************************************************************************************************/
 		bool operator==(const Sampler&) const noexcept = default;
 
-		// Gets the minifying filter used by the sampler.
-		MinFilter minFilter() const noexcept;
-		// Gets the magnifying filter used by the sampler.
-		MagFilter magFilter() const noexcept;
-		// Sets the minifying filter used by the sampler.
+
+		/**************************************************************************************************************
+		 * Sets the minifying filter used by the sampler.
+		 *
+		 * @param filter The new minifying filter type.
+		 **************************************************************************************************************/
 		void setMinFilter(MinFilter filter) noexcept;
-		// Sets the magnifying filter used by the sampler.
+		
+		/**************************************************************************************************************
+		 * Sets the magnifying filter used by the sampler.
+		 *
+		 * @param filter The new magnifying filter type.
+		 **************************************************************************************************************/
 		void setMagFilter(MagFilter filter) noexcept;
 
-		// Gets the minimum allowed level-of-detail parameter used by the sampler.
-		int minLOD() const noexcept;
-		// Gets the maximum allowed level-of-detail parameter used by the sampler.
-		int maxLOD() const noexcept;
-		// Sets the minimum allowed level-of-detail parameter used by the sampler.
+
+		/**************************************************************************************************************
+		 * Sets the minimum allowed level-of-detail parameter used by the sampler.
+		 *
+		 * @param lod The new minimum LOD.
+		 **************************************************************************************************************/
 		void setMinLOD(int lod) noexcept;
-		// Sets the maximum allowed level-of-detail parameter used by the sampler.
+		
+		/**************************************************************************************************************
+		 * Sets the maximum allowed level-of-detail parameter used by the sampler.
+		 *
+		 * @param lod The new maximum LOD.
+		 **************************************************************************************************************/
 		void setMaxLOD(int lod) noexcept;
 
-		// Gets the comparison mode used by the sampler (if one is used at all).
-		std::optional<Compare> comparisonMode() const noexcept;
-        // Disables the use of depth comparison.
+
+		/**************************************************************************************************************
+		 * Disables the use of depth comparison.
+		 **************************************************************************************************************/
         void disableComparison() noexcept;
-		// Sets the depth comparison operator of the sampler.
-		// op - The operator to use.
+
+		/**************************************************************************************************************
+		 * Enables the use of depth comparison and sets the depth comparison operator of the sampler.
+		 *
+		 * @param op The function to use for comparison.
+		 **************************************************************************************************************/
 		void setComparisonMode(Compare op) noexcept;
 
-		// Gets the type of wrapping used for the s coordinate.
-		Wrap wrapS() const noexcept;
-		// Gets the type of wrapping used for the t coordinate.
-		Wrap wrapT() const noexcept;
-		// Gets the type of wrapping used for the r coordinate.
-		Wrap wrapR() const noexcept;
-		// Sets the type of wrapping used for the s coordinate.
+
+		/**************************************************************************************************************
+        * Sets the wrapping used for the s/x coordinate.
+		*
+		* @param wrap The new wrapping type.
+        **************************************************************************************************************/
 		void setWrapS(Wrap wrap) noexcept;
-		// Sets the type of wrapping used for the t coordinate.
+		
+		/**************************************************************************************************************
+        * Sets the wrapping used for the t/y coordinate.
+		*
+		* @param wrap The new wrapping type.
+        **************************************************************************************************************/
 		void setWrapT(Wrap wrap) noexcept;
-		// Sets the type of wrapping used for the r coordinate.
+
+		/**************************************************************************************************************
+        * Sets the wrapping used for the r/z coordinate.
+		*
+		* @param wrap The new wrapping type.
+        **************************************************************************************************************/
 		void setWrapR(Wrap wrap) noexcept;
-		// Sets the type of wrapping used for every coordinate.
+		
+		/**************************************************************************************************************
+        * Sets the wrapping used for all coordinates.
+		*
+		* @param wrap The new wrapping type.
+        **************************************************************************************************************/
 		void setWrap(Wrap wrap) noexcept;
 
-		RGBAF borderColor() const noexcept;
+
+		/**************************************************************************************************************
+        * Sets the border color of the sampler (used when Wrap::BORDER_CLAMP is in use).
+		*
+		* @param color The border color in floating point RGBA format.
+        **************************************************************************************************************/
 		void setBorderColor(RGBAF color) noexcept;
 
+
+		/**************************************************************************************************************
+        * Sets the debug label of the sampler.
+        *
+        * @param label The new label of the sampler.
+        **************************************************************************************************************/
         void setLabel(std::string_view label) noexcept;
 	private:
-		struct Deleter { void operator()(GLuint id) noexcept; };
+		struct Deleter { void operator()(GLuint id) noexcept; /**< @private */ };
 		Handle<GLuint, 0, Deleter> _id;
 
 		friend class TextureUnit;
@@ -116,20 +261,6 @@ void tr::Sampler::Deleter::operator()(GLuint id) noexcept
     glDeleteSamplers(1, &id);
 }
 
-tr::MinFilter tr::Sampler::minFilter() const noexcept
-{
-    GLint glFilter;
-    glGetSamplerParameteriv(_id.get(), GL_TEXTURE_MIN_FILTER, &glFilter);
-    return MinFilter(glFilter);
-}
-
-tr::MagFilter tr::Sampler::magFilter() const noexcept
-{
-    GLint glFilter;
-    glGetSamplerParameteriv(_id.get(), GL_TEXTURE_MAG_FILTER, &glFilter);
-    return MagFilter(glFilter);
-}
-
 void tr::Sampler::setMinFilter(MinFilter filter) noexcept
 {
     glSamplerParameteri(_id.get(), GL_TEXTURE_MIN_FILTER, GLint(filter));
@@ -138,20 +269,6 @@ void tr::Sampler::setMinFilter(MinFilter filter) noexcept
 void tr::Sampler::setMagFilter(MagFilter filter) noexcept
 {
     glSamplerParameteri(_id.get(), GL_TEXTURE_MAG_FILTER, GLint(filter));
-}
-
-int tr::Sampler::minLOD() const noexcept
-{
-    GLint lod;
-    glGetSamplerParameteriv(_id.get(), GL_TEXTURE_MIN_LOD, &lod);
-    return lod;
-}
-
-int tr::Sampler::maxLOD() const noexcept
-{
-    GLint lod;
-    glGetSamplerParameteriv(_id.get(), GL_TEXTURE_MAX_LOD, &lod);
-    return lod;
 }
 
 void tr::Sampler::setMinLOD(int lod) noexcept
@@ -164,17 +281,6 @@ void tr::Sampler::setMaxLOD(int lod) noexcept
     glSamplerParameteri(_id.get(), GL_TEXTURE_MAX_LOD, lod);
 }
 
-std::optional<tr::Compare> tr::Sampler::comparisonMode() const noexcept
-{
-    GLint compareMode;
-    glGetSamplerParameteriv(_id.get(), GL_TEXTURE_COMPARE_MODE, &compareMode);
-    if (compareMode == GL_NONE) {
-        return std::nullopt;
-    }
-    glGetSamplerParameteriv(_id.get(), GL_TEXTURE_COMPARE_FUNC, &compareMode);
-    return Compare(compareMode);
-}
-
 void tr::Sampler::disableComparison() noexcept
 {
     glSamplerParameteri(_id.get(), GL_TEXTURE_COMPARE_MODE, GL_NONE);
@@ -184,27 +290,6 @@ void tr::Sampler::setComparisonMode(Compare op) noexcept
 {
     glSamplerParameteri(_id.get(), GL_TEXTURE_COMPARE_MODE, GL_COMPARE_REF_TO_TEXTURE);
     glSamplerParameteri(_id.get(), GL_TEXTURE_COMPARE_FUNC, GLint(op));
-}
-
-tr::Wrap tr::Sampler::wrapS() const noexcept
-{
-    GLint glWrap;
-    glGetSamplerParameteriv(_id.get(), GL_TEXTURE_WRAP_S, &glWrap);
-    return Wrap(glWrap);
-}
-
-tr::Wrap tr::Sampler::wrapT() const noexcept
-{
-    GLint glWrap;
-    glGetSamplerParameteriv(_id.get(), GL_TEXTURE_WRAP_T, &glWrap);
-    return Wrap(glWrap);
-}
-
-tr::Wrap tr::Sampler::wrapR() const noexcept
-{
-    GLint glWrap;
-    glGetSamplerParameteriv(_id.get(), GL_TEXTURE_WRAP_R, &glWrap);
-    return Wrap(glWrap);
 }
 
 void tr::Sampler::setWrapS(Wrap wrap) noexcept
@@ -227,13 +312,6 @@ void tr::Sampler::setWrap(Wrap wrap) noexcept
     setWrapS(wrap);
     setWrapT(wrap);
     setWrapR(wrap);
-}
-
-tr::RGBAF tr::Sampler::borderColor() const noexcept
-{
-    RGBAF color;
-    glGetSamplerParameterfv(_id.get(), GL_TEXTURE_BORDER_COLOR, &color.r);
-    return color;
 }
 
 void tr::Sampler::setBorderColor(RGBAF color) noexcept
