@@ -1,74 +1,501 @@
+/**
+ * @file angle.cppm
+ * @brief Provides an angle type template alongside related functions and literals.
+ */
+
 export module tr:angle;
 
 import std;
 import :concepts;
 
 export namespace tr {
-	// The allowed base classes for the angle class.
+	/******************************************************************************************************************
+	 * Concept denoting a valid angle base type.
+	 *
+	 * To fulfill this concept, @em T must be a floating point type.
+	 ******************************************************************************************************************/
 	template <class T> concept AngleBase = std::floating_point<T>;
 
-	template <AngleBase T> class Angle {
+
+	/******************************************************************************************************************
+	 * Angular value type.
+	 *
+	 * @tparam T The base type of the angle, must be a floating point type.
+	 ******************************************************************************************************************/
+	template <AngleBase T>
+	class Angle {
 	public:
+		/**************************************************************************************************************
+         * Default-constructs an angle to 0 radians.
+         **************************************************************************************************************/
 		constexpr Angle() noexcept = default;
+
+		/**************************************************************************************************************
+         * Constructs an angle from a numeric value.
+		 *
+		 * tr::rads() should be preffered for readibility.
+		 *
+		 * @param rads The numeric value of the angle in radians.
+         **************************************************************************************************************/
 		constexpr explicit Angle(T rads) noexcept;
-		template <AngleBase U> constexpr Angle(Angle<U> th) noexcept;
 
-		template <AngleBase U> constexpr auto operator<=>(const Angle<U>& r) const noexcept;
-		template <AngleBase U> constexpr bool operator== (const Angle<U>& r) const noexcept;
+		/**************************************************************************************************************
+         * Constructs an angle from another angle (potentially of a different type).
+		 *
+		 * tr::rads() should be preffered for readibility.
+		 *
+		 * @param th The angle whose value to copy.
+         **************************************************************************************************************/
+		template <AngleBase U>
+		constexpr Angle(Angle<U> th) noexcept;
 
-		template <AngleBase U>  constexpr Angle& operator+=(const Angle<U>& r) noexcept;
-		template <AngleBase U>  constexpr Angle& operator-=(const Angle<U>& r) noexcept;
-		template <Arithmetic U> constexpr Angle& operator*=(const U& r) 	   noexcept;
-		template <Arithmetic U> constexpr Angle& operator/=(const U& r) 	   noexcept;
 
-								constexpr Angle operator-() 				 const noexcept;
-		template <AngleBase U>  constexpr auto  operator+(const Angle<U>& r) const noexcept;
-		template <AngleBase U>  constexpr auto  operator-(const Angle<U>& r) const noexcept;
-		template <Arithmetic U> constexpr auto  operator*(const U& r) 	     const noexcept;
-		template <Arithmetic U> constexpr auto  operator/(const U& r) 	     const noexcept;
-		template <AngleBase U>  constexpr auto  operator/(const Angle<U>& r) const noexcept;
-		template <AngleBase U>  constexpr auto  operator%(const Angle<U>& r) const noexcept;
+		/**************************************************************************************************************
+         * Three-way comparison operator.
+		 *
+		 * @param r An angle to compare against.
+         **************************************************************************************************************/
+		template <AngleBase U>
+		constexpr auto operator<=>(const Angle<U>& r) const noexcept;
 
-		constexpr T rads () const noexcept;
-		constexpr T degs () const noexcept;
+		/**************************************************************************************************************
+         * Equality comparison operator.
+		 *
+		 * @param r An angle to compare against.
+         **************************************************************************************************************/
+		template <AngleBase U>
+		constexpr bool operator==(const Angle<U>& r) const noexcept;
+
+
+		/**************************************************************************************************************
+         * Performs addition on the angle.
+		 *
+		 * @param r The angle value to add.
+		 *
+		 * @return A reference to the angle being added to.
+         **************************************************************************************************************/
+		template <AngleBase U>
+		constexpr Angle& operator+=(const Angle<U>& r) noexcept;
+
+		/**************************************************************************************************************
+         * Performs subtraction on the angle.
+		 *
+		 * @param r The angle value to subtract.
+		 *
+		 * @return A reference to the angle being subtracted from.
+         **************************************************************************************************************/
+		template <AngleBase U>
+		constexpr Angle& operator-=(const Angle<U>& r) noexcept;
+
+		/**************************************************************************************************************
+         * Performs multiplication on the angle.
+		 *
+		 * @param r The multiplication factor.
+		 *
+		 * @return A reference to the angle being multiplied.
+         **************************************************************************************************************/
+		template <Arithmetic U>
+		constexpr Angle& operator*=(const U& r) noexcept;
+
+		/**************************************************************************************************************
+         * Performs division on the angle.
+		 *
+		 * @param r The division factor.
+		 *
+		 * @return A reference to the angle being divided.
+         **************************************************************************************************************/
+		template <Arithmetic U>
+		constexpr Angle& operator/=(const U& r) noexcept;
+
+
+		/**************************************************************************************************************
+         * Negates the angle.
+
+		 * @return The negated value of the angle.
+         **************************************************************************************************************/
+		constexpr Angle operator-() const noexcept;
+
+		/**************************************************************************************************************
+         * Adds two angles.
+		 *
+		 * @param r The angle value to add.
+		 *
+		 * @return The sum of the angles. Standard promotion rules apply to the resulting angle type.
+         **************************************************************************************************************/
+		template <AngleBase U>
+		constexpr auto operator+(const Angle<U>& r) const noexcept;
+
+		/**************************************************************************************************************
+         * Subtracts two angles.
+		 *
+		 * @param r The angle value to subtract.
+		 *
+		 * @return The difference of the angles. Standard promotion rules apply to the resulting angle type.
+         **************************************************************************************************************/
+		template <AngleBase U>
+		constexpr auto operator-(const Angle<U>& r) const noexcept;
+
+		/**************************************************************************************************************
+         * Multiplies an angle by a factor.
+		 *
+		 * @param r The multiplication factor.
+		 *
+		 * @return The value of the left side angle multiplied by the factor. Standard promotion rules apply to the
+		 *		   resulting angle type.
+         **************************************************************************************************************/
+		template <Arithmetic U>
+		constexpr auto operator*(const U& r) const noexcept;
+
+		/**************************************************************************************************************
+         * Divides an angle by a factor.
+		 *
+		 * @param r The division factor.
+		 *
+		 * @return The value of the left side angle divided by the factor. Standard promotion rules apply to the
+		 * 		   resulting angle type.
+         **************************************************************************************************************/
+		template <Arithmetic U>
+		constexpr auto operator/(const U& r) const noexcept;
+
+		/**************************************************************************************************************
+         * Divides two angles.
+		 *
+		 * @param r The angle value to divide by.
+		 *
+		 * @return The ratio between the angles. Standard promotion rules apply to the resulting angle type.
+         **************************************************************************************************************/
+		template <AngleBase U>
+		constexpr auto operator/(const Angle<U>& r) const noexcept;
+
+		/**************************************************************************************************************
+         * Modulos an angle by another.
+		 *
+		 * @param r The angle value to modulo by.
+		 *
+		 * @return The modulod value of the left side angle. Standard promotion rules apply to the resulting angle type.
+         **************************************************************************************************************/
+		template <AngleBase U>
+		constexpr auto operator%(const Angle<U>& r) const noexcept;
+
+
+		/**************************************************************************************************************
+         * Converts the angle value into a numeric radian value.
+		 *
+		 * @return The value of the angle in radians.
+         **************************************************************************************************************/
+		constexpr T rads() const noexcept;
+
+		/**************************************************************************************************************
+         * Converts the angle value into a numeric degree value.
+		 *
+		 * @return The value of the angle in degrees.
+         **************************************************************************************************************/
+		constexpr T degs() const noexcept;
+
+		/**************************************************************************************************************
+         * Converts the angle value into a numeric turn value.
+		 *
+		 * @return The value of the angle in turns.
+         **************************************************************************************************************/
 		constexpr T turns() const noexcept;
-		constexpr T sin  () const noexcept;
-		constexpr T cos  () const noexcept;
-		constexpr T tan  () const noexcept;
+
+		/**************************************************************************************************************
+         * Computes the sine of the angle
+		 *
+		 * @return The sine of the angle.
+         **************************************************************************************************************/
+		constexpr T sin() const noexcept;
+
+		/**************************************************************************************************************
+         * Computes the cosine of the angle
+		 *
+		 * @return The cosine of the angle.
+         **************************************************************************************************************/
+		constexpr T cos() const noexcept;
+
+		/**************************************************************************************************************
+         * Computes the tangent of the angle
+		 *
+		 * @return The tangent of the angle.
+         **************************************************************************************************************/
+		constexpr T tan() const noexcept;
 	private:
 		T _rads;
 	};
+
+	/******************************************************************************************************************
+	 * Shorthand for a float angle.
+	 ******************************************************************************************************************/
 	using AngleF = Angle<float>;
+
+	/******************************************************************************************************************
+	 * Shorthand for a double angle.
+	 ******************************************************************************************************************/
 	using AngleD = Angle<double>;
+
+	/******************************************************************************************************************
+	 * Shorthand for a long double angle.
+	 ******************************************************************************************************************/
 	using AngleL = Angle<long double>;
 
-	template <Arithmetic T> constexpr auto rads (T th)     noexcept;
-	template <Arithmetic T> constexpr auto degs (T th)     noexcept;
-	template <Arithmetic T> constexpr auto turns(T th)     noexcept;
-	template <Arithmetic T> constexpr auto asin (T sin)    noexcept;
-	template <Arithmetic T> constexpr auto acos (T cos)    noexcept;
-	template <Arithmetic T> constexpr auto atan (T tan)    noexcept;
-	template <Arithmetic T> constexpr auto atan2(T y, T x) noexcept;
 
+	/******************************************************************************************************************
+	 * Converts a numeric value into an angle value.
+	 *
+	 * @tparam T An arithmetic type. Integer values return an AngleD value, while floating points return an angle of
+	 *           the same base type.
+	 *
+	 * @param th The numeric value in radians.
+	 *
+	 * @return An angle value.
+	 ******************************************************************************************************************/
+	template <Arithmetic T>
+	constexpr auto rads(T th) noexcept;
+
+	/******************************************************************************************************************
+	 * Converts a numeric value into an angle value.
+	 *
+	 * @tparam T An arithmetic type. Integer values return an AngleD value, while floating points return an angle of
+	 *           the same base type.
+	 *
+	 * @param th The numeric value in degrees.
+	 *
+	 * @return An angle value.
+	 ******************************************************************************************************************/
+	template <Arithmetic T>
+	constexpr auto degs(T th) noexcept;
+
+	/******************************************************************************************************************
+	 * Converts a numeric value into an angle value.
+	 *
+	 * @tparam T An arithmetic type. Integer values return an AngleD value, while floating points return an angle of
+	 *           the same base type.
+	 *
+	 * @param th The numeric value in turns.
+	 *
+	 * @return An angle value.
+	 ******************************************************************************************************************/
+	template <Arithmetic T>
+	constexpr auto turns(T th) noexcept;
+
+	/******************************************************************************************************************
+	 * Converts a sine value into an angle value.
+	 *
+	 * @tparam T An arithmetic type. Integer values return an AngleD value, while floating points return an angle of
+	 *           the same base type.
+	 *
+	 * @param sin The value of the sine.
+	 *
+	 * @return An angle value as if produced by `tr::rads(std::asin(sin))`.
+	 ******************************************************************************************************************/
+	template <Arithmetic T>
+	constexpr auto asin(T sin) noexcept;
+
+	/******************************************************************************************************************
+	 * Converts a cosine value into an angle value.
+	 *
+	 * @tparam T An arithmetic type. Integer values return an AngleD value, while floating points return an angle of
+	 *           the same base type.
+	 *
+	 * @param cos The value of the cosine.
+	 *
+	 * @return An angle value as if produced by `tr::rads(std::acos(sin))`.
+	 ******************************************************************************************************************/
+	template <Arithmetic T>
+	constexpr auto acos(T cos) noexcept;
+
+	/******************************************************************************************************************
+	 * Converts a tangent value into an angle value.
+	 *
+	 * @tparam T An arithmetic type. Integer values return an AngleD value, while floating points return an angle of
+	 *           the same base type.
+	 *
+	 * @param tan The value of the tangent.
+	 *
+	 * @return An angle value as if produced by `tr::rads(std::atan(sin))`.
+	 ******************************************************************************************************************/
+	template <Arithmetic T>
+	constexpr auto atan(T tan) noexcept;
+
+	/******************************************************************************************************************
+	 * Converts tangent x and y values into an angle value.
+	 *
+	 * @tparam T An arithmetic type. Integer values return an AngleD value, while floating points return an angle of
+	 *           the same base type.
+	 *
+	 * @param y, x Tangent values.
+	 *
+	 * @return An angle value as if produced by `tr::rads(std::atan2(y, x))`.
+	 ******************************************************************************************************************/
+	template <Arithmetic T>
+	constexpr auto atan2(T y, T x) noexcept;
+
+
+	/******************************************************************************************************************
+	 * Inline namespace containing angle value literals.
+	 ******************************************************************************************************************/
 	inline namespace angle_literals {
-		consteval AngleF operator "" _degf  (long double 		deg) noexcept;
-		consteval AngleF operator "" _degf  (unsigned long long deg) noexcept;
-		consteval AngleD operator "" _deg   (long double 		deg) noexcept;
-		consteval AngleD operator "" _deg   (unsigned long long deg) noexcept;
-		consteval AngleL operator "" _degl  (long double 		deg) noexcept;
-		consteval AngleL operator "" _degl  (unsigned long long deg) noexcept;
-		consteval AngleF operator "" _radf  (long double 		rad) noexcept;
-		consteval AngleF operator "" _radf  (unsigned long long rad) noexcept;
-		consteval AngleD operator "" _rad   (long double 		rad) noexcept;
-		consteval AngleD operator "" _rad   (unsigned long long rad) noexcept;
-		consteval AngleL operator "" _radl  (long double 		rad) noexcept;
-		consteval AngleL operator "" _radl  (unsigned long long rad) noexcept;
-		consteval AngleF operator "" _turnsf(long double 		tr)  noexcept;
-		consteval AngleF operator "" _turnsf(unsigned long long tr)  noexcept;
-		consteval AngleD operator "" _turns (long double 		tr)  noexcept;
-		consteval AngleD operator "" _turns (unsigned long long tr)  noexcept;
-		consteval AngleL operator "" _turnsl(long double 	 	tr)  noexcept;
-		consteval AngleL operator "" _turnsl(unsigned long long tr)  noexcept;
+		/**************************************************************************************************************
+         * Angle<float> degree literal.
+		 *
+		 * @param deg The value of the angle in degrees.
+		 *
+		 * @return An AngleF value.
+         **************************************************************************************************************/
+		consteval AngleF operator "" _degf(long double deg) noexcept;
+
+		/**************************************************************************************************************
+         * Angle<float> degree literal.
+		 *
+		 * @param deg The value of the angle in degrees.
+		 *
+		 * @return An AngleF value.
+         **************************************************************************************************************/
+		consteval AngleF operator "" _degf(unsigned long long deg) noexcept;
+
+		/**************************************************************************************************************
+         * Angle<double> degree literal.
+		 *
+		 * @param deg The value of the angle in degrees.
+		 *
+		 * @return An AngleD value.
+         **************************************************************************************************************/
+		consteval AngleD operator "" _deg(long double deg) noexcept;
+
+		/**************************************************************************************************************
+         * Angle<double> degree literal.
+		 *
+		 * @param deg The value of the angle in degrees.
+		 *
+		 * @return An AngleD value.
+         **************************************************************************************************************/
+		consteval AngleD operator "" _deg(unsigned long long deg) noexcept;
+
+		/**************************************************************************************************************
+         * Angle<long double> degree literal.
+		 *
+		 * @param deg The value of the angle in degrees.
+		 *
+		 * @return An AngleL value.
+         **************************************************************************************************************/
+		consteval AngleL operator "" _degl(long double deg) noexcept;
+
+		/**************************************************************************************************************
+         * Angle<long double> degree literal.
+		 *
+		 * @param deg The value of the angle in degrees.
+		 *
+		 * @return An AngleL value.
+         **************************************************************************************************************/
+		consteval AngleL operator "" _degl(unsigned long long deg) noexcept;
+
+		/**************************************************************************************************************
+         * Angle<float> radian literal.
+		 *
+		 * @param rad The value of the angle in radians.
+		 *
+		 * @return An AngleF value.
+         **************************************************************************************************************/
+		consteval AngleF operator "" _radf(long double rad) noexcept;
+
+		/**************************************************************************************************************
+         * Angle<float> radian literal.
+		 *
+		 * @param rad The value of the angle in radians.
+		 *
+		 * @return An AngleF value.
+         **************************************************************************************************************/
+		consteval AngleF operator "" _radf(unsigned long long rad) noexcept;
+
+		/**************************************************************************************************************
+         * Angle<double> radian literal.
+		 *
+		 * @param rad The value of the angle in radians.
+		 *
+		 * @return An AngleD value.
+         **************************************************************************************************************/
+		consteval AngleD operator "" _rad(long double rad) noexcept;
+
+		/**************************************************************************************************************
+         * Angle<double> radian literal.
+		 *
+		 * @param rad The value of the angle in radians.
+		 *
+		 * @return An AngleD value.
+         **************************************************************************************************************/
+		consteval AngleD operator "" _rad(unsigned long long rad) noexcept;
+
+		/**************************************************************************************************************
+         * Angle<long double> radian literal.
+		 *
+		 * @param rad The value of the angle in radians.
+		 *
+		 * @return An AngleL value.
+         **************************************************************************************************************/
+		consteval AngleL operator "" _radl(long double rad) noexcept;
+
+		/**************************************************************************************************************
+         * Angle<long double> radian literal.
+		 *
+		 * @param rad The value of the angle in radians.
+		 *
+		 * @return An AngleL value.
+         **************************************************************************************************************/
+		consteval AngleL operator "" _radl(unsigned long long rad) noexcept;
+
+		/**************************************************************************************************************
+         * Angle<float> turns literal.
+		 *
+		 * @param tr The value of the angle in turns.
+		 *
+		 * @return An AngleF value.
+         **************************************************************************************************************/
+		consteval AngleF operator "" _turnsf(long double tr) noexcept;
+
+		/**************************************************************************************************************
+         * Angle<float> turns literal.
+		 *
+		 * @param tr The value of the angle in turns.
+		 *
+		 * @return An AngleF value.
+         **************************************************************************************************************/
+		consteval AngleF operator "" _turnsf(unsigned long long tr) noexcept;
+
+		/**************************************************************************************************************
+         * Angle<double> turns literal.
+		 *
+		 * @param tr The value of the angle in turns.
+		 *
+		 * @return An AngleD value.
+         **************************************************************************************************************/
+		consteval AngleD operator "" _turns(long double tr) noexcept;
+
+		/**************************************************************************************************************
+         * Angle<double> turns literal.
+		 *
+		 * @param tr The value of the angle in turns.
+		 *
+		 * @return An AngleD value.
+         **************************************************************************************************************/
+		consteval AngleD operator "" _turns(unsigned long long tr) noexcept;
+
+		/**************************************************************************************************************
+         * Angle<long double> turns literal.
+		 *
+		 * @param tr The value of the angle in turns.
+		 *
+		 * @return An AngleL value.
+         **************************************************************************************************************/
+		consteval AngleL operator "" _turnsl(long double tr)  noexcept;
+
+		/**************************************************************************************************************
+         * Angle<long double> turns literal.
+		 *
+		 * @param tr The value of the angle in turns.
+		 *
+		 * @return An AngleL value.
+         **************************************************************************************************************/
+		consteval AngleL operator "" _turnsl(unsigned long long tr) noexcept;
 	}
 }
 
