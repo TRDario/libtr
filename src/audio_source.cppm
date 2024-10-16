@@ -414,7 +414,11 @@ std::optional<tr::AudioBufferView> tr::AudioSource::buffer() const noexcept
 void tr::AudioSource::setBuffer(std::optional<AudioBufferView> buffer) noexcept
 {
     alSourcei(_id.get(), AL_BUFFER, buffer ? buffer->_id : 0);
-    alSourcei(_id.get(), AL_DIRECT_CHANNELS_SOFT, buffer ? buffer->channels() == 2 : false);
+    if (buffer.has_value()) {
+        ALint channels;
+        alGetBufferi(buffer->_id, AL_CHANNELS, &channels);
+        alSourcei(_id.get(), AL_DIRECT_CHANNELS_SOFT, buffer ? channels == 2 : false);
+    }
 }
 
 std::size_t tr::AudioSource::queuedBuffers() const noexcept
@@ -455,7 +459,6 @@ tr::SecondsF tr::AudioSource::offset() const noexcept
 
 void tr::AudioSource::setOffset(SecondsF offset) noexcept
 {
-    assert(buffer().has_value() && offset.count() < buffer()->size() * 8.0f / buffer()->depth() / buffer()->frequency());
     alSourcef(_id.get(), AL_SEC_OFFSET, offset.count());
 }
 
@@ -469,6 +472,5 @@ int tr::AudioSource::offsetSamples() const noexcept
 
 void tr::AudioSource::setOffset(int offset) noexcept
 {
-    assert(buffer().has_value() && offset < buffer()->size() * 8 / buffer()->depth());
     alSourcei(_id.get(), AL_SAMPLE_OFFSET, offset);
 }
