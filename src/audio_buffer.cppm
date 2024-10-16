@@ -1,6 +1,15 @@
+/**
+ * @file audio_buffer.cppm
+ * @brief Provides an audio buffer class.
+ */
+
 module;
 #include <AL/al.h>
 #include <sndfile.h>
+
+#ifdef _WIN32
+#include <windows.h>
+#endif
 
 export module tr:audio_buffer;
 
@@ -9,119 +18,171 @@ import :handle;
 import :iostream;
 import :ranges;
 
-#ifdef _WIN32
-#include <windows.h>
-#endif
-
 export namespace tr {
+    /******************************************************************************************************************
+	 * Error thrown when allocating an audio buffer fails.
+	 ******************************************************************************************************************/
     struct AudioBufferBadAlloc : std::bad_alloc {
-        AudioBufferBadAlloc() noexcept = default;
-		constexpr virtual const char* what() const noexcept { return "failed audio buffer allocation"; };
+        /**************************************************************************************************************
+         * Gets an error message.
+         *
+         * @return An explanatory error message.
+	     **************************************************************************************************************/
+		constexpr virtual const char* what() const noexcept;
     };
 
+    /******************************************************************************************************************
+	 * Error thrown when an trying to load an unsupported audio file.
+	 ******************************************************************************************************************/
+    struct UnsupportedAudioFile : FileError {
+        using FileError::FileError;
+
+        /**************************************************************************************************************
+         * Gets an error message.
+         *
+         * @return An explanatory error message.
+	     **************************************************************************************************************/
+        virtual const char* what() const noexcept;
+    };
+
+
+    /******************************************************************************************************************
+	 * Audio data format.
+	 ******************************************************************************************************************/
 	enum class AudioFormat {
-		MONO8    = 0x1100, // 8-bit mono audio.
-		STEREO8  = 0x1102, // 8-bit stereo audio.
-		MONO16   = 0x1101, // 16-bit mono audio.
+        /**************************************************************************************************************
+         * 1-channel, 8-bit audio.
+         **************************************************************************************************************/
+		MONO8 = 0x1100, // 8-bit mono audio.
+
+        /**************************************************************************************************************
+         * 2-channel, 8-bit audio.
+         **************************************************************************************************************/
+		STEREO8 = 0x1102, // 8-bit stereo audio.
+
+        /**************************************************************************************************************
+         * 1-channel, 16-bit audio.
+         **************************************************************************************************************/
+		MONO16 = 0x1101, // 16-bit mono audio.
+
+        /**************************************************************************************************************
+         * 2-channel, 16-bit audio.
+         **************************************************************************************************************/
 		STEREO16 = 0x1103  // 16-bit stereo audio.
 	};
 
-	// Non-owning audio buffer view.
+
+	/******************************************************************************************************************
+	 * Non-owning audio buffer view.
+	 ******************************************************************************************************************/
 	class AudioBufferView {
 	public:
-		friend bool operator==(const AudioBufferView&, const AudioBufferView&) noexcept = default;
+        /**************************************************************************************************************
+         * Equality comparison operator.
+         **************************************************************************************************************/
+		bool operator==(const AudioBufferView&) const noexcept = default;
 
-		// Gets the frequency of the buffer data.
-		int frequency() const noexcept;
-		// Gets the bit depth of the buffer.
-		int depth() const noexcept;
-		// Gets the number of channels in the buffer.
-		int channels() const noexcept;
-		// Gets the size of the buffer in bytes.
-		int size() const noexcept;
-
-		// Sets the data of the buffer.
+		/**************************************************************************************************************
+         * Sets the data of the buffer.
+         *
+         * @exception AudioBufferBadAlloc If allocating the buffer failed.
+         *
+         * @param data A span over audio data.
+         * @param format The format of the audio data.
+         * @param frequency The frequency of the audio data.
+         **************************************************************************************************************/
 		void set(std::span<const std::byte> data, AudioFormat format, int frequency);
 	protected:
-		/// The OpenAL ID of the buffer.
-		ALuint _id;
+        /// @private
+		ALuint _id; // The OpenAL ID of the buffer.
 
+
+        /// @private
 		// Constructs a audio buffer view from an OpenAL id.
 		AudioBufferView(ALuint id) noexcept;
+
 
 		friend class AudioBuffer;
 		friend class AudioSource;
 	};
 
-	// Owning audio buffer class.
+	/******************************************************************************************************************
+	 * Owning audio buffer.
+     *
+     * An audio context must be open to instantiate and use objects of this type.
+	 ******************************************************************************************************************/
 	class AudioBuffer {
 	public:
-		// Constructs an empty audio buffer.
+		/**************************************************************************************************************
+         * Constructs an empty audio buffer.
+         *
+         * @exception AudioBufferBadAlloc If allocating the buffer failed.
+         **************************************************************************************************************/
 		AudioBuffer();
-		// Constructs an initialized audio buffer.
+		
+        /**************************************************************************************************************
+         * Constructs an audio buffer containing audio data.
+         *
+         * @exception AudioBufferBadAlloc If allocating the buffer failed.
+         *
+         * @param data A span over audio data.
+         * @param format The format of the audio data.
+         * @param frequency The frequency of the audio data.
+         **************************************************************************************************************/
 		AudioBuffer(std::span<const std::byte> data, AudioFormat format, int frequency);
 
+        /**************************************************************************************************************
+         * Loads audio data from file to a buffer.
+         *
+         * @exception FileNotFound If the file wasn't found.
+         * @exception FileOpenError If opening the file failed.
+         * @exception UnsupportedAudioFile If the file is an unsupported or invalid format.
+         * @exception std::bad_alloc If allocating a buffer for reading the data failed.
+         * @exception AudioBufferBadAlloc If allocating the buffer failed.
+         *
+         * @param path The path to an audio file.
+         **************************************************************************************************************/
+		explicit AudioBuffer(const std::filesystem::path& path);
+
+
+        /**************************************************************************************************************
+         * Equality comparison operator.
+         **************************************************************************************************************/
 		friend bool operator==(const AudioBuffer&, const AudioBuffer&) noexcept = default;
 
+
+        /**************************************************************************************************************
+         * Casts the audio buffer to an audio buffer view.
+         **************************************************************************************************************/
 		operator AudioBufferView() const noexcept;
 
-		// Gets the frequency of the buffer data.
-		int frequency() const noexcept;
-		// Gets the bit depth of the buffer.
-		int depth() const noexcept;
-		// Gets the number of channels in the buffer.
-		int channels() const noexcept;
-		// Gets the size of the buffer in bytes.
-		int size() const noexcept;
 
-		// Sets the data of the buffer.
+		/**************************************************************************************************************
+         * Sets the data of the buffer.
+         *
+         * @exception AudioBufferBadAlloc If allocating the buffer failed.
+         *
+         * @param data A span over audio data.
+         * @param format The format of the audio data.
+         * @param frequency The frequency of the audio data.
+         **************************************************************************************************************/
 		void set(std::span<const std::byte> data, AudioFormat format, int frequency);
 	private:
-		struct Deleter { void operator()(ALuint id) noexcept; };
+		struct Deleter { void operator()(ALuint id) noexcept; /**< @private */ };
 		Handle<ALuint, 0, Deleter> _id;
 	};
-
-    struct UnsupportedAudioFile : FileError {
-        using FileError::FileError;
-        virtual const char* what() const noexcept;
-    };
-
-    AudioBuffer loadAudio(const std::filesystem::path& path);
 }
 
 // IMPLEMENTATION
 
+constexpr const char* tr::AudioBufferBadAlloc::what() const noexcept
+{
+    return "failed audio buffer allocation";
+}
+
 tr::AudioBufferView::AudioBufferView(ALuint id) noexcept
     : _id { id }
 {}
-
-int tr::AudioBufferView::frequency() const noexcept
-{
-    int value;
-    alGetBufferi(_id, AL_FREQUENCY, &value);
-    return value;
-}
-
-int tr::AudioBufferView::depth() const noexcept
-{
-    int value;
-    alGetBufferi(_id, AL_BITS, &value);
-    return value;
-}
-
-int tr::AudioBufferView::channels() const noexcept
-{
-    int value;
-    alGetBufferi(_id, AL_CHANNELS, &value);
-    return value;
-}
-
-int tr::AudioBufferView::size() const noexcept
-{
-    int value;
-    alGetBufferi(_id, AL_SIZE, &value);
-    return value;
-}
 
 void tr::AudioBufferView::set(std::span<const std::byte> data, AudioFormat format, int frequency)
 {
@@ -146,6 +207,34 @@ tr::AudioBuffer::AudioBuffer(std::span<const std::byte> data, AudioFormat format
     set(data, format, frequency);
 }
 
+tr::AudioBuffer::AudioBuffer(const std::filesystem::path& path)
+{
+    if (!is_regular_file(path)) {
+        throw FileNotFound { path };
+    }
+
+    SF_INFO info;
+    #ifdef _WIN32
+    std::unique_ptr<SNDFILE, decltype(&sf_close)> file { sf_wchar_open(path.c_str(), SFM_READ, &info), sf_close };
+    #else
+    std::unique_ptr<SNDFILE, decltype(&sf_close)> file { sf_open(path.c_str(), SFM_READ, &info), sf_close };
+    #endif
+
+    if (file == nullptr) {
+        throw FileOpenError { path };
+    }
+    if (info.channels > 2) {
+        throw UnsupportedAudioFile { path };
+    }
+    if (info.format & (SF_FORMAT_OGG | SF_FORMAT_VORBIS | SF_FORMAT_FLOAT | SF_FORMAT_DOUBLE)) {
+        sf_command(file.get(), SFC_SET_SCALE_FLOAT_INT_READ, nullptr, true);
+    }
+
+    std::vector<std::int16_t> data(info.frames * info.channels);
+    sf_readf_short(file.get(), data.data(), info.frames);
+    set(rangeBytes(data), info.channels == 2 ? AudioFormat::STEREO16 : AudioFormat::MONO16, info.samplerate);
+}
+
 void tr::AudioBuffer::Deleter::operator()(ALuint id) noexcept
 {
     alDeleteBuffers(1, &id);
@@ -159,58 +248,9 @@ const char* tr::UnsupportedAudioFile::what() const noexcept
     return str.c_str();
 }
 
-tr::AudioBuffer tr::loadAudio(const std::filesystem::path& path)
-{
-    if (!is_regular_file(path)) {
-        throw FileNotFound { path };
-    }
-
-    SF_INFO info;
-    #ifdef _WIN32
-    SNDFILE* file { sf_open_fd(_wopen(path.c_str(), _O_RDONLY, 0), SFM_READ, &info, true) };
-    #else
-    SNDFILE* file { sf_open(path.c_str(), SFM_READ, &info) };
-    #endif
-
-    if (file == nullptr) {
-        throw FileOpenError { path };
-    }
-    if (info.channels > 2) {
-        throw UnsupportedAudioFile { path };
-    }
-    if (info.format & (SF_FORMAT_OGG | SF_FORMAT_VORBIS | SF_FORMAT_FLOAT | SF_FORMAT_DOUBLE)) {
-        sf_command(file, SFC_SET_SCALE_FLOAT_INT_READ, nullptr, true);
-    }
-
-    std::vector<std::int16_t> data(info.frames * info.channels);
-    sf_readf_short(file, data.data(), info.frames);
-    sf_close(file);
-    return AudioBuffer(rangeBytes(data), info.channels == 2 ? AudioFormat::STEREO16 : AudioFormat::MONO16, info.samplerate);
-}
-
 tr::AudioBuffer::operator AudioBufferView() const noexcept
 {
     return _id.get();
-}
-
-int tr::AudioBuffer::frequency() const noexcept
-{
-    return AudioBufferView(*this).frequency();
-}
-
-int tr::AudioBuffer::depth() const noexcept
-{
-    return AudioBufferView(*this).depth();
-}
-
-int tr::AudioBuffer::channels() const noexcept
-{
-    return AudioBufferView(*this).channels();
-}
-
-int tr::AudioBuffer::size() const noexcept
-{
-    return AudioBufferView(*this).size();
 }
 
 void tr::AudioBuffer::set(std::span<const std::byte> data, AudioFormat format, int frequency)
