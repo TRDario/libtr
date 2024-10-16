@@ -174,9 +174,9 @@ export namespace tr {
 		// Opens a window.
 		Window(const char* title, glm::ivec2 size, glm::ivec2 pos = CENTERED_POS, WindowFlag flags = WindowFlag::DEFAULT);
 		// Opens a borderless window.
-		Window(const char* title, DisplayInfo display = defaultDisplay);
+		Window(const char* title, DisplayInfo display = DEFAULT_DISPLAY);
 		// Opens a fullscreen window.
-		Window(const char* title, const DisplayMode& dmode, DisplayInfo display = defaultDisplay);
+		Window(const char* title, const DisplayMode& dmode, DisplayInfo display = DEFAULT_DISPLAY);
 		Window(Window&&) noexcept;
 		~Window() noexcept;
 
