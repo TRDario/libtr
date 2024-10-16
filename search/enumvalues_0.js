@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['read_5fonly_0',['READ_ONLY',['../classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8daa47c7e7cb36a953a8c47e02000036bb44',1,'tr::ShaderBuffer']]],
-  ['read_5fwrite_1',['READ_WRITE',['../classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8daaa7b843fb734e3b3fea8e5f902d3f4144',1,'tr::ShaderBuffer']]]
+  ['always_0',['ALWAYS',['../sampler_8cppm.html#a88338da155e2e92486d80fb0650a07d5af3fc827ade4b968e50406496907ef962',1,'tr']]]
 ];

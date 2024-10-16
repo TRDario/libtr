@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['namedaudiodeviceopenerror_0',['NamedAudioDeviceOpenError',['../structtr_1_1NamedAudioDeviceOpenError.html',1,'tr']]],
-  ['noemptyhandlecheck_1',['NoEmptyHandleCheck',['../structtr_1_1NoEmptyHandleCheck.html',1,'tr']]]
+  ['indexbuffer_0',['IndexBuffer',['../classtr_1_1IndexBuffer.html',1,'tr']]],
+  ['indexbuffermap_1',['IndexBufferMap',['../classtr_1_1IndexBufferMap.html',1,'tr']]]
 ];
