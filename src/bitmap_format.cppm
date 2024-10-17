@@ -1,11 +1,24 @@
+/**
+ * @file bitmap_format.cppm
+ * @brief Provides a bitmap pixel format type.
+ */
+
 module;
 #include <SDL2/SDL.h>
 
 export module tr:bitmap_format;
 
 export namespace tr {
+	/******************************************************************************************************************
+	 * Bitmap format information.
+	 ******************************************************************************************************************/
 	class BitmapFormat {
 	public:
+		/**************************************************************************************************************
+    	 * The base enumerator.
+		 *
+		 * Its members are included in the parent class, so it's mostly an implementation detail.
+    	 **************************************************************************************************************/
 		enum class Type {
 			UNKNOWN,
 			RGBA32,
@@ -44,7 +57,10 @@ export namespace tr {
 			ARGB_2101010 = SDL_PIXELFORMAT_ARGB2101010
 		};
 		using enum Type;
-		// Enum representing an order of elements in a pixel format.
+
+		/**************************************************************************************************************
+         * Orders of elements in a bitmap format.
+         **************************************************************************************************************/
 		enum class Order {
 			BITMAPPED_NONE = 0,
 			BITMAPPED_4321,
@@ -68,7 +84,10 @@ export namespace tr {
 			ARRAY_BGRA,
 			ARRAY_ABGR
 		};
-		// Enum representing a packed pixel format channel layout.
+
+		/**************************************************************************************************************
+         * Packed bitmap format channel layouts.
+         **************************************************************************************************************/
 		enum class Layout {
 			NONE,
 			I8_332,
@@ -81,19 +100,83 @@ export namespace tr {
 			I32_1010102
 		};
 
-		BitmapFormat(Type type) noexcept;
 
+		/**************************************************************************************************************
+    	 * Constructs a bitmap format from the base enumerator.
+		 *
+		 * @param base The base enumerator.
+    	 **************************************************************************************************************/
+		BitmapFormat(Type base) noexcept;
+
+
+		/**************************************************************************************************************
+         * Casts the format to the base enumerator.
+         **************************************************************************************************************/
 		operator Type() const noexcept;
 
-		const char* name      () const noexcept;
-		Order 	    order     () const noexcept;
-		Layout 	    layout    () const noexcept;
-		int 		pixelBits () const noexcept;
-		int 		pixelBytes() const noexcept;
-		bool 		isIndexed () const noexcept;
-		bool 		isPacked  () const noexcept;
-		bool 		isArray   () const noexcept;
-		bool 		hasAlpha  () const noexcept;
+
+		/**************************************************************************************************************
+         * Gets the printable name of the bitmap format.
+		 *
+		 * @return A C-string containing the printable name of the bitmap format.
+         **************************************************************************************************************/
+		const char* name() const noexcept;
+
+		/**************************************************************************************************************
+         * Gets the order of the bitmap format.
+		 *
+		 * @return The order type of the bitmap format.
+         **************************************************************************************************************/
+		Order order() const noexcept;
+
+		/**************************************************************************************************************
+         * Gets the layout of the bitmap format.
+		 *
+		 * @return The layout type of the bitmap format.
+         **************************************************************************************************************/
+		Layout layout() const noexcept;
+
+		/**************************************************************************************************************
+         * Gets the number of bits in a pixel.
+		 *
+		 * @return The number of bits in a pixel.
+         **************************************************************************************************************/
+		int pixelBits() const noexcept;
+
+		/**************************************************************************************************************
+         * Gets the number of bytes in a pixel.
+		 *
+		 * @return The number of bytes in a pixel.
+         **************************************************************************************************************/
+		int pixelBytes() const noexcept;
+
+		/**************************************************************************************************************
+         * Gets whether the format is indexed.
+		 *
+		 * @return True if the format is indexed and false otherwise.
+         **************************************************************************************************************/
+		bool isIndexed() const noexcept;
+
+		/**************************************************************************************************************
+         * Gets whether the format is packed.
+		 *
+		 * @return True if the format is packed and false otherwise.
+         **************************************************************************************************************/
+		bool isPacked() const noexcept;
+
+		/**************************************************************************************************************
+         * Gets whether the format is an array format.
+		 *
+		 * @return True if the format is an array format and false otherwise.
+         **************************************************************************************************************/
+		bool isArray() const noexcept;
+
+		/**************************************************************************************************************
+         * Gets whether the format has alpha.
+		 *
+		 * @return True if the format has alpha and false otherwise.
+         **************************************************************************************************************/
+		bool hasAlpha() const noexcept;
 	private:
 		Type _type;
 	};
