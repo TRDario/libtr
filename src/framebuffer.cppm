@@ -1,3 +1,8 @@
+/**
+ * @file framebuffer.cppm
+ * @brief Provides OpenGL framebuffer classes.
+ */
+
 module;
 #include <cassert>
 #include <GL/glew.h>
@@ -15,75 +20,293 @@ import :texture;
 import :window;
 
 export namespace tr {
-	// Struct representing a framebuffer depth range.
-	struct DepthRange { double min, max; };
+    /******************************************************************************************************************
+	 * Framebuffer depth range.
+	 ******************************************************************************************************************/
+	struct DepthRange {
+        /**************************************************************************************************************
+	     * Minimum depth value.
+	     **************************************************************************************************************/
+        double min;
+        
+        /**************************************************************************************************************
+	     * Maximum depth value.
+	     **************************************************************************************************************/
+        double max;
+    };
 
-	// Base framebuffer class (cannot be constructed directly).
+
+    /******************************************************************************************************************
+	 * Base framebuffer class.
+     *
+     * This class cannot be constructed directly.
+	 ******************************************************************************************************************/
 	class BasicFramebuffer {
 	public:
-		friend bool operator==(const BasicFramebuffer& lhs, const BasicFramebuffer& rhs) noexcept;
+        /**************************************************************************************************************
+		 * Equality comparison operator.
+		 **************************************************************************************************************/
+		bool operator==(const BasicFramebuffer&) const noexcept;
 
+
+        /**************************************************************************************************************
+	     * Gets the size of the framebuffer.
+         *
+         * @return The size of the framebuffer in pixels.
+	     **************************************************************************************************************/
 		virtual glm::ivec2 size() const noexcept = 0;
 
-		// Reads pixels into a bitmap.
-		Bitmap readRegion(RectI2 rect, BitmapFormat format) const;
-		// Copies pixels into a texture.
-		void copyRegion(RectI2 rect, Texture2D& texture, glm::ivec2 textureTL) const;
 
+        /**************************************************************************************************************
+	     * Reads pixels into a bitmap.
+         *
+         * The image is copied from the color attachments bound to the framebuffer.
+         *
+         * @exception BitmapBadAlloc If allocating the bitmap failed.
+         *
+         * @param rect The rect of the framebuffer to copy.
+         * @param format The format to use for the bitmap pixels.
+         *
+         * @return A bitmap containing the pixel data.
+	     **************************************************************************************************************/
+		Bitmap readRegion(RectI2 rect, BitmapFormat format) const;
+
+		/**************************************************************************************************************
+	     * Copies pixels to a texture.
+         *
+         * The image is copied from the color attachments bound to the framebuffer.
+         *
+         * @param rect The rect of the framebuffer to copy.
+         * @param texture The texture to copy the pixels to.
+         * @param textureTL The coordinates of the top-left corner of the rect within the texture.
+	     **************************************************************************************************************/
+		void copyRegion(RectI2 rect, Texture2D& texture, glm::ivec2 textureTL) const noexcept;
+
+
+        /**************************************************************************************************************
+	     * Gets the viewport rect of the framebuffer.
+         *
+         * @return The viewport rect.
+	     **************************************************************************************************************/
 		RectI2 viewport() const noexcept;
+
+        /**************************************************************************************************************
+	     * Sets the viewport rect of the framebuffer.
+         *
+         * @param viewport The new viewport.
+	     **************************************************************************************************************/
 		void setViewport(RectI2 viewport) noexcept;
 
-		// Gets the depth range of the framebuffer in the format [min, max].
+
+		/**************************************************************************************************************
+	     * Gets the depth range of the framebuffer.
+         *
+         * @return The depth range.
+	     **************************************************************************************************************/
 		DepthRange depthRange() const noexcept;
+
+        /**************************************************************************************************************
+	     * Sets the depth range of the framebuffer.
+         *
+         * @param range The new depth range.
+	     **************************************************************************************************************/
 		void setDepthRange(DepthRange range) noexcept;
 	protected:
+        /// @private
 		GLuint     _id;
+
+        /// @private
 		RectI2 	   _viewport;
+
+        /// @private
 		DepthRange _depthRange;
 
+
+        /// @private
 		BasicFramebuffer(GLuint id, RectI2 viewport, DepthRange depthRange) noexcept;
 
+
+        /// @private
 		// Binds the framebuffer for reading.
 		void bindRead() const noexcept;
+
+        /// @private
 		// Binds the framebuffer for writing.
 		void bindWrite() const noexcept;
 
 		friend class GLContext;
 	};
 
-	// Framebuffer class.
+	/******************************************************************************************************************
+	 * Custom framebuffer.
+	 ******************************************************************************************************************/
 	class Framebuffer : public BasicFramebuffer {
 	public:
-		// Framebuffer attachment slots.
+		/**************************************************************************************************************
+	     * Framebuffer attachment slots.
+	     **************************************************************************************************************/
 		enum class Slot {
+            /**********************************************************************************************************
+	         * Color attachment slot 0.
+	         **********************************************************************************************************/
 			COLOR0,
+
+            /**********************************************************************************************************
+	         * Color attachment slot 1.
+	         **********************************************************************************************************/
 			COLOR1,
+
+            /**********************************************************************************************************
+	         * Color attachment slot 2.
+	         **********************************************************************************************************/
 			COLOR2,
+
+            /**********************************************************************************************************
+	         * Color attachment slot 3.
+	         **********************************************************************************************************/
 			COLOR3,
+
+            /**********************************************************************************************************
+	         * Color attachment slot 4.
+	         **********************************************************************************************************/
 			COLOR4,
+
+            /**********************************************************************************************************
+	         * Color attachment slot 5.
+	         **********************************************************************************************************/
 			COLOR5,
+
+            /**********************************************************************************************************
+	         * Color attachment slot 6.
+	         **********************************************************************************************************/
 			COLOR6,
+
+            /**********************************************************************************************************
+	         * Color attachment slot 7.
+	         **********************************************************************************************************/
 			COLOR7,
+
+            /**********************************************************************************************************
+	         * Depth attachment slot.
+	         **********************************************************************************************************/
 			DEPTH,
+
+            /**********************************************************************************************************
+	         * Stencil attachment slot.
+	         **********************************************************************************************************/
 			STENCIL
 		};
 
+
+        /**************************************************************************************************************
+	     * Constructs an empty framebuffer.
+	     **************************************************************************************************************/
 		Framebuffer() noexcept;
-		Framebuffer(Framebuffer&&) noexcept;
+
+        /**************************************************************************************************************
+	     * Move-constructs a framebuffer.
+         *
+         * @param move The framebuffer to be moved.
+	     **************************************************************************************************************/
+		Framebuffer(Framebuffer&& move) noexcept;
+
+        /**************************************************************************************************************
+	     * Destroys the framebuffer.
+	     **************************************************************************************************************/
 		~Framebuffer() noexcept;
 
-		Framebuffer& operator=(Framebuffer&&) noexcept;
+
+        /**************************************************************************************************************
+	     * Move-assigns a framebuffer.
+         *
+         * @param move The framebuffer to be moved.
+         *
+         * @return A reference to the assigned framebuffer.
+	     **************************************************************************************************************/
+		Framebuffer& operator=(Framebuffer&& move) noexcept;
+
 
 		virtual glm::ivec2 size() const noexcept;
 
+
+        /**************************************************************************************************************
+	     * Attaches a 1D texture to a slot on the framebuffer.
+         *
+         * The viewport of the framebuffer will be clamped to the minimum size of all attachments.
+         *
+         * @param tex The texture to attach.
+         * @param slot The slot to attach the texture to.
+	     **************************************************************************************************************/
 		void attach(Texture1D& tex, Slot slot) noexcept;
+
+        /**************************************************************************************************************
+	     * Attaches a layer of a 1D array texture to a slot on the framebuffer.
+         *
+         * The viewport of the framebuffer will be clamped to the minimum size of all attachments.
+         *
+         * @param tex The texture to attach.
+         * @param layer The layer of the texture to attach.
+         * @param slot The slot to attach the texture to.
+	     **************************************************************************************************************/
 		void attach(ArrayTexture1D& tex, int layer, Slot slot) noexcept;
+
+        /**************************************************************************************************************
+	     * Attaches a 2D texture to a slot on the framebuffer.
+         *
+         * The viewport of the framebuffer will be clamped to the minimum size of all attachments.
+         *
+         * @param tex The texture to attach.
+         * @param slot The slot to attach the texture to.
+	     **************************************************************************************************************/
 		void attach(Texture2D& tex, Slot slot) noexcept;
+
+        /**************************************************************************************************************
+	     * Attaches a layer of a 2D array texture to a slot on the framebuffer.
+         *
+         * The viewport of the framebuffer will be clamped to the minimum size of all attachments.
+         *
+         * @param tex The texture to attach.
+         * @param layer The layer of the texture to attach.
+         * @param slot The slot to attach the texture to.
+	     **************************************************************************************************************/
 		void attach(ArrayTexture2D& tex, int layer, Slot slot) noexcept;
+
+        /**************************************************************************************************************
+	     * Attaches a layer of a 3D texture to a slot on the framebuffer.
+         *
+         * The viewport of the framebuffer will be clamped to the minimum size of all attachments.
+         *
+         * @param tex The texture to attach.
+         * @param z The z layer of the texture to attach.
+         * @param slot The slot to attach the texture to.
+	     **************************************************************************************************************/
 		void attach(Texture3D& tex, int z, Slot slot) noexcept;
+
+        /**************************************************************************************************************
+	     * Attaches a renderbuffer to a slot on the framebuffer.
+         *
+         * The viewport of the framebuffer will be clamped to the minimum size of all attachments.
+         *
+         * @param buffer The renderbuffer to attach.
+         * @param slot The slot to attach the texture to.
+	     **************************************************************************************************************/
 		void attach(Renderbuffer& buffer, Slot slot) noexcept;
+
+        /**************************************************************************************************************
+	     * Clears a slot of attachments.
+         *
+         * The viewport of the framebuffer will be clamped to the minimum size of all attachments.
+         *
+         * @param slot The slot to clear.
+	     **************************************************************************************************************/
 		void clear(Slot slot) noexcept;
 
+
+        /**************************************************************************************************************
+	     * Sets the debug label of the framebuffer.
+         *
+         * @param label The new label of the framebuffer.
+	     **************************************************************************************************************/
         void setLabel(std::string_view label) noexcept;
 	private:
 		static constexpr glm::ivec2 EMPTY_ATTACHMENT { -1, -1 };
@@ -96,10 +319,11 @@ export namespace tr {
 		void clampViewport() noexcept;
 
 		friend class GLContext;
-		friend class GLContext;
 	};
 
-	// The context backbuffer.
+	/******************************************************************************************************************
+	 * Special context backbuffer.
+	 ******************************************************************************************************************/
 	class Backbuffer : public BasicFramebuffer {
 	public:
 		virtual glm::ivec2 size() const noexcept;
@@ -115,8 +339,13 @@ export namespace tr {
 // IMPLEMENTATION
 
 namespace tr {
+    /// @private
     GLuint createFramebuffer() noexcept;
+
+    /// @private
     GLuint findBoundWriteFramebuffer() noexcept;
+
+    /// @private
     GLenum getGLAttachment(Framebuffer::Slot slot) noexcept;
 }
 
@@ -153,9 +382,9 @@ tr::BasicFramebuffer::BasicFramebuffer(GLuint id, RectI2 viewport, DepthRange de
     , _depthRange { depthRange }
 {}
 
-bool tr::operator==(const BasicFramebuffer& lhs, const BasicFramebuffer& rhs) noexcept
+bool tr::BasicFramebuffer::operator==(const BasicFramebuffer& rhs) const noexcept
 {
-    return lhs._id == rhs._id;
+    return _id == rhs._id;
 }
 
 tr::Bitmap tr::BasicFramebuffer::readRegion(RectI2 rect, BitmapFormat format) const
@@ -167,7 +396,7 @@ tr::Bitmap tr::BasicFramebuffer::readRegion(RectI2 rect, BitmapFormat format) co
     return bitmap;
 }
 
-void tr::BasicFramebuffer::copyRegion(RectI2 rect, Texture2D& texture, glm::ivec2 textureTL) const
+void tr::BasicFramebuffer::copyRegion(RectI2 rect, Texture2D& texture, glm::ivec2 textureTL) const noexcept
 {
     bindRead();
     glCopyTextureSubImage2D(((Texture&)(texture))._id.get(), 0, textureTL.x, textureTL.y, rect.tl.x, rect.tl.y, rect.size.x, rect.size.y);
