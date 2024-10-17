@@ -57,6 +57,27 @@ export namespace tr {
 	template <class T, template <class...> class Z>
 	concept SpecializationOf = isSpecializationOf<T, Z>::value;
 
+
+	/// @private
+	template <typename T>
+	struct remove_noexcept {
+		/// @private
+		using type = T;
+	};
+
+	/// @private
+	template <typename R, typename ...P>
+	struct remove_noexcept<R(P...) noexcept> {
+		/// @private
+		using type = R(P...);
+	};
+
+	/******************************************************************************************************************
+     * Removes noexcept qualification from a function type.
+     ******************************************************************************************************************/
+	template <typename T>
+	using remove_noexcept_t = remove_noexcept<T>::type;
+
 	
 	/******************************************************************************************************************
      * Concept denoting a contiguous range of standard layout objects.
