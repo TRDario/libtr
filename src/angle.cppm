@@ -33,7 +33,7 @@ export namespace tr {
 		/**************************************************************************************************************
          * Constructs an angle from a numeric value.
 		 *
-		 * tr::rads() should be preffered for readibility.
+		 * tr::rads() should be preferred for readibility.
 		 *
 		 * @param rads The numeric value of the angle in radians.
          **************************************************************************************************************/
@@ -42,7 +42,7 @@ export namespace tr {
 		/**************************************************************************************************************
          * Constructs an angle from another angle (potentially of a different type).
 		 *
-		 * tr::rads() should be preffered for readibility.
+		 * tr::rads() should be preferred for readibility.
 		 *
 		 * @param th The angle whose value to copy.
          **************************************************************************************************************/

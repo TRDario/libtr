@@ -48,7 +48,7 @@ export namespace tr {
 		/**************************************************************************************************************
     	 * The base enumerator.
 		 *
-		 * It's members are included in the parent class, so it's mostly an implementation detail.
+		 * Its members are included in the parent class, so it's mostly an implementation detail.
     	 **************************************************************************************************************/
 		enum class Enum {
 			UNKNOWN,
@@ -142,7 +142,7 @@ export namespace tr {
 		/**************************************************************************************************************
     	 * The base enumerator.
 		 *
-		 * It's members are included in the parent class, so it's mostly an implementation detail.
+		 * Its members are included in the parent class, so it's mostly an implementation detail.
     	 **************************************************************************************************************/
 		enum class Enum {
 			UNKNOWN,
