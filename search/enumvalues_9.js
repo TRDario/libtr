@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['si16_0',['SI16',['../structtr_1_1VertexAttributeF.html#a7b487c740a8828ab7bfc927e1c2383a2ac7f2225bba20e1be67d4c913444cefc3',1,'tr::VertexAttributeF::SI16'],['../structtr_1_1VertexAttributeI.html#ae3635e5e0113f63d27fa64da516d8310ac7f2225bba20e1be67d4c913444cefc3',1,'tr::VertexAttributeI::SI16']]],
-  ['si2_5f10_5f10_5f10_1',['SI2_10_10_10',['../structtr_1_1VertexAttributeF.html#a7b487c740a8828ab7bfc927e1c2383a2aadd8361288f579525bddc131b37220a1',1,'tr::VertexAttributeF::SI2_10_10_10'],['../structtr_1_1VertexAttributeI.html#ae3635e5e0113f63d27fa64da516d8310aadd8361288f579525bddc131b37220a1',1,'tr::VertexAttributeI::SI2_10_10_10']]],
-  ['si32_2',['SI32',['../structtr_1_1VertexAttributeF.html#a7b487c740a8828ab7bfc927e1c2383a2a149afefb1ab189213ba569e2d5587c30',1,'tr::VertexAttributeF::SI32'],['../structtr_1_1VertexAttributeI.html#ae3635e5e0113f63d27fa64da516d8310a149afefb1ab189213ba569e2d5587c30',1,'tr::VertexAttributeI::SI32']]],
-  ['si8_3',['SI8',['../structtr_1_1VertexAttributeF.html#a7b487c740a8828ab7bfc927e1c2383a2a03df2edcce31f95e9424a71451bff2f0',1,'tr::VertexAttributeF::SI8'],['../structtr_1_1VertexAttributeI.html#ae3635e5e0113f63d27fa64da516d8310a03df2edcce31f95e9424a71451bff2f0',1,'tr::VertexAttributeI::SI8']]],
-  ['stereo16_4',['STEREO16',['../audio__buffer_8cppm.html#a0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7',1,'tr']]],
-  ['stereo8_5',['STEREO8',['../audio__buffer_8cppm.html#a0cd93ec18a3882266f1c6cd2657e7cfeae155ffb380a7c880b0f0365cdaa2d9c3',1,'tr']]]
+  ['nearest_0',['NEAREST',['../sampler_8cppm.html#ad1e4cc9bea7f1b176409b1e42ea21d68aad135772d7cf93dd0ccf9d2474b34e6a',1,'NEARESTtr'],['../sampler_8cppm.html#ac346a03e941c8ea2519c19086c4ce299aad135772d7cf93dd0ccf9d2474b34e6a',1,'NEARESTtr']]],
+  ['nequal_1',['NEQUAL',['../sampler_8cppm.html#a88338da155e2e92486d80fb0650a07d5a08c21e015248267a01d727848c97b40a',1,'tr']]],
+  ['never_2',['NEVER',['../sampler_8cppm.html#a88338da155e2e92486d80fb0650a07d5a443475558f0168dff92ecde26b98ae5a',1,'tr']]],
+  ['nmip_5flinear_3',['NMIP_LINEAR',['../sampler_8cppm.html#ad1e4cc9bea7f1b176409b1e42ea21d68a0ff446207d03fcfae5a9699956be682c',1,'tr']]],
+  ['nmip_5fnearest_4',['NMIP_NEAREST',['../sampler_8cppm.html#ad1e4cc9bea7f1b176409b1e42ea21d68a31bdfa42123ea543959a75e6fbfc0f49',1,'tr']]]
 ];

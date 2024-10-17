@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['ranges_2ecppm_0',['ranges.cppm',['../ranges_8cppm.html',1,'']]],
-  ['renderbuffer_2ecppm_1',['renderbuffer.cppm',['../renderbuffer_8cppm.html',1,'']]]
+  ['path_2ecppm_0',['path.cppm',['../path_8cppm.html',1,'']]]
 ];
