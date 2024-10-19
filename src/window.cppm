@@ -1,3 +1,8 @@
+/**
+ * @file window.cppm
+ * @brief Provides application window functionality.
+ */
+
 module;
 #include <magic_enum/magic_enum.hpp>
 #include <EnumBitmask.hpp>
@@ -7,183 +12,557 @@ export module tr:window;
 
 import std;
 import glm;
+import :bitmap_format;
 import :bitmap;
 import :display;
 import :geometry;
-import :bitmap_format;
+import :sdl;
 
 export namespace tr {
-	// Enum representing a window mode.
+	/******************************************************************************************************************
+	 * Error thrown when opening a window failed.
+	 ******************************************************************************************************************/
+	struct WindowOpenError : std::runtime_error {
+		using runtime_error::runtime_error;
+	};
+
+	/******************************************************************************************************************
+	 * Error thrown on a window operation failure.
+	 ******************************************************************************************************************/
+	struct WindowError : SDLError {
+		using SDLError::SDLError;
+	};
+
+
+	/******************************************************************************************************************
+	 * Window modes.
+	 ******************************************************************************************************************/
 	enum class WindowMode : std::uint32_t {
 		WINDOWED,
 		FULLSCREEN = 0x1,
 		BORDERLESS = 0x1001
 	};
-	// Enum representing a window flag.
+
+	/******************************************************************************************************************
+	 * Window flag bitmasks.
+	 ******************************************************************************************************************/
 	enum class WindowFlag : std::uint32_t {
+		/**************************************************************************************************************
+		 * Default flags.
+		 **************************************************************************************************************/
 		DEFAULT       = 0x0,
-		SHOWN         = SDL_WINDOW_SHOWN,        // The window is visible.
-		HIDDEN        = SDL_WINDOW_HIDDEN,       // The window is not visible.
-		BORDERLESS    = SDL_WINDOW_BORDERLESS,   // The window has no decoration (topbar, etc.).
-		RESIZABLE     = SDL_WINDOW_RESIZABLE,    // The window is resizable.
-		MINIMIZED     = SDL_WINDOW_MINIMIZED,    // The window is minimized.
-		MAXIMIZED     = SDL_WINDOW_MAXIMIZED,    // The window is maximized.
-		GRAB_INPUT    = SDL_WINDOW_INPUT_FOCUS,  // The window has grabbed input focus.
-		ALWAYS_ON_TOP = SDL_WINDOW_ALWAYS_ON_TOP // The window is always on top.
+
+		/**************************************************************************************************************
+		 * The window is visible.
+		 **************************************************************************************************************/
+		SHOWN         = SDL_WINDOW_SHOWN,
+
+		/**************************************************************************************************************
+		 * The window is not visible.
+		 **************************************************************************************************************/
+		HIDDEN        = SDL_WINDOW_HIDDEN,
+
+		/**************************************************************************************************************
+		 * The window has no decoration (topbar, etc.).
+		 **************************************************************************************************************/
+		BORDERLESS    = SDL_WINDOW_BORDERLESS,
+
+		/**************************************************************************************************************
+		 * The window is resizable.
+		 **************************************************************************************************************/
+		RESIZABLE     = SDL_WINDOW_RESIZABLE,
+
+		/**************************************************************************************************************
+		 * The window is minimized.
+		 **************************************************************************************************************/
+		MINIMIZED     = SDL_WINDOW_MINIMIZED,
+
+		/**************************************************************************************************************
+		 * The window is maximized.
+		 **************************************************************************************************************/
+		MAXIMIZED     = SDL_WINDOW_MAXIMIZED,
+
+		/**************************************************************************************************************
+		 * The window has grabbed input focus.
+		 **************************************************************************************************************/
+		GRAB_INPUT    = SDL_WINDOW_INPUT_FOCUS,
+
+		/**************************************************************************************************************
+		 * The window is always on top.
+		 **************************************************************************************************************/
+		ALWAYS_ON_TOP = SDL_WINDOW_ALWAYS_ON_TOP
 	};
+	/// @cond _IMPL
 	DEFINE_BITMASK_OPERATORS(WindowFlag);
-	// Enum representing a flash operation.
+	/// @endcond
+
+	/******************************************************************************************************************
+	 * Flash operations.
+	 ******************************************************************************************************************/
 	enum class FlashOperation {
-		CANCEL,       // Cancel any existing window flashing, if there is any.
-		BRIEF,        // Flash the window briefly.
-		UNTIL_FOCUSED // Flash the window continuously until the window regains focus.
+		/**************************************************************************************************************
+		 * Cancel any existing window flashing, if there is any.
+		 **************************************************************************************************************/
+		CANCEL,
+
+		/**************************************************************************************************************
+		 * Flash the window briefly.
+		 **************************************************************************************************************/
+		BRIEF,
+
+		/**************************************************************************************************************
+		 * Flash the window continuously until the window regains focus.
+		 **************************************************************************************************************/
+		UNTIL_FOCUSED
 	};
-	// Enum representing a hit test result.
+
+	/******************************************************************************************************************
+	 * Hit test results.
+	 ******************************************************************************************************************/
 	enum class HitTestResult {
-		NORMAL,    // Region is normal and has no special properties.
-		DRAGGABLE, // Region can drag entire window.
-		TL,        // Region can resize from the top left of the window.
+		/**************************************************************************************************************
+		 * Region is normal and has no special properties.
+		 **************************************************************************************************************/
+		NORMAL,
+
+		/**************************************************************************************************************
+		 * Region can drag entire window.
+		 **************************************************************************************************************/
+		DRAGGABLE,
+
+		/**************************************************************************************************************
+		 * Region can resize from the top left of the window.
+		 **************************************************************************************************************/
 		TOP,       // Region can resize from the top of the window.
-		TR,        // Region can resize from the top right of the window.
-		RIGHT,     // Region can resize from the right of the window.
-		BR,        // Region can resize from the bottom right of the window.
-		BOTTOM,    // Region can resize from the bottom of the window.
-		BL,        // Region can resize from the bottom left of the window.
-		LEFT       // Region can resize from the left of the window.
+
+		/**************************************************************************************************************
+		 * Region can resize from the top right of the window.
+		 **************************************************************************************************************/
+		TR,
+
+		/**************************************************************************************************************
+		 * Region can resize from the right of the window.
+		 **************************************************************************************************************/
+		RIGHT,
+
+		/**************************************************************************************************************
+		 * Region can resize from the bottom right of the window.
+		 **************************************************************************************************************/
+		BR,
+
+		/**************************************************************************************************************
+		 * Region can resize from the bottom of the window.
+		 **************************************************************************************************************/
+		BOTTOM,
+
+		/**************************************************************************************************************
+		 * Region can resize from the bottom left of the window.
+		 **************************************************************************************************************/
+		BL,
+
+		/**************************************************************************************************************
+		 * Region can resize from the left of the window.
+		 **************************************************************************************************************/
+		LEFT
 	};
-	// Hit test callback signature.
+
+
+	/******************************************************************************************************************
+	 * Hit test callback signature type.
+	 ******************************************************************************************************************/
 	using HitTestCB = std::function<HitTestResult(glm::ivec2)>;
 
-	// Value that indicates a centered position on the screen.
+
+	/******************************************************************************************************************
+	 * Sentinel for a centered position on the screen.
+	 ******************************************************************************************************************/
 	inline constexpr glm::ivec2 CENTERED_POS { 0x2FFF0000, 0x2FFF0000 };
 
-	// Non-owning view over a window.
+
+	/******************************************************************************************************************
+	 * Non-owning view over a window.
+	 ******************************************************************************************************************/
 	class WindowView {
 	public:
+		/// @private
 		explicit WindowView(SDL_Window* window) noexcept;
 
-		// Gets the title of the window.
+
+		/**************************************************************************************************************
+		 * Gets the title of the window.
+		 *
+		 * @return A C-string containing the title of the window.
+		 **************************************************************************************************************/
 		const char* title() const noexcept;
-		// Sets the title of the window.
+
+		/**************************************************************************************************************
+		 * Sets the title of the window.
+		 *
+		 * @param title The new title of the window.
+		 **************************************************************************************************************/
 		void setTitle(const char* title) const noexcept;
 
-		// Sets the icon of the window.
+
+		/**************************************************************************************************************
+		 * Sets the icon of the window.
+		 *
+		 * @param bitmap The new window icon.
+		 **************************************************************************************************************/
 		void setIcon(const Bitmap& bitmap) const noexcept;
 
-		// Gets the size of the window.
+
+		/**************************************************************************************************************
+		 * Gets the size of the window.
+		 *
+		 * @return The size of the window in pixels.
+		 **************************************************************************************************************/
 		glm::ivec2 size() const noexcept;
-		// Sets the size of the window.
+		
+		/**************************************************************************************************************
+		 * Sets the size of the window.
+		 *
+		 * @param size The new size of the window in pixels.
+		 **************************************************************************************************************/
 		void setSize(glm::ivec2 size) const noexcept;
 
-		// Gets the window's fullscreen display mode.
-		DisplayMode fullscreenMode() const noexcept;
-		// Sets the window's fullscreen display mode.
-		bool setFullscreenMode(const DisplayMode& dmode) const noexcept;
 
-		// Gets the window's window mode.
+		/**************************************************************************************************************
+		 * Gets the window's fullscreen display mode.
+		 *
+		 * @return The window's fullscreen display mode, or std::nullopt if the window isn't fullscreen.
+		 **************************************************************************************************************/
+		std::optional<DisplayMode> fullscreenMode() const noexcept;
+
+		/**************************************************************************************************************
+		 * Sets the window's fullscreen display mode.
+		 *
+		 * This function sets the window to fullscreen if it isn't already.
+		 *
+		 * @exception WindowError If setting the fullscreen mode failed.
+		 *
+		 * @param dmode The new fullscreen mode.
+		 **************************************************************************************************************/
+		void setFullscreenMode(const DisplayMode& dmode) const;
+
+
+		/**************************************************************************************************************
+		 * Gets the window's window mode.
+		 *
+		 * @return The window's display mode.
+		 **************************************************************************************************************/
 		WindowMode windowMode() const noexcept;
-		// Sets the window's window mode.
-		bool setWindowMode(WindowMode mode) const noexcept;
+		
+		/**************************************************************************************************************
+		 * Sets the window's window mode.
+		 *
+		 * @exception WindowError If setting the window mode failed.
+		 *
+		 * @param mode The new display mode.
+		 **************************************************************************************************************/
+		void setWindowMode(WindowMode mode) const;
 
-		// Gets whether the window is resizable.
+
+		/**************************************************************************************************************
+		 * Gets whether the window is resizable.
+		 *
+		 * @return True if the window is resizable, and false otherwise.
+		 **************************************************************************************************************/
 		bool resizable() const noexcept;
-		// Sets whether the window is resizable.
+
+		/**************************************************************************************************************
+		 * Sets whether the window is resizable.
+		 *
+		 * @param resizable Whether the window should be resizable.
+		 **************************************************************************************************************/
 		void setResizable(bool resizable) const noexcept;
 
-		// Gets the minimum resizable size of the window.
+
+		/**************************************************************************************************************
+		 * Gets the minimum resizable size of the window.
+		 *
+		 * @return The minimum resizable size of the window.
+		 **************************************************************************************************************/
 		glm::ivec2 minSize() const noexcept;
-		// Sets the minimum resizable size of the window.
+
+		/**************************************************************************************************************
+		 * Sets the minimum resizable size of the window.
+		 *
+		 * @param minSize The minimum resiable size of the window.
+		 **************************************************************************************************************/
 		void setMinSize(glm::ivec2 minSize) const noexcept;
 
-		// Gets the maximum resizable size of the window.
+
+		/**************************************************************************************************************
+		 * Gets the maximum resizable size of the window.
+		 *
+		 * @return The maximum resizable size of the window.
+		 **************************************************************************************************************/
 		glm::ivec2 maxSize() const noexcept;
-		// Sets the maximum resizable size of the window.
+
+		/**************************************************************************************************************
+		 * Sets the maximum resizable size of the window.
+		 *
+		 * @param maxSize The maximum resiable size of the window.
+		 **************************************************************************************************************/
 		void setMaxSize(glm::ivec2 maxSize) const noexcept;
 
-		// Gets the position of the window relative to the top-left corner of the display.
+
+		/**************************************************************************************************************
+		 * Gets the position of the window relative to the top-left corner of the display.
+		 *
+		 * @return The position of the window relative to the top-left corner of the display in pixels.
+		 **************************************************************************************************************/
 		glm::ivec2 pos() const noexcept;
-		// Sets the position of the window relative to the top-left corner of the display.
+
+		/**************************************************************************************************************
+		 * Sets the position of the window relative to the top-left corner of the display.
+		 *
+		 * @param pos The new position of the window relative to the top-left corner of the display in pixels.
+		 **************************************************************************************************************/
 		void setPos(glm::ivec2 pos) const noexcept;
 
-		// Gets whether the window is bordered or borderless.
+
+		/**************************************************************************************************************
+		 * Gets whether the window is bordered.
+		 *
+		 * @return True if the window is bordered, and false otherwise.
+		 **************************************************************************************************************/
 		bool bordered() const noexcept;
-		// Sets whether the window is bordered or borderless.
+
+		/**************************************************************************************************************
+		 * Sets whether the mouse is bordered.
+		 *
+		 * @param bordered Whether the mouse should be bordered.
+		 **************************************************************************************************************/
 		void setBordered(bool bordered) const noexcept;
 
-		// Gets whether the window is being shown.
+
+		/**************************************************************************************************************
+		 * Gets whether the window is being shown.
+		 *
+		 * @return True if the window is being shown, and false otherwise.
+		 **************************************************************************************************************/
 		bool shown() const noexcept;
-		// Unhides the window.
+
+		/**************************************************************************************************************
+		 * Unhides the window.
+		 **************************************************************************************************************/
 		void show() const noexcept;
-		// Hides the window.
+
+		/**************************************************************************************************************
+		 * Hides the window.
+		 **************************************************************************************************************/
 		void hide() const noexcept;
 
-		// Gets whether the window is maximized.
+
+		/**************************************************************************************************************
+		 * Gets whether the window is maximized.
+		 *
+		 * @return True if the window is maximized, and false otherwise.
+		 **************************************************************************************************************/
 		bool maximized() const noexcept;
-		// Maximizes the window.
+
+		/**************************************************************************************************************
+		 * Maximizes the window.
+		 **************************************************************************************************************/
 		void maximize() const noexcept;
-		// Restores the window back to its previous size.
+
+		/**************************************************************************************************************
+		 * Restores the window back to its previous size.
+		 **************************************************************************************************************/
 		void restore() const noexcept;
 
-		// Gets whether the window is minimized.
+
+		/**************************************************************************************************************
+		 * Gets whether the window is minimized.
+		 *
+		 * @return True if the window is minimized, and false otherwise.
+		 **************************************************************************************************************/
 		bool minimized() const noexcept;
-		// Minimizes the window.
+
+		/**************************************************************************************************************
+		 * Minimizes the window.
+		 **************************************************************************************************************/
 		void minimize() const noexcept;
 
-		// Gets whether the window has input focus.
+
+		/**************************************************************************************************************
+		 * Gets whether the window has input focus.
+		 *
+		 * @return True if the window has input focus, and false otherwise.
+		 **************************************************************************************************************/
 		bool hasFocus() const noexcept;
-		// Raises the window above the rest and gives it input focus.
+
+		/**************************************************************************************************************
+		 * Raises the window above the rest and gives it input focus.
+		 **************************************************************************************************************/
 		void raise() const noexcept;
 
-		// Gets whether the mouse is grabbed and confined to this window.
+
+		/**************************************************************************************************************
+		 * Gets whether the mouse is grabbed and confined to this window.
+		 *
+		 * @return True if the mouse is grabbed, and false otherwise.
+		 **************************************************************************************************************/
 		bool mouseGrabbed() const noexcept;
-		// Sets whether the mouse is grabbed and confined to this window.
+
+		/**************************************************************************************************************
+		 * Sets whether the mouse is grabbed and confined to this window.
+		 *
+		 * @param grab Whether the mouse should be grabbed.
+		 **************************************************************************************************************/
 		void setMouseGrab(bool grab) const noexcept;
 
-		// Gets the area the mouse is confined to when this window has focus, if there is one.
+
+		/**************************************************************************************************************
+		 * Gets the area the mouse is confined to when this window has focus.
+		 *
+		 * @return The rectangle to which the mouse is confined to or std::nullopt if it is not set.
+		 **************************************************************************************************************/
 		std::optional<RectI2> mouseConfines() const noexcept;
-		// Sets the area the mouse is confined to when this window has focus.
+
+		/**************************************************************************************************************
+		 * Sets the area the mouse is confined to when this window has focus.
+		 *
+		 * @param rect The confinement rectangle.
+		 **************************************************************************************************************/
 		void setMouseConfines(const RectI2& rect) const noexcept;
-		// Resets the area the mouse is confined to.
+
+		/**************************************************************************************************************
+		 * Resets the area the mouse is confined to.
+		 **************************************************************************************************************/
 		void resetMouseConfines() const noexcept;
 
-		// Gets whether the window is always on top.
+
+		/**************************************************************************************************************
+		 * Gets whether the window is always on top.
+		 *
+		 * @return True if the window is always on top, or false otherwise.
+		 **************************************************************************************************************/
 		bool alwaysOnTop() const noexcept;
-		// Sets whether the window is always on top.
+
+		/**************************************************************************************************************
+		 * Sets whether the window is always on top.
+		 *
+		 * @param alwaysOnTop Whether the window should be always on top.
+		 **************************************************************************************************************/
 		void setAlwaysOnTop(bool alwaysOnTop) const noexcept;
 
-		// Flashes the window to get the user's attention.
-		bool flash(FlashOperation operation) const noexcept;
 
-		// Gets the opacity of the window.
+		/**************************************************************************************************************
+		 * Flashes the window to get the user's attention.
+		 *
+		 * @exception WindowError If flashing the window failed.
+		 *
+		 * @param operation The type of flashing to perform.
+		 **************************************************************************************************************/
+		void flash(FlashOperation operation) const;
+
+
+		/**************************************************************************************************************
+		 * Gets the opacity of the window.
+		 *
+		 * @return The opacity of the window [0.0, 1.0].
+		 **************************************************************************************************************/
 		float opacity() const noexcept;
-		// Sets the opacity of the window.
+
+		/**************************************************************************************************************
+		 * Sets the opacity of the window.
+		 *
+		 * @param opacity The opacity of the window [0.0, 1.0].
+		 **************************************************************************************************************/
 		void setOpacity(float opacity) const noexcept;
 
-		// Swaps the display's front and back buffers.
+
+		/**************************************************************************************************************
+		 * Swaps the display's front and back buffers.
+		 **************************************************************************************************************/
 		void swap() const noexcept;
 	protected:
+		/// @private
 		// The underlying SDL window pointer.
 		SDL_Window* _impl;
 
 		friend class Event;
 	};
 
-	// Window class.
+	/**************************************************************************************************************
+	 * Application window.
+	 *
+	 * No instances of this class can be created before initializing SDL.
+	 **************************************************************************************************************/
 	class Window : public WindowView {
 	public:
-		// Opens a window.
+		/**************************************************************************************************************
+		 * Opens a window.
+		 *
+		 * @exception WindowOpenError If creating the window failed.
+		 *
+		 * @param title The title of the window.
+		 * @param size The size of the window in pixels.
+		 * @param pos The position of the window, offset to the top-left corner of the window in pixels.
+		 *            Several special sentinels exist, such as CENTERED_POS, as well as DisplayInfo::centeredPos().
+		 * @param flags The flags of the window.
+		 **************************************************************************************************************/
 		Window(const char* title, glm::ivec2 size, glm::ivec2 pos = CENTERED_POS, WindowFlag flags = WindowFlag::DEFAULT);
-		// Opens a borderless window.
-		Window(const char* title, DisplayInfo display = DEFAULT_DISPLAY);
-		// Opens a fullscreen window.
-		Window(const char* title, const DisplayMode& dmode, DisplayInfo display = DEFAULT_DISPLAY);
+		
+		/**************************************************************************************************************
+		 * Opens a borderless fullscreen window.
+		 *
+		 * @exception WindowOpenError If creating the window failed.
+		 *
+		 * @param title The title of the window.
+		 * @param display The display to put the window on.
+		 * @param flags The flags of the window.
+		 **************************************************************************************************************/
+		Window(const char* title, DisplayInfo display = DEFAULT_DISPLAY, WindowFlag flags = WindowFlag::DEFAULT);
+		
+		/**************************************************************************************************************
+		 * Opens a fullscreen window.
+		 *
+		 * @exception WindowOpenError If creating the window failed.
+		 * @exception WindowError If setting the fullscreen mode failed.
+		 *
+		 * @param title The title of the window.
+		 * @param dmode The display mode to use.
+		 * @param display The display to put the window on.
+		 * @param flags The flags of the window.
+		 **************************************************************************************************************/
+		Window(const char* title, const DisplayMode& dmode, DisplayInfo display = DEFAULT_DISPLAY, WindowFlag flags = WindowFlag::DEFAULT);
+
+		/**************************************************************************************************************
+		 * Move-constructs a window.
+		 *
+		 * The assigned-from window will be left in a state on which operations are not allowed to be performed.
+		 **************************************************************************************************************/
 		Window(Window&&) noexcept;
+
+		/**************************************************************************************************************
+		 * Destroys the window.
+		 *
+		 * Using any views of this window after destruction is undefined behavior.
+		 **************************************************************************************************************/
 		~Window() noexcept;
 
+
+		/**************************************************************************************************************
+		 * Move-assigns the window.
+		 *
+		 * The assigned-from window will be left in a state on which operations are not allowed to be performed.
+		 *
+		 * @return A reference to the assigned window.
+		 **************************************************************************************************************/
 		Window& operator=(Window&&) noexcept;
 
-		// Sets a hit-test callback that designates pieces of the window as special.
-		bool setHitTest(HitTestCB hitTestCB) noexcept;
+
+		/**************************************************************************************************************
+		 * Sets a hit-test callback that designates pieces of the window as special.
+		 *
+		 * @exception WindowError If setting the hit-test failed.
+		 *
+		 * @param hitTestCB The funciton to use for the callback.
+		 **************************************************************************************************************/
+		void setHitTest(HitTestCB hitTestCB);
 	private:
 		std::optional<HitTestCB> _hitTest;
 
@@ -191,15 +570,21 @@ export namespace tr {
 	};
 }
 
+/// @cond _IMPL
 export template <>
 struct magic_enum::customize::enum_range<tr::WindowMode> {
-  static constexpr int min = int(tr::WindowMode::WINDOWED);
-  static constexpr int max = int(tr::WindowMode::BORDERLESS);
+	/// @private
+  	static constexpr int min = int(tr::WindowMode::WINDOWED);
+
+  	/// @private
+  	static constexpr int max = int(tr::WindowMode::BORDERLESS);
 };
+/// @endcond
 
 // IMPLEMENTATION
 
 namespace tr {
+	/// @private
     // Hit-test callback passed directly to SDL that bridges the gap between SDL and tr's callback format.
     SDL_HitTestResult sdlHitTestCB(SDL_Window* window, const SDL_Point* point, void* data) noexcept;
 }
@@ -247,20 +632,27 @@ void tr::WindowView::setSize(glm::ivec2 size) const noexcept
     SDL_SetWindowSize(_impl, size.x, size.y);
 }
 
-tr::DisplayMode tr::WindowView::fullscreenMode() const noexcept
+std::optional<tr::DisplayMode> tr::WindowView::fullscreenMode() const noexcept
 {
 	assert(_impl != nullptr);
-    assert(windowMode() != WindowMode::WINDOWED);
-    SDL_DisplayMode sdlMode;
-    SDL_GetWindowDisplayMode(_impl, &sdlMode);
-    return { { sdlMode.w, sdlMode.h }, BitmapFormat::Type(sdlMode.format), sdlMode.refresh_rate };
+
+	if (windowMode() == WindowMode::WINDOWED) {
+		return std::nullopt;
+	}
+    else {
+		SDL_DisplayMode sdlMode;
+    	SDL_GetWindowDisplayMode(_impl, &sdlMode);
+    	return DisplayMode { { sdlMode.w, sdlMode.h }, BitmapFormat::Type(sdlMode.format), sdlMode.refresh_rate };
+	}
 }
 
-bool tr::WindowView::setFullscreenMode(const DisplayMode& dmode) const noexcept
+void tr::WindowView::setFullscreenMode(const DisplayMode& dmode) const
 {
 	assert(_impl != nullptr);
     SDL_DisplayMode sdlMode { std::uint32_t(BitmapFormat::Type(dmode.format)), dmode.size.x, dmode.size.y, dmode.refreshRate };
-    return !SDL_SetWindowDisplayMode(_impl, &sdlMode);
+    if (SDL_SetWindowDisplayMode(_impl, &sdlMode) < 0) {
+		throw WindowError { "Failed to set window fullscreen mode" };
+	}
 }
 
 tr::WindowMode tr::WindowView::windowMode() const noexcept
@@ -269,10 +661,12 @@ tr::WindowMode tr::WindowView::windowMode() const noexcept
     return WindowMode(SDL_GetWindowFlags(_impl) & (SDL_WINDOW_FULLSCREEN | SDL_WINDOW_FULLSCREEN_DESKTOP));
 }
 
-bool tr::WindowView::setWindowMode(WindowMode mode) const noexcept
+void tr::WindowView::setWindowMode(WindowMode mode) const
 {
 	assert(_impl != nullptr);
-    return !SDL_SetWindowFullscreen(_impl, std::uint32_t(mode));
+	if (SDL_SetWindowFullscreen(_impl, std::uint32_t(mode)) < 0) {
+		throw WindowError { "Failed to set window mode" };
+	}
 }
 
 bool tr::WindowView::resizable() const noexcept
@@ -452,10 +846,12 @@ void tr::WindowView::setAlwaysOnTop(bool alwaysOnTop) const noexcept
     SDL_SetWindowAlwaysOnTop(_impl, SDL_bool(alwaysOnTop));
 }
 
-bool tr::WindowView::flash(FlashOperation operation) const noexcept
+void tr::WindowView::flash(FlashOperation operation) const
 {
 	assert(_impl != nullptr);
-    return !SDL_FlashWindow(_impl, SDL_FlashOperation(operation));
+	if (SDL_FlashWindow(_impl, SDL_FlashOperation(operation)) < 0) {
+		throw WindowError { "Failed to flash window" };
+	}
 }
 
 float tr::WindowView::opacity() const noexcept
@@ -482,29 +878,30 @@ tr::Window::Window(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFla
     : WindowView { SDL_CreateWindow(title, pos.x, pos.y, size.x, size.y, std::uint32_t(flags) | SDL_WINDOW_OPENGL) }
 {
     if (_impl == nullptr) {
-        throw std::runtime_error { std::format("Failed to open {}x{} window ({}).", size.x, size.y, SDL_GetError()) };
+        throw WindowOpenError { std::format("Failed to open {}x{} window ({}).", size.x, size.y, SDL_GetError()) };
     }
 }
 
-tr::Window::Window(const char* title, DisplayInfo display)
+tr::Window::Window(const char* title, DisplayInfo display, WindowFlag flags)
     : WindowView { nullptr }
 {
     const auto dmode { display.desktopMode() };
     const auto pos { display.centeredPos() };
-    _impl = SDL_CreateWindow(title, pos.x, pos.y, dmode.size.x, dmode.size.y, SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP);
+    _impl = SDL_CreateWindow(title, pos.x, pos.y, dmode.size.x, dmode.size.y, std::uint32_t(flags) | SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP);
     if (_impl == nullptr) {
-        throw std::runtime_error { std::format("Failed to open borderless {}x{} window ({}).", dmode.size.x, dmode.size.y, SDL_GetError()) };
+        throw WindowOpenError { std::format("Failed to open borderless {}x{} window ({}).", dmode.size.x, dmode.size.y, SDL_GetError()) };
     }
 }
 
-tr::Window::Window(const char* title, const DisplayMode& dmode, DisplayInfo display)
+tr::Window::Window(const char* title, const DisplayMode& dmode, DisplayInfo display, WindowFlag flags)
     : WindowView { nullptr }
 {
     auto pos { display.centeredPos() };
-    _impl = SDL_CreateWindow(title, pos.x, pos.y, dmode.size.x, dmode.size.y, SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN);
-    if (_impl == nullptr || !setFullscreenMode(dmode)) {
-        throw std::runtime_error { std::format("Failed to open fullscreen {}x{} window ({}).", dmode.size.x, dmode.size.y, SDL_GetError()) };
+    _impl = SDL_CreateWindow(title, pos.x, pos.y, dmode.size.x, dmode.size.y, std::uint32_t(flags) | SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN);
+	if (_impl == nullptr) {
+        throw WindowOpenError { std::format("Failed to open fullscreen {}x{} window ({}).", dmode.size.x, dmode.size.y, SDL_GetError()) };
     }
+	setFullscreenMode(dmode);
 }
 
 tr::Window::Window(Window&& r) noexcept
@@ -527,13 +924,15 @@ tr::Window& tr::Window::operator=(Window&& r) noexcept
     return *this;
 }
 
-bool tr::Window::setHitTest(HitTestCB hitTestCB) noexcept
+void tr::Window::setHitTest(HitTestCB hitTestCB)
 {
 	assert(_impl != nullptr);
     SDL_SetWindowHitTest(_impl, nullptr, nullptr);
     if (hitTestCB != nullptr) {
-        _hitTest = std::move(hitTestCB);
-        return !SDL_SetWindowHitTest(_impl, sdlHitTestCB, &_hitTest);
+		auto oldHitTest { std::exchange(_hitTest, std::move(hitTestCB)) };
+		if (SDL_SetWindowHitTest(_impl, sdlHitTestCB, &_hitTest) < 0) {
+			std::swap(oldHitTest, _hitTest);
+			throw WindowError { "Failed to set hit test" };
+		}
     }
-    return true;
 }
