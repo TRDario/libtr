@@ -360,7 +360,7 @@ glm::ivec2 tr::SubBitmap::size() const noexcept
 
 tr::SubBitmap tr::SubBitmap::sub(RectI2 rect) noexcept
 {
-    assert(within(rect.tl + rect.size, _rect));
+    assert(_rect.contains(rect.tl + rect.size));
     return { _bitmap, { _rect.tl + rect.tl, rect.size } };
 }
 
@@ -446,7 +446,7 @@ bool tr::SubBitmap::Iterator::operator==(const Iterator& rhs) const noexcept
 
 tr::SubBitmap::Iterator::value_type tr::SubBitmap::Iterator::operator*() const noexcept
 {
-    assert(_pixel._impl != nullptr && within(_pos, RectI2 { { 0, 0 }, _bitmapSize }));
+    assert(_pixel._impl != nullptr && RectI2 { _bitmapSize }.contains(_pos));
     return _pixel;
 }
 
@@ -674,7 +674,7 @@ tr::Bitmap::ConstIt tr::Bitmap::cend() const noexcept
 void tr::Bitmap::blit(glm::ivec2 tl, SubBitmap source) noexcept
 {
     assert(_impl != nullptr);
-    assert(within(tl + source.size(), RectI2 { {}, size() }));
+    assert(RectI2 { size() }.contains(tl + source.size()));
     SDL_Rect sdlSource { source._rect.tl.x, source._rect.tl.y, source.size().x, source.size().y };
     SDL_Rect sdlDest { tl.x, tl.y };
     SDL_BlitSurface((SDL_Surface*)(source._bitmap.get()._impl.get()), &sdlSource, _impl.get(), &sdlDest);
@@ -683,7 +683,7 @@ void tr::Bitmap::blit(glm::ivec2 tl, SubBitmap source) noexcept
 void tr::Bitmap::fill(RectI2 rect, RGBA8 color) noexcept
 {
     assert(_impl != nullptr);
-    assert(within(rect.tl + rect.size, RectI2 { {}, size() }));
+    assert(RectI2 { size() }.contains(rect.tl + rect.size));
     SDL_Rect sdlRect { rect.tl.x, rect.tl.y, rect.size.x, rect.size.y };
     SDL_FillRect(_impl.get(), &sdlRect, SDL_MapRGBA(_impl.get()->format, color.r, color.g, color.b, color.a));
 }
@@ -843,7 +843,7 @@ bool tr::Bitmap::MutIt::operator==(const MutIt& rhs) const noexcept
 
 tr::Bitmap::MutIt::value_type tr::Bitmap::MutIt::operator*() const noexcept
 {
-    assert(_pixel._impl != nullptr && within(_pos, RectI2 { { 0, 0 }, _bitmap->size() }));
+    assert(_pixel._impl != nullptr && RectI2 { _bitmap->size() }.contains(_pos));
     return _pixel;
 }
 

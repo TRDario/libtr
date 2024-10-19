@@ -394,7 +394,7 @@ int tr::ArrayTexture1D::layers() const noexcept
 
 void tr::ArrayTexture1D::setRegion(glm::ivec2 tl, SubBitmap bitmap)
 {
-	assert(within(tl + bitmap.size(), RectI2 { {}, { size(), layers() } }));
+	assert((RectI2 { { size(), layers() } }.contains(tl + bitmap.size())));
 	auto [format, type] { bitmapToGLFormat(bitmap.format()) };
 	glPixelStorei(GL_UNPACK_ROW_LENGTH, bitmap.pitch() / bitmap.format().pixelBytes());
 	glTextureSubImage2D(_id.get(), 0, tl.x, tl.y, bitmap.size().x, bitmap.size().y, format, type, bitmap.data());
@@ -428,7 +428,7 @@ glm::ivec2 tr::Texture2D::size() const noexcept
 
 void tr::Texture2D::setRegion(glm::ivec2 tl, SubBitmap bitmap)
 {
-	assert(within(tl + bitmap.size(), RectI2 { {}, size() }));
+	assert(RectI2 { size() }.contains(tl + bitmap.size()));
 	auto [format, type] { bitmapToGLFormat(bitmap.format()) };
 	glPixelStorei(GL_UNPACK_ROW_LENGTH, bitmap.pitch() / bitmap.format().pixelBytes());
 	glTextureSubImage2D(_id.get(), 0, tl.x, tl.y, bitmap.size().x, bitmap.size().y, format, type, bitmap.data());
@@ -470,7 +470,7 @@ int tr::ArrayTexture2D::layers() const noexcept
 void tr::ArrayTexture2D::setLayerRegion(int layer, glm::ivec2 tl, SubBitmap bitmap)
 {
 	assert(layer <= layers());
-	assert(within(tl + bitmap.size(), RectI2 { {}, size() }));
+	assert(RectI2 { size() }.contains(tl + bitmap.size()));
 	auto [format, type] { bitmapToGLFormat(bitmap.format()) };
 	glPixelStorei(GL_UNPACK_ROW_LENGTH, bitmap.pitch() / bitmap.format().pixelBytes());
 	glTextureSubImage3D(_id.get(), 0, tl.x, tl.y, layer, bitmap.size().x, bitmap.size().y, 1, format, type, bitmap.data());
@@ -498,7 +498,7 @@ glm::ivec3 tr::Texture3D::size() const noexcept
 void tr::Texture3D::setLayerRegion(glm::ivec3 tl, SubBitmap bitmap)
 {
 	assert(tl.z <= size().z);
-	assert(within(glm::ivec2(tl) + bitmap.size(), RectI2 { {}, glm::ivec2(size()) }));
+	assert(RectI2 { glm::ivec2(size()) }.contains(glm::ivec2(tl) + bitmap.size()));
 	auto [format, type] { bitmapToGLFormat(bitmap.format()) };
 	glPixelStorei(GL_UNPACK_ROW_LENGTH, bitmap.pitch() / bitmap.format().pixelBytes());
 	glTextureSubImage3D(_id.get(), 0, tl.x, tl.y, tl.z, bitmap.size().x, bitmap.size().y, 1, format, type, bitmap.data());

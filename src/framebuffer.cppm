@@ -545,8 +545,8 @@ void tr::Framebuffer::clampViewport() noexcept
 {
     auto size { calcSize() };
     auto newViewportSize { _viewport.size };
-    if (!within(_viewport.tl, RectI2 { { 0, 0 }, size })) {
-        setViewport(RectI2 { { 0, 0 }, size });
+    if (!RectI2 { size }.contains(_viewport.tl)) {
+        setViewport(RectI2 { size });
     }
     else {
         if (_viewport.tl.x + _viewport.size.x >= size.x) {

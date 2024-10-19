@@ -42,8 +42,6 @@ export namespace tr {
 		/**************************************************************************************************************
          * Constructs an angle from another angle (potentially of a different type).
 		 *
-		 * tr::rads() should be preferred for readibility.
-		 *
 		 * @param th The angle whose value to copy.
          **************************************************************************************************************/
 		template <AngleBase U>

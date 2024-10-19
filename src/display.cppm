@@ -168,7 +168,7 @@ tr::DisplayInfo::DisplayInfo(int id) noexcept
 std::optional<tr::DisplayInfo> tr::DisplayInfo::fromCoords(glm::ivec2 globalCoords) noexcept
 {
 	for (int i = 0; i < displayCount(); ++i) {
-		if (within(globalCoords, DisplayInfo { i }.bounds())) {
+		if (DisplayInfo { i }.bounds().contains(globalCoords)) {
 			return DisplayInfo { i };
 		}
 	}
