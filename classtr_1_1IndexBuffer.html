@@ -120,15 +120,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1b883ae20b295406aa2b5e6e5fab3fab" id="r_a1b883ae20b295406aa2b5e6e5fab3fab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b883ae20b295406aa2b5e6e5fab3fab">empty</a> () const noexcept</td></tr>
 <tr class="memdesc:a1b883ae20b295406aa2b5e6e5fab3fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the vertex buffer is empty.  <br /></td></tr>
 <tr class="separator:a1b883ae20b295406aa2b5e6e5fab3fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1da602f97a6b6bbfe70f429d67c03f1" id="r_ab1da602f97a6b6bbfe70f429d67c03f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1IndexBufferMap.html">IndexBufferMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1da602f97a6b6bbfe70f429d67c03f1">mapNew</a> (std::size_t size)</td></tr>
-<tr class="memdesc:ab1da602f97a6b6bbfe70f429d67c03f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps the buffer, invalidating the previous contents in the process and resetting its size.  <br /></td></tr>
-<tr class="separator:ab1da602f97a6b6bbfe70f429d67c03f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8fb9575c69c1fbe3927b2ef43e63660" id="r_ad8fb9575c69c1fbe3927b2ef43e63660"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1IndexBufferMap.html">IndexBufferMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8fb9575c69c1fbe3927b2ef43e63660">mapNew</a> (std::size_t size)</td></tr>
+<tr class="memdesc:ad8fb9575c69c1fbe3927b2ef43e63660"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps the buffer, invalidating the previous contents in the process and resetting its size.  <br /></td></tr>
+<tr class="separator:ad8fb9575c69c1fbe3927b2ef43e63660"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d4d32c9d0e9d2c7671078ef019dd5d9" id="r_a0d4d32c9d0e9d2c7671078ef019dd5d9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d4d32c9d0e9d2c7671078ef019dd5d9">mapped</a> () const noexcept</td></tr>
 <tr class="memdesc:a0d4d32c9d0e9d2c7671078ef019dd5d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the buffer is mapped.  <br /></td></tr>
 <tr class="separator:a0d4d32c9d0e9d2c7671078ef019dd5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ba688d2e47aede96fef909f73f1a9b5" id="r_a7ba688d2e47aede96fef909f73f1a9b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1IndexBufferMap.html">IndexBufferMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ba688d2e47aede96fef909f73f1a9b5">mapRegion</a> (std::size_t offset, std::size_t size)</td></tr>
-<tr class="memdesc:a7ba688d2e47aede96fef909f73f1a9b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps a region of the buffer, invalidating the previous contents in the process.  <br /></td></tr>
-<tr class="separator:a7ba688d2e47aede96fef909f73f1a9b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cf5a9fa6050b9186f3efba99048cecc" id="r_a1cf5a9fa6050b9186f3efba99048cecc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1IndexBufferMap.html">IndexBufferMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1cf5a9fa6050b9186f3efba99048cecc">mapRegion</a> (std::size_t offset, std::size_t size)</td></tr>
+<tr class="memdesc:a1cf5a9fa6050b9186f3efba99048cecc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps a region of the buffer, invalidating the previous contents in the process.  <br /></td></tr>
+<tr class="separator:a1cf5a9fa6050b9186f3efba99048cecc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bdfa7747ee098809b8a5c0a5ac695d2" id="r_a5bdfa7747ee098809b8a5c0a5ac695d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bdfa7747ee098809b8a5c0a5ac695d2">set</a> (std::span&lt; const std::uint16_t &gt; data)</td></tr>
 <tr class="memdesc:a5bdfa7747ee098809b8a5c0a5ac695d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the contents of the buffer.  <br /></td></tr>
 <tr class="separator:a5bdfa7747ee098809b8a5c0a5ac695d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,6 +144,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>GPU index buffer class. </p>
+<p>An OpenGL context must be open to instantiate and use objects of this type. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad805d5e0e1b7d387fe74b920498514a6" name="ad805d5e0e1b7d387fe74b920498514a6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad805d5e0e1b7d387fe74b920498514a6">&#9670;&#160;</a></span>IndexBuffer() <span class="overload">[1/3]</span></h2>
@@ -342,8 +343,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab1da602f97a6b6bbfe70f429d67c03f1" name="ab1da602f97a6b6bbfe70f429d67c03f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1da602f97a6b6bbfe70f429d67c03f1">&#9670;&#160;</a></span>mapNew()</h2>
+<a id="ad8fb9575c69c1fbe3927b2ef43e63660" name="ad8fb9575c69c1fbe3927b2ef43e63660"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8fb9575c69c1fbe3927b2ef43e63660">&#9670;&#160;</a></span>mapNew()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -352,7 +353,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classtr_1_1IndexBufferMap.html">tr::IndexBufferMap</a> tr::IndexBuffer::mapNew </td>
+          <td class="memname"><a class="el" href="classtr_1_1IndexBufferMap.html">IndexBufferMap</a> tr::IndexBuffer::mapNew </td>
           <td>(</td>
           <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
           <td></td>
@@ -412,8 +413,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7ba688d2e47aede96fef909f73f1a9b5" name="a7ba688d2e47aede96fef909f73f1a9b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ba688d2e47aede96fef909f73f1a9b5">&#9670;&#160;</a></span>mapRegion()</h2>
+<a id="a1cf5a9fa6050b9186f3efba99048cecc" name="a1cf5a9fa6050b9186f3efba99048cecc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cf5a9fa6050b9186f3efba99048cecc">&#9670;&#160;</a></span>mapRegion()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -422,7 +423,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classtr_1_1IndexBufferMap.html">tr::IndexBufferMap</a> tr::IndexBuffer::mapRegion </td>
+          <td class="memname"><a class="el" href="classtr_1_1IndexBufferMap.html">IndexBufferMap</a> tr::IndexBuffer::mapRegion </td>
           <td>(</td>
           <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>offset</em></span>, </td>
         </tr>

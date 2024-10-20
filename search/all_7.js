@@ -7,7 +7,7 @@ var searchData=
   ['handle_3c_20gluint_2c_200_2c_20deleter_20_3e_4',['Handle&lt; GLuint, 0, Deleter &gt;',['../classtr_1_1Handle.html',1,'tr']]],
   ['handle_3c_20gluint_2c_200_2c_20unmapper_20_3e_5',['Handle&lt; GLuint, 0, Unmapper &gt;',['../classtr_1_1Handle.html',1,'tr']]],
   ['handle_3c_20unsigned_20int_2c_20_2d1u_2c_20deleter_20_3e_6',['Handle&lt; unsigned int, -1U, Deleter &gt;',['../classtr_1_1Handle.html',1,'tr']]],
-  ['handle_3c_20unsigned_20int_2c_200_2c_20pipelinedeleter_20_3e_7',['Handle&lt; unsigned int, 0, PipelineDeleter &gt;',['../classtr_1_1Handle.html',1,'tr']]],
-  ['hashmap_2ecppm_8',['hashmap.cppm',['../hashmap_8cppm.html',1,'']]],
+  ['hashmap_2ecppm_7',['hashmap.cppm',['../hashmap_8cppm.html',1,'']]],
+  ['hidden_8',['HIDDEN',['../window_8cppm.html#ad463b226a0cad7ea3e64dd5b07ecf12fa347e628a8f72626a0611ef842fe9d304',1,'tr']]],
   ['hsv_9',['HSV',['../structtr_1_1HSV.html',1,'tr']]]
 ];

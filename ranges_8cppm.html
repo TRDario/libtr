@@ -112,10 +112,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a9aad740532ed0286fd2d518ac7f6e9c0"><td class="memTemplItemLeft" align="right" valign="top">std::span&lt; std::byte, sizeof(T)&gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a9aad740532ed0286fd2d518ac7f6e9c0">tr::asMutBytes</a> (T &amp;object) noexcept</td></tr>
 <tr class="memdesc:a9aad740532ed0286fd2d518ac7f6e9c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a view of an object as a span of mutable bytes.  <br /></td></tr>
 <tr class="separator:a9aad740532ed0286fd2d518ac7f6e9c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d807527758e0390523e4a367410ed13" id="r_a1d807527758e0390523e4a367410ed13"><td class="memTemplParams" colspan="2">template&lt;StandardLayout T, std::size_t S&gt; </td></tr>
-<tr class="memitem:a1d807527758e0390523e4a367410ed13"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1d807527758e0390523e4a367410ed13">tr::asObjects</a> (std::span&lt; std::byte, S &gt; bytes) noexcept</td></tr>
-<tr class="memdesc:a1d807527758e0390523e4a367410ed13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reinterprets a span of mutable bytes as a span of objects.  <br /></td></tr>
-<tr class="separator:a1d807527758e0390523e4a367410ed13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7b5fb5ee5a2507d56c17ee66aee90e1" id="r_ac7b5fb5ee5a2507d56c17ee66aee90e1"><td class="memTemplParams" colspan="2">template&lt;StandardLayout T, std::size_t S&gt; </td></tr>
+<tr class="memitem:ac7b5fb5ee5a2507d56c17ee66aee90e1"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac7b5fb5ee5a2507d56c17ee66aee90e1">tr::asMutObjects</a> (std::span&lt; std::byte, S &gt; bytes) noexcept</td></tr>
+<tr class="memdesc:ac7b5fb5ee5a2507d56c17ee66aee90e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reinterprets a span of mutable bytes as a span of objects.  <br /></td></tr>
+<tr class="separator:ac7b5fb5ee5a2507d56c17ee66aee90e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a286fd4c28169488c0599037e3591a6a2" id="r_a286fd4c28169488c0599037e3591a6a2"><td class="memTemplParams" colspan="2">template&lt;StandardLayout T, std::size_t S&gt; </td></tr>
+<tr class="memitem:a286fd4c28169488c0599037e3591a6a2"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a286fd4c28169488c0599037e3591a6a2">tr::asObjects</a> (std::span&lt; const std::byte, S &gt; bytes) noexcept</td></tr>
+<tr class="memdesc:a286fd4c28169488c0599037e3591a6a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reinterprets a span of immutable bytes as a span of const objects.  <br /></td></tr>
+<tr class="separator:a286fd4c28169488c0599037e3591a6a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac186319e04a9295cc09a84d5ea618369" id="r_ac186319e04a9295cc09a84d5ea618369"><td class="memTemplParams" colspan="2">template&lt;class <a class="el" href="structtr_1_1R.html">R</a> &gt; </td></tr>
 <tr class="memitem:ac186319e04a9295cc09a84d5ea618369"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac186319e04a9295cc09a84d5ea618369">tr::project</a> (auto R::*ptr) noexcept</td></tr>
 <tr class="memdesc:ac186319e04a9295cc09a84d5ea618369"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an adaptor for a transformed view over a range as a range of one of its members.  <br /></td></tr>
@@ -220,8 +224,8 @@ template&lt;StandardLayout T&gt; </div>
 
 </div>
 </div>
-<a id="a1d807527758e0390523e4a367410ed13" name="a1d807527758e0390523e4a367410ed13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d807527758e0390523e4a367410ed13">&#9670;&#160;</a></span>asObjects()</h2>
+<a id="ac7b5fb5ee5a2507d56c17ee66aee90e1" name="ac7b5fb5ee5a2507d56c17ee66aee90e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7b5fb5ee5a2507d56c17ee66aee90e1">&#9670;&#160;</a></span>asMutObjects()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -232,7 +236,7 @@ template&lt;StandardLayout T, std::size_t S&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto tr::asObjects </td>
+          <td class="memname">auto tr::asMutObjects </td>
           <td>(</td>
           <td class="paramtype">std::span&lt; std::byte, S &gt;</td>          <td class="paramname"><span class="paramname"><em>bytes</em></span></td><td>)</td>
           <td></td>
@@ -246,7 +250,6 @@ template&lt;StandardLayout T, std::size_t S&gt; </div>
 </div><div class="memdoc">
 
 <p>Reinterprets a span of mutable bytes as a span of objects. </p>
-<p>Reinterprets a span of immutable bytes as a span of const objects.</p>
 <p>The span must be an integer multiple of the size of the object being cast into. If the span has a static length, the function will fail to compile, and if the span has a dynamic length, a failed assertion may be triggered.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -254,7 +257,36 @@ template&lt;StandardLayout T, std::size_t S&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A mutable span over objects.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A mutable span over objects. </dd></dl>
+
+</div>
+</div>
+<a id="a286fd4c28169488c0599037e3591a6a2" name="a286fd4c28169488c0599037e3591a6a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a286fd4c28169488c0599037e3591a6a2">&#9670;&#160;</a></span>asObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;StandardLayout T, std::size_t S&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto tr::asObjects </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const std::byte, S &gt;</td>          <td class="paramname"><span class="paramname"><em>bytes</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reinterprets a span of immutable bytes as a span of const objects. </p>
 <p>The span must be an integer multiple of the size of the object being cast into. If the span has a static length, the function will fail to compile, and if the span has a dynamic length, a failed assertion may be triggered.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
