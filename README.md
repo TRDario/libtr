@@ -30,6 +30,6 @@ libtr depends on the following external libraries:
 ## Building ##
 libtr requires a C++23-compatible compiler and a version of CMake that supports modules.
 
-The external files [glm.cppm](https://github.com/g-truc/glm/blob/master/glm/glm.cppm) and boost.cppm (must import type_traits, static_vector and static_string) must be provided in the directory set to TR_EXTERNAL_MODULE_DIR.
+The external files [glm.cppm](https://github.com/g-truc/glm/blob/master/glm/glm.cppm) and boost.cppm (must import type_traits, optional, static_vector and static_string) must be provided in the directory set to TR_EXTERNAL_MODULE_DIR.
 
 NOTE: As of right now, only building on Linux with Clang/libc++ has been tested and is supported by the default CMakeLists file.
