@@ -4,6 +4,10 @@ module;
 #include <SDL2/SDL_image.h>
 #include <EnumBitmask.hpp>
 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 export module tr:bitmap;
 
 import std;
@@ -14,10 +18,6 @@ import :handle;
 import :iostream;
 import :bitmap_format;
 import :sdl;
-
-#ifdef _WIN32
-#include <windows.h>
-#endif
 
 export namespace tr {
 	class Bitmap;

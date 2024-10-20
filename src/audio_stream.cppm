@@ -3,6 +3,10 @@ module;
 #include <AL/alext.h>
 #include <sndfile.h>
 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 export module tr:audio_stream;
 
 import std;
@@ -11,10 +15,6 @@ import :audio_buffer;
 import :audio_source;
 import :chrono;
 import :iostream;
-
-#ifdef _WIN32
-#include <windows.h>
-#endif
 
 export namespace tr {
 	// Class representing a streamed audio source.

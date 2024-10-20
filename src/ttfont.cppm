@@ -4,6 +4,10 @@ module;
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 export module tr:ttfont;
 
 import std;
@@ -13,10 +17,6 @@ import :color;
 import :handle;
 import :iostream;
 import :sdl;
-
-#ifdef _WIN32
-#include <windows.h>
-#endif
 
 export namespace tr {
 	// SDL_TTF library RAII wrapper.
