@@ -52,7 +52,7 @@ export namespace tr {
     };
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 tr::ShaderPipeline::ShaderPipeline(const Shader& vertexShader, boost::optional<const Shader&> tessEvalShader, boost::optional<const Shader&> tessControlShader, boost::optional<const Shader&> geometryShader, const Shader& fragmentShader) noexcept
 {
@@ -96,3 +96,5 @@ void tr::ShaderPipeline::bind() const noexcept
 {
     glBindProgramPipeline(_id.get());
 }
+
+/// @endcond

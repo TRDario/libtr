@@ -497,7 +497,7 @@ export namespace tr {
 	}
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 template <tr::AngleBase T>
 constexpr tr::Angle<T>::Angle(T rads) noexcept
@@ -773,3 +773,5 @@ consteval tr::AngleL tr::angle_literals::operator "" _turnsl(unsigned long long 
 {
 	return turns((long double)(tr));
 }
+
+/// @endcond

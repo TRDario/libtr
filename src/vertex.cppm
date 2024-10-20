@@ -223,7 +223,7 @@ export namespace tr {
     inline constexpr Colors colors;
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 const tr::VertexFormat& tr::ClrVtx2::vertexFormat() noexcept
 {
@@ -300,3 +300,5 @@ constexpr auto tr::Colors::operator()(R&& range) const noexcept
 {
     return range | project(&std::ranges::range_value_t<R>::color);
 }
+
+/// @endcond

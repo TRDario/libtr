@@ -43,13 +43,12 @@ export namespace tr {
     template <class T> concept StandardLayout = std::is_standard_layout_v<T>;
 	
 
-	/// @private
+	/// @cond IMPLEMENTATION
 	template <class T, template <class...> class Z>
 	struct isSpecializationOf : std::false_type {};
-
-	/// @private
 	template <class... Args, template <class...> class Z>
 	struct isSpecializationOf<Z<Args...>, Z> : std::true_type {};
+	/// @endcond
 
 	/******************************************************************************************************************
      * Concept that denotes a type is a specialization of a certain template.
@@ -57,20 +56,16 @@ export namespace tr {
 	template <class T, template <class...> class Z>
 	concept SpecializationOf = isSpecializationOf<T, Z>::value;
 
-
-	/// @private
+	/// @cond IMPLEMENTATION
 	template <typename T>
 	struct remove_noexcept {
-		/// @private
 		using type = T;
 	};
-
-	/// @private
 	template <typename R, typename ...P>
 	struct remove_noexcept<R(P...) noexcept> {
-		/// @private
 		using type = R(P...);
 	};
+	/// @endcond
 
 	/******************************************************************************************************************
      * Removes noexcept qualification from a function type.

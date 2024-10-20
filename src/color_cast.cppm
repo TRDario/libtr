@@ -382,10 +382,9 @@ export namespace tr {
 
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 namespace tr {
-	/// @private
 	consteval std::size_t umax(std::uint8_t bits) noexcept;
 }
 
@@ -1349,3 +1348,5 @@ constexpr tr::HSV tr::ColorCaster<tr::HSV>::fromBuiltin(const RGBAF& from) noexc
 
 	return hsv;
 }
+
+/// @endcond

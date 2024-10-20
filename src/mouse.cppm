@@ -267,10 +267,9 @@ export namespace tr {
 	};
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 namespace tr {
-    /// @private
     // Checks if a cursor if not null and throws CursorBadAlloc otherwise.
     SDL_Cursor* checkNotNull(SDL_Cursor* ptr);
 }
@@ -368,3 +367,5 @@ void tr::mouse::showCursor(bool show) noexcept
 {
     SDL_ShowCursor(show);
 }
+
+/// @endcond

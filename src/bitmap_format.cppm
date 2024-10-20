@@ -182,7 +182,7 @@ export namespace tr {
 	};
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 tr::BitmapFormat::BitmapFormat(Type type) noexcept
     : _type { type }
@@ -261,3 +261,5 @@ bool tr::BitmapFormat::hasAlpha() const noexcept
 {
     return SDL_ISPIXELFORMAT_ALPHA(SDL_PixelFormatEnum(_type));
 }
+
+/// @endcond

@@ -10,41 +10,30 @@ import boost;
 import :concepts;
 
 export namespace tr {
-	/// @private
+	/// @cond
 	template <Enumerator T> struct EnumHash {
-		/// @private
 		auto operator()(T arg) const noexcept;
 	};
 
-	/// @private
 	struct StringHash {
-		/// @private
 		using is_transparent = std::true_type;
 
-		/// @private
 		inline auto operator()(std::string_view str) const noexcept;
 	};
 
-	/// @private
 	struct StaticStringHash {
-		/// @private
 		using is_transparent = std::true_type;
 
-		/// @private
         template <std::size_t Cap> auto operator()(const boost::static_string<Cap>& str) const noexcept;
-
-		/// @private
 		inline auto operator()(std::string_view str) const noexcept;
 	};
 
-	/// @private
 	struct StringEquals {
-		/// @private
 		using is_transparent = std::true_type;
 
-		/// @private
 		constexpr bool operator()(std::string_view l, std::string_view r) const noexcept;
 	};
+	/// @endcond
 
 
 	/******************************************************************************************************************
@@ -66,32 +55,33 @@ export namespace tr {
 	using StaticStringHashMap = std::unordered_map<boost::static_string<Cap>, Value, StaticStringHash, StringEquals>;
 }
 
-// TEMPLATE IMPLEMENTATION
-namespace tr {
-	template <Enumerator T>
-	auto EnumHash<T>::operator()(T arg) const noexcept
-	{
-		return std::hash<std::underlying_type_t<T>>{}(std::to_underlying(arg));
-	}
+/// @cond IMPLEMENTATION
 
-	auto StringHash::operator()(std::string_view str) const noexcept
-	{
-		return std::hash<std::string_view>{}(str);
-	}
-
-	template <std::size_t Cap>
-	auto StaticStringHash::operator()(const boost::static_string<Cap>& arg) const noexcept
-	{
-		return std::hash<std::string_view>{}(std::string_view(arg));
-	}
-
-	auto StaticStringHash::operator()(std::string_view str) const noexcept
-	{
-		return std::hash<std::string_view>{}(str);
-	}
-
-	constexpr bool StringEquals::operator()(std::string_view l, std::string_view r) const noexcept
-	{
-		return l == r;
-	}
+template <tr::Enumerator T>
+auto tr::EnumHash<T>::operator()(T arg) const noexcept
+{
+	return std::hash<std::underlying_type_t<T>>{}(std::to_underlying(arg));
 }
+
+auto tr::StringHash::operator()(std::string_view str) const noexcept
+{
+	return std::hash<std::string_view>{}(str);
+}
+
+template <std::size_t Cap>
+auto tr::StaticStringHash::operator()(const boost::static_string<Cap>& arg) const noexcept
+{
+	return std::hash<std::string_view>{}(std::string_view(arg));
+}
+
+auto tr::StaticStringHash::operator()(std::string_view str) const noexcept
+{
+	return std::hash<std::string_view>{}(str);
+}
+
+constexpr bool tr::StringEquals::operator()(std::string_view l, std::string_view r) const noexcept
+{
+	return l == r;
+}
+
+/// @endcond

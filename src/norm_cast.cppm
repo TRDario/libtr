@@ -55,7 +55,7 @@ export namespace tr {
 	constexpr To norm_cast(From from) noexcept;
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 template <tr::FloatingPoint To, tr::FloatingPoint From>
 constexpr To tr::norm_cast(From from) noexcept
@@ -90,3 +90,5 @@ constexpr To tr::norm_cast(From from) noexcept
 		return To(std::uint64_t(from) * std::numeric_limits<To>::max() / std::numeric_limits<From>::max());
 	}
 }
+
+/// @endcond

@@ -64,7 +64,7 @@ export namespace tr {
 	std::filesystem::path getUserDir(const char* org, const char* app);
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 const char* tr::ExeDirInitError::what() const noexcept
 {
@@ -99,3 +99,5 @@ std::filesystem::path tr::getUserDir(const char* org, const char* app)
     SDL_QuitSubSystem(SDL_INIT_VIDEO);
     return userdir;
 }
+
+/// @endcond

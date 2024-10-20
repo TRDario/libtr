@@ -178,7 +178,7 @@ export namespace tr {
     };
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 using namespace magic_enum::bitwise_operators;
 
@@ -272,3 +272,5 @@ void tr::VertexBuffer::setLabel(std::string label) noexcept
         _buffer->setLabel(_label);
     }
 }
+
+/// @endcond

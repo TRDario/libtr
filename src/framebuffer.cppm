@@ -112,27 +112,18 @@ export namespace tr {
 	     **************************************************************************************************************/
 		void setDepthRange(DepthRange range) noexcept;
 	protected:
-        /// @private
+        /// @cond IMPLEMENTATION
 		GLuint     _id;
-
-        /// @private
 		RectI2 	   _viewport;
-
-        /// @private
 		DepthRange _depthRange;
 
-
-        /// @private
 		BasicFramebuffer(GLuint id, RectI2 viewport, DepthRange depthRange) noexcept;
 
-
-        /// @private
 		// Binds the framebuffer for reading.
 		void bindRead() const noexcept;
-
-        /// @private
 		// Binds the framebuffer for writing.
 		void bindWrite() const noexcept;
+        /// @endcond
 
 		friend class GLContext;
 	};
@@ -338,16 +329,11 @@ export namespace tr {
 	};
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 namespace tr {
-    /// @private
     GLuint createFramebuffer() noexcept;
-
-    /// @private
     GLuint findBoundWriteFramebuffer() noexcept;
-
-    /// @private
     GLenum getGLAttachment(Framebuffer::Slot slot) noexcept;
 }
 
@@ -572,3 +558,5 @@ glm::ivec2 tr::Backbuffer::size() const noexcept
 {
     return _window.size();
 }
+
+/// @endcond

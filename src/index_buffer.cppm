@@ -203,7 +203,7 @@ export namespace tr {
     };
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 using namespace magic_enum::bitwise_operators;
 
@@ -218,7 +218,7 @@ tr::IndexBufferMap::operator std::span<std::uint16_t>() const noexcept
 
 std::span<std::uint16_t> tr::IndexBufferMap::span() const noexcept
 {
-    return asObjects<std::uint16_t>(GLBufferMap::span());
+    return asMutObjects<std::uint16_t>(GLBufferMap::span());
 }
 
 tr::IndexBuffer::IndexBuffer() noexcept
@@ -305,3 +305,5 @@ void tr::IndexBuffer::setLabel(std::string label) noexcept
         _buffer->setLabel(_label);
     }
 }
+
+/// @endcond

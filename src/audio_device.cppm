@@ -85,7 +85,7 @@ export namespace tr {
     };
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 constexpr const char* tr::DefaultAudioDeviceOpenError::what() const noexcept
 {
@@ -131,3 +131,5 @@ void tr::AudioDevice::Deleter::operator()(ALCdevice* device) const noexcept
 {
     alcCloseDevice(device);
 }
+
+/// @endcond

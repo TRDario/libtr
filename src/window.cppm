@@ -92,7 +92,7 @@ export namespace tr {
 		 **************************************************************************************************************/
 		ALWAYS_ON_TOP = SDL_WINDOW_ALWAYS_ON_TOP
 	};
-	/// @cond _IMPL
+	/// @cond IMPLEMENTATION
 	DEFINE_BITMASK_OPERATORS(WindowFlag);
 	/// @endcond
 
@@ -570,21 +570,14 @@ export namespace tr {
 	};
 }
 
-/// @cond _IMPL
+/// @cond IMPLEMENTATION
 export template <>
 struct magic_enum::customize::enum_range<tr::WindowMode> {
-	/// @private
   	static constexpr int min = int(tr::WindowMode::WINDOWED);
-
-  	/// @private
   	static constexpr int max = int(tr::WindowMode::BORDERLESS);
 };
-/// @endcond
-
-// IMPLEMENTATION
 
 namespace tr {
-	/// @private
     // Hit-test callback passed directly to SDL that bridges the gap between SDL and tr's callback format.
     SDL_HitTestResult sdlHitTestCB(SDL_Window* window, const SDL_Point* point, void* data) noexcept;
 }
@@ -936,3 +929,5 @@ void tr::Window::setHitTest(HitTestCB hitTestCB)
 		}
     }
 }
+
+/// @endcond

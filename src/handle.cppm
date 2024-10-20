@@ -226,7 +226,7 @@ export namespace tr {
 	};
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr tr::Handle<T, EmptyValue, Deleter>::Handle() noexcept
@@ -247,9 +247,8 @@ constexpr tr::Handle<T, EmptyValue, Deleter>::Handle(T value, NoEmptyHandleCheck
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr tr::Handle<T, EmptyValue, Deleter>::Handle(Handle&& move) noexcept
-{
-	std::swap(_base, move._base);
-}
+	: _base { std::exchange(move._base, EmptyValue) }
+{}
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr tr::Handle<T, EmptyValue, Deleter>::~Handle<T, EmptyValue, Deleter>() noexcept
@@ -301,23 +300,19 @@ constexpr const T& tr::Handle<T, EmptyValue, Deleter>::get(NoEmptyHandleCheck) c
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr void tr::Handle<T, EmptyValue, Deleter>::reset() noexcept
 {
-	std::ignore = Handle { std::move(*this) };
-	_base = EmptyValue;
+	std::ignore = std::exchange(*this, Handle {});
 }
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr void tr::Handle<T, EmptyValue, Deleter>::reset(T value) noexcept
 {
-	assert(value != EmptyValue);
-	std::ignore = Handle { std::move(*this) };
-	_base = value;
+	std::ignore = std::exchange(*this, Handle { value });
 }
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr void tr::Handle<T, EmptyValue, Deleter>::reset(T value, NoEmptyHandleCheck) noexcept
 {
-	std::ignore = Handle { std::move(*this) };
-	_base = value;
+	std::ignore = std::exchange(*this, Handle { value, NO_EMPTY_HANDLE_CHECK });
 }
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
@@ -325,3 +320,5 @@ constexpr void tr::Handle<T, EmptyValue, Deleter>::swap(Handle& other) noexcept
 {
 	std::swap(_base, other._base);
 }
+
+/// @endcond

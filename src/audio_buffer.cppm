@@ -93,14 +93,12 @@ export namespace tr {
          **************************************************************************************************************/
 		void set(std::span<const std::byte> data, AudioFormat format, int frequency);
 	protected:
-        /// @private
+        /// @cond IMPLEMENTATION
 		ALuint _id; // The OpenAL ID of the buffer.
 
-
-        /// @private
 		// Constructs a audio buffer view from an OpenAL id.
 		AudioBufferView(ALuint id) noexcept;
-
+        /// @endcond
 
 		friend class AudioBuffer;
 		friend class AudioSource;
@@ -173,7 +171,7 @@ export namespace tr {
 	};
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 constexpr const char* tr::AudioBufferBadAlloc::what() const noexcept
 {
@@ -257,3 +255,5 @@ void tr::AudioBuffer::set(std::span<const std::byte> data, AudioFormat format, i
 {
     AudioBufferView(*this).set(data, format, frequency);
 }
+
+/// @endcond

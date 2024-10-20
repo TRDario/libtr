@@ -76,7 +76,7 @@ export namespace tr {
 		JPG  = 0x1,
 		PNG  = 0x2
 	};
-    /// @cond _IMPL
+    /// @cond IMPLEMENTATION
 	DEFINE_BITMASK_OPERATORS(ImageFormat);
     /// @endcond
 
@@ -249,6 +249,8 @@ export namespace tr {
 
 	/******************************************************************************************************************
 	 * Immutable pixel iterator.
+     *
+     * The iterator fulfills the @em RandomAccessIterator requirements.
 	 ******************************************************************************************************************/
 	class SubBitmap::Iterator {
 	public:
@@ -769,6 +771,8 @@ export namespace tr {
 
     /******************************************************************************************************************
 	 * Mutable pixel iterator.
+     *
+     * The iterator fulfills the @em RandomAccessIterator requirements.
 	 ******************************************************************************************************************/
 	class Bitmap::MutIt {
 	public:

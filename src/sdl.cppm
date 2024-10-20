@@ -131,23 +131,18 @@ export namespace tr {
     };
 }
 
+/// @cond IMPLEMENTATION
+
 export namespace std {
-    /// @private
     template <> struct formatter<tr::Version> : formatter<string> {
-        /// @private
         auto format(tr::Version v, format_context& ctx) const {
             return formatter<string>::format(std::format("{:d}.{:d}.{:d}", v.major, v.minor, v.patch), ctx);
         }
     };
 }
 
-// IMPLEMENTATION
-
 namespace tr {
-    /// @private
     void setSDLGLAttributes(const GLAttrs& attrs) noexcept;
-
-    /// @private
     void suppressUnsupportedEvents() noexcept;
 }
 
@@ -246,3 +241,5 @@ int tr::SDL::systemCores() const noexcept
 {
     return SDL_GetCPUCount();
 }
+
+/// @endcond

@@ -146,10 +146,9 @@ export namespace tr {
 	int displayCount() noexcept;
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 namespace tr {
-	/// @private
     // Converts an SDL display mode to a tr one.
     DisplayMode toDisplayMode(const SDL_DisplayMode& mode) noexcept;
 }
@@ -235,3 +234,5 @@ int tr::displayCount() noexcept
 {
     return SDL_GetNumVideoDisplays();
 }
+
+/// @endcond

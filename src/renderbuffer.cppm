@@ -76,7 +76,7 @@ export namespace tr {
 	};
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 constexpr const char* tr::RenderbufferBadAlloc::what() const noexcept
 {
@@ -121,3 +121,5 @@ void tr::Renderbuffer::setLabel(std::string_view label) noexcept
 {
     glObjectLabel(GL_RENDERBUFFER, _id.get(), label.size(), label.data());
 }
+
+/// @endcond

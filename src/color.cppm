@@ -690,7 +690,7 @@ export namespace tr {
 		|| std::same_as<T, ARGB_Ui32_2_10_10_10>;
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 template <tr::ColorDatatype T>
 constexpr tr::RGBA<T>::RGBA(T r, T g, T b, T a) noexcept
@@ -701,3 +701,5 @@ template <tr::ColorDatatype T>
 constexpr tr::RGBA<T>::RGBA(RGB<T> rgb, T a) noexcept
 	: r { rgb.r }, g { rgb.g }, b { rgb.b }, a { a }
 {}
+
+/// @endcond

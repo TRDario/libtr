@@ -7,12 +7,11 @@ export module tr:bitmap_to_gl_format;
 import std;
 import :bitmap_format;
 
+/// @cond IMPLEMENTATION
+
 export namespace tr {
-	/// @private
     std::pair<GLenum, GLenum> bitmapToGLFormat(BitmapFormat format) noexcept;
 }
-
-// IMPLEMENTATION
 
 std::pair<GLenum, GLenum> tr::bitmapToGLFormat(BitmapFormat format) noexcept
 {
@@ -75,3 +74,5 @@ std::pair<GLenum, GLenum> tr::bitmapToGLFormat(BitmapFormat format) noexcept
 		break;
 	}
 }
+
+/// @endcond

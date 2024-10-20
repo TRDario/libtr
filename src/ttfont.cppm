@@ -1,3 +1,8 @@
+/**
+ * @file ttfont.cppm
+ * @brief Provides TrueType font functionality.
+ */
+
 module;
 #include <cassert>
 #include <EnumBitmask.hpp>
@@ -66,7 +71,7 @@ export namespace tr {
 		struct GlyphMetrics {
 			glm::ivec2 min; // Min x/y of the glyph.
 			glm::ivec2 max; // Max x/y of the glyph.
-			std::int32_t       adv; // The advance of the glyph.
+			std::int32_t adv; // The advance of the glyph.
 		};
 
 		// Loads a TTF font from file.

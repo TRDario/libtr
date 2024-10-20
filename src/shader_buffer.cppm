@@ -161,7 +161,7 @@ export namespace tr {
     };
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 using namespace magic_enum::bitwise_operators;
 
@@ -229,3 +229,5 @@ tr::GLBufferMap tr::ShaderBuffer::map() noexcept
 {
     return GLBuffer::mapRegion(0, _headerSize + _size, MapFlag(_access));
 }
+
+/// @endcond

@@ -98,7 +98,7 @@ export namespace tr {
 	};
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 float tr::Listener::gain() const noexcept
 {
@@ -149,3 +149,5 @@ void tr::Listener::setOrientation(Orientation orientation) noexcept
     float arr[] { orientation.view.x, orientation.view.y, orientation.view.z, orientation.up.x, orientation.up.y, orientation.up.z };
     alListenerfv(AL_ORIENTATION, arr);
 }
+
+/// @endcond

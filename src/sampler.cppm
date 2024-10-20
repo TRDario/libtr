@@ -247,7 +247,7 @@ export namespace tr {
 	};
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 tr::Sampler::Sampler() noexcept
 {
@@ -323,3 +323,5 @@ void tr::Sampler::setLabel(std::string_view label) noexcept
 {
 	glObjectLabel(GL_SAMPLER, _id.get(), label.size(), label.data());
 }
+
+/// @endcond

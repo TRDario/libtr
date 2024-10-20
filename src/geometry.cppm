@@ -503,7 +503,7 @@ export namespace tr {
     glm::tmat4x4<T> rotateAroundPoint3(const glm::tmat4x4<T>& matrix, const glm::tvec3<T>& center, const Angle<T>& angle, const glm::tvec3<T>& axis) noexcept;
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 template <int S, class T>
 constexpr tr::Rect<S, T>::Rect(glm::vec<S, T> tl, glm::vec<S, T> size) noexcept
@@ -783,3 +783,5 @@ glm::tmat4x4<T> tr::rotateAroundPoint3(const glm::tmat4x4<T>& matrix, const glm:
 {
     return translate(rotate(translate(matrix, center), angle.rads(), axis), -center);
 }
+
+/// @endcond

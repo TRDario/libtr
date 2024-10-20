@@ -71,7 +71,7 @@ export namespace tr {
     * @return A mutable span over objects.
     ******************************************************************************************************************/
 	template <StandardLayout T, std::size_t S>
-    auto asObjects(std::span<std::byte, S> bytes) noexcept;
+    auto asMutObjects(std::span<std::byte, S> bytes) noexcept;
 
 	/******************************************************************************************************************
     * Reinterprets a span of immutable bytes as a span of const objects.
@@ -111,7 +111,7 @@ export namespace tr {
     constexpr auto project(R&& range, auto std::ranges::range_value_t<R>::* ptr) noexcept;
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 template <tr::StandardLayoutRange T>
 auto tr::rangeBytes(const T& range) noexcept
@@ -138,7 +138,7 @@ std::span<std::byte, sizeof(T)> tr::asMutBytes(T& object) noexcept
 }
 
 template <tr::StandardLayout T, std::size_t S>
-auto tr::asObjects(std::span<std::byte, S> bytes) noexcept
+auto tr::asMutObjects(std::span<std::byte, S> bytes) noexcept
 {
     if constexpr (S != std::dynamic_extent) {
         static_assert(S % sizeof(T) == 0, "Cannot reinterpret byte span due to size / sizeof(T) not being an integer.");
@@ -174,3 +174,5 @@ constexpr auto tr::project(R&& range, auto std::ranges::range_value_t<R>::* ptr)
 {
     return std::views::transform(std::forward<R&&>(range), [=] (auto&& val) -> auto&& { return val.*ptr; });
 }
+
+/// @endcond

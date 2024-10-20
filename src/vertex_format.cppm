@@ -233,7 +233,7 @@ export namespace tr {
 	};
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 tr::VertexFormat::VertexFormat(std::span<const VertexAttribute> attrs) noexcept
 {
@@ -276,3 +276,5 @@ void tr::VertexFormat::bind() const noexcept
 {
     glBindVertexArray(_id.get());
 }
+
+/// @endcond

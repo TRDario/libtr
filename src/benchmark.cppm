@@ -103,7 +103,7 @@ export namespace tr {
 	};
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 using namespace std::chrono_literals;
 
@@ -174,3 +174,5 @@ const tr::Benchmark::Deque& tr::Benchmark::measurements() const noexcept
 {
     return _durations;
 }
+
+/// @endcond

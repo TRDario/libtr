@@ -110,7 +110,7 @@ export namespace tr {
 	void fillPolygonOutlineVertices(It out, std::size_t vertices, CircleF circ, AngleF rotation, float thickness);
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 inline std::size_t tr::smoothPolygonVerticesCount(float r) noexcept
 {
@@ -185,3 +185,5 @@ void tr::fillPolygonOutlineVertices(It out, std::size_t vertices, CircleF circ, 
 	fillPolygonVertices(out, vertices, { circ.c, circ.r + thick / 2 }, rotation);
 	fillPolygonVertices(out, vertices, { circ.c, circ.r - thick / 2 }, rotation);
 }
+
+/// @endcond

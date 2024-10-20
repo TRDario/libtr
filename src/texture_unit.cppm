@@ -58,14 +58,11 @@ export namespace tr {
     };
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 namespace tr {
-    /// @private
     // Defined by the OpenGL standard.
     inline constexpr int MAX_TEX_UNITS { 80 }; 
-
-    /// @private
     // Bitset where used up units are marked as bit flags.
     std::bitset<MAX_TEX_UNITS> _texUnitPool;   
 }
@@ -96,3 +93,5 @@ void tr::TextureUnit::setTexture(const Texture& texture) noexcept
 {
     glBindTextures(_id.get(), 1, &texture._id.get());
 }
+
+/// @endcond

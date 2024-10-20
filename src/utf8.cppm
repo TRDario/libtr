@@ -127,7 +127,7 @@ export namespace tr {
     constexpr std::size_t utf8Length(std::string_view str) noexcept;
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 constexpr tr::Utf8ConstIt::Utf8ConstIt(const char* ptr) noexcept
     : _impl { ptr }
@@ -204,3 +204,5 @@ constexpr std::size_t tr::utf8Length(std::string_view str) noexcept
 {
     return std::distance(utf8Begin(str), utf8End(str));
 }
+
+/// @endcond

@@ -210,7 +210,7 @@ export namespace tr {
 	inline void writeBinary(std::ostream& os, const char* cstr);
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 tr::FileError::FileError(std::string path) noexcept
     : _path { path }
@@ -317,3 +317,5 @@ inline void tr::writeBinary(std::ostream& os, const char* cstr)
 {
     os.write(cstr, std::strlen(cstr));
 }
+
+/// @endcond

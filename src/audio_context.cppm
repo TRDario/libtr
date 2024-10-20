@@ -54,7 +54,7 @@ export namespace tr {
     };
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 tr::AudioContextCreationError::AudioContextCreationError(const char* error)
     : runtime_error { std::format("Failed to create audio context ({})", error) }
@@ -73,3 +73,5 @@ void tr::AudioContext::Deleter::operator()(ALCcontext* context) noexcept
     alcMakeContextCurrent(nullptr);
     alcDestroyContext(context);
 }
+
+/// @endcond

@@ -236,28 +236,17 @@ export namespace tr {
 	     **************************************************************************************************************/
 		void setLabel(std::string_view label) noexcept;
 	protected:
-		/// @private
+		/// @cond IMPLEMENTATION
 		struct Deleter { void operator()(GLuint id) noexcept; /**< @private */ };
-
-		/// @private
 		Handle<GLuint, 0, Deleter> _id;
-
-		/// @private
 		GLenum 					   _target;
 
-
-		/// @private
 		Texture(GLenum target) noexcept;
 
-
-		/// @private
 		int width() const noexcept;
-
-		/// @private
 		int height() const noexcept;
-
-		/// @private
 		int depth() const noexcept;
+		/// @endcond
 
 
 		friend class BasicFramebuffer;
@@ -267,6 +256,8 @@ export namespace tr {
 
 	/******************************************************************************************************************
 	 * One-dimensional texture.
+	 *
+	 * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	struct Texture1D : Texture {
 		/**************************************************************************************************************
@@ -314,6 +305,8 @@ export namespace tr {
 	
 	/******************************************************************************************************************
 	 * One-dimensional array texture.
+	 *
+	 * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	struct ArrayTexture1D : Texture {
 		/**************************************************************************************************************
@@ -368,6 +361,8 @@ export namespace tr {
 
 	/******************************************************************************************************************
 	 * Two-dimensional texture.
+	 *
+	 * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	struct Texture2D : Texture {
 		/**************************************************************************************************************
@@ -414,6 +409,8 @@ export namespace tr {
 
 	/******************************************************************************************************************
 	 * Two-dimensional array texture.
+	 *
+	 * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	struct ArrayTexture2D : Texture {
 		/**************************************************************************************************************
@@ -470,6 +467,8 @@ export namespace tr {
 	
 	/******************************************************************************************************************
 	 * Three-dimensional texture.
+	 *
+	 * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	struct Texture3D : Texture {
 		/**************************************************************************************************************
@@ -516,10 +515,9 @@ export namespace tr {
 	};
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 namespace tr {
-	/// @private
 	// Determines the size of the array texture from a spam of bitmaps.
 	glm::ivec2 determineArrayTextureSize(std::span<SubBitmap> layers);
 }
@@ -809,3 +807,5 @@ void tr::Texture3D::setLayerRegion(glm::ivec3 tl, SubBitmap bitmap) noexcept
 	glTextureSubImage3D(_id.get(), 0, tl.x, tl.y, tl.z, bitmap.size().x, bitmap.size().y, 1, format, type, bitmap.data());
 	glGenerateTextureMipmap(_id.get());
 }
+
+/// @endcond

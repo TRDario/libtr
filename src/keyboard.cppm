@@ -263,7 +263,7 @@ export namespace tr {
 		SCROLL = 0x8000
 	};
 
-	/// @cond _IMPL
+	/// @cond IMPLEMENTATION
 	DEFINE_BITMASK_OPERATORS(Keymods);
 	/// @endcond
 	
@@ -288,7 +288,7 @@ export namespace tr {
 	};
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 tr::Scancode::Scancode(Enum base) noexcept
     : _enum { base }
@@ -346,3 +346,5 @@ tr::Keymods tr::keyboard::heldMods() noexcept
 {
     return Keymods(SDL_GetModState());
 }
+
+/// @endcond
