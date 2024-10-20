@@ -139,6 +139,8 @@ export namespace tr {
 
 	/******************************************************************************************************************
 	 * Custom framebuffer.
+     *
+     * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	class Framebuffer : public BasicFramebuffer {
 	public:

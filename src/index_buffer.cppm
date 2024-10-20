@@ -40,6 +40,8 @@ export namespace tr {
 
     /******************************************************************************************************************
 	 * GPU index buffer class.
+     *
+     * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
     class IndexBuffer {
     public:

@@ -17,6 +17,8 @@ export namespace tr {
 	/******************************************************************************************************************
 	 * GPU buffer accessable by a shader.
 	 *
+	 * An OpenGL context must be open to instantiate and use objects of this type.
+	 *
 	 * The API is designed as a dynamic-length array with a fixed-length header in front.
 	 * Passing 0 to the size/capacity of either component disables them, and they cannot be accessed.
 	 ******************************************************************************************************************/

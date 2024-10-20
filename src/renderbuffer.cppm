@@ -30,7 +30,7 @@ export namespace tr {
     /******************************************************************************************************************
 	 * Image buffer optimized for use as a render target in a framebuffer.
      *
-     * Wrapper over an OpenGL renderbuffer.
+     * Wrapper over an OpenGL renderbuffer. An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	class Renderbuffer {
 	public:

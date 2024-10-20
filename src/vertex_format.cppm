@@ -197,6 +197,8 @@ export namespace tr {
 
 	/******************************************************************************************************************
 	 * GPU Vertex format.
+	 *
+	 * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	class VertexFormat {
 	public:
