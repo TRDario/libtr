@@ -14,6 +14,9 @@ import :geometry;
 import :handle;
 
 export namespace tr {
+	/******************************************************************************************************************
+	 * Texture format types.
+	 ******************************************************************************************************************/
 	enum class TextureFormat {
 		R8          = 0x8229,
 		R8_SNORM    = 0x8F94,
@@ -76,158 +79,455 @@ export namespace tr {
 		DEPTH_FP32  = 0x8CAC,
 		STENCIL8    = 0x8D48
 	};
+
+	/******************************************************************************************************************
+	 * Texture swizzles.
+	 ******************************************************************************************************************/
 	enum class Swizzle {
-		ZERO,       // The channel is set to 0.0.
-		ONE,        // The channel is set to 1.0.
-		R = 0x1903, // The channel will use the red channel value.
-		G,          // The channel uses the green channel value.
-		B,          // The channel uses the blue channel value.
-		A           // The channel uses the alpha channel value.
+		/**************************************************************************************************************
+		 * The channel is set to 0.0.
+		 **************************************************************************************************************/
+		ZERO,
+
+		/**************************************************************************************************************
+		 * The channel is set to 1.0.
+		 **************************************************************************************************************/
+		ONE,
+
+		/**************************************************************************************************************
+		 * The channel will use the red channel value.
+		 **************************************************************************************************************/
+		R = 0x1903,
+
+		/**************************************************************************************************************
+		 * The channel will use the green channel value.
+		 **************************************************************************************************************/
+		G,
+
+		/**************************************************************************************************************
+		 * The channel will use the blue channel value.
+		 **************************************************************************************************************/
+		B,
+
+		/**************************************************************************************************************
+		 * The channel will use the alpha channel value.
+		 **************************************************************************************************************/
+		A 
 	};
-	// Sentinel value representing the number of layers for a texture with no mipmaps.
+
+	/******************************************************************************************************************
+	 * Sentinel value representing the number of layers for a texture with no mipmaps.
+	 ******************************************************************************************************************/
 	inline constexpr int NO_MIPMAPS { 1 };
-	// Sentinel value representing the number of layers for a texture with all mipmaps.
+
+	/******************************************************************************************************************
+	 * Sentinel value representing the number of layers for a texture with all mipmaps.
+	 ******************************************************************************************************************/
 	inline constexpr int ALL_MIPMAPS { INT_MAX };
 
+
+	/******************************************************************************************************************
+	 * Error thrown when a texture allocation failed.
+	 ******************************************************************************************************************/
 	struct TextureBadAlloc : std::bad_alloc {
-		TextureBadAlloc() noexcept = default;
-		constexpr virtual const char* what() const noexcept { return "failed texture allocation"; };
-	};
-	struct EmptyTextureLayerSpan : std::exception {
-		EmptyTextureLayerSpan() noexcept = default;
-		constexpr virtual const char* what() const noexcept { return "empty layer span passed to texture constructor"; };
-	};
-	struct MismatchedTextureLayerSpan : std::exception {
-		MismatchedTextureLayerSpan() noexcept = default;
-		constexpr virtual const char* what() const noexcept { return "layer span of bitmaps with mismatched sizes passed to texture constructor"; };
+		/**************************************************************************************************************
+         * Gets an error message.
+         *
+         * @return An explanatory error message.
+	     **************************************************************************************************************/
+		constexpr virtual const char* what() const noexcept;
 	};
 
-	// Base texture class (cannot be constructed on its own).
+
+	/******************************************************************************************************************
+	 * Base texture class.
+	 *
+	 * This class cannot be constructed directly.
+	 ******************************************************************************************************************/
 	class Texture {
 	public:
-		friend bool operator==(const Texture& lhs, const Texture& rhs) noexcept;
+		/**************************************************************************************************************
+         * Equality comparison operator.
+	     **************************************************************************************************************/
+		bool operator==(const Texture&) const noexcept;
 
+
+		/**************************************************************************************************************
+         * Gets the format of the texture.
+		 *
+		 * @return The texture format.
+	     **************************************************************************************************************/
 		TextureFormat format() const noexcept;
 
-		// Gets the swizzle parameter for the red channel.
+
+		/**************************************************************************************************************
+         * Gets the swizzle parameter for the red channel.
+		 *
+		 * @return The red channel swizzle.
+	     **************************************************************************************************************/
 		Swizzle swizzleR() const noexcept;
-		// Gets the swizzle parameter for the green channel.
+		
+		/**************************************************************************************************************
+         * Gets the swizzle parameter for the green channel.
+		 *
+		 * @return The green channel swizzle.
+	     **************************************************************************************************************/
 		Swizzle swizzleG() const noexcept;
-		// Gets the swizzle parameter for the blue channel.
+		
+		/**************************************************************************************************************
+         * Gets the swizzle parameter for the blue channel.
+		 *
+		 * @return The blue channel swizzle.
+	     **************************************************************************************************************/
 		Swizzle swizzleB() const noexcept;
-		// Gets the swizzle parameter for the alpha channel.
+		
+		/**************************************************************************************************************
+         * Gets the swizzle parameter for the alpha channel.
+		 *
+		 * @return The alpha channel swizzle.
+	     **************************************************************************************************************/
 		Swizzle swizzleA() const noexcept;
-		// Sets the swizzle parameter for the red channel.
+
+		/**************************************************************************************************************
+         * Sets the swizzle parameter for the red channel.
+		 *
+		 * @param swizzle The new red channel swizzle.
+	     **************************************************************************************************************/
 		void setSwizzleR(Swizzle swizzle) noexcept;
-		// Sets the swizzle parameter for the green channel.
+		
+		/**************************************************************************************************************
+         * Sets the swizzle parameter for the green channel.
+		 *
+		 * @param swizzle The new green channel swizzle.
+	     **************************************************************************************************************/
 		void setSwizzleG(Swizzle swizzle) noexcept;
-		// Sets the swizzle parameter for the blue channel.
+		
+		/**************************************************************************************************************
+         * Sets the swizzle parameter for the blue channel.
+		 *
+		 * @param swizzle The new blue channel swizzle.
+	     **************************************************************************************************************/
 		void setSwizzleB(Swizzle swizzle) noexcept;
-		// Sets the swizzle parameter for the alpha channel.
+		
+		/**************************************************************************************************************
+         * Sets the swizzle parameter for the alpha channel.
+		 *
+		 * @param swizzle The new alpha channel swizzle.
+	     **************************************************************************************************************/
 		void setSwizzleA(Swizzle swizzle) noexcept;
-		// Sets the swizzle parameter for all channels simultaneously.
+		
+		/**************************************************************************************************************
+         * Sets the swizzle parameters of the texture.
+		 *
+		 * @param r, g, b, a The new swizzles.
+	     **************************************************************************************************************/
 		void setSwizzle(Swizzle r, Swizzle g, Swizzle b, Swizzle a) noexcept;
 
+
+		/**************************************************************************************************************
+	     * Sets the debug label of the texture.
+         *
+         * @param label The new label of the texture.
+	     **************************************************************************************************************/
 		void setLabel(std::string_view label) noexcept;
 	protected:
-		struct Deleter { void operator()(GLuint id) noexcept; };
+		/// @private
+		struct Deleter { void operator()(GLuint id) noexcept; /**< @private */ };
+
+		/// @private
 		Handle<GLuint, 0, Deleter> _id;
+
+		/// @private
 		GLenum 					   _target;
 
+
+		/// @private
 		Texture(GLenum target) noexcept;
 
+
+		/// @private
 		int width() const noexcept;
+
+		/// @private
 		int height() const noexcept;
+
+		/// @private
 		int depth() const noexcept;
+
 
 		friend class BasicFramebuffer;
 		friend class Framebuffer;
 		friend class TextureUnit;
 	};
 
-	// One-dimensional texture.
+	/******************************************************************************************************************
+	 * One-dimensional texture.
+	 ******************************************************************************************************************/
 	struct Texture1D : Texture {
-		// mipmaps - special values: NO_MIPMAPS, ALL_MIPMAPS.
-		Texture1D(int size, int mipmaps, TextureFormat format);
-		// mipmaps - special values: NO_MIPMAPS, ALL_MIPMAPS.
-		Texture1D(SubBitmap bitmap, int mipmaps, TextureFormat format);
+		/**************************************************************************************************************
+         * Allocates an uninitialized 1D texture.
+		 *
+		 * @exception TextureBadAlloc If allocating the texture failed.
+		 *
+		 * @param size The size of the texture in texels.
+		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param format The internal format of the texture.
+	     **************************************************************************************************************/
+		Texture1D(int size, int mipmaps, TextureFormat format = TextureFormat::RGBA8);
 
+		/**************************************************************************************************************
+         * Constructs a 1D texture with data uploaded from a bitmap.
+		 *
+		 * @exception TextureBadAlloc If allocating the texture failed.
+		 *
+		 * @param bitmap The bitmap data. The bitmap must be 1 pixel tall, otherwise a failed assertion may be triggered.
+		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param format The internal format of the texture.
+	     **************************************************************************************************************/
+		Texture1D(SubBitmap bitmap, int mipmaps, TextureFormat format = TextureFormat::RGBA8);
+
+
+		/**************************************************************************************************************
+         * Gets the size of the texture.
+		 *
+		 * @return The size of the texture in texels.
+	     **************************************************************************************************************/
 		int size() const noexcept;
 
-		// Sets a region of the texture.
-		void setRegion(int offset, SubBitmap bitmap);
+
+		/**************************************************************************************************************
+         * Sets a region of the texture.
+		 *
+		 * Trying to set a region outside the bounds of the texture may trigger a failed assertion.
+		 *
+		 * @param offset The starting offset within the texture
+		 * @param bitmap The bitmap data to set the region to. The bitmap must be 1 pixel tall, otherwise a failed
+		 *               assertion may be triggered.
+	     **************************************************************************************************************/
+		void setRegion(int offset, SubBitmap bitmap) noexcept;
 	};
-	// One-dimensional texture array.
+	
+	/******************************************************************************************************************
+	 * One-dimensional array texture.
+	 ******************************************************************************************************************/
 	struct ArrayTexture1D : Texture {
-		// mipmaps - special values: NO_MIPMAPS, ALL_MIPMAPS.
+		/**************************************************************************************************************
+         * Allocates an uninitialized 1D array texture.
+		 *
+		 * @exception TextureBadAlloc If allocating the texture failed.
+		 *
+		 * @param size The size of the texture in texels.
+		 * @param layers The number of layers in the texture.
+		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param format The internal format of the texture.
+	     **************************************************************************************************************/
 		ArrayTexture1D(int size, int layers, int mipmaps, TextureFormat format);
-		// Loads the array texture as if it were a 2D texture.
-		// mipmaps - special values: NO_MIPMAPS, ALL_MIPMAPS.
+
+		/**************************************************************************************************************
+         * Constructs a 1d array texture with data uploaded from a bitmap.
+		 *
+		 * @exception TextureBadAlloc If allocating the texture failed.
+		 *
+		 * @param bitmap The bitmap data.
+		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param format The internal format of the texture.
+	     **************************************************************************************************************/
 		ArrayTexture1D(SubBitmap bitmap, int mipmaps, TextureFormat format);
 
+
+		/**************************************************************************************************************
+         * Gets the size of the texture.
+		 *
+		 * @return The size of the texture in texels.
+	     **************************************************************************************************************/
 		int size() const noexcept;
+
+		/**************************************************************************************************************
+         * Gets the number of layers in the texture.
+		 *
+		 * @return The number of layers in the texture.
+	     **************************************************************************************************************/
 		int layers() const noexcept;
 
-		// Sets a region of the texture viewed as a 2D texture.
-		void setRegion(glm::ivec2 tl, SubBitmap bitmap);
+
+		/**************************************************************************************************************
+         * Sets a region of the texture as if it were a 2D texture.
+		 *
+		 * Trying to set a region outside the bounds of the texture may trigger a failed assertion.
+		 *
+		 * @param tl The top-left corner of the region within the texture.
+		 * @param bitmap The bitmap data to set the region to.
+	     **************************************************************************************************************/
+		void setRegion(glm::ivec2 tl, SubBitmap bitmap) noexcept;
 	};
-	// Two-dimensional texture.
+
+	/******************************************************************************************************************
+	 * Two-dimensional texture.
+	 ******************************************************************************************************************/
 	struct Texture2D : Texture {
-		// mipmaps - special values: NO_MIPMAPS, ALL_MIPMAPS.
+		/**************************************************************************************************************
+         * Allocates an uninitialized 2D texture.
+		 *
+		 * @exception TextureBadAlloc If allocating the texture failed.
+		 *
+		 * @param size The size of the texture in texels.
+		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param format The internal format of the texture.
+	     **************************************************************************************************************/
 		Texture2D(glm::ivec2 size, int mipmaps, TextureFormat format);
-		// mipmaps - special values: NO_MIPMAPS, ALL_MIPMAPS.
+		
+		/**************************************************************************************************************
+         * Constructs a 2D texture with data uploaded from a bitmap.
+		 *
+		 * @exception TextureBadAlloc If allocating the texture failed.
+		 *
+		 * @param bitmap The bitmap data.
+		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param format The internal format of the texture.
+	     **************************************************************************************************************/
 		Texture2D(SubBitmap bitmap, int mipmaps, TextureFormat format);
 
+
+		/**************************************************************************************************************
+         * Gets the size of the texture.
+		 *
+		 * @return The size of the texture in texels.
+	     **************************************************************************************************************/
 		glm::ivec2 size() const noexcept;
 
-		void setRegion(glm::ivec2 tl, SubBitmap bitmap);
+
+		/**************************************************************************************************************
+         * Sets a region of the texture.
+		 *
+		 * Trying to set a region outside the bounds of the texture may trigger a failed assertion.
+		 *
+		 * @param tl The top-left corner of the region within the texture.
+		 * @param bitmap The bitmap data to set the region to.
+	     **************************************************************************************************************/
+		void setRegion(glm::ivec2 tl, SubBitmap bitmap) noexcept;
 	};
-	// Two-dimensional texture array.
+
+	/******************************************************************************************************************
+	 * Two-dimensional array texture.
+	 ******************************************************************************************************************/
 	struct ArrayTexture2D : Texture {
-		// mipmaps - special values: NO_MIPMAPS, ALL_MIPMAPS.
+		/**************************************************************************************************************
+         * Allocates an uninitialized 1D array texture.
+		 *
+		 * @exception TextureBadAlloc If allocating the texture failed.
+		 *
+		 * @param size The size of the texture in texels.
+		 * @param layers The number of layers in the texture.
+		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param format The internal format of the texture.
+	     **************************************************************************************************************/
 		ArrayTexture2D(glm::ivec2 size, int layers, int mipmaps, TextureFormat format);
-		// layers - Must be the same size!
-		// mipmaps - special values: NO_MIPMAPS, ALL_MIPMAPS.
+
+		/**************************************************************************************************************
+         * Constructs a 2D array texture with data uploaded from a list of bitmaps.
+		 *
+		 * @exception TextureBadAlloc If allocating the texture failed.
+		 *
+		 * @param layers the layer bitmaps. The span cannot be empty, and the bitmaps must all be of the same size,
+		 *               otherwise a failed assertion may be triggered.
+		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param format The internal format of the texture.
+	     **************************************************************************************************************/
 		ArrayTexture2D(std::span<SubBitmap> layers, int mipmaps, TextureFormat format);
 
+
+		/**************************************************************************************************************
+         * Gets the size of the texture.
+		 *
+		 * @return The size of the texture in texels.
+	     **************************************************************************************************************/
 		glm::ivec2 size() const noexcept;
+
+		/**************************************************************************************************************
+         * Gets the number of layers in the texture.
+		 *
+		 * @return The number of layers in the texture.
+	     **************************************************************************************************************/
 		int layers() const noexcept;
 
-		// Sets a region of a layer.
-		void setLayerRegion(int layer, glm::ivec2 tl, SubBitmap bitmap);
+
+		/**************************************************************************************************************
+         * Sets a region of a layer.
+		 *
+		 * Trying to set a region outside the bounds of the texture may trigger a failed assertion.
+		 *
+		 * @param layer The layer whose region to set.
+		 * @param tl The top-left corner of the region within the layer.
+		 * @param bitmap The bitmap data to set the region to.
+	     **************************************************************************************************************/
+		void setLayerRegion(int layer, glm::ivec2 tl, SubBitmap bitmap) noexcept;
 	};
-	// Three-dimensional texture.
+	
+	/******************************************************************************************************************
+	 * Three-dimensional texture.
+	 ******************************************************************************************************************/
 	struct Texture3D : Texture {
-		// mipmaps - special values: NO_MIPMAPS, ALL_MIPMAPS.
-		// The label is an internal identifier for debugging.
+		/**************************************************************************************************************
+         * Allocates an uninitialized 2D texture.
+		 *
+		 * @exception TextureBadAlloc If allocating the texture failed.
+		 *
+		 * @param size The size of the texture in texels.
+		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param format The internal format of the texture.
+	     **************************************************************************************************************/
 		Texture3D(glm::ivec3 size, int mipmaps, TextureFormat format);
-		// layers - Must be the same size!
-		// mipmaps - special values: NO_MIPMAPS, ALL_MIPMAPS.
+
+		/**************************************************************************************************************
+         * Constructs a 3D texture with data uploaded from a list of bitmaps.
+		 *
+		 * @exception TextureBadAlloc If allocating the texture failed.
+		 *
+		 * @param layers the Z layer bitmaps. The span cannot be empty, and the bitmaps must all be of the same size,
+		 *               otherwise a failed assertion may be triggered.
+		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param format The internal format of the texture.
+	     **************************************************************************************************************/
 		Texture3D(std::span<SubBitmap> layers, int mipmaps, TextureFormat format);
 
+
+		/**************************************************************************************************************
+         * Gets the size of the texture.
+		 *
+		 * @return The size of the texture in texels.
+	     **************************************************************************************************************/
 		glm::ivec3 size() const noexcept;
 
-		// Sets a region of a Z layer.
-		void setLayerRegion(glm::ivec3 tl, SubBitmap bitmap);
+
+		/**************************************************************************************************************
+         * Sets a region of a Z layer.
+		 *
+		 * Trying to set a region outside the bounds of the texture may trigger a failed assertion.
+		 *
+		 * @param tl The top-left corner of the region within the texture.
+		 * @param bitmap The bitmap data to set the region to.
+	     **************************************************************************************************************/
+		void setLayerRegion(glm::ivec3 tl, SubBitmap bitmap) noexcept;
 	};
 }
 
 // IMPLEMENTATION
 
 namespace tr {
+	/// @private
 	// Determines the size of the array texture from a spam of bitmaps.
 	glm::ivec2 determineArrayTextureSize(std::span<SubBitmap> layers);
 }
 
 glm::ivec2 tr::determineArrayTextureSize(std::span<SubBitmap> layers)
 {
-	if (layers.empty()) {
-		throw EmptyTextureLayerSpan {};
-	}
-	else if (std::ranges::find_if(layers, [&] (auto bitmap) { return bitmap.size() != layers[0].size(); }) != layers.end()) {
-		throw MismatchedTextureLayerSpan {};
-	}
-	else return layers[0].size();
+	assert(!layers.empty());
+	assert(std::ranges::all_of(layers, [&] (auto bitmap) { return bitmap.size() == layers[0].size(); }));
+	return layers[0].size();
+}
+
+constexpr const char* tr::TextureBadAlloc::what() const noexcept {
+	return "failed texture allocation";
 }
 
 tr::Texture::Texture(GLenum target) noexcept
@@ -243,9 +543,9 @@ void tr::Texture::Deleter::operator()(GLuint id) noexcept
 	glDeleteTextures(1, &id);
 }
 
-bool tr::operator==(const Texture& lhs, const Texture& rhs) noexcept
+bool tr::Texture::operator==(const Texture& rhs) const noexcept
 {
-	return lhs._id == rhs._id;
+	return _id == rhs._id;
 }
 
 tr::TextureFormat tr::Texture::format() const noexcept
@@ -353,7 +653,7 @@ int tr::Texture1D::size() const noexcept
 	return Texture::width();
 }
 
-void tr::Texture1D::setRegion(int offset, SubBitmap bitmap)
+void tr::Texture1D::setRegion(int offset, SubBitmap bitmap) noexcept
 {
 	assert(bitmap.size().y == 1);
 	assert(offset + bitmap.size().x <= size());
@@ -392,7 +692,7 @@ int tr::ArrayTexture1D::layers() const noexcept
 	return Texture::height();
 }
 
-void tr::ArrayTexture1D::setRegion(glm::ivec2 tl, SubBitmap bitmap)
+void tr::ArrayTexture1D::setRegion(glm::ivec2 tl, SubBitmap bitmap) noexcept
 {
 	assert((RectI2 { { size(), layers() } }.contains(tl + bitmap.size())));
 	auto [format, type] { bitmapToGLFormat(bitmap.format()) };
@@ -426,7 +726,7 @@ glm::ivec2 tr::Texture2D::size() const noexcept
 	return { Texture::width(), Texture::height() };
 }
 
-void tr::Texture2D::setRegion(glm::ivec2 tl, SubBitmap bitmap)
+void tr::Texture2D::setRegion(glm::ivec2 tl, SubBitmap bitmap) noexcept
 {
 	assert(RectI2 { size() }.contains(tl + bitmap.size()));
 	auto [format, type] { bitmapToGLFormat(bitmap.format()) };
@@ -467,7 +767,7 @@ int tr::ArrayTexture2D::layers() const noexcept
 	return Texture::depth();
 }
 
-void tr::ArrayTexture2D::setLayerRegion(int layer, glm::ivec2 tl, SubBitmap bitmap)
+void tr::ArrayTexture2D::setLayerRegion(int layer, glm::ivec2 tl, SubBitmap bitmap) noexcept
 {
 	assert(layer <= layers());
 	assert(RectI2 { size() }.contains(tl + bitmap.size()));
@@ -495,7 +795,7 @@ glm::ivec3 tr::Texture3D::size() const noexcept
 	return { Texture::width(), Texture::height(), Texture::depth() };
 }
 
-void tr::Texture3D::setLayerRegion(glm::ivec3 tl, SubBitmap bitmap)
+void tr::Texture3D::setLayerRegion(glm::ivec3 tl, SubBitmap bitmap) noexcept
 {
 	assert(tl.z <= size().z);
 	assert(RectI2 { glm::ivec2(size()) }.contains(glm::ivec2(tl) + bitmap.size()));
