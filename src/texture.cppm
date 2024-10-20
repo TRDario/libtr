@@ -1,3 +1,8 @@
+/**
+ * @file texture.cppm
+ * @brief Provides texture functionality.
+ */
+
 module;
 #include <cassert>
 #include <magic_enum/magic_enum.hpp>

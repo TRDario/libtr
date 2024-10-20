@@ -1,3 +1,8 @@
+/**
+ * @file shader_pipeline.cppm
+ * @brief Provides a shader program pipeline class.
+ */
+
 module;
 #include <cassert>
 #include <GL/glew.h>
