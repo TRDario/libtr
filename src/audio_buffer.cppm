@@ -80,7 +80,7 @@ export namespace tr {
         /**************************************************************************************************************
          * Equality comparison operator.
          **************************************************************************************************************/
-		bool operator==(const AudioBufferView&) const noexcept = default;
+		friend bool operator==(const AudioBufferView&, const AudioBufferView&) noexcept = default;
 
 		/**************************************************************************************************************
          * Sets the data of the buffer.

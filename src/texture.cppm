@@ -154,7 +154,7 @@ export namespace tr {
 		/**************************************************************************************************************
          * Equality comparison operator.
 	     **************************************************************************************************************/
-		bool operator==(const Texture&) const noexcept;
+		friend bool operator==(const Texture&, const Texture&) noexcept;
 
 
 		/**************************************************************************************************************
@@ -546,9 +546,9 @@ void tr::Texture::Deleter::operator()(GLuint id) noexcept
 	glDeleteTextures(1, &id);
 }
 
-bool tr::Texture::operator==(const Texture& rhs) const noexcept
+bool tr::operator==(const Texture& lhs, const Texture& rhs) noexcept
 {
-	return _id == rhs._id;
+	return lhs._id == rhs._id;
 }
 
 tr::TextureFormat tr::Texture::format() const noexcept

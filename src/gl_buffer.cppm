@@ -50,7 +50,7 @@ export namespace tr {
 		/**************************************************************************************************************
 		 * Equality comparison operator.
 		 **************************************************************************************************************/
-        bool operator==(const GLBuffer&) const noexcept;
+        friend bool operator==(const GLBuffer&, const GLBuffer&) noexcept;
     protected:
 		/// @cond IMPLEMENTATION
 		// Enum representing an OpenGL buffer target.
@@ -242,9 +242,9 @@ tr::GLBuffer::GLBuffer(Target target, std::span<const std::byte> data, Flag flag
     }
 }
 
-bool tr::GLBuffer::operator==(const GLBuffer& rhs) const noexcept
+bool tr::operator==(const GLBuffer& lhs, const GLBuffer& rhs) noexcept
 {
-    return _id == rhs._id;
+    return lhs._id == rhs._id;
 }
 
 void tr::GLBuffer::setLabel(std::string_view label) noexcept
