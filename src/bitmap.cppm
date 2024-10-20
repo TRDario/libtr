@@ -491,7 +491,11 @@ export namespace tr {
 		glm::ivec2 _pos;
 	};
 
-	// Class representing a bitmap stored in memory.
+    /******************************************************************************************************************
+	 * Class representing a bitmap stored in memory.
+     *
+     * No instances of this class can be created before initializing SDL.
+	 ******************************************************************************************************************/
 	class Bitmap {
 	public:
         class PixelRef;
