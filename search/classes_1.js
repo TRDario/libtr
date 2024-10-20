@@ -11,8 +11,9 @@ var searchData=
   ['bgra_5fui16_5f4_5f4_5f4_5f4_8',['BGRA_Ui16_4_4_4_4',['../structtr_1_1BGRA__Ui16__4__4__4__4.html',1,'tr']]],
   ['bgra_5fui16_5f5_5f5_5f5_5f1_9',['BGRA_Ui16_5_5_5_1',['../structtr_1_1BGRA__Ui16__5__5__5__1.html',1,'tr']]],
   ['bgra_5fui32_5f10_5f10_5f10_5f2_10',['BGRA_Ui32_10_10_10_2',['../structtr_1_1BGRA__Ui32__10__10__10__2.html',1,'tr']]],
-  ['bitmapbadalloc_11',['BitmapBadAlloc',['../structtr_1_1BitmapBadAlloc.html',1,'tr']]],
-  ['bitmapformat_12',['BitmapFormat',['../classtr_1_1BitmapFormat.html',1,'tr']]],
-  ['bitmaploaderror_13',['BitmapLoadError',['../structtr_1_1BitmapLoadError.html',1,'tr']]],
-  ['bitmapsaveerror_14',['BitmapSaveError',['../structtr_1_1BitmapSaveError.html',1,'tr']]]
+  ['bitmap_11',['Bitmap',['../classtr_1_1Bitmap.html',1,'tr']]],
+  ['bitmapbadalloc_12',['BitmapBadAlloc',['../structtr_1_1BitmapBadAlloc.html',1,'tr']]],
+  ['bitmapformat_13',['BitmapFormat',['../classtr_1_1BitmapFormat.html',1,'tr']]],
+  ['bitmaploaderror_14',['BitmapLoadError',['../structtr_1_1BitmapLoadError.html',1,'tr']]],
+  ['bitmapsaveerror_15',['BitmapSaveError',['../structtr_1_1BitmapSaveError.html',1,'tr']]]
 ];
