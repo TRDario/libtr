@@ -12,6 +12,7 @@ import :framebuffer;
 import :geometry;
 import :handle;
 import :index_buffer;
+import :shader_pipeline;
 import :sampler;
 import :sdl;
 import :shader;
@@ -132,10 +133,8 @@ export namespace tr {
         // Sets the target framebuffer.
 		void setFramebuffer(BasicFramebuffer& framebuffer) noexcept;
 
-		// Sets the context's active vertex shader.
-		void setVertexShader(Shader& shader) noexcept;
-		// Sets the context's active fragment shader.
-		void setFragmentShader(Shader& shader) noexcept;
+		// Sets the context's active shader pipeline.
+		void setShaderPipeline(const ShaderPipeline& pipeline) noexcept;
 
         // Sets the context's active vertex format.
         void setVertexFormat(const VertexFormat& format) noexcept;
@@ -202,9 +201,7 @@ export namespace tr {
         void drawIndexedInstances(Primitive type, std::size_t offset, std::size_t indices, int instances);
     private:
         struct Deleter { void operator()(SDL_GLContext context) noexcept; };
-        struct PipelineDeleter { void operator()(GLuint id) noexcept; };
-        std::unique_ptr<void, Deleter>           _impl;
-        Handle<unsigned int, 0, PipelineDeleter> _pipeline;
+        std::unique_ptr<void, Deleter> _impl;
     public:
         Backbuffer backbuffer;
     };
@@ -215,8 +212,6 @@ export namespace tr {
 namespace tr {
     // Initializes the GL context and GLEW.
     SDL_GLContext createContext(SDL_Window* window);
-    // Creates a programmable pipeline object.
-    unsigned int createPipeline() noexcept;
 }
 
 SDL_GLContext tr::createContext(SDL_Window* window)
@@ -235,32 +230,14 @@ SDL_GLContext tr::createContext(SDL_Window* window)
     return context;
 }
 
-unsigned int tr::createPipeline() noexcept
-{
-    GLuint id;
-    glGenProgramPipelines(1, &id);
-    glBindProgramPipeline(id);
-    #ifndef NDEBUG
-    constexpr std::string_view PIPELINE_NAME { "(tr) Program Pipeline" };
-    glObjectLabel(GL_PROGRAM_PIPELINE, id, PIPELINE_NAME.size(), PIPELINE_NAME.data());
-    #endif
-    return id;
-}
-
 tr::GLContext::GLContext(Window& window)
     : _impl { createContext(window._impl) }
-    , _pipeline { createPipeline() }
     , backbuffer { window }
 {}
 
 void tr::GLContext::Deleter::operator()(SDL_GLContext context) noexcept
 {
     SDL_GL_DeleteContext(context);
-}
-
-void tr::GLContext::PipelineDeleter::operator()(GLuint id) noexcept
-{
-    glDeleteProgramPipelines(1, &id);
 }
 
 const char* tr::GLContext::vendorStr() const noexcept
@@ -300,16 +277,9 @@ void tr::GLContext::setFramebuffer(BasicFramebuffer& framebuffer) noexcept
     framebuffer.bindWrite();
 }
 
-void tr::GLContext::setVertexShader(Shader& shader) noexcept
+void tr::GLContext::setShaderPipeline(const ShaderPipeline& pipeline) noexcept
 {
-    assert(shader.type() == Shader::Type::VERTEX);
-    glUseProgramStages(_pipeline.get(), GL_VERTEX_SHADER_BIT, shader._id.get());
-}
-
-void tr::GLContext::setFragmentShader(Shader& shader) noexcept
-{
-    assert(shader.type() == Shader::Type::FRAGMENT);
-    glUseProgramStages(_pipeline.get(), GL_FRAGMENT_SHADER_BIT, shader._id.get());
+	pipeline.bind();
 }
 
 void useFaceCulling(bool use) noexcept

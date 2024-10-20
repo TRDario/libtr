@@ -35,6 +35,7 @@ export import :sampler;
 export import :sdl;
 export import :shader_buffer;
 export import :shader;
+export import :shader_pipeline;
 export import :texture_unit;
 export import :texture;
 export import :ttfont;

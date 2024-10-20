@@ -189,7 +189,7 @@ export namespace tr {
 
 		void loadCacheFile(const std::filesystem::path& path);
 
-		friend class GLContext;
+		friend class ShaderPipeline;
 	};
 }
 
