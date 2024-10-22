@@ -1,3 +1,8 @@
+/**
+ * @file audio_stream.cppm
+ * @brief Provides an audio stream class.
+ */
+
 module;
 #include <cassert>
 #include <AL/alext.h>
@@ -14,31 +19,76 @@ import boost;
 import :audio_buffer;
 import :audio_source;
 import :chrono;
+import :concepts;
+import :function;
 import :iostream;
 
 export namespace tr {
-	// Class representing a streamed audio source.
-	class AudioStream : private AudioSource {
+    class AudioStream : private AudioSource {
 	public:
-		// Sentinel value representing the beginning of the streamed file.
-		static constexpr SecondsF BEG { SecondsF::zero() };
-		// Sentinel value representing the beginning of the streamed file.
-		static constexpr int BEG_SAMPLE { 0 };
-		// Sentinel value representing the end of the streamed file.
-		static constexpr SecondsF END { SecondsF::max() };
-		// Sentinel value representing the end of the streamed file.
-		static constexpr int END_SAMPLE { std::numeric_limits<int>::max() };
+		/**************************************************************************************************************
+	     * Sentinel value representing the beginning of the streamed file.
+	     **************************************************************************************************************/
+		static constexpr SecondsF START { SecondsF::zero() };
 
-		// Loads an audio stream or throws an error otherwise.
+		/**************************************************************************************************************
+	     * Sentinel value representing the end of the streamed file.
+	     **************************************************************************************************************/
+		static constexpr SecondsF END { SecondsF::max() };
+
+
+		/**************************************************************************************************************
+	     * Default-constructs an audio stream.
+		 *
+		 * A stream constructed like this will be empty.
+		 *
+		 * @exception AudioSourceBadAlloc If allocating the audio source failed.
+		 * @exception AudioBufferBadAlloc If allocating the audio buffers failed.
+	     **************************************************************************************************************/
+		AudioStream();
+
+		/**************************************************************************************************************
+	     * Loads an audio stream.
+         *
+		 * @exception AudioSourceBadAlloc If allocating the audio source failed.
+		 * @exception AudioBufferBadAlloc If allocating the audio buffers failed.
+         * @exception FileNotFound If the file was not found.
+         * @exception UnsupportedAudioFile If the file format is unsupported or invalid.
+         *
+         * @param file The audio file to load.
+	     **************************************************************************************************************/
 		explicit AudioStream(const std::filesystem::path& path);
-		AudioStream(AudioStream&& rhs) noexcept;
+
+		/**************************************************************************************************************
+	     * Move-constructs an audio stream.
+		 *
+		 * @param r The stream to move. It will be left empty afterwards.
+	     **************************************************************************************************************/
+		AudioStream(AudioStream&& r) noexcept;
+
+		/**************************************************************************************************************
+	     * Destroys the audio stream.
+	     **************************************************************************************************************/
 		~AudioStream() noexcept;
 
-		AudioStream& operator=(AudioStream&& rhs) noexcept;
 
-		friend bool operator==(const AudioStream& lhs, const AudioStream& rhs) noexcept;
+		/**************************************************************************************************************
+	     * Move-assigns to an audio stream.
+		 *
+		 * @param r The stream to move. It will be left empty afterwards.
+		 *
+		 * @return A reference to the assigned audio stream.
+	     **************************************************************************************************************/
+		AudioStream& operator=(AudioStream&& r) noexcept;
 
-		using AudioSource::pitch;
+
+        /**************************************************************************************************************
+	     * Equality comparison operator.
+	     **************************************************************************************************************/
+		friend bool operator==(const AudioStream&, const AudioStream&) noexcept;
+
+
+        using AudioSource::pitch;
 		using AudioSource::setPitch;
 		using AudioSource::gain;
 		using AudioSource::setGain;
@@ -68,117 +118,186 @@ export namespace tr {
 		using AudioSource::setOrigin;
 		using AudioSource::state;
 
+
+		/**************************************************************************************************************
+	     * Gets whether the stream is empty.
+         *
+         * @return True if the stream is empty, and false otherwise.
+	     **************************************************************************************************************/
+        bool empty() const noexcept;
+
+
+		/**************************************************************************************************************
+	     * Gets whether the stream is looping.
+         *
+         * @return True if the stream is looping, and false otherwise.
+	     **************************************************************************************************************/
 		bool looping() const noexcept;
-		void setLooping(bool looping);
 
+        /**************************************************************************************************************
+	     * Sets whether the stream is looping.
+         *
+         * @param looping Whether the stream should loop.
+	     **************************************************************************************************************/
+		void setLooping(bool looping) noexcept;
+
+
+		/**************************************************************************************************************
+	     * Plays the audio stream.
+		 *
+		 * If the audio stream is empty, nothing happens.
+		 *
+		 * @exception AudioBufferBadAlloc If a stopped source is played and refreshing the internal buffers fails.
+	     **************************************************************************************************************/
 		void play();
-		void stop();
 
+        /**************************************************************************************************************
+	     * Stops the audio stream.
+		 *
+		 * If the audio stream is empty, nothing happens.
+	     **************************************************************************************************************/
+		void stop() noexcept;
+
+
+		/**************************************************************************************************************
+	     * Gets the length of the audio stream.
+         *
+         * @return The length of the audio stream in seconds.
+	     **************************************************************************************************************/
 		SecondsF length() const noexcept;
-		int lengthSamples() const noexcept;
 
-		// Gets the stream's playback position within the file.
-		SecondsF offset() const;
-		// Gets the stream's playback postition within the file.
-		int offsetSamples() const;
-		// Sets the stream's playback position within the file.
+
+        /**************************************************************************************************************
+	     * Gets the stream's playback position within the file.
+         *
+         * @return The stream's playback position within the file in seconds.
+	     **************************************************************************************************************/
+		SecondsF offset() const noexcept;
+
+		/**************************************************************************************************************
+	     * Sets the stream's playback position within the file.
+		 *
+		 * If the audio stream is empty, nothing happens.
+		 *
+		 * @exception AudioBufferBadAlloc If refreshing the internal buffers fails.
+         *
+         * @param off The new offset in seconds. This value will be clamped to a valid range.
+	     **************************************************************************************************************/
 		void setOffset(SecondsF off);
-		// Sets the stream's playback position within the file.
-		void setOffset(int off);
 
-		// Gets the starting loop point.
+
+		/**************************************************************************************************************
+	     * Gets the stream's starting loop point.
+         *
+         * @return The stream's starting loop point within the file in seconds.
+	     **************************************************************************************************************/
 		SecondsF loopStart() const noexcept;
-		// Gets the ending loop point.
+
+		/**************************************************************************************************************
+	     * Gets the stream's ending loop point.
+         *
+         * @return The stream's ending loop point within the file in seconds.
+	     **************************************************************************************************************/
 		SecondsF loopEnd() const noexcept;
-		// Gets the starting loop point.
-		int loopStartSamples() const noexcept;
-		// Gets the ending loop point.
-		int loopEndSamples() const noexcept;
-		// Sets the loop points.
-		void setLoopPoints(SecondsF start, SecondsF end);
-		// Sets the loop points.
-		void setLoopPoints(int start, int end);
-	private:
-        struct LoopPoint {
-            int bufferOffset;
-            int fileOffset;
-        };
+
+		/**************************************************************************************************************
+	     * Sets the stream's loop points.
+		 *
+		 * If the audio stream is empty, nothing happens.
+         *
+         * @param start The starting loop point (special value: START). This value will be clamped to a valid range.
+		 * @param end The ending loop point (special value: END). This value will be clamped to a valid range.
+	     **************************************************************************************************************/
+		void setLoopPoints(SecondsF start, SecondsF end) noexcept;
+    private:
+		// Extends an audio buffer with a tag indicating where its data starts in the audio file.
 		struct Buffer : AudioBuffer {
-			std::vector<LoopPoint> loopPoints;
+			int startFileOffset; ///< @private
 		};
-		struct FileCloser {
-            void operator()(SNDFILE* file) noexcept;
-        };
 
-		std::array<Buffer, 4> 		         _buffers;
-		std::unique_ptr<SNDFILE, FileCloser> _file;
-		int 					             _length;
-		int 					             _channels;
-		int 					             _sampleRate;
-		bool 					             _looping;
-		int 					             _loopStart;
-		int						             _loopEnd;
-		mutable std::mutex 		             _mutex;
+        std::array<Buffer, 4> 		                        _buffers;
+		std::unique_ptr<SNDFILE, FunctionCaller<&sf_close>> _file;
+		int 					                            _length;
+		int 					                            _channels;
+		int 					                            _sampleRate;
+		bool 					                            _looping;
+		int 					                            _loopStart;
+		int						                            _loopEnd;
+		mutable std::mutex 		                            _mutex;
 
-		// Refills the internal stream buffers.
-		void refillBuffers(std::span<AudioBufferView> buffers);
-		void refillAllBuffers();
-		void refillFreeBuffers();
-		// Clears the audio stream's internals.
-		void clear();
+		void refillBuffer(Buffer& buffer);
 
-        friend void audioStreamThread();
-	};
+		friend void audioStreamThread() noexcept;
+    };
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 namespace tr {
-    /// @private
     // The size of the buffers used in streams.
-    inline constexpr int AUDIO_STREAM_BUFFER_SIZE { 8192 };       
+    inline constexpr int AUDIO_STREAM_BUFFER_SIZE { 16384 };
 
-    /// @private
     // List of active streams.
     std::forward_list<std::reference_wrapper<AudioStream>> _audioStreams;
-
-    /// @private
-    // Mutex protecting g_audioStreams.
+    // Mutex protecting _audioStreams.
     std::mutex _audioStreamsMutex;
-
-    /// @private
     // Audio stream refreshing thread.
     std::thread _audioStreamsThread; 
-
-    /// @private
+	// Audio stream refreshing thread activity flag.
+	std::atomic_bool _audioStreamsThreadExited { true };
     // Audio stream refreshing thread function.
-    void audioStreamThread();
+    void audioStreamThread() noexcept;
 }
 
-void tr::audioStreamThread()
+void tr::audioStreamThread() noexcept
 {
-    for (; !_audioStreams.empty(); std::this_thread::sleep_for(std::chrono::milliseconds(10))) {
-        std::unique_lock lock { _audioStreamsMutex };
-        std::ranges::for_each(_audioStreams, &tr::AudioStream::refillFreeBuffers);
-    }
+    try {
+		_audioStreamsThreadExited = false;
+		for (; !_audioStreams.empty(); std::this_thread::sleep_for(std::chrono::milliseconds(10))) {
+			std::lock_guard listLock { _audioStreamsMutex };
+			for (AudioStream& stream : _audioStreams) {
+				std::lock_guard streamLock { stream._mutex };
+
+				auto buffers { stream.unqueueBuffers() };
+				for (auto& buffer : buffers) {
+					stream.refillBuffer(*std::ranges::find(stream._buffers, buffer));
+					stream.queueBuffer(buffer);
+					if (sf_seek(stream._file.get(), 0, SF_SEEK_CUR) == stream._length) {
+						break;
+					}
+				}
+			}
+		}
+	} catch (...) {}
+	_audioStreamsThreadExited = true;
 }
+
+tr::AudioStream::AudioStream()
+	: _length { 0 }
+	, _channels { 1 }
+	, _sampleRate { 1 }
+	, _looping { false }
+	, _loopStart { 0 }
+	, _loopEnd { 0 }
+{}
 
 tr::AudioStream::AudioStream(const std::filesystem::path& path)
-    : _looping { false }
-    , _loopStart { BEG_SAMPLE }
 {
-    if (!is_regular_file(path)) {
+	if (!is_regular_file(path)) {
         throw FileNotFound { path };
     }
 
     SF_INFO info;
     #ifdef _WIN32
-    _file.reset(sf_open_fd(_wopen(path.c_str(), _O_RDONLY, 0), SFM_READ, &info, true));
+    _file.reset(sf_wchar_open(path.c_str(), SFM_READ, &info));
     #else
     _file.reset(sf_open(path.c_str(), SFM_READ, &info));
     #endif
-    
-    _length = info.frames;
+	if (_file == nullptr) {
+		throw FileOpenError { path };
+	}
+
+	_length = info.frames;
     _sampleRate = info.samplerate;
     _loopEnd = _length;
     _channels = info.channels;
@@ -192,63 +311,66 @@ tr::AudioStream::AudioStream(const std::filesystem::path& path)
     if (info.format & (SF_FORMAT_OGG | SF_FORMAT_VORBIS | SF_FORMAT_FLOAT | SF_FORMAT_DOUBLE)) {
         sf_command(_file.get(), SFC_SET_SCALE_FLOAT_INT_READ, nullptr, true);
     }
-    
-    std::unique_lock lock { _audioStreamsMutex };
-    bool threadInactive { _audioStreams.empty() };
-    _audioStreams.push_front(*this);
-    if (threadInactive) {
-        _audioStreamsThread = std::thread { audioStreamThread };
-    }
+
+	bool threadInactive { _audioStreams.empty() || _audioStreamsThreadExited };
+	if (threadInactive) {
+		if (_audioStreamsThread.joinable()) {
+			_audioStreamsThread.join();
+		}
+		_audioStreams.push_front(*this);
+		_audioStreamsThread = std::thread { audioStreamThread };
+	}
+	else {
+		std::lock_guard lock { _audioStreamsMutex };
+    	_audioStreams.push_front(*this);
+	}
 }
 
-tr::AudioStream::AudioStream(AudioStream&& rhs) noexcept
-    : AudioSource { std::move((AudioSource&)(rhs)) }
-    , _buffers { std::move(rhs._buffers) }
-    , _file { std::move(rhs._file) }
-    , _length { rhs._length }
-    , _channels { rhs._channels }
-    , _sampleRate { rhs._sampleRate }
-    , _looping { rhs._looping }
-    , _loopStart { rhs._loopStart } 
-    , _loopEnd { rhs._loopEnd }
+tr::AudioStream::AudioStream(AudioStream&& r) noexcept
 {
-    std::unique_lock lock { _audioStreamsMutex };
-    *std::ranges::find(_audioStreams, rhs) = *this;
+	*this = std::move(r);
 }
 
 tr::AudioStream::~AudioStream() noexcept
 {
-    clear();
+	if (!empty()) {
+        std::lock_guard lock { _audioStreamsMutex };
+        _audioStreams.remove(*this);
+        if (_audioStreams.empty() && _audioStreamsThread.joinable()) {
+            _audioStreamsThread.join();
+        }
+    }
 }
 
-void tr::AudioStream::FileCloser::operator()(SNDFILE* file) noexcept
+tr::AudioStream& tr::AudioStream::operator=(AudioStream&& r) noexcept
 {
-    sf_close(file);
+	if (!empty()) {
+		std::ignore = AudioStream { std::move(*this) };
+	}
+
+	std::lock_guard lock { _audioStreamsMutex };
+	std::swap((AudioSource&)(*this), (AudioSource&)(r));
+	std::swap(_buffers, r._buffers);
+	std::swap(_file, r._file);
+	std::swap(_length, r._length);
+	std::swap(_channels, r._channels);
+	std::swap(_sampleRate, r._sampleRate);
+	std::swap(_looping, r._looping);
+	std::swap(_loopStart, r._loopStart);
+	std::swap(_loopEnd, r._loopEnd);
+	*std::ranges::find(_audioStreams, r) = *this;
+
+	return *this;
 }
 
-tr::AudioStream& tr::AudioStream::operator=(AudioStream&& rhs) noexcept
+bool tr::operator==(const AudioStream& l, const AudioStream& r) noexcept
 {
-    clear();
-    std::unique_lock lock { rhs._mutex };
-    _buffers = std::move(rhs._buffers);
-    (AudioSource&)(*this) = std::move((AudioSource&)(rhs));
-    _file = std::move(rhs._file);
-    _length = rhs._length;
-    _channels = rhs._channels;
-    _sampleRate = rhs._sampleRate;
-    _looping = rhs._looping;
-    _loopStart = rhs._loopStart;
-    _loopEnd = rhs._loopEnd;
-
-    std::unique_lock lock2 { _audioStreamsMutex };
-    *std::ranges::find(_audioStreams, rhs) = *this;
-
-    return *this;
+	return &l == &r;
 }
 
-bool tr::operator==(const AudioStream& lhs, const AudioStream& rhs) noexcept
+bool tr::AudioStream::empty() const noexcept
 {
-    return (const AudioSource&)(lhs) == (const AudioSource&)(rhs);
+    return _file == nullptr;
 }
 
 bool tr::AudioStream::looping() const noexcept
@@ -256,76 +378,87 @@ bool tr::AudioStream::looping() const noexcept
     return _looping;
 }
 
-void tr::AudioStream::setLooping(bool looping)
+void tr::AudioStream::setLooping(bool looping) noexcept
 {
-    std::unique_lock lock { _mutex };
+    std::lock_guard lock { _mutex };
     _looping = looping;
 }
 
 void tr::AudioStream::play()
 {
+	if (empty()) return;
+
+	std::lock_guard lock { _mutex };
     if (state() == AudioState::INITIAL || state() == AudioState::STOPPED) {
-        refillAllBuffers();
+		AudioSource::setBuffer(std::nullopt);
+		for (auto& buffer : _buffers) {
+			refillBuffer(buffer);
+			AudioSource::queueBuffer(buffer);
+			if (sf_seek(_file.get(), 0, SF_SEEK_CUR) == _length) {
+				break;
+			}
+		}
     }
     AudioSource::play();
 }
 
-void tr::AudioStream::stop()
+void tr::AudioStream::stop() noexcept
 {
+	if (empty()) return;
+
+	std::lock_guard lock { _mutex };
     AudioSource::stop();
-    std::unique_lock lock { _mutex };
     sf_seek(_file.get(), _loopStart, SF_SEEK_SET);
 }
 
 tr::SecondsF tr::AudioStream::length() const noexcept
 {
-    return SecondsF(float(lengthSamples()) / _sampleRate);
+    return SecondsF { float(_length) / _sampleRate };
 }
 
-int tr::AudioStream::lengthSamples() const noexcept
+tr::SecondsF tr::AudioStream::offset() const noexcept
 {
-    return _length;
-}
+	if (empty()) {
+		return SecondsF::zero();
+	}
 
-tr::SecondsF tr::AudioStream::offset() const
-{
-    return SecondsF(float(offsetSamples()) / _sampleRate);
-}
+	std::lock_guard lock { _mutex };
+	const auto state { this->state() };
 
-int tr::AudioStream::offsetSamples() const
-{
-    std::unique_lock lock { _mutex };
-    // There is an edge case where this returns end() so just fetch until it isn't.
-    auto buffer { _buffers.end() };
-    while (buffer == _buffers.end()) {
-        buffer = std::ranges::find(_buffers, AudioSource::buffer());
-    }
-    auto bufferOffset { AudioSource::offsetSamples() - AUDIO_STREAM_BUFFER_SIZE * AudioSource::processedBuffers() };
-    auto& lastLoopPoint { *std::ranges::find_if(buffer->loopPoints | std::views::reverse, [&] (auto& l) { return l.bufferOffset <= bufferOffset; }) };
-    return lastLoopPoint.fileOffset + bufferOffset - lastLoopPoint.bufferOffset;
+	if (state == AudioState::INITIAL || state == AudioState::STOPPED) {
+		return SecondsF { sf_seek(_file.get(), 0, SF_SEEK_CUR) / float(_sampleRate) };
+	}
+
+	auto& buffer { *std::ranges::find(_buffers, AudioSource::buffer()) };
+	return SecondsF { buffer.startFileOffset / float(_sampleRate) } + AudioSource::offset();
 }
 
 void tr::AudioStream::setOffset(SecondsF off)
 {
-    setOffset(off.count() * _sampleRate);
-}
+	if (empty()) return;
 
-void tr::AudioStream::setOffset(int off)
-{
-    auto state { AudioSource::state() };
-    std::unique_lock lock { _mutex };
-    if (state == AudioState::INITIAL || state == AudioState::STOPPED) {
-        AudioSource::play();
-    }
-    AudioSource::stop();
+	auto state { AudioSource::state() };
+	{
+		std::lock_guard lock { _mutex };
 
-    sf_seek(_file.get(), off, SF_SEEK_SET);
+		if (off <= SecondsF::zero()) {
+			sf_seek(_file.get(), 0, SF_SEEK_SET);
+		}
+		else if (off >= length()) {
+			sf_seek(_file.get(), 0, SF_SEEK_END);
+		}
+		else {
+			sf_seek(_file.get(), off.count() * _sampleRate, SF_SEEK_SET);
+		}
+	}
 
+	AudioSource::stop();
     switch (state) {
     case AudioState::PLAYING:
-        play();
+		play();
         break;
     case AudioState::PAUSED:
+		play();
         pause();
         break;
     case AudioState::INITIAL:
@@ -336,103 +469,41 @@ void tr::AudioStream::setOffset(int off)
 
 tr::SecondsF tr::AudioStream::loopStart() const noexcept
 {
-    return SecondsF(float(loopStartSamples()) / _sampleRate);
+    return SecondsF { float(_loopStart) / _sampleRate };
 }
 
 tr::SecondsF tr::AudioStream::loopEnd() const noexcept
 {
-    return SecondsF(float(loopEndSamples()) / _sampleRate);
+    return SecondsF { float(_loopEnd) / _sampleRate };
 }
 
-int tr::AudioStream::loopStartSamples() const noexcept
+void tr::AudioStream::setLoopPoints(SecondsF start, SecondsF end) noexcept
 {
-    return _loopStart;
-}
+	if (empty()) return;
 
-int tr::AudioStream::loopEndSamples() const noexcept
-{
-    return _loopEnd;
-}
-
-void tr::AudioStream::setLoopPoints(SecondsF start, SecondsF end)
-{
-    setLoopPoints(start.count() * _sampleRate, end.count() * _sampleRate);
-}
-
-void tr::AudioStream::setLoopPoints(int start, int end)
-{
-    if (end == END_SAMPLE) {
-        end = _length;
-    }
-    assert(start < end && start >= 0 && end <= _length);
+	start = std::clamp(start, START, length());
+	end = std::clamp(end, START, length());
+    assert(start < end);
 
     std::unique_lock lock { _mutex };
-    _loopStart = start;
-    _loopEnd = end;
+    _loopStart = start.count() * _sampleRate;
+    _loopEnd = end.count() * _sampleRate;
 }
 
-void tr::AudioStream::refillAllBuffers()
-{
-    std::unique_lock lock { _mutex };
-    std::ignore = AudioSource::unqueueBuffers();
-    std::array<AudioBufferView, 4> buffers { { get<0>(_buffers), get<1>(_buffers), get<2>(_buffers), get<3>(_buffers) } };
-    return refillBuffers(buffers);
-}
-
-void tr::AudioStream::refillFreeBuffers()
-{
-    std::unique_lock lock { _mutex };
-    auto buffers { AudioSource::unqueueBuffers() };
-    return refillBuffers(buffers);
-}
-
-void tr::AudioStream::refillBuffers(std::span<AudioBufferView> buffers)
+void tr::AudioStream::refillBuffer(Buffer& buffer)
 {
     static boost::container::static_vector<std::int16_t, AUDIO_STREAM_BUFFER_SIZE * 2> dataBuffer;
-    boost::container::static_vector<AudioBufferView, 4> queueBuffers;
-    for (auto& buffer : buffers) {
-        auto& loopPoints { std::ranges::find(_buffers, buffer)->loopPoints };
-        auto fileOffset { sf_seek(_file.get(), 0, SF_SEEK_CUR) };
-        auto samplesLeft { _loopEnd - fileOffset };
+	buffer.startFileOffset = sf_seek(_file.get(), 0, SF_SEEK_CUR);
 
-        queueBuffers.emplace_back(buffer);
-        loopPoints.clear();
-        loopPoints.emplace_back(0, int(fileOffset));
+	auto samplesLeft { _loopEnd - buffer.startFileOffset };
+	auto samplesToRead { std::min<int>(AUDIO_STREAM_BUFFER_SIZE, samplesLeft) };
+	dataBuffer.resize(samplesToRead * _channels);
+	sf_readf_short(_file.get(), dataBuffer.data(), samplesToRead);
+	buffer.set(rangeBytes(dataBuffer), _channels == 2 ? AudioFormat::STEREO16 : AudioFormat::MONO16, _sampleRate);
 
-        if (samplesLeft >= AUDIO_STREAM_BUFFER_SIZE || !looping()) {
-            int samples { std::min<int>(AUDIO_STREAM_BUFFER_SIZE, samplesLeft) };
-            dataBuffer.resize(samples * _channels);
-            sf_readf_short(_file.get(), dataBuffer.data(), samples);
-        }
-        else if (looping()) {
-            dataBuffer.resize(AUDIO_STREAM_BUFFER_SIZE * _channels);
-            decltype(samplesLeft) bufferLeft;
-            for (auto it = dataBuffer.begin(); it != dataBuffer.end(); it += std::min(samplesLeft, bufferLeft) * _channels) {
-                samplesLeft = _loopEnd - sf_seek(_file.get(), 0, SF_SEEK_CUR);
-                bufferLeft = (dataBuffer.end() - it) / _channels;
-
-                sf_readf_short(_file.get(), std::to_address(it), samplesLeft);
-                if (samplesLeft <= bufferLeft) {
-                    sf_seek(_file.get(), _loopStart, SF_SEEK_SET);
-                    loopPoints.emplace_back(int(it - dataBuffer.begin()) / _channels, _loopStart);
-                }
-            }
-        }
-        buffer.set(rangeBytes(dataBuffer), _channels == 2 ? AudioFormat::STEREO16 : AudioFormat::MONO16, _sampleRate);
-    }
-
-    if (!queueBuffers.empty()) {
-        AudioSource::queueBuffers(queueBuffers);
-    }
+	if (samplesToRead <= AUDIO_STREAM_BUFFER_SIZE && looping()) {
+		sf_seek(_file.get(), _loopStart, SF_SEEK_SET);
+	}
 }
 
-void tr::AudioStream::clear()
-{
-    if (_file != nullptr) {
-        std::unique_lock lock { _audioStreamsMutex };
-        _audioStreams.remove(*this);
-        if (_audioStreams.empty() && _audioStreamsThread.joinable()) {
-            _audioStreamsThread.join();
-        }
-    }
-}
+/// @endcond
