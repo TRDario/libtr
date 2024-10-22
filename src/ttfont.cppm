@@ -19,6 +19,7 @@ import std;
 import glm;
 import :bitmap;
 import :color;
+import :function;
 import :handle;
 import :iostream;
 import :sdl;
@@ -33,8 +34,7 @@ export namespace tr {
 		Version version() const noexcept;
 		Version freetypeVersion() const noexcept;
 	private:
-		struct Deleter { void operator()(bool) noexcept; };
-        Handle<bool, false, Deleter> _handle { true };
+        Handle<bool, false, decltype([] (bool) { TTF_Quit(); })> _handle { true };
 	};
 
     struct TTFontLoadError : FileError {
@@ -137,8 +137,7 @@ export namespace tr {
 		// width - The max horizontal width of a line. 0 means only newlines break.
 		Bitmap renderWrappedOutlined(const std::string& text, RGBA8 color, std::uint32_t width, Align align, RGBA8 outlineColor, int outlineThickness) const;
 	private:
-		struct Deleter { void operator()(TTF_Font* font) noexcept; };
-		std::unique_ptr<TTF_Font, Deleter> _impl;
+		std::unique_ptr<TTF_Font, FunctionCaller<&TTF_CloseFont>> _impl;
 	};
 
 	DEFINE_BITMASK_OPERATORS(TTFont::Style);
@@ -157,11 +156,6 @@ void tr::fixAlphaArtifacts(Bitmap& bitmap, std::uint8_t maxAlpha) noexcept
         RGBA8 color { pixel };
         pixel = RGBA8 { color.r, color.g, color.b, std::min(color.a, maxAlpha) };
     }
-}
-
-void tr::SDL_TTF::Deleter::operator()(bool) noexcept
-{
-    TTF_Quit();
 }
 
 tr::SDL_TTF::SDL_TTF()
@@ -209,11 +203,6 @@ tr::TTFont::TTFont(const std::filesystem::path& path, int size, glm::uvec2 dpi)
     if (_impl == nullptr) {
         throw TTFontLoadError { path };
     }
-}
-
-void tr::TTFont::Deleter::operator()(TTF_Font* font) noexcept
-{
-    TTF_CloseFont(font);
 }
 
 int tr::TTFont::ascent() const noexcept

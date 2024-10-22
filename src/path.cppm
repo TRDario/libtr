@@ -9,6 +9,7 @@ module;
 export module tr:path;
 
 import std;
+import :function;
 
 export namespace tr {
     /******************************************************************************************************************
@@ -79,7 +80,7 @@ const char* tr::UserDirInitError::what() const noexcept
 std::filesystem::path tr::getExeDir()
 {
     SDL_InitSubSystem(SDL_INIT_VIDEO);
-    std::unique_ptr<char[], decltype(&SDL_free)> cExedir { SDL_GetBasePath(), SDL_free };
+    std::unique_ptr<char[], FunctionCaller<&SDL_free>> cExedir { SDL_GetBasePath() };
     if (cExedir == nullptr) {
         throw ExeDirInitError {};
     }
@@ -91,7 +92,7 @@ std::filesystem::path tr::getExeDir()
 std::filesystem::path tr::getUserDir(const char* org, const char* app)
 {
     SDL_InitSubSystem(SDL_INIT_VIDEO);
-    std::unique_ptr<char[], decltype(&SDL_free)> cUserdir { SDL_GetPrefPath(org, app), SDL_free };
+    std::unique_ptr<char[], FunctionCaller<&SDL_free>> cUserdir { SDL_GetPrefPath(org, app) };
     if (cUserdir == nullptr) {
         throw UserDirInitError {};
     }

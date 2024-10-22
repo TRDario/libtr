@@ -237,9 +237,8 @@ export namespace tr {
 		void setLabel(std::string_view label) noexcept;
 	protected:
 		/// @cond IMPLEMENTATION
-		struct Deleter { void operator()(GLuint id) noexcept; /**< @private */ };
-		Handle<GLuint, 0, Deleter> _id;
-		GLenum 					   _target;
+		Handle<GLuint, 0, decltype([] (GLuint id) { glDeleteTextures(1, &id); })> _id;
+		GLenum 					   												  _target;
 
 		Texture(GLenum target) noexcept;
 
@@ -541,14 +540,9 @@ tr::Texture::Texture(GLenum target) noexcept
 	_id.reset(id);
 }
 
-void tr::Texture::Deleter::operator()(GLuint id) noexcept
+bool tr::operator==(const Texture& l, const Texture& r) noexcept
 {
-	glDeleteTextures(1, &id);
-}
-
-bool tr::operator==(const Texture& lhs, const Texture& rhs) noexcept
-{
-	return lhs._id == rhs._id;
+	return l._id == r._id;
 }
 
 tr::TextureFormat tr::Texture::format() const noexcept

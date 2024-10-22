@@ -10,6 +10,7 @@ module;
 export module tr:audio_device;
 
 import std;
+import :function;
 
 export namespace tr {
     /******************************************************************************************************************
@@ -78,8 +79,7 @@ export namespace tr {
 	     **************************************************************************************************************/
         const char* name() const noexcept;
     private:
-        struct Deleter { void operator()(ALCdevice* device) const noexcept; /**< @private */ };
-        std::unique_ptr<ALCdevice, Deleter> _impl;
+        std::unique_ptr<ALCdevice, FunctionCaller<&alcCloseDevice>> _impl;
 
         friend class AudioContext;
     };
@@ -125,11 +125,6 @@ tr::AudioDevice::AudioDevice(const char* name)
 const char* tr::AudioDevice::name() const noexcept
 {
     return alcGetString(_impl.get(), ALC_DEVICE_SPECIFIER);
-}
-
-void tr::AudioDevice::Deleter::operator()(ALCdevice* device) const noexcept
-{
-    alcCloseDevice(device);
 }
 
 /// @endcond

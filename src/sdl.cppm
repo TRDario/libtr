@@ -126,8 +126,7 @@ export namespace tr {
          **************************************************************************************************************/
         int systemCores() const noexcept;
     private:
-        struct Deleter { void operator()(bool) noexcept; /**< @private */ };
-        Handle<bool, false, Deleter> _handle { true };
+        Handle<bool, false, decltype([] (bool) { SDL_QuitSubSystem(SDL_INIT_VIDEO); SDL_Quit(); })> _handle { true };
     };
 }
 
@@ -198,12 +197,6 @@ void tr::suppressUnsupportedEvents() noexcept
 tr::SDLError::SDLError(std::string_view message)
     : runtime_error { std::format("{} ({})", message, SDL_GetError()) }
 {}
-
-void tr::SDL::Deleter::operator()(bool) noexcept
-{
-    SDL_QuitSubSystem(SDL_INIT_VIDEO);
-    SDL_Quit();
-}
 
 tr::SDL::SDL(const GLAttrs& glAttrs)
 {

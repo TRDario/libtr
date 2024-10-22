@@ -240,8 +240,7 @@ export namespace tr {
         **************************************************************************************************************/
         void setLabel(std::string_view label) noexcept;
 	private:
-		struct Deleter { void operator()(GLuint id) noexcept; /**< @private */ };
-		Handle<GLuint, 0, Deleter> _id;
+		Handle<GLuint, 0, decltype([] (GLuint id) { glDeleteSamplers(1, &id); })> _id;
 
 		friend class TextureUnit;
 	};
@@ -254,11 +253,6 @@ tr::Sampler::Sampler() noexcept
     GLuint id;
     glCreateSamplers(1, &id);
     _id.reset(id);
-}
-
-void tr::Sampler::Deleter::operator()(GLuint id) noexcept
-{
-    glDeleteSamplers(1, &id);
 }
 
 void tr::Sampler::setMinFilter(MinFilter filter) noexcept

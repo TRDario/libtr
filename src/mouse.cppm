@@ -12,6 +12,7 @@ export module tr:mouse;
 import std;
 import glm;
 import :bitmap;
+import :function;
 import :geometry;
 import :sdl;
 
@@ -260,8 +261,7 @@ export namespace tr {
 	     **************************************************************************************************************/
 		Cursor(std::span<const std::byte> color, std::span<const std::byte> mask, glm::ivec2 size, glm::ivec2 focus);
 	private:
-		struct Deleter { void operator()(SDL_Cursor* ptr) noexcept; /**< @private */ };
-		std::unique_ptr<SDL_Cursor, Deleter> _impl;
+		std::unique_ptr<SDL_Cursor, FunctionCaller<&SDL_FreeCursor>> _impl;
 
 		friend void mouse::setCursor(const Cursor& cursor) noexcept;
 	};
@@ -346,11 +346,6 @@ tr::Cursor::Cursor(std::span<const std::byte> color, std::span<const std::byte> 
 {
     assert(color.size() == mask.size() && color.size() == size.x * size.y / 64);
     _impl.reset(checkNotNull(SDL_CreateCursor((const std::uint8_t*)(color.data()), (const std::uint8_t*)(mask.data()), size.x, size.y, focus.x, focus.y)));
-}
-
-void tr::Cursor::Deleter::operator()(SDL_Cursor* ptr) noexcept
-{
-    SDL_FreeCursor(ptr);
 }
 
 void tr::mouse::setCursor(const Cursor& cursor) noexcept

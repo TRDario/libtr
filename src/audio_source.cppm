@@ -134,6 +134,8 @@ export namespace tr {
 		// Gets the number of processed queued buffers.
 		std::size_t processedBuffers() const noexcept;
 
+        // Sets a queue of buffers for the source to use in a sequence.
+		void queueBuffer(AudioBufferView buffer) noexcept;
 		// Sets a queue of buffers for the source to use in a sequence.
 		void queueBuffers(std::span<AudioBufferView> bufs) noexcept;
 		// Removes at most max (or all processed buffers with UNQUEUE_PROCESSED) of buffers from the source's queue.
@@ -150,10 +152,8 @@ export namespace tr {
 		// Sets the source's playback position within the current buffer.
 		void setOffset(int off) noexcept;
 	private:
-		struct Deleter { void operator()(ALuint id) noexcept; };
-
 		// The OpenAL ID of the source.
-		Handle<ALuint, 0, Deleter> _id;
+		Handle<ALuint, 0, decltype([] (ALuint id) { alDeleteSources(1, &id); })> _id;
 
 		friend class AudioStream;
 	};
@@ -174,11 +174,6 @@ tr::AudioSource::AudioSource()
 tr::AudioSource::AudioSource(AudioBufferView buffer)
 {
     setBuffer(buffer);
-}
-
-void tr::AudioSource::Deleter::operator()(ALuint id) noexcept
-{
-    alDeleteSources(1, &id);
 }
 
 float tr::AudioSource::pitch() const noexcept
@@ -433,6 +428,12 @@ std::size_t tr::AudioSource::processedBuffers() const noexcept
     int processed;
     alGetSourcei(_id.get(), AL_BUFFERS_PROCESSED, &processed);
     return processed;
+}
+
+void tr::AudioSource::queueBuffer(AudioBufferView buffer) noexcept
+{
+    alSourceQueueBuffers(_id.get(), 1, &buffer._id);
+    assert(alGetError() != AL_INVALID_OPERATION);
 }
 
 void tr::AudioSource::queueBuffers(std::span<AudioBufferView> abufs) noexcept

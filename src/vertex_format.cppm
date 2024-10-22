@@ -223,8 +223,7 @@ export namespace tr {
 	     **************************************************************************************************************/
         void setLabel(std::string_view label) noexcept;
 	private:
-		struct Deleter { void operator()(GLuint id) noexcept; /**< @private */ };
-		Handle<GLuint, 0, Deleter> _id;
+		Handle<GLuint, 0, decltype([] (GLuint id) { glDeleteVertexArrays(1, &id); })> _id;
 
 		// Binds the vertex format.
 		void bind() const noexcept;
@@ -260,11 +259,6 @@ tr::VertexFormat::VertexFormat(std::span<const VertexAttribute> attrs) noexcept
         glEnableVertexArrayAttrib(vao, i);
     }
     _id.reset(vao);
-}
-
-void tr::VertexFormat::Deleter::operator()(GLuint id) noexcept
-{
-    glDeleteVertexArrays(1, &id);
 }
 
 void tr::VertexFormat::setLabel(std::string_view label) noexcept

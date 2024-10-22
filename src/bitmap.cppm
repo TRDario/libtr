@@ -18,6 +18,7 @@ export module tr:bitmap;
 import std;
 import glm;
 import :color;
+import :function;
 import :geometry;
 import :handle;
 import :iostream;
@@ -107,8 +108,7 @@ export namespace tr {
 	     **************************************************************************************************************/
 		static Version version() noexcept;
 	private:
-		struct Deleter { void operator()(bool) noexcept; /**< @private */ };
-        Handle<bool, false, Deleter> _handle { true };
+        Handle<bool, false, decltype([] (bool) { IMG_Quit(); })> _handle { true };
 	};
 
 
@@ -479,11 +479,11 @@ export namespace tr {
          *
          * This function only makes sense if two iterators are pointing to the same bitmap.
          *
-         * @param lhs, rhs Iterators to the same bitmap.
+         * @param l, r Iterators to the same bitmap.
          *
          * @return The distance between the iterators.
          **************************************************************************************************************/
-		friend difference_type operator-(const Iterator& lhs, const Iterator& rhs) noexcept;
+		friend difference_type operator-(const Iterator& l, const Iterator& r) noexcept;
 	private:
 		PixelRef   _pixel;
 		glm::ivec2 _bitmapSize;
@@ -732,8 +732,7 @@ export namespace tr {
 	     **************************************************************************************************************/
 		void save(const std::filesystem::path& path, ImageFormat format);
 	private:
-		struct Deleter { void operator()(SDL_Surface* bitmap) noexcept; /**< @private */ };
-		std::unique_ptr<SDL_Surface, Deleter> _impl;
+		std::unique_ptr<SDL_Surface, FunctionCaller<&SDL_FreeSurface>> _impl;
 
 		Bitmap(SDL_Surface* ptr);
 
@@ -1005,11 +1004,11 @@ export namespace tr {
          *
          * This function only makes sense if two iterators are pointing to the same bitmap.
          *
-         * @param lhs, rhs Iterators to the same bitmap.
+         * @param l, r Iterators to the same bitmap.
          *
          * @return The distance between the iterators.
          **************************************************************************************************************/
-		friend difference_type operator-(const MutIt& lhs, const MutIt& rhs) noexcept;
+		friend difference_type operator-(const MutIt& l, const MutIt& r) noexcept;
 	private:
 		PixelRef   _pixel;
 		Bitmap*    _bitmap;
@@ -1085,11 +1084,6 @@ const char* tr::BitmapSaveError::what() const noexcept
     str.clear();
     format_to(back_inserter(str), "Failed to save bitmap file ({}): '{}'", IMG_GetError(), path());
     return str.c_str();
-}
-
-void tr::SDL_Image::Deleter::operator()(bool) noexcept
-{
-    IMG_Quit();
 }
 
 tr::SDL_Image::SDL_Image(ImageFormat formats) noexcept
@@ -1185,12 +1179,12 @@ tr::SubBitmap::Iterator::Iterator(SubBitmap bitmap, glm::ivec2 pos) noexcept
     , _pos { pos }
 {}
 
-std::partial_ordering tr::SubBitmap::Iterator::operator<=>(const Iterator& rhs) const noexcept
+std::partial_ordering tr::SubBitmap::Iterator::operator<=>(const Iterator& r) const noexcept
 {
-    if (_pixel._impl != nullptr && rhs._pixel._impl != nullptr) {
-        return _pixel._impl <=> rhs._pixel._impl;
+    if (_pixel._impl != nullptr && r._pixel._impl != nullptr) {
+        return _pixel._impl <=> r._pixel._impl;
     }
-    else if (_pixel._impl == nullptr && rhs._pixel._impl == nullptr) { 
+    else if (_pixel._impl == nullptr && r._pixel._impl == nullptr) { 
         return std::partial_ordering::equivalent;
     }
     else {
@@ -1198,9 +1192,9 @@ std::partial_ordering tr::SubBitmap::Iterator::operator<=>(const Iterator& rhs) 
     }
 }
 
-bool tr::SubBitmap::Iterator::operator==(const Iterator& rhs) const noexcept
+bool tr::SubBitmap::Iterator::operator==(const Iterator& r) const noexcept
 {
-    return *this <=> rhs == std::strong_ordering::equal;
+    return *this <=> r == std::strong_ordering::equal;
 }
 
 tr::SubBitmap::Iterator::value_type tr::SubBitmap::Iterator::operator*() const noexcept
@@ -1328,9 +1322,9 @@ tr::SubBitmap::Iterator tr::operator-(glm::ivec2 diff, const tr::SubBitmap::Iter
     return it - diff;
 }
 
-int tr::operator-(const tr::SubBitmap::Iterator& lhs, const tr::SubBitmap::Iterator& rhs) noexcept
+int tr::operator-(const tr::SubBitmap::Iterator& l, const tr::SubBitmap::Iterator& r) noexcept
 {
-    return (lhs._pos.y * lhs._bitmapSize.x + lhs._pos.x) - (rhs._pos.y * rhs._bitmapSize.x + rhs._pos.x);
+    return (l._pos.y * l._bitmapSize.x + l._pos.x) - (r._pos.y * r._bitmapSize.x + r._pos.x);
 }
 
 tr::Bitmap::Bitmap(SDL_Surface* ptr)
@@ -1373,11 +1367,6 @@ tr::Bitmap::Bitmap(SubBitmap source, BitmapFormat format)
     : Bitmap { source.size(), format } 
 {
     blit({}, source);
-}
-
-void tr::Bitmap::Deleter::operator()(SDL_Surface* bitmap) noexcept
-{
-    SDL_FreeSurface(bitmap);
 }
 
 glm::ivec2 tr::Bitmap::size() const noexcept
@@ -1571,12 +1560,12 @@ tr::Bitmap::MutIt::MutIt(Bitmap& bitmap, glm::ivec2 pos) noexcept
     , _pos { pos }
 {}
 
-std::partial_ordering tr::Bitmap::MutIt::operator<=>(const tr::Bitmap::MutIt& rhs) const noexcept
+std::partial_ordering tr::Bitmap::MutIt::operator<=>(const tr::Bitmap::MutIt& r) const noexcept
 {
-    if (_pixel._impl != nullptr && rhs._pixel._impl != nullptr) {
-        return _pixel._impl <=> rhs._pixel._impl;
+    if (_pixel._impl != nullptr && r._pixel._impl != nullptr) {
+        return _pixel._impl <=> r._pixel._impl;
     }
-    else if (_pixel._impl == nullptr && rhs._pixel._impl == nullptr) { 
+    else if (_pixel._impl == nullptr && r._pixel._impl == nullptr) { 
         return std::partial_ordering::equivalent;
     }
     else {
@@ -1584,9 +1573,9 @@ std::partial_ordering tr::Bitmap::MutIt::operator<=>(const tr::Bitmap::MutIt& rh
     }
 }
 
-bool tr::Bitmap::MutIt::operator==(const MutIt& rhs) const noexcept
+bool tr::Bitmap::MutIt::operator==(const MutIt& r) const noexcept
 {
-    return *this <=> rhs == std::strong_ordering::equal;
+    return *this <=> r == std::strong_ordering::equal;
 }
 
 tr::Bitmap::MutIt::value_type tr::Bitmap::MutIt::operator*() const noexcept
@@ -1717,10 +1706,10 @@ tr::Bitmap::MutIt tr::operator-(glm::ivec2 diff, const tr::Bitmap::MutIt& it) no
     return it - diff;
 }
 
-int tr::operator-(const tr::Bitmap::MutIt& lhs, const tr::Bitmap::MutIt& rhs) noexcept
+int tr::operator-(const tr::Bitmap::MutIt& l, const tr::Bitmap::MutIt& r) noexcept
 {
-    assert(lhs._bitmap == rhs._bitmap && lhs._bitmap != nullptr);
-    return (lhs._pos.y * lhs._bitmap->size().x + lhs._pos.x) - (rhs._pos.y * rhs._bitmap->size().x + rhs._pos.x);
+    assert(l._bitmap == r._bitmap && l._bitmap != nullptr);
+    return (l._pos.y * l._bitmap->size().x + l._pos.x) - (r._pos.y * r._bitmap->size().x + r._pos.x);
 }
 
 /// @endcond

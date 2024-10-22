@@ -43,8 +43,7 @@ export namespace tr {
 	     **************************************************************************************************************/
         void setLabel(std::string_view label) noexcept;
     private:
-        struct Deleter { void operator()(GLuint id) const noexcept; /**< @private */ };
-        Handle<GLuint, 0, Deleter> _id;
+        Handle<GLuint, 0, decltype([] (GLuint id) { glDeleteProgramPipelines(1, &id); })> _id;
 
         void bind() const noexcept;
 
@@ -85,11 +84,6 @@ tr::ShaderPipeline::ShaderPipeline(const Shader& vertexShader, boost::optional<c
 void tr::ShaderPipeline::setLabel(std::string_view label) noexcept
 {
     glObjectLabel(GL_PROGRAM_PIPELINE, _id.get(), label.size(), label.data());
-}
-
-void tr::ShaderPipeline::Deleter::operator()(GLuint id) const noexcept
-{
-    glDeleteProgramPipelines(1, &id);
 }
 
 void tr::ShaderPipeline::bind() const noexcept

@@ -49,8 +49,7 @@ export namespace tr {
 	     **************************************************************************************************************/
         Listener listener;
     private:
-        struct Deleter { void operator()(ALCcontext* context) noexcept; /**< @private */ };
-        std::unique_ptr<ALCcontext, Deleter> _impl;
+        std::unique_ptr<ALCcontext, decltype([] (ALCcontext* c) { alcMakeContextCurrent(0); alcDestroyContext(c); })> _impl;
     };
 }
 
@@ -66,12 +65,6 @@ tr::AudioContext::AudioContext(AudioDevice& device)
     if (_impl == nullptr || !alcMakeContextCurrent(_impl.get())) {
         throw AudioContextCreationError { alcGetString(device._impl.get(), alcGetError(device._impl.get())) };
     }
-}
-
-void tr::AudioContext::Deleter::operator()(ALCcontext* context) noexcept
-{
-    alcMakeContextCurrent(nullptr);
-    alcDestroyContext(context);
 }
 
 /// @endcond

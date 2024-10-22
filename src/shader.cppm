@@ -46,7 +46,7 @@ export namespace tr {
 		// Depending on the path extension loads a shader source or cache file.
 		Shader(const std::filesystem::path& path);
 
-		friend bool operator==(const Shader& lhs, const Shader& rhs) noexcept;
+		friend bool operator==(const Shader& l, const Shader& r) noexcept;
 
 		// Gets the type of the shader.
 		Type type() const noexcept;
@@ -183,9 +183,8 @@ export namespace tr {
 
 		void setLabel(std::string_view label) noexcept;
 	private:
-		struct Deleter { void operator()(GLuint id) noexcept; };
-		Handle<GLuint, 0, Deleter> _id;
-		Type 					   _type;
+		Handle<GLuint, 0, decltype([] (GLuint id) { glDeleteProgram(id); })> _id;
+		Type 					   											 _type;
 
 		void loadCacheFile(const std::filesystem::path& path);
 
@@ -307,14 +306,9 @@ void tr::Shader::loadCacheFile(const std::filesystem::path& path)
 	}
 }
 
-void tr::Shader::Deleter::operator()(GLuint id) noexcept
+bool tr::operator==(const Shader& l, const Shader& r) noexcept
 {
-	glDeleteProgram(id);
-}
-
-bool tr::operator==(const Shader& lhs, const Shader& rhs) noexcept
-{
-	return lhs._id == rhs._id;
+	return l._id == r._id;
 }
 
 tr::Shader::Type tr::Shader::type() const noexcept

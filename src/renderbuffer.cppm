@@ -47,7 +47,7 @@ export namespace tr {
         /**************************************************************************************************************
         * Equality comparison operator.
         **************************************************************************************************************/
-		bool operator==(const Renderbuffer& rhs) const noexcept;
+		bool operator==(const Renderbuffer& r) const noexcept;
 
 
 		/**************************************************************************************************************
@@ -65,9 +65,7 @@ export namespace tr {
         **************************************************************************************************************/
         void setLabel(std::string_view label) noexcept;
 	private:
-		struct Deleter { void operator()(GLuint id) noexcept; /**< @private */ };
-
-		Handle<GLuint, 0, Deleter> _id;
+		Handle<GLuint, 0, decltype([] (GLuint id) { glDeleteRenderbuffers(1, &id); })> _id;
 		glm::ivec2 				   _size;
 
 		void bind() const noexcept;
@@ -96,15 +94,9 @@ tr::Renderbuffer::Renderbuffer(glm::ivec2 size, TextureFormat format)
     }
 }
 
-void tr::Renderbuffer::Deleter::operator()(GLuint id) noexcept
+bool tr::Renderbuffer::operator==(const Renderbuffer& r) const noexcept
 {
-    glDeleteRenderbuffers(1, &id);
-}
-
-
-bool tr::Renderbuffer::operator==(const Renderbuffer& rhs) const noexcept
-{
-    return _id == rhs._id;
+    return _id == r._id;
 }
 
 glm::ivec2 tr::Renderbuffer::size() const noexcept

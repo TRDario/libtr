@@ -10,6 +10,7 @@ module;
 export module tr:gl_buffer;
 
 import std;
+import :function;
 import :handle;
 
 export namespace tr {
@@ -129,10 +130,9 @@ export namespace tr {
 			COHERENT 			= 0x80
 		};
 
-        struct Deleter { void operator()(GLuint id) noexcept; /**< @private */ };
-		Handle<GLuint, 0, Deleter> _id;
-		Target                     _target;
-		std::size_t                _size;
+		Handle<GLuint, 0, decltype([] (GLuint id) { glDeleteBuffers(1, &id); })> _id;
+		Target                     												 _target;
+		std::size_t                												 _size;
 
         // Creates an uninitialized buffer.
 		GLBuffer(Target target, std::size_t size, Flag flags);
@@ -185,9 +185,8 @@ export namespace tr {
 		 **************************************************************************************************************/
         std::span<std::byte> span() const noexcept;
     private:
-        struct Unmapper { void operator()(GLuint buffer) noexcept; };
-        Handle<GLuint, 0, Unmapper> _buffer;
-        std::span<std::byte> 		_span;
+        Handle<GLuint, 0, decltype([] (GLuint id) { glUnmapNamedBuffer(id); })> _buffer;
+        std::span<std::byte> 													_span;
 
         GLBufferMap(GLuint buffer, std::span<std::byte> span) noexcept;
 
@@ -203,11 +202,6 @@ constexpr const char* tr::GLBufferBadAlloc::what() const noexcept {
 
 constexpr const char* tr::GLMapBadAlloc::what() const noexcept {
 	return "OpenGL buffer map allocation error";
-}
-
-void tr::GLBuffer::Deleter::operator()(GLuint id) noexcept
-{
-    glDeleteBuffers(1, &id);
 }
 
 tr::GLBuffer::GLBuffer(Target target, std::size_t size, Flag flags)
@@ -242,9 +236,9 @@ tr::GLBuffer::GLBuffer(Target target, std::span<const std::byte> data, Flag flag
     }
 }
 
-bool tr::operator==(const GLBuffer& lhs, const GLBuffer& rhs) noexcept
+bool tr::operator==(const GLBuffer& l, const GLBuffer& r) noexcept
 {
-    return lhs._id == rhs._id;
+    return l._id == r._id;
 }
 
 void tr::GLBuffer::setLabel(std::string_view label) noexcept
@@ -326,11 +320,6 @@ tr::GLBufferMap::operator std::span<std::byte>() const noexcept
 std::span<std::byte> tr::GLBufferMap::span() const noexcept
 {
     return _span;
-}
-
-void tr::GLBufferMap::Unmapper::operator()(GLuint buffer) noexcept
-{
-    glUnmapNamedBuffer(buffer);
 }
 
 /// @endcond

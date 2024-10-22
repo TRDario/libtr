@@ -17,6 +17,7 @@ export import :display;
 export import :draw_geometry;
 export import :event;
 export import :framebuffer;
+export import :function;
 export import :geometry;
 export import :gl_context;
 export import :handle;

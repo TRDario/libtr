@@ -370,9 +370,9 @@ tr::BasicFramebuffer::BasicFramebuffer(GLuint id, RectI2 viewport, DepthRange de
     , _depthRange { depthRange }
 {}
 
-bool tr::BasicFramebuffer::operator==(const BasicFramebuffer& rhs) const noexcept
+bool tr::BasicFramebuffer::operator==(const BasicFramebuffer& r) const noexcept
 {
-    return _id == rhs._id;
+    return _id == r._id;
 }
 
 tr::Bitmap tr::BasicFramebuffer::readRegion(RectI2 rect, BitmapFormat format) const

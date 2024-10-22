@@ -166,8 +166,7 @@ export namespace tr {
          **************************************************************************************************************/
 		void set(std::span<const std::byte> data, AudioFormat format, int frequency);
 	private:
-		struct Deleter { void operator()(ALuint id) noexcept; /**< @private */ };
-		Handle<ALuint, 0, Deleter> _id;
+		Handle<ALuint, 0, decltype([] (ALuint id) { alDeleteBuffers(1, &id); })> _id;
 	};
 }
 
@@ -231,11 +230,6 @@ tr::AudioBuffer::AudioBuffer(const std::filesystem::path& path)
     std::vector<std::int16_t> data(info.frames * info.channels);
     sf_readf_short(file.get(), data.data(), info.frames);
     set(rangeBytes(data), info.channels == 2 ? AudioFormat::STEREO16 : AudioFormat::MONO16, info.samplerate);
-}
-
-void tr::AudioBuffer::Deleter::operator()(ALuint id) noexcept
-{
-    alDeleteBuffers(1, &id);
 }
 
 const char* tr::UnsupportedAudioFile::what() const noexcept

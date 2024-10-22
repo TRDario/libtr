@@ -9,6 +9,7 @@ export module tr:gl_context;
 import std;
 import :color;
 import :framebuffer;
+import :function;
 import :geometry;
 import :handle;
 import :index_buffer;
@@ -200,8 +201,7 @@ export namespace tr {
         void drawIndexed(Primitive type, std::size_t offset, std::size_t indices);
         void drawIndexedInstances(Primitive type, std::size_t offset, std::size_t indices, int instances);
     private:
-        struct Deleter { void operator()(SDL_GLContext context) noexcept; };
-        std::unique_ptr<void, Deleter> _impl;
+        std::unique_ptr<void, FunctionCaller<&SDL_GL_DeleteContext>> _impl;
     public:
         Backbuffer backbuffer;
     };
@@ -234,11 +234,6 @@ tr::GLContext::GLContext(Window& window)
     : _impl { createContext(window._impl) }
     , backbuffer { window }
 {}
-
-void tr::GLContext::Deleter::operator()(SDL_GLContext context) noexcept
-{
-    SDL_GL_DeleteContext(context);
-}
 
 const char* tr::GLContext::vendorStr() const noexcept
 {
