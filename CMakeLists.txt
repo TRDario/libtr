@@ -11,6 +11,7 @@ set(CMAKE_DEBUG_POSTFIX d)
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     add_compile_options(-stdlib=libc++)
     add_compile_options(-Wall -Wpedantic)
+    add_compile_options(-Wno-deprecated-declarations) # std warnings workaround
     add_compile_options(-fno-trapping-math -fno-signed-zeros -ffp-contract=fast)
 else()
     message(FATAL_ERROR "Non-Clang compilers currently not supported!")
