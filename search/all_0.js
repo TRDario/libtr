@@ -16,10 +16,11 @@ var searchData=
   ['audio_5fbuffer_2ecppm_13',['audio_buffer.cppm',['../audio__buffer_8cppm.html',1,'']]],
   ['audio_5fcontext_2ecppm_14',['audio_context.cppm',['../audio__context_8cppm.html',1,'']]],
   ['audio_5fdevice_2ecppm_15',['audio_device.cppm',['../audio__device_8cppm.html',1,'']]],
-  ['audiobuffer_16',['AudioBuffer',['../classtr_1_1AudioBuffer.html',1,'tr']]],
-  ['audiobufferbadalloc_17',['AudioBufferBadAlloc',['../structtr_1_1AudioBufferBadAlloc.html',1,'tr']]],
-  ['audiobufferview_18',['AudioBufferView',['../classtr_1_1AudioBufferView.html',1,'tr']]],
-  ['audiocontext_19',['AudioContext',['../classtr_1_1AudioContext.html',1,'tr']]],
-  ['audiocontextcreationerror_20',['AudioContextCreationError',['../structtr_1_1AudioContextCreationError.html',1,'tr']]],
-  ['audiodevice_21',['AudioDevice',['../classtr_1_1AudioDevice.html',1,'tr']]]
+  ['audio_5fstream_2ecppm_16',['audio_stream.cppm',['../audio__stream_8cppm.html',1,'']]],
+  ['audiobuffer_17',['AudioBuffer',['../classtr_1_1AudioBuffer.html',1,'tr']]],
+  ['audiobufferbadalloc_18',['AudioBufferBadAlloc',['../structtr_1_1AudioBufferBadAlloc.html',1,'tr']]],
+  ['audiobufferview_19',['AudioBufferView',['../classtr_1_1AudioBufferView.html',1,'tr']]],
+  ['audiocontext_20',['AudioContext',['../classtr_1_1AudioContext.html',1,'tr']]],
+  ['audiocontextcreationerror_21',['AudioContextCreationError',['../structtr_1_1AudioContextCreationError.html',1,'tr']]],
+  ['audiodevice_22',['AudioDevice',['../classtr_1_1AudioDevice.html',1,'tr']]]
 ];
