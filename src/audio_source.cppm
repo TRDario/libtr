@@ -1,3 +1,8 @@
+/**
+ * @file audio_stream.cppm
+ * @brief Provides an audio source class.
+ */
+
 module;
 #include <cassert>
 #include <AL/al.h>
@@ -14,159 +19,437 @@ import :handle;
 import :ranges;
 
 export namespace tr {
-	// Enum representing a source position origin type.
+    /******************************************************************************************************************
+	 * Error thrown when allocating an audio source fails.
+	 ******************************************************************************************************************/
+    struct AudioSourceBadAlloc : std::bad_alloc {
+        /**************************************************************************************************************
+         * Gets an error message.
+         *
+         * @return An explanatory error message.
+	     **************************************************************************************************************/
+        virtual constexpr const char* what() const noexcept;
+    };
+
+
+    /******************************************************************************************************************
+	 * Audio source position origin types.
+	 ******************************************************************************************************************/
 	enum class AudioOrigin : bool {
-		ABSOLUTE, // Absolute coordinates
-		LISTENER  // Coordinates relative to the listener's position
+        /**************************************************************************************************************
+         * Absolute coordinates.
+	     **************************************************************************************************************/
+		ABSOLUTE,
+
+        /**************************************************************************************************************
+         * Coordinates relative to the listener's position.
+	     **************************************************************************************************************/
+		LISTENER
 	};
-	// Enum representing an audio source state.
+
+    /******************************************************************************************************************
+	 * Audio source states.
+	 ******************************************************************************************************************/
 	enum class AudioState : std::uint8_t {
-		INITIAL, // The source has not been played yet.
-		PLAYING, // The source is playing.
-		PAUSED,  // The source is paused.
-		STOPPED  // The source stopped playing.
+        /**************************************************************************************************************
+         * The source has not been played yet.
+	     **************************************************************************************************************/
+		INITIAL,
+
+        /**************************************************************************************************************
+         * The source is playing.
+	     **************************************************************************************************************/
+		PLAYING,
+
+        /**************************************************************************************************************
+         * The source is paused.
+	     **************************************************************************************************************/
+		PAUSED,
+
+        /**************************************************************************************************************
+         * The source stopped playing.
+	     **************************************************************************************************************/
+		STOPPED
 	};
-	// 0-length direction vector representing an omnidirectional audio source.
+
+    /******************************************************************************************************************
+	 * 0-length direction vector representing an omnidirectional audio source.
+	 ******************************************************************************************************************/
 	inline constexpr glm::vec3 OMNIDIRECTIONAL { 0, 0, 0 };
-	// Sentinel value that tells the unqueueBuffers function to unqueue all processed buffers.
+
+    /******************************************************************************************************************
+	 * Sentinel value that tells the unqueueBuffers function to unqueue all processed buffers.
+	 ******************************************************************************************************************/
 	inline constexpr std::size_t UNQUEUE_PROCESSED { std::numeric_limits<std::size_t>().max() };
 
-	// OpenAL audio source class.
+
+	/******************************************************************************************************************
+	 * Audio source.
+	 ******************************************************************************************************************/
 	class AudioSource {
 	public:
+        /**************************************************************************************************************
+         * Constructs an audio source.
+         *
+         * @exception AudioSourceBadAlloc If allocating the audio source failed.
+	     **************************************************************************************************************/
 		AudioSource();
-		// Constructs an audio source with a pre-set buffer.
+
+        /**************************************************************************************************************
+         * Constructs an audio source with a pre-set buffer.
+         *
+         * @exception AudioSourceBadAlloc If allocating the audio source failed.
+         *
+         * @param buffer The buffer to attach to the source.
+	     **************************************************************************************************************/
 		AudioSource(AudioBufferView buffer);
 
+
+        /**************************************************************************************************************
+         * Equality comparison operator.
+	     **************************************************************************************************************/
 		friend bool operator==(const AudioSource&, const AudioSource&) noexcept = default;
 
-		// Gets the pitch of the source
+
+        /**************************************************************************************************************
+         * Gets the pitch of the source.
+         *
+         * @return The pitch multiplier of the source.
+	     **************************************************************************************************************/
 		float pitch() const noexcept;
-		// Sets the pitch of the source.
+		
+        /**************************************************************************************************************
+         * Sets the pitch (and speed) of the source.
+         *
+         * @param pitch The pitch multiplier of the source, clamped to [0.5, 2.0].
+	     **************************************************************************************************************/
 		void setPitch(float pitch) noexcept;
 
-		// Gets the gain of the source.
+
+		/**************************************************************************************************************
+         * Gets the gain of the source.
+         *
+         * @return The gain multiplier of the source.
+	     **************************************************************************************************************/
 		float gain() const noexcept;
-		// Sets the gain of the source.
+		
+        /**************************************************************************************************************
+         * Sets the gain of the source.
+         *
+         * @param gain The gain multiplier of the source, clamped to a non-negative value.
+	     **************************************************************************************************************/
 		void setGain(float gain) noexcept;
 
-		// Gets the distance where the source will no longer be attenuated any further.
+
+        /**************************************************************************************************************
+         * Gets the distance where the source will no longer be attenuated any further.
+         *
+         * @return The maximum distance of the source.
+	     **************************************************************************************************************/
 		float maxDistance() const noexcept;
-		// Sets the distance where the source will no longer be attenuated any further.
+
+        /**************************************************************************************************************
+         * Sets the distance where the source will no longer be attenuated any further.
+         *
+         * @param maxDistance The maximum distance of the source, clamped to a non-negative value.
+	     **************************************************************************************************************/
 		void setMaxDistance(float maxDistance) noexcept;
 
-		// Gets the distance rolloff factor of the source.
+
+        /**************************************************************************************************************
+         * Gets the distance rolloff factor of the source.
+         *
+         * @return The distance rolloff factor of the source.
+	     **************************************************************************************************************/
 		float rolloff() const noexcept;
-		// Sets the distance rolloff factor of the source.
+
+        /**************************************************************************************************************
+         * Sets the distance rolloff factor of the source.
+         *
+         * @param rolloff The distance rolloff factor of the source, clamped to a non-negative value.
+	     **************************************************************************************************************/
 		void setRolloff(float rolloff) noexcept;
 
-		// Gets the reference distance of the source, where there is no attenuation.
+
+        /**************************************************************************************************************
+         * Gets the reference distance of the source, where there is no attenuation.
+         *
+         * @return Gets the reference distance of the source, where there is no attenuation.
+	     **************************************************************************************************************/
 		float referenceDistance() const noexcept;
-		// Sets the reference distance of the source, where there is no attenuation.
+
+        /**************************************************************************************************************
+         * Sets the reference distance of the source, where there is no attenuation.
+         *
+         * @param referenceDistance The new reference distance of the source, clamped to a non-negative value.
+	     **************************************************************************************************************/
 		void setReferenceDistance(float referenceDistance) noexcept;
 
-		// Gets the minimum allowed gain multiplier for the source.
+
+        /**************************************************************************************************************
+         * Gets the minimum allowed gain multiplier for the source.
+         *
+         * @return The minimum allowed gain multiplier for the source.
+	     **************************************************************************************************************/
 		float minGain() const noexcept;
-		// Sets the minimum allowed gain multiplier for the source.
+
+        /**************************************************************************************************************
+         * Sets the minimum allowed gain multiplier for the source.
+         *
+         * @param minGain The new minimum allowed gain multiplier, clamped to [0.0, maxGain()].
+	     **************************************************************************************************************/
 		void setMinGain(float minGain) noexcept;
 
-		// Gets the maximum allowed gain multiplier for the source.
+
+		/**************************************************************************************************************
+         * Gets the maximum allowed gain multiplier for the source.
+         *
+         * @return The maximum allowed gain multiplier for the source.
+	     **************************************************************************************************************/
 		float maxGain() const noexcept;
-		// Sets the maximum allowed gain multiplier for the source.
+
+		/**************************************************************************************************************
+         * Sets the maximum allowed gain multiplier for the source.
+         *
+         * @param maxGain The new maximum allowed gain multiplier, clamped to [minGain(), 1.0].
+	     **************************************************************************************************************/
 		void setMaxGain(float maxGain) noexcept;
 
-		// Gets the gain multiplier applied when the listener is outside the source's outer cone angle.
+
+        /**************************************************************************************************************
+         * Gets the gain multiplier applied when the listener is outside the source's outer cone angle.
+         *
+         * @return The outer cone gain multiplier.
+	     **************************************************************************************************************/
 		float outerConeGain() const noexcept;
-		// Sets the gain multiplier applied when the listener is outside the source's outer cone angle.
+
+		/**************************************************************************************************************
+         * Sets the gain multiplier applied when the listener is outside the source's outer cone angle.
+         *
+         * @param outGain The new gain multiplier, clamped to [0.0, 1.0].
+	     **************************************************************************************************************/
 		void setOuterConeGain(float outGain) noexcept;
 
-		// Gets the width of the inner cone of the source (where no direction attenuation is done).
+
+		/**************************************************************************************************************
+         * Gets the width of the inner cone of the source (where no direction attenuation is done).
+         *
+         * @return The width of the inner cone of the source.
+	     **************************************************************************************************************/
 		AngleF innerConeWidth() const noexcept;
-		// Sets the width of the inner cone of the source (where no direction attenuation is done).
+
+		/**************************************************************************************************************
+         * Sets the width of the inner cone of the source (where no direction attenuation is done).
+         *
+         * @param inConeW The new width, clamped to [0.0, outerConeWidth()].
+	     **************************************************************************************************************/
 		void setInnerConeWidth(AngleF inConeW) noexcept;
 
-		// Gets the width of the outer cone of the source (where direction attenuation is done).
+
+        /**************************************************************************************************************
+         * Gets the width of the outer cone of the source (where direction attenuation is done).
+         *
+         * @return The width of the outer cone of the source.
+	     **************************************************************************************************************/
 		AngleF outerConeWidth() const noexcept;
-		// Sets the width of the outer cone of the source (where direction attenuation is done).
+
+		/**************************************************************************************************************
+         * Sets the width of the outer cone of the source (where direction attenuation is done).
+         *
+         * @param outConeW The new width, clamped to [innerConeWidth(), 360 degrees].
+	     **************************************************************************************************************/
 		void setOuterConeWidth(AngleF outConeW) noexcept;
 
-		// Gets the position of the source.
+
+		/**************************************************************************************************************
+         * Gets the position of the source.
+         *
+         * @return The position vector of the audio source.
+	     **************************************************************************************************************/
 		glm::vec3 position() const noexcept;
-		// Gets the direction of the source cone.
+
+		/**************************************************************************************************************
+         * Sets the position of the source.
+         *
+         * @param position The position of the source.
+	     **************************************************************************************************************/
 		void setPosition(const glm::vec3& position) noexcept;
 
-		// Gets the velocity of the source.
+
+		/**************************************************************************************************************
+         * Gets the velocity of the source.
+         *
+         * @return The velocity vector of the audio source.
+	     **************************************************************************************************************/
 		glm::vec3 velocity() const noexcept;
-		// Gets the direction of the source cone.
+
+		/**************************************************************************************************************
+         * Sets the velocity of the source.
+         *
+         * @param velocity The velocity of the source.
+	     **************************************************************************************************************/
 		void setVelocity(const glm::vec3& velocity) noexcept;
 
-		// Gets the direction of the source cone.
+
+		/**************************************************************************************************************
+         * Gets the direction of the source cone.
+         *
+         * @return The direction vector of the audio source.
+	     **************************************************************************************************************/
 		glm::vec3 direction() const noexcept;
-		// Gets the direction of the source cone.
+
+        /**************************************************************************************************************
+         * Sets the direction of the source cone.
+         *
+         * @param direction The direction of the source cone. Can also be OMNIDRECTIONAL.
+	     **************************************************************************************************************/
 		void setDirection(const glm::vec3& direction) noexcept;
 
-		// Gets the origin of the source's position coordinates.
+
+        /**************************************************************************************************************
+         * Gets the origin of the source's position.
+         *
+         * @return The origin of the audio source.
+	     **************************************************************************************************************/
 		AudioOrigin origin() const noexcept;
-		// Sets the origin of the source's position coordinates.
+
+		/**************************************************************************************************************
+         * Sets the origin of the source's position.
+         *
+         * @param type The new origin type.
+	     **************************************************************************************************************/
 		void setOrigin(AudioOrigin type) noexcept;
 
-		// Gets whether the source is looping.
+
+        /**************************************************************************************************************
+         * Gets whether the source is looping.
+         *
+         * @return True if the source is looping, and false otherwise.
+	     **************************************************************************************************************/
 		bool looping() const noexcept;
-		// Sets whether the source is looping.
+
+		/**************************************************************************************************************
+         * Sets whether the source is looping.
+         *
+         * @param looping Whether the source should loop.
+	     **************************************************************************************************************/
 		void setLooping(bool looping) noexcept;
 
-		// Gets the state of the source.
+
+		/**************************************************************************************************************
+         * Gets the state of the audio source.
+         *
+         * @return The state of the audio source.
+	     **************************************************************************************************************/
 		AudioState state() const noexcept;
-		// Starts playing the source.
+
+		/**************************************************************************************************************
+         * Plays the source.
+	     **************************************************************************************************************/
 		void play() noexcept;
-		// Pauses the source.
+        
+		/**************************************************************************************************************
+         * Pauses the source.
+	     **************************************************************************************************************/
 		void pause() noexcept;
-		// Stops the source and rewinds it back to an initial state.
+
+		/**************************************************************************************************************
+         * Stops the source and rewinds it to the beginning.
+	     **************************************************************************************************************/
 		void stop() noexcept;
 
-		// Gets the buffer the source is currently using for playback.
-		std::optional<AudioBufferView> buffer() const noexcept;
-		// Sets a buffer for the source to use.
-		void setBuffer(std::optional<AudioBufferView> buf) noexcept;
 
-		// Gets the number of queued buffers.
+        /**************************************************************************************************************
+         * Gets the buffer the source is currently using for playback.
+         *
+         * @return A view over the playback buffer, or nullopt if the source is empty/streamed.
+	     **************************************************************************************************************/
+		std::optional<AudioBufferView> buffer() const noexcept;
+
+        /**************************************************************************************************************
+         * Sets a buffer for the source to use.
+         *
+         * Calling this function is not allowed while the source is playing/paused.
+         *
+         * @param buffer The buffer to use, or nullopt to unset any set/queued buffers.
+	     **************************************************************************************************************/
+		void setBuffer(std::optional<AudioBufferView> buffer) noexcept;
+
+
+        /**************************************************************************************************************
+         * Gets the number of queued buffers.
+         *
+         * @return The number of queued buffers.
+	     **************************************************************************************************************/
 		std::size_t queuedBuffers() const noexcept;
-		// Gets the number of processed queued buffers.
+
+		/**************************************************************************************************************
+         * Gets the number of processed queued buffers.
+         *
+         * @return The number of processed queued buffers.
+	     **************************************************************************************************************/
 		std::size_t processedBuffers() const noexcept;
 
-        // Sets a queue of buffers for the source to use in a sequence.
+
+        /**************************************************************************************************************
+         * Queues a buffer for streaming.
+         *
+         * @param buffer The buffer to attach. It must be of the same audio format as any other queued buffers.
+	     **************************************************************************************************************/
 		void queueBuffer(AudioBufferView buffer) noexcept;
-		// Sets a queue of buffers for the source to use in a sequence.
-		void queueBuffers(std::span<AudioBufferView> bufs) noexcept;
-		// Removes at most max (or all processed buffers with UNQUEUE_PROCESSED) of buffers from the source's queue.
-		// References to the unqueued buffers are returned.
+
+		/**************************************************************************************************************
+         * Queues buffers for streaming.
+         *
+         * @param buffers The buffers to attach. They must be of the same audio format as any other queued buffers.
+	     **************************************************************************************************************/
+		void queueBuffers(std::span<AudioBufferView> buffers) noexcept;
+
+        /**************************************************************************************************************
+         * Removes at most max (or all processed buffers with UNQUEUE_PROCESSED) of buffers from the source's queue.
+         *
+         * @exception std::bad_alloc If allocating the return vector failed.
+         *
+         * @param max The number of buffers to unqueue.
+         *
+         * @return A vector containing the removed buffers.
+	     **************************************************************************************************************/
 		std::vector<AudioBufferView> unqueueBuffers(std::size_t max = UNQUEUE_PROCESSED);
 
-		// Gets the source's playback position within the current buffer.
-		SecondsF offset() const noexcept;
-		// Sets the source's playback position within the current buffer.
-		void setOffset(SecondsF off) noexcept;
 
-		// Gets the source's playback position within the current buffer.
-		int offsetSamples() const noexcept;
-		// Sets the source's playback position within the current buffer.
-		void setOffset(int off) noexcept;
+        /**************************************************************************************************************
+         * Gets the source's playback position within the current buffer.
+         *
+         * @return The source's playback position within the current buffer in seconds.
+	     **************************************************************************************************************/
+		SecondsF offset() const noexcept;
+
+		/**************************************************************************************************************
+         * Sets the source's playback position within the current buffer.
+         *
+         * @param offset The new playback position within the current buffer in seconds.
+	     **************************************************************************************************************/
+		void setOffset(SecondsF offset) noexcept;
 	private:
-		// The OpenAL ID of the source.
 		Handle<ALuint, 0, decltype([] (ALuint id) { alDeleteSources(1, &id); })> _id;
 
 		friend class AudioStream;
 	};
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
+
+constexpr const char* tr::AudioSourceBadAlloc::what() const noexcept
+{
+    return "failed audio source allocation";
+}
 
 tr::AudioSource::AudioSource()
 {
     ALuint id;
     alGenSources(1, &id);
     if (alGetError() == AL_OUT_OF_MEMORY) {
-        throw std::bad_alloc {};
+        throw AudioSourceBadAlloc {};
     }
     _id.reset(id);
 }
@@ -185,8 +468,7 @@ float tr::AudioSource::pitch() const noexcept
 
 void tr::AudioSource::setPitch(float pitch) noexcept
 {
-    assert(pitch >= 0.5f && pitch <= 2.0f);
-    alSourcef(_id.get(), AL_PITCH, pitch);
+    alSourcef(_id.get(), AL_PITCH, std::clamp(pitch, 0.5f, 2.0f));
 }
 
 float tr::AudioSource::gain() const noexcept
@@ -198,8 +480,7 @@ float tr::AudioSource::gain() const noexcept
 
 void tr::AudioSource::setGain(float gain) noexcept
 {
-    assert(gain >= 0.0f);
-    alSourcef(_id.get(), AL_GAIN, gain);
+    alSourcef(_id.get(), AL_GAIN, std::min(gain, 0.0f));
 }
 
 float tr::AudioSource::maxDistance() const noexcept
@@ -211,8 +492,7 @@ float tr::AudioSource::maxDistance() const noexcept
 
 void tr::AudioSource::setMaxDistance(float maxDistance) noexcept
 {
-    assert(maxDistance >= 0.0f);
-    alSourcef(_id.get(), AL_MAX_DISTANCE, maxDistance);
+    alSourcef(_id.get(), AL_MAX_DISTANCE, std::min(maxDistance, 0.0f));
 }
 
 float tr::AudioSource::rolloff() const noexcept
@@ -224,8 +504,7 @@ float tr::AudioSource::rolloff() const noexcept
 
 void tr::AudioSource::setRolloff(float rolloff) noexcept
 {
-    assert(rolloff >= 0.0f);
-    alSourcef(_id.get(), AL_ROLLOFF_FACTOR, rolloff);
+    alSourcef(_id.get(), AL_ROLLOFF_FACTOR, std::min(rolloff, 0.0f));
 }
 
 float tr::AudioSource::referenceDistance() const noexcept
@@ -237,8 +516,7 @@ float tr::AudioSource::referenceDistance() const noexcept
 
 void tr::AudioSource::setReferenceDistance(float referenceDistance) noexcept
 {
-    assert(referenceDistance >= 0.0f);
-    alSourcef(_id.get(), AL_REFERENCE_DISTANCE, referenceDistance);
+    alSourcef(_id.get(), AL_REFERENCE_DISTANCE, std::min(referenceDistance, 0.0f));
 }
 
 float tr::AudioSource::minGain() const noexcept
@@ -250,8 +528,7 @@ float tr::AudioSource::minGain() const noexcept
 
 void tr::AudioSource::setMinGain(float minGain) noexcept
 {
-    assert(minGain >= 0.0f && minGain <= 1.0f);
-    alSourcef(_id.get(), AL_MIN_GAIN, minGain);
+    alSourcef(_id.get(), AL_MIN_GAIN, std::clamp(minGain, 0.0f, maxGain()));
 }
 
 float tr::AudioSource::maxGain() const noexcept
@@ -263,8 +540,7 @@ float tr::AudioSource::maxGain() const noexcept
 
 void tr::AudioSource::setMaxGain(float maxGain) noexcept
 {
-    assert(maxGain >= 0.0f && maxGain <= 1.0f);
-    alSourcef(_id.get(), AL_MAX_GAIN, maxGain);
+    alSourcef(_id.get(), AL_MAX_GAIN, std::clamp(maxGain, minGain(), 1.0f));
 }
 
 float tr::AudioSource::outerConeGain() const noexcept
@@ -276,8 +552,7 @@ float tr::AudioSource::outerConeGain() const noexcept
 
 void tr::AudioSource::setOuterConeGain(float outGain) noexcept
 {
-    assert(outGain >= 0.0f && outGain <= 1.0f);
-    alSourcef(_id.get(), AL_CONE_OUTER_GAIN, outGain);
+    alSourcef(_id.get(), AL_CONE_OUTER_GAIN, std::clamp(outGain, 0.0f, 1.0f));
 }
 
 tr::AngleF tr::AudioSource::innerConeWidth() const noexcept
@@ -289,8 +564,7 @@ tr::AngleF tr::AudioSource::innerConeWidth() const noexcept
 
 void tr::AudioSource::setInnerConeWidth(AngleF inConeW) noexcept
 {
-    assert(inConeW >= 0.0_degf && inConeW <= 360.0_degf);
-    alSourcef(_id.get(), AL_CONE_INNER_ANGLE, inConeW.degs());
+    alSourcef(_id.get(), AL_CONE_INNER_ANGLE, std::clamp(inConeW, 0.0_degf, outerConeWidth()).degs());
 }
 
 tr::AngleF tr::AudioSource::outerConeWidth() const noexcept
@@ -302,8 +576,7 @@ tr::AngleF tr::AudioSource::outerConeWidth() const noexcept
 
 void tr::AudioSource::setOuterConeWidth(AngleF outConeW) noexcept
 {
-    assert(outConeW >= 0.0_degf && outConeW <= 360.0_degf);
-    alSourcef(_id.get(), AL_CONE_OUTER_ANGLE, outConeW.degs());
+    alSourcef(_id.get(), AL_CONE_OUTER_ANGLE, std::clamp(outConeW, innerConeWidth(), 360_degf).degs());
 }
 
 glm::vec3 tr::AudioSource::position() const noexcept
@@ -408,6 +681,8 @@ std::optional<tr::AudioBufferView> tr::AudioSource::buffer() const noexcept
 
 void tr::AudioSource::setBuffer(std::optional<AudioBufferView> buffer) noexcept
 {
+    assert(state() != AudioState::PLAYING && state() != AudioState::PAUSED);
+
     alSourcei(_id.get(), AL_BUFFER, buffer ? buffer->_id : 0);
     if (buffer.has_value()) {
         ALint channels;
@@ -436,9 +711,9 @@ void tr::AudioSource::queueBuffer(AudioBufferView buffer) noexcept
     assert(alGetError() != AL_INVALID_OPERATION);
 }
 
-void tr::AudioSource::queueBuffers(std::span<AudioBufferView> abufs) noexcept
+void tr::AudioSource::queueBuffers(std::span<AudioBufferView> buffers) noexcept
 {
-    alSourceQueueBuffers(_id.get(), abufs.size(), (unsigned int*)(abufs.data()));
+    alSourceQueueBuffers(_id.get(), buffers.size(), (unsigned int*)(buffers.data()));
     assert(alGetError() != AL_INVALID_OPERATION);
 }
 
@@ -463,15 +738,4 @@ void tr::AudioSource::setOffset(SecondsF offset) noexcept
     alSourcef(_id.get(), AL_SEC_OFFSET, offset.count());
 }
 
-
-int tr::AudioSource::offsetSamples() const noexcept
-{
-    int offset;
-    alGetSourcei(_id.get(), AL_SAMPLE_OFFSET, &offset);
-    return offset;
-}
-
-void tr::AudioSource::setOffset(int offset) noexcept
-{
-    alSourcei(_id.get(), AL_SAMPLE_OFFSET, offset);
-}
+/// @endcond
