@@ -174,6 +174,16 @@ export namespace tr {
 
 
 		/**************************************************************************************************************
+		 * Releases ownership over the handle, if any.
+		 *
+		 * The handle will be empty after this call.
+		 *
+		 * @return The value previously held by the handle.
+		 **************************************************************************************************************/
+		constexpr T release() noexcept;
+
+
+		/**************************************************************************************************************
 		 * Resets the handle to an empty state.
 		 *
 		 * If the handle is not empty before this call, <em>Deleter</em> will be called with the contained value.
@@ -295,6 +305,12 @@ template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr const T& tr::Handle<T, EmptyValue, Deleter>::get(NoEmptyHandleCheck) const noexcept
 {
 	return _base;
+}
+
+template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
+constexpr T tr::Handle<T, EmptyValue, Deleter>::release() noexcept
+{
+	return std::exchange(_base, EmptyValue);
 }
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
