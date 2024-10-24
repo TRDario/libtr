@@ -13,6 +13,7 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     add_compile_options(-Wall -Wpedantic)
     add_compile_options(-Wno-deprecated-declarations) # std warnings workaround
     add_compile_options(-fno-trapping-math -fno-signed-zeros -fassociative-math -ffp-contract=fast)
+    add_compile_options(-march=x86-64-v2)
 else()
     message(FATAL_ERROR "Non-Clang compilers currently not supported!")
 endif()
