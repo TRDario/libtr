@@ -10,308 +10,701 @@ import :gl_buffer;
 import :handle;
 import :hashmap;
 import :iostream;
+import :ranges;
 import :shader_buffer;
 import :texture_unit;
 
 export namespace tr {
-	struct ShaderCompilationError : std::runtime_error {
-		ShaderCompilationError(std::string_view log);
-	};
-	struct InvalidShaderCacheFile : FileError {
+	/******************************************************************************************************************
+	 * Error thrown when loading a shader failed.
+	 ******************************************************************************************************************/
+	struct ShaderLoadError : FileError {
 		using FileError::FileError;
+		/**************************************************************************************************************
+         * Gets an error message.
+         *
+         * @return An explanatory error message.
+	     **************************************************************************************************************/
 		virtual const char* what() const noexcept;
 	};
-	class UnknownShaderFileExtension : std::exception {
-	public:
-		UnknownShaderFileExtension(std::string extension) noexcept;
-		virtual const char* what() const noexcept;
-	private:
-		std::string _extension;
+
+
+	/******************************************************************************************************************
+	 * Shader types.
+	 ******************************************************************************************************************/
+	enum class ShaderType : std::uint32_t {
+		VERTEX 		 = 0x8B31,
+		TESS_CONTROL = 0x8E88,
+		TESS_EVAL 	 = 0x8E87,
+		GEOMETRY 	 = 0x8DD9,
+		FRAGMENT 	 = 0x8B30,
+		COMPUTE 	 = 0x91B9
 	};
 
 	class Shader {
 	public:
-		// Enum representing a shader type.
-		enum class Type : std::uint32_t {
-			VERTEX 		 = 0x8B31,
-			TESS_CONTROL = 0x8E88,
-			TESS_EVAL 	 = 0x8E87,
-			GEOMETRY 	 = 0x8DD9,
-			FRAGMENT 	 = 0x8B30,
-			COMPUTE 	 = 0x91B9
-		};
+		/**************************************************************************************************************
+	     * Loads a shader from file.
+		 *
+		 * @exception FileNotFound If the file was not found.
+		 * @exception FileOpenError If opening the file failed.
+		 * @exception std::bad_alloc If copying the contents of the file to a buffer failed.
+		 * @exception ShaderLoadError If loading the shader failed.
+		 *
+		 * @param path The path to the shader file.
+		 * @param type The shader type.
+	     **************************************************************************************************************/
+		Shader(const std::filesystem::path& path, ShaderType type);
+
+		/**************************************************************************************************************
+	     * Loads a shader from an embedded file.
+		 *
+		 * If loading the shader fails, a failed assertion is triggered.
+		 *
+		 * @param embeddedFile An embedded SPIR-V shader file.
+		 * @param type The shader type.
+	     **************************************************************************************************************/
+		Shader(std::span<const std::byte> embeddedFile, ShaderType type) noexcept;
 		
-		Shader(const char* source, Type type);
-		Shader(const std::string& source, Type type);
-		// Depending on the path extension loads a shader source or cache file.
-		Shader(const std::filesystem::path& path);
 
-		friend bool operator==(const Shader& l, const Shader& r) noexcept;
+		/**************************************************************************************************************
+	     * Equality comparison operator.
+	     **************************************************************************************************************/
+		friend bool operator==(const Shader&, const Shader&) noexcept;
 
-		// Gets the type of the shader.
-		Type type() const noexcept;
 
-		// Sets a boolean uniform.
+		/**************************************************************************************************************
+	     * Sets the type of the shader.
+         *
+         * @return The shader's type.
+	     **************************************************************************************************************/
+		ShaderType type() const noexcept;
+
+
+		/**************************************************************************************************************
+	     * Sets a boolean uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, bool value) noexcept;
-		// Sets a boolean array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a boolean array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const bool> value);
-		// Sets a bvec2 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a bvec2 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, glm::bvec2 value) noexcept;
-		// Sets a bvec2 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a bvec2 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const glm::bvec2> value);
-		// Sets a bvec3 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a bvec3 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, glm::bvec3 value) noexcept;
-		// Sets a bvec3 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a bvec3 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const glm::bvec3> value);
-		// Sets a bvec4 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a bvec4 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, glm::bvec4 value) noexcept;
-		// Sets a bvec4 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a bvec4 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const glm::bvec4> value);
 
-		// Sets a i32 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a integer uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, int value) noexcept;
-		// Sets a i32 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a integer array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const int> value) noexcept;
-		// Sets a i32vec2 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a ivec2 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, glm::ivec2 value) noexcept;
-		// Sets a i32vec2 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a ivec2 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const glm::ivec2> value) noexcept;
-		// Sets a i32vec3 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a ivec3 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, glm::ivec3 value) noexcept;
-		// Sets a i32vec3 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a ivec3 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const glm::ivec3> value) noexcept;
-		// Sets a i32vec4 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a ivec4 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, glm::ivec4 value) noexcept;
-		// Sets a i32vec4 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a ivec4 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const glm::ivec4> value) noexcept;
 
-		// Sets a std::uint32_t uniform.
+		
+		/**************************************************************************************************************
+	     * Sets an unsigned integer uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, unsigned int value) noexcept;
-		// Sets a std::uint32_t array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets an unsigned integer array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const unsigned int> value) noexcept;
-		// Sets a u32vec2 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a uvec2 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, glm::uvec2 value) noexcept;
-		// Sets a u32vec2 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a uvec2 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const glm::uvec2> value) noexcept;
-		// Sets a u32vec3 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a uvec3 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, glm::uvec3 value) noexcept;
-		// Sets a u32vec3 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a uvec3 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const glm::uvec3> value) noexcept;
-		// Sets a u32vec4 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a uvec4 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, glm::uvec4 value) noexcept;
-		// Sets a u32vec4 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a uvec4 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const glm::uvec4> value) noexcept;
 
-		// Sets a float uniform.
+		/**************************************************************************************************************
+	     * Sets a float uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, float value) noexcept;
-		// Sets a float array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a float array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const float> value) noexcept;
-		// Sets a vec2 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a vec2 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, glm::vec2 value) noexcept;
-		// Sets a vec2 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a vec2 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const glm::vec2> value) noexcept;
-		// Sets a glm::vec3 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a vec3 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, glm::vec3 value) noexcept;
-		// Sets a glm::vec3 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a vec3 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const glm::vec3> value) noexcept;
-		// Sets a vec4 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a vec4 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, glm::vec4 value) noexcept;
-		// Sets a vec4 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a vec4 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const glm::vec4> value) noexcept;
-		// Sets a mat2 uniform.
-		void setUniform(int index, const glm::mat<2, 2, float>& value) noexcept;
-		// Sets a mat2 array uniform.
-		void setUniform(int index, std::span<const glm::mat<2, 2, float>> value) noexcept;
-		// Sets a mat3 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a mat2 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
+		void setUniform(int index, const glm::mat2& value) noexcept;
+		
+		/**************************************************************************************************************
+	     * Sets a mat2 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
+		void setUniform(int index, std::span<const glm::mat2> value) noexcept;
+		
+		/**************************************************************************************************************
+	     * Sets a mat3 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, const glm::mat3& value) noexcept;
-		// Sets a mat3 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a mat3 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const glm::mat3> value) noexcept;
-		// Sets a mat4 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a mat4 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, const glm::mat4& value) noexcept;
-		// Sets a mat4 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a mat4 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const glm::mat4> value) noexcept;
-		// Sets a mat2x3 uniform.
-		void setUniform(int index, const glm::mat<2, 3, float>& value) noexcept;
-		// Sets a mat2x3 array uniform.
-		void setUniform(int index, std::span<const glm::mat<2, 3, float>> value) noexcept;
-		// Sets a mat2x4 uniform.
-		void setUniform(int index, const glm::mat<2, 4, float>& value) noexcept;
-		// Sets a mat2x4 array uniform.
-		void setUniform(int index, std::span<const glm::mat<2, 4, float>> value) noexcept;
-		// Sets a mat3x2 uniform.
-		void setUniform(int index, const glm::mat<3, 2, float>& value) noexcept;
-		// Sets a mat3x2 array uniform.
-		void setUniform(int index, std::span<const glm::mat<3, 2, float>> value) noexcept;
-		// Sets a mat3x4 uniform.
-		void setUniform(int index, const glm::mat<3, 4, float>& value) noexcept;
-		// Sets a mat3x4 array uniform.
-		void setUniform(int index, std::span<const glm::mat<3, 4, float>> value) noexcept;
-		// Sets a mat4x2 uniform.
-		void setUniform(int index, const glm::mat<4, 2, float>& value) noexcept;
-		// Sets a mat4x2 array uniform.
-		void setUniform(int index, std::span<const glm::mat<4, 2, float>> value) noexcept;
-		// Sets a mat4x3 uniform.
-		void setUniform(int index, const glm::mat<4, 3, float>& value) noexcept;
-		// Sets a mat4x3 array uniform.
-		void setUniform(int index, std::span<const glm::mat<4, 3, float>> value) noexcept;
+		
+		/**************************************************************************************************************
+	     * Sets a mat2x3 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
+		void setUniform(int index, const glm::mat2x3& value) noexcept;
+		
+		/**************************************************************************************************************
+	     * Sets a mat2x3 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
+		void setUniform(int index, std::span<const glm::mat2x3> value) noexcept;
+		
+		/**************************************************************************************************************
+	     * Sets a mat2x4 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
+		void setUniform(int index, const glm::mat2x4& value) noexcept;
+		
+		/**************************************************************************************************************
+	     * Sets a mat2x4 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
+		void setUniform(int index, std::span<const glm::mat2x4> value) noexcept;
+		
+		/**************************************************************************************************************
+	     * Sets a mat3x2 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
+		void setUniform(int index, const glm::mat3x2& value) noexcept;
+		
+		/**************************************************************************************************************
+	     * Sets a mat3x2 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
+		void setUniform(int index, std::span<const glm::mat3x2> value) noexcept;
+		
+		/**************************************************************************************************************
+	     * Sets a mat3x4 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
+		void setUniform(int index, const glm::mat3x4& value) noexcept;
+		
+		/**************************************************************************************************************
+	     * Sets a mat3x4 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
+		void setUniform(int index, std::span<const glm::mat3x4> value) noexcept;
+		
+		/**************************************************************************************************************
+	     * Sets a mat4x2 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
+		void setUniform(int index, const glm::mat4x2& value) noexcept;
+		
+		/**************************************************************************************************************
+	     * Sets a mat4x2 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
+		void setUniform(int index, std::span<const glm::mat4x2> value) noexcept;
+		
+		/**************************************************************************************************************
+	     * Sets a mat4x3 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
+		void setUniform(int index, const glm::mat4x3& value) noexcept;
+		
+		/**************************************************************************************************************
+	     * Sets a mat4x3 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
+		void setUniform(int index, std::span<const glm::mat4x3> value) noexcept;
 
-		// Sets a double uniform.
+
+		/**************************************************************************************************************
+	     * Sets a double uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, double value) noexcept;
-		// Sets a double array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a double array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const double> value) noexcept;
-		// Sets a dvec2 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a dvec2 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, glm::dvec2 value) noexcept;
-		// Sets a dvec2 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a dvec2 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const glm::dvec2> value) noexcept;
-		// Sets a dvec3 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a dvec3 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, glm::dvec3 value) noexcept;
-		// Sets a dvec3 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a dvec3 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const glm::dvec3> value) noexcept;
-		// Sets a dvec4 uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a dvec4 uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, glm::dvec4 value) noexcept;
-		// Sets a dvec4 array uniform.
+		
+		/**************************************************************************************************************
+	     * Sets a dvec4 array uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param value The value to set to.
+	     **************************************************************************************************************/
 		void setUniform(int index, std::span<const glm::dvec4> value) noexcept;
 
-		// Sets a texture unit uniform.
+
+		/**************************************************************************************************************
+	     * Sets a texture sampler uniform.
+         *
+         * @param index The index of the uniform. A failed assertion may be triggered if the index isn't valid or the
+		 *              uniform at that index is not of the right type.
+		 * @param unit The texture unit to bind the uniform to.
+	     **************************************************************************************************************/
 		void setUniform(int index, const TextureUnit& unit) noexcept;
 	
-		// Sets a storage buffer.
+		
+		/**************************************************************************************************************
+	     * Sets a shader storage buffer.
+         *
+         * @param index The index of the buffer. A failed assertion may be triggered if the index isn't valid.
+		 * @param buffer The buffer to bind.
+	     **************************************************************************************************************/
 		void setStorageBuffer(unsigned int index, ShaderBuffer& buffer) noexcept;
 
-		// Returns true if the cache was successfully saved or false on error.
-		bool saveCache(const std::filesystem::path& path) noexcept;
 
+		/**************************************************************************************************************
+	     * Sets the debug label of the shader.
+         *
+         * @param label The new label of the shader.
+	     **************************************************************************************************************/
 		void setLabel(std::string_view label) noexcept;
 	private:
 		Handle<GLuint, 0, decltype([] (GLuint id) { glDeleteProgram(id); })> _id;
-		Type 					   											 _type;
-
-		void loadCacheFile(const std::filesystem::path& path);
+		ShaderType 					   										 _type;
 
 		friend class ShaderPipeline;
 	};
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 namespace tr {
-	std::string shaderLog(unsigned int program);
-	Shader::Type deduceShaderType(const std::filesystem::path& extension);
+	// Loads, compiles and links a shader program. Returns 0 on failure.
+	GLuint constructProgram(std::span<const std::byte> data, ShaderType type) noexcept;
 }
 
-std::string tr::shaderLog(unsigned int program)
+GLuint tr::constructProgram(std::span<const std::byte> data, ShaderType type) noexcept
 {
-	int logSize;
-	glGetProgramiv(program, GL_INFO_LOG_LENGTH, &logSize);
-	std::string log(logSize, '\0');
-	glGetProgramInfoLog(program, logSize, nullptr, log.data());
-	return log;
-}
+	Handle<GLuint, 0, decltype([] (GLuint id) { glDeleteShader(id); })> shader { glCreateShader(GLenum(type)) };
+	Handle<GLuint, 0, decltype([] (GLuint id) { glDeleteProgram(id); })> program { glCreateProgram() };
 
-tr::Shader::Type tr::deduceShaderType(const std::filesystem::path& extension)
-{
-	if (extension == ".vert") {
-		return Shader::Type::VERTEX;
-	}
-	else if (extension == ".frag") {
-		return Shader::Type::FRAGMENT;
-	}
-	else if (extension == ".tesc") {
-		return Shader::Type::TESS_CONTROL;
-	}
-	else if (extension == ".tese") {
-		return Shader::Type::TESS_EVAL;
-	}
-	else if (extension == ".geom") {
-		return Shader::Type::GEOMETRY;
-	}
-	else if (extension == ".comp") {
-		return Shader::Type::COMPUTE;
-	}
-	else {
-		throw UnknownShaderFileExtension { extension };
-	}
-}
+	glShaderBinary(1, &shader.get(), GL_SHADER_BINARY_FORMAT_SPIR_V, data.data(), data.size());
+	glSpecializeShader(shader.get(), "main", 0, nullptr, nullptr);
 
-tr::ShaderCompilationError::ShaderCompilationError(std::string_view log)
-	: runtime_error { std::format("Failed to compile/link shader program: {}", log) }
-{}
+	int compiled;
+	glGetShaderiv(shader.get(), GL_COMPILE_STATUS, &compiled);
+	if (!compiled) {
+		return 0;
+	}
 
-tr::UnknownShaderFileExtension::UnknownShaderFileExtension(std::string extension) noexcept
-	: _extension { extension }
-{}
+	glProgramParameteri(program.get(), GL_PROGRAM_SEPARABLE, GL_TRUE);
+	glAttachShader(program.get(), shader.get());
+	glLinkProgram(program.get());
+	glDetachShader(program.get(), shader.get());
 
-const char* tr::InvalidShaderCacheFile::what() const noexcept
-{
-	static std::string str;
-	str.clear();
-	format_to(back_inserter(str), "Invalid shader cache file: '{}'", path());
-    return str.c_str();
-}
-
-const char* tr::UnknownShaderFileExtension::what() const noexcept
-{
-	static std::string str;
-	str.clear();
-    format_to(back_inserter(str), "Unknown shader file extension: '{}'", _extension);
-    return str.c_str();
-}
-
-tr::Shader::Shader(const char* source, Type type)
-	: _id { glCreateShaderProgramv(GLenum(type), 1, &source) }
-	, _type { type }
-{
 	int linked;
-	glGetProgramiv(_id.get(), GL_LINK_STATUS, &linked);
+	glGetProgramiv(program.get(), GL_LINK_STATUS, &linked);
 	if (!linked) {
-		throw ShaderCompilationError { shaderLog(_id.get()) };
+		return 0;
 	}
+
+	return program.release();
 }
 
-tr::Shader::Shader(const std::string& source, Type type)
-	: Shader { source.c_str(), type }
-{}
-
-tr::Shader::Shader(const std::filesystem::path& path)
+const char* tr::ShaderLoadError::what() const noexcept
 {
-	auto extension { path.extension() };
-	if (extension == ".cache") {
-		loadCacheFile(path);
-	}
-	else {
-		auto type { deduceShaderType(extension) };
-		auto file { openFileR(path) };
-		*this = Shader { flushBinary<std::string>(file), type };
-	}
+    static std::string str;
+    str.clear();
+    format_to(back_inserter(str), "Failed to load shader: {}", path());
+    return str.c_str();
 }
 
-void tr::Shader::loadCacheFile(const std::filesystem::path& path)
+tr::Shader::Shader(const std::filesystem::path& path, ShaderType type)
+	: _type { type }
 {
-	auto file { openFileR(path) };
-
-	auto magic { readBinary<std::array<char, 4>>(file) };
-	if (std::string_view { magic.data(), 4 } != "TRSC") {
-		throw InvalidShaderCacheFile { path };
-	}
-	readBinary(file, _type);
-	auto format { readBinary<std::uint32_t>(file) };
+	auto file { openFileR(path, std::ios::binary) };
 	auto data { flushBinary<std::vector<char>>(file) };
-
-	_id.reset(glCreateProgram());
-	glProgramBinary(_id.get(), format, data.data(), data.size());
-	int linked;
-	glGetProgramiv(_id.get(), GL_LINK_STATUS, &linked);
-	if (!linked) {
-		throw ShaderCompilationError { shaderLog(_id.get()) };
+	_id.reset(constructProgram(rangeBytes(data), type), NO_EMPTY_HANDLE_CHECK);
+	if (!_id.has_value()) {
+		throw ShaderLoadError { path };
 	}
 }
+
+tr::Shader::Shader(std::span<const std::byte> embeddedFile, ShaderType type) noexcept
+	: _id { constructProgram(embeddedFile, type) }
+	, _type { type }
+{}
 
 bool tr::operator==(const Shader& l, const Shader& r) noexcept
 {
 	return l._id == r._id;
 }
 
-tr::Shader::Type tr::Shader::type() const noexcept
+tr::ShaderType tr::Shader::type() const noexcept
 {
 	return _type;
 }
@@ -505,13 +898,13 @@ void tr::Shader::setUniform(int index, std::span<const glm::vec4> value) noexcep
 	assert(glGetError() != GL_INVALID_OPERATION);
 }
 
-void tr::Shader::setUniform(int index, const glm::mat<2, 2, float>& value) noexcept
+void tr::Shader::setUniform(int index, const glm::mat2& value) noexcept
 {
 	glProgramUniformMatrix2fv(_id.get(), index, 1, false, value_ptr(value));
 	assert(glGetError() != GL_INVALID_OPERATION);
 }
 
-void tr::Shader::setUniform(int index, std::span<const glm::mat<2, 2, float>> value) noexcept
+void tr::Shader::setUniform(int index, std::span<const glm::mat2> value) noexcept
 {
 	glProgramUniformMatrix2fv(_id.get(), index, value.size(), false, value_ptr(value[0]));
 	assert(glGetError() != GL_INVALID_OPERATION);
@@ -541,73 +934,73 @@ void tr::Shader::setUniform(int index, std::span<const glm::mat4> value) noexcep
 	assert(glGetError() != GL_INVALID_OPERATION);
 }
 
-void tr::Shader::setUniform(int index, const glm::mat<2, 3, float>& value) noexcept
+void tr::Shader::setUniform(int index, const glm::mat2x3& value) noexcept
 {
 	glProgramUniformMatrix2x3fv(_id.get(), index, 1, false, value_ptr(value));
 	assert(glGetError() != GL_INVALID_OPERATION);
 }
 
-void tr::Shader::setUniform(int index, std::span<const glm::mat<2, 3, float>> value) noexcept
+void tr::Shader::setUniform(int index, std::span<const glm::mat2x3> value) noexcept
 {
 	glProgramUniformMatrix2x3fv(_id.get(), index, value.size(), false, value_ptr(value[0]));
 	assert(glGetError() != GL_INVALID_OPERATION);
 }
 
-void tr::Shader::setUniform(int index, const glm::mat<2, 4, float>& value) noexcept
+void tr::Shader::setUniform(int index, const glm::mat2x4& value) noexcept
 {
 	glProgramUniformMatrix2x4fv(_id.get(), index, 1, false, value_ptr(value));
 	assert(glGetError() != GL_INVALID_OPERATION);
 }
 
-void tr::Shader::setUniform(int index, std::span<const glm::mat<2, 4, float>> value) noexcept
+void tr::Shader::setUniform(int index, std::span<const glm::mat2x4> value) noexcept
 {
 	glProgramUniformMatrix2x4fv(_id.get(), index, value.size(), false, value_ptr(value[0]));
 	assert(glGetError() != GL_INVALID_OPERATION);
 }
 
-void tr::Shader::setUniform(int index, const glm::mat<3, 2, float>& value) noexcept
+void tr::Shader::setUniform(int index, const glm::mat3x2& value) noexcept
 {
 	glProgramUniformMatrix3x2fv(_id.get(), index, 1, false, value_ptr(value));
 	assert(glGetError() != GL_INVALID_OPERATION);
 }
 
-void tr::Shader::setUniform(int index, std::span<const glm::mat<3, 2, float>> value) noexcept
+void tr::Shader::setUniform(int index, std::span<const glm::mat3x2> value) noexcept
 {
 	glProgramUniformMatrix3x2fv(_id.get(), index, value.size(), false, value_ptr(value[0]));
 	assert(glGetError() != GL_INVALID_OPERATION);
 }
 
-void tr::Shader::setUniform(int index, const glm::mat<3, 4, float>& value) noexcept
+void tr::Shader::setUniform(int index, const glm::mat3x4& value) noexcept
 {
 	glProgramUniformMatrix3x4fv(_id.get(), index, 1, false, value_ptr(value));
 	assert(glGetError() != GL_INVALID_OPERATION);
 }
 
-void tr::Shader::setUniform(int index, std::span<const glm::mat<3, 4, float>> value) noexcept
+void tr::Shader::setUniform(int index, std::span<const glm::mat3x4> value) noexcept
 {
 	glProgramUniformMatrix3x4fv(_id.get(), index, value.size(), false, value_ptr(value[0]));
 	assert(glGetError() != GL_INVALID_OPERATION);
 }
 
-void tr::Shader::setUniform(int index, const glm::mat<4, 2, float>& value) noexcept
+void tr::Shader::setUniform(int index, const glm::mat4x2& value) noexcept
 {
 	glProgramUniformMatrix4x2fv(_id.get(), index, 1, false, value_ptr(value));
 	assert(glGetError() != GL_INVALID_OPERATION);
 }
 
-void tr::Shader::setUniform(int index, std::span<const glm::mat<4, 2, float>> value) noexcept
+void tr::Shader::setUniform(int index, std::span<const glm::mat4x2> value) noexcept
 {
 	glProgramUniformMatrix4x2fv(_id.get(), index, value.size(), false, value_ptr(value[0]));
 	assert(glGetError() != GL_INVALID_OPERATION);
 }
 
-void tr::Shader::setUniform(int index, const glm::mat<4, 3, float>& value) noexcept
+void tr::Shader::setUniform(int index, const glm::mat4x3& value) noexcept
 {
 	glProgramUniformMatrix4x3fv(_id.get(), index, 1, false, value_ptr(value));
 	assert(glGetError() != GL_INVALID_OPERATION);
 }
 
-void tr::Shader::setUniform(int index, std::span<const glm::mat<4, 3, float>> value) noexcept
+void tr::Shader::setUniform(int index, std::span<const glm::mat4x3> value) noexcept
 {
 	glProgramUniformMatrix4x3fv(_id.get(), index, value.size(), false, value_ptr(value[0]));
 	assert(glGetError() != GL_INVALID_OPERATION);
@@ -672,26 +1065,9 @@ void tr::Shader::setStorageBuffer(unsigned int index, ShaderBuffer& buffer) noex
 	assert(glGetError() == GL_NO_ERROR);
 }
 
-bool tr::Shader::saveCache(const std::filesystem::path& path) noexcept
-{
-	std::ofstream file { path };
-	if (!file.is_open()) {
-		return false;
-	}
-
-	int size;
-	std::uint32_t format;
-	glGetProgramiv(_id.get(), GL_PROGRAM_BINARY_LENGTH, &size);
-	std::vector<char> data(size);
-	glGetProgramBinary(_id.get(), size, nullptr, &format, data.data());
-	writeBinary(file, "TRSC");
-	writeBinary(file, _type);
-	writeBinary(file, format);
-	writeBinaryRange(file, data);
-	return true;
-}
-
 void tr::Shader::setLabel(std::string_view label) noexcept
 {
 	glObjectLabel(GL_PROGRAM, _id.get(), label.size(), label.data());
 }
+
+/// @endcond

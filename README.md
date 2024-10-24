@@ -1,7 +1,7 @@
 # libtr
 libtr is a personal C++ base library for gamedev projects.
 
-libtr includes C++ wrappers for OpenAL, OpenGL 4.5, and SDL2 objects, as well as a number of miscellaneous helper functions, classes, and templates.
+libtr includes C++ wrappers for OpenAL, OpenGL 4.6, and SDL2 objects, as well as a number of miscellaneous helper functions, classes, and templates.
 
 ## Important notice ##
 

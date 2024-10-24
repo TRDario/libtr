@@ -59,25 +59,25 @@ tr::ShaderPipeline::ShaderPipeline(const Shader& vertexShader, boost::optional<c
     glCreateProgramPipelines(1, &id);
     _id.reset(id);
 
-    assert(vertexShader.type() == Shader::Type::VERTEX);
+    assert(vertexShader.type() == ShaderType::VERTEX);
     glUseProgramStages(_id.get(), GL_VERTEX_SHADER_BIT, vertexShader._id.get());
 
     if (tessEvalShader.has_value()) {
-        assert(tessEvalShader->type() == Shader::Type::TESS_EVAL);
+        assert(tessEvalShader->type() == ShaderType::TESS_EVAL);
         glUseProgramStages(_id.get(), GL_TESS_EVALUATION_SHADER_BIT, tessEvalShader->_id.get());
     }
 
     if (tessControlShader.has_value()) {
-        assert(tessControlShader->type() == Shader::Type::TESS_CONTROL);
+        assert(tessControlShader->type() == ShaderType::TESS_CONTROL);
         glUseProgramStages(_id.get(), GL_TESS_CONTROL_SHADER_BIT, tessControlShader->_id.get());
     }
 
     if (geometryShader.has_value()) {
-        assert(geometryShader->type() == Shader::Type::GEOMETRY);
+        assert(geometryShader->type() == ShaderType::GEOMETRY);
         glUseProgramStages(_id.get(), GL_GEOMETRY_SHADER_BIT, geometryShader->_id.get());
     }
 
-    assert(fragmentShader.type() == Shader::Type::FRAGMENT);
+    assert(fragmentShader.type() == ShaderType::FRAGMENT);
     glUseProgramStages(_id.get(), GL_FRAGMENT_SHADER_BIT, fragmentShader._id.get());
 }
 
