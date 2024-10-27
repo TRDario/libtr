@@ -58,7 +58,7 @@ export namespace tr {
          * @exception FileNotFound If the file was not found.
          * @exception UnsupportedAudioFile If the file format is unsupported or invalid.
          *
-         * @param file The audio file to load.
+         * @param path The path to the audio file to load.
 	     **************************************************************************************************************/
 		explicit AudioStream(const std::filesystem::path& path);
 
