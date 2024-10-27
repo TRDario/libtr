@@ -25,125 +25,429 @@ import :iostream;
 import :sdl;
 
 export namespace tr {
-	// SDL_TTF library RAII wrapper.
+    /******************************************************************************************************************
+	 * Error thrown when TrueType font loading failed.
+	 ******************************************************************************************************************/
+    struct TTFontLoadError : FileError {
+        using FileError::FileError;
+
+        /**************************************************************************************************************
+         * Gets an error message.
+         *
+         * @return An explanatory error message.
+	     **************************************************************************************************************/
+		virtual const char* what() const noexcept;
+	};
+
+    /******************************************************************************************************************
+	 * Error thrown when TrueType font resizing failed.
+	 ******************************************************************************************************************/
+    struct TTFontResizeError : SDLError {
+        /******************************************************************************************************************
+	     * Constructs the error.
+	     ******************************************************************************************************************/
+        TTFontResizeError();
+	};
+
+
+	/******************************************************************************************************************
+	 * SDL_TTF library RAII wrapper.
+	 ******************************************************************************************************************/
 	class SDL_TTF {
 	public:
-		// Initializes the SDL_TTF library.
+		/**************************************************************************************************************
+	     * Initializes the SDL_TTF library.
+         *
+         * @exception SDLError If initializing the library failed.
+	     **************************************************************************************************************/
 		SDL_TTF();
 
+
+        /**************************************************************************************************************
+	     * Gets the version of the SDL_TTF library.
+         *
+         * @return The version of the SDL_TTF library.
+	     **************************************************************************************************************/
 		Version version() const noexcept;
+
+        /**************************************************************************************************************
+	     * Gets the version of the FreeType library.
+         *
+         * @return The version of the FreeType library.
+	     **************************************************************************************************************/
 		Version freetypeVersion() const noexcept;
 	private:
         Handle<bool, false, decltype([] (bool) { TTF_Quit(); })> _handle { true };
 	};
 
-    struct TTFontLoadError : FileError {
-        using FileError::FileError;
-		virtual const char* what() const noexcept;
-	};
 
-	// TrueType font class.
+	/**************************************************************************************************************
+	 * TrueType font.
+	 **************************************************************************************************************/
 	class TTFont {
 	public:
-		// Enum representing a type of font hint.
+        /**************************************************************************************************************
+	     * Font hinting types.
+	     **************************************************************************************************************/
 		enum class Hint {
+            /**********************************************************************************************************
+	         * Normal hinting.
+	         **********************************************************************************************************/
 			NORMAL,
+
+            /**********************************************************************************************************
+	         * Lighter hinting.
+	         **********************************************************************************************************/
 			LIGHT,
+
+            /**********************************************************************************************************
+	         * Mono hinting.
+	         **********************************************************************************************************/
 			MONO,
+
+            /**********************************************************************************************************
+	         * Disabled hinting.
+	         **********************************************************************************************************/
 			NONE,
+
+            /**********************************************************************************************************
+	         * Light hinting with subpixel rendering.
+	         **********************************************************************************************************/
 			LIGHT_SUBPIXEL
 		};
-		// Enum representing a font style.
+        
+		/**************************************************************************************************************
+	     * Font style types. May be ORed together.
+	     **************************************************************************************************************/
 		enum class Style {
+            /**********************************************************************************************************
+	         * Normal font.
+	         **********************************************************************************************************/
 			NORMAL = 0,
+
+            /**********************************************************************************************************
+	         * Bold font.
+	         **********************************************************************************************************/
 			BOLD = 1,
+
+            /**********************************************************************************************************
+	         * Italic font.
+	         **********************************************************************************************************/
 			ITALIC = 2,
+
+            /**********************************************************************************************************
+	         * Underlined font.
+	         **********************************************************************************************************/
 			UNDERLINE = 4,
+
+            /**********************************************************************************************************
+	         * Striked font.
+	         **********************************************************************************************************/
 			STRIKETHROUGH = 8
 		};
-		// Enum representing ttf text alignment.
-		enum class Align {
+
+        /**************************************************************************************************************
+	     * Wrapped text alignment.
+	     **************************************************************************************************************/
+		enum class WrapAlignment {
+            /**********************************************************************************************************
+	         * The text is left-aligned.
+	         **********************************************************************************************************/
 			LEFT,
+
+            /**********************************************************************************************************
+	         * The text is center-aligned.
+	         **********************************************************************************************************/
 			CENTER,
+
+            /**********************************************************************************************************
+	         * The text is right-aligned.
+	         **********************************************************************************************************/
 			RIGHT
 		};
-		// Struct containing glyph metrics.
-		struct GlyphMetrics {
-			glm::ivec2 min; // Min x/y of the glyph.
-			glm::ivec2 max; // Max x/y of the glyph.
-			std::int32_t adv; // The advance of the glyph.
+
+        /**************************************************************************************************************
+	     * Font glyph metrics.
+	     **************************************************************************************************************/
+		struct Glyph {
+            /**********************************************************************************************************
+	         * Min x/y of the glyph.
+	         **********************************************************************************************************/
+			glm::ivec2 min;
+
+            /**********************************************************************************************************
+	         * Max x/y of the glyph.
+	         **********************************************************************************************************/
+			glm::ivec2 max;
+
+            /**********************************************************************************************************
+	         * The advance of the glyph in pixels.
+	         **********************************************************************************************************/
+			std::int32_t adv;
 		};
 
-		// Loads a TTF font from file.
-		TTFont(const std::filesystem::path& path, int size);
-		// Loads a TTF font from file.
-		// dpi - The target resolution DPI values of the font.
-		TTFont(const std::filesystem::path& path, int size, glm::uvec2 dpi);
+        /**************************************************************************************************************
+	     * Font text measurement result.
+	     **************************************************************************************************************/
+        struct MeasureResult {
+            /**********************************************************************************************************
+	         * The text that fit in the width.
+	         **********************************************************************************************************/
+            std::string_view text;
 
+            /**********************************************************************************************************
+	         * The width of the fit string in pixels.
+	         **********************************************************************************************************/
+            int width;
+        };
+
+
+        /**************************************************************************************************************
+	     * Loads a font from file.
+         *
+         * @exception FileNotFound If the file was not found.
+         * @exception TTFontLoadError If loading the font failed.
+         *
+         * @param path The path to the font file.
+         * @param size The point size of the font.
+         * @param dpi The target resolution of the font.
+	     **************************************************************************************************************/
+		TTFont(const std::filesystem::path& path, int size, glm::uvec2 dpi = { 72, 72 });
+
+
+        /**************************************************************************************************************
+	     * Gets the ascent of the font.
+         *
+         * @return The ascent of the font in pixels.
+	     **************************************************************************************************************/
 		int ascent() const noexcept;
+
+        /**************************************************************************************************************
+	     * Gets the descent of the font.
+         *
+         * @return The descent of the font in pixels.
+	     **************************************************************************************************************/
 		int descent() const noexcept;
+
+        /**************************************************************************************************************
+	     * Gets the height of the font.
+         *
+         * @return The height of the font in pixels.
+	     **************************************************************************************************************/
 		int height() const noexcept;
-		int lineHeight() const noexcept;
+
+        /**************************************************************************************************************
+	     * Gets the distance between two lines.
+         *
+         * @return The distance between lines in pixels.
+	     **************************************************************************************************************/
+		int lineSkip() const noexcept;
+
+        /**************************************************************************************************************
+	     * Gets whether the font is fixed width.
+         *
+         * @return True if the font is fixed width, and false otherwise.
+	     **************************************************************************************************************/
 		bool fixedWidth() const noexcept;
 
+
+        /**************************************************************************************************************
+	     * Gets the font's family name.
+         *
+         * @return A C-string containing the font's family name.
+	     **************************************************************************************************************/
 		const char* familyName() const noexcept;
+
+        /**************************************************************************************************************
+	     * Gets the font's style name.
+         *
+         * @return A C-string containing the font's style name.
+	     **************************************************************************************************************/
 		const char* styleName() const noexcept;
 
+
+        /**************************************************************************************************************
+	     * Gets the number of font faces.
+         *
+         * @return The number of font faces.
+	     **************************************************************************************************************/
 		int faceCount() const noexcept;
 
+
+        /**************************************************************************************************************
+	     * Gets the hinting of the font.
+         *
+         * @return The hinting type of the font.
+	     **************************************************************************************************************/
 		Hint hinting() const noexcept;
+
+        /**************************************************************************************************************
+	     * Sets the hinting of the font.
+         *
+         * @param hinting The new hinting type of the font.
+	     **************************************************************************************************************/
 		void setHinting(Hint hinting) noexcept;
 
+
+        /**************************************************************************************************************
+	     * Gets whether kerning is enabled.
+         *
+         * @return True if kerning is enabled, and false otherwise.
+	     **************************************************************************************************************/
 		bool kerning() const noexcept;
+
+        /**************************************************************************************************************
+	     * Sets whether kerning is enabled.
+         *
+         * @param kerning Whether kerning should be enabled.
+	     **************************************************************************************************************/
 		void setKerning(bool kerning) noexcept;
 
+
+        /**************************************************************************************************************
+	     * Gets the style of the font.
+         *
+         * @return The style of the font.
+	     **************************************************************************************************************/
 		Style style() const noexcept;
+
+        /**************************************************************************************************************
+	     * Sets the style of the font.
+         *
+         * @param style The new style of the font.
+	     **************************************************************************************************************/
 		void setStyle(Style style) noexcept;
 
+
+        /**************************************************************************************************************
+	     * Gets the outline thickness of the font.
+         *
+         * @return The outline thickness of the font.
+	     **************************************************************************************************************/
+        int outline() const noexcept;
+
+        /**************************************************************************************************************
+	     * Sets the outline thickness of the font.
+         *
+         * @param thickness The new outline thickness of the font.
+	     **************************************************************************************************************/
+        void setOutline(int thickness) noexcept;
+
+
+        /**************************************************************************************************************
+	     * Gets the wrap alignment of the font.
+         *
+         * @return The wrap alignment of the font.
+	     **************************************************************************************************************/
+        WrapAlignment wrapAlignment() const noexcept;
+
+        /**************************************************************************************************************
+	     * Sets the wrap alignment of the font.
+         *
+         * @param alignment The new wrap alignment of the font.
+	     **************************************************************************************************************/
+        void setWrapAlignment(WrapAlignment alignment) noexcept;
+
+
+        /**************************************************************************************************************
+	     * Gets whether a glyph is contained in the font.
+         *
+         * @param glyph The glyph to check for.
+         *
+         * @return True if the glyph is contained in the font, and false otherwise.
+	     **************************************************************************************************************/
 		bool contains(std::uint32_t glyph) const noexcept;
-		GlyphMetrics glyphMetrics(std::uint32_t glyph) const noexcept;
 
-		bool resize(int size) noexcept;
-		// Resizes the font with the target resolution.
-		// dpi - The target resolution DPI values of the font.
-		bool resizeDPI(int size, glm::uvec2 dpi) noexcept;
+        /**************************************************************************************************************
+	     * Gets the metrics of a glyph.
+         *
+         * @param glyph The glyph to get the metrics of. If the glyph isn't contained in the font, a failed assertion
+         *              may be triggered.
+         *
+         * @return The metrics of the glyph.
+	     **************************************************************************************************************/
+		Glyph glyph(std::uint32_t glyph) const noexcept;
 
+
+        /**************************************************************************************************************
+	     * Resizes the font.
+         *
+         * @exception TTFontResizeError If resizing the font failed.
+         *
+         * @param size The new point size of the font.
+         * @param dpi The new DPI of the font.
+	     **************************************************************************************************************/
+		void resize(int size, glm::uvec2 dpi = { 72, 72 });
+
+
+        /**************************************************************************************************************
+	     * Gets the size of a line of text.
+         *
+         * @param text The line of text to get the size of.
+         *
+         * @return The size of the bitmap required to hold the text.
+	     **************************************************************************************************************/
 		glm::ivec2 textSize(const char* text) const noexcept;
-        glm::ivec2 textSize(const std::string& text) const noexcept;
+
+        /**************************************************************************************************************
+	     * Measures how much of a line of text can fit within a certain width.
+         *
+         * @param text The line of text to get the measure of.
+         * @param maxWidth The maximum width that the text can occupy.
+         *
+         * @return The string that can be contained in the width, and the width of that string.
+	     **************************************************************************************************************/
+        MeasureResult measure(const char* text, int maxWidth) const noexcept;
+
 
 		// Renders an alpha-blended glyph to a 32-bit bitmap.
-		Bitmap render(std::uint32_t cp, RGBA8 color) const;
-		// Renders alpha-blended text to a 32-bit bitmap.
-		Bitmap render(const char* text, RGBA8 color) const;
-        // Renders alpha-blended text to a 32-bit bitmap.
-		Bitmap render(const std::string& text, RGBA8 color) const;
-		// Renders multiline, wrapped alpha-blended text to a 32-bit bitmap.
-		// width - The max horizontal width of a line. 0 means only newlines break.
-		Bitmap renderWrapped(const char* text, RGBA8 color, std::uint32_t width, Align align) const;
-        // Renders multiline, wrapped alpha-blended text to a 32-bit bitmap.
-		// width - The max horizontal width of a line. 0 means only newlines break.
-		Bitmap renderWrapped(const std::string& text, RGBA8 color, std::uint32_t width, Align align) const;
 
-        // Renders an alpha-blended glyph to a 32-bit bitmap.
-		Bitmap renderOutlined(std::uint32_t cp, RGBA8 color, RGBA8 outlineColor, int outlineThickness) const;
-		// Renders outlined alpha-blended text to a 32-bit bitmap.
-		Bitmap renderOutlined(const char* text, RGBA8 color, RGBA8 outlineColor, int outlineThickness) const;
-        // Renders outlined alpha-blended text to a 32-bit bitmap.
-		Bitmap renderOutlined(const std::string& text, RGBA8 color, RGBA8 outlineColor, int outlineThickness) const;
-		// Renders outlined multiline, wrapped alpha-blended text to a 32-bit bitmap.
-		// width - The max horizontal width of a line. 0 means only newlines break.
-		Bitmap renderWrappedOutlined(const char* text, RGBA8 color, std::uint32_t width, Align align, RGBA8 outlineColor, int outlineThickness) const;
-        // Renders outlined multiline, wrapped alpha-blended text to a 32-bit bitmap.
-		// width - The max horizontal width of a line. 0 means only newlines break.
-		Bitmap renderWrappedOutlined(const std::string& text, RGBA8 color, std::uint32_t width, Align align, RGBA8 outlineColor, int outlineThickness) const;
+        /**************************************************************************************************************
+	     * Renders a glyph.
+         *
+         * @exception BitmapBadAlloc If rendering the bitmap failed.
+         *
+         * @param cp The unicode codepoint to render.
+         * @param color The color of the glyph.
+         *
+         * @return A bitmap holding the glyph.
+	     **************************************************************************************************************/
+		Bitmap render(std::uint32_t cp, RGBA8 color) const;
+
+		/**************************************************************************************************************
+	     * Renders a line of text.
+         *
+         * @exception BitmapBadAlloc If rendering the bitmap failed.
+         *
+         * @param text The line of text to render (\n not supported).
+         * @param color The color of the text.
+         *
+         * @return A bitmap holding the text.
+	     **************************************************************************************************************/
+		Bitmap render(const char* text, RGBA8 color) const;
+
+        /**************************************************************************************************************
+	     * Renders wrapped text.
+         *
+         * @exception BitmapBadAlloc If rendering the bitmap failed.
+         *
+         * @param text The line of text to render (\n supported).
+         * @param color The color of the text.
+         * @param width The bounding width of the text.
+         *
+         * @return A bitmap holding the text.
+	     **************************************************************************************************************/
+		Bitmap renderWrapped(const char* text, RGBA8 color, std::uint32_t width) const;
 	private:
 		std::unique_ptr<TTF_Font, FunctionCaller<&TTF_CloseFont>> _impl;
 	};
 
+    /// @cond IMPLEMENTATION
 	DEFINE_BITMASK_OPERATORS(TTFont::Style);
+    /// @endcond
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 namespace tr {
     // Fixes certain edge artifacts when rendering partially transparent text.
@@ -152,9 +456,13 @@ namespace tr {
 
 void tr::fixAlphaArtifacts(Bitmap& bitmap, std::uint8_t maxAlpha) noexcept
 {
-    for (auto pixel : bitmap) {
-        RGBA8 color { pixel };
-        pixel = RGBA8 { color.r, color.g, color.b, std::min(color.a, maxAlpha) };
+    // We know the bitmap is ARGB_8888.
+    auto it { (std::uint8_t*)(bitmap.data()) };
+    for (int y = 0; y < bitmap.size().y; ++y) {
+        for (int x = 0; x < bitmap.size().x; ++x) {
+            it[x * 4] = std::min(it[x * 4], maxAlpha);
+        }
+        it += bitmap.pitch();
     }
 }
 
@@ -185,8 +493,8 @@ const char* tr::TTFontLoadError::what() const noexcept
     return str.c_str();
 }
 
-tr::TTFont::TTFont(const std::filesystem::path& path, int size)
-    : TTFont { path, size, { 0, 0 } }
+tr::TTFontResizeError::TTFontResizeError()
+    : SDLError { "Failed to resize font" }
 {}
 
 tr::TTFont::TTFont(const std::filesystem::path& path, int size, glm::uvec2 dpi)
@@ -220,7 +528,7 @@ int tr::TTFont::height() const noexcept
     return TTF_FontHeight(_impl.get());
 }
 
-int tr::TTFont::lineHeight() const noexcept
+int tr::TTFont::lineSkip() const noexcept
 {
     return TTF_FontLineSkip(_impl.get());
 }
@@ -275,27 +583,44 @@ void tr::TTFont::setStyle(Style style) noexcept
     TTF_SetFontStyle(_impl.get(), int(style));
 }
 
+int tr::TTFont::outline() const noexcept
+{
+    return TTF_GetFontOutline(_impl.get());
+}
+
+void tr::TTFont::setOutline(int thickness) noexcept
+{
+    TTF_SetFontOutline(_impl.get(), thickness);
+}
+
+tr::TTFont::WrapAlignment tr::TTFont::wrapAlignment() const noexcept
+{
+    return WrapAlignment(TTF_GetFontWrappedAlign(_impl.get()));
+}
+
+void tr::TTFont::setWrapAlignment(WrapAlignment alignment) noexcept
+{
+    TTF_SetFontWrappedAlign(_impl.get(), int(alignment));
+}
+
 bool tr::TTFont::contains(std::uint32_t cp) const noexcept
 {
     return TTF_GlyphIsProvided32(_impl.get(), cp);
 }
 
-tr::TTFont::GlyphMetrics tr::TTFont::glyphMetrics(std::uint32_t cp) const noexcept
+tr::TTFont::Glyph tr::TTFont::glyph(std::uint32_t cp) const noexcept
 {
     assert(contains(cp));
-    GlyphMetrics metrics;
-    TTF_GlyphMetrics32(_impl.get(), cp, &metrics.min.x, &metrics.max.x, &metrics.min.y, &metrics.max.y, &metrics.adv);
-    return metrics;
+    Glyph glyph;
+    TTF_GlyphMetrics32(_impl.get(), cp, &glyph.min.x, &glyph.max.x, &glyph.min.y, &glyph.max.y, &glyph.adv);
+    return glyph;
 }
 
-bool tr::TTFont::resize(int size) noexcept
+void tr::TTFont::resize(int size, glm::uvec2 dpi)
 {
-    return !TTF_SetFontSize(_impl.get(), size);
-}
-
-bool tr::TTFont::resizeDPI(int size, glm::uvec2 dpi) noexcept
-{
-    return !TTF_SetFontSizeDPI(_impl.get(), size, dpi.x, dpi.y);
+    if (TTF_SetFontSizeDPI(_impl.get(), size, dpi.x, dpi.y) < 0) {
+        throw TTFontResizeError {};
+    }
 }
 
 glm::ivec2 tr::TTFont::textSize(const char* text) const noexcept
@@ -305,9 +630,11 @@ glm::ivec2 tr::TTFont::textSize(const char* text) const noexcept
     return size;
 }
 
-glm::ivec2 tr::TTFont::textSize(const std::string& text) const noexcept
+tr::TTFont::MeasureResult tr::TTFont::measure(const char* text, int maxWidth) const noexcept
 {
-    return textSize(text.c_str());
+    int extent, count;
+    TTF_MeasureUTF8(_impl.get(), text, maxWidth, &extent, &count);
+    return { std::string_view { text, std::size_t(count) }, extent };
 }
 
 tr::Bitmap tr::TTFont::render(std::uint32_t cp, RGBA8 color) const
@@ -324,14 +651,8 @@ tr::Bitmap tr::TTFont::render(const char* text, RGBA8 color) const
     return render;
 }
 
-tr::Bitmap tr::TTFont::render(const std::string& text, RGBA8 color) const
+tr::Bitmap tr::TTFont::renderWrapped(const char* text, RGBA8 color, std::uint32_t width) const
 {
-    return render(text.c_str(), color);
-}
-
-tr::Bitmap tr::TTFont::renderWrapped(const char* text, RGBA8 color, std::uint32_t width, Align align) const
-{
-    TTF_SetFontWrappedAlign(_impl.get(), int(align));
     Bitmap render { TTF_RenderUTF8_Blended_Wrapped(_impl.get(), text, std::bit_cast<SDL_Color>(color), width) };
     if (color.a < 255) {
         fixAlphaArtifacts(render, color.a);
@@ -339,47 +660,4 @@ tr::Bitmap tr::TTFont::renderWrapped(const char* text, RGBA8 color, std::uint32_
     return render;
 }
 
-tr::Bitmap tr::TTFont::renderWrapped(const std::string& text, RGBA8 color, std::uint32_t width, Align align) const
-{
-    return renderWrapped(text.c_str(), color, width, align);
-}
-
-tr::Bitmap tr::TTFont::renderOutlined(std::uint32_t cp, RGBA8 color, RGBA8 outlineColor, int outlineThickness) const
-{
-    Bitmap fill { render(cp, color) };
-    TTF_SetFontOutline(_impl.get(), outlineThickness);
-    Bitmap outline { render(cp, outlineColor) }; 
-    TTF_SetFontOutline(_impl.get(), 0);
-    outline.blit({ outlineThickness, outlineThickness }, fill.sub({ {}, outline.size() - glm::ivec2 { outlineThickness * 2, outlineThickness * 2 } }));
-    return outline;
-}
-
-tr::Bitmap tr::TTFont::renderOutlined(const char* text, RGBA8 color, RGBA8 outlineColor, int outlineThickness) const
-{
-    Bitmap fill { render(text, color) };
-    TTF_SetFontOutline(_impl.get(), outlineThickness);
-    Bitmap outline { render(text, outlineColor) }; 
-    TTF_SetFontOutline(_impl.get(), 0);
-    outline.blit({ outlineThickness, outlineThickness }, fill.sub({ {}, outline.size() - glm::ivec2 { outlineThickness * 2, outlineThickness * 2 } }));
-    return outline;
-}
-
-tr::Bitmap tr::TTFont::renderOutlined(const std::string& text, RGBA8 color, RGBA8 outlineColor, int outlineThickness) const
-{
-    return renderOutlined(text.c_str(), color, outlineColor, outlineThickness);
-}
-
-tr::Bitmap tr::TTFont::renderWrappedOutlined(const char* text, RGBA8 color, std::uint32_t width, Align align, RGBA8 outlineColor, int outlineThickness) const
-{
-    Bitmap fill { renderWrapped(text, color, width == 0 ? width : width - 2 * outlineThickness, align) };
-    TTF_SetFontOutline(_impl.get(), outlineThickness);
-    Bitmap outline { renderWrapped(text, outlineColor, width, align) }; 
-    TTF_SetFontOutline(_impl.get(), 0);
-    outline.blit({ outlineThickness, outlineThickness }, fill.sub({ {}, outline.size() - glm::ivec2 { outlineThickness * 2, outlineThickness * 2 } }));
-    return outline;
-}
-
-tr::Bitmap tr::TTFont::renderWrappedOutlined(const std::string& text, RGBA8 color, std::uint32_t width, Align align, RGBA8 outlineColor, int outlineThickness) const
-{
-    return renderWrappedOutlined(text.c_str(), color, width, align, outlineColor, outlineThickness);
-}
+/// @endcond
