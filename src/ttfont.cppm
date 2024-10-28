@@ -214,6 +214,17 @@ export namespace tr {
 	     **************************************************************************************************************/
 		TTFont(const std::filesystem::path& path, int size, glm::uvec2 dpi = { 72, 72 });
 
+        /**************************************************************************************************************
+	     * Loads a font from file.
+         *
+         * A failed assertion may be triggered if loading the font failed.
+         *
+         * @param path The path to the font file.
+         * @param size The point size of the font.
+         * @param dpi The target resolution of the font.
+	     **************************************************************************************************************/
+        TTFont(std::span<const std::byte> embeddedFile, int size, glm::uvec2 dpi = { 72, 72 }) noexcept;
+
 
         /**************************************************************************************************************
 	     * Gets the ascent of the font.
@@ -511,6 +522,12 @@ tr::TTFont::TTFont(const std::filesystem::path& path, int size, glm::uvec2 dpi)
     if (_impl == nullptr) {
         throw TTFontLoadError { path };
     }
+}
+
+tr::TTFont::TTFont(std::span<const std::byte> embeddedFile, int size, glm::uvec2 dpi) noexcept
+    : _impl { TTF_OpenFontDPIRW(SDL_RWFromConstMem(embeddedFile.data(), embeddedFile.size()), true, size, dpi.x, dpi.y) }
+{
+    assert(_impl != nullptr);
 }
 
 int tr::TTFont::ascent() const noexcept
