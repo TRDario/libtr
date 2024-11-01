@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['ranges_2ecppm_0',['ranges.cppm',['../ranges_8cppm.html',1,'']]],
-  ['renderbuffer_2ecppm_1',['renderbuffer.cppm',['../renderbuffer_8cppm.html',1,'']]]
+  ['ranges_2ehpp_0',['ranges.hpp',['../ranges_8hpp.html',1,'']]],
+  ['renderbuffer_2ehpp_1',['renderbuffer.hpp',['../renderbuffer_8hpp.html',1,'']]]
 ];

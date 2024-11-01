@@ -93,12 +93,14 @@ $(function(){ initResizable(false); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1EventQueue-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::EventQueue Class Reference<span class="mlabels"><span class="mlabel">export</span></span><div class="ingroups">module <a class="el" href="module__tr.html">tr</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::EventQueue Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Global event queue.  
  <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="event_8hpp_source.html">event.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -117,7 +119,7 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~EventQueue</b> () noexcept</td></tr>
 <tr class="memdesc:a75b82fc8e52704cee76070d73708d556"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys an event queue. <br /></td></tr>
 <tr class="separator:a75b82fc8e52704cee76070d73708d556"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a747202310c0b951bbe95d1271c7e84aa" id="r_a747202310c0b951bbe95d1271c7e84aa"><td class="memItemLeft" align="right" valign="top">Ticker&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a747202310c0b951bbe95d1271c7e84aa">addTicker</a> (std::int32_t id, MillisecondsD interval, std::uint32_t nticks)</td></tr>
+<tr class="memitem:a747202310c0b951bbe95d1271c7e84aa" id="r_a747202310c0b951bbe95d1271c7e84aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="event_8hpp.html#a68e9b0556d21b1dfe59c902e924247df">Ticker</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a747202310c0b951bbe95d1271c7e84aa">addTicker</a> (std::int32_t id, <a class="el" href="chrono_8hpp.html#a44bf9d31042d53b7fb627b6f371e365d">MillisecondsD</a> interval, std::uint32_t nticks)</td></tr>
 <tr class="memdesc:a747202310c0b951bbe95d1271c7e84aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a ticker that generates tick events at a regular interval.  <br /></td></tr>
 <tr class="separator:a747202310c0b951bbe95d1271c7e84aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e422611547aa931a68ed3277a544c32" id="r_a6e422611547aa931a68ed3277a544c32"><td class="memItemLeft" align="right" valign="top"><a id="a6e422611547aa931a68ed3277a544c32" name="a6e422611547aa931a68ed3277a544c32"></a>
@@ -133,7 +135,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const 
 <tr class="memitem:a3f1c21273e0ac8d852de9f074e87ef71" id="r_a3f1c21273e0ac8d852de9f074e87ef71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f1c21273e0ac8d852de9f074e87ef71">pushEvent</a> (const <a class="el" href="classtr_1_1Event.html">Event</a> &amp;event)</td></tr>
 <tr class="memdesc:a3f1c21273e0ac8d852de9f074e87ef71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes an event to the queue.  <br /></td></tr>
 <tr class="separator:a3f1c21273e0ac8d852de9f074e87ef71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dadabbb345366c733e4e1fe2b7bd7af" id="r_a7dadabbb345366c733e4e1fe2b7bd7af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7dadabbb345366c733e4e1fe2b7bd7af">removeTicker</a> (Ticker ticker) noexcept</td></tr>
+<tr class="memitem:a7dadabbb345366c733e4e1fe2b7bd7af" id="r_a7dadabbb345366c733e4e1fe2b7bd7af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7dadabbb345366c733e4e1fe2b7bd7af">removeTicker</a> (<a class="el" href="event_8hpp.html#a68e9b0556d21b1dfe59c902e924247df">Ticker</a> ticker) noexcept</td></tr>
 <tr class="memdesc:a7dadabbb345366c733e4e1fe2b7bd7af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Halts a ticker.  <br /></td></tr>
 <tr class="separator:a7dadabbb345366c733e4e1fe2b7bd7af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae02776d13cd5266a903368dfcbdbc398" id="r_ae02776d13cd5266a903368dfcbdbc398"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae02776d13cd5266a903368dfcbdbc398">sendDrawEvents</a> (unsigned int frequency)</td></tr>
@@ -158,19 +160,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const 
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Ticker tr::EventQueue::addTicker </td>
+          <td class="memname"><a class="el" href="event_8hpp.html#a68e9b0556d21b1dfe59c902e924247df">Ticker</a> tr::EventQueue::addTicker </td>
           <td>(</td>
           <td class="paramtype">std::int32_t</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">MillisecondsD</td>          <td class="paramname"><span class="paramname"><em>interval</em></span>, </td>
+          <td class="paramtype"><a class="el" href="chrono_8hpp.html#a44bf9d31042d53b7fb627b6f371e365d">MillisecondsD</a></td>          <td class="paramname"><span class="paramname"><em>interval</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -178,11 +177,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const 
           <td class="paramtype">std::uint32_t</td>          <td class="paramname"><span class="paramname"><em>nticks</em></span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Adds a ticker that generates tick events at a regular interval. </p>
@@ -223,7 +217,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const 
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -238,9 +232,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const 
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void tr::EventQueue::pushEvent </td>
@@ -249,11 +240,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const 
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Pushes an event to the queue. </p>
@@ -284,13 +270,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const 
         <tr>
           <td class="memname">void tr::EventQueue::removeTicker </td>
           <td>(</td>
-          <td class="paramtype">Ticker</td>          <td class="paramname"><span class="paramname"><em>ticker</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="event_8hpp.html#a68e9b0556d21b1dfe59c902e924247df">Ticker</a></td>          <td class="paramname"><span class="paramname"><em>ticker</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -310,9 +296,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const 
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void tr::EventQueue::sendDrawEvents </td>
@@ -321,11 +304,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const 
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Sets the frequency at which draw events are sent at. </p>
@@ -363,7 +341,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const 
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -396,7 +374,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const 
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -424,7 +402,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const 
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -441,7 +419,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="event_8cppm.html">event.cppm</a></li>
+<li><a class="el" href="event_8hpp_source.html">event.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

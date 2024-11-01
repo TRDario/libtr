@@ -94,17 +94,19 @@ $(function(){ initResizable(false); });
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1Benchmark-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::Benchmark Class Reference<span class="mlabels"><span class="mlabel">export</span></span><div class="ingroups">module <a class="el" href="module__tr.html">tr</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::Benchmark Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Simple benchmarking class.  
  <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="benchmark_8hpp_source.html">benchmark.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:adccbba52aa9a36beebf884c6daa1cece" id="r_adccbba52aa9a36beebf884c6daa1cece"><td class="memItemLeft" align="right" valign="top"><a id="adccbba52aa9a36beebf884c6daa1cece" name="adccbba52aa9a36beebf884c6daa1cece"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>Deque</b> = std::deque&lt;std::pair&lt;TimePoint, Duration&gt;&gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Deque</b> = std::deque&lt;std::pair&lt;<a class="el" href="chrono_8hpp.html#a406e1cc6456f37b7be0eb57f4c63c91b">TimePoint</a>, <a class="el" href="chrono_8hpp.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&gt;&gt;</td></tr>
 <tr class="memdesc:adccbba52aa9a36beebf884c6daa1cece"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for the deque type used by the benchmark. <br /></td></tr>
 <tr class="separator:adccbba52aa9a36beebf884c6daa1cece"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -114,7 +116,7 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Benchmark</b> () noexcept</td></tr>
 <tr class="memdesc:ae3ae0211b9084db4463cd71db808ea01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default-constructs an empty benchmark. <br /></td></tr>
 <tr class="separator:ae3ae0211b9084db4463cd71db808ea01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a672c6dffc1bea90d7bafb4a768c9ab4c" id="r_a672c6dffc1bea90d7bafb4a768c9ab4c"><td class="memItemLeft" align="right" valign="top">Duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a672c6dffc1bea90d7bafb4a768c9ab4c">average</a> () const noexcept</td></tr>
+<tr class="memitem:a672c6dffc1bea90d7bafb4a768c9ab4c" id="r_a672c6dffc1bea90d7bafb4a768c9ab4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="chrono_8hpp.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a672c6dffc1bea90d7bafb4a768c9ab4c">average</a> () const noexcept</td></tr>
 <tr class="memdesc:a672c6dffc1bea90d7bafb4a768c9ab4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the average duration of the available measurements.  <br /></td></tr>
 <tr class="separator:a672c6dffc1bea90d7bafb4a768c9ab4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb0371cefbfe28a49179a4b8eceedbff" id="r_afb0371cefbfe28a49179a4b8eceedbff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb0371cefbfe28a49179a4b8eceedbff">clear</a> () noexcept</td></tr>
@@ -123,16 +125,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aff03b65130ddc137a192f4e362b6d872" id="r_aff03b65130ddc137a192f4e362b6d872"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff03b65130ddc137a192f4e362b6d872">fps</a> () const noexcept</td></tr>
 <tr class="memdesc:aff03b65130ddc137a192f4e362b6d872"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the average number of measurements per second.  <br /></td></tr>
 <tr class="separator:aff03b65130ddc137a192f4e362b6d872"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7422b7ea19e5b9d8b8bef5329cad0b9" id="r_af7422b7ea19e5b9d8b8bef5329cad0b9"><td class="memItemLeft" align="right" valign="top">Duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7422b7ea19e5b9d8b8bef5329cad0b9">latest</a> () const noexcept</td></tr>
+<tr class="memitem:af7422b7ea19e5b9d8b8bef5329cad0b9" id="r_af7422b7ea19e5b9d8b8bef5329cad0b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="chrono_8hpp.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7422b7ea19e5b9d8b8bef5329cad0b9">latest</a> () const noexcept</td></tr>
 <tr class="memdesc:af7422b7ea19e5b9d8b8bef5329cad0b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the duration of the latest measurement.  <br /></td></tr>
 <tr class="separator:af7422b7ea19e5b9d8b8bef5329cad0b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65f621eca966efb1aae07002bce7669b" id="r_a65f621eca966efb1aae07002bce7669b"><td class="memItemLeft" align="right" valign="top">Duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65f621eca966efb1aae07002bce7669b">max</a> () const noexcept</td></tr>
+<tr class="memitem:a65f621eca966efb1aae07002bce7669b" id="r_a65f621eca966efb1aae07002bce7669b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="chrono_8hpp.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65f621eca966efb1aae07002bce7669b">max</a> () const noexcept</td></tr>
 <tr class="memdesc:a65f621eca966efb1aae07002bce7669b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the duration of the longest available measurement.  <br /></td></tr>
 <tr class="separator:a65f621eca966efb1aae07002bce7669b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a635ef2ea9fac493c8629268431184a8c" id="r_a635ef2ea9fac493c8629268431184a8c"><td class="memItemLeft" align="right" valign="top">const Deque &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a635ef2ea9fac493c8629268431184a8c">measurements</a> () const noexcept</td></tr>
+<tr class="memitem:a635ef2ea9fac493c8629268431184a8c" id="r_a635ef2ea9fac493c8629268431184a8c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="#adccbba52aa9a36beebf884c6daa1cece">Deque</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a635ef2ea9fac493c8629268431184a8c">measurements</a> () const noexcept</td></tr>
 <tr class="memdesc:a635ef2ea9fac493c8629268431184a8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the available measurements.  <br /></td></tr>
 <tr class="separator:a635ef2ea9fac493c8629268431184a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a504426fb6b9017e7d7bce75b8462d7bc" id="r_a504426fb6b9017e7d7bce75b8462d7bc"><td class="memItemLeft" align="right" valign="top">Duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a504426fb6b9017e7d7bce75b8462d7bc">min</a> () const noexcept</td></tr>
+<tr class="memitem:a504426fb6b9017e7d7bce75b8462d7bc" id="r_a504426fb6b9017e7d7bce75b8462d7bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="chrono_8hpp.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a504426fb6b9017e7d7bce75b8462d7bc">min</a> () const noexcept</td></tr>
 <tr class="memdesc:a504426fb6b9017e7d7bce75b8462d7bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the duration of the shortest available measurement.  <br /></td></tr>
 <tr class="separator:a504426fb6b9017e7d7bce75b8462d7bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47f16c4aef56b79143f2d6f23bf49880" id="r_a47f16c4aef56b79143f2d6f23bf49880"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47f16c4aef56b79143f2d6f23bf49880">start</a> () noexcept</td></tr>
@@ -156,7 +158,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Duration tr::Benchmark::average </td>
+          <td class="memname"><a class="el" href="chrono_8hpp.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a> tr::Benchmark::average </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -164,7 +166,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -192,7 +194,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -220,7 +222,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -240,7 +242,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Duration tr::Benchmark::latest </td>
+          <td class="memname"><a class="el" href="chrono_8hpp.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a> tr::Benchmark::latest </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -248,7 +250,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -268,7 +270,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Duration tr::Benchmark::max </td>
+          <td class="memname"><a class="el" href="chrono_8hpp.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a> tr::Benchmark::max </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -276,7 +278,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -296,7 +298,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const Deque &amp; tr::Benchmark::measurements </td>
+          <td class="memname">const <a class="el" href="#adccbba52aa9a36beebf884c6daa1cece">Deque</a> &amp; tr::Benchmark::measurements </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -304,7 +306,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -324,7 +326,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Duration tr::Benchmark::min </td>
+          <td class="memname"><a class="el" href="chrono_8hpp.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a> tr::Benchmark::min </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -332,7 +334,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -360,7 +362,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -375,9 +377,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void tr::Benchmark::stop </td>
@@ -386,11 +385,6 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Stops a measurement. </p>
@@ -405,7 +399,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="benchmark_8cppm.html">benchmark.cppm</a></li>
+<li><a class="el" href="benchmark_8hpp_source.html">benchmark.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

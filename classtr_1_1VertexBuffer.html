@@ -93,19 +93,21 @@ $(function(){ initResizable(false); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1VertexBuffer-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::VertexBuffer Class Reference<span class="mlabels"><span class="mlabel">export</span></span><div class="ingroups">module <a class="el" href="module__tr.html">tr</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::VertexBuffer Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>GPU vertex buffer class.  
  <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="vertex__buffer_8hpp_source.html">vertex_buffer.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af2497bbea6b53bc876abfea82376ca44" id="r_af2497bbea6b53bc876abfea82376ca44"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2497bbea6b53bc876abfea82376ca44">VertexBuffer</a> () noexcept</td></tr>
 <tr class="memdesc:af2497bbea6b53bc876abfea82376ca44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty vertex buffer.  <br /></td></tr>
 <tr class="separator:af2497bbea6b53bc876abfea82376ca44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ed5bc742a2130b749e2774c704fe864" id="r_a7ed5bc742a2130b749e2774c704fe864"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ed5bc742a2130b749e2774c704fe864">VertexBuffer</a> (std::size_t capacity)</td></tr>
+<tr class="memitem:a7ed5bc742a2130b749e2774c704fe864" id="r_a7ed5bc742a2130b749e2774c704fe864"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ed5bc742a2130b749e2774c704fe864">VertexBuffer</a> (std::size_t <a class="el" href="#a5f80acdd1710f2af851efbe70e97b373">capacity</a>)</td></tr>
 <tr class="memdesc:a7ed5bc742a2130b749e2774c704fe864"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates a vertex buffer.  <br /></td></tr>
 <tr class="separator:a7ed5bc742a2130b749e2774c704fe864"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad77bdca8a9cba9788e210d6850de5c5a" id="r_ad77bdca8a9cba9788e210d6850de5c5a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad77bdca8a9cba9788e210d6850de5c5a">VertexBuffer</a> (std::span&lt; const std::byte &gt; data)</td></tr>
@@ -120,13 +122,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:accd0c27c682f84562cd12bbccb5f23bc" id="r_accd0c27c682f84562cd12bbccb5f23bc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accd0c27c682f84562cd12bbccb5f23bc">empty</a> () const noexcept</td></tr>
 <tr class="memdesc:accd0c27c682f84562cd12bbccb5f23bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the vertex buffer is empty.  <br /></td></tr>
 <tr class="separator:accd0c27c682f84562cd12bbccb5f23bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cb3bcb83ec4c173a220853d3e08a4c2" id="r_a7cb3bcb83ec4c173a220853d3e08a4c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1GLBufferMap.html">GLBufferMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cb3bcb83ec4c173a220853d3e08a4c2">mapNew</a> (std::size_t size)</td></tr>
+<tr class="memitem:a7cb3bcb83ec4c173a220853d3e08a4c2" id="r_a7cb3bcb83ec4c173a220853d3e08a4c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1GLBufferMap.html">GLBufferMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cb3bcb83ec4c173a220853d3e08a4c2">mapNew</a> (std::size_t <a class="el" href="#ab1182e5b8b56abc8a6501c57a73d30b5">size</a>)</td></tr>
 <tr class="memdesc:a7cb3bcb83ec4c173a220853d3e08a4c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps the buffer, invalidating the previous contents in the process and resetting its size.  <br /></td></tr>
 <tr class="separator:a7cb3bcb83ec4c173a220853d3e08a4c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a606135f69635cf1e335d146e72d67797" id="r_a606135f69635cf1e335d146e72d67797"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a606135f69635cf1e335d146e72d67797">mapped</a> () const noexcept</td></tr>
 <tr class="memdesc:a606135f69635cf1e335d146e72d67797"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the buffer is mapped.  <br /></td></tr>
 <tr class="separator:a606135f69635cf1e335d146e72d67797"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea4acb45c609d769559dc18f23cb6994" id="r_aea4acb45c609d769559dc18f23cb6994"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1GLBufferMap.html">GLBufferMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea4acb45c609d769559dc18f23cb6994">mapRegion</a> (std::size_t offset, std::size_t size)</td></tr>
+<tr class="memitem:aea4acb45c609d769559dc18f23cb6994" id="r_aea4acb45c609d769559dc18f23cb6994"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1GLBufferMap.html">GLBufferMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea4acb45c609d769559dc18f23cb6994">mapRegion</a> (std::size_t offset, std::size_t <a class="el" href="#ab1182e5b8b56abc8a6501c57a73d30b5">size</a>)</td></tr>
 <tr class="memdesc:aea4acb45c609d769559dc18f23cb6994"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps a region of the buffer, invalidating the previous contents in the process.  <br /></td></tr>
 <tr class="separator:aea4acb45c609d769559dc18f23cb6994"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd47c575cd53f7c6cae0f8d93d4d2ac0" id="r_afd47c575cd53f7c6cae0f8d93d4d2ac0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd47c575cd53f7c6cae0f8d93d4d2ac0">set</a> (std::span&lt; const std::byte &gt; data)</td></tr>
@@ -164,7 +166,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -179,9 +181,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">tr::VertexBuffer::VertexBuffer </td>
@@ -190,11 +189,6 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Allocates a vertex buffer. </p>
@@ -220,9 +214,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">tr::VertexBuffer::VertexBuffer </td>
@@ -231,11 +222,6 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Allocates a vertex buffer and fills it with data. </p>
@@ -275,7 +261,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -304,7 +290,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -333,7 +319,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -348,9 +334,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classtr_1_1GLBufferMap.html">GLBufferMap</a> tr::VertexBuffer::mapNew </td>
@@ -359,15 +342,10 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Maps the buffer, invalidating the previous contents in the process and resetting its size. </p>
-<p>If <em>size</em> is greater than the capacity of the buffer, a reallocation will be done. This voids any previous bindings of the buffer to the context, and so it must be rebound. mapRegion() will never cause a reallocation, so may be used in cases where that's a requirement.</p>
+<p>If <em>size</em> is greater than the capacity of the buffer, a reallocation will be done. This voids any previous bindings of the buffer to the context, and so it must be rebound. <a class="el" href="#aea4acb45c609d769559dc18f23cb6994" title="Maps a region of the buffer, invalidating the previous contents in the process.">mapRegion()</a> will never cause a reallocation, so may be used in cases where that's a requirement.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1GLBufferBadAlloc.html" title="Error thrown when allocating a GPU buffer fails.">GLBufferBadAlloc</a></td><td>If a reallocation was triggered and reallocating the buffer failed. </td></tr>
@@ -403,7 +381,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -418,9 +396,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classtr_1_1GLBufferMap.html">GLBufferMap</a> tr::VertexBuffer::mapRegion </td>
@@ -433,15 +408,10 @@ Public Member Functions</h2></td></tr>
           <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Maps a region of the buffer, invalidating the previous contents in the process. </p>
-<p>Unlike mapNew(), a call to this function will never cause a reallocation, but an assertion may fail if an out-of-bounds map is requested.</p>
+<p>Unlike <a class="el" href="#a7cb3bcb83ec4c173a220853d3e08a4c2" title="Maps the buffer, invalidating the previous contents in the process and resetting its size.">mapNew()</a>, a call to this function will never cause a reallocation, but an assertion may fail if an out-of-bounds map is requested.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1GLMapBadAlloc.html" title="Error thrown when mapping a GPU buffer fails.">GLMapBadAlloc</a></td><td>If mapping the buffer failed.</td></tr>
@@ -451,7 +421,7 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">offset</td><td>The starting offset within the buffer in bytes. </td></tr>
-    <tr><td class="paramname">size</td><td>The size of the mapped region in bytes. Must be greater than 0, and <code>offset + data.size() &lt;= capacity()</code> must hold true, otherwise a failed assertion may be triggered.</td></tr>
+    <tr><td class="paramname">size</td><td>The size of the mapped region in bytes. Must be greater than 0, and <code>offset + data.size() &lt;= <a class="el" href="#a5f80acdd1710f2af851efbe70e97b373" title="Gets the capacity of the vertex buffer.">capacity()</a></code> must hold true, otherwise a failed assertion may be triggered.</td></tr>
   </table>
   </dd>
 </dl>
@@ -464,9 +434,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void tr::VertexBuffer::set </td>
@@ -475,15 +442,10 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Sets the contents of the buffer. </p>
-<p>If data.size() is greater than the capacity of the buffer, a reallocation will be done. This voids any previous bindings of the buffer to the context, and so it must be rebound. setRegion() will never cause a reallocation, so may be used in cases where that's a requirement.</p>
+<p>If data.size() is greater than the capacity of the buffer, a reallocation will be done. This voids any previous bindings of the buffer to the context, and so it must be rebound. <a class="el" href="#af8c1e5f8a478ef1a7b04b46884ed9a95" title="Sets a region of the buffer.">setRegion()</a> will never cause a reallocation, so may be used in cases where that's a requirement.</p>
 <p>The buffer cannot be mapped when this function is called.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
@@ -518,7 +480,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -555,18 +517,18 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Sets a region of the buffer. </p>
-<p>Unlike set(), a call to this function will never cause a reallocation, but an assertion may fail if a span too large is passed to it.</p>
+<p>Unlike <a class="el" href="#afd47c575cd53f7c6cae0f8d93d4d2ac0" title="Sets the contents of the buffer.">set()</a>, a call to this function will never cause a reallocation, but an assertion may fail if a span too large is passed to it.</p>
 <p>The buffer cannot be mapped when this function is called.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">offset</td><td>The starting offset within the buffer in bytes. </td></tr>
-    <tr><td class="paramname">data</td><td>The new data of the buffer. <code>offset + data.size() &lt;= capacity()</code> must hold true, otherwise a failed assertion may be triggered. </td></tr>
+    <tr><td class="paramname">data</td><td>The new data of the buffer. <code>offset + data.size() &lt;= <a class="el" href="#a5f80acdd1710f2af851efbe70e97b373" title="Gets the capacity of the vertex buffer.">capacity()</a></code> must hold true, otherwise a failed assertion may be triggered. </td></tr>
   </table>
   </dd>
 </dl>
@@ -591,7 +553,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -602,7 +564,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="vertex__buffer_8cppm.html">vertex_buffer.cppm</a></li>
+<li><a class="el" href="vertex__buffer_8hpp_source.html">vertex_buffer.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

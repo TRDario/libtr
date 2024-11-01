@@ -93,19 +93,20 @@ $(function(){ initResizable(false); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1Event-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::Event Class Reference<span class="mlabels"><span class="mlabel">export</span></span><div class="ingroups">module <a class="el" href="module__tr.html">tr</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::Event Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Unified event type.  
  <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="event_8hpp_source.html">event.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a68c3e567fb1bc298b8ba2921783319e0" id="r_a68c3e567fb1bc298b8ba2921783319e0"><td class="memTemplParams" colspan="2">template&lt;CustomEventType T&gt; </td></tr>
-<tr class="memitem:a68c3e567fb1bc298b8ba2921783319e0"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a68c3e567fb1bc298b8ba2921783319e0">Event</a> (const T &amp;custom)</td></tr>
-<tr class="memdesc:a68c3e567fb1bc298b8ba2921783319e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an event from a custom event type.  <br /></td></tr>
-<tr class="separator:a68c3e567fb1bc298b8ba2921783319e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af08ed776d287a0d411ab1218786dcb8e" id="r_af08ed776d287a0d411ab1218786dcb8e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af08ed776d287a0d411ab1218786dcb8e">Event</a> (const <a class="el" href="structtr_1_1CustomEventBase.html">CustomEventBase</a> &amp;custom)</td></tr>
+<tr class="memdesc:af08ed776d287a0d411ab1218786dcb8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an event from a custom event base.  <br /></td></tr>
+<tr class="separator:af08ed776d287a0d411ab1218786dcb8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14e2e34c4aef4a5e429b0d3adcba5212" id="r_a14e2e34c4aef4a5e429b0d3adcba5212"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14e2e34c4aef4a5e429b0d3adcba5212">operator KeyDownEvent</a> () const noexcept</td></tr>
 <tr class="memdesc:a14e2e34c4aef4a5e429b0d3adcba5212"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the event into a key down event.  <br /></td></tr>
 <tr class="separator:a14e2e34c4aef4a5e429b0d3adcba5212"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,38 +148,22 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Unified event type. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a68c3e567fb1bc298b8ba2921783319e0" name="a68c3e567fb1bc298b8ba2921783319e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68c3e567fb1bc298b8ba2921783319e0">&#9670;&#160;</a></span>Event()</h2>
+<a id="af08ed776d287a0d411ab1218786dcb8e" name="af08ed776d287a0d411ab1218786dcb8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af08ed776d287a0d411ab1218786dcb8e">&#9670;&#160;</a></span>Event()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;CustomEventType T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">tr::Event::Event </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>custom</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="structtr_1_1CustomEventBase.html">CustomEventBase</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>custom</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Constructs an event from a custom event type. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>A custom event type.</td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Constructs an event from a custom event base. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::bad_alloc</td><td>If allocating generic values failed.</td></tr>
@@ -187,7 +172,7 @@ template&lt;CustomEventType T&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">custom</td><td>The event to convert into a generic event. </td></tr>
+    <tr><td class="paramname">custom</td><td>The custom event base to convert into a generic event. </td></tr>
   </table>
   </dd>
 </dl>
@@ -213,7 +198,7 @@ template&lt;CustomEventType T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -241,7 +226,7 @@ template&lt;CustomEventType T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -269,7 +254,7 @@ template&lt;CustomEventType T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -297,7 +282,7 @@ template&lt;CustomEventType T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -325,7 +310,7 @@ template&lt;CustomEventType T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -353,7 +338,7 @@ template&lt;CustomEventType T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -383,7 +368,7 @@ template&lt;std::constructible_from&lt; <a class="el" href="structtr_1_1CustomEv
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -411,7 +396,7 @@ template&lt;std::constructible_from&lt; <a class="el" href="structtr_1_1CustomEv
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -439,7 +424,7 @@ template&lt;std::constructible_from&lt; <a class="el" href="structtr_1_1CustomEv
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -467,7 +452,7 @@ template&lt;std::constructible_from&lt; <a class="el" href="structtr_1_1CustomEv
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -487,7 +472,7 @@ template&lt;std::constructible_from&lt; <a class="el" href="structtr_1_1CustomEv
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">tr::Event::operator WindowEvent </td>
+          <td class="memname">tr::Event::operator <a class="el" href="event_8hpp.html#a60acb6d33ea6d3e8eb527040fef9bf16">WindowEvent</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -495,7 +480,7 @@ template&lt;std::constructible_from&lt; <a class="el" href="structtr_1_1CustomEv
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -523,7 +508,7 @@ template&lt;std::constructible_from&lt; <a class="el" href="structtr_1_1CustomEv
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -534,7 +519,7 @@ template&lt;std::constructible_from&lt; <a class="el" href="structtr_1_1CustomEv
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="event_8cppm.html">event.cppm</a></li>
+<li><a class="el" href="event_8hpp_source.html">event.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

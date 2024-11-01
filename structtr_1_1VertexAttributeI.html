@@ -94,25 +94,27 @@ $(function(){ initResizable(false); });
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structtr_1_1VertexAttributeI-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::VertexAttributeI Struct Reference<span class="mlabels"><span class="mlabel">export</span></span><div class="ingroups">module <a class="el" href="module__tr.html">tr</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::VertexAttributeI Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Integer vertex attribute.  
  <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="vertex__format_8hpp_source.html">vertex_format.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:ae3635e5e0113f63d27fa64da516d8310" id="r_ae3635e5e0113f63d27fa64da516d8310"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3635e5e0113f63d27fa64da516d8310">Type</a> { <br />
-&#160;&#160;<a class="el" href="#ae3635e5e0113f63d27fa64da516d8310a03df2edcce31f95e9424a71451bff2f0">SI8</a> = GL_BYTE
-, <a class="el" href="#ae3635e5e0113f63d27fa64da516d8310a4b3e360a863ad94e54b89e5ac32a172e">UI8</a> = GL_UNSIGNED_BYTE
-, <a class="el" href="#ae3635e5e0113f63d27fa64da516d8310ac7f2225bba20e1be67d4c913444cefc3">SI16</a> = GL_SHORT
-, <a class="el" href="#ae3635e5e0113f63d27fa64da516d8310a39ee0d46c81e40e1513ad9ea8ce58034">UI16</a> = GL_UNSIGNED_SHORT
+&#160;&#160;<a class="el" href="#ae3635e5e0113f63d27fa64da516d8310a03df2edcce31f95e9424a71451bff2f0">SI8</a> = 0x1400
+, <a class="el" href="#ae3635e5e0113f63d27fa64da516d8310a4b3e360a863ad94e54b89e5ac32a172e">UI8</a>
+, <a class="el" href="#ae3635e5e0113f63d27fa64da516d8310ac7f2225bba20e1be67d4c913444cefc3">SI16</a>
+, <a class="el" href="#ae3635e5e0113f63d27fa64da516d8310a39ee0d46c81e40e1513ad9ea8ce58034">UI16</a>
 , <br />
-&#160;&#160;<a class="el" href="#ae3635e5e0113f63d27fa64da516d8310a149afefb1ab189213ba569e2d5587c30">SI32</a> = GL_INT
-, <a class="el" href="#ae3635e5e0113f63d27fa64da516d8310ac0780d271cd6148696b5fc491f4ab138">UI32</a> = GL_UNSIGNED_INT
-, <a class="el" href="#ae3635e5e0113f63d27fa64da516d8310aadd8361288f579525bddc131b37220a1">SI2_10_10_10</a> = GL_INT_2_10_10_10_REV
-, <a class="el" href="#ae3635e5e0113f63d27fa64da516d8310a7761587a0c6489602ab6f746a9d0f954">UI2_10_10_10</a> = GL_UNSIGNED_INT_2_10_10_10_REV
+&#160;&#160;<a class="el" href="#ae3635e5e0113f63d27fa64da516d8310a149afefb1ab189213ba569e2d5587c30">SI32</a>
+, <a class="el" href="#ae3635e5e0113f63d27fa64da516d8310ac0780d271cd6148696b5fc491f4ab138">UI32</a>
+, <a class="el" href="#ae3635e5e0113f63d27fa64da516d8310aadd8361288f579525bddc131b37220a1">SI2_10_10_10</a> = 0x8D9F
+, <a class="el" href="#ae3635e5e0113f63d27fa64da516d8310a7761587a0c6489602ab6f746a9d0f954">UI2_10_10_10</a> = 0x8368
 <br />
  }</td></tr>
 <tr class="memdesc:ae3635e5e0113f63d27fa64da516d8310"><td class="mdescLeft">&#160;</td><td class="mdescRight">The source data's type.  <a href="#ae3635e5e0113f63d27fa64da516d8310">More...</a><br /></td></tr>
@@ -129,7 +131,7 @@ std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>offset</b></
 <tr class="memdesc:a4dc1a29d4d6ecf74ee01abb62cb3cbbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">The relative position of the attribute within a vertex in bytes. <br /></td></tr>
 <tr class="separator:a4dc1a29d4d6ecf74ee01abb62cb3cbbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7aad82ba9b57060d9e3bf77de573d610" id="r_a7aad82ba9b57060d9e3bf77de573d610"><td class="memItemLeft" align="right" valign="top"><a id="a7aad82ba9b57060d9e3bf77de573d610" name="a7aad82ba9b57060d9e3bf77de573d610"></a>
-Type&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
+<a class="el" href="#ae3635e5e0113f63d27fa64da516d8310">Type</a>&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
 <tr class="memdesc:a7aad82ba9b57060d9e3bf77de573d610"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type being converted to an intger. <br /></td></tr>
 <tr class="separator:a7aad82ba9b57060d9e3bf77de573d610"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -146,12 +148,12 @@ Type&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class tr::VertexAttributeI::Type</td>
+          <td class="memname">enum class <a class="el" href="#ae3635e5e0113f63d27fa64da516d8310">tr::VertexAttributeI::Type</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">strong</span></span>  </td>
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -181,7 +183,7 @@ Type&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="vertex__format_8cppm.html">vertex_format.cppm</a></li>
+<li><a class="el" href="vertex__format_8hpp_source.html">vertex_format.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

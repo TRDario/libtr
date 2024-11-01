@@ -95,12 +95,14 @@ $(function(){ initResizable(false); });
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1TTFont-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::TTFont Class Reference<span class="mlabels"><span class="mlabel">export</span></span><div class="ingroups">module <a class="el" href="module__tr.html">tr</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::TTFont Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>TrueType font.  
  <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="ttfont_8hpp_source.html">ttfont.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -148,12 +150,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a1d8aa109fde115d99bac6c135fcef033"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a font from file.  <br /></td></tr>
 <tr class="separator:a1d8aa109fde115d99bac6c135fcef033"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ad249e31c5b1670153279d1f8ca758f" id="r_a7ad249e31c5b1670153279d1f8ca758f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ad249e31c5b1670153279d1f8ca758f">TTFont</a> (std::span&lt; const std::byte &gt; embeddedFile, int size, glm::uvec2 dpi={ 72, 72 }) noexcept</td></tr>
-<tr class="memdesc:a7ad249e31c5b1670153279d1f8ca758f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a font from file.  <br /></td></tr>
+<tr class="memdesc:a7ad249e31c5b1670153279d1f8ca758f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an embedded font file.  <br /></td></tr>
 <tr class="separator:a7ad249e31c5b1670153279d1f8ca758f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22207d2fc5fe00875b6d4e3855501f4a" id="r_a22207d2fc5fe00875b6d4e3855501f4a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22207d2fc5fe00875b6d4e3855501f4a">ascent</a> () const noexcept</td></tr>
 <tr class="memdesc:a22207d2fc5fe00875b6d4e3855501f4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the ascent of the font.  <br /></td></tr>
 <tr class="separator:a22207d2fc5fe00875b6d4e3855501f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae51fb887e628f7d0b90b16cf88293f47" id="r_ae51fb887e628f7d0b90b16cf88293f47"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae51fb887e628f7d0b90b16cf88293f47">contains</a> (std::uint32_t glyph) const noexcept</td></tr>
+<tr class="memitem:ae51fb887e628f7d0b90b16cf88293f47" id="r_ae51fb887e628f7d0b90b16cf88293f47"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae51fb887e628f7d0b90b16cf88293f47">contains</a> (std::uint32_t <a class="el" href="#a0a02854ee3cba554d89fd123135ba96c">glyph</a>) const noexcept</td></tr>
 <tr class="memdesc:ae51fb887e628f7d0b90b16cf88293f47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether a glyph is contained in the font.  <br /></td></tr>
 <tr class="separator:ae51fb887e628f7d0b90b16cf88293f47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a623c591b19256f3e1da47b28382539bf" id="r_a623c591b19256f3e1da47b28382539bf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a623c591b19256f3e1da47b28382539bf">descent</a> () const noexcept</td></tr>
@@ -174,7 +176,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aaccd358d4c7a82fb9b483bb51e3d4b25" id="r_aaccd358d4c7a82fb9b483bb51e3d4b25"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaccd358d4c7a82fb9b483bb51e3d4b25">height</a> () const noexcept</td></tr>
 <tr class="memdesc:aaccd358d4c7a82fb9b483bb51e3d4b25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the height of the font.  <br /></td></tr>
 <tr class="separator:aaccd358d4c7a82fb9b483bb51e3d4b25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace8154ed7bc4cc26a813ba85fe431c19" id="r_ace8154ed7bc4cc26a813ba85fe431c19"><td class="memItemLeft" align="right" valign="top">Hint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace8154ed7bc4cc26a813ba85fe431c19">hinting</a> () const noexcept</td></tr>
+<tr class="memitem:ace8154ed7bc4cc26a813ba85fe431c19" id="r_ace8154ed7bc4cc26a813ba85fe431c19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#aad356ceae9d21b8b20f98de5b47e45b2">Hint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace8154ed7bc4cc26a813ba85fe431c19">hinting</a> () const noexcept</td></tr>
 <tr class="memdesc:ace8154ed7bc4cc26a813ba85fe431c19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the hinting of the font.  <br /></td></tr>
 <tr class="separator:ace8154ed7bc4cc26a813ba85fe431c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add213bf99611173a461eca16fad1d3d6" id="r_add213bf99611173a461eca16fad1d3d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add213bf99611173a461eca16fad1d3d6">kerning</a> () const noexcept</td></tr>
@@ -189,34 +191,34 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a56b375df888a79c4e871d315e0b244d7" id="r_a56b375df888a79c4e871d315e0b244d7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56b375df888a79c4e871d315e0b244d7">outline</a> () const noexcept</td></tr>
 <tr class="memdesc:a56b375df888a79c4e871d315e0b244d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the outline thickness of the font.  <br /></td></tr>
 <tr class="separator:a56b375df888a79c4e871d315e0b244d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a383f2fb68eb5481acdc5786f3cf42293" id="r_a383f2fb68eb5481acdc5786f3cf42293"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a383f2fb68eb5481acdc5786f3cf42293">render</a> (const char *text, <a class="el" href="structtr_1_1RGBA.html">RGBA8</a> color) const</td></tr>
+<tr class="memitem:a383f2fb68eb5481acdc5786f3cf42293" id="r_a383f2fb68eb5481acdc5786f3cf42293"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a383f2fb68eb5481acdc5786f3cf42293">render</a> (const char *text, <a class="el" href="color_8hpp.html#a1713cee25653ace2c701e2811e86386c">RGBA8</a> color) const</td></tr>
 <tr class="memdesc:a383f2fb68eb5481acdc5786f3cf42293"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders a line of text.  <br /></td></tr>
 <tr class="separator:a383f2fb68eb5481acdc5786f3cf42293"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe28f80837b1793585d04f6455b4f89f" id="r_abe28f80837b1793585d04f6455b4f89f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe28f80837b1793585d04f6455b4f89f">render</a> (std::uint32_t cp, <a class="el" href="structtr_1_1RGBA.html">RGBA8</a> color) const</td></tr>
+<tr class="memitem:abe28f80837b1793585d04f6455b4f89f" id="r_abe28f80837b1793585d04f6455b4f89f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe28f80837b1793585d04f6455b4f89f">render</a> (std::uint32_t cp, <a class="el" href="color_8hpp.html#a1713cee25653ace2c701e2811e86386c">RGBA8</a> color) const</td></tr>
 <tr class="memdesc:abe28f80837b1793585d04f6455b4f89f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders a glyph.  <br /></td></tr>
 <tr class="separator:abe28f80837b1793585d04f6455b4f89f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06cf520a8ecae2fbd957604f348e81b8" id="r_a06cf520a8ecae2fbd957604f348e81b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06cf520a8ecae2fbd957604f348e81b8">renderWrapped</a> (const char *text, <a class="el" href="structtr_1_1RGBA.html">RGBA8</a> color, std::uint32_t width) const</td></tr>
+<tr class="memitem:a06cf520a8ecae2fbd957604f348e81b8" id="r_a06cf520a8ecae2fbd957604f348e81b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06cf520a8ecae2fbd957604f348e81b8">renderWrapped</a> (const char *text, <a class="el" href="color_8hpp.html#a1713cee25653ace2c701e2811e86386c">RGBA8</a> color, std::uint32_t width) const</td></tr>
 <tr class="memdesc:a06cf520a8ecae2fbd957604f348e81b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders wrapped text.  <br /></td></tr>
 <tr class="separator:a06cf520a8ecae2fbd957604f348e81b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea96194786b9e0b67aae28f1e6bf9fc3" id="r_aea96194786b9e0b67aae28f1e6bf9fc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea96194786b9e0b67aae28f1e6bf9fc3">resize</a> (int size, glm::uvec2 dpi={ 72, 72 })</td></tr>
 <tr class="memdesc:aea96194786b9e0b67aae28f1e6bf9fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes the font.  <br /></td></tr>
 <tr class="separator:aea96194786b9e0b67aae28f1e6bf9fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e45afe5475563dc0df92f3f63c76bdf" id="r_a8e45afe5475563dc0df92f3f63c76bdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e45afe5475563dc0df92f3f63c76bdf">setHinting</a> (Hint hinting) noexcept</td></tr>
+<tr class="memitem:a8e45afe5475563dc0df92f3f63c76bdf" id="r_a8e45afe5475563dc0df92f3f63c76bdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e45afe5475563dc0df92f3f63c76bdf">setHinting</a> (<a class="el" href="#aad356ceae9d21b8b20f98de5b47e45b2">Hint</a> <a class="el" href="#ace8154ed7bc4cc26a813ba85fe431c19">hinting</a>) noexcept</td></tr>
 <tr class="memdesc:a8e45afe5475563dc0df92f3f63c76bdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the hinting of the font.  <br /></td></tr>
 <tr class="separator:a8e45afe5475563dc0df92f3f63c76bdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9afaf58b13ffc668eab214df256ea4f" id="r_ac9afaf58b13ffc668eab214df256ea4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9afaf58b13ffc668eab214df256ea4f">setKerning</a> (bool kerning) noexcept</td></tr>
+<tr class="memitem:ac9afaf58b13ffc668eab214df256ea4f" id="r_ac9afaf58b13ffc668eab214df256ea4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9afaf58b13ffc668eab214df256ea4f">setKerning</a> (bool <a class="el" href="#add213bf99611173a461eca16fad1d3d6">kerning</a>) noexcept</td></tr>
 <tr class="memdesc:ac9afaf58b13ffc668eab214df256ea4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether kerning is enabled.  <br /></td></tr>
 <tr class="separator:ac9afaf58b13ffc668eab214df256ea4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a267e8929c68ba9df72bee7dd05d4000c" id="r_a267e8929c68ba9df72bee7dd05d4000c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a267e8929c68ba9df72bee7dd05d4000c">setOutline</a> (int thickness) noexcept</td></tr>
 <tr class="memdesc:a267e8929c68ba9df72bee7dd05d4000c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the outline thickness of the font.  <br /></td></tr>
 <tr class="separator:a267e8929c68ba9df72bee7dd05d4000c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1729048b25700f4de642a0bda36b21f7" id="r_a1729048b25700f4de642a0bda36b21f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1729048b25700f4de642a0bda36b21f7">setStyle</a> (Style style) noexcept</td></tr>
+<tr class="memitem:a1729048b25700f4de642a0bda36b21f7" id="r_a1729048b25700f4de642a0bda36b21f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1729048b25700f4de642a0bda36b21f7">setStyle</a> (<a class="el" href="#ae9e3791321570e21b34dc1578608df06">Style</a> <a class="el" href="#a2178bccff19c91c003fd3a206b75f0fa">style</a>) noexcept</td></tr>
 <tr class="memdesc:a1729048b25700f4de642a0bda36b21f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the style of the font.  <br /></td></tr>
 <tr class="separator:a1729048b25700f4de642a0bda36b21f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe4758b34874e67bbc19caaaf6888db1" id="r_abe4758b34874e67bbc19caaaf6888db1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe4758b34874e67bbc19caaaf6888db1">setWrapAlignment</a> (WrapAlignment alignment) noexcept</td></tr>
+<tr class="memitem:abe4758b34874e67bbc19caaaf6888db1" id="r_abe4758b34874e67bbc19caaaf6888db1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe4758b34874e67bbc19caaaf6888db1">setWrapAlignment</a> (<a class="el" href="#afd715019ff947708ce95f3670331b0fe">WrapAlignment</a> alignment) noexcept</td></tr>
 <tr class="memdesc:abe4758b34874e67bbc19caaaf6888db1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the wrap alignment of the font.  <br /></td></tr>
 <tr class="separator:abe4758b34874e67bbc19caaaf6888db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2178bccff19c91c003fd3a206b75f0fa" id="r_a2178bccff19c91c003fd3a206b75f0fa"><td class="memItemLeft" align="right" valign="top">Style&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2178bccff19c91c003fd3a206b75f0fa">style</a> () const noexcept</td></tr>
+<tr class="memitem:a2178bccff19c91c003fd3a206b75f0fa" id="r_a2178bccff19c91c003fd3a206b75f0fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ae9e3791321570e21b34dc1578608df06">Style</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2178bccff19c91c003fd3a206b75f0fa">style</a> () const noexcept</td></tr>
 <tr class="memdesc:a2178bccff19c91c003fd3a206b75f0fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the style of the font.  <br /></td></tr>
 <tr class="separator:a2178bccff19c91c003fd3a206b75f0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad419d8b57a4ff45cccd8530593b05c03" id="r_ad419d8b57a4ff45cccd8530593b05c03"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad419d8b57a4ff45cccd8530593b05c03">styleName</a> () const noexcept</td></tr>
@@ -225,7 +227,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5f338f4368e3abfa52ea5bcb34ba730b" id="r_a5f338f4368e3abfa52ea5bcb34ba730b"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f338f4368e3abfa52ea5bcb34ba730b">textSize</a> (const char *text) const noexcept</td></tr>
 <tr class="memdesc:a5f338f4368e3abfa52ea5bcb34ba730b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of a line of text.  <br /></td></tr>
 <tr class="separator:a5f338f4368e3abfa52ea5bcb34ba730b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe04ec82e8c597363e58d04d11744112" id="r_abe04ec82e8c597363e58d04d11744112"><td class="memItemLeft" align="right" valign="top">WrapAlignment&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe04ec82e8c597363e58d04d11744112">wrapAlignment</a> () const noexcept</td></tr>
+<tr class="memitem:abe04ec82e8c597363e58d04d11744112" id="r_abe04ec82e8c597363e58d04d11744112"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#afd715019ff947708ce95f3670331b0fe">WrapAlignment</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe04ec82e8c597363e58d04d11744112">wrapAlignment</a> () const noexcept</td></tr>
 <tr class="memdesc:abe04ec82e8c597363e58d04d11744112"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the wrap alignment of the font.  <br /></td></tr>
 <tr class="separator:abe04ec82e8c597363e58d04d11744112"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -242,12 +244,12 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class tr::TTFont::Hint</td>
+          <td class="memname">enum class <a class="el" href="#aad356ceae9d21b8b20f98de5b47e45b2">tr::TTFont::Hint</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">strong</span></span>  </td>
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -278,12 +280,12 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class tr::TTFont::Style</td>
+          <td class="memname">enum class <a class="el" href="#ae9e3791321570e21b34dc1578608df06">tr::TTFont::Style</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">strong</span></span>  </td>
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -315,12 +317,12 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class tr::TTFont::WrapAlignment</td>
+          <td class="memname">enum class <a class="el" href="#afd715019ff947708ce95f3670331b0fe">tr::TTFont::WrapAlignment</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">strong</span></span>  </td>
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -343,9 +345,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">tr::TTFont::TTFont </td>
@@ -363,11 +362,6 @@ Public Member Functions</h2></td></tr>
           <td class="paramtype">glm::uvec2</td>          <td class="paramname"><span class="paramname"><em>dpi</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{&#160;72,&#160;72&#160;}</span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Loads a font from file. </p>
@@ -416,16 +410,16 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Loads a font from file. </p>
+<p>Loads an embedded font file. </p>
 <p>A failed assertion may be triggered if loading the font failed.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>The path to the font file. </td></tr>
+    <tr><td class="paramname">embeddedFile</td><td>The embedded font file. </td></tr>
     <tr><td class="paramname">size</td><td>The point size of the font. </td></tr>
     <tr><td class="paramname">dpi</td><td>The target resolution of the font. </td></tr>
   </table>
@@ -453,7 +447,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -481,7 +475,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -515,7 +509,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -543,7 +537,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -571,7 +565,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -599,7 +593,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -627,7 +621,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -661,7 +655,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -681,7 +675,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Hint tr::TTFont::hinting </td>
+          <td class="memname"><a class="el" href="#aad356ceae9d21b8b20f98de5b47e45b2">Hint</a> tr::TTFont::hinting </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -689,7 +683,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -717,7 +711,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -745,7 +739,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -777,7 +771,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -812,7 +806,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -827,9 +821,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a> tr::TTFont::render </td>
@@ -839,14 +830,9 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structtr_1_1RGBA.html">RGBA8</a></td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;) const</td>
+          <td class="paramtype"><a class="el" href="color_8hpp.html#a1713cee25653ace2c701e2811e86386c">RGBA8</a></td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;) const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Renders a line of text. </p>
@@ -873,9 +859,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a> tr::TTFont::render </td>
@@ -885,14 +868,9 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structtr_1_1RGBA.html">RGBA8</a></td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;) const</td>
+          <td class="paramtype"><a class="el" href="color_8hpp.html#a1713cee25653ace2c701e2811e86386c">RGBA8</a></td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;) const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Renders a glyph. </p>
@@ -918,9 +896,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a> tr::TTFont::renderWrapped </td>
@@ -930,7 +905,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structtr_1_1RGBA.html">RGBA8</a></td>          <td class="paramname"><span class="paramname"><em>color</em></span>, </td>
+          <td class="paramtype"><a class="el" href="color_8hpp.html#a1713cee25653ace2c701e2811e86386c">RGBA8</a></td>          <td class="paramname"><span class="paramname"><em>color</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -938,11 +913,6 @@ Public Member Functions</h2></td></tr>
           <td class="paramtype">std::uint32_t</td>          <td class="paramname"><span class="paramname"><em>width</em></span>&#160;) const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Renders wrapped text. </p>
@@ -970,9 +940,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void tr::TTFont::resize </td>
@@ -985,11 +952,6 @@ Public Member Functions</h2></td></tr>
           <td class="paramtype">glm::uvec2</td>          <td class="paramname"><span class="paramname"><em>dpi</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{&#160;72,&#160;72&#160;}</span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Resizes the font. </p>
@@ -1021,13 +983,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void tr::TTFont::setHinting </td>
           <td>(</td>
-          <td class="paramtype">Hint</td>          <td class="paramname"><span class="paramname"><em>hinting</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#aad356ceae9d21b8b20f98de5b47e45b2">Hint</a></td>          <td class="paramname"><span class="paramname"><em>hinting</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1060,7 +1022,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1093,7 +1055,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1120,13 +1082,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void tr::TTFont::setStyle </td>
           <td>(</td>
-          <td class="paramtype">Style</td>          <td class="paramname"><span class="paramname"><em>style</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#ae9e3791321570e21b34dc1578608df06">Style</a></td>          <td class="paramname"><span class="paramname"><em>style</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1153,13 +1115,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void tr::TTFont::setWrapAlignment </td>
           <td>(</td>
-          <td class="paramtype">WrapAlignment</td>          <td class="paramname"><span class="paramname"><em>alignment</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#afd715019ff947708ce95f3670331b0fe">WrapAlignment</a></td>          <td class="paramname"><span class="paramname"><em>alignment</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1184,7 +1146,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Style tr::TTFont::style </td>
+          <td class="memname"><a class="el" href="#ae9e3791321570e21b34dc1578608df06">Style</a> tr::TTFont::style </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -1192,7 +1154,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1220,7 +1182,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1248,7 +1210,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1274,7 +1236,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">WrapAlignment tr::TTFont::wrapAlignment </td>
+          <td class="memname"><a class="el" href="#afd715019ff947708ce95f3670331b0fe">WrapAlignment</a> tr::TTFont::wrapAlignment </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -1282,7 +1244,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1293,7 +1255,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="ttfont_8cppm.html">ttfont.cppm</a></li>
+<li><a class="el" href="ttfont_8hpp_source.html">ttfont.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

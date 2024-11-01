@@ -93,12 +93,14 @@ $(function(){ initResizable(false); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1WindowView-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::WindowView Class Reference<span class="mlabels"><span class="mlabel">export</span></span><div class="ingroups">module <a class="el" href="module__tr.html">tr</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::WindowView Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Non-owning view over a window.  
  <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="window_8hpp_source.html">window.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for tr::WindowView:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -119,7 +121,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa66ee937c8a0fc1e9e7efe432800fbee" id="r_aa66ee937c8a0fc1e9e7efe432800fbee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa66ee937c8a0fc1e9e7efe432800fbee">bordered</a> () const noexcept</td></tr>
 <tr class="memdesc:aa66ee937c8a0fc1e9e7efe432800fbee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the window is bordered.  <br /></td></tr>
 <tr class="separator:aa66ee937c8a0fc1e9e7efe432800fbee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c961d5d20248aa8dac2051982c84a05" id="r_a4c961d5d20248aa8dac2051982c84a05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c961d5d20248aa8dac2051982c84a05">flash</a> (FlashOperation operation) const</td></tr>
+<tr class="memitem:a4c961d5d20248aa8dac2051982c84a05" id="r_a4c961d5d20248aa8dac2051982c84a05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c961d5d20248aa8dac2051982c84a05">flash</a> (<a class="el" href="window_8hpp.html#a41769bf3df85aadb5d910148498e9585">FlashOperation</a> operation) const</td></tr>
 <tr class="memdesc:a4c961d5d20248aa8dac2051982c84a05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flashes the window to get the user's attention.  <br /></td></tr>
 <tr class="separator:a4c961d5d20248aa8dac2051982c84a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e3dfc61aa7cd526f3f80380d7fbe39c" id="r_a0e3dfc61aa7cd526f3f80380d7fbe39c"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e3dfc61aa7cd526f3f80380d7fbe39c">fullscreenMode</a> () const noexcept</td></tr>
@@ -152,7 +154,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>minimize</b> () const
 <tr class="memitem:aa1c042cd4383284534f27f354ca16dee" id="r_aa1c042cd4383284534f27f354ca16dee"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1c042cd4383284534f27f354ca16dee">minSize</a> () const noexcept</td></tr>
 <tr class="memdesc:aa1c042cd4383284534f27f354ca16dee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the minimum resizable size of the window.  <br /></td></tr>
 <tr class="separator:aa1c042cd4383284534f27f354ca16dee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c3fdf6b0f1b1f6094c2551ebb1d87d4" id="r_a2c3fdf6b0f1b1f6094c2551ebb1d87d4"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="structtr_1_1Rect.html">RectI2</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c3fdf6b0f1b1f6094c2551ebb1d87d4">mouseConfines</a> () const noexcept</td></tr>
+<tr class="memitem:a2c3fdf6b0f1b1f6094c2551ebb1d87d4" id="r_a2c3fdf6b0f1b1f6094c2551ebb1d87d4"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="geometry_8hpp.html#a386ecd8029d58f09791896b6421218d9">RectI2</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c3fdf6b0f1b1f6094c2551ebb1d87d4">mouseConfines</a> () const noexcept</td></tr>
 <tr class="memdesc:a2c3fdf6b0f1b1f6094c2551ebb1d87d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the area the mouse is confined to when this window has focus.  <br /></td></tr>
 <tr class="separator:a2c3fdf6b0f1b1f6094c2551ebb1d87d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a115560011f8ec337a8e5c5ddfaaf98e6" id="r_a115560011f8ec337a8e5c5ddfaaf98e6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a115560011f8ec337a8e5c5ddfaaf98e6">mouseGrabbed</a> () const noexcept</td></tr>
@@ -179,10 +181,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>resetMouseConfines</b
 void&#160;</td><td class="memItemRight" valign="bottom"><b>restore</b> () const noexcept</td></tr>
 <tr class="memdesc:a770b3a9cd20c3fccaca605543966944e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores the window back to its previous size. <br /></td></tr>
 <tr class="separator:a770b3a9cd20c3fccaca605543966944e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ba6a70efc259e40634f0e9a2ee3deb8" id="r_a1ba6a70efc259e40634f0e9a2ee3deb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ba6a70efc259e40634f0e9a2ee3deb8">setAlwaysOnTop</a> (bool alwaysOnTop) const noexcept</td></tr>
+<tr class="memitem:a1ba6a70efc259e40634f0e9a2ee3deb8" id="r_a1ba6a70efc259e40634f0e9a2ee3deb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ba6a70efc259e40634f0e9a2ee3deb8">setAlwaysOnTop</a> (bool <a class="el" href="#ad0a5b4988e454263117cd6e3ffb26654">alwaysOnTop</a>) const noexcept</td></tr>
 <tr class="memdesc:a1ba6a70efc259e40634f0e9a2ee3deb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the window is always on top.  <br /></td></tr>
 <tr class="separator:a1ba6a70efc259e40634f0e9a2ee3deb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5148a24abdfcc5178857a00e141c107" id="r_ad5148a24abdfcc5178857a00e141c107"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5148a24abdfcc5178857a00e141c107">setBordered</a> (bool bordered) const noexcept</td></tr>
+<tr class="memitem:ad5148a24abdfcc5178857a00e141c107" id="r_ad5148a24abdfcc5178857a00e141c107"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5148a24abdfcc5178857a00e141c107">setBordered</a> (bool <a class="el" href="#aa66ee937c8a0fc1e9e7efe432800fbee">bordered</a>) const noexcept</td></tr>
 <tr class="memdesc:ad5148a24abdfcc5178857a00e141c107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the mouse is bordered.  <br /></td></tr>
 <tr class="separator:ad5148a24abdfcc5178857a00e141c107"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a144075d7d2fd50e69dcf959ddc19e8f4" id="r_a144075d7d2fd50e69dcf959ddc19e8f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a144075d7d2fd50e69dcf959ddc19e8f4">setFullscreenMode</a> (const <a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> &amp;dmode) const</td></tr>
@@ -191,34 +193,34 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>restore</b> () const 
 <tr class="memitem:a61703fddb87d3ffbf498725e4e7eb262" id="r_a61703fddb87d3ffbf498725e4e7eb262"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61703fddb87d3ffbf498725e4e7eb262">setIcon</a> (const <a class="el" href="classtr_1_1Bitmap.html">Bitmap</a> &amp;bitmap) const noexcept</td></tr>
 <tr class="memdesc:a61703fddb87d3ffbf498725e4e7eb262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the icon of the window.  <br /></td></tr>
 <tr class="separator:a61703fddb87d3ffbf498725e4e7eb262"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc50fbb1b4acd24fef670f524d11c1db" id="r_acc50fbb1b4acd24fef670f524d11c1db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc50fbb1b4acd24fef670f524d11c1db">setMaxSize</a> (glm::ivec2 maxSize) const noexcept</td></tr>
+<tr class="memitem:acc50fbb1b4acd24fef670f524d11c1db" id="r_acc50fbb1b4acd24fef670f524d11c1db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc50fbb1b4acd24fef670f524d11c1db">setMaxSize</a> (glm::ivec2 <a class="el" href="#a3fb228ef7b8928c4d623d8afa3e072fb">maxSize</a>) const noexcept</td></tr>
 <tr class="memdesc:acc50fbb1b4acd24fef670f524d11c1db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the maximum resizable size of the window.  <br /></td></tr>
 <tr class="separator:acc50fbb1b4acd24fef670f524d11c1db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae80ad7f5ed25e9a6ffcea5f8bda279c1" id="r_ae80ad7f5ed25e9a6ffcea5f8bda279c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae80ad7f5ed25e9a6ffcea5f8bda279c1">setMinSize</a> (glm::ivec2 minSize) const noexcept</td></tr>
+<tr class="memitem:ae80ad7f5ed25e9a6ffcea5f8bda279c1" id="r_ae80ad7f5ed25e9a6ffcea5f8bda279c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae80ad7f5ed25e9a6ffcea5f8bda279c1">setMinSize</a> (glm::ivec2 <a class="el" href="#aa1c042cd4383284534f27f354ca16dee">minSize</a>) const noexcept</td></tr>
 <tr class="memdesc:ae80ad7f5ed25e9a6ffcea5f8bda279c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the minimum resizable size of the window.  <br /></td></tr>
 <tr class="separator:ae80ad7f5ed25e9a6ffcea5f8bda279c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46dfca36a66c458698f7a9ca5652b919" id="r_a46dfca36a66c458698f7a9ca5652b919"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46dfca36a66c458698f7a9ca5652b919">setMouseConfines</a> (const <a class="el" href="structtr_1_1Rect.html">RectI2</a> &amp;rect) const noexcept</td></tr>
+<tr class="memitem:a46dfca36a66c458698f7a9ca5652b919" id="r_a46dfca36a66c458698f7a9ca5652b919"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46dfca36a66c458698f7a9ca5652b919">setMouseConfines</a> (const <a class="el" href="geometry_8hpp.html#a386ecd8029d58f09791896b6421218d9">RectI2</a> &amp;rect) const noexcept</td></tr>
 <tr class="memdesc:a46dfca36a66c458698f7a9ca5652b919"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the area the mouse is confined to when this window has focus.  <br /></td></tr>
 <tr class="separator:a46dfca36a66c458698f7a9ca5652b919"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab19dd0eb61fccea7669bfb92a576cf0e" id="r_ab19dd0eb61fccea7669bfb92a576cf0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab19dd0eb61fccea7669bfb92a576cf0e">setMouseGrab</a> (bool grab) const noexcept</td></tr>
 <tr class="memdesc:ab19dd0eb61fccea7669bfb92a576cf0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the mouse is grabbed and confined to this window.  <br /></td></tr>
 <tr class="separator:ab19dd0eb61fccea7669bfb92a576cf0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f797dc6dc6ec5e4cd485811cb3b8a95" id="r_a3f797dc6dc6ec5e4cd485811cb3b8a95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f797dc6dc6ec5e4cd485811cb3b8a95">setOpacity</a> (float opacity) const noexcept</td></tr>
+<tr class="memitem:a3f797dc6dc6ec5e4cd485811cb3b8a95" id="r_a3f797dc6dc6ec5e4cd485811cb3b8a95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f797dc6dc6ec5e4cd485811cb3b8a95">setOpacity</a> (float <a class="el" href="#a4f3fca5695af6049d5d225bf67341e26">opacity</a>) const noexcept</td></tr>
 <tr class="memdesc:a3f797dc6dc6ec5e4cd485811cb3b8a95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the opacity of the window.  <br /></td></tr>
 <tr class="separator:a3f797dc6dc6ec5e4cd485811cb3b8a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43a66e305c90fddc0e26b307e30ffeed" id="r_a43a66e305c90fddc0e26b307e30ffeed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43a66e305c90fddc0e26b307e30ffeed">setPos</a> (glm::ivec2 pos) const noexcept</td></tr>
+<tr class="memitem:a43a66e305c90fddc0e26b307e30ffeed" id="r_a43a66e305c90fddc0e26b307e30ffeed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43a66e305c90fddc0e26b307e30ffeed">setPos</a> (glm::ivec2 <a class="el" href="#aa7532e8bf46918a7d5501201d0ec7d55">pos</a>) const noexcept</td></tr>
 <tr class="memdesc:a43a66e305c90fddc0e26b307e30ffeed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the position of the window relative to the top-left corner of the display.  <br /></td></tr>
 <tr class="separator:a43a66e305c90fddc0e26b307e30ffeed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a362e2c2ccb05893edd21e478dfea7f76" id="r_a362e2c2ccb05893edd21e478dfea7f76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a362e2c2ccb05893edd21e478dfea7f76">setResizable</a> (bool resizable) const noexcept</td></tr>
+<tr class="memitem:a362e2c2ccb05893edd21e478dfea7f76" id="r_a362e2c2ccb05893edd21e478dfea7f76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a362e2c2ccb05893edd21e478dfea7f76">setResizable</a> (bool <a class="el" href="#a87c7ac55b04dda7711c03a6f2b93b304">resizable</a>) const noexcept</td></tr>
 <tr class="memdesc:a362e2c2ccb05893edd21e478dfea7f76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the window is resizable.  <br /></td></tr>
 <tr class="separator:a362e2c2ccb05893edd21e478dfea7f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af142d31c176cc90a8a801f41d95554a2" id="r_af142d31c176cc90a8a801f41d95554a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af142d31c176cc90a8a801f41d95554a2">setSize</a> (glm::ivec2 size) const noexcept</td></tr>
+<tr class="memitem:af142d31c176cc90a8a801f41d95554a2" id="r_af142d31c176cc90a8a801f41d95554a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af142d31c176cc90a8a801f41d95554a2">setSize</a> (glm::ivec2 <a class="el" href="#a6615443e010be9561d9046a89a2f8f35">size</a>) const noexcept</td></tr>
 <tr class="memdesc:af142d31c176cc90a8a801f41d95554a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the size of the window.  <br /></td></tr>
 <tr class="separator:af142d31c176cc90a8a801f41d95554a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93c4f16f59c6252e7e52a6c107ac08db" id="r_a93c4f16f59c6252e7e52a6c107ac08db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93c4f16f59c6252e7e52a6c107ac08db">setTitle</a> (const char *title) const noexcept</td></tr>
+<tr class="memitem:a93c4f16f59c6252e7e52a6c107ac08db" id="r_a93c4f16f59c6252e7e52a6c107ac08db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93c4f16f59c6252e7e52a6c107ac08db">setTitle</a> (const char *<a class="el" href="#acb89b1dc60ba551ba375b04b68101e97">title</a>) const noexcept</td></tr>
 <tr class="memdesc:a93c4f16f59c6252e7e52a6c107ac08db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the title of the window.  <br /></td></tr>
 <tr class="separator:a93c4f16f59c6252e7e52a6c107ac08db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23ddf1a74cf07fd9465f863fd0f90d5b" id="r_a23ddf1a74cf07fd9465f863fd0f90d5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23ddf1a74cf07fd9465f863fd0f90d5b">setWindowMode</a> (WindowMode mode) const</td></tr>
+<tr class="memitem:a23ddf1a74cf07fd9465f863fd0f90d5b" id="r_a23ddf1a74cf07fd9465f863fd0f90d5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23ddf1a74cf07fd9465f863fd0f90d5b">setWindowMode</a> (<a class="el" href="window_8hpp.html#a0caa27a38e3d8b688a5abab875ed28f7">WindowMode</a> mode) const</td></tr>
 <tr class="memdesc:a23ddf1a74cf07fd9465f863fd0f90d5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the window's window mode.  <br /></td></tr>
 <tr class="separator:a23ddf1a74cf07fd9465f863fd0f90d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fe455f93f34736e0f8d15cfc9f87de8" id="r_a3fe455f93f34736e0f8d15cfc9f87de8"><td class="memItemLeft" align="right" valign="top"><a id="a3fe455f93f34736e0f8d15cfc9f87de8" name="a3fe455f93f34736e0f8d15cfc9f87de8"></a>
@@ -238,7 +240,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
 <tr class="memitem:acb89b1dc60ba551ba375b04b68101e97" id="r_acb89b1dc60ba551ba375b04b68101e97"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb89b1dc60ba551ba375b04b68101e97">title</a> () const noexcept</td></tr>
 <tr class="memdesc:acb89b1dc60ba551ba375b04b68101e97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the title of the window.  <br /></td></tr>
 <tr class="separator:acb89b1dc60ba551ba375b04b68101e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52136c31cfa2bdb7e1d0fc0984fc3863" id="r_a52136c31cfa2bdb7e1d0fc0984fc3863"><td class="memItemLeft" align="right" valign="top">WindowMode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52136c31cfa2bdb7e1d0fc0984fc3863">windowMode</a> () const noexcept</td></tr>
+<tr class="memitem:a52136c31cfa2bdb7e1d0fc0984fc3863" id="r_a52136c31cfa2bdb7e1d0fc0984fc3863"><td class="memItemLeft" align="right" valign="top"><a class="el" href="window_8hpp.html#a0caa27a38e3d8b688a5abab875ed28f7">WindowMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52136c31cfa2bdb7e1d0fc0984fc3863">windowMode</a> () const noexcept</td></tr>
 <tr class="memdesc:a52136c31cfa2bdb7e1d0fc0984fc3863"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the window's window mode.  <br /></td></tr>
 <tr class="separator:a52136c31cfa2bdb7e1d0fc0984fc3863"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -263,7 +265,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -291,7 +293,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -306,22 +308,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void tr::WindowView::flash </td>
           <td>(</td>
-          <td class="paramtype">FlashOperation</td>          <td class="paramname"><span class="paramname"><em>operation</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="window_8hpp.html#a41769bf3df85aadb5d910148498e9585">FlashOperation</a></td>          <td class="paramname"><span class="paramname"><em>operation</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Flashes the window to get the user's attention. </p>
@@ -358,7 +352,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -386,7 +380,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -414,7 +408,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -442,7 +436,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -470,7 +464,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -498,7 +492,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -518,7 +512,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; <a class="el" href="structtr_1_1Rect.html">RectI2</a> &gt; tr::WindowView::mouseConfines </td>
+          <td class="memname">std::optional&lt; <a class="el" href="geometry_8hpp.html#a386ecd8029d58f09791896b6421218d9">RectI2</a> &gt; tr::WindowView::mouseConfines </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -526,7 +520,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -554,7 +548,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -582,7 +576,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -610,7 +604,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -638,7 +632,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -666,7 +660,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -699,7 +693,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -719,9 +713,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void tr::WindowView::setFullscreenMode </td>
@@ -730,11 +721,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Sets the window's fullscreen display mode. </p>
@@ -772,7 +758,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -805,7 +791,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -838,7 +824,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -865,13 +851,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
         <tr>
           <td class="memname">void tr::WindowView::setMouseConfines </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structtr_1_1Rect.html">RectI2</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rect</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="geometry_8hpp.html#a386ecd8029d58f09791896b6421218d9">RectI2</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rect</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -904,7 +890,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -937,7 +923,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -970,7 +956,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1003,7 +989,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1036,7 +1022,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1069,7 +1055,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1089,22 +1075,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void tr::WindowView::setWindowMode </td>
           <td>(</td>
-          <td class="paramtype">WindowMode</td>          <td class="paramname"><span class="paramname"><em>mode</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="window_8hpp.html#a0caa27a38e3d8b688a5abab875ed28f7">WindowMode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Sets the window's window mode. </p>
@@ -1141,7 +1119,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1169,7 +1147,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1197,7 +1175,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1217,7 +1195,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">WindowMode tr::WindowView::windowMode </td>
+          <td class="memname"><a class="el" href="window_8hpp.html#a0caa27a38e3d8b688a5abab875ed28f7">WindowMode</a> tr::WindowView::windowMode </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -1225,7 +1203,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1236,7 +1214,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> () const noe
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="window_8cppm.html">window.cppm</a></li>
+<li><a class="el" href="window_8hpp_source.html">window.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

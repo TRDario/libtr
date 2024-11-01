@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['framebuffer_2ecppm_0',['framebuffer.cppm',['../framebuffer_8cppm.html',1,'']]],
-  ['function_2ecppm_1',['function.cppm',['../function_8cppm.html',1,'']]]
+  ['framebuffer_2ehpp_0',['framebuffer.hpp',['../framebuffer_8hpp.html',1,'']]],
+  ['function_2ehpp_1',['function.hpp',['../function_8hpp.html',1,'']]]
 ];

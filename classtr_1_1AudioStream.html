@@ -94,12 +94,14 @@ $(function(){ initResizable(false); });
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classtr_1_1AudioStream-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::AudioStream Class Reference<span class="mlabels"><span class="mlabel">export</span></span><div class="ingroups">module <a class="el" href="module__tr.html">tr</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::AudioStream Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Streamed audio source.  
  <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="audio__stream_8hpp_source.html">audio_stream.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for tr::AudioStream:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -136,19 +138,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab98cdf334cc03905f1d8ffdae0c2ca2f" id="r_ab98cdf334cc03905f1d8ffdae0c2ca2f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab98cdf334cc03905f1d8ffdae0c2ca2f">gain</a> () const noexcept</td></tr>
 <tr class="memdesc:ab98cdf334cc03905f1d8ffdae0c2ca2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the gain of the source.  <br /></td></tr>
 <tr class="separator:ab98cdf334cc03905f1d8ffdae0c2ca2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8013d02aa7cffa08032182a447b03d2" id="r_ab8013d02aa7cffa08032182a447b03d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1Angle.html">AngleF</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8013d02aa7cffa08032182a447b03d2">innerConeWidth</a> () const noexcept</td></tr>
+<tr class="memitem:ab8013d02aa7cffa08032182a447b03d2" id="r_ab8013d02aa7cffa08032182a447b03d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="angle_8hpp.html#a0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8013d02aa7cffa08032182a447b03d2">innerConeWidth</a> () const noexcept</td></tr>
 <tr class="memdesc:ab8013d02aa7cffa08032182a447b03d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the width of the inner cone of the source (where no direction attenuation is done).  <br /></td></tr>
 <tr class="separator:ab8013d02aa7cffa08032182a447b03d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66586c9bc3f1a9cdc20168a2a765a267" id="r_a66586c9bc3f1a9cdc20168a2a765a267"><td class="memItemLeft" align="right" valign="top">SecondsF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66586c9bc3f1a9cdc20168a2a765a267">length</a> () const noexcept</td></tr>
+<tr class="memitem:a66586c9bc3f1a9cdc20168a2a765a267" id="r_a66586c9bc3f1a9cdc20168a2a765a267"><td class="memItemLeft" align="right" valign="top"><a class="el" href="chrono_8hpp.html#a8bf48222a318f44cc048821df3489576">SecondsF</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66586c9bc3f1a9cdc20168a2a765a267">length</a> () const noexcept</td></tr>
 <tr class="memdesc:a66586c9bc3f1a9cdc20168a2a765a267"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the length of the audio stream.  <br /></td></tr>
 <tr class="separator:a66586c9bc3f1a9cdc20168a2a765a267"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1f44a45a9ce3ad0d2dd73b04ff6aecc" id="r_ac1f44a45a9ce3ad0d2dd73b04ff6aecc"><td class="memItemLeft" align="right" valign="top">SecondsF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1f44a45a9ce3ad0d2dd73b04ff6aecc">loopEnd</a> () const noexcept</td></tr>
+<tr class="memitem:ac1f44a45a9ce3ad0d2dd73b04ff6aecc" id="r_ac1f44a45a9ce3ad0d2dd73b04ff6aecc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="chrono_8hpp.html#a8bf48222a318f44cc048821df3489576">SecondsF</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1f44a45a9ce3ad0d2dd73b04ff6aecc">loopEnd</a> () const noexcept</td></tr>
 <tr class="memdesc:ac1f44a45a9ce3ad0d2dd73b04ff6aecc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the stream's ending loop point.  <br /></td></tr>
 <tr class="separator:ac1f44a45a9ce3ad0d2dd73b04ff6aecc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a427d4904ae2f972dd0a485da918aac34" id="r_a427d4904ae2f972dd0a485da918aac34"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a427d4904ae2f972dd0a485da918aac34">looping</a> () const noexcept</td></tr>
 <tr class="memdesc:a427d4904ae2f972dd0a485da918aac34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the stream is looping.  <br /></td></tr>
 <tr class="separator:a427d4904ae2f972dd0a485da918aac34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37ac9e1ff2745f44ac1e3ebc6c196eb4" id="r_a37ac9e1ff2745f44ac1e3ebc6c196eb4"><td class="memItemLeft" align="right" valign="top">SecondsF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37ac9e1ff2745f44ac1e3ebc6c196eb4">loopStart</a> () const noexcept</td></tr>
+<tr class="memitem:a37ac9e1ff2745f44ac1e3ebc6c196eb4" id="r_a37ac9e1ff2745f44ac1e3ebc6c196eb4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="chrono_8hpp.html#a8bf48222a318f44cc048821df3489576">SecondsF</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37ac9e1ff2745f44ac1e3ebc6c196eb4">loopStart</a> () const noexcept</td></tr>
 <tr class="memdesc:a37ac9e1ff2745f44ac1e3ebc6c196eb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the stream's starting loop point.  <br /></td></tr>
 <tr class="separator:a37ac9e1ff2745f44ac1e3ebc6c196eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73c6adc8aabed673f4c09be36e71311d" id="r_a73c6adc8aabed673f4c09be36e71311d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73c6adc8aabed673f4c09be36e71311d">maxDistance</a> () const noexcept</td></tr>
@@ -160,19 +162,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aecd28dcd2cc4366757d880e9d850d3cf" id="r_aecd28dcd2cc4366757d880e9d850d3cf"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecd28dcd2cc4366757d880e9d850d3cf">minGain</a> () const noexcept</td></tr>
 <tr class="memdesc:aecd28dcd2cc4366757d880e9d850d3cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the minimum allowed gain multiplier for the source.  <br /></td></tr>
 <tr class="separator:aecd28dcd2cc4366757d880e9d850d3cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad45ba7ffa8eee63b10d5c90a6bff9729" id="r_ad45ba7ffa8eee63b10d5c90a6bff9729"><td class="memItemLeft" align="right" valign="top">SecondsF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad45ba7ffa8eee63b10d5c90a6bff9729">offset</a> () const noexcept</td></tr>
+<tr class="memitem:ad45ba7ffa8eee63b10d5c90a6bff9729" id="r_ad45ba7ffa8eee63b10d5c90a6bff9729"><td class="memItemLeft" align="right" valign="top"><a class="el" href="chrono_8hpp.html#a8bf48222a318f44cc048821df3489576">SecondsF</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad45ba7ffa8eee63b10d5c90a6bff9729">offset</a> () const noexcept</td></tr>
 <tr class="memdesc:ad45ba7ffa8eee63b10d5c90a6bff9729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the stream's playback position within the file.  <br /></td></tr>
 <tr class="separator:ad45ba7ffa8eee63b10d5c90a6bff9729"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99887688e39b75eff80dc81610743642" id="r_a99887688e39b75eff80dc81610743642"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1AudioStream.html">AudioStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99887688e39b75eff80dc81610743642">operator=</a> (<a class="el" href="classtr_1_1AudioStream.html">AudioStream</a> &amp;&amp;r) noexcept</td></tr>
 <tr class="memdesc:a99887688e39b75eff80dc81610743642"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move-assigns to an audio stream.  <br /></td></tr>
 <tr class="separator:a99887688e39b75eff80dc81610743642"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99994813281a30715abfa9a4f68ce3cc" id="r_a99994813281a30715abfa9a4f68ce3cc"><td class="memItemLeft" align="right" valign="top">AudioOrigin&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99994813281a30715abfa9a4f68ce3cc">origin</a> () const noexcept</td></tr>
+<tr class="memitem:a99994813281a30715abfa9a4f68ce3cc" id="r_a99994813281a30715abfa9a4f68ce3cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="audio__source_8hpp.html#ac94c6d9def358bc33348c409be0a151a">AudioOrigin</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99994813281a30715abfa9a4f68ce3cc">origin</a> () const noexcept</td></tr>
 <tr class="memdesc:a99994813281a30715abfa9a4f68ce3cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the origin of the source's position.  <br /></td></tr>
 <tr class="separator:a99994813281a30715abfa9a4f68ce3cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a022de647f8fb4aab38d912818c3f8a7d" id="r_a022de647f8fb4aab38d912818c3f8a7d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a022de647f8fb4aab38d912818c3f8a7d">outerConeGain</a> () const noexcept</td></tr>
 <tr class="memdesc:a022de647f8fb4aab38d912818c3f8a7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the gain multiplier applied when the listener is outside the source's outer cone angle.  <br /></td></tr>
 <tr class="separator:a022de647f8fb4aab38d912818c3f8a7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ca2512e21a35c5ab06caa603794b046" id="r_a2ca2512e21a35c5ab06caa603794b046"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1Angle.html">AngleF</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ca2512e21a35c5ab06caa603794b046">outerConeWidth</a> () const noexcept</td></tr>
+<tr class="memitem:a2ca2512e21a35c5ab06caa603794b046" id="r_a2ca2512e21a35c5ab06caa603794b046"><td class="memItemLeft" align="right" valign="top"><a class="el" href="angle_8hpp.html#a0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ca2512e21a35c5ab06caa603794b046">outerConeWidth</a> () const noexcept</td></tr>
 <tr class="memdesc:a2ca2512e21a35c5ab06caa603794b046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the width of the outer cone of the source (where direction attenuation is done).  <br /></td></tr>
 <tr class="separator:a2ca2512e21a35c5ab06caa603794b046"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56e454e4465bbfa0611d033180db062a" id="r_a56e454e4465bbfa0611d033180db062a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56e454e4465bbfa0611d033180db062a">pitch</a> () const noexcept</td></tr>
@@ -196,13 +198,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad1abe65b524a25198cf64293053f979e" id="r_ad1abe65b524a25198cf64293053f979e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1abe65b524a25198cf64293053f979e">setGain</a> (float <a class="el" href="#ab98cdf334cc03905f1d8ffdae0c2ca2f">gain</a>) noexcept</td></tr>
 <tr class="memdesc:ad1abe65b524a25198cf64293053f979e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the gain of the source.  <br /></td></tr>
 <tr class="separator:ad1abe65b524a25198cf64293053f979e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70ed5f3ba60acbdcfe99389d052c9cbf" id="r_a70ed5f3ba60acbdcfe99389d052c9cbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70ed5f3ba60acbdcfe99389d052c9cbf">setInnerConeWidth</a> (<a class="el" href="classtr_1_1Angle.html">AngleF</a> inConeW) noexcept</td></tr>
+<tr class="memitem:a70ed5f3ba60acbdcfe99389d052c9cbf" id="r_a70ed5f3ba60acbdcfe99389d052c9cbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70ed5f3ba60acbdcfe99389d052c9cbf">setInnerConeWidth</a> (<a class="el" href="angle_8hpp.html#a0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a> inConeW) noexcept</td></tr>
 <tr class="memdesc:a70ed5f3ba60acbdcfe99389d052c9cbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the width of the inner cone of the source (where no direction attenuation is done).  <br /></td></tr>
 <tr class="separator:a70ed5f3ba60acbdcfe99389d052c9cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb424396228fc7ffd2b38fb706a9a6eb" id="r_acb424396228fc7ffd2b38fb706a9a6eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb424396228fc7ffd2b38fb706a9a6eb">setLooping</a> (bool looping) noexcept</td></tr>
+<tr class="memitem:acb424396228fc7ffd2b38fb706a9a6eb" id="r_acb424396228fc7ffd2b38fb706a9a6eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb424396228fc7ffd2b38fb706a9a6eb">setLooping</a> (bool <a class="el" href="#a427d4904ae2f972dd0a485da918aac34">looping</a>) noexcept</td></tr>
 <tr class="memdesc:acb424396228fc7ffd2b38fb706a9a6eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the stream is looping.  <br /></td></tr>
 <tr class="separator:acb424396228fc7ffd2b38fb706a9a6eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab076c31f5265dc48e406bf3eb8113a96" id="r_ab076c31f5265dc48e406bf3eb8113a96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab076c31f5265dc48e406bf3eb8113a96">setLoopPoints</a> (SecondsF start, SecondsF end) noexcept</td></tr>
+<tr class="memitem:ab076c31f5265dc48e406bf3eb8113a96" id="r_ab076c31f5265dc48e406bf3eb8113a96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab076c31f5265dc48e406bf3eb8113a96">setLoopPoints</a> (<a class="el" href="chrono_8hpp.html#a8bf48222a318f44cc048821df3489576">SecondsF</a> start, <a class="el" href="chrono_8hpp.html#a8bf48222a318f44cc048821df3489576">SecondsF</a> end) noexcept</td></tr>
 <tr class="memdesc:ab076c31f5265dc48e406bf3eb8113a96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the stream's loop points.  <br /></td></tr>
 <tr class="separator:ab076c31f5265dc48e406bf3eb8113a96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe613cf122f87414db1ebda97027dfa5" id="r_abe613cf122f87414db1ebda97027dfa5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe613cf122f87414db1ebda97027dfa5">setMaxDistance</a> (float <a class="el" href="#a73c6adc8aabed673f4c09be36e71311d">maxDistance</a>) noexcept</td></tr>
@@ -214,16 +216,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afd5b3896b124b3f1a0e696333589b0b8" id="r_afd5b3896b124b3f1a0e696333589b0b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd5b3896b124b3f1a0e696333589b0b8">setMinGain</a> (float <a class="el" href="#aecd28dcd2cc4366757d880e9d850d3cf">minGain</a>) noexcept</td></tr>
 <tr class="memdesc:afd5b3896b124b3f1a0e696333589b0b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the minimum allowed gain multiplier for the source.  <br /></td></tr>
 <tr class="separator:afd5b3896b124b3f1a0e696333589b0b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa09a155b41d86b82fec21f484281a1ef" id="r_aa09a155b41d86b82fec21f484281a1ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa09a155b41d86b82fec21f484281a1ef">setOffset</a> (SecondsF off)</td></tr>
+<tr class="memitem:aa09a155b41d86b82fec21f484281a1ef" id="r_aa09a155b41d86b82fec21f484281a1ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa09a155b41d86b82fec21f484281a1ef">setOffset</a> (<a class="el" href="chrono_8hpp.html#a8bf48222a318f44cc048821df3489576">SecondsF</a> off)</td></tr>
 <tr class="memdesc:aa09a155b41d86b82fec21f484281a1ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the stream's playback position within the file.  <br /></td></tr>
 <tr class="separator:aa09a155b41d86b82fec21f484281a1ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abeedc0e741c1b1d70dd81c57be1bea1a" id="r_abeedc0e741c1b1d70dd81c57be1bea1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abeedc0e741c1b1d70dd81c57be1bea1a">setOrigin</a> (AudioOrigin type) noexcept</td></tr>
+<tr class="memitem:abeedc0e741c1b1d70dd81c57be1bea1a" id="r_abeedc0e741c1b1d70dd81c57be1bea1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abeedc0e741c1b1d70dd81c57be1bea1a">setOrigin</a> (<a class="el" href="audio__source_8hpp.html#ac94c6d9def358bc33348c409be0a151a">AudioOrigin</a> type) noexcept</td></tr>
 <tr class="memdesc:abeedc0e741c1b1d70dd81c57be1bea1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the origin of the source's position.  <br /></td></tr>
 <tr class="separator:abeedc0e741c1b1d70dd81c57be1bea1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ba263a3411571a5d5c1e8ea4ee97009" id="r_a6ba263a3411571a5d5c1e8ea4ee97009"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ba263a3411571a5d5c1e8ea4ee97009">setOuterConeGain</a> (float outGain) noexcept</td></tr>
 <tr class="memdesc:a6ba263a3411571a5d5c1e8ea4ee97009"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the gain multiplier applied when the listener is outside the source's outer cone angle.  <br /></td></tr>
 <tr class="separator:a6ba263a3411571a5d5c1e8ea4ee97009"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa72a858df03cc6765f1ae2bfc4bfc5e8" id="r_aa72a858df03cc6765f1ae2bfc4bfc5e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa72a858df03cc6765f1ae2bfc4bfc5e8">setOuterConeWidth</a> (<a class="el" href="classtr_1_1Angle.html">AngleF</a> outConeW) noexcept</td></tr>
+<tr class="memitem:aa72a858df03cc6765f1ae2bfc4bfc5e8" id="r_aa72a858df03cc6765f1ae2bfc4bfc5e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa72a858df03cc6765f1ae2bfc4bfc5e8">setOuterConeWidth</a> (<a class="el" href="angle_8hpp.html#a0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a> outConeW) noexcept</td></tr>
 <tr class="memdesc:aa72a858df03cc6765f1ae2bfc4bfc5e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the width of the outer cone of the source (where direction attenuation is done).  <br /></td></tr>
 <tr class="separator:aa72a858df03cc6765f1ae2bfc4bfc5e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36466637870f93e41d01ac28dd799db7" id="r_a36466637870f93e41d01ac28dd799db7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36466637870f93e41d01ac28dd799db7">setPitch</a> (float <a class="el" href="#a56e454e4465bbfa0611d033180db062a">pitch</a>) noexcept</td></tr>
@@ -241,7 +243,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a11caa938dcdf7d15c8c5eb3a8a9ea555" id="r_a11caa938dcdf7d15c8c5eb3a8a9ea555"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11caa938dcdf7d15c8c5eb3a8a9ea555">setVelocity</a> (const glm::vec3 &amp;<a class="el" href="#aee6060e87105f58580f778a06d7877bc">velocity</a>) noexcept</td></tr>
 <tr class="memdesc:a11caa938dcdf7d15c8c5eb3a8a9ea555"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the velocity of the source.  <br /></td></tr>
 <tr class="separator:a11caa938dcdf7d15c8c5eb3a8a9ea555"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a164503cdbed08cee91fe78b539af5e5e" id="r_a164503cdbed08cee91fe78b539af5e5e"><td class="memItemLeft" align="right" valign="top">AudioState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a164503cdbed08cee91fe78b539af5e5e">state</a> () const noexcept</td></tr>
+<tr class="memitem:a164503cdbed08cee91fe78b539af5e5e" id="r_a164503cdbed08cee91fe78b539af5e5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="audio__source_8hpp.html#a6c94829f0dfe0e9696cc57a3c7aff830">AudioState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a164503cdbed08cee91fe78b539af5e5e">state</a> () const noexcept</td></tr>
 <tr class="memdesc:a164503cdbed08cee91fe78b539af5e5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the state of the audio source.  <br /></td></tr>
 <tr class="separator:a164503cdbed08cee91fe78b539af5e5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac112714cab573aa387c454e59975a8a0" id="r_ac112714cab573aa387c454e59975a8a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac112714cab573aa387c454e59975a8a0">stop</a> () noexcept</td></tr>
@@ -254,11 +256,11 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:af26cea0bff07ed52a46c4cfd0c2b71a6" id="r_af26cea0bff07ed52a46c4cfd0c2b71a6"><td class="memItemLeft" align="right" valign="top"><a id="af26cea0bff07ed52a46c4cfd0c2b71a6" name="af26cea0bff07ed52a46c4cfd0c2b71a6"></a>
-static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>END</b> { SecondsF::max() }</td></tr>
+static constexpr <a class="el" href="chrono_8hpp.html#a8bf48222a318f44cc048821df3489576">SecondsF</a>&#160;</td><td class="memItemRight" valign="bottom"><b>END</b> { SecondsF::max() }</td></tr>
 <tr class="memdesc:af26cea0bff07ed52a46c4cfd0c2b71a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sentinel value representing the end of the streamed file. <br /></td></tr>
 <tr class="separator:af26cea0bff07ed52a46c4cfd0c2b71a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf0e76592dcab0d923740f6940c03846" id="r_adf0e76592dcab0d923740f6940c03846"><td class="memItemLeft" align="right" valign="top"><a id="adf0e76592dcab0d923740f6940c03846" name="adf0e76592dcab0d923740f6940c03846"></a>
-static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>START</b> { SecondsF::zero() }</td></tr>
+static constexpr <a class="el" href="chrono_8hpp.html#a8bf48222a318f44cc048821df3489576">SecondsF</a>&#160;</td><td class="memItemRight" valign="bottom"><b>START</b> { SecondsF::zero() }</td></tr>
 <tr class="memdesc:adf0e76592dcab0d923740f6940c03846"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sentinel value representing the beginning of the streamed file. <br /></td></tr>
 <tr class="separator:adf0e76592dcab0d923740f6940c03846"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -270,9 +272,6 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">tr::AudioStream::AudioStream </td>
@@ -281,11 +280,6 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Default-constructs an audio stream. </p>
@@ -318,7 +312,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">export</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -360,7 +354,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -422,7 +416,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -470,7 +464,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classtr_1_1Angle.html">AngleF</a> tr::AudioSource::innerConeWidth </td>
+          <td class="memname"><a class="el" href="angle_8hpp.html#a0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a> tr::AudioSource::innerConeWidth </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -498,7 +492,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">SecondsF tr::AudioStream::length </td>
+          <td class="memname"><a class="el" href="chrono_8hpp.html#a8bf48222a318f44cc048821df3489576">SecondsF</a> tr::AudioStream::length </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -506,7 +500,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -526,7 +520,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">SecondsF tr::AudioStream::loopEnd </td>
+          <td class="memname"><a class="el" href="chrono_8hpp.html#a8bf48222a318f44cc048821df3489576">SecondsF</a> tr::AudioStream::loopEnd </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -534,7 +528,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -562,7 +556,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -582,7 +576,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">SecondsF tr::AudioStream::loopStart </td>
+          <td class="memname"><a class="el" href="chrono_8hpp.html#a8bf48222a318f44cc048821df3489576">SecondsF</a> tr::AudioStream::loopStart </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -590,7 +584,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -694,7 +688,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">SecondsF tr::AudioStream::offset </td>
+          <td class="memname"><a class="el" href="chrono_8hpp.html#a8bf48222a318f44cc048821df3489576">SecondsF</a> tr::AudioStream::offset </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -702,7 +696,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -730,7 +724,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -756,7 +750,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">AudioOrigin tr::AudioSource::origin </td>
+          <td class="memname"><a class="el" href="audio__source_8hpp.html#ac94c6d9def358bc33348c409be0a151a">AudioOrigin</a> tr::AudioSource::origin </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -812,7 +806,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classtr_1_1Angle.html">AngleF</a> tr::AudioSource::outerConeWidth </td>
+          <td class="memname"><a class="el" href="angle_8hpp.html#a0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a> tr::AudioSource::outerConeWidth </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -863,9 +857,6 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void tr::AudioStream::play </td>
@@ -874,11 +865,6 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Plays the audio stream. </p>
@@ -1054,7 +1040,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
         <tr>
           <td class="memname">void tr::AudioSource::setInnerConeWidth </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtr_1_1Angle.html">AngleF</a></td>          <td class="paramname"><span class="paramname"><em>inConeW</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="angle_8hpp.html#a0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a></td>          <td class="paramname"><span class="paramname"><em>inConeW</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1093,7 +1079,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1120,17 +1106,17 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
         <tr>
           <td class="memname">void tr::AudioStream::setLoopPoints </td>
           <td>(</td>
-          <td class="paramtype">SecondsF</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+          <td class="paramtype"><a class="el" href="chrono_8hpp.html#a8bf48222a318f44cc048821df3489576">SecondsF</a></td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">SecondsF</td>          <td class="paramname"><span class="paramname"><em>end</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="chrono_8hpp.html#a8bf48222a318f44cc048821df3489576">SecondsF</a></td>          <td class="paramname"><span class="paramname"><em>end</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1251,22 +1237,14 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void tr::AudioStream::setOffset </td>
           <td>(</td>
-          <td class="paramtype">SecondsF</td>          <td class="paramname"><span class="paramname"><em>off</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="chrono_8hpp.html#a8bf48222a318f44cc048821df3489576">SecondsF</a></td>          <td class="paramname"><span class="paramname"><em>off</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Sets the stream's playback position within the file. </p>
@@ -1298,7 +1276,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
         <tr>
           <td class="memname">void tr::AudioSource::setOrigin </td>
           <td>(</td>
-          <td class="paramtype">AudioOrigin</td>          <td class="paramname"><span class="paramname"><em>type</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="audio__source_8hpp.html#ac94c6d9def358bc33348c409be0a151a">AudioOrigin</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1364,7 +1342,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
         <tr>
           <td class="memname">void tr::AudioSource::setOuterConeWidth </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtr_1_1Angle.html">AngleF</a></td>          <td class="paramname"><span class="paramname"><em>outConeW</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="angle_8hpp.html#a0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a></td>          <td class="paramname"><span class="paramname"><em>outConeW</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1560,7 +1538,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">AudioState tr::AudioSource::state </td>
+          <td class="memname"><a class="el" href="audio__source_8hpp.html#a6c94829f0dfe0e9696cc57a3c7aff830">AudioState</a> tr::AudioSource::state </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -1596,7 +1574,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1635,7 +1613,7 @@ static constexpr SecondsF&#160;</td><td class="memItemRight" valign="bottom"><b>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="audio__stream_8cppm.html">audio_stream.cppm</a></li>
+<li><a class="el" href="audio__stream_8hpp_source.html">audio_stream.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

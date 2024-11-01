@@ -90,12 +90,14 @@ $(function(){ initResizable(false); });
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">tr::BuiltinColor Concept Reference<span class="mlabels"><span class="mlabel">export</span></span><div class="ingroups">module <a class="el" href="module__tr.html">tr</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::BuiltinColor Concept Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Concept denoting a built-in color type (as opposed to custom castable color types).  
 <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="color_8hpp_source.html">color.hpp</a>&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="concepttr_1_1BuiltinColor.html">tr::BuiltinColor</a> =  <a class="code hl_concept" href="concepttr_1_1SpecializationOf.html">SpecializationOf&lt;T, R&gt;</a></div>
@@ -122,8 +124,8 @@ $(function(){ initResizable(false); });
 <div class="line">        || std::same_as&lt;T, ARGB_Ui16_4_4_4_4&gt;</div>
 <div class="line">        || std::same_as&lt;T, ARGB_Ui16_1_5_5_5&gt;</div>
 <div class="line">        || std::same_as&lt;T, ARGB_Ui32_2_10_10_10&gt;</div>
-<div class="ttc" id="aconcepttr_1_1BuiltinColor_html"><div class="ttname"><a href="concepttr_1_1BuiltinColor.html">tr::BuiltinColor</a></div><div class="ttdoc">Concept denoting a built-in color type (as opposed to custom castable color types).</div><div class="ttdef"><b>Definition</b> color.cppm:667</div></div>
-<div class="ttc" id="aconcepttr_1_1SpecializationOf_html"><div class="ttname"><a href="concepttr_1_1SpecializationOf.html">tr::SpecializationOf</a></div><div class="ttdoc">Concept that denotes a type is a specialization of a certain template.</div><div class="ttdef"><b>Definition</b> concepts.cppm:57</div></div>
+<div class="ttc" id="aconcepttr_1_1BuiltinColor_html"><div class="ttname"><a href="concepttr_1_1BuiltinColor.html">tr::BuiltinColor</a></div><div class="ttdoc">Concept denoting a built-in color type (as opposed to custom castable color types).</div><div class="ttdef"><b>Definition</b> color.hpp:665</div></div>
+<div class="ttc" id="aconcepttr_1_1SpecializationOf_html"><div class="ttname"><a href="concepttr_1_1SpecializationOf.html">tr::SpecializationOf</a></div><div class="ttdoc">Concept that denotes a type is a specialization of a certain template.</div><div class="ttdef"><b>Definition</b> concepts.hpp:54</div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Concept denoting a built-in color type (as opposed to custom castable color types). </p>
 </div></div><!-- contents -->

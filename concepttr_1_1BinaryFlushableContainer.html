@@ -90,16 +90,18 @@ $(function(){ initResizable(false); });
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">tr::BinaryFlushableContainer Concept Reference<span class="mlabels"><span class="mlabel">export</span></span><div class="ingroups">module <a class="el" href="module__tr.html">tr</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::BinaryFlushableContainer Concept Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Concept that denotes a binaryFlush-compatible container.  
 <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="iostream_8hpp_source.html">iostream.hpp</a>&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="concepttr_1_1BinaryFlushableContainer.html">tr::BinaryFlushableContainer</a> =  std::ranges::contiguous_range&lt;T&gt; &amp;&amp; <span class="keyword">sizeof</span>(<span class="keyword">typename</span> T::value_type) == <span class="keyword">sizeof</span>(std::byte)</div>
-<div class="ttc" id="aconcepttr_1_1BinaryFlushableContainer_html"><div class="ttname"><a href="concepttr_1_1BinaryFlushableContainer.html">tr::BinaryFlushableContainer</a></div><div class="ttdoc">Concept that denotes a binaryFlush-compatible container.</div><div class="ttdef"><b>Definition</b> iostream.cppm:18</div></div>
+<div class="ttc" id="aconcepttr_1_1BinaryFlushableContainer_html"><div class="ttname"><a href="concepttr_1_1BinaryFlushableContainer.html">tr::BinaryFlushableContainer</a></div><div class="ttdoc">Concept that denotes a binaryFlush-compatible container.</div><div class="ttdef"><b>Definition</b> iostream.hpp:19</div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Concept that denotes a binaryFlush-compatible container. </p>
 <p>To satisfy this requirement, a container must be a contiguous range of char-sized values. </p>

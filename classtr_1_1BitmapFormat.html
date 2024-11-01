@@ -94,16 +94,18 @@ $(function(){ initResizable(false); });
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1BitmapFormat-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::BitmapFormat Class Reference<span class="mlabels"><span class="mlabel">export</span></span><div class="ingroups">module <a class="el" href="module__tr.html">tr</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::BitmapFormat Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><a class="el" href="classtr_1_1Bitmap.html" title="Class representing a bitmap stored in memory.">Bitmap</a> format information.  
  <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="bitmap__format_8hpp_source.html">bitmap_format.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a079a4959fd2fefb871a55b43c888c054" id="r_a079a4959fd2fefb871a55b43c888c054"><td class="memItemLeft" align="right" valign="top"><a id="a079a4959fd2fefb871a55b43c888c054" name="a079a4959fd2fefb871a55b43c888c054"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>Layout</b> { <br />
+<tr class="memitem:a079a4959fd2fefb871a55b43c888c054" id="r_a079a4959fd2fefb871a55b43c888c054"><td class="memItemLeft" align="right" valign="top"><a id="a079a4959fd2fefb871a55b43c888c054" name="a079a4959fd2fefb871a55b43c888c054"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a079a4959fd2fefb871a55b43c888c054">Layout</a> { <br />
 &#160;&#160;<b>NONE</b>
 , <b>I8_332</b>
 , <b>I16_4444</b>
@@ -119,7 +121,7 @@ Public Types</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a079a4959fd2fefb871a55b43c888c054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Packed bitmap format channel layouts. <br /></td></tr>
 <tr class="separator:a079a4959fd2fefb871a55b43c888c054"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f7347e916c518fe1cbafa81510b29ac" id="r_a6f7347e916c518fe1cbafa81510b29ac"><td class="memItemLeft" align="right" valign="top"><a id="a6f7347e916c518fe1cbafa81510b29ac" name="a6f7347e916c518fe1cbafa81510b29ac"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>Order</b> { <br />
+<tr class="memitem:a6f7347e916c518fe1cbafa81510b29ac" id="r_a6f7347e916c518fe1cbafa81510b29ac"><td class="memItemLeft" align="right" valign="top"><a id="a6f7347e916c518fe1cbafa81510b29ac" name="a6f7347e916c518fe1cbafa81510b29ac"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f7347e916c518fe1cbafa81510b29ac">Order</a> { <br />
 &#160;&#160;<b>BITMAPPED_NONE</b> = 0
 , <b>BITMAPPED_4321</b>
 , <b>BITMAPPED_1234</b>
@@ -147,50 +149,50 @@ Public Types</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a6f7347e916c518fe1cbafa81510b29ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orders of elements in a bitmap format. <br /></td></tr>
 <tr class="separator:a6f7347e916c518fe1cbafa81510b29ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb6f4ddc91be7ee64f77839687376464" id="r_afb6f4ddc91be7ee64f77839687376464"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><b>Type</b> { <br />
+<tr class="memitem:afb6f4ddc91be7ee64f77839687376464" id="r_afb6f4ddc91be7ee64f77839687376464"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb6f4ddc91be7ee64f77839687376464">Type</a> { <br />
 &#160;&#160;<b>UNKNOWN</b>
 , <b>RGBA32</b>
 , <b>ARGB32</b>
 , <b>BGRA32</b>
 , <br />
 &#160;&#160;<b>ABGR32</b>
-, <b>INDEX_1LSB</b> = SDL_PIXELFORMAT_INDEX1LSB
-, <b>INDEX_1MSB</b> = SDL_PIXELFORMAT_INDEX1MSB
-, <b>INDEX_4LSB</b> = SDL_PIXELFORMAT_INDEX4LSB
+, <b>INDEX_1LSB</b> = 286261504
+, <b>INDEX_1MSB</b> = 287310080
+, <b>INDEX_4LSB</b> = 303039488
 , <br />
-&#160;&#160;<b>INDEX_4MSB</b> = SDL_PIXELFORMAT_INDEX4MSB
-, <b>INDEX_8</b> = SDL_PIXELFORMAT_INDEX8
-, <b>RGB_332</b> = SDL_PIXELFORMAT_RGB332
-, <b>XRGB_4444</b> = SDL_PIXELFORMAT_XRGB4444
+&#160;&#160;<b>INDEX_4MSB</b> = 304088064
+, <b>INDEX_8</b> = 318769153
+, <b>RGB_332</b> = 336660481
+, <b>XRGB_4444</b> = 353504258
 , <br />
-&#160;&#160;<b>XRGB_1555</b> = SDL_PIXELFORMAT_XRGB1555
-, <b>XBGR_1555</b> = SDL_PIXELFORMAT_XBGR1555
-, <b>ARGB_4444</b> = SDL_PIXELFORMAT_ARGB4444
-, <b>RGBA_4444</b> = SDL_PIXELFORMAT_RGBA4444
+&#160;&#160;<b>XRGB_1555</b> = 353570562
+, <b>XBGR_1555</b> = 357764866
+, <b>ARGB_4444</b> = 355602434
+, <b>RGBA_4444</b> = 356651010
 , <br />
-&#160;&#160;<b>ABGR_4444</b> = SDL_PIXELFORMAT_ABGR4444
-, <b>BGRA_4444</b> = SDL_PIXELFORMAT_BGRA4444
-, <b>ARGB_1555</b> = SDL_PIXELFORMAT_ARGB1555
-, <b>RGBA_5551</b> = SDL_PIXELFORMAT_RGBA5551
+&#160;&#160;<b>ABGR_4444</b> = 359796738
+, <b>BGRA_4444</b> = 360845314
+, <b>ARGB_1555</b> = 355667970
+, <b>RGBA_5551</b> = 356782082
 , <br />
-&#160;&#160;<b>ABGR_1555</b> = SDL_PIXELFORMAT_ABGR1555
-, <b>BGRA_5551</b> = SDL_PIXELFORMAT_BGRA5551
-, <b>RGB_565</b> = SDL_PIXELFORMAT_RGB565
-, <b>BGR_565</b> = SDL_PIXELFORMAT_BGR565
+&#160;&#160;<b>ABGR_1555</b> = 359862274
+, <b>BGRA_5551</b> = 360976386
+, <b>RGB_565</b> = 353701890
+, <b>BGR_565</b> = 357896194
 , <br />
-&#160;&#160;<b>RGB_24</b> = SDL_PIXELFORMAT_RGB24
-, <b>BGR_24</b> = SDL_PIXELFORMAT_BGR24
-, <b>XRGB_8888</b> = SDL_PIXELFORMAT_XRGB8888
-, <b>RGBX_8888</b> = SDL_PIXELFORMAT_RGBX8888
+&#160;&#160;<b>RGB_24</b> = 386930691
+, <b>BGR_24</b> = 390076419
+, <b>XRGB_8888</b> = 370546692
+, <b>RGBX_8888</b> = 371595268
 , <br />
-&#160;&#160;<b>XBGR_8888</b> = SDL_PIXELFORMAT_XBGR8888
-, <b>BGRX_8888</b> = SDL_PIXELFORMAT_BGRX8888
-, <b>ARGB_8888</b> = SDL_PIXELFORMAT_ARGB8888
-, <b>RGBA_8888</b> = SDL_PIXELFORMAT_RGBA8888
+&#160;&#160;<b>XBGR_8888</b> = 374740996
+, <b>BGRX_8888</b> = 375789572
+, <b>ARGB_8888</b> = 372645892
+, <b>RGBA_8888</b> = 373694468
 , <br />
-&#160;&#160;<b>ABGR_8888</b> = SDL_PIXELFORMAT_ABGR8888
-, <b>BGRA_8888</b> = SDL_PIXELFORMAT_BGRA8888
-, <b>ARGB_2101010</b> = SDL_PIXELFORMAT_ARGB2101010
+&#160;&#160;<b>ABGR_8888</b> = 376840196
+, <b>BGRA_8888</b> = 377888772
+, <b>ARGB_2101010</b> = 372711428
 <br />
  }</td></tr>
 <tr class="memdesc:afb6f4ddc91be7ee64f77839687376464"><td class="mdescLeft">&#160;</td><td class="mdescRight">The base enumerator.  <a href="#afb6f4ddc91be7ee64f77839687376464">More...</a><br /></td></tr>
@@ -198,7 +200,7 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af777f01cb4ab06c4794a60cc03e410e8" id="r_af777f01cb4ab06c4794a60cc03e410e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af777f01cb4ab06c4794a60cc03e410e8">BitmapFormat</a> (Type base) noexcept</td></tr>
+<tr class="memitem:af777f01cb4ab06c4794a60cc03e410e8" id="r_af777f01cb4ab06c4794a60cc03e410e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af777f01cb4ab06c4794a60cc03e410e8">BitmapFormat</a> (<a class="el" href="#afb6f4ddc91be7ee64f77839687376464">Type</a> base) noexcept</td></tr>
 <tr class="memdesc:af777f01cb4ab06c4794a60cc03e410e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a bitmap format from the base enumerator.  <br /></td></tr>
 <tr class="separator:af777f01cb4ab06c4794a60cc03e410e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03acd09f861ff043912fb36ace59807f" id="r_a03acd09f861ff043912fb36ace59807f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03acd09f861ff043912fb36ace59807f">hasAlpha</a> () const noexcept</td></tr>
@@ -213,7 +215,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0f9d3f992373425664edfd120b3b5d63" id="r_a0f9d3f992373425664edfd120b3b5d63"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f9d3f992373425664edfd120b3b5d63">isPacked</a> () const noexcept</td></tr>
 <tr class="memdesc:a0f9d3f992373425664edfd120b3b5d63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the format is packed.  <br /></td></tr>
 <tr class="separator:a0f9d3f992373425664edfd120b3b5d63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6c977ac1f6067f1dd6282750f1251c6" id="r_ae6c977ac1f6067f1dd6282750f1251c6"><td class="memItemLeft" align="right" valign="top">Layout&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6c977ac1f6067f1dd6282750f1251c6">layout</a> () const noexcept</td></tr>
+<tr class="memitem:ae6c977ac1f6067f1dd6282750f1251c6" id="r_ae6c977ac1f6067f1dd6282750f1251c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a079a4959fd2fefb871a55b43c888c054">Layout</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6c977ac1f6067f1dd6282750f1251c6">layout</a> () const noexcept</td></tr>
 <tr class="memdesc:ae6c977ac1f6067f1dd6282750f1251c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the layout of the bitmap format.  <br /></td></tr>
 <tr class="separator:ae6c977ac1f6067f1dd6282750f1251c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c192e64db6495d9fe9af32c80e3e190" id="r_a0c192e64db6495d9fe9af32c80e3e190"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c192e64db6495d9fe9af32c80e3e190">name</a> () const noexcept</td></tr>
@@ -223,7 +225,7 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>operator Type</b> () const noexcept</td></tr>
 <tr class="memdesc:a563a57f33208bbb049ba11ccde51ebff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Casts the format to the base enumerator. <br /></td></tr>
 <tr class="separator:a563a57f33208bbb049ba11ccde51ebff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac634a9442ac6f11ac0f99c953955716e" id="r_ac634a9442ac6f11ac0f99c953955716e"><td class="memItemLeft" align="right" valign="top">Order&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac634a9442ac6f11ac0f99c953955716e">order</a> () const noexcept</td></tr>
+<tr class="memitem:ac634a9442ac6f11ac0f99c953955716e" id="r_ac634a9442ac6f11ac0f99c953955716e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a6f7347e916c518fe1cbafa81510b29ac">Order</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac634a9442ac6f11ac0f99c953955716e">order</a> () const noexcept</td></tr>
 <tr class="memdesc:ac634a9442ac6f11ac0f99c953955716e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the order of the bitmap format.  <br /></td></tr>
 <tr class="separator:ac634a9442ac6f11ac0f99c953955716e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7e852c20f12faeed6991e4ad3de2178" id="r_ac7e852c20f12faeed6991e4ad3de2178"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7e852c20f12faeed6991e4ad3de2178">pixelBits</a> () const noexcept</td></tr>
@@ -246,12 +248,12 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class tr::BitmapFormat::Type</td>
+          <td class="memname">enum class <a class="el" href="#afb6f4ddc91be7ee64f77839687376464">tr::BitmapFormat::Type</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">strong</span></span>  </td>
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -274,13 +276,13 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">tr::BitmapFormat::BitmapFormat </td>
           <td>(</td>
-          <td class="paramtype">Type</td>          <td class="paramname"><span class="paramname"><em>base</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#afb6f4ddc91be7ee64f77839687376464">Type</a></td>          <td class="paramname"><span class="paramname"><em>base</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -314,7 +316,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -342,7 +344,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -370,7 +372,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -398,7 +400,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -418,7 +420,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Layout tr::BitmapFormat::layout </td>
+          <td class="memname"><a class="el" href="#a079a4959fd2fefb871a55b43c888c054">Layout</a> tr::BitmapFormat::layout </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -426,7 +428,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -454,7 +456,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -474,7 +476,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Order tr::BitmapFormat::order </td>
+          <td class="memname"><a class="el" href="#a6f7347e916c518fe1cbafa81510b29ac">Order</a> tr::BitmapFormat::order </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -482,7 +484,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -510,7 +512,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -538,7 +540,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -549,7 +551,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="bitmap__format_8cppm.html">bitmap_format.cppm</a></li>
+<li><a class="el" href="bitmap__format_8hpp_source.html">bitmap_format.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

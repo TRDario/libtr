@@ -93,12 +93,14 @@ $(function(){ initResizable(false); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1FileError-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::FileError Class Reference<span class="mlabels"><span class="mlabel">abstract</span><span class="mlabel">export</span></span><div class="ingroups">module <a class="el" href="module__tr.html">tr</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::FileError Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Generic file error base exception type.  
  <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="iostream_8hpp_source.html">iostream.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for tr::FileError:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -119,23 +121,22 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2721806b29b337df88b1872d26c235a9" id="r_a2721806b29b337df88b1872d26c235a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2721806b29b337df88b1872d26c235a9">FileError</a> (const std::filesystem::path &amp;path)</td></tr>
+<tr class="memitem:a2721806b29b337df88b1872d26c235a9" id="r_a2721806b29b337df88b1872d26c235a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2721806b29b337df88b1872d26c235a9">FileError</a> (const std::filesystem::path &amp;<a class="el" href="#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>)</td></tr>
 <tr class="memdesc:a2721806b29b337df88b1872d26c235a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a file error with a path.  <br /></td></tr>
 <tr class="separator:a2721806b29b337df88b1872d26c235a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40619fbc37d069161d0d1215061ca56c" id="r_a40619fbc37d069161d0d1215061ca56c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40619fbc37d069161d0d1215061ca56c">FileError</a> (std::string path) noexcept</td></tr>
+<tr class="memitem:a40619fbc37d069161d0d1215061ca56c" id="r_a40619fbc37d069161d0d1215061ca56c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40619fbc37d069161d0d1215061ca56c">FileError</a> (std::string <a class="el" href="#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>) noexcept</td></tr>
 <tr class="memdesc:a40619fbc37d069161d0d1215061ca56c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a file error with a path string.  <br /></td></tr>
 <tr class="separator:a40619fbc37d069161d0d1215061ca56c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1cf35f6d24c69fe3b3c642c78db506c" id="r_ac1cf35f6d24c69fe3b3c642c78db506c"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1cf35f6d24c69fe3b3c642c78db506c">path</a> () const noexcept</td></tr>
 <tr class="memdesc:ac1cf35f6d24c69fe3b3c642c78db506c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the path string.  <br /></td></tr>
 <tr class="separator:ac1cf35f6d24c69fe3b3c642c78db506c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8f84377c0b78974035783120950083e" id="r_ac8f84377c0b78974035783120950083e"><td class="memItemLeft" align="right" valign="top"><a id="ac8f84377c0b78974035783120950083e" name="ac8f84377c0b78974035783120950083e"></a>
-virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>what</b> () const noexcept=0</td></tr>
-<tr class="memdesc:ac8f84377c0b78974035783120950083e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual what() function. <br /></td></tr>
+<tr class="memitem:ac8f84377c0b78974035783120950083e" id="r_ac8f84377c0b78974035783120950083e"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8f84377c0b78974035783120950083e">what</a> () const noexcept=0</td></tr>
+<tr class="memdesc:ac8f84377c0b78974035783120950083e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure virtual <a class="el" href="#ac8f84377c0b78974035783120950083e" title="Pure virtual what() function.">what()</a> function.  <br /></td></tr>
 <tr class="separator:ac8f84377c0b78974035783120950083e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Generic file error base exception type. </p>
-<p>Cannot be thrown directly as what() is a pure virtual function. </p>
+<p>Cannot be thrown directly as <a class="el" href="#ac8f84377c0b78974035783120950083e" title="Pure virtual what() function.">what()</a> is a pure virtual function. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a40619fbc37d069161d0d1215061ca56c" name="a40619fbc37d069161d0d1215061ca56c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a40619fbc37d069161d0d1215061ca56c">&#9670;&#160;</a></span>FileError() <span class="overload">[1/2]</span></h2>
@@ -155,7 +156,7 @@ virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>what<
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -175,9 +176,6 @@ virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>what<
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">tr::FileError::FileError </td>
@@ -186,11 +184,6 @@ virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>what<
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Constructs a file error with a path. </p>
@@ -228,7 +221,7 @@ virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>what<
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -238,8 +231,37 @@ virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><b>what<
 
 </div>
 </div>
+<a id="ac8f84377c0b78974035783120950083e" name="ac8f84377c0b78974035783120950083e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8f84377c0b78974035783120950083e">&#9670;&#160;</a></span>what()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const char * tr::FileError::what </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pure virtual <a class="el" href="#ac8f84377c0b78974035783120950083e" title="Pure virtual what() function.">what()</a> function. </p>
+
+<p>Implemented in <a class="el" href="structtr_1_1BitmapLoadError.html#ace88d265afefbd7ca3c311f6596906e7">tr::BitmapLoadError</a>, <a class="el" href="structtr_1_1BitmapSaveError.html#af20b3a2264436da0f630a2399d7fbec5">tr::BitmapSaveError</a>, <a class="el" href="structtr_1_1FileNotFound.html#a04b95a1cd6067f64248a241447cb2350">tr::FileNotFound</a>, <a class="el" href="structtr_1_1FileOpenError.html#a154a619d8790490a78ed04dea19458dc">tr::FileOpenError</a>, <a class="el" href="structtr_1_1ShaderLoadError.html#a82a5c392c53a3075dd00dc36dc4bae21">tr::ShaderLoadError</a>, <a class="el" href="structtr_1_1TTFontLoadError.html#a7c5e56e23cb250f8c0525f9096603737">tr::TTFontLoadError</a>, and <a class="el" href="structtr_1_1UnsupportedAudioFile.html#a0a0c8176aa73c3acbf9b0259ec8f876f">tr::UnsupportedAudioFile</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="iostream_8cppm.html">iostream.cppm</a></li>
+<li><a class="el" href="iostream_8hpp_source.html">iostream.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

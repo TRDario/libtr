@@ -94,12 +94,14 @@ $(function(){ initResizable(false); });
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1ShaderBuffer-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::ShaderBuffer Class Reference<span class="mlabels"><span class="mlabel">export</span></span><div class="ingroups">module <a class="el" href="module__tr.html">tr</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::ShaderBuffer Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>GPU buffer accessable by a shader.  
  <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="shader__buffer_8hpp_source.html">shader_buffer.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for tr::ShaderBuffer:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -123,7 +125,7 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0d942541dd07451c1705063b976f9f04" id="r_a0d942541dd07451c1705063b976f9f04"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d942541dd07451c1705063b976f9f04">ShaderBuffer</a> (std::size_t headerSize, std::size_t capacity, Access access)</td></tr>
+<tr class="memitem:a0d942541dd07451c1705063b976f9f04" id="r_a0d942541dd07451c1705063b976f9f04"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d942541dd07451c1705063b976f9f04">ShaderBuffer</a> (std::size_t <a class="el" href="#aa82d11a61eb3723000004471d4530715">headerSize</a>, std::size_t capacity, <a class="el" href="#a5e4be997fde54af6dc7ca12d4a76a8da">Access</a> access)</td></tr>
 <tr class="memdesc:a0d942541dd07451c1705063b976f9f04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates an uninitialized shader buffer.  <br /></td></tr>
 <tr class="separator:a0d942541dd07451c1705063b976f9f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35eba8a813bb7a781c3e4ef043cef37f" id="r_a35eba8a813bb7a781c3e4ef043cef37f"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35eba8a813bb7a781c3e4ef043cef37f">arrayCapacity</a> () const noexcept</td></tr>
@@ -175,12 +177,12 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class tr::ShaderBuffer::Access : std::uint32_t</td>
+          <td class="memname">enum class <a class="el" href="#a5e4be997fde54af6dc7ca12d4a76a8da">tr::ShaderBuffer::Access</a> : std::uint32_t</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">strong</span></span>  </td>
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -203,9 +205,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">tr::ShaderBuffer::ShaderBuffer </td>
@@ -220,14 +219,9 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Access</td>          <td class="paramname"><span class="paramname"><em>access</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="#a5e4be997fde54af6dc7ca12d4a76a8da">Access</a></td>          <td class="paramname"><span class="paramname"><em>access</em></span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Allocates an uninitialized shader buffer. </p>
@@ -267,7 +261,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -295,7 +289,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -310,9 +304,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt; std::byte &gt; tr::ShaderBuffer::copyArray </td>
@@ -321,11 +312,6 @@ Public Member Functions</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Copies the data of the dynamic array to a vector. </p>
@@ -344,9 +330,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt; std::byte &gt; tr::ShaderBuffer::copyHeader </td>
@@ -355,11 +338,6 @@ Public Member Functions</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Copies the data of the fixed header to a vector. </p>
@@ -391,7 +369,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -419,7 +397,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -447,7 +425,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -476,7 +454,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -505,7 +483,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -538,7 +516,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -571,7 +549,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -587,7 +565,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="shader__buffer_8cppm.html">shader_buffer.cppm</a></li>
+<li><a class="el" href="shader__buffer_8hpp_source.html">shader_buffer.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
