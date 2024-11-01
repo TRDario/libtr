@@ -1,5 +1,5 @@
-#include "../include/audio_stream.hpp"
-#include "../include/ranges.hpp"
+#include "../include/tr/audio_stream.hpp"
+#include "../include/tr/ranges.hpp"
 #include <thread>
 #include <mutex>
 #include <boost/container/static_vector.hpp>

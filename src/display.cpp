@@ -1,4 +1,4 @@
-#include "../include/display.hpp"
+#include "../include/tr/display.hpp"
 #include <SDL2/SDL.h>
 
 namespace tr {

@@ -1,6 +1,6 @@
-#include "../include/path.hpp"
+#include "../include/tr/path.hpp"
 #include <SDL2/SDL.h>
-#include "../include/function.hpp"
+#include "../include/tr/function.hpp"
 
 
 std::filesystem::path tr::getExeDir()

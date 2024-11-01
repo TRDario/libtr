@@ -1,5 +1,5 @@
-#include "../include/vertex_buffer.hpp"
-#include <magic_enum/magic_enum.hpp>
+#include "../include/tr/vertex_buffer.hpp"
+#include "../include/tr/dependencies/magic_enum.hpp"
 
 using namespace magic_enum::bitwise_operators;
 

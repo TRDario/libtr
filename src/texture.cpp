@@ -1,4 +1,4 @@
-#include "../include/texture.hpp"
+#include "../include/tr/texture.hpp"
 #include <GL/glew.h>
 #include "bitmap_to_gl_format.hpp"
 

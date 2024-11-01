@@ -1,4 +1,4 @@
-#include "../include/renderbuffer.hpp"
+#include "../include/tr/renderbuffer.hpp"
 #include <GL/glew.h>
 
 

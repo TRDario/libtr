@@ -5,7 +5,7 @@
 
 #pragma once
 #include <concepts>
-#include <half.hpp>
+#include "../include/tr/dependencies/half.hpp"
 
 namespace tr {
 	/// @private

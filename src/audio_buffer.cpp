@@ -1,5 +1,5 @@
-#include "../include/audio_buffer.hpp"
-#include "../include/ranges.hpp"
+#include "../include/tr/audio_buffer.hpp"
+#include "../include/tr/ranges.hpp"
 #include <AL/al.h>
 #include <sndfile.h>
 

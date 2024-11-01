@@ -4,7 +4,7 @@
  */
 
 #pragma once
-#include <EnumBitmask.hpp>
+#include "dependencies/EnumBitmask.hpp"
 #include "bitmap_format.hpp"
 #include "color.hpp"
 #include "geometry.hpp"

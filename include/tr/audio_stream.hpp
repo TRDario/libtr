@@ -4,6 +4,7 @@
  */
 
 #pragma once
+#include <mutex>
 #include "audio_source.hpp"
 
 struct sf_private_tag;

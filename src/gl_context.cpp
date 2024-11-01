@@ -1,5 +1,5 @@
-#include "../include/gl_context.hpp"
-#include "../include/function.hpp"
+#include "../include/tr/gl_context.hpp"
+#include "../include/tr/function.hpp"
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 

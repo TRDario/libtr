@@ -1,4 +1,4 @@
-#include "../include/framebuffer.hpp"
+#include "../include/tr/framebuffer.hpp"
 #include <GL/glew.h>
 #include "bitmap_to_gl_format.hpp"
 

@@ -2,7 +2,7 @@
 #include <cassert>
 #include <utility>
 #include <GL/glew.h>
-#include "../include/bitmap_format.hpp"
+#include "../include/tr/bitmap_format.hpp"
 
 namespace tr {
     inline std::pair<GLenum, GLenum> bitmapToGLFormat(BitmapFormat format) noexcept;

@@ -1,4 +1,4 @@
-#include "../include/texture_unit.hpp"
+#include "../include/tr/texture_unit.hpp"
 #include <bitset>
 #include <GL/glew.h>
 

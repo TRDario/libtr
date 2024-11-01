@@ -1,4 +1,4 @@
-#include "../include/sampler.hpp"
+#include "../include/tr/sampler.hpp"
 #include <GL/glew.h>
 
 

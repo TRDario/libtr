@@ -1,4 +1,4 @@
-#include "../include/ttfont.hpp"
+#include "../include/tr/ttfont.hpp"
 #include <SDL2/SDL_ttf.h>
 
 namespace tr {

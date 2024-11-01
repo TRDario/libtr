@@ -1,4 +1,4 @@
-#include "../include/vertex.hpp"
+#include "../include/tr/vertex.hpp"
 
 
 const tr::VertexFormat& tr::ClrVtx2::vertexFormat() noexcept

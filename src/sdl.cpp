@@ -1,4 +1,4 @@
-#include "../include/sdl.hpp"
+#include "../include/tr/sdl.hpp"
 #include <SDL2/SDL.h>
 
 namespace tr {

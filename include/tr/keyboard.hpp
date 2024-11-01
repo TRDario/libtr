@@ -6,7 +6,7 @@
 #pragma once
 #include <cstdint>
 #include <string>
-#include <EnumBitmask.hpp>
+#include "dependencies/EnumBitmask.hpp"
 
 namespace tr {
 	class Scancode;

@@ -1,4 +1,4 @@
-#include "../include/vertex_format.hpp"
+#include "../include/tr/vertex_format.hpp"
 #include <GL/glew.h>
 
 

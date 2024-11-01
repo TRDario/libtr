@@ -1,4 +1,4 @@
-#include "../include/bitmap_format.hpp"
+#include "../include/tr/bitmap_format.hpp"
 #include <SDL2/SDL.h>
 
 
