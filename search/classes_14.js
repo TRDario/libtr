@@ -1,7 +1,21 @@
 var searchData=
 [
   ['window_0',['Window',['../classtr_1_1Window.html',1,'tr']]],
-  ['windowerror_1',['WindowError',['../structtr_1_1WindowError.html',1,'tr']]],
-  ['windowopenerror_2',['WindowOpenError',['../structtr_1_1WindowOpenError.html',1,'tr']]],
-  ['windowview_3',['WindowView',['../classtr_1_1WindowView.html',1,'tr']]]
+  ['windowcloseevent_1',['WindowCloseEvent',['../structtr_1_1WindowCloseEvent.html',1,'tr']]],
+  ['windowenterevent_2',['WindowEnterEvent',['../structtr_1_1WindowEnterEvent.html',1,'tr']]],
+  ['windowerror_3',['WindowError',['../structtr_1_1WindowError.html',1,'tr']]],
+  ['windowexposeevent_4',['WindowExposeEvent',['../structtr_1_1WindowExposeEvent.html',1,'tr']]],
+  ['windowgainfocusevent_5',['WindowGainFocusEvent',['../structtr_1_1WindowGainFocusEvent.html',1,'tr']]],
+  ['windowhideevent_6',['WindowHideEvent',['../structtr_1_1WindowHideEvent.html',1,'tr']]],
+  ['windowleaveevent_7',['WindowLeaveEvent',['../structtr_1_1WindowLeaveEvent.html',1,'tr']]],
+  ['windowlosefocusevent_8',['WindowLoseFocusEvent',['../structtr_1_1WindowLoseFocusEvent.html',1,'tr']]],
+  ['windowmaximizeevent_9',['WindowMaximizeEvent',['../structtr_1_1WindowMaximizeEvent.html',1,'tr']]],
+  ['windowminimizeevent_10',['WindowMinimizeEvent',['../structtr_1_1WindowMinimizeEvent.html',1,'tr']]],
+  ['windowmotionevent_11',['WindowMotionEvent',['../structtr_1_1WindowMotionEvent.html',1,'tr']]],
+  ['windowopenerror_12',['WindowOpenError',['../structtr_1_1WindowOpenError.html',1,'tr']]],
+  ['windowresizeevent_13',['WindowResizeEvent',['../structtr_1_1WindowResizeEvent.html',1,'tr']]],
+  ['windowrestoreevent_14',['WindowRestoreEvent',['../structtr_1_1WindowRestoreEvent.html',1,'tr']]],
+  ['windowshowevent_15',['WindowShowEvent',['../structtr_1_1WindowShowEvent.html',1,'tr']]],
+  ['windowsizechangeevent_16',['WindowSizeChangeEvent',['../structtr_1_1WindowSizeChangeEvent.html',1,'tr']]],
+  ['windowview_17',['WindowView',['../classtr_1_1WindowView.html',1,'tr']]]
 ];

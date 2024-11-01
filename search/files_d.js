@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['sampler_2ecppm_0',['sampler.cppm',['../sampler_8cppm.html',1,'']]],
-  ['sdl_2ecppm_1',['sdl.cppm',['../sdl_8cppm.html',1,'']]],
-  ['shader_5fbuffer_2ecppm_2',['shader_buffer.cppm',['../shader__buffer_8cppm.html',1,'']]],
-  ['shader_5fpipeline_2ecppm_3',['shader_pipeline.cppm',['../shader__pipeline_8cppm.html',1,'']]]
+  ['ranges_2ecppm_0',['ranges.cppm',['../ranges_8cppm.html',1,'']]],
+  ['renderbuffer_2ecppm_1',['renderbuffer.cppm',['../renderbuffer_8cppm.html',1,'']]]
 ];

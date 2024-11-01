@@ -7,6 +7,7 @@ var searchData=
   ['nmip_5flinear_4',['NMIP_LINEAR',['../sampler_8cppm.html#ad1e4cc9bea7f1b176409b1e42ea21d68a0ff446207d03fcfae5a9699956be682c',1,'tr']]],
   ['nmip_5fnearest_5',['NMIP_NEAREST',['../sampler_8cppm.html#ad1e4cc9bea7f1b176409b1e42ea21d68a31bdfa42123ea543959a75e6fbfc0f49',1,'tr']]],
   ['noemptyhandlecheck_6',['NoEmptyHandleCheck',['../structtr_1_1NoEmptyHandleCheck.html',1,'tr']]],
-  ['norm_5fcast_2ecppm_7',['norm_cast.cppm',['../norm__cast_8cppm.html',1,'']]],
-  ['normal_8',['NORMAL',['../window_8cppm.html#af09e8a848420f5464858f667b96bdab4a1e23852820b9154316c7c06e2b7ba051',1,'tr']]]
+  ['none_7',['NONE',['../classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2ab50339a10e1de285ac99d4c3990b8693',1,'tr::TTFont']]],
+  ['norm_5fcast_2ecppm_8',['norm_cast.cppm',['../norm__cast_8cppm.html',1,'']]],
+  ['normal_9',['NORMAL',['../classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2a1e23852820b9154316c7c06e2b7ba051',1,'tr::TTFont::NORMAL'],['../classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06a1e23852820b9154316c7c06e2b7ba051',1,'tr::TTFont::NORMAL'],['../window_8cppm.html#af09e8a848420f5464858f667b96bdab4a1e23852820b9154316c7c06e2b7ba051',1,'NORMALtr']]]
 ];

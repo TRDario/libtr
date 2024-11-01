@@ -2,8 +2,24 @@ var searchData=
 [
   ['window_0',['Window',['../classtr_1_1Window.html',1,'tr']]],
   ['window_2ecppm_1',['window.cppm',['../window_8cppm.html',1,'']]],
-  ['windowerror_2',['WindowError',['../structtr_1_1WindowError.html',1,'tr']]],
-  ['windowopenerror_3',['WindowOpenError',['../structtr_1_1WindowOpenError.html',1,'tr']]],
-  ['windowview_4',['WindowView',['../classtr_1_1WindowView.html',1,'tr']]],
-  ['write_5fonly_5',['WRITE_ONLY',['../classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8daad8fddf06187e680ab5a6355f76a17357',1,'tr::ShaderBuffer']]]
+  ['windowcloseevent_2',['WindowCloseEvent',['../structtr_1_1WindowCloseEvent.html',1,'tr']]],
+  ['windowenterevent_3',['WindowEnterEvent',['../structtr_1_1WindowEnterEvent.html',1,'tr']]],
+  ['windowerror_4',['WindowError',['../structtr_1_1WindowError.html',1,'tr']]],
+  ['windowexposeevent_5',['WindowExposeEvent',['../structtr_1_1WindowExposeEvent.html',1,'tr']]],
+  ['windowgainfocusevent_6',['WindowGainFocusEvent',['../structtr_1_1WindowGainFocusEvent.html',1,'tr']]],
+  ['windowhideevent_7',['WindowHideEvent',['../structtr_1_1WindowHideEvent.html',1,'tr']]],
+  ['windowleaveevent_8',['WindowLeaveEvent',['../structtr_1_1WindowLeaveEvent.html',1,'tr']]],
+  ['windowlosefocusevent_9',['WindowLoseFocusEvent',['../structtr_1_1WindowLoseFocusEvent.html',1,'tr']]],
+  ['windowmaximizeevent_10',['WindowMaximizeEvent',['../structtr_1_1WindowMaximizeEvent.html',1,'tr']]],
+  ['windowminimizeevent_11',['WindowMinimizeEvent',['../structtr_1_1WindowMinimizeEvent.html',1,'tr']]],
+  ['windowmotionevent_12',['WindowMotionEvent',['../structtr_1_1WindowMotionEvent.html',1,'tr']]],
+  ['windowopenerror_13',['WindowOpenError',['../structtr_1_1WindowOpenError.html',1,'tr']]],
+  ['windowresizeevent_14',['WindowResizeEvent',['../structtr_1_1WindowResizeEvent.html',1,'tr']]],
+  ['windowrestoreevent_15',['WindowRestoreEvent',['../structtr_1_1WindowRestoreEvent.html',1,'tr']]],
+  ['windowshowevent_16',['WindowShowEvent',['../structtr_1_1WindowShowEvent.html',1,'tr']]],
+  ['windowsizechangeevent_17',['WindowSizeChangeEvent',['../structtr_1_1WindowSizeChangeEvent.html',1,'tr']]],
+  ['windowview_18',['WindowView',['../classtr_1_1WindowView.html',1,'tr']]],
+  ['wrapdec_19',['WRAPDEC',['../gl__context_8cppm.html#a8c440fc4a94422129e86a69114e35b50a07296a95713959b948879267498a4420',1,'tr']]],
+  ['wrapinc_20',['WRAPINC',['../gl__context_8cppm.html#a8c440fc4a94422129e86a69114e35b50ae49418c69e4102ecfcb193311e6be76d',1,'tr']]],
+  ['write_5fonly_21',['WRITE_ONLY',['../classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8daad8fddf06187e680ab5a6355f76a17357',1,'tr::ShaderBuffer']]]
 ];

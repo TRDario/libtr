@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['r_0',['R',['../texture_8cppm.html#a228d86137368dd348340097c8a515439ae1e1d3d40573127e9ee0480caf1283d6',1,'tr']]],
-  ['read_5fonly_1',['READ_ONLY',['../classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8daa47c7e7cb36a953a8c47e02000036bb44',1,'tr::ShaderBuffer']]],
-  ['read_5fwrite_2',['READ_WRITE',['../classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8daaa7b843fb734e3b3fea8e5f902d3f4144',1,'tr::ShaderBuffer']]],
-  ['repeat_3',['REPEAT',['../sampler_8cppm.html#a68fa0648b9a72034f88944a16cadaea8a5be68175be14dfaa080165456c2e9555',1,'tr']]],
-  ['resizable_4',['RESIZABLE',['../window_8cppm.html#ad463b226a0cad7ea3e64dd5b07ecf12fac0520afdc57f61008645a8d423d0e3f4',1,'tr']]],
-  ['right_5',['RIGHT',['../window_8cppm.html#af09e8a848420f5464858f667b96bdab4a21507b40c80068eda19865706fdc2403',1,'tr']]]
+  ['nearest_0',['NEAREST',['../sampler_8cppm.html#ad1e4cc9bea7f1b176409b1e42ea21d68aad135772d7cf93dd0ccf9d2474b34e6a',1,'NEARESTtr'],['../sampler_8cppm.html#ac346a03e941c8ea2519c19086c4ce299aad135772d7cf93dd0ccf9d2474b34e6a',1,'NEARESTtr']]],
+  ['nequal_1',['NEQUAL',['../sampler_8cppm.html#a88338da155e2e92486d80fb0650a07d5a08c21e015248267a01d727848c97b40a',1,'tr']]],
+  ['never_2',['NEVER',['../sampler_8cppm.html#a88338da155e2e92486d80fb0650a07d5a443475558f0168dff92ecde26b98ae5a',1,'tr']]],
+  ['nmip_5flinear_3',['NMIP_LINEAR',['../sampler_8cppm.html#ad1e4cc9bea7f1b176409b1e42ea21d68a0ff446207d03fcfae5a9699956be682c',1,'tr']]],
+  ['nmip_5fnearest_4',['NMIP_NEAREST',['../sampler_8cppm.html#ad1e4cc9bea7f1b176409b1e42ea21d68a31bdfa42123ea543959a75e6fbfc0f49',1,'tr']]],
+  ['none_5',['NONE',['../classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2ab50339a10e1de285ac99d4c3990b8693',1,'tr::TTFont']]],
+  ['normal_6',['NORMAL',['../classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2a1e23852820b9154316c7c06e2b7ba051',1,'tr::TTFont::NORMAL'],['../classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06a1e23852820b9154316c7c06e2b7ba051',1,'tr::TTFont::NORMAL'],['../window_8cppm.html#af09e8a848420f5464858f667b96bdab4a1e23852820b9154316c7c06e2b7ba051',1,'NORMALtr']]]
 ];

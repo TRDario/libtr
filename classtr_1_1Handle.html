@@ -136,6 +136,9 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>operator bool</b
 <tr class="memitem:ad448d9fea3c5af9cd9feebc50e0ec5e4" id="r_ad448d9fea3c5af9cd9feebc50e0ec5e4"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad448d9fea3c5af9cd9feebc50e0ec5e4">operator==</a> (const <a class="el" href="classtr_1_1Handle.html">Handle</a> &amp;r) const noexcept</td></tr>
 <tr class="memdesc:ad448d9fea3c5af9cd9feebc50e0ec5e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality comparison operator.  <br /></td></tr>
 <tr class="separator:ad448d9fea3c5af9cd9feebc50e0ec5e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad337cdca4f3215dce14cb517597b01ac" id="r_ad337cdca4f3215dce14cb517597b01ac"><td class="memItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad337cdca4f3215dce14cb517597b01ac">release</a> () noexcept</td></tr>
+<tr class="memdesc:ad337cdca4f3215dce14cb517597b01ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases ownership over the handle, if any.  <br /></td></tr>
+<tr class="separator:ad337cdca4f3215dce14cb517597b01ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae350ebfc8469d797d40e47f06c4ca071" id="r_ae350ebfc8469d797d40e47f06c4ca071"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae350ebfc8469d797d40e47f06c4ca071">reset</a> () noexcept</td></tr>
 <tr class="memdesc:ae350ebfc8469d797d40e47f06c4ca071"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the handle to an empty state.  <br /></td></tr>
 <tr class="separator:ae350ebfc8469d797d40e47f06c4ca071"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -508,6 +511,37 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if r is a reference to the same object as *this. </dd></dl>
+
+</div>
+</div>
+<a id="ad337cdca4f3215dce14cb517597b01ac" name="ad337cdca4f3215dce14cb517597b01ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad337cdca4f3215dce14cb517597b01ac">&#9670;&#160;</a></span>release()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="classtr_1_1Handle.html">tr::Handle</a>&lt; T, EmptyValue, Deleter &gt;::release </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">export</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Releases ownership over the handle, if any. </p>
+<p>The handle will be empty after this call.</p>
+<dl class="section return"><dt>Returns</dt><dd>The value previously held by the handle. </dd></dl>
 
 </div>
 </div>

@@ -13,5 +13,6 @@ var searchData=
   ['handle_3c_20gluint_2c_200_2c_20decltype_28_5b_5d_28gluint_20id_29_20_7b_20gldeletevertexarrays_281_2c_20_26id_29_3b_7d_29_3e_10',['Handle&lt; GLuint, 0, decltype([](GLuint id) { glDeleteVertexArrays(1, &amp;id);})&gt;',['../classtr_1_1Handle.html',1,'tr']]],
   ['handle_3c_20gluint_2c_200_2c_20decltype_28_5b_5d_28gluint_20id_29_20_7b_20glunmapnamedbuffer_28id_29_3b_7d_29_3e_11',['Handle&lt; GLuint, 0, decltype([](GLuint id) { glUnmapNamedBuffer(id);})&gt;',['../classtr_1_1Handle.html',1,'tr']]],
   ['handle_3c_20unsigned_20int_2c_20_2d1u_2c_20deleter_20_3e_12',['Handle&lt; unsigned int, -1U, Deleter &gt;',['../classtr_1_1Handle.html',1,'tr']]],
-  ['hsv_13',['HSV',['../structtr_1_1HSV.html',1,'tr']]]
+  ['hittestevent_13',['HitTestEvent',['../structtr_1_1HitTestEvent.html',1,'tr']]],
+  ['hsv_14',['HSV',['../structtr_1_1HSV.html',1,'tr']]]
 ];

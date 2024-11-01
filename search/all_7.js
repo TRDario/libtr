@@ -16,5 +16,6 @@ var searchData=
   ['handle_3c_20unsigned_20int_2c_20_2d1u_2c_20deleter_20_3e_13',['Handle&lt; unsigned int, -1U, Deleter &gt;',['../classtr_1_1Handle.html',1,'tr']]],
   ['hashmap_2ecppm_14',['hashmap.cppm',['../hashmap_8cppm.html',1,'']]],
   ['hidden_15',['HIDDEN',['../window_8cppm.html#ad463b226a0cad7ea3e64dd5b07ecf12fa347e628a8f72626a0611ef842fe9d304',1,'tr']]],
-  ['hsv_16',['HSV',['../structtr_1_1HSV.html',1,'tr']]]
+  ['hittestevent_16',['HitTestEvent',['../structtr_1_1HitTestEvent.html',1,'tr']]],
+  ['hsv_17',['HSV',['../structtr_1_1HSV.html',1,'tr']]]
 ];

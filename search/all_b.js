@@ -1,9 +1,20 @@
 var searchData=
 [
-  ['maximized_0',['MAXIMIZED',['../window_8cppm.html#ad463b226a0cad7ea3e64dd5b07ecf12fa2f33d682f3a4e19c31ced6cb4fd022e3',1,'tr']]],
-  ['minimized_1',['MINIMIZED',['../window_8cppm.html#ad463b226a0cad7ea3e64dd5b07ecf12fa43245b4788b59a22d5357a7146c06deb',1,'tr']]],
-  ['mirror_5frepeat_2',['MIRROR_REPEAT',['../sampler_8cppm.html#a68fa0648b9a72034f88944a16cadaea8a31dbbe4319ea02c28dad7cde7b782710',1,'tr']]],
-  ['mono16_3',['MONO16',['../audio__buffer_8cppm.html#a0cd93ec18a3882266f1c6cd2657e7cfea59e5ab3f0c1c59504cf28fc887787eab',1,'tr']]],
-  ['mono8_4',['MONO8',['../audio__buffer_8cppm.html#a0cd93ec18a3882266f1c6cd2657e7cfea6bb6d6a0741f2a5afd00611ed1ef5f8b',1,'tr']]],
-  ['mutit_5',['MutIt',['../classtr_1_1Bitmap_1_1MutIt.html',1,'tr::Bitmap']]]
+  ['max_0',['MAX',['../gl__context_8cppm.html#ab02487840c576fc68a93203882127279a26a4b44a837bf97b972628509912b4a5',1,'tr']]],
+  ['maxdistance_1',['maxDistance',['../classtr_1_1AudioStream.html#a73c6adc8aabed673f4c09be36e71311d',1,'tr::AudioStream']]],
+  ['maxgain_2',['maxGain',['../classtr_1_1AudioStream.html#ab657f0bc7553b4059b7520995a3bf526',1,'tr::AudioStream']]],
+  ['maximized_3',['MAXIMIZED',['../window_8cppm.html#ad463b226a0cad7ea3e64dd5b07ecf12fa2f33d682f3a4e19c31ced6cb4fd022e3',1,'tr']]],
+  ['measureresult_4',['MeasureResult',['../structtr_1_1TTFont_1_1MeasureResult.html',1,'tr::TTFont']]],
+  ['min_5',['MIN',['../gl__context_8cppm.html#ab02487840c576fc68a93203882127279ace31e2a082d17e038fcc6e3006166653',1,'tr']]],
+  ['mingain_6',['minGain',['../classtr_1_1AudioStream.html#aecd28dcd2cc4366757d880e9d850d3cf',1,'tr::AudioStream']]],
+  ['minimized_7',['MINIMIZED',['../window_8cppm.html#ad463b226a0cad7ea3e64dd5b07ecf12fa43245b4788b59a22d5357a7146c06deb',1,'tr']]],
+  ['mirror_5frepeat_8',['MIRROR_REPEAT',['../sampler_8cppm.html#a68fa0648b9a72034f88944a16cadaea8a31dbbe4319ea02c28dad7cde7b782710',1,'tr']]],
+  ['mono_9',['MONO',['../classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2af5f75f1b95652443e4398974b82c3f7c',1,'tr::TTFont']]],
+  ['mono16_10',['MONO16',['../audio__buffer_8cppm.html#a0cd93ec18a3882266f1c6cd2657e7cfea59e5ab3f0c1c59504cf28fc887787eab',1,'tr']]],
+  ['mono8_11',['MONO8',['../audio__buffer_8cppm.html#a0cd93ec18a3882266f1c6cd2657e7cfea6bb6d6a0741f2a5afd00611ed1ef5f8b',1,'tr']]],
+  ['mousedownevent_12',['MouseDownEvent',['../structtr_1_1MouseDownEvent.html',1,'tr']]],
+  ['mousemotionevent_13',['MouseMotionEvent',['../structtr_1_1MouseMotionEvent.html',1,'tr']]],
+  ['mouseupevent_14',['MouseUpEvent',['../structtr_1_1MouseUpEvent.html',1,'tr']]],
+  ['mousewheelevent_15',['MouseWheelEvent',['../structtr_1_1MouseWheelEvent.html',1,'tr']]],
+  ['mutit_16',['MutIt',['../classtr_1_1Bitmap_1_1MutIt.html',1,'tr::Bitmap']]]
 ];

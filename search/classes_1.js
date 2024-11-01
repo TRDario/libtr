@@ -15,5 +15,6 @@ var searchData=
   ['bitmapbadalloc_12',['BitmapBadAlloc',['../structtr_1_1BitmapBadAlloc.html',1,'tr']]],
   ['bitmapformat_13',['BitmapFormat',['../classtr_1_1BitmapFormat.html',1,'tr']]],
   ['bitmaploaderror_14',['BitmapLoadError',['../structtr_1_1BitmapLoadError.html',1,'tr']]],
-  ['bitmapsaveerror_15',['BitmapSaveError',['../structtr_1_1BitmapSaveError.html',1,'tr']]]
+  ['bitmapsaveerror_15',['BitmapSaveError',['../structtr_1_1BitmapSaveError.html',1,'tr']]],
+  ['blendmode_16',['BlendMode',['../structtr_1_1BlendMode.html',1,'tr']]]
 ];
