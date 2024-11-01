@@ -1,3 +1,8 @@
+/**
+ * @file gl_context.cppm
+ * @brief Provides access to the OpenGL context and state.
+ */
+
 module;
 #include <cassert>
 #include <SDL2/SDL.h>
@@ -22,213 +27,657 @@ import :vertex_format;
 import :window;
 
 export namespace tr {
-    // Enum representing a stencil face.
+	/******************************************************************************************************************
+	 * Error thrown when creating an OpenGL context fails.
+	 ******************************************************************************************************************/
+	struct GLContextCreationError : std::runtime_error {
+		using runtime_error::runtime_error;
+	};
+
+	/******************************************************************************************************************
+	 * Error thrown if setting the V-sync mode failed.
+	 ******************************************************************************************************************/
+	struct VSyncError : SDLError {
+		/******************************************************************************************************************
+		 * Constructs the error.
+		 *
+		 * @exception std::bad_alloc If allocating the error string failed.
+		 ******************************************************************************************************************/
+		VSyncError();
+	};
+
+
+    /******************************************************************************************************************
+	 * Stencil faces.
+	 ******************************************************************************************************************/
 	enum class StencilFace {
-		FRONT = 0x404, // The front face of a polygon.
-		BACK  = 0x405, // The back face of the polygon.
-		BOTH  = 0x408  // Both faces of the polygon.
+		/**************************************************************************************************************
+		 * The front face of a polygon.
+		 **************************************************************************************************************/
+		FRONT = 0x404,
+		
+		/**************************************************************************************************************
+		 * The back face of a polygon.
+		 **************************************************************************************************************/
+		BACK  = 0x405,
+		
+		/**************************************************************************************************************
+		 * Both faces of a polygon.
+		 **************************************************************************************************************/
+		BOTH  = 0x408
 	};
-	// Enum representing a stencil operation.
+	
+	/******************************************************************************************************************
+	 * Stencil operations.
+	 ******************************************************************************************************************/
 	enum class StencilOperation {
-		ZERO,             // Stets the stencil buffer value to 0.
-		KEEP    = 0x1E00, // Keeps the current value.
-		REPLACE,          // Sets the stencil buffer value to comp.
-		INC,              // Increments the current stencil buffer value up to the maximum.
-		DEC,              // Decrements the current stencil buffer value down to 0.
-		INVERT  = 0x150A, // Bitwise inverts the current stencil buffer value.
-		WRAPINC = 0x8507, // Increments the current stencil buffer value, wrapping to 0 on overflow.
-		WRAPDEC           // Decrements the current stencil buffer value, wrapping to the maximum on underflow.
+		/**************************************************************************************************************
+		 * Sets the stencil value to 0.
+		 **************************************************************************************************************/
+		ZERO,
+
+		/**************************************************************************************************************
+		 * Keeps the existing stencil value.
+		 **************************************************************************************************************/
+		KEEP    = 0x1E00,
+
+		/**************************************************************************************************************
+		 * Unconditionallz replaces the stencil value.
+		 **************************************************************************************************************/
+		REPLACE,
+
+		/**************************************************************************************************************
+		 * Increments the stencil value towards the maximum.
+		 **************************************************************************************************************/
+		INC,
+		
+		/**************************************************************************************************************
+		 * Decrements the stencil value towards zero.
+		 **************************************************************************************************************/
+		DEC,
+
+		/**************************************************************************************************************
+		 * Inverts the bits of the stencil value.
+		 **************************************************************************************************************/
+		INVERT  = 0x150A,
+
+		/**************************************************************************************************************
+		 * Increments the stencil value, wrapping around to 0,
+		 **************************************************************************************************************/
+		WRAPINC = 0x8507,
+
+		/**************************************************************************************************************
+		 * Decrements the stencil value, wrapping around to the maximum.
+		 **************************************************************************************************************/
+		WRAPDEC
 	};
 
-	// Enum representing a blending function.
+	/******************************************************************************************************************
+	 * Blending functions.
+	 ******************************************************************************************************************/
 	enum class BlendFunction {
-		ADD      = 0x8006, // The source and destination colors are added together.
-		MIN,               // The minimum channel values of the source and destination colors are selected.
-		MAX,               // The maximum channel values of the source and destination colors are selected.
-		SUBTRACT = 0x800A, // The source and destination colors are subtracted in the form (src - dst).
-		REVERSE_SUBTRACT   // The source and destination colors are subtracted in the form (dst - src).
+		/**************************************************************************************************************
+		 * The source and destination colors are added together.
+		 **************************************************************************************************************/
+		ADD      = 0x8006,
+
+		/**************************************************************************************************************
+		 * The minimum channel values of the source and destination colors are selected.
+		 **************************************************************************************************************/
+		MIN,
+
+		/**************************************************************************************************************
+		 * The maximum channel values of the source and destination colors are selected.
+		 **************************************************************************************************************/
+		MAX,
+
+		/**************************************************************************************************************
+		 * The source and destination colors are subtracted in the form (src - dst).
+		 **************************************************************************************************************/
+		SUBTRACT = 0x800A,
+
+		/**************************************************************************************************************
+		 * The source and destination colors are subtracted in the form (dst - src).
+		 **************************************************************************************************************/
+		REVERSE_SUBTRACT
 	};
-	// Enum representing a blending parameter.
-	enum class BlendParameter {
-		ZERO,                     // The parameter is multiplied by 0.
-		ONE,                      // The parameter is multiplied by 1.
-		SRC_COLOR = 0x300,        // The parameter is multiplied by the source color.
-		ONE_MINUS_SRC_COLOR,      // The parameter is multiplied by 1 - the source color.
-		SRC_ALPHA,                // The parameter is multiplied by the source alpha.
-		ONE_MINUS_SRC_ALPHA,      // The parameter is multiplied by 1 - the source alpha.
-		DST_ALPHA,                // The parameter is multiplied by the destination alpha.
-		ONE_MINUS_DST_ALPHA,      // The parameter is multiplied by 1 - the destination alpha.
-		DST_COLOR,                // The parameter is multiplied by the destination color.
-		ONE_MINUS_DST_COLOR,      // The parameter is multiplied by 1 - the destination color.
-		SRC_ALPHA_SATURATE,       // ???
-		CONSTANT_COLOR = 0x8001,  // The parameter is multiplied by the blend color.
-		ONE_MINUS_CONSTANT_COLOR, // The parameter is multiplied by 1 - the blend color.
-		CONSTANT_ALPHA,           // The parameter is multiplied by the blend color alpha.
-		ONE_MINUS_CONSTANT_ALPHA  // The parameter is multiplied by 1 - the blend color alpha.
+	
+	/******************************************************************************************************************
+	 * Blending parameter multipliers.
+	 ******************************************************************************************************************/
+	enum class BlendMultiplier {
+		/**************************************************************************************************************
+		 * The parameter is multiplied by 0.
+		 **************************************************************************************************************/
+		ZERO,
+
+		/**************************************************************************************************************
+		 * The parameter is multiplied by 1.
+		 **************************************************************************************************************/
+		ONE,
+
+		/**************************************************************************************************************
+		 * The parameter is multiplied by the source color.
+		 **************************************************************************************************************/
+		SRC_COLOR = 0x300,
+
+		/**************************************************************************************************************
+		 * The parameter is multiplied by 1 - the source color.
+		 **************************************************************************************************************/
+		ONE_MINUS_SRC_COLOR,
+
+		/**************************************************************************************************************
+		 * The parameter is multiplied by the source alpha.
+		 **************************************************************************************************************/
+		SRC_ALPHA,
+
+		/**************************************************************************************************************
+		 * The parameter is multiplied by 1 - the source alpha.
+		 **************************************************************************************************************/
+		ONE_MINUS_SRC_ALPHA,
+
+		/**************************************************************************************************************
+		 * The parameter is multiplied by the destination alpha.
+		 **************************************************************************************************************/
+		DST_ALPHA,
+
+		/**************************************************************************************************************
+		 * The parameter is multiplied by 1 - the destination alpha.
+		 **************************************************************************************************************/
+		ONE_MINUS_DST_ALPHA,
+
+		/**************************************************************************************************************
+		 * The parameter is multiplied by the destination color.
+		 **************************************************************************************************************/
+		DST_COLOR,
+
+		/**************************************************************************************************************
+		 * The parameter is multiplied by 1 - the destination color.
+		 **************************************************************************************************************/
+		ONE_MINUS_DST_COLOR,
+
+		/**************************************************************************************************************
+		 * TO-DO: figure out what this is.
+		 **************************************************************************************************************/
+		SRC_ALPHA_SATURATE,
+
+		/**************************************************************************************************************
+		 * The parameter is multiplied by the blending color constant.
+		 **************************************************************************************************************/
+		CONSTANT_COLOR = 0x8001,
+
+		/**************************************************************************************************************
+		 * The parameter is multiplied by 1 - the blending color constant.
+		 **************************************************************************************************************/
+		ONE_MINUS_CONSTANT_COLOR,
+
+		/**************************************************************************************************************
+		 * The parameter is multiplied by the blending alpha constant.
+		 **************************************************************************************************************/
+		CONSTANT_ALPHA,
+
+		/**************************************************************************************************************
+		 * The parameter is multiplied by 1 - the blending alpha constant.
+		 **************************************************************************************************************/
+		ONE_MINUS_CONSTANT_ALPHA
 	};
-	// Struct representing a blending mode.
+	
+	/******************************************************************************************************************
+	 * Blending mode information.
+	 ******************************************************************************************************************/
 	struct BlendMode {
-		BlendParameter rgbSrc;   // The parameter the source color is multiplied with.
-		BlendFunction  rgbFn;    // The operation applied with the source and destination colors.
-		BlendParameter rgbDst;   // The parameter the destination color is multiplied with.
-		BlendParameter alphaSrc; // The parameter the source alpha is multiplied with.
-		BlendFunction  alphaFn;  // The operation applied with the source and destination alpha.
-		BlendParameter alphaDst; // The parameter the destination alpha is multiplied with.
+		/**************************************************************************************************************
+		 * The multiplier used for the source color.
+		 **************************************************************************************************************/
+		BlendMultiplier rgbSrc;
+
+		/**************************************************************************************************************
+		 * The operation applied with the source and destination colors.
+		 **************************************************************************************************************/
+		BlendFunction rgbFn;
+
+		/**************************************************************************************************************
+		 * The multiplier used for the destination color.
+		 **************************************************************************************************************/
+		BlendMultiplier rgbDst;   // The parameter the destination color is multiplied with.
+
+		/**************************************************************************************************************
+		 * The multiplier used for the source alpha.
+		 **************************************************************************************************************/
+		BlendMultiplier alphaSrc;
+
+		/**************************************************************************************************************
+		 * The operation applied with the source and destination alpha.
+		 **************************************************************************************************************/
+		BlendFunction alphaFn;
+
+		/**************************************************************************************************************
+		 * The multiplier used for the destination alpha.
+		 **************************************************************************************************************/
+		BlendMultiplier alphaDst;
 	};
 
-	// Blending mode resulting in alpha blending.
+	/******************************************************************************************************************
+	 * Alpha blending mode.
+	 ******************************************************************************************************************/
 	inline constexpr BlendMode ALPHA_BLENDING {
-		BlendParameter::SRC_ALPHA, BlendFunction::ADD, BlendParameter::ONE_MINUS_SRC_ALPHA,
-		BlendParameter::ONE,       BlendFunction::ADD, BlendParameter::ZERO
+		BlendMultiplier::SRC_ALPHA, BlendFunction::ADD, BlendMultiplier::ONE_MINUS_SRC_ALPHA,
+		BlendMultiplier::ONE,       BlendFunction::ADD, BlendMultiplier::ZERO
 	};
-	// Blending mode resulting in premultiplied alpha blending.
+	
+	/******************************************************************************************************************
+	 * Premultiplied alpha blending mode.
+	 ******************************************************************************************************************/
 	inline constexpr BlendMode PREMUL_ALPHA_BLENDING {
-		BlendParameter::ONE, BlendFunction::ADD, BlendParameter::ONE_MINUS_SRC_ALPHA,
-		BlendParameter::ONE, BlendFunction::ADD, BlendParameter::ONE_MINUS_SRC_ALPHA
+		BlendMultiplier::ONE, BlendFunction::ADD, BlendMultiplier::ONE_MINUS_SRC_ALPHA,
+		BlendMultiplier::ONE, BlendFunction::ADD, BlendMultiplier::ONE_MINUS_SRC_ALPHA
 	};
 
-	// Enum representing a clearable component of the render target.
+	/******************************************************************************************************************
+	 * Clearable components of the render target.
+	 ******************************************************************************************************************/
 	enum class Clear {
+		/**************************************************************************************************************
+		 * Clear the depth values.
+		 **************************************************************************************************************/
 		DEPTH = 0b0000000100000000,
+
+		/**************************************************************************************************************
+		 * Clear the stencil values.
+		 **************************************************************************************************************/
 		STENCIL = 0b0000010000000000,
+
+		/**************************************************************************************************************
+		 * Clear the color values.
+		 **************************************************************************************************************/
 		COLOR = 0b0100000000000000,
+
+		/**************************************************************************************************************
+		 * Clear all values.
+		 **************************************************************************************************************/
 		ALL = 0b0100010100000000
 	};
-	DEFINE_BITMASK_OPERATORS(Clear);
 
-    // Enum representing vsync behavior.
+	/// @cond IMPLEMENTATION
+	DEFINE_BITMASK_OPERATORS(Clear);
+	/// @endcond
+
+    /******************************************************************************************************************
+	 * V-sync modes.
+	 ******************************************************************************************************************/
 	enum class VSync : std::int8_t {
-		ADAPTIVE = -1, // Vsync is enabled, but late swaps happen immediately instead of waiting for the next retrace.
-		DISABLED,      // Vsync is disabled.
-		ENABLED        // Vsync is enabled.
+		/**************************************************************************************************************
+		 * Vsync is enabled, but late swaps happen immediately instead of waiting for the next retrace.
+		 **************************************************************************************************************/
+		ADAPTIVE = -1,
+
+		/**************************************************************************************************************
+		 * Vsync is disabled.
+		 **************************************************************************************************************/
+		DISABLED,
+
+		/**************************************************************************************************************
+		 * Vsync is enabled.
+		 **************************************************************************************************************/
+		ENABLED
 	};
 
-    // Enum representing a type of primitive.
+    /******************************************************************************************************************
+	 * Rendering primitives.
+	 ******************************************************************************************************************/
     enum class Primitive {
-        POINTS,     // The vertices are drawn as individual points.
-        LINES,      // The vertices are drawn in pairs as lines.
-        LINE_LOOP,  // The vertices are drawn as a continuous line loop.
-        LINE_STRIP, // The vertices are drawn as a continuous line strip.
-        TRIS,       // The vertices are drawn in groups of three as triangles.
-        TRI_STRIP,  // The vertices are drawn as a continuous triangle strip.
-        TRI_FAN     // The vertices are drawn as a continuous triangle fan.
+		/**************************************************************************************************************
+		 * The vertices are drawn as individual points.
+		 **************************************************************************************************************/
+        POINTS,
+
+		/**************************************************************************************************************
+		 * The vertices are drawn in pairs as lines.
+		 **************************************************************************************************************/
+        LINES,
+
+		/**************************************************************************************************************
+		 * The vertices are drawn as a continuous line loop.
+		 **************************************************************************************************************/
+        LINE_LOOP,
+
+		/**************************************************************************************************************
+		 * The vertices are drawn as a continuous line strip.
+		 **************************************************************************************************************/
+        LINE_STRIP,
+
+		/**************************************************************************************************************
+		 * The vertices are drawn in groups of three as triangles.
+		 **************************************************************************************************************/
+        TRIS,
+
+		/**************************************************************************************************************
+		 * The vertices are drawn as a continuous triangle strip.
+		 **************************************************************************************************************/
+        TRI_STRIP,
+
+		/**************************************************************************************************************
+		 * The vertices are drawn as a continuous triangle fan.
+		 **************************************************************************************************************/
+        TRI_FAN
     };
 
-    // OpenGL context class.
+    /******************************************************************************************************************
+	 * OpenGL context.
+	 ******************************************************************************************************************/
     class GLContext {
     public:
+		/**************************************************************************************************************
+		 * Creates the OpenGL context.
+		 *
+		 * @exception GLContextCreationError
+		 * @parblock
+		 * If creating the context failed, or if initializing GLEW failed.
+		 *
+		 * Program state is reverted to as it was before the constructor call if this exception is thrown
+		 * (strong exception guarantee).
+		 * @endparblock
+		 *
+		 * @param window
+		 * @parblock
+		 * The window to create the context for.
+		 *
+		 * Calling this function on a window with a context already created is considered undefined behavior.
+		 * @endparblock
+		 **************************************************************************************************************/
         GLContext(Window& window);
 
-        // Gets the context's vendor string.
+
+        /**************************************************************************************************************
+		 * Gets the context's vendor string.
+		 *
+		 * @return A vendor information C-string.
+		 **************************************************************************************************************/
         const char* vendorStr() const noexcept;
-        // Gets the context's renderer string.
+        
+		/**************************************************************************************************************
+		 * Gets the context's renderer string.
+		 *
+		 * @return A renderer information C-string.
+		 **************************************************************************************************************/
         const char* rendererStr() const noexcept;
-        // Gets the context's version string.
+        
+		/**************************************************************************************************************
+		 * Gets the context's version string.
+		 *
+		 * @return A version information C-string.
+		 **************************************************************************************************************/
         const char* versionStr() const noexcept;
 
-        // Gets the V-sync mode for the context.
-        VSync vsync() const noexcept;
-        // Sets the V-sync mode of the context.
-        bool setVSync(VSync vsync) noexcept;
 
-        // Sets the target framebuffer.
+        /**************************************************************************************************************
+		 * Gets the context's V-sync mode.
+		 *
+		 * @return The context's V-sync mode.
+		 **************************************************************************************************************/
+        VSync vsync() const noexcept;
+
+        /**************************************************************************************************************
+		 * Sets the context's V-sync mode.
+		 *
+		 * @exception SDLError
+		 * @parblock
+		 * If setting the V-sync mode failed.
+		 * 
+		 * The context's V-sync mode will stay unchanged if this exception was thrown (strong exception guarantee).
+		 * @endparblock
+		 *
+		 * @param[in] vsync The new V-sync mode.
+		 **************************************************************************************************************/
+        void setVSync(VSync vsync);
+
+
+        /**************************************************************************************************************
+		 * Sets the target framebuffer.
+		 *
+		 * @param[in] framebuffer The new target framebuffer (user-defined or backbuffer).
+		 **************************************************************************************************************/
 		void setFramebuffer(BasicFramebuffer& framebuffer) noexcept;
 
-		// Sets the context's active shader pipeline.
+
+		/**************************************************************************************************************
+		 * Sets the active shader pipeline.
+		 *
+		 * @param[in] pipeline The new active shader pipeline.
+		 **************************************************************************************************************/
 		void setShaderPipeline(const ShaderPipeline& pipeline) noexcept;
 
-        // Sets the context's active vertex format.
+
+        /**************************************************************************************************************
+		 * Sets the active vertex format.
+		 *
+		 * @param[in] format The new active vertex format.
+		 **************************************************************************************************************/
         void setVertexFormat(const VertexFormat& format) noexcept;
 
-        // Sets the context's active vertex buffer.
-        void setVertexBuffer(VertexBuffer& buffer, std::size_t offset, std::size_t vertexStride) noexcept;
-        // Sets the context's active index buffer.
-        void setIndexBuffer(IndexBuffer& buffer) noexcept;
 
-		// Sets whether face culling is performed.
+        /**************************************************************************************************************
+		 * Sets the active vertex buffer.
+		 *
+		 * @param[in] buffer The new active vertex buffer.
+		 * @param[in] offset The starting offset within the buffer (an out of bounds offset may trigger an assertion).
+		 * @param[in] vertexStride The distance between consecutive vertices.
+		 **************************************************************************************************************/
+        void setVertexBuffer(const VertexBuffer& buffer, std::size_t offset, std::size_t vertexStride) noexcept;
+
+		/**************************************************************************************************************
+		 * Sets the active index buffer.
+		 *
+		 * @param[in] buffer The new active index buffer.
+		 **************************************************************************************************************/
+        void setIndexBuffer(const IndexBuffer& buffer) noexcept;
+
+
+		/**************************************************************************************************************
+		 * Sets whether face culling is performed.
+		 *
+		 * @param use Whether face culling should be performed or not.
+		 **************************************************************************************************************/
 		void useFaceCulling(bool use) noexcept;
 
-		// Sets whether the scissor test is performed.
+
+		/**************************************************************************************************************
+		 * Sets whether the scissor test is performed.
+		 *
+		 * @param[in] use Whether the scissor test should be performed or not.
+		 **************************************************************************************************************/
 		void useScissorTest(bool use) noexcept;
-		// Sets the box used in the scissor test.
+
+		/**************************************************************************************************************
+		 * Sets the box used in the scissor test.
+		 *
+		 * @param[in] rect The rectangle outside which to discard fragments.
+		 **************************************************************************************************************/
 		void setScissorBox(RectI2 rect) noexcept;
 
-		// Sets whether the stencil test is performed.
+
+		/**************************************************************************************************************
+		 * Sets whether the stencil test is performed.
+		 *
+		 * @param[in] use Whether the stencil test should be performed or not.
+		 **************************************************************************************************************/
 		void useStencilTest(bool use) noexcept;
-		// Sets the function used for the stencil test.
-		// face - The face(s) this function applies to.
-		// func - The function used for the depth test.
-		// comp - The value that will be compared against in the function.
-		// mask - The value of the stencil mask.
+
+		/**************************************************************************************************************
+		 * Sets the function used for the stencil test.
+		 *
+		 * @param[in] face The pace(s) this function applies to.
+		 * @param[in] func The function to be used for the depth test.
+		 * @param[in] comp The value that will be compared against in the function.
+		 * @param[in] mask The value of the stencil mask. 
+		 **************************************************************************************************************/
 		void setStencilTest(StencilFace face, Compare func, int comp, std::uint32_t mask) noexcept;
-		// Sets the operation performed on the stencil buffer in various circumstances. 
-		// face - The face(s) this function applies to.
-		// sfail - The operation used in case of a stencil test fail.
-		// dfail - The operation used in case of a depth test fail.
-		// dpass - The operation used in case of a depth test success.
+
+		/**************************************************************************************************************
+		 * Sets the operation performed on the stencil buffer in various circumstances.
+		 *
+		 * @param[in] face The pace(s) this function applies to.
+		 * @param[in] sfail The operation used in case of a stencil test fail.
+		 * @param[in] dfail The operation used in case of a depth test fail.
+		 * @param[in] dpass The operation used in case of a depth test success.
+		 **************************************************************************************************************/
 		void setStencilOperation(StencilFace face, StencilOperation sfail, StencilOperation dfail, StencilOperation dpass) noexcept;
-		// Sets the stencil mask that enables and disables writing of individual bits in stencil buffers.
-		// face - The face(s) this mask applies to.
-		// mask - A bitmask where 0 means the bit cannot be written and 1 means it can be written.
+		
+		/**************************************************************************************************************
+		 * Sets the stencil mask that enables and disables writing of individual bits in stencil buffers.
+		 *
+		 * @param[in] face The pace(s) this mask applies to.
+		 * @param[in] mask A bitmask where 0 means the bit cannot be written and 1 means it can be written.
+		 **************************************************************************************************************/
 		void setStencilMask(StencilFace face, std::uint32_t mask) noexcept;
 
-		// Sets whether the depth test is performed.
+
+		/**************************************************************************************************************
+		 * Sets whether the depth test is performed.
+		 *
+		 * @param[in] use Whether the depth test should be performed or not.
+		 **************************************************************************************************************/
 		void useDepthTest(bool use) noexcept;
-		// Sets the function used for the depth test.
+
+		/**************************************************************************************************************
+		 * Sets the function used for the depth test.
+		 *
+		 * @param[in] func The function to use for the depth test.
+		 **************************************************************************************************************/
 		void setDepthTest(Compare func) noexcept;
 
-		// Sets whether blending is performed.
+
+		/**************************************************************************************************************
+		 * Sets whether blending is performed.
+		 *
+		 * @param[in] use Whether blending should be performed or not.
+		 **************************************************************************************************************/
 		void useBlending(bool use) noexcept;
-		// Sets the blending mode.
-		void setBlendingMode(BlendMode BlendMode) noexcept;
-		// Sets the constant blending color.
+
+		/**************************************************************************************************************
+		 * Sets the active blending mode.
+		 *
+		 * @param[in] blendMode the blending mode to use.
+		 **************************************************************************************************************/
+		void setBlendingMode(BlendMode blendMode) noexcept;
+
+		/**************************************************************************************************************
+		 * Sets the constant blending color.
+		 *
+		 * @param[in] color the blending color to use.
+		 **************************************************************************************************************/
 		void setBlendingColor(RGBAF color);
-		// Sets the color mask that determines the writing of frame buffer color components.
+
+		/**************************************************************************************************************
+		 * Sets the color mask that determines the writing of frame buffer color components.
+		 *
+		 * @param[in] red, green, blue, alpha Whether writing to a color channel should be enabled.
+		 **************************************************************************************************************/
 		void setColorMask(bool red, bool green, bool blue, bool alpha) noexcept;
 
-		// Sets the clear color.
+
+		/**************************************************************************************************************
+		 * Sets the clear color value.
+		 *
+		 * @param[in] color The new clear color.
+		 **************************************************************************************************************/
 		void setClearColor(RGBAF color) noexcept;
-		// Sets the clear depth.
+		
+		/**************************************************************************************************************
+		 * Sets the clear depth value.
+		 *
+		 * @param[in] depth The new clear depth.
+		 **************************************************************************************************************/
 		void setClearDepth(float depth) noexcept;
-		// Sets the clear stencil.
+		
+		/**************************************************************************************************************
+		 * Sets the clear stencil value.
+		 *
+		 * @param[in] stencil The new clear stencil.
+		 **************************************************************************************************************/
 		void setClearStencil(int stencil) noexcept;
-		// Clears the render target.
-		// components - The components to be cleared, multiple may be ORed together.
+
+		/**************************************************************************************************************
+		 * Clears the current render target.
+		 *
+		 * @param[in] components The drawing components to clear.
+		 **************************************************************************************************************/
 		void clear(Clear components) noexcept;
 
-        void draw(Primitive type, std::size_t offset, std::size_t vertices);
-        void drawInstances(Primitive type, std::size_t offset, std::size_t vertices, int instances);
-        void drawIndexed(Primitive type, std::size_t offset, std::size_t indices);
-        void drawIndexedInstances(Primitive type, std::size_t offset, std::size_t indices, int instances);
+
+        /**************************************************************************************************************
+		 * Draws a mesh from a vertex buffer.
+		 *
+		 * @param[in] type The type of primitive to draw.
+		 * @param[in] offset The offset within the vertex buffer.
+		 * @param[in] vertices The number of vertices to draw.
+		 **************************************************************************************************************/
+		void draw(Primitive type, std::size_t offset, std::size_t vertices) noexcept;
+
+        /**************************************************************************************************************
+		 * Draws an instanced mesh from a vertex buffer.
+		 *
+		 * @param[in] type The type of primitive to draw.
+		 * @param[in] offset The offset within the vertex buffer.
+		 * @param[in] vertices The number of vertices to draw.
+		 * @param[in] instances The number of instances to draw.
+		 **************************************************************************************************************/
+		void drawInstances(Primitive type, std::size_t offset, std::size_t vertices, int instances) noexcept;
+        
+		/**************************************************************************************************************
+		 * Draws an indexed mesh.
+		 *
+		 * @param[in] type The type of primitive to draw.
+		 * @param[in] offset The offset within the index buffer.
+		 * @param[in] indices The number of indices to draw.
+		 **************************************************************************************************************/
+		void drawIndexed(Primitive type, std::size_t offset, std::size_t indices) noexcept;
+        
+		/**************************************************************************************************************
+		 * Draws an instanced indexed mesh.
+		 *
+		 * @param[in] type The type of primitive to draw.
+		 * @param[in] offset The offset within the index buffer.
+		 * @param[in] indices The number of indices to draw.
+		 * @param[in] instances The number of instances to draw.
+		 **************************************************************************************************************/
+		void drawIndexedInstances(Primitive type, std::size_t offset, std::size_t indices, int instances) noexcept;
     private:
         std::unique_ptr<void, FunctionCaller<&SDL_GL_DeleteContext>> _impl;
     public:
+		/**************************************************************************************************************
+		 * The window backbuffer.
+		 **************************************************************************************************************/
         Backbuffer backbuffer;
     };
 }
 
-// IMPLEMENTATION
+/// @cond IMPLEMENTATION
 
 namespace tr {
     // Initializes the GL context and GLEW.
-    SDL_GLContext createContext(SDL_Window* window);
+    std::unique_ptr<void, FunctionCaller<&SDL_GL_DeleteContext>> createContext(SDL_Window* window);
 }
 
-SDL_GLContext tr::createContext(SDL_Window* window)
+std::unique_ptr<void, tr::FunctionCaller<&SDL_GL_DeleteContext>> tr::createContext(SDL_Window* window)
 {
-    SDL_GLContext context { SDL_GL_CreateContext(window) };
+    std::unique_ptr<void, FunctionCaller<&SDL_GL_DeleteContext>> context { SDL_GL_CreateContext(window) };
     if (context == nullptr) {
-        throw SDLError { "Failed to create OpenGL context" };
+		throw GLContextCreationError { std::format("Failed to create OpenGL context: {}", SDL_GetError()) };
     }
 
     glewExperimental = true;
     GLenum glewError;
     if ((glewError = glewInit()) != GLEW_OK) {
-        throw std::runtime_error { std::format("Failed to initialize GLEW ({}).", (const char*)(glewGetErrorString(glewError))) };
+		throw GLContextCreationError { std::format("Failed to initialize GLEW: {}", (const char*)(glewGetErrorString(glewError))) };
     }
 
     return context;
 }
+
+tr::VSyncError::VSyncError() 
+	: SDLError { "Failed to set V-sync mode" }
+{}
 
 tr::GLContext::GLContext(Window& window)
     : _impl { createContext(window._impl) }
@@ -255,16 +704,11 @@ tr::VSync tr::GLContext::vsync() const noexcept
     return VSync(SDL_GL_GetSwapInterval());
 }
 
-bool tr::GLContext::setVSync(VSync vsync) noexcept
+void tr::GLContext::setVSync(VSync vsync)
 {
     if (SDL_GL_SetSwapInterval(int(vsync)) < 0) {
-        // Fallback to regular VSync if adaptive VSync doesn't work.
-        if (vsync == VSync::ADAPTIVE) {
-            return setVSync(VSync::ENABLED);
-        }
-        return false;
+		throw VSyncError {};
     }
-    return true;
 }
 
 void tr::GLContext::setFramebuffer(BasicFramebuffer& framebuffer) noexcept
@@ -327,10 +771,10 @@ void tr::GLContext::useBlending(bool use) noexcept
     use ? glEnable(GL_BLEND) : glDisable(GL_BLEND);
 }
 
-void tr::GLContext::setBlendingMode(BlendMode BlendMode) noexcept
+void tr::GLContext::setBlendingMode(BlendMode blendMode) noexcept
 {
-    glBlendEquationSeparate(GLenum(BlendMode.rgbFn), GLenum(BlendMode.alphaFn));
-    glBlendFuncSeparate(GLenum(BlendMode.rgbSrc), GLenum(BlendMode.rgbDst), GLenum(BlendMode.alphaSrc), GLenum(BlendMode.alphaDst));
+    glBlendEquationSeparate(GLenum(blendMode.rgbFn), GLenum(blendMode.alphaFn));
+    glBlendFuncSeparate(GLenum(blendMode.rgbSrc), GLenum(blendMode.rgbDst), GLenum(blendMode.alphaSrc), GLenum(blendMode.alphaDst));
 }
 
 void tr::GLContext::setBlendingColor(RGBAF clr)
@@ -368,34 +812,37 @@ void tr::GLContext::setVertexFormat(const VertexFormat& format) noexcept
     format.bind();
 }
 
-void tr::GLContext::setVertexBuffer(VertexBuffer& buffer, std::size_t offset, std::size_t vertexStride) noexcept
+void tr::GLContext::setVertexBuffer(const VertexBuffer& buffer, std::size_t offset, std::size_t vertexStride) noexcept
 {
 	assert(buffer._buffer.has_value());
+	assert(offset < buffer.size());
     glBindVertexBuffer(0, buffer._buffer->_id.get(), offset, vertexStride);
 }
 
-void tr::GLContext::setIndexBuffer(IndexBuffer& buffer) noexcept
+void tr::GLContext::setIndexBuffer(const IndexBuffer& buffer) noexcept
 {
 	assert(buffer._buffer.has_value());
     buffer._buffer->bind();
 }
 
-void tr::GLContext::draw(Primitive type, std::size_t offset, std::size_t vertices)
+void tr::GLContext::draw(Primitive type, std::size_t offset, std::size_t vertices) noexcept
 {
     glDrawArrays(GLenum(type), offset, vertices);
 }
 
-void tr::GLContext::drawInstances(Primitive type, std::size_t offset, std::size_t vertices, int instances)
+void tr::GLContext::drawInstances(Primitive type, std::size_t offset, std::size_t vertices, int instances) noexcept
 {
     glDrawArraysInstanced(GLenum(type), offset, vertices, instances);
 }
 
-void tr::GLContext::drawIndexed(Primitive type, std::size_t offset, std::size_t indices)
+void tr::GLContext::drawIndexed(Primitive type, std::size_t offset, std::size_t indices) noexcept
 {
     glDrawElements(GLenum(type), indices, GL_UNSIGNED_SHORT, (const void*)(offset));
 }
 
-void tr::GLContext::drawIndexedInstances(Primitive type, std::size_t offset, std::size_t indices, int instances)
+void tr::GLContext::drawIndexedInstances(Primitive type, std::size_t offset, std::size_t indices, int instances) noexcept
 {
     glDrawElementsInstanced(GLenum(type), indices, GL_UNSIGNED_SHORT, (const void*)(offset), instances);
 }
+
+/// @endcond
