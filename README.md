@@ -23,13 +23,10 @@ libtr depends on the following external libraries:
 - [EnumBitmask](https://github.com/Reputeless/EnumBitmask)
 - [GLM](https://github.com/g-truc/glm)
 - [GLEW](https://glew.sourceforge.net/)
+- [magic_enum](https://github.com/Neargye/magic_enum)
 - [OpenALSoft](https://github.com/kcat/openal-soft)
 - [SDL2](https://github.com/libsdl-org/SDL) (including [SDL2_image](https://github.com/libsdl-org/SDL_image) and [SDL2_ttf](https://github.com/libsdl-org/SDL_ttf))
 - [libsndfile](https://github.com/libsndfile/libsndfile)
 
 ## Building ##
-libtr requires a C++23-compatible compiler and a version of CMake that supports modules.
-
-The external files [glm.cppm](https://github.com/g-truc/glm/blob/master/glm/glm.cppm) and boost.cppm (must import type_traits, optional, static_vector and static_string) must be provided in the directory set to TR_EXTERNAL_MODULE_DIR.
-
-NOTE: As of right now, only building on Linux with Clang/libc++ has been tested and is supported by the default CMakeLists file.
+libtr requires a C++20-compatible compiler. Files for building with CMake are provided.
