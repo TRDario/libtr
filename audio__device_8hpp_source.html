@@ -96,71 +96,73 @@ $(function(){ initResizable(false); });
 <a href="audio__device_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;exception&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">struct </span>ALCdevice;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span>tr {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">struct </span>ALCdevice;</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structtr_1_1DefaultAudioDeviceOpenError.html">   16</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtr_1_1DefaultAudioDeviceOpenError.html">DefaultAudioDeviceOpenError</a> : std::exception {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structtr_1_1DefaultAudioDeviceOpenError.html#a374e0d34da01dd29d66a7f73bd109979">   22</a></span>        <span class="keyword">constexpr</span> <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1DefaultAudioDeviceOpenError.html#a374e0d34da01dd29d66a7f73bd109979">what</a>() const noexcept;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    };</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span>tr {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structtr_1_1DefaultAudioDeviceOpenError.html">   18</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtr_1_1DefaultAudioDeviceOpenError.html">DefaultAudioDeviceOpenError</a> : std::exception {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structtr_1_1DefaultAudioDeviceOpenError.html#a374e0d34da01dd29d66a7f73bd109979">   24</a></span>        <span class="keyword">constexpr</span> <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1DefaultAudioDeviceOpenError.html#a374e0d34da01dd29d66a7f73bd109979">what</a>() const noexcept;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    };</div>
 </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structtr_1_1NamedAudioDeviceOpenError.html">   28</a></span>    struct <a class="code hl_struct" href="structtr_1_1NamedAudioDeviceOpenError.html">NamedAudioDeviceOpenError</a> : std::runtime_error {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structtr_1_1NamedAudioDeviceOpenError.html#aa9a779ce416ab209592c071dd57806db">   36</a></span>        <a class="code hl_function" href="structtr_1_1NamedAudioDeviceOpenError.html#aa9a779ce416ab209592c071dd57806db">NamedAudioDeviceOpenError</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    };</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structtr_1_1NamedAudioDeviceOpenError.html">   30</a></span>    struct <a class="code hl_struct" href="structtr_1_1NamedAudioDeviceOpenError.html">NamedAudioDeviceOpenError</a> : std::runtime_error {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structtr_1_1NamedAudioDeviceOpenError.html#aa9a779ce416ab209592c071dd57806db">   38</a></span>        <a class="code hl_function" href="structtr_1_1NamedAudioDeviceOpenError.html#aa9a779ce416ab209592c071dd57806db">NamedAudioDeviceOpenError</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    };</div>
 </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="audio__device_8hpp.html#af8c131cb8065878ef1816792e3902f6a">   47</a></span>    std::vector&lt;const char*&gt; <a class="code hl_function" href="audio__device_8hpp.html#af8c131cb8065878ef1816792e3902f6a">availableAudioDevices</a>();</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="audio__device_8hpp.html#af8c131cb8065878ef1816792e3902f6a">   49</a></span>    std::vector&lt;const char*&gt; <a class="code hl_function" href="audio__device_8hpp.html#af8c131cb8065878ef1816792e3902f6a">availableAudioDevices</a>();</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classtr_1_1AudioDevice.html">   53</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1AudioDevice.html">AudioDevice</a> {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classtr_1_1AudioDevice.html#a71c920b9018b301407da868617d52a6f">   60</a></span>        <a class="code hl_function" href="classtr_1_1AudioDevice.html#a71c920b9018b301407da868617d52a6f">AudioDevice</a>();</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classtr_1_1AudioDevice.html#a52bada8703c514f2b4d66875959cae9d">   69</a></span>        <a class="code hl_function" href="classtr_1_1AudioDevice.html#a52bada8703c514f2b4d66875959cae9d">AudioDevice</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="};">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classtr_1_1AudioDevice.html">   55</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1AudioDevice.html">AudioDevice</a> {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classtr_1_1AudioDevice.html#a71c920b9018b301407da868617d52a6f">   62</a></span>        <a class="code hl_function" href="classtr_1_1AudioDevice.html#a71c920b9018b301407da868617d52a6f">AudioDevice</a>();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classtr_1_1AudioDevice.html#a52bada8703c514f2b4d66875959cae9d">   71</a></span>        <a class="code hl_function" href="classtr_1_1AudioDevice.html#a52bada8703c514f2b4d66875959cae9d">AudioDevice</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classtr_1_1AudioDevice.html#a97eb97b9da121198b2317edc3b59cc5d">   77</a></span>        <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="classtr_1_1AudioDevice.html#a97eb97b9da121198b2317edc3b59cc5d">name</a>() const noexcept;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    private:</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        struct Deleter {</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <span class="keywordtype">void</span> operator()(ALCdevice* ptr) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        };</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        std::unique_ptr&lt;ALCdevice, Deleter&gt; _impl;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1AudioContext.html">AudioContext</a>;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    };</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classtr_1_1AudioDevice.html#a97eb97b9da121198b2317edc3b59cc5d">   79</a></span>        <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="classtr_1_1AudioDevice.html#a97eb97b9da121198b2317edc3b59cc5d">name</a>() const noexcept;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    private:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        struct Deleter {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <span class="keywordtype">void</span> operator()(ALCdevice* ptr) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        };</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        std::unique_ptr&lt;ALCdevice, Deleter&gt; _impl;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1AudioContext.html">AudioContext</a>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    };</div>
 </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>}</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>}</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1DefaultAudioDeviceOpenError.html#a374e0d34da01dd29d66a7f73bd109979">tr::DefaultAudioDeviceOpenError::what</a>() const noexcept</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>{</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Failed to open default audio device.&quot;</span>;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1DefaultAudioDeviceOpenError.html#a374e0d34da01dd29d66a7f73bd109979">tr::DefaultAudioDeviceOpenError::what</a>() const noexcept</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>{</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Failed to open default audio device.&quot;</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
 <div class="ttc" id="aaudio__device_8hpp_html_af8c131cb8065878ef1816792e3902f6a"><div class="ttname"><a href="audio__device_8hpp.html#af8c131cb8065878ef1816792e3902f6a">tr::availableAudioDevices</a></div><div class="ttdeci">std::vector&lt; const char * &gt; availableAudioDevices()</div><div class="ttdoc">Gets a list of available audio devices.</div></div>
 <div class="ttc" id="aclasstr_1_1AudioContext_html"><div class="ttname"><a href="classtr_1_1AudioContext.html">tr::AudioContext</a></div><div class="ttdoc">OpenAL audio context.</div><div class="ttdef"><b>Definition</b> audio_context.hpp:31</div></div>
-<div class="ttc" id="aclasstr_1_1AudioDevice_html"><div class="ttname"><a href="classtr_1_1AudioDevice.html">tr::AudioDevice</a></div><div class="ttdoc">Physical audio device.</div><div class="ttdef"><b>Definition</b> audio_device.hpp:53</div></div>
+<div class="ttc" id="aclasstr_1_1AudioDevice_html"><div class="ttname"><a href="classtr_1_1AudioDevice.html">tr::AudioDevice</a></div><div class="ttdoc">Physical audio device.</div><div class="ttdef"><b>Definition</b> audio_device.hpp:55</div></div>
 <div class="ttc" id="aclasstr_1_1AudioDevice_html_a52bada8703c514f2b4d66875959cae9d"><div class="ttname"><a href="classtr_1_1AudioDevice.html#a52bada8703c514f2b4d66875959cae9d">tr::AudioDevice::AudioDevice</a></div><div class="ttdeci">AudioDevice(const char *name)</div><div class="ttdoc">Opens a named audio device.</div></div>
 <div class="ttc" id="aclasstr_1_1AudioDevice_html_a71c920b9018b301407da868617d52a6f"><div class="ttname"><a href="classtr_1_1AudioDevice.html#a71c920b9018b301407da868617d52a6f">tr::AudioDevice::AudioDevice</a></div><div class="ttdeci">AudioDevice()</div><div class="ttdoc">Opens the default audio device.</div></div>
 <div class="ttc" id="aclasstr_1_1AudioDevice_html_a97eb97b9da121198b2317edc3b59cc5d"><div class="ttname"><a href="classtr_1_1AudioDevice.html#a97eb97b9da121198b2317edc3b59cc5d">tr::AudioDevice::name</a></div><div class="ttdeci">const char * name() const noexcept</div><div class="ttdoc">Gets the name of the device.</div></div>
-<div class="ttc" id="astructtr_1_1DefaultAudioDeviceOpenError_html"><div class="ttname"><a href="structtr_1_1DefaultAudioDeviceOpenError.html">tr::DefaultAudioDeviceOpenError</a></div><div class="ttdoc">Error thrown when opening the default audio device failed.</div><div class="ttdef"><b>Definition</b> audio_device.hpp:16</div></div>
+<div class="ttc" id="astructtr_1_1DefaultAudioDeviceOpenError_html"><div class="ttname"><a href="structtr_1_1DefaultAudioDeviceOpenError.html">tr::DefaultAudioDeviceOpenError</a></div><div class="ttdoc">Error thrown when opening the default audio device failed.</div><div class="ttdef"><b>Definition</b> audio_device.hpp:18</div></div>
 <div class="ttc" id="astructtr_1_1DefaultAudioDeviceOpenError_html_a374e0d34da01dd29d66a7f73bd109979"><div class="ttname"><a href="structtr_1_1DefaultAudioDeviceOpenError.html#a374e0d34da01dd29d66a7f73bd109979">tr::DefaultAudioDeviceOpenError::what</a></div><div class="ttdeci">virtual constexpr const char * what() const noexcept</div><div class="ttdoc">Gets an error message.</div></div>
-<div class="ttc" id="astructtr_1_1NamedAudioDeviceOpenError_html"><div class="ttname"><a href="structtr_1_1NamedAudioDeviceOpenError.html">tr::NamedAudioDeviceOpenError</a></div><div class="ttdoc">Error thrown when opening a named audio device failed.</div><div class="ttdef"><b>Definition</b> audio_device.hpp:28</div></div>
+<div class="ttc" id="astructtr_1_1NamedAudioDeviceOpenError_html"><div class="ttname"><a href="structtr_1_1NamedAudioDeviceOpenError.html">tr::NamedAudioDeviceOpenError</a></div><div class="ttdoc">Error thrown when opening a named audio device failed.</div><div class="ttdef"><b>Definition</b> audio_device.hpp:30</div></div>
 <div class="ttc" id="astructtr_1_1NamedAudioDeviceOpenError_html_aa9a779ce416ab209592c071dd57806db"><div class="ttname"><a href="structtr_1_1NamedAudioDeviceOpenError.html#aa9a779ce416ab209592c071dd57806db">tr::NamedAudioDeviceOpenError::NamedAudioDeviceOpenError</a></div><div class="ttdeci">NamedAudioDeviceOpenError(const char *name)</div><div class="ttdoc">Constructs a device opening error.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
