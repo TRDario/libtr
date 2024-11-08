@@ -5,6 +5,8 @@
 
 #pragma once
 #include <exception>
+#include <stdexcept>
+#include <memory>
 #include <vector>
 
 struct ALCdevice;

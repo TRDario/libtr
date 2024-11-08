@@ -7,6 +7,7 @@
 #include <cassert>
 #include <concepts>
 #include <type_traits>
+#include <tuple>
 #include <utility>
 
 namespace tr {

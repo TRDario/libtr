@@ -1,4 +1,5 @@
 #include "../include/tr/audio_device.hpp"
+#include <cstring>
 #include <format>
 #include <AL/alc.h>
 

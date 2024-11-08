@@ -4,6 +4,7 @@
  */
 
 #pragma once
+#include <optional>
 #include <glm/glm.hpp>
 #include "angle.hpp"
 

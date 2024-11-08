@@ -4,8 +4,11 @@
  */
 
 #pragma once
+#include <cstdint>
 #include <optional>
+#include <string_view>
 #include <span>
+#include <vector>
 #include "handle.hpp"
 
 namespace tr {

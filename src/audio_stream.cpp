@@ -1,5 +1,6 @@
 #include "../include/tr/audio_stream.hpp"
 #include "../include/tr/ranges.hpp"
+#include <forward_list>
 #include <thread>
 #include <mutex>
 #include <boost/container/static_vector.hpp>

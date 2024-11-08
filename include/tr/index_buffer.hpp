@@ -4,6 +4,7 @@
  */
 
 #pragma once
+#include <string>
 #include "gl_buffer.hpp"
 
 namespace tr {
