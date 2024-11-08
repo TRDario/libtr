@@ -1,5 +1,7 @@
 #include "../include/tr/shader.hpp"
+
 #include "../include/tr/ranges.hpp"
+
 #include <GL/glew.h>
 #include <glm/ext.hpp>
 
@@ -8,11 +10,10 @@ namespace tr {
 	GLuint constructProgram(std::span<const std::byte> data, ShaderType type) noexcept;
 }
 
-
 GLuint tr::constructProgram(std::span<const std::byte> data, ShaderType type) noexcept
 {
-	Handle<GLuint, 0, decltype([] (GLuint id) { glDeleteShader(id); })> shader { glCreateShader(GLenum(type)) };
-	Handle<GLuint, 0, decltype([] (GLuint id) { glDeleteProgram(id); })> program { glCreateProgram() };
+	Handle<GLuint, 0, decltype([](GLuint id) { glDeleteShader(id); })>  shader {glCreateShader(GLenum(type))};
+	Handle<GLuint, 0, decltype([](GLuint id) { glDeleteProgram(id); })> program {glCreateProgram()};
 
 	glShaderBinary(1, &shader.get(), GL_SHADER_BINARY_FORMAT_SPIR_V, data.data(), data.size());
 	glSpecializeShader(shader.get(), "main", 0, nullptr, nullptr);
@@ -39,31 +40,31 @@ GLuint tr::constructProgram(std::span<const std::byte> data, ShaderType type) no
 
 const char* tr::ShaderLoadError::what() const noexcept
 {
-    static std::string str;
-    str.clear();
-    format_to(back_inserter(str), "Failed to load shader: {}", path());
-    return str.c_str();
+	static std::string str;
+	str.clear();
+	format_to(back_inserter(str), "Failed to load shader: {}", path());
+	return str.c_str();
 }
 
 tr::Shader::Shader(const std::filesystem::path& path, ShaderType type)
-	: _type { type }
+	: _type {type}
 {
-	auto file { openFileR(path, std::ios::binary) };
-	auto data { flushBinary<std::vector<char>>(file) };
+	auto file {openFileR(path, std::ios::binary)};
+	auto data {flushBinary<std::vector<char>>(file)};
 	_id.reset(constructProgram(rangeBytes(data), type), NO_EMPTY_HANDLE_CHECK);
 	if (!_id.has_value()) {
-		throw ShaderLoadError { path };
+		throw ShaderLoadError {path};
 	}
 }
 
 tr::Shader::Shader(std::span<const std::byte> embeddedFile, ShaderType type) noexcept
-	: _id { constructProgram(embeddedFile, type) }
-	, _type { type }
+	: _id {constructProgram(embeddedFile, type)}
+	, _type {type}
 {}
 
 void tr::Shader::Deleter::operator()(unsigned int id) const noexcept
 {
-    glDeleteProgram(id);
+	glDeleteProgram(id);
 }
 
 bool tr::operator==(const Shader& l, const Shader& r) noexcept
@@ -81,7 +82,7 @@ void tr::Shader::setUniform(int index, bool value) noexcept
 	setUniform(index, int(value));
 }
 
-void tr::Shader::setUniform(int index, glm::bvec2 value)  noexcept
+void tr::Shader::setUniform(int index, glm::bvec2 value) noexcept
 {
 	setUniform(index, glm::ivec2(value));
 }
@@ -143,7 +144,6 @@ void tr::Shader::setUniform(int index, std::span<const glm::ivec4> value) noexce
 	glProgramUniform4iv(_id.get(), index, value.size(), value_ptr(value[0]));
 	assert(glGetError() != GL_INVALID_OPERATION);
 }
-
 
 void tr::Shader::setUniform(int index, unsigned int value) noexcept
 {

@@ -12,66 +12,66 @@ namespace tr {
 	 * Texture format types.
 	 ******************************************************************************************************************/
 	enum class TextureFormat {
-		R8          = 0x8229,
-		R8_SNORM    = 0x8F94,
-		R16         = 0x822A,
-		R16_SNORM   = 0x8F98,
-		RG8         = 0x822B,
-		RG8_SNORM   = 0x8F95,
-		RG16        = 0x822C,
-		RG16_SNORM  = 0x8F99,
-		R3G3B2      = 0x2A10,
-		RGB4        = 0x804F,
-		RGB5        = 0x8050,
-		RGB8        = 0x8051,
-		RGB8_SNORM  = 0x8F96,
-		RGB10       = 0x8052,
-		RGB12       = 0x8053,
-		RGB16       = 0x8054,
-		RGB16_SNORM = 0x8F9A,
-		RGBA2       = 0x8055,
-		RGBA4       = 0x8056,
-		RGB5A1      = 0x8057,
-		RGBA8       = 0x8058,
-		RGBA8_SNORM = 0x8F97,
-		RGB10A2     = 0x8059,
-		RGB10A2_UI  = 0x906F,
-		RGBA12      = 0x805A,
-		RGBA16      = 0x805B,
-		SRGB8       = 0x8C41,
-		SRGBA8      = 0x8C43,
-		R_FP16 	    = 0x822D,
-		RG_FP16     = 0x822F,
-		RGB_FP16    = 0x881B,
-		RGBA_FP16   = 0x881A,
-		R_FP32 	    = 0x822E,
-		RG_FP32     = 0x8230,
-		RGB_FP32    = 0x8815,
-		RGBA_FP32   = 0x8814,
-		RG11B10_FP  = 0x8C3A,
-		RGB9E5 	    = 0x8C3D,
-		R_SI8       = 0x8231,
-		R_UI8       = 0x8232,
-		R_SI16      = 0x8233,
-		R_UI16      = 0x8234,
-		R_SI32      = 0x8235,
-		R_UI32      = 0x8236,
-		RGB_SI8     = 0x8D8F,
-		RGB_UI8     = 0x8D7D,
-		RGB_SI16    = 0x8D89,
-		RGB_UI16    = 0x8D77,
-		RGB_SI32    = 0x8D83,
-		RGB_UI32    = 0x8D71,
-		RGBA_SI8    = 0x8D8E,
-		RGBA_UI8    = 0x8D7C,
-		RGBA_SI16   = 0x8D88,
-		RGBA_UI16   = 0x8D76,
-		RGBA_SI32   = 0x8D82,
-		RGBA_UI32   = 0x8D70,
-		DEPTH16     = 0x81A5,
-		DEPTH24     = 0x81A6,
-		DEPTH_FP32  = 0x8CAC,
-		STENCIL8    = 0x8D48
+		R8          = 0x82'29,
+		R8_SNORM    = 0x8F'94,
+		R16         = 0x82'2A,
+		R16_SNORM   = 0x8F'98,
+		RG8         = 0x82'2B,
+		RG8_SNORM   = 0x8F'95,
+		RG16        = 0x82'2C,
+		RG16_SNORM  = 0x8F'99,
+		R3G3B2      = 0x2A'10,
+		RGB4        = 0x80'4F,
+		RGB5        = 0x80'50,
+		RGB8        = 0x80'51,
+		RGB8_SNORM  = 0x8F'96,
+		RGB10       = 0x80'52,
+		RGB12       = 0x80'53,
+		RGB16       = 0x80'54,
+		RGB16_SNORM = 0x8F'9A,
+		RGBA2       = 0x80'55,
+		RGBA4       = 0x80'56,
+		RGB5A1      = 0x80'57,
+		RGBA8       = 0x80'58,
+		RGBA8_SNORM = 0x8F'97,
+		RGB10A2     = 0x80'59,
+		RGB10A2_UI  = 0x90'6F,
+		RGBA12      = 0x80'5A,
+		RGBA16      = 0x80'5B,
+		SRGB8       = 0x8C'41,
+		SRGBA8      = 0x8C'43,
+		R_FP16      = 0x82'2D,
+		RG_FP16     = 0x82'2F,
+		RGB_FP16    = 0x88'1B,
+		RGBA_FP16   = 0x88'1A,
+		R_FP32      = 0x82'2E,
+		RG_FP32     = 0x82'30,
+		RGB_FP32    = 0x88'15,
+		RGBA_FP32   = 0x88'14,
+		RG11B10_FP  = 0x8C'3A,
+		RGB9E5      = 0x8C'3D,
+		R_SI8       = 0x82'31,
+		R_UI8       = 0x82'32,
+		R_SI16      = 0x82'33,
+		R_UI16      = 0x82'34,
+		R_SI32      = 0x82'35,
+		R_UI32      = 0x82'36,
+		RGB_SI8     = 0x8D'8F,
+		RGB_UI8     = 0x8D'7D,
+		RGB_SI16    = 0x8D'89,
+		RGB_UI16    = 0x8D'77,
+		RGB_SI32    = 0x8D'83,
+		RGB_UI32    = 0x8D'71,
+		RGBA_SI8    = 0x8D'8E,
+		RGBA_UI8    = 0x8D'7C,
+		RGBA_SI16   = 0x8D'88,
+		RGBA_UI16   = 0x8D'76,
+		RGBA_SI32   = 0x8D'82,
+		RGBA_UI32   = 0x8D'70,
+		DEPTH16     = 0x81'A5,
+		DEPTH24     = 0x81'A6,
+		DEPTH_FP32  = 0x8C'AC,
+		STENCIL8    = 0x8D'48
 	};
 
 	/******************************************************************************************************************
@@ -91,7 +91,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * The channel will use the red channel value.
 		 **************************************************************************************************************/
-		R = 0x1903,
+		R = 0x19'03,
 
 		/**************************************************************************************************************
 		 * The channel will use the green channel value.
@@ -106,19 +106,18 @@ namespace tr {
 		/**************************************************************************************************************
 		 * The channel will use the alpha channel value.
 		 **************************************************************************************************************/
-		A 
+		A
 	};
 
 	/******************************************************************************************************************
 	 * Sentinel value representing the number of layers for a texture with no mipmaps.
 	 ******************************************************************************************************************/
-	inline constexpr int NO_MIPMAPS { 1 };
+	inline constexpr int NO_MIPMAPS {1};
 
 	/******************************************************************************************************************
 	 * Sentinel value representing the number of layers for a texture with all mipmaps.
 	 ******************************************************************************************************************/
-	inline constexpr int ALL_MIPMAPS { INT_MAX };
-
+	inline constexpr int ALL_MIPMAPS {INT_MAX};
 
 	/******************************************************************************************************************
 	 * Error thrown when a texture allocation failed.
@@ -132,7 +131,6 @@ namespace tr {
 		constexpr virtual const char* what() const noexcept;
 	};
 
-
 	/******************************************************************************************************************
 	 * Base texture class.
 	 *
@@ -143,8 +141,7 @@ namespace tr {
 		/**************************************************************************************************************
          * Equality comparison operator.
 	     **************************************************************************************************************/
-		friend bool operator==(const Texture&, const Texture&) noexcept;
-
+		friend bool   operator==(const Texture&, const Texture&) noexcept;
 
 		/**************************************************************************************************************
          * Gets the format of the texture.
@@ -153,77 +150,76 @@ namespace tr {
 	     **************************************************************************************************************/
 		TextureFormat format() const noexcept;
 
-
 		/**************************************************************************************************************
          * Gets the swizzle parameter for the red channel.
 		 *
 		 * @return The red channel swizzle.
 	     **************************************************************************************************************/
-		Swizzle swizzleR() const noexcept;
-		
+		Swizzle       swizzleR() const noexcept;
+
 		/**************************************************************************************************************
          * Gets the swizzle parameter for the green channel.
 		 *
 		 * @return The green channel swizzle.
 	     **************************************************************************************************************/
-		Swizzle swizzleG() const noexcept;
-		
+		Swizzle       swizzleG() const noexcept;
+
 		/**************************************************************************************************************
          * Gets the swizzle parameter for the blue channel.
 		 *
 		 * @return The blue channel swizzle.
 	     **************************************************************************************************************/
-		Swizzle swizzleB() const noexcept;
-		
+		Swizzle       swizzleB() const noexcept;
+
 		/**************************************************************************************************************
          * Gets the swizzle parameter for the alpha channel.
 		 *
 		 * @return The alpha channel swizzle.
 	     **************************************************************************************************************/
-		Swizzle swizzleA() const noexcept;
+		Swizzle       swizzleA() const noexcept;
 
 		/**************************************************************************************************************
          * Sets the swizzle parameter for the red channel.
 		 *
 		 * @param swizzle The new red channel swizzle.
 	     **************************************************************************************************************/
-		void setSwizzleR(Swizzle swizzle) noexcept;
-		
+		void          setSwizzleR(Swizzle swizzle) noexcept;
+
 		/**************************************************************************************************************
          * Sets the swizzle parameter for the green channel.
 		 *
 		 * @param swizzle The new green channel swizzle.
 	     **************************************************************************************************************/
-		void setSwizzleG(Swizzle swizzle) noexcept;
-		
+		void          setSwizzleG(Swizzle swizzle) noexcept;
+
 		/**************************************************************************************************************
          * Sets the swizzle parameter for the blue channel.
 		 *
 		 * @param swizzle The new blue channel swizzle.
 	     **************************************************************************************************************/
-		void setSwizzleB(Swizzle swizzle) noexcept;
-		
+		void          setSwizzleB(Swizzle swizzle) noexcept;
+
 		/**************************************************************************************************************
          * Sets the swizzle parameter for the alpha channel.
 		 *
 		 * @param swizzle The new alpha channel swizzle.
 	     **************************************************************************************************************/
-		void setSwizzleA(Swizzle swizzle) noexcept;
-		
+		void          setSwizzleA(Swizzle swizzle) noexcept;
+
 		/**************************************************************************************************************
          * Sets the swizzle parameters of the texture.
 		 *
 		 * @param r, g, b, a The new swizzles.
 	     **************************************************************************************************************/
-		void setSwizzle(Swizzle r, Swizzle g, Swizzle b, Swizzle a) noexcept;
-
+		void          setSwizzle(Swizzle r, Swizzle g, Swizzle b, Swizzle a) noexcept;
 
 		/**************************************************************************************************************
 	     * Sets the debug label of the texture.
          *
          * @param label The new label of the texture.
 	     **************************************************************************************************************/
-		void setLabel(std::string_view label) noexcept;
+		void          setLabel(std::string_view label) noexcept;
+
 	protected:
 		/// @cond IMPLEMENTATION
 		struct Deleter {
@@ -231,7 +227,7 @@ namespace tr {
 		};
 
 		Handle<unsigned int, 0, Deleter> _id;
-		unsigned int 					 _target;
+		unsigned int                     _target;
 
 		Texture(unsigned int target) noexcept;
 
@@ -239,7 +235,6 @@ namespace tr {
 		int height() const noexcept;
 		int depth() const noexcept;
 		/// @endcond
-
 
 		friend class BasicFramebuffer;
 		friend class Framebuffer;
@@ -274,14 +269,12 @@ namespace tr {
 	     **************************************************************************************************************/
 		Texture1D(SubBitmap bitmap, int mipmaps, TextureFormat format = TextureFormat::RGBA8);
 
-
 		/**************************************************************************************************************
          * Gets the size of the texture.
 		 *
 		 * @return The size of the texture in texels.
 	     **************************************************************************************************************/
-		int size() const noexcept;
-
+		int  size() const noexcept;
 
 		/**************************************************************************************************************
          * Sets a region of the texture.
@@ -294,7 +287,7 @@ namespace tr {
 	     **************************************************************************************************************/
 		void setRegion(int offset, SubBitmap bitmap) noexcept;
 	};
-	
+
 	/******************************************************************************************************************
 	 * One-dimensional array texture.
 	 *
@@ -324,21 +317,19 @@ namespace tr {
 	     **************************************************************************************************************/
 		ArrayTexture1D(SubBitmap bitmap, int mipmaps, TextureFormat format);
 
-
 		/**************************************************************************************************************
          * Gets the size of the texture.
 		 *
 		 * @return The size of the texture in texels.
 	     **************************************************************************************************************/
-		int size() const noexcept;
+		int  size() const noexcept;
 
 		/**************************************************************************************************************
          * Gets the number of layers in the texture.
 		 *
 		 * @return The number of layers in the texture.
 	     **************************************************************************************************************/
-		int layers() const noexcept;
-
+		int  layers() const noexcept;
 
 		/**************************************************************************************************************
          * Sets a region of the texture as if it were a 2D texture.
@@ -367,7 +358,7 @@ namespace tr {
 		 * @param format The internal format of the texture.
 	     **************************************************************************************************************/
 		Texture2D(glm::ivec2 size, int mipmaps, TextureFormat format);
-		
+
 		/**************************************************************************************************************
          * Constructs a 2D texture with data uploaded from a bitmap.
 		 *
@@ -379,14 +370,12 @@ namespace tr {
 	     **************************************************************************************************************/
 		Texture2D(SubBitmap bitmap, int mipmaps, TextureFormat format);
 
-
 		/**************************************************************************************************************
          * Gets the size of the texture.
 		 *
 		 * @return The size of the texture in texels.
 	     **************************************************************************************************************/
 		glm::ivec2 size() const noexcept;
-
 
 		/**************************************************************************************************************
          * Sets a region of the texture.
@@ -396,7 +385,7 @@ namespace tr {
 		 * @param tl The top-left corner of the region within the texture.
 		 * @param bitmap The bitmap data to set the region to.
 	     **************************************************************************************************************/
-		void setRegion(glm::ivec2 tl, SubBitmap bitmap) noexcept;
+		void       setRegion(glm::ivec2 tl, SubBitmap bitmap) noexcept;
 	};
 
 	/******************************************************************************************************************
@@ -429,7 +418,6 @@ namespace tr {
 	     **************************************************************************************************************/
 		ArrayTexture2D(std::span<SubBitmap> layers, int mipmaps, TextureFormat format);
 
-
 		/**************************************************************************************************************
          * Gets the size of the texture.
 		 *
@@ -442,8 +430,7 @@ namespace tr {
 		 *
 		 * @return The number of layers in the texture.
 	     **************************************************************************************************************/
-		int layers() const noexcept;
-
+		int        layers() const noexcept;
 
 		/**************************************************************************************************************
          * Sets a region of a layer.
@@ -454,9 +441,9 @@ namespace tr {
 		 * @param tl The top-left corner of the region within the layer.
 		 * @param bitmap The bitmap data to set the region to.
 	     **************************************************************************************************************/
-		void setLayerRegion(int layer, glm::ivec2 tl, SubBitmap bitmap) noexcept;
+		void       setLayerRegion(int layer, glm::ivec2 tl, SubBitmap bitmap) noexcept;
 	};
-	
+
 	/******************************************************************************************************************
 	 * Three-dimensional texture.
 	 *
@@ -486,14 +473,12 @@ namespace tr {
 	     **************************************************************************************************************/
 		Texture3D(std::span<SubBitmap> layers, int mipmaps, TextureFormat format);
 
-
 		/**************************************************************************************************************
          * Gets the size of the texture.
 		 *
 		 * @return The size of the texture in texels.
 	     **************************************************************************************************************/
 		glm::ivec3 size() const noexcept;
-
 
 		/**************************************************************************************************************
          * Sets a region of a Z layer.
@@ -503,13 +488,14 @@ namespace tr {
 		 * @param tl The top-left corner of the region within the texture.
 		 * @param bitmap The bitmap data to set the region to.
 	     **************************************************************************************************************/
-		void setLayerRegion(glm::ivec3 tl, SubBitmap bitmap) noexcept;
+		void       setLayerRegion(glm::ivec3 tl, SubBitmap bitmap) noexcept;
 	};
-}
+} // namespace tr
 
 /// @cond IMPLEMENTATION
 
-constexpr const char* tr::TextureBadAlloc::what() const noexcept {
+constexpr const char* tr::TextureBadAlloc::what() const noexcept
+{
 	return "failed texture allocation";
 }
 

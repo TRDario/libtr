@@ -8,32 +8,31 @@
 #include <filesystem>
 
 namespace tr {
-    /******************************************************************************************************************
+	/******************************************************************************************************************
     * Error in getting the executable directory path.
     ******************************************************************************************************************/
-    struct ExeDirInitError : std::exception {
-        /**************************************************************************************************************
+	struct ExeDirInitError : std::exception {
+		/**************************************************************************************************************
          * Gets an error message.
          *
          * @return An explanatory error message.
 	     **************************************************************************************************************/
-        constexpr virtual const char* what() const noexcept;
-    };
+		constexpr virtual const char* what() const noexcept;
+	};
 
-    /******************************************************************************************************************
+	/******************************************************************************************************************
     * Error in getting the executable directory path.
     ******************************************************************************************************************/
-    struct UserDirInitError : std::exception {
-        /**************************************************************************************************************
+	struct UserDirInitError : std::exception {
+		/**************************************************************************************************************
          * Gets an error message.
          *
          * @return An explanatory error message.
 	     **************************************************************************************************************/
-        constexpr virtual const char* what() const noexcept;
-    };
+		constexpr virtual const char* what() const noexcept;
+	};
 
-
-    /******************************************************************************************************************
+	/******************************************************************************************************************
     * Gets a path to the executable directory.
     *
     * This function should only be called once at the beginning of the program as it may be relatively expensive.
@@ -44,8 +43,8 @@ namespace tr {
     * @return A fath to the executable directory.
     ******************************************************************************************************************/
 	std::filesystem::path getExeDir();
-	
-    /******************************************************************************************************************
+
+	/******************************************************************************************************************
     * Gets a path to a safe user directory where data can be stored.
     *
     * This function should only be called once at the beginning of the program as it may be relatively expensive.
@@ -59,18 +58,18 @@ namespace tr {
     * @return A path to the executable directory.
     ******************************************************************************************************************/
 	std::filesystem::path getUserDir(const char* org, const char* app);
-}
+} // namespace tr
 
 /// @cond IMPLEMENTATION
 
 constexpr const char* tr::ExeDirInitError::what() const noexcept
 {
-    return "Failed to initialize the executable directory base path.";
+	return "Failed to initialize the executable directory base path.";
 }
 
 constexpr const char* tr::UserDirInitError::what() const noexcept
 {
-    return "Failed to initialize the user directory base path.";
+	return "Failed to initialize the user directory base path.";
 }
 
 /// @endcond

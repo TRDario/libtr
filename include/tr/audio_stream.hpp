@@ -4,8 +4,9 @@
  */
 
 #pragma once
-#include <mutex>
 #include "audio_source.hpp"
+
+#include <mutex>
 
 struct sf_private_tag;
 
@@ -13,18 +14,17 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Streamed audio source.
 	 ******************************************************************************************************************/
-    class AudioStream : private AudioSource {
+	class AudioStream : private AudioSource {
 	public:
 		/**************************************************************************************************************
 	     * Sentinel value representing the beginning of the streamed file.
 	     **************************************************************************************************************/
-		static constexpr SecondsF START { SecondsF::zero() };
+		static constexpr SecondsF START {SecondsF::zero()};
 
 		/**************************************************************************************************************
 	     * Sentinel value representing the end of the streamed file.
 	     **************************************************************************************************************/
-		static constexpr SecondsF END { SecondsF::max() };
-
+		static constexpr SecondsF END {SecondsF::max()};
 
 		/**************************************************************************************************************
 	     * Default-constructs an audio stream.
@@ -60,7 +60,6 @@ namespace tr {
 	     **************************************************************************************************************/
 		~AudioStream() noexcept;
 
-
 		/**************************************************************************************************************
 	     * Move-assigns to an audio stream.
 		 *
@@ -70,66 +69,61 @@ namespace tr {
 	     **************************************************************************************************************/
 		AudioStream& operator=(AudioStream&& r) noexcept;
 
-
-        /**************************************************************************************************************
+		/**************************************************************************************************************
 	     * Equality comparison operator.
 	     **************************************************************************************************************/
-		friend bool operator==(const AudioStream&, const AudioStream&) noexcept;
+		friend bool  operator==(const AudioStream&, const AudioStream&) noexcept;
 
-
-        using AudioSource::pitch;
-		using AudioSource::setPitch;
-		using AudioSource::gain;
-		using AudioSource::setGain;
-		using AudioSource::maxDistance;
-		using AudioSource::setMaxDistance;
-		using AudioSource::rolloff;
-		using AudioSource::setRolloff;
-		using AudioSource::referenceDistance;
-		using AudioSource::setReferenceDistance;
-		using AudioSource::minGain;
-		using AudioSource::setMinGain;
-		using AudioSource::maxGain;
-		using AudioSource::setMaxGain;
-		using AudioSource::outerConeGain;
-		using AudioSource::setOuterConeGain;
-		using AudioSource::innerConeWidth;
-		using AudioSource::setInnerConeWidth;
-		using AudioSource::outerConeWidth;
-		using AudioSource::setOuterConeWidth;
-		using AudioSource::position;
-		using AudioSource::setPosition;
-		using AudioSource::velocity;
-		using AudioSource::setVelocity;
 		using AudioSource::direction;
-		using AudioSource::setDirection;
+		using AudioSource::gain;
+		using AudioSource::innerConeWidth;
+		using AudioSource::maxDistance;
+		using AudioSource::maxGain;
+		using AudioSource::minGain;
 		using AudioSource::origin;
+		using AudioSource::outerConeGain;
+		using AudioSource::outerConeWidth;
+		using AudioSource::pitch;
+		using AudioSource::position;
+		using AudioSource::referenceDistance;
+		using AudioSource::rolloff;
+		using AudioSource::setDirection;
+		using AudioSource::setGain;
+		using AudioSource::setInnerConeWidth;
+		using AudioSource::setMaxDistance;
+		using AudioSource::setMaxGain;
+		using AudioSource::setMinGain;
 		using AudioSource::setOrigin;
+		using AudioSource::setOuterConeGain;
+		using AudioSource::setOuterConeWidth;
+		using AudioSource::setPitch;
+		using AudioSource::setPosition;
+		using AudioSource::setReferenceDistance;
+		using AudioSource::setRolloff;
+		using AudioSource::setVelocity;
 		using AudioSource::state;
-
+		using AudioSource::velocity;
 
 		/**************************************************************************************************************
 	     * Gets whether the stream is empty.
          *
          * @return True if the stream is empty, and false otherwise.
 	     **************************************************************************************************************/
-        bool empty() const noexcept;
-
+		bool     empty() const noexcept;
 
 		/**************************************************************************************************************
 	     * Gets whether the stream is looping.
          *
          * @return True if the stream is looping, and false otherwise.
 	     **************************************************************************************************************/
-		bool looping() const noexcept;
+		bool     looping() const noexcept;
 
-        /**************************************************************************************************************
+		/**************************************************************************************************************
 	     * Sets whether the stream is looping.
          *
          * @param looping Whether the stream should loop.
 	     **************************************************************************************************************/
-		void setLooping(bool looping) noexcept;
-
+		void     setLooping(bool looping) noexcept;
 
 		/**************************************************************************************************************
 	     * Plays the audio stream.
@@ -138,15 +132,14 @@ namespace tr {
 		 *
 		 * @exception AudioBufferBadAlloc If a stopped source is played and refreshing the internal buffers fails.
 	     **************************************************************************************************************/
-		void play();
+		void     play();
 
-        /**************************************************************************************************************
+		/**************************************************************************************************************
 	     * Stops the audio stream.
 		 *
 		 * If the audio stream is empty, nothing happens.
 	     **************************************************************************************************************/
-		void stop() noexcept;
-
+		void     stop() noexcept;
 
 		/**************************************************************************************************************
 	     * Gets the length of the audio stream.
@@ -155,8 +148,7 @@ namespace tr {
 	     **************************************************************************************************************/
 		SecondsF length() const noexcept;
 
-
-        /**************************************************************************************************************
+		/**************************************************************************************************************
 	     * Gets the stream's playback position within the file.
          *
          * @return The stream's playback position within the file in seconds.
@@ -172,8 +164,7 @@ namespace tr {
          *
          * @param off The new offset in seconds. This value will be clamped to a valid range.
 	     **************************************************************************************************************/
-		void setOffset(SecondsF off);
-
+		void     setOffset(SecondsF off);
 
 		/**************************************************************************************************************
 	     * Gets the stream's starting loop point.
@@ -197,31 +188,32 @@ namespace tr {
          * @param start The starting loop point (special value: START). This value will be clamped to a valid range.
 		 * @param end The ending loop point (special value: END). This value will be clamped to a valid range.
 	     **************************************************************************************************************/
-		void setLoopPoints(SecondsF start, SecondsF end) noexcept;
-    private:
+		void     setLoopPoints(SecondsF start, SecondsF end) noexcept;
+
+	private:
 		// Extends an audio buffer with a tag indicating where its data starts in the audio file.
 		struct Buffer : AudioBuffer {
-            /// @private
+			/// @private
 			int startFileOffset;
 		};
 
-        struct FileCloser {
-            /// @private
-            void operator()(sf_private_tag* file) const noexcept;
-        };
+		struct FileCloser {
+			/// @private
+			void operator()(sf_private_tag* file) const noexcept;
+		};
 
-        std::array<Buffer, 4> 		                _buffers;
+		std::array<Buffer, 4>                       _buffers;
 		std::unique_ptr<sf_private_tag, FileCloser> _file;
-		int 					                    _length;
-		int 					                    _channels;
-		int 					                    _sampleRate;
-		bool 					                    _looping;
-		int 					                    _loopStart;
-		int						                    _loopEnd;
-		mutable std::mutex 		                    _mutex;
+		int                                         _length;
+		int                                         _channels;
+		int                                         _sampleRate;
+		bool                                        _looping;
+		int                                         _loopStart;
+		int                                         _loopEnd;
+		mutable std::mutex                          _mutex;
 
-		void refillBuffer(Buffer& buffer);
+		void                                        refillBuffer(Buffer& buffer);
 
-		friend void audioStreamThread() noexcept;
-    };
-}
+		friend void                                 audioStreamThread() noexcept;
+	};
+} // namespace tr

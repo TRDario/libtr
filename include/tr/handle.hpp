@@ -6,8 +6,8 @@
 #pragma once
 #include <cassert>
 #include <concepts>
-#include <type_traits>
 #include <tuple>
+#include <type_traits>
 #include <utility>
 
 namespace tr {
@@ -16,17 +16,14 @@ namespace tr {
 	 *
 	 * To satisfy this requirement, a type must be trivially copyable and equality comparable.
 	 ******************************************************************************************************************/
-	template <class T>
-	concept HandleType = std::is_trivially_copyable_v<T> && std::equality_comparable<T>;
+	template <class T> concept HandleType = std::is_trivially_copyable_v<T> && std::equality_comparable<T>;
 
 	/******************************************************************************************************************
 	 * Concept that denotes a valid handle deleter type for a Handle of base type <em>HandleT</em>.
 	 *
 	 * To satisfy this requirement, a type must be invocable with <em>HandleT</em>.
 	 ******************************************************************************************************************/
-	template <class T, class HandleT>
-	concept HandleDeleter = std::invocable<T, HandleT>;
-
+	template <class T, class HandleT> concept HandleDeleter = std::invocable<T, HandleT>;
 
 	/******************************************************************************************************************
 	 * Tag struct used in some handle functions to suppress empty value checking.
@@ -37,7 +34,6 @@ namespace tr {
 	 * Tag value used in some handle functions to suppress empty value checking.
 	 ******************************************************************************************************************/
 	constexpr NoEmptyHandleCheck NO_EMPTY_HANDLE_CHECK {};
-
 
 	/******************************************************************************************************************
 	 * RAII wrapper over non-pointer handles.
@@ -107,7 +103,6 @@ namespace tr {
 		 **************************************************************************************************************/
 		constexpr ~Handle() noexcept;
 
-
 		/**************************************************************************************************************
 		 * Move-assigns the handle.
 		 *
@@ -122,8 +117,7 @@ namespace tr {
 		 *
 		 * @return A reference to assigned-to handle.
 		 **************************************************************************************************************/
-		constexpr Handle& operator=(Handle&& r) noexcept;
-
+		constexpr Handle&  operator=(Handle&& r) noexcept;
 
 		/**************************************************************************************************************
 		 * Equality comparison operator.
@@ -134,21 +128,19 @@ namespace tr {
 		 *
 		 * @return true if r is a reference to the same object as *this.
 		 **************************************************************************************************************/
-		constexpr bool operator==(const Handle& r) const noexcept;
-
+		constexpr bool     operator==(const Handle& r) const noexcept;
 
 		/**************************************************************************************************************
 		 * Checks if the handle contains a value.
 		 *
 		 * @return true if the handle is not empty.
 		 **************************************************************************************************************/
-		constexpr bool has_value() const noexcept;
+		constexpr bool     has_value() const noexcept;
 
 		/**************************************************************************************************************
 		 * Checks if the handle contains a value, see has_value().
 		 **************************************************************************************************************/
 		constexpr explicit operator bool() const noexcept;
-
 
 		/**************************************************************************************************************
 		 * Gets the handle's base type value.
@@ -172,7 +164,6 @@ namespace tr {
 		 **************************************************************************************************************/
 		constexpr const T& get(NoEmptyHandleCheck) const noexcept;
 
-
 		/**************************************************************************************************************
 		 * Releases ownership over the handle, if any.
 		 *
@@ -180,15 +171,14 @@ namespace tr {
 		 *
 		 * @return The value previously held by the handle.
 		 **************************************************************************************************************/
-		constexpr T release() noexcept;
-
+		constexpr T        release() noexcept;
 
 		/**************************************************************************************************************
 		 * Resets the handle to an empty state.
 		 *
 		 * If the handle is not empty before this call, <em>Deleter</em> will be called with the contained value.
 		 **************************************************************************************************************/
-		constexpr void reset() noexcept;
+		constexpr void     reset() noexcept;
 
 		/**************************************************************************************************************
 		 * Resets the handle to a non-empty state.
@@ -204,7 +194,7 @@ namespace tr {
 		 * May not equal <em>EmptyValue</em>, an assertion may be raised otherwise.
 		 * @endparblock
 		 **************************************************************************************************************/
-		constexpr void reset(T value) noexcept;
+		constexpr void     reset(T value) noexcept;
 
 		/**************************************************************************************************************
 		 * Resets the handle to a new state.
@@ -220,8 +210,7 @@ namespace tr {
 		 * If it equals <em>EmptyValue</em>, the handle will be empty afterwards, otherwise it will contain a value.
 		 * @endparblock 
 		 **************************************************************************************************************/
-		constexpr void reset(T value, NoEmptyHandleCheck) noexcept;
-
+		constexpr void     reset(T value, NoEmptyHandleCheck) noexcept;
 
 		/**************************************************************************************************************
 		 * Swaps the ownership over values between two handles.
@@ -230,48 +219,49 @@ namespace tr {
 		 *
 		 * @param other The handle to swap values with.
 		 **************************************************************************************************************/
-		constexpr void swap(Handle& other) noexcept;
+		constexpr void     swap(Handle& other) noexcept;
+
 	private:
 		T _base;
 	};
-}
+} // namespace tr
 
 /// @cond IMPLEMENTATION
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr tr::Handle<T, EmptyValue, Deleter>::Handle() noexcept
-	: _base { EmptyValue }
+	: _base {EmptyValue}
 {}
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr tr::Handle<T, EmptyValue, Deleter>::Handle(T value) noexcept
-	: _base { value }
+	: _base {value}
 {
 	assert(value != EmptyValue);
 }
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr tr::Handle<T, EmptyValue, Deleter>::Handle(T value, NoEmptyHandleCheck) noexcept
-	: _base { value }
+	: _base {value}
 {}
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr tr::Handle<T, EmptyValue, Deleter>::Handle(Handle&& move) noexcept
-	: _base { std::exchange(move._base, EmptyValue) }
+	: _base {std::exchange(move._base, EmptyValue)}
 {}
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr tr::Handle<T, EmptyValue, Deleter>::~Handle<T, EmptyValue, Deleter>() noexcept
 {
 	if (_base != EmptyValue) {
-		Deleter{}(_base);
+		Deleter {}(_base);
 	}
 }
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr tr::Handle<T, EmptyValue, Deleter>& tr::Handle<T, EmptyValue, Deleter>::operator=(Handle&& r) noexcept
 {
-	std::ignore = Handle { std::move(*this) };
+	std::ignore = Handle {std::move(*this)};
 	std::swap(_base, r._base);
 	return *this;
 }
@@ -322,13 +312,13 @@ constexpr void tr::Handle<T, EmptyValue, Deleter>::reset() noexcept
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr void tr::Handle<T, EmptyValue, Deleter>::reset(T value) noexcept
 {
-	std::ignore = std::exchange(*this, Handle { value });
+	std::ignore = std::exchange(*this, Handle {value});
 }
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr void tr::Handle<T, EmptyValue, Deleter>::reset(T value, NoEmptyHandleCheck) noexcept
 {
-	std::ignore = std::exchange(*this, Handle { value, NO_EMPTY_HANDLE_CHECK });
+	std::ignore = std::exchange(*this, Handle {value, NO_EMPTY_HANDLE_CHECK});
 }
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>

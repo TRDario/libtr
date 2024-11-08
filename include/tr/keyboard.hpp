@@ -4,9 +4,10 @@
  */
 
 #pragma once
+#include "dependencies/EnumBitmask.hpp"
+
 #include <cstdint>
 #include <string>
-#include "dependencies/EnumBitmask.hpp"
 
 namespace tr {
 	class Scancode;
@@ -26,7 +27,7 @@ namespace tr {
 		 *
 		 * @return True if the key is held, and false otherwise.
     	 **************************************************************************************************************/
-		bool held(Scancode key) noexcept;
+		bool    held(Scancode key) noexcept;
 
 		/**************************************************************************************************************
     	 * Gets a bitmask of the held keyboard modifiers.
@@ -34,7 +35,7 @@ namespace tr {
 		 * @return A bitmask of the held keyboard modifiers.
     	 **************************************************************************************************************/
 		Keymods heldMods() noexcept;
-	}
+	} // namespace keyboard
 
 	/******************************************************************************************************************
      * Physical keycode.
@@ -48,8 +49,42 @@ namespace tr {
     	 **************************************************************************************************************/
 		enum class Enum {
 			UNKNOWN,
-			A = 4, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z,
-			TOP_ROW_1, TOP_ROW_2, TOP_ROW_3, TOP_ROW_4, TOP_ROW_5, TOP_ROW_6, TOP_ROW_7, TOP_ROW_8, TOP_ROW_9, TOP_ROW_0,
+			A = 4,
+			B,
+			C,
+			D,
+			E,
+			F,
+			G,
+			H,
+			I,
+			J,
+			K,
+			L,
+			M,
+			N,
+			O,
+			P,
+			Q,
+			R,
+			S,
+			T,
+			U,
+			V,
+			W,
+			X,
+			Y,
+			Z,
+			TOP_ROW_1,
+			TOP_ROW_2,
+			TOP_ROW_3,
+			TOP_ROW_4,
+			TOP_ROW_5,
+			TOP_ROW_6,
+			TOP_ROW_7,
+			TOP_ROW_8,
+			TOP_ROW_9,
+			TOP_ROW_0,
 			ENTER,
 			ESCAPE,
 			BACKSPACE,
@@ -57,7 +92,8 @@ namespace tr {
 			SPACE,
 			MINUS,
 			EQUALS,
-			LEFT_BRACKET, RIGHT_BRACKET,
+			LEFT_BRACKET,
+			RIGHT_BRACKET,
 			BACKSLASH,
 			SEMICOLON = 51,
 			APOSTROPHE,
@@ -66,7 +102,18 @@ namespace tr {
 			PERIOD,
 			SLASH,
 			CAPSLOCK,
-			F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12,
+			F1,
+			F2,
+			F3,
+			F4,
+			F5,
+			F6,
+			F7,
+			F8,
+			F9,
+			F10,
+			F11,
+			F12,
 			PRINT_SCREEN,
 			SCROLL_LOCK,
 			PAUSE,
@@ -76,10 +123,26 @@ namespace tr {
 			DELETE,
 			END,
 			PAGE_DOWN,
-			RIGHT, LEFT, DOWN, UP,
+			RIGHT,
+			LEFT,
+			DOWN,
+			UP,
 			NUM_LOCK,
-			KEYPAD_DIVIDE, KEYPAD_MULTIPLY, KEYPAD_MINUS, KEYPAD_PLUS, KEYPAD_ENTER,
-			KEYPAD_1, KEYPAD_2, KEYPAD_3, KEYPAD_4, KEYPAD_5, KEYPAD_6, KEYPAD_7, KEYPAD_8, KEYPAD_9, KEYPAD_0,
+			KEYPAD_DIVIDE,
+			KEYPAD_MULTIPLY,
+			KEYPAD_MINUS,
+			KEYPAD_PLUS,
+			KEYPAD_ENTER,
+			KEYPAD_1,
+			KEYPAD_2,
+			KEYPAD_3,
+			KEYPAD_4,
+			KEYPAD_5,
+			KEYPAD_6,
+			KEYPAD_7,
+			KEYPAD_8,
+			KEYPAD_9,
+			KEYPAD_0,
 			KEYPAD_PERIOD,
 			NONUS_BACKSLASH,
 			APPLICATION,
@@ -108,7 +171,6 @@ namespace tr {
     	 **************************************************************************************************************/
 		Scancode(const char* name) noexcept;
 
-
 		/**************************************************************************************************************
     	 * Casts the scancode back to the base enumerator.
     	 **************************************************************************************************************/
@@ -119,13 +181,13 @@ namespace tr {
     	 **************************************************************************************************************/
 		operator Keycode() const noexcept;
 
-
 		/**************************************************************************************************************
     	 * Casts the name of the key.
 		 *
 		 * @return The name of the key as a C-string.
     	 **************************************************************************************************************/
 		const char* name() const noexcept;
+
 	private:
 		Enum _enum;
 	};
@@ -144,9 +206,9 @@ namespace tr {
 			UNKNOWN,
 			BACKSPACE = '\b',
 			TAB,
-			ENTER = '\r',
+			ENTER  = '\r',
 			ESCAPE = '\x1b',
-			SPACE = ' ',
+			SPACE  = ' ',
 			EXCLAMATION_MARK,
 			DOUBLE_QUOTE,
 			HASH,
@@ -154,14 +216,24 @@ namespace tr {
 			PERCENT,
 			AMPERSAND,
 			QUOTE,
-			LEFT_PARENTHESIS, RIGHT_PARENTHESIS,
+			LEFT_PARENTHESIS,
+			RIGHT_PARENTHESIS,
 			ASTERRISK,
 			PLUS,
 			COMMA,
 			MINUS,
 			PERIOD,
 			SLASH,
-			TOP_ROW_1, TOP_ROW_2, TOP_ROW_3, TOP_ROW_4, TOP_ROW_5, TOP_ROW_6, TOP_ROW_7, TOP_ROW_8, TOP_ROW_9, TOP_ROW_0,
+			TOP_ROW_1,
+			TOP_ROW_2,
+			TOP_ROW_3,
+			TOP_ROW_4,
+			TOP_ROW_5,
+			TOP_ROW_6,
+			TOP_ROW_7,
+			TOP_ROW_8,
+			TOP_ROW_9,
+			TOP_ROW_0,
 			COLON,
 			SEMICOLON,
 			LESS,
@@ -175,9 +247,45 @@ namespace tr {
 			CARET,
 			UNDERSCORE,
 			BACKQUOTE,
-			A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z,
-			CAPSLOCK = 1073741881,
-			F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12,
+			A,
+			B,
+			C,
+			D,
+			E,
+			F,
+			G,
+			H,
+			I,
+			J,
+			K,
+			L,
+			M,
+			N,
+			O,
+			P,
+			Q,
+			R,
+			S,
+			T,
+			U,
+			V,
+			W,
+			X,
+			Y,
+			Z,
+			CAPSLOCK = 1'073'741'881,
+			F1,
+			F2,
+			F3,
+			F4,
+			F5,
+			F6,
+			F7,
+			F8,
+			F9,
+			F10,
+			F11,
+			F12,
 			PRINT_SCREEN,
 			SCROLL_LOCK,
 			PAUSE,
@@ -187,13 +295,29 @@ namespace tr {
 			DELETE,
 			END,
 			PAGE_DOWN,
-			RIGHT, LEFT, DOWN, UP,
+			RIGHT,
+			LEFT,
+			DOWN,
+			UP,
 			NUM_LOCK,
-			KEYPAD_DIVIDE, KEYPAD_MULTIPLY, KEYPAD_MINUS, KEYPAD_PLUS, KEYPAD_ENTER,
-			KEYPAD_1, KEYPAD_2, KEYPAD_3, KEYPAD_4, KEYPAD_5, KEYPAD_6, KEYPAD_7, KEYPAD_8, KEYPAD_9, KEYPAD_0,
+			KEYPAD_DIVIDE,
+			KEYPAD_MULTIPLY,
+			KEYPAD_MINUS,
+			KEYPAD_PLUS,
+			KEYPAD_ENTER,
+			KEYPAD_1,
+			KEYPAD_2,
+			KEYPAD_3,
+			KEYPAD_4,
+			KEYPAD_5,
+			KEYPAD_6,
+			KEYPAD_7,
+			KEYPAD_8,
+			KEYPAD_9,
+			KEYPAD_0,
 			KEYPAD_PERIOD,
-			APPLICATION = 1073741925,
-			LCTRL = 1073742048,
+			APPLICATION = 1'073'741'925,
+			LCTRL       = 1'073'742'048,
 			LSHIFT,
 			LALT,
 			LWIN,
@@ -218,7 +342,6 @@ namespace tr {
     	 **************************************************************************************************************/
 		Keycode(const char* name) noexcept;
 
-
 		/**************************************************************************************************************
     	 * Casts the keycode back to the base enumerator.
     	 **************************************************************************************************************/
@@ -229,13 +352,13 @@ namespace tr {
     	 **************************************************************************************************************/
 		operator Scancode() const noexcept;
 
-
 		/**************************************************************************************************************
     	 * Casts the name of the key.
 		 *
 		 * @return The name of the key as a string.
     	 **************************************************************************************************************/
 		std::string name() const noexcept;
+
 	private:
 		Enum _enum;
 	};
@@ -244,25 +367,26 @@ namespace tr {
      * Key modifier bitmasks.
      ******************************************************************************************************************/
 	enum class Keymods : std::uint16_t {
-		NONE = 0x0000,
-		LSHIFT = 0x0001,
-		RSHIFT = 0x0002,
-		LCTRL = 0x0040,
-		RCTRL = 0x0080,
-		LALT = 0x0100,
-		RALT = 0x0200,
-		LWIN = 0x0400,
-		RWIN = 0x0800,
-		NUM = 0x1000,
-		CAPS = 0x2000,
-		MODE = 0x4000,
-		SCROLL = 0x8000
+		NONE   = 0x00'00,
+		LSHIFT = 0x00'01,
+		RSHIFT = 0x00'02,
+		LCTRL  = 0x00'40,
+		RCTRL  = 0x00'80,
+		LALT   = 0x01'00,
+		RALT   = 0x02'00,
+		LWIN   = 0x04'00,
+		RWIN   = 0x08'00,
+		NUM    = 0x10'00,
+		CAPS   = 0x20'00,
+		MODE   = 0x40'00,
+		SCROLL = 0x80'00
 	};
 
 	/// @cond IMPLEMENTATION
 	DEFINE_BITMASK_OPERATORS(Keymods);
+
 	/// @endcond
-	
+
 	/******************************************************************************************************************
      * Keyboard event key information.
      ******************************************************************************************************************/
@@ -275,11 +399,11 @@ namespace tr {
 		/**************************************************************************************************************
     	 * The virtual keycode of the key.
     	 **************************************************************************************************************/
-		Keycode key;
+		Keycode  key;
 
 		/**************************************************************************************************************
     	 * A bitmask of held modifiers.
     	 **************************************************************************************************************/
-		Keymods mods;
+		Keymods  mods;
 	};
-}
+} // namespace tr

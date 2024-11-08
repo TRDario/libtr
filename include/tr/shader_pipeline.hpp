@@ -4,19 +4,20 @@
  */
 
 #pragma once
-#include <string_view>
-#include <boost/optional.hpp>
 #include "shader.hpp"
 
+#include <boost/optional.hpp>
+#include <string_view>
+
 namespace tr {
-    /******************************************************************************************************************
+	/******************************************************************************************************************
 	 * A shader program pipeline.
      *
      * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
-    class ShaderPipeline {
-    public:
-        /**************************************************************************************************************
+	class ShaderPipeline {
+	public:
+		/**************************************************************************************************************
 	     * Creates a shader pipeline.
          *
          * All shaders must actually be of the type they're passed as, otherwise a failed assertion may be triggered.
@@ -27,25 +28,31 @@ namespace tr {
          * @param geometryShader An optional geometry shader.
          * @param fragmentShader The fragment shader.
 	     **************************************************************************************************************/
-        ShaderPipeline(const Shader& vertexShader, boost::optional<const Shader&> tessEvalShader, boost::optional<const Shader&> tessControlShader, boost::optional<const Shader&> geometryShader, const Shader& fragmentShader) noexcept;
+		ShaderPipeline(
+			const Shader&                  vertexShader,
+			boost::optional<const Shader&> tessEvalShader,
+			boost::optional<const Shader&> tessControlShader,
+			boost::optional<const Shader&> geometryShader,
+			const Shader&                  fragmentShader
+		) noexcept;
 
-
-        /**************************************************************************************************************
+		/**************************************************************************************************************
 	     * Sets the debug label of the pipeline.
          *
          * @param label The new label of the pipeline.
 	     **************************************************************************************************************/
-        void setLabel(std::string_view label) noexcept;
-    private:
-        struct Deleter {
-            /// @private
-            void operator()(unsigned int id) const noexcept;
-        };
+		void setLabel(std::string_view label) noexcept;
 
-        Handle<unsigned int, 0, Deleter> _id;
+	private:
+		struct Deleter {
+			/// @private
+			void operator()(unsigned int id) const noexcept;
+		};
 
-        void bind() const noexcept;
+		Handle<unsigned int, 0, Deleter> _id;
 
-        friend class GLContext;
-    };
-}
+		void                             bind() const noexcept;
+
+		friend class GLContext;
+	};
+} // namespace tr

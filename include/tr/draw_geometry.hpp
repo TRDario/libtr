@@ -26,7 +26,6 @@ namespace tr {
 	 ******************************************************************************************************************/
 	inline std::size_t smoothArcVerticesCount(float r, AngleF sizeth) noexcept;
 
-
 	/******************************************************************************************************************
 	 * Outputs indices for a convex polygon.
 	 *
@@ -50,7 +49,6 @@ namespace tr {
 	 ******************************************************************************************************************/
 	template <std::output_iterator<std::uint16_t> It>
 	constexpr void fillPolygonOutlineIndices(It out, std::uint16_t vertices, std::uint16_t base);
-
 
 	/******************************************************************************************************************
 	 * Outputs unrotated rectangle vertices.
@@ -104,7 +102,7 @@ namespace tr {
 	 ******************************************************************************************************************/
 	template <std::output_iterator<glm::vec2> It>
 	void fillPolygonOutlineVertices(It out, std::size_t vertices, CircleF circ, AngleF rotation, float thickness);
-}
+} // namespace tr
 
 /// @cond IMPLEMENTATION
 
@@ -151,21 +149,21 @@ template <std::output_iterator<glm::vec2> It>
 constexpr void tr::fillRectVertices(It out, glm::vec2 tl, glm::vec2 size)
 {
 	*out++ = tl;
-	*out++ = glm::vec2 { tl.x, tl.y + size.y };
+	*out++ = glm::vec2 {tl.x, tl.y + size.y};
 	*out++ = tl + size;
-	*out++ = glm::vec2 { tl.x + size.x, tl.y };
+	*out++ = glm::vec2 {tl.x + size.x, tl.y};
 }
 
 template <std::output_iterator<glm::vec2> It>
 void tr::fillArcVertices(It out, std::size_t vertices, CircleF circ, AngleF startth, AngleF sizeth)
 {
-	auto dth { sizeth / vertices };
-	auto dsin { dth.sin() };
-	auto dcos { dth.cos() };
-	glm::vec2 delta { circ.r * startth.cos(), circ.r * startth.sin() };
+	auto      dth {sizeth / vertices};
+	auto      dsin {dth.sin()};
+	auto      dcos {dth.cos()};
+	glm::vec2 delta {circ.r * startth.cos(), circ.r * startth.sin()};
 	for (std::size_t i = 0; i < vertices; ++i) {
 		*out++ = delta + circ.c;
-		delta = glm::vec2 { dcos * delta.x - dsin * delta.y, dsin * delta.x + dcos * delta.y };
+		delta  = glm::vec2 {dcos * delta.x - dsin * delta.y, dsin * delta.x + dcos * delta.y};
 	}
 }
 
@@ -178,8 +176,8 @@ void tr::fillPolygonVertices(It out, std::size_t vertices, CircleF circ, AngleF 
 template <std::output_iterator<glm::vec2> It>
 void tr::fillPolygonOutlineVertices(It out, std::size_t vertices, CircleF circ, AngleF rotation, float thick)
 {
-	fillPolygonVertices(out, vertices, { circ.c, circ.r + thick / 2 }, rotation);
-	fillPolygonVertices(out, vertices, { circ.c, circ.r - thick / 2 }, rotation);
+	fillPolygonVertices(out, vertices, {circ.c, circ.r + thick / 2}, rotation);
+	fillPolygonVertices(out, vertices, {circ.c, circ.r - thick / 2}, rotation);
 }
 
 /// @endcond

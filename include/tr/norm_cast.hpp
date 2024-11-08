@@ -4,9 +4,10 @@
  */
 
 #pragma once
+#include "concepts.hpp"
+
 #include <cassert>
 #include <limits>
-#include "concepts.hpp"
 
 namespace tr {
 	/******************************************************************************************************************
@@ -50,7 +51,7 @@ namespace tr {
     ******************************************************************************************************************/
 	template <std::integral To, std::integral From>
 	constexpr To norm_cast(From from) noexcept;
-}
+} // namespace tr
 
 /// @cond IMPLEMENTATION
 
@@ -76,7 +77,7 @@ constexpr To tr::norm_cast(From from) noexcept
 
 template <std::integral To, std::integral From>
 constexpr To tr::norm_cast(From from) noexcept
-{   
+{
 	if constexpr (sizeof(From) == 8 || sizeof(To) == 8) {
 		return To(double(from) / std::numeric_limits<From>::max() * std::numeric_limits<To>::max());
 	}

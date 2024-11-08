@@ -4,9 +4,10 @@
  */
 
 #pragma once
+#include "concepts.hpp"
+
 #include <concepts>
 #include <numbers>
-#include "concepts.hpp"
 
 namespace tr {
 	/******************************************************************************************************************
@@ -15,7 +16,6 @@ namespace tr {
 	 * To fulfill this concept, @em T must be a floating point type.
 	 ******************************************************************************************************************/
 	template <class T> concept AngleBase = std::floating_point<T>;
-
 
 	/******************************************************************************************************************
 	 * Angular value type.
@@ -47,7 +47,6 @@ namespace tr {
 		template <AngleBase U>
 		constexpr Angle(Angle<U> th) noexcept;
 
-
 		/**************************************************************************************************************
          * Three-way comparison operator.
 		 *
@@ -63,7 +62,6 @@ namespace tr {
          **************************************************************************************************************/
 		template <AngleBase U>
 		constexpr bool operator==(const Angle<U>& r) const noexcept;
-
 
 		/**************************************************************************************************************
          * Performs addition on the angle.
@@ -105,13 +103,12 @@ namespace tr {
 		template <Arithmetic U>
 		constexpr Angle& operator/=(const U& r) noexcept;
 
-
 		/**************************************************************************************************************
          * Negates the angle.
 
 		 * @return The negated value of the angle.
          **************************************************************************************************************/
-		constexpr Angle operator-() const noexcept;
+		constexpr Angle	 operator-() const noexcept;
 
 		/**************************************************************************************************************
          * Adds two angles.
@@ -175,48 +172,48 @@ namespace tr {
 		template <AngleBase U>
 		constexpr auto operator%(const Angle<U>& r) const noexcept;
 
-
 		/**************************************************************************************************************
          * Converts the angle value into a numeric radian value.
 		 *
 		 * @return The value of the angle in radians.
          **************************************************************************************************************/
-		constexpr T rads() const noexcept;
+		constexpr T	   rads() const noexcept;
 
 		/**************************************************************************************************************
          * Converts the angle value into a numeric degree value.
 		 *
 		 * @return The value of the angle in degrees.
          **************************************************************************************************************/
-		constexpr T degs() const noexcept;
+		constexpr T	   degs() const noexcept;
 
 		/**************************************************************************************************************
          * Converts the angle value into a numeric turn value.
 		 *
 		 * @return The value of the angle in turns.
          **************************************************************************************************************/
-		constexpr T turns() const noexcept;
+		constexpr T	   turns() const noexcept;
 
 		/**************************************************************************************************************
          * Computes the sine of the angle
 		 *
 		 * @return The sine of the angle.
          **************************************************************************************************************/
-		constexpr T sin() const noexcept;
+		constexpr T	   sin() const noexcept;
 
 		/**************************************************************************************************************
          * Computes the cosine of the angle
 		 *
 		 * @return The cosine of the angle.
          **************************************************************************************************************/
-		constexpr T cos() const noexcept;
+		constexpr T	   cos() const noexcept;
 
 		/**************************************************************************************************************
          * Computes the tangent of the angle
 		 *
 		 * @return The tangent of the angle.
          **************************************************************************************************************/
-		constexpr T tan() const noexcept;
+		constexpr T	   tan() const noexcept;
+
 	private:
 		T _rads;
 	};
@@ -235,7 +232,6 @@ namespace tr {
 	 * Shorthand for a long double angle.
 	 ******************************************************************************************************************/
 	using AngleL = Angle<long double>;
-
 
 	/******************************************************************************************************************
 	 * Converts a numeric value into an angle value.
@@ -328,7 +324,6 @@ namespace tr {
 	template <Arithmetic T>
 	constexpr auto atan2(T y, T x) noexcept;
 
-
 	/******************************************************************************************************************
 	 * Inline namespace containing angle value literals.
 	 ******************************************************************************************************************/
@@ -340,7 +335,7 @@ namespace tr {
 		 *
 		 * @return An AngleF value.
          **************************************************************************************************************/
-		consteval AngleF operator "" _degf(long double deg) noexcept;
+		consteval AngleF operator"" _degf(long double deg) noexcept;
 
 		/**************************************************************************************************************
          * Angle<float> degree literal.
@@ -349,7 +344,7 @@ namespace tr {
 		 *
 		 * @return An AngleF value.
          **************************************************************************************************************/
-		consteval AngleF operator "" _degf(unsigned long long deg) noexcept;
+		consteval AngleF operator"" _degf(unsigned long long deg) noexcept;
 
 		/**************************************************************************************************************
          * Angle<double> degree literal.
@@ -358,7 +353,7 @@ namespace tr {
 		 *
 		 * @return An AngleD value.
          **************************************************************************************************************/
-		consteval AngleD operator "" _deg(long double deg) noexcept;
+		consteval AngleD operator"" _deg(long double deg) noexcept;
 
 		/**************************************************************************************************************
          * Angle<double> degree literal.
@@ -367,7 +362,7 @@ namespace tr {
 		 *
 		 * @return An AngleD value.
          **************************************************************************************************************/
-		consteval AngleD operator "" _deg(unsigned long long deg) noexcept;
+		consteval AngleD operator"" _deg(unsigned long long deg) noexcept;
 
 		/**************************************************************************************************************
          * Angle<long double> degree literal.
@@ -376,7 +371,7 @@ namespace tr {
 		 *
 		 * @return An AngleL value.
          **************************************************************************************************************/
-		consteval AngleL operator "" _degl(long double deg) noexcept;
+		consteval AngleL operator"" _degl(long double deg) noexcept;
 
 		/**************************************************************************************************************
          * Angle<long double> degree literal.
@@ -385,7 +380,7 @@ namespace tr {
 		 *
 		 * @return An AngleL value.
          **************************************************************************************************************/
-		consteval AngleL operator "" _degl(unsigned long long deg) noexcept;
+		consteval AngleL operator"" _degl(unsigned long long deg) noexcept;
 
 		/**************************************************************************************************************
          * Angle<float> radian literal.
@@ -394,7 +389,7 @@ namespace tr {
 		 *
 		 * @return An AngleF value.
          **************************************************************************************************************/
-		consteval AngleF operator "" _radf(long double rad) noexcept;
+		consteval AngleF operator"" _radf(long double rad) noexcept;
 
 		/**************************************************************************************************************
          * Angle<float> radian literal.
@@ -403,7 +398,7 @@ namespace tr {
 		 *
 		 * @return An AngleF value.
          **************************************************************************************************************/
-		consteval AngleF operator "" _radf(unsigned long long rad) noexcept;
+		consteval AngleF operator"" _radf(unsigned long long rad) noexcept;
 
 		/**************************************************************************************************************
          * Angle<double> radian literal.
@@ -412,7 +407,7 @@ namespace tr {
 		 *
 		 * @return An AngleD value.
          **************************************************************************************************************/
-		consteval AngleD operator "" _rad(long double rad) noexcept;
+		consteval AngleD operator"" _rad(long double rad) noexcept;
 
 		/**************************************************************************************************************
          * Angle<double> radian literal.
@@ -421,7 +416,7 @@ namespace tr {
 		 *
 		 * @return An AngleD value.
          **************************************************************************************************************/
-		consteval AngleD operator "" _rad(unsigned long long rad) noexcept;
+		consteval AngleD operator"" _rad(unsigned long long rad) noexcept;
 
 		/**************************************************************************************************************
          * Angle<long double> radian literal.
@@ -430,7 +425,7 @@ namespace tr {
 		 *
 		 * @return An AngleL value.
          **************************************************************************************************************/
-		consteval AngleL operator "" _radl(long double rad) noexcept;
+		consteval AngleL operator"" _radl(long double rad) noexcept;
 
 		/**************************************************************************************************************
          * Angle<long double> radian literal.
@@ -439,7 +434,7 @@ namespace tr {
 		 *
 		 * @return An AngleL value.
          **************************************************************************************************************/
-		consteval AngleL operator "" _radl(unsigned long long rad) noexcept;
+		consteval AngleL operator"" _radl(unsigned long long rad) noexcept;
 
 		/**************************************************************************************************************
          * Angle<float> turns literal.
@@ -448,7 +443,7 @@ namespace tr {
 		 *
 		 * @return An AngleF value.
          **************************************************************************************************************/
-		consteval AngleF operator "" _turnsf(long double tr) noexcept;
+		consteval AngleF operator"" _turnsf(long double tr) noexcept;
 
 		/**************************************************************************************************************
          * Angle<float> turns literal.
@@ -457,7 +452,7 @@ namespace tr {
 		 *
 		 * @return An AngleF value.
          **************************************************************************************************************/
-		consteval AngleF operator "" _turnsf(unsigned long long tr) noexcept;
+		consteval AngleF operator"" _turnsf(unsigned long long tr) noexcept;
 
 		/**************************************************************************************************************
          * Angle<double> turns literal.
@@ -466,7 +461,7 @@ namespace tr {
 		 *
 		 * @return An AngleD value.
          **************************************************************************************************************/
-		consteval AngleD operator "" _turns(long double tr) noexcept;
+		consteval AngleD operator"" _turns(long double tr) noexcept;
 
 		/**************************************************************************************************************
          * Angle<double> turns literal.
@@ -475,7 +470,7 @@ namespace tr {
 		 *
 		 * @return An AngleD value.
          **************************************************************************************************************/
-		consteval AngleD operator "" _turns(unsigned long long tr) noexcept;
+		consteval AngleD operator"" _turns(unsigned long long tr) noexcept;
 
 		/**************************************************************************************************************
          * Angle<long double> turns literal.
@@ -484,7 +479,7 @@ namespace tr {
 		 *
 		 * @return An AngleL value.
          **************************************************************************************************************/
-		consteval AngleL operator "" _turnsl(long double tr)  noexcept;
+		consteval AngleL operator"" _turnsl(long double tr) noexcept;
 
 		/**************************************************************************************************************
          * Angle<long double> turns literal.
@@ -493,56 +488,63 @@ namespace tr {
 		 *
 		 * @return An AngleL value.
          **************************************************************************************************************/
-		consteval AngleL operator "" _turnsl(unsigned long long tr) noexcept;
-	}
-}
+		consteval AngleL operator"" _turnsl(unsigned long long tr) noexcept;
+	} // namespace angle_literals
+} // namespace tr
 
 /// @cond IMPLEMENTATION
 
 template <tr::AngleBase T>
 constexpr tr::Angle<T>::Angle(T rads) noexcept
-	: _rads { rads }
+	: _rads {rads}
 {}
 
-template <tr::AngleBase T> template <tr::AngleBase U>
+template <tr::AngleBase T>
+template <tr::AngleBase U>
 constexpr tr::Angle<T>::Angle(Angle<U> th) noexcept
-	: _rads { T(th.rads()) }
+	: _rads {T(th.rads())}
 {}
 
-template <tr::AngleBase T> template <tr::AngleBase U>
+template <tr::AngleBase T>
+template <tr::AngleBase U>
 constexpr auto tr::Angle<T>::operator<=>(const Angle<U>& r) const noexcept
 {
 	return _rads <=> r.rads();
 }
 
-template <tr::AngleBase T> template <tr::AngleBase U>
-constexpr bool tr::Angle<T>::operator== (const Angle<U>& r) const noexcept
+template <tr::AngleBase T>
+template <tr::AngleBase U>
+constexpr bool tr::Angle<T>::operator==(const Angle<U>& r) const noexcept
 {
 	return _rads == r.rads();
 }
 
-template <tr::AngleBase T> template <tr::AngleBase U>
+template <tr::AngleBase T>
+template <tr::AngleBase U>
 constexpr tr::Angle<T>& tr::Angle<T>::operator+=(const Angle<U>& r) noexcept
 {
 	_rads += r.rads();
 	return *this;
 }
 
-template <tr::AngleBase T> template <tr::AngleBase U>
+template <tr::AngleBase T>
+template <tr::AngleBase U>
 constexpr tr::Angle<T>& tr::Angle<T>::operator-=(const Angle<U>& r) noexcept
 {
 	_rads -= r.rads();
 	return *this;
 }
 
-template <tr::AngleBase T> template <tr::Arithmetic U>
+template <tr::AngleBase T>
+template <tr::Arithmetic U>
 constexpr tr::Angle<T>& tr::Angle<T>::operator*=(const U& r) noexcept
 {
 	_rads *= r;
 	return *this;
 }
 
-template <tr::AngleBase T> template <tr::Arithmetic U>
+template <tr::AngleBase T>
+template <tr::Arithmetic U>
 constexpr tr::Angle<T>& tr::Angle<T>::operator/=(const U& r) noexcept
 {
 	_rads /= r;
@@ -552,40 +554,46 @@ constexpr tr::Angle<T>& tr::Angle<T>::operator/=(const U& r) noexcept
 template <tr::AngleBase T>
 constexpr tr::Angle<T> tr::Angle<T>::operator-() const noexcept
 {
-	return Angle<T> { -_rads };
+	return Angle<T> {-_rads};
 }
 
-template <tr::AngleBase T> template <tr::AngleBase U> 
+template <tr::AngleBase T>
+template <tr::AngleBase U>
 constexpr auto tr::Angle<T>::operator+(const Angle<U>& r) const noexcept
 {
 	return tr::rads(_rads + r.rads());
 }
 
-template <tr::AngleBase T> template <tr::AngleBase U> 
+template <tr::AngleBase T>
+template <tr::AngleBase U>
 constexpr auto tr::Angle<T>::operator-(const Angle<U>& r) const noexcept
 {
 	return tr::rads(_rads - r.rads());
 }
 
-template <tr::AngleBase T> template <tr::Arithmetic U>
+template <tr::AngleBase T>
+template <tr::Arithmetic U>
 constexpr auto tr::Angle<T>::operator*(const U& r) const noexcept
 {
 	return tr::rads(_rads * r);
 }
 
-template <tr::AngleBase T> template <tr::Arithmetic U>
+template <tr::AngleBase T>
+template <tr::Arithmetic U>
 constexpr auto tr::Angle<T>::operator/(const U& r) const noexcept
 {
 	return tr::rads(_rads / r);
 }
 
-template <tr::AngleBase T> template <tr::AngleBase U>
+template <tr::AngleBase T>
+template <tr::AngleBase U>
 constexpr auto tr::Angle<T>::operator/(const Angle<U>& r) const noexcept
 {
 	return _rads / r.rads();
 }
 
-template <tr::AngleBase T> template <tr::AngleBase U>
+template <tr::AngleBase T>
+template <tr::AngleBase U>
 constexpr auto tr::Angle<T>::operator%(const Angle<U>& r) const noexcept
 {
 	return tr::rads(std::fmod(_rads, r.rads()));
@@ -595,10 +603,10 @@ template <tr::Arithmetic T>
 constexpr auto tr::rads(T th) noexcept
 {
 	if constexpr (std::floating_point<T>) {
-		return Angle<T> { th };
+		return Angle<T> {th};
 	}
 	else {
-		return AngleD { double(th) };
+		return AngleD {double(th)};
 	}
 }
 
@@ -606,10 +614,10 @@ template <tr::Arithmetic T>
 constexpr auto tr::degs(T th) noexcept
 {
 	if constexpr (std::floating_point<T>) {
-		return Angle<T> { std::numbers::pi_v<T> / 180 * th };
+		return Angle<T> {std::numbers::pi_v<T> / 180 * th};
 	}
 	else {
-		return AngleD { std::numbers::pi / 180 * th };
+		return AngleD {std::numbers::pi / 180 * th};
 	}
 }
 
@@ -617,35 +625,35 @@ template <tr::Arithmetic T>
 constexpr auto tr::turns(T th) noexcept
 {
 	if constexpr (std::floating_point<T>) {
-		return Angle<T> { std::numbers::pi_v<T> * 2 * th };
+		return Angle<T> {std::numbers::pi_v<T> * 2 * th};
 	}
 	else {
-		return AngleD { std::numbers::pi * 2 * th };
+		return AngleD {std::numbers::pi * 2 * th};
 	}
 }
 
 template <tr::Arithmetic T>
 constexpr auto tr::asin(T sin) noexcept
 {
-	return Angle { std::asin(sin) };
+	return Angle {std::asin(sin)};
 }
 
 template <tr::Arithmetic T>
 constexpr auto tr::acos(T cos) noexcept
 {
-	return Angle { std::acos(cos) };
+	return Angle {std::acos(cos)};
 }
 
 template <tr::Arithmetic T>
 constexpr auto tr::atan(T tan) noexcept
 {
-	return Angle { std::atan(tan) };
+	return Angle {std::atan(tan)};
 }
 
 template <tr::Arithmetic T>
 constexpr auto tr::atan2(T y, T x) noexcept
 {
-	return Angle { std::atan2(y, x) };
+	return Angle {std::atan2(y, x)};
 }
 
 template <tr::AngleBase T>
@@ -684,92 +692,92 @@ constexpr T tr::Angle<T>::tan() const noexcept
 	return std::tan(_rads);
 }
 
-consteval tr::AngleF tr::angle_literals::operator "" _degf(long double deg) noexcept
+consteval tr::AngleF tr::angle_literals::operator"" _degf(long double deg) noexcept
 {
 	return degs(float(deg));
 }
 
-consteval tr::AngleF tr::angle_literals::operator "" _degf(unsigned long long deg) noexcept
+consteval tr::AngleF tr::angle_literals::operator"" _degf(unsigned long long deg) noexcept
 {
 	return degs(float(deg));
 }
 
-consteval tr::AngleD tr::angle_literals::operator "" _deg(long double deg) noexcept
+consteval tr::AngleD tr::angle_literals::operator"" _deg(long double deg) noexcept
 {
 	return degs(double(deg));
 }
 
-consteval tr::AngleD tr::angle_literals::operator "" _deg(unsigned long long deg) noexcept
+consteval tr::AngleD tr::angle_literals::operator"" _deg(unsigned long long deg) noexcept
 {
 	return degs(double(deg));
 }
 
-consteval tr::AngleL tr::angle_literals::operator "" _degl(long double deg) noexcept
+consteval tr::AngleL tr::angle_literals::operator"" _degl(long double deg) noexcept
 {
 	return degs(deg);
 }
 
-consteval tr::AngleL tr::angle_literals::operator "" _degl(unsigned long long deg) noexcept
+consteval tr::AngleL tr::angle_literals::operator"" _degl(unsigned long long deg) noexcept
 {
 	return degs((long double)(deg));
 }
 
-consteval tr::AngleF tr::angle_literals::operator "" _radf(long double rad) noexcept
+consteval tr::AngleF tr::angle_literals::operator"" _radf(long double rad) noexcept
 {
 	return rads(float(rad));
 }
 
-consteval tr::AngleF tr::angle_literals::operator "" _radf(unsigned long long rad) noexcept
+consteval tr::AngleF tr::angle_literals::operator"" _radf(unsigned long long rad) noexcept
 {
 	return rads(float(rad));
 }
 
-consteval tr::AngleD tr::angle_literals::operator "" _rad(long double rad) noexcept
+consteval tr::AngleD tr::angle_literals::operator"" _rad(long double rad) noexcept
 {
 	return rads(double(rad));
 }
 
-consteval tr::AngleD tr::angle_literals::operator "" _rad(unsigned long long rad) noexcept
+consteval tr::AngleD tr::angle_literals::operator"" _rad(unsigned long long rad) noexcept
 {
 	return rads(rad);
 }
 
-consteval tr::AngleL tr::angle_literals::operator "" _radl(long double rad) noexcept
+consteval tr::AngleL tr::angle_literals::operator"" _radl(long double rad) noexcept
 {
 	return rads(rad);
 }
 
-consteval tr::AngleL tr::angle_literals::operator "" _radl(unsigned long long rad) noexcept
+consteval tr::AngleL tr::angle_literals::operator"" _radl(unsigned long long rad) noexcept
 {
 	return rads((long double)(rad));
 }
 
-consteval tr::AngleF tr::angle_literals::operator "" _turnsf(long double tr) noexcept
+consteval tr::AngleF tr::angle_literals::operator"" _turnsf(long double tr) noexcept
 {
 	return turns(float(tr));
 }
 
-consteval tr::AngleF tr::angle_literals::operator "" _turnsf(unsigned long long tr) noexcept
+consteval tr::AngleF tr::angle_literals::operator"" _turnsf(unsigned long long tr) noexcept
 {
 	return turns(float(tr));
 }
 
-consteval tr::AngleD tr::angle_literals::operator "" _turns(long double tr) noexcept
+consteval tr::AngleD tr::angle_literals::operator"" _turns(long double tr) noexcept
 {
 	return turns(double(tr));
 }
 
-consteval tr::AngleD tr::angle_literals::operator "" _turns(unsigned long long tr) noexcept
+consteval tr::AngleD tr::angle_literals::operator"" _turns(unsigned long long tr) noexcept
 {
 	return turns(double(tr));
 }
 
-consteval tr::AngleL tr::angle_literals::operator "" _turnsl(long double tr) noexcept
+consteval tr::AngleL tr::angle_literals::operator"" _turnsl(long double tr) noexcept
 {
 	return turns(tr);
 }
 
-consteval tr::AngleL tr::angle_literals::operator "" _turnsl(unsigned long long tr) noexcept
+consteval tr::AngleL tr::angle_literals::operator"" _turnsl(unsigned long long tr) noexcept
 {
 	return turns((long double)(tr));
 }
