@@ -101,9 +101,9 @@ $(function(){ initResizable(false); });
 
 <p>Provides keyboard functionality.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
+<div class="textblock"><code>#include &quot;dependencies/EnumBitmask.hpp&quot;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
-<code>#include &quot;dependencies/EnumBitmask.hpp&quot;</code><br />
 </div>
 <p><a href="keyboard_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -128,22 +128,22 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a1e5a857eb2f40e2b55bfb43225cbc658" id="r_a1e5a857eb2f40e2b55bfb43225cbc658"><td class="memItemLeft" align="right" valign="top"><a id="a1e5a857eb2f40e2b55bfb43225cbc658" name="a1e5a857eb2f40e2b55bfb43225cbc658"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e5a857eb2f40e2b55bfb43225cbc658">tr::Keymods</a> : std::uint16_t { <br />
-&#160;&#160;<b>NONE</b> = 0x0000
-, <b>LSHIFT</b> = 0x0001
-, <b>RSHIFT</b> = 0x0002
-, <b>LCTRL</b> = 0x0040
+&#160;&#160;<b>NONE</b> = 0x00'00
+, <b>LSHIFT</b> = 0x00'01
+, <b>RSHIFT</b> = 0x00'02
+, <b>LCTRL</b> = 0x00'40
 , <br />
-&#160;&#160;<b>RCTRL</b> = 0x0080
-, <b>LALT</b> = 0x0100
-, <b>RALT</b> = 0x0200
-, <b>LWIN</b> = 0x0400
+&#160;&#160;<b>RCTRL</b> = 0x00'80
+, <b>LALT</b> = 0x01'00
+, <b>RALT</b> = 0x02'00
+, <b>LWIN</b> = 0x04'00
 , <br />
-&#160;&#160;<b>RWIN</b> = 0x0800
-, <b>NUM</b> = 0x1000
-, <b>CAPS</b> = 0x2000
-, <b>MODE</b> = 0x4000
+&#160;&#160;<b>RWIN</b> = 0x08'00
+, <b>NUM</b> = 0x10'00
+, <b>CAPS</b> = 0x20'00
+, <b>MODE</b> = 0x40'00
 , <br />
-&#160;&#160;<b>SCROLL</b> = 0x8000
+&#160;&#160;<b>SCROLL</b> = 0x80'00
 <br />
  }</td></tr>
 <tr class="memdesc:a1e5a857eb2f40e2b55bfb43225cbc658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Key modifier bitmasks. <br /></td></tr>

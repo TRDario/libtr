@@ -18,7 +18,7 @@ var searchData=
   ['reset_15',['reset',['../classtr_1_1Handle.html#ae350ebfc8469d797d40e47f06c4ca071',1,'tr::Handle::reset() noexcept'],['../classtr_1_1Handle.html#a0677d3a3d1a1522f5feb341ea63e930d',1,'tr::Handle::reset(T value) noexcept'],['../classtr_1_1Handle.html#ae1bb138c8cd178c3dd70e3366123e273',1,'tr::Handle::reset(T value, NoEmptyHandleCheck) noexcept']]],
   ['resetmouseconfines_16',['resetMouseConfines',['../classtr_1_1WindowView.html#adc846e2c18579efa4fb9b5161d5b78b3',1,'tr::WindowView']]],
   ['resizable_17',['resizable',['../classtr_1_1WindowView.html#a87c7ac55b04dda7711c03a6f2b93b304',1,'tr::WindowView']]],
-  ['resize_18',['resize',['../classtr_1_1TTFont.html#aea96194786b9e0b67aae28f1e6bf9fc3',1,'tr::TTFont']]],
+  ['resize_18',['resize',['../classtr_1_1TTFont.html#a960cae718ef3978c9dd5de0ae174768d',1,'tr::TTFont']]],
   ['resizearray_19',['resizeArray',['../classtr_1_1ShaderBuffer.html#add08a7229be920b2d349165593a7c107',1,'tr::ShaderBuffer']]],
   ['restore_20',['restore',['../classtr_1_1WindowView.html#a770b3a9cd20c3fccaca605543966944e',1,'tr::WindowView']]],
   ['revision_21',['revision',['../classtr_1_1SDL.html#a112a3e8a144bda25bd2de0423897c3a9',1,'tr::SDL']]],

@@ -101,8 +101,8 @@ $(function(){ initResizable(false); });
 
 <p>Provides application window functionality.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;dependencies/magic_enum.hpp&quot;</code><br />
-<code>#include &quot;<a class="el" href="bitmap_8hpp_source.html">bitmap.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="bitmap_8hpp_source.html">bitmap.hpp</a>&quot;</code><br />
+<code>#include &quot;dependencies/magic_enum.hpp&quot;</code><br />
 <code>#include &quot;<a class="el" href="display_8hpp_source.html">display.hpp</a>&quot;</code><br />
 </div>
 <p><a href="window_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -162,16 +162,16 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="#ad463b226a0cad7ea3e64dd5b07ecf12fac0520afdc57f61008645a8d423d0e3f4">RESIZABLE</a> = 0x20
 , <a class="el" href="#ad463b226a0cad7ea3e64dd5b07ecf12fa43245b4788b59a22d5357a7146c06deb">MINIMIZED</a> = 0x40
 , <a class="el" href="#ad463b226a0cad7ea3e64dd5b07ecf12fa2f33d682f3a4e19c31ced6cb4fd022e3">MAXIMIZED</a> = 0x80
-, <a class="el" href="#ad463b226a0cad7ea3e64dd5b07ecf12faa6de914e8cb1952483144b0aaa9b73ed">GRAB_INPUT</a> = 0x200
+, <a class="el" href="#ad463b226a0cad7ea3e64dd5b07ecf12faa6de914e8cb1952483144b0aaa9b73ed">GRAB_INPUT</a> = 0x2'00
 , <br />
-&#160;&#160;<a class="el" href="#ad463b226a0cad7ea3e64dd5b07ecf12fae691ed6feadad498d49ae83224dfc172">ALWAYS_ON_TOP</a> = 0x8000
+&#160;&#160;<a class="el" href="#ad463b226a0cad7ea3e64dd5b07ecf12fae691ed6feadad498d49ae83224dfc172">ALWAYS_ON_TOP</a> = 0x80'00
 <br />
  }</td></tr>
 <tr class="memdesc:ad463b226a0cad7ea3e64dd5b07ecf12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Window flag bitmasks.  <a href="#ad463b226a0cad7ea3e64dd5b07ecf12f">More...</a><br /></td></tr>
 <tr class="separator:ad463b226a0cad7ea3e64dd5b07ecf12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0caa27a38e3d8b688a5abab875ed28f7" id="r_a0caa27a38e3d8b688a5abab875ed28f7"><td class="memItemLeft" align="right" valign="top"><a id="a0caa27a38e3d8b688a5abab875ed28f7" name="a0caa27a38e3d8b688a5abab875ed28f7"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0caa27a38e3d8b688a5abab875ed28f7">tr::WindowMode</a> : std::uint32_t { <b>WINDOWED</b>
 , <b>FULLSCREEN</b> = 0x1
-, <b>BORDERLESS</b> = 0x1001
+, <b>BORDERLESS</b> = 0x10'01
  }</td></tr>
 <tr class="memdesc:a0caa27a38e3d8b688a5abab875ed28f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Window modes. <br /></td></tr>
 <tr class="separator:a0caa27a38e3d8b688a5abab875ed28f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -179,7 +179,7 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a3d79ab32d9b1afaebc7c4f45002ae5b6" id="r_a3d79ab32d9b1afaebc7c4f45002ae5b6"><td class="memItemLeft" align="right" valign="top"><a id="a3d79ab32d9b1afaebc7c4f45002ae5b6" name="a3d79ab32d9b1afaebc7c4f45002ae5b6"></a>
-constexpr glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><b>tr::CENTERED_POS</b> { 0x2FFF0000, 0x2FFF0000 }</td></tr>
+constexpr glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><b>tr::CENTERED_POS</b> {0x2F'FF'00'00, 0x2F'FF'00'00}</td></tr>
 <tr class="memdesc:a3d79ab32d9b1afaebc7c4f45002ae5b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sentinel for a centered position on the screen. <br /></td></tr>
 <tr class="separator:a3d79ab32d9b1afaebc7c4f45002ae5b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

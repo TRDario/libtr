@@ -57,7 +57,7 @@ var searchData=
   ['tri_5ffan_54',['TRI_FAN',['../gl__context_8hpp.html#a836d6a68316285fa5bde27908d9d9184a91902704ee3c155419098910b10432af',1,'tr']]],
   ['tri_5fstrip_55',['TRI_STRIP',['../gl__context_8hpp.html#a836d6a68316285fa5bde27908d9d9184a3a331e5577ed74fd8ac5350b02500114',1,'tr']]],
   ['tris_56',['TRIS',['../gl__context_8hpp.html#a836d6a68316285fa5bde27908d9d9184a9ad5e84cbac7af2a3f1eb0ab0d9f5f73',1,'tr']]],
-  ['ttfont_57',['TTFont',['../classtr_1_1TTFont.html',1,'tr::TTFont'],['../classtr_1_1TTFont.html#a1d8aa109fde115d99bac6c135fcef033',1,'tr::TTFont::TTFont(const std::filesystem::path &amp;path, int size, glm::uvec2 dpi={ 72, 72 })'],['../classtr_1_1TTFont.html#a7ad249e31c5b1670153279d1f8ca758f',1,'tr::TTFont::TTFont(std::span&lt; const std::byte &gt; embeddedFile, int size, glm::uvec2 dpi={ 72, 72 }) noexcept']]],
+  ['ttfont_57',['TTFont',['../classtr_1_1TTFont.html',1,'tr::TTFont'],['../classtr_1_1TTFont.html#aebe51e4647bf92e3d2d97d7275db3a1d',1,'tr::TTFont::TTFont(const std::filesystem::path &amp;path, int size, glm::uvec2 dpi={72, 72})'],['../classtr_1_1TTFont.html#a1da5fe93056dce70da1b06061de7d2c5',1,'tr::TTFont::TTFont(std::span&lt; const std::byte &gt; embeddedFile, int size, glm::uvec2 dpi={72, 72}) noexcept']]],
   ['ttfont_2ehpp_58',['ttfont.hpp',['../ttfont_8hpp.html',1,'']]],
   ['ttfontloaderror_59',['TTFontLoadError',['../structtr_1_1TTFontLoadError.html',1,'tr']]],
   ['ttfontresizeerror_60',['TTFontResizeError',['../structtr_1_1TTFontResizeError.html',1,'tr::TTFontResizeError'],['../structtr_1_1TTFontResizeError.html#abdc38a5e041e5658689fc5f903a59baa',1,'tr::TTFontResizeError::TTFontResizeError()']]],

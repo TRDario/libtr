@@ -38,7 +38,7 @@ var searchData=
   ['resetmouseconfines_35',['resetMouseConfines',['../classtr_1_1WindowView.html#adc846e2c18579efa4fb9b5161d5b78b3',1,'tr::WindowView']]],
   ['resizable_36',['RESIZABLE',['../window_8hpp.html#ad463b226a0cad7ea3e64dd5b07ecf12fac0520afdc57f61008645a8d423d0e3f4',1,'tr']]],
   ['resizable_37',['resizable',['../classtr_1_1WindowView.html#a87c7ac55b04dda7711c03a6f2b93b304',1,'tr::WindowView']]],
-  ['resize_38',['resize',['../classtr_1_1TTFont.html#aea96194786b9e0b67aae28f1e6bf9fc3',1,'tr::TTFont']]],
+  ['resize_38',['resize',['../classtr_1_1TTFont.html#a960cae718ef3978c9dd5de0ae174768d',1,'tr::TTFont']]],
   ['resizearray_39',['resizeArray',['../classtr_1_1ShaderBuffer.html#add08a7229be920b2d349165593a7c107',1,'tr::ShaderBuffer']]],
   ['restore_40',['restore',['../classtr_1_1WindowView.html#a770b3a9cd20c3fccaca605543966944e',1,'tr::WindowView']]],
   ['reverse_5fsubtract_41',['REVERSE_SUBTRACT',['../gl__context_8hpp.html#ab02487840c576fc68a93203882127279a84501f117a8c5a3f3f9faaa21be26e8e',1,'tr']]],

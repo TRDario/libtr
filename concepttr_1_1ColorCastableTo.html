@@ -100,12 +100,17 @@ $(function(){ initResizable(false); });
 <p><code>#include &lt;<a class="el" href="color__cast_8hpp_source.html">color_cast.hpp</a>&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="concepttr_1_1ColorCastableTo.html">tr::ColorCastableTo</a> =  </div>
-<div class="line">        <a class="code hl_concept" href="concepttr_1_1BuiltinColor.html">BuiltinColor</a>&lt;std::remove_cvref_t&lt;<span class="keyword">typename</span> boost::function_traits&lt;<a class="code hl_typedef" href="concepts_8hpp.html#a7d27da0979dd5dcecf290bb304d95aa5">remove_noexcept_t</a>&lt;<span class="keyword">decltype</span>(ColorCaster&lt;T&gt;::fromBuiltin)&gt;&gt;::argument_type&gt;&gt; &amp;&amp;</div>
-<div class="line">        <span class="keyword">requires</span>(<span class="keyword">typename</span> boost::function_traits&lt;remove_noexcept_t&lt;<span class="keyword">decltype</span>(ColorCaster&lt;T&gt;::fromBuiltin)&gt;&gt;::argument_type val) { { ColorCaster&lt;T&gt;::fromBuiltin(val) } -&gt; std::same_as&lt;T&gt;; }</div>
-<div class="ttc" id="aconcepts_8hpp_html_a7d27da0979dd5dcecf290bb304d95aa5"><div class="ttname"><a href="concepts_8hpp.html#a7d27da0979dd5dcecf290bb304d95aa5">tr::remove_noexcept_t</a></div><div class="ttdeci">remove_noexcept&lt; T &gt;::type remove_noexcept_t</div><div class="ttdoc">Removes noexcept qualification from a function type.</div><div class="ttdef"><b>Definition</b> concepts.hpp:71</div></div>
-<div class="ttc" id="aconcepttr_1_1BuiltinColor_html"><div class="ttname"><a href="concepttr_1_1BuiltinColor.html">tr::BuiltinColor</a></div><div class="ttdoc">Concept denoting a built-in color type (as opposed to custom castable color types).</div><div class="ttdef"><b>Definition</b> color.hpp:665</div></div>
-<div class="ttc" id="aconcepttr_1_1ColorCastableTo_html"><div class="ttname"><a href="concepttr_1_1ColorCastableTo.html">tr::ColorCastableTo</a></div><div class="ttdoc">Concept that denotes a type able to be color casted to.</div><div class="ttdef"><b>Definition</b> color_cast.hpp:42</div></div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="concepttr_1_1ColorCastableTo.html">tr::ColorCastableTo</a> =  <a class="code hl_concept" href="concepttr_1_1BuiltinColor.html">BuiltinColor</a>&lt;std::remove_cvref_t&lt;</div>
+<div class="line">              <span class="keyword">typename</span> boost::function_traits&lt;<a class="code hl_typedef" href="concepts_8hpp.html#a7d27da0979dd5dcecf290bb304d95aa5">remove_noexcept_t</a>&lt;<span class="keyword">decltype</span>(ColorCaster&lt;T&gt;::fromBuiltin)&gt;&gt;::argument_type&gt;&gt;</div>
+<div class="line">       &amp;&amp; <span class="keyword">requires</span>(</div>
+<div class="line">              <span class="keyword">typename</span> boost::function_traits&lt;remove_noexcept_t&lt;<span class="keyword">decltype</span>(ColorCaster&lt;T&gt;::fromBuiltin)&gt;&gt;::argument_type</div>
+<div class="line">                  val</div>
+<div class="line">       ) {</div>
+<div class="line">              { ColorCaster&lt;T&gt;::fromBuiltin(val) } -&gt; std::same_as&lt;T&gt;;</div>
+<div class="line">          }</div>
+<div class="ttc" id="aconcepts_8hpp_html_a7d27da0979dd5dcecf290bb304d95aa5"><div class="ttname"><a href="concepts_8hpp.html#a7d27da0979dd5dcecf290bb304d95aa5">tr::remove_noexcept_t</a></div><div class="ttdeci">remove_noexcept&lt; T &gt;::type remove_noexcept_t</div><div class="ttdoc">Removes noexcept qualification from a function type.</div><div class="ttdef"><b>Definition</b> concepts.hpp:72</div></div>
+<div class="ttc" id="aconcepttr_1_1BuiltinColor_html"><div class="ttname"><a href="concepttr_1_1BuiltinColor.html">tr::BuiltinColor</a></div><div class="ttdoc">Concept denoting a built-in color type (as opposed to custom castable color types).</div><div class="ttdef"><b>Definition</b> color.hpp:655</div></div>
+<div class="ttc" id="aconcepttr_1_1ColorCastableTo_html"><div class="ttname"><a href="concepttr_1_1ColorCastableTo.html">tr::ColorCastableTo</a></div><div class="ttdoc">Concept that denotes a type able to be color casted to.</div><div class="ttdef"><b>Definition</b> color_cast.hpp:47</div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Concept that denotes a type able to be color casted to. </p>
 <p>To fulfill this condition, ColorCaster&lt;T&gt; must have a static function <em>fromBuiltin</em> taking a BuiltinColor and returning <em>T</em>. </p>
