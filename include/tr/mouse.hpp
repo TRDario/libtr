@@ -1,5 +1,5 @@
 /**
- * @file keyboard.hpp
+ * @file mouse.hpp
  * @brief Provides mouse functionality.
  */
 
