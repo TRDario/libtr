@@ -6,6 +6,7 @@
 #pragma once
 #include "angle.hpp"
 
+#include <glm/ext.hpp>
 #include <glm/glm.hpp>
 #include <optional>
 
@@ -804,7 +805,7 @@ template <class T>
 glm::tmat4x4<T>
 tr::scaleAroundPoint3(const glm::tmat4x4<T>& matrix, const glm::tvec3<T>& center, const glm::tvec3<T>& scale) noexcept
 {
-	return translate(scale(translate(matrix, center), scale), -center);
+	return translate(glm::scale(translate(matrix, center), scale), -center);
 }
 
 template <class T>
