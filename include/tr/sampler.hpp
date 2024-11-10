@@ -238,5 +238,20 @@ namespace tr {
 		Handle<unsigned int, 0, Deleter> _id;
 
 		friend class TextureUnit;
+		friend class std::hash<Sampler>;
 	};
 } // namespace tr
+
+/// @cond IMPLEMENTATION
+
+template <>
+struct std::hash<tr::Sampler> {
+	inline std::size_t operator()(const tr::Sampler& sampler) const noexcept;
+};
+
+std::size_t std::hash<tr::Sampler>::operator()(const tr::Sampler& sampler) const noexcept
+{
+	return std::hash<decltype(sampler._id)> {}(sampler._id);
+}
+
+/// @endcond

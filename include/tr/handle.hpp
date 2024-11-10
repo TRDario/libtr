@@ -6,6 +6,7 @@
 #pragma once
 #include <cassert>
 #include <concepts>
+#include <functional>
 #include <tuple>
 #include <type_traits>
 #include <utility>
@@ -139,7 +140,7 @@ namespace tr {
 
 		/**************************************************************************************************************
 		 * Checks if the handle contains a value, see has_value().
-		 **************************************************************************************************************/
+		return std::hash<decltype(texture._id)> {}(texture._id); **************************************************************************************************************/
 		constexpr explicit operator bool() const noexcept;
 
 		/**************************************************************************************************************
@@ -229,8 +230,22 @@ namespace tr {
 /// @cond IMPLEMENTATION
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
+struct std::hash<tr::Handle<T, EmptyValue, Deleter>> {
+	constexpr auto operator()(const tr::Handle<T, EmptyValue, Deleter>& handle) const noexcept;
+};
+
+template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
+constexpr auto
+std::hash<tr::Handle<T, EmptyValue, Deleter>>::operator()(const tr::Handle<T, EmptyValue, Deleter>& handle
+) const noexcept
+{
+	return std::hash<T> {}(handle.get(tr::NO_EMPTY_HANDLE_CHECK));
+}
+
+template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr tr::Handle<T, EmptyValue, Deleter>::Handle() noexcept
 	: _base {EmptyValue}
+
 {}
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>

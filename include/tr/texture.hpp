@@ -239,6 +239,7 @@ namespace tr {
 		friend class BasicFramebuffer;
 		friend class Framebuffer;
 		friend class TextureUnit;
+		friend class std::hash<Texture>;
 	};
 
 	/******************************************************************************************************************
@@ -493,6 +494,66 @@ namespace tr {
 } // namespace tr
 
 /// @cond IMPLEMENTATION
+
+template <>
+struct std::hash<tr::Texture> {
+	inline std::size_t operator()(const tr::Texture& texture) const noexcept;
+};
+
+template <>
+struct std::hash<tr::Texture1D> {
+	inline std::size_t operator()(const tr::Texture1D& texture) const noexcept;
+};
+
+template <>
+struct std::hash<tr::ArrayTexture1D> {
+	inline std::size_t operator()(const tr::ArrayTexture1D& texture) const noexcept;
+};
+
+template <>
+struct std::hash<tr::Texture2D> {
+	inline std::size_t operator()(const tr::Texture2D& texture) const noexcept;
+};
+
+template <>
+struct std::hash<tr::ArrayTexture2D> {
+	inline std::size_t operator()(const tr::ArrayTexture2D& texture) const noexcept;
+};
+
+template <>
+struct std::hash<tr::Texture3D> {
+	inline std::size_t operator()(const tr::Texture3D& texture) const noexcept;
+};
+
+std::size_t std::hash<tr::Texture>::operator()(const tr::Texture& texture) const noexcept
+{
+	return std::hash<decltype(texture._id)> {}(texture._id);
+}
+
+std::size_t std::hash<tr::Texture1D>::operator()(const tr::Texture1D& texture) const noexcept
+{
+	return std::hash<tr::Texture> {}(texture);
+}
+
+std::size_t std::hash<tr::ArrayTexture1D>::operator()(const tr::ArrayTexture1D& texture) const noexcept
+{
+	return std::hash<tr::Texture> {}(texture);
+}
+
+std::size_t std::hash<tr::Texture2D>::operator()(const tr::Texture2D& texture) const noexcept
+{
+	return std::hash<tr::Texture> {}(texture);
+}
+
+std::size_t std::hash<tr::ArrayTexture2D>::operator()(const tr::ArrayTexture2D& texture) const noexcept
+{
+	return std::hash<tr::Texture> {}(texture);
+}
+
+std::size_t std::hash<tr::Texture3D>::operator()(const tr::Texture3D& texture) const noexcept
+{
+	return std::hash<tr::Texture> {}(texture);
+}
 
 constexpr const char* tr::TextureBadAlloc::what() const noexcept
 {
