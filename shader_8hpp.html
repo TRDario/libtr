@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>libtr: tr::MouseDownEvent Struct Reference</title>
+<title>libtr: shader.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,48 +85,49 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>tr</b></li><li class="navelem"><a class="el" href="structtr_1_1MouseDownEvent.html">MouseDownEvent</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_48c35ed6b28060506e9df53e28b74a05.html">tr</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="structtr_1_1MouseDownEvent-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::MouseDownEvent Struct Reference</div></div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle"><div class="title">shader.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classtr_1_1Event.html" title="Unified event type.">Event</a> emitted when a mouse button is pressed.  
- <a href="#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="event_8hpp_source.html">event.hpp</a>&gt;</code></p>
+<p>Provides shader functionality.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="shader__buffer_8hpp_source.html">shader_buffer.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="texture__unit_8hpp_source.html">texture_unit.hpp</a>&quot;</code><br />
+</div>
+<p><a href="shader_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:af218454d2882136136da2903b0ffa677" id="r_af218454d2882136136da2903b0ffa677"><td class="memItemLeft" align="right" valign="top"><a id="af218454d2882136136da2903b0ffa677" name="af218454d2882136136da2903b0ffa677"></a>
-<a class="el" href="mouse_8hpp.html#a8c4a44871ba907dcd4225b2617b40f77">MouseButton</a>&#160;</td><td class="memItemRight" valign="bottom"><b>button</b></td></tr>
-<tr class="memdesc:af218454d2882136136da2903b0ffa677"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pressed mouse button. <br /></td></tr>
-<tr class="separator:af218454d2882136136da2903b0ffa677"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acaf40374085c9256f32d7cb750f29d1c" id="r_acaf40374085c9256f32d7cb750f29d1c"><td class="memItemLeft" align="right" valign="top"><a id="acaf40374085c9256f32d7cb750f29d1c" name="acaf40374085c9256f32d7cb750f29d1c"></a>
-std::uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>clicks</b></td></tr>
-<tr class="memdesc:acaf40374085c9256f32d7cb750f29d1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of consecutive clicks. <br /></td></tr>
-<tr class="separator:acaf40374085c9256f32d7cb750f29d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a953ef040cffcdec605bef794f7691c82" id="r_a953ef040cffcdec605bef794f7691c82"><td class="memItemLeft" align="right" valign="top"><a id="a953ef040cffcdec605bef794f7691c82" name="a953ef040cffcdec605bef794f7691c82"></a>
-glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><b>pos</b></td></tr>
-<tr class="memdesc:a953ef040cffcdec605bef794f7691c82"><td class="mdescLeft">&#160;</td><td class="mdescRight">The position of the mouse. <br /></td></tr>
-<tr class="separator:a953ef040cffcdec605bef794f7691c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adac71518643c5fb80cc2fda985eb64e6" id="r_adac71518643c5fb80cc2fda985eb64e6"><td class="memItemLeft" align="right" valign="top"><a id="adac71518643c5fb80cc2fda985eb64e6" name="adac71518643c5fb80cc2fda985eb64e6"></a>
-<a class="el" href="classtr_1_1WindowView.html">WindowView</a>&#160;</td><td class="memItemRight" valign="bottom"><b>win</b></td></tr>
-<tr class="memdesc:adac71518643c5fb80cc2fda985eb64e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The window the event occured for. <br /></td></tr>
-<tr class="separator:adac71518643c5fb80cc2fda985eb64e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1ShaderLoadError.html">tr::ShaderLoadError</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error thrown when loading a shader failed.  <a href="structtr_1_1ShaderLoadError.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:afcfa3e5f9682128a25a9ac5eb1de2579" id="r_afcfa3e5f9682128a25a9ac5eb1de2579"><td class="memItemLeft" align="right" valign="top"><a id="afcfa3e5f9682128a25a9ac5eb1de2579" name="afcfa3e5f9682128a25a9ac5eb1de2579"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcfa3e5f9682128a25a9ac5eb1de2579">tr::ShaderType</a> : std::uint32_t { <br />
+&#160;&#160;<b>VERTEX</b> = 0x8B'31
+, <b>TESS_CONTROL</b> = 0x8E'88
+, <b>TESS_EVAL</b> = 0x8E'87
+, <b>GEOMETRY</b> = 0x8D'D9
+, <br />
+&#160;&#160;<b>FRAGMENT</b> = 0x8B'30
+, <b>COMPUTE</b> = 0x91'B9
+<br />
+ }</td></tr>
+<tr class="memdesc:afcfa3e5f9682128a25a9ac5eb1de2579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shader types. <br /></td></tr>
+<tr class="separator:afcfa3e5f9682128a25a9ac5eb1de2579"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classtr_1_1Event.html" title="Unified event type.">Event</a> emitted when a mouse button is pressed. </p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="event_8hpp_source.html">event.hpp</a></li>
-</ul>
-</div><!-- contents -->
+<div class="textblock"><p>Provides shader functionality. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0

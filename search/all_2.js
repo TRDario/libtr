@@ -49,8 +49,9 @@ var searchData=
   ['cos_46',['cos',['../classtr_1_1Angle.html#a504655cf62be677f12a52ba91f62c6ef',1,'tr::Angle']]],
   ['createcheckerboard_47',['createCheckerboard',['../bitmap_8hpp.html#af8beb3d49b6411407cbf541c75e9576a',1,'tr']]],
   ['cross2_48',['cross2',['../geometry_8hpp.html#aee714b85d5c784cc52d35e4e6109ee7a',1,'tr']]],
-  ['cursor_49',['Cursor',['../classtr_1_1Cursor.html',1,'tr::Cursor'],['../classtr_1_1Cursor.html#a17a604a4562a2fd5f79326e597ad7c92',1,'tr::Cursor::Cursor()'],['../classtr_1_1Cursor.html#a6562091426c7c405290eb55de08ea0d3',1,'tr::Cursor::Cursor(SysCursor icon)'],['../classtr_1_1Cursor.html#a543cd1be843f75e1899fe83f506c7bdf',1,'tr::Cursor::Cursor(const Bitmap &amp;bitmap, glm::ivec2 focus)'],['../classtr_1_1Cursor.html#a56458c22c18d9de447d1bba9068b9b34',1,'tr::Cursor::Cursor(std::span&lt; const std::byte &gt; color, std::span&lt; const std::byte &gt; mask, glm::ivec2 size, glm::ivec2 focus)']]],
-  ['cursorbadalloc_50',['CursorBadAlloc',['../structtr_1_1CursorBadAlloc.html',1,'tr']]],
-  ['cursorshown_51',['cursorShown',['../namespacetr_1_1mouse.html#ab1d2ac2903067da8086af0be0cf672a6',1,'tr::mouse']]],
-  ['customeventbase_52',['CustomEventBase',['../structtr_1_1CustomEventBase.html',1,'tr']]]
+  ['crosshair_49',['CROSSHAIR',['../mouse_8hpp.html#afb288c9c0ebc6c9d4b511786aadb5d8ea8a4fecb652c88a55f40bce1d48998b01',1,'tr']]],
+  ['cursor_50',['Cursor',['../classtr_1_1Cursor.html',1,'tr::Cursor'],['../classtr_1_1Cursor.html#a17a604a4562a2fd5f79326e597ad7c92',1,'tr::Cursor::Cursor()'],['../classtr_1_1Cursor.html#a6562091426c7c405290eb55de08ea0d3',1,'tr::Cursor::Cursor(SysCursor icon)'],['../classtr_1_1Cursor.html#a543cd1be843f75e1899fe83f506c7bdf',1,'tr::Cursor::Cursor(const Bitmap &amp;bitmap, glm::ivec2 focus)'],['../classtr_1_1Cursor.html#a56458c22c18d9de447d1bba9068b9b34',1,'tr::Cursor::Cursor(std::span&lt; const std::byte &gt; color, std::span&lt; const std::byte &gt; mask, glm::ivec2 size, glm::ivec2 focus)']]],
+  ['cursorbadalloc_51',['CursorBadAlloc',['../structtr_1_1CursorBadAlloc.html',1,'tr']]],
+  ['cursorshown_52',['cursorShown',['../namespacetr_1_1mouse.html#ab1d2ac2903067da8086af0be0cf672a6',1,'tr::mouse']]],
+  ['customeventbase_53',['CustomEventBase',['../structtr_1_1CustomEventBase.html',1,'tr']]]
 ];

@@ -12,5 +12,6 @@ var searchData=
   ['color6_9',['COLOR6',['../classtr_1_1Framebuffer.html#a83dfe57520b21bf6c260b789d965f973adaa8c2d42a4371ce85b462edf712c005',1,'tr::Framebuffer']]],
   ['color7_10',['COLOR7',['../classtr_1_1Framebuffer.html#a83dfe57520b21bf6c260b789d965f973a46cf557e3f064fadf3b054ec8a24242f',1,'tr::Framebuffer']]],
   ['constant_5falpha_11',['CONSTANT_ALPHA',['../gl__context_8hpp.html#ab7083cc1749480ee24db1b5ef93d4767aadea5dd772ca5c4e887ee15c3bb588ec',1,'tr']]],
-  ['constant_5fcolor_12',['CONSTANT_COLOR',['../gl__context_8hpp.html#ab7083cc1749480ee24db1b5ef93d4767a30621775d687d61143980af264746e1d',1,'tr']]]
+  ['constant_5fcolor_12',['CONSTANT_COLOR',['../gl__context_8hpp.html#ab7083cc1749480ee24db1b5ef93d4767a30621775d687d61143980af264746e1d',1,'tr']]],
+  ['crosshair_13',['CROSSHAIR',['../mouse_8hpp.html#afb288c9c0ebc6c9d4b511786aadb5d8ea8a4fecb652c88a55f40bce1d48998b01',1,'tr']]]
 ];
