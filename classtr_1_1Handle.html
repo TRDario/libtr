@@ -128,9 +128,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab7f3720178f6b868e0f5bd10ad16767e" id="r_ab7f3720178f6b868e0f5bd10ad16767e"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7f3720178f6b868e0f5bd10ad16767e">has_value</a> () const noexcept</td></tr>
 <tr class="memdesc:ab7f3720178f6b868e0f5bd10ad16767e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the handle contains a value.  <br /></td></tr>
 <tr class="separator:ab7f3720178f6b868e0f5bd10ad16767e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a199473bf292fbefde51e7c66340f0304" id="r_a199473bf292fbefde51e7c66340f0304"><td class="memItemLeft" align="right" valign="top"><a id="a199473bf292fbefde51e7c66340f0304" name="a199473bf292fbefde51e7c66340f0304"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>operator bool</b> () const noexcept</td></tr>
-<tr class="memdesc:a199473bf292fbefde51e7c66340f0304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the handle contains a value, see <a class="el" href="#ab7f3720178f6b868e0f5bd10ad16767e" title="Checks if the handle contains a value.">has_value()</a>. <br /></td></tr>
+<tr class="memitem:a199473bf292fbefde51e7c66340f0304" id="r_a199473bf292fbefde51e7c66340f0304"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a199473bf292fbefde51e7c66340f0304">operator bool</a> () const noexcept</td></tr>
+<tr class="memdesc:a199473bf292fbefde51e7c66340f0304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the handle contains a value, see <a class="el" href="#ab7f3720178f6b868e0f5bd10ad16767e" title="Checks if the handle contains a value.">has_value()</a>.  <br /></td></tr>
 <tr class="separator:a199473bf292fbefde51e7c66340f0304"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cdb2fba9f637f0374af06adf4f37e52" id="r_a1cdb2fba9f637f0374af06adf4f37e52"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classtr_1_1Handle.html">Handle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1cdb2fba9f637f0374af06adf4f37e52">operator=</a> (<a class="el" href="classtr_1_1Handle.html">Handle</a> &amp;&amp;r) noexcept</td></tr>
 <tr class="memdesc:a1cdb2fba9f637f0374af06adf4f37e52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move-assigns the handle.  <br /></td></tr>
@@ -437,6 +436,36 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 
 <p>Checks if the handle contains a value. </p>
 <dl class="section return"><dt>Returns</dt><dd>true if the handle is not empty. </dd></dl>
+
+</div>
+</div>
+<a id="a199473bf292fbefde51e7c66340f0304" name="a199473bf292fbefde51e7c66340f0304"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a199473bf292fbefde51e7c66340f0304">&#9670;&#160;</a></span>operator bool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtr_1_1Handle.html">tr::Handle</a>&lt; T, EmptyValue, Deleter &gt;::operator bool </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the handle contains a value, see <a class="el" href="#ab7f3720178f6b868e0f5bd10ad16767e" title="Checks if the handle contains a value.">has_value()</a>. </p>
+<p>return std::hash&lt;decltype(texture._id)&gt; {}(texture._id); </p>
 
 </div>
 </div>
