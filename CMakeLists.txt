@@ -16,8 +16,8 @@ target_sources(tr PRIVATE
     src/audio_buffer.cpp src/audio_context.cpp src/audio_device.cpp src/audio_source.cpp src/audio_stream.cpp
     src/benchmark.cpp src/bitmap_format.cpp src/bitmap.cpp src/display.cpp src/event.cpp src/framebuffer.cpp
     src/gl_buffer.cpp src/gl_context.cpp src/index_buffer.cpp src/iostream.cpp src/keyboard.cpp src/listener.cpp
-    src/mouse.cpp src/path.cpp src/sampler.cpp src/sdl.cpp src/shader_buffer.cpp src/shader_pipeline.cpp src/shader.cpp
-    src/texture_unit.cpp src/texture.cpp src/ttfont.cpp src/vertex_format.cpp src/vertex.cpp src/window.cpp
+    src/mouse.cpp src/path.cpp src/renderbuffer.cpp src/sampler.cpp src/sdl.cpp src/shader_buffer.cpp src/shader_pipeline.cpp
+    src/shader.cpp src/texture_unit.cpp src/texture.cpp src/ttfont.cpp src/vertex_format.cpp src/vertex.cpp src/window.cpp
 )
 target_sources(tr PUBLIC
     FILE_SET HEADERS
