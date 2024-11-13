@@ -105,55 +105,54 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html">   19</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a> {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>      <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#aec3210b1d029fa6e30a22ab065299c18">   24</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="classtr_1_1Utf8ConstIt.html#aec3210b1d029fa6e30a22ab065299c18">value_type</a>                 = std::uint32_t;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#aec3210b1d029fa6e30a22ab065299c18">   24</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="classtr_1_1Utf8ConstIt.html#aec3210b1d029fa6e30a22ab065299c18">value_type</a> = std::uint32_t;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#a402b78198c3ae7f8911b12a9a95f7280">   29</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="classtr_1_1Utf8ConstIt.html#a402b78198c3ae7f8911b12a9a95f7280">difference_type</a>            = std::ptrdiff_t;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#a402b78198c3ae7f8911b12a9a95f7280">   29</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="classtr_1_1Utf8ConstIt.html#a402b78198c3ae7f8911b12a9a95f7280">difference_type</a> = std::ptrdiff_t;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#a346088f94c351ce754617453099fec8b">   36</a></span>        <span class="keyword">constexpr</span> <a class="code hl_function" href="classtr_1_1Utf8ConstIt.html#a346088f94c351ce754617453099fec8b">Utf8ConstIt</a>() noexcept = default;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#a346088f94c351ce754617453099fec8b">   37</a></span>        <span class="keyword">constexpr</span> <a class="code hl_function" href="classtr_1_1Utf8ConstIt.html#a346088f94c351ce754617453099fec8b">Utf8ConstIt</a>() noexcept = default;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#a2ae09509e719288f34cf4ea3d1e70964">   43</a></span>        constexpr <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>(const <span class="keywordtype">char</span>* ptr) noexcept;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#a2ae09509e719288f34cf4ea3d1e70964">   44</a></span>        constexpr <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>(const <span class="keywordtype">char</span>* ptr) noexcept;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#aaf276dec595993a7602eace1787258ae">   48</a></span>        constexpr friend auto   operator&lt;=&gt;(const <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>&amp;, const <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>&amp;) = default;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#aaf276dec595993a7602eace1787258ae">   49</a></span>        constexpr friend auto operator&lt;=&gt;(const <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>&amp;, const <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>&amp;) = default;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#a0a41427768a073b7b9db281adaa17844">   53</a></span>        constexpr friend <span class="keywordtype">bool</span>   operator==(const <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>&amp;, const <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>&amp;)  = default;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#a0a41427768a073b7b9db281adaa17844">   54</a></span>        constexpr friend <span class="keywordtype">bool</span> operator==(const <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>&amp;, const <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>&amp;) = default;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#ab423125e9033a384e9a6c51f4153906f">   63</a></span>        constexpr std::uint32_t operator*() const noexcept;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#ab423125e9033a384e9a6c51f4153906f">   64</a></span>        constexpr std::uint32_t operator*() const noexcept;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#a104b606dd4789e59fb24b1a1b707ab5d">   73</a></span>        constexpr <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>&amp;  operator++() noexcept;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#a104b606dd4789e59fb24b1a1b707ab5d">   74</a></span>        constexpr <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>&amp; operator++() noexcept;</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#adee2094e23ed3440c82b89c621c7b1b7">   83</a></span>        constexpr <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>   operator++(<span class="keywordtype">int</span>) noexcept;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    private:</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        const <span class="keywordtype">char</span>* _impl; <span class="comment">// Pointer to a valid UTF-8 char sequence.</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    };</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classtr_1_1Utf8ConstIt.html#adee2094e23ed3440c82b89c621c7b1b7">   84</a></span>        constexpr <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a> operator++(<span class="keywordtype">int</span>) noexcept;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>      private:</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        const <span class="keywordtype">char</span>* _impl; <span class="comment">// Pointer to a valid UTF-8 char sequence.</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    };</div>
 </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="utf8_8hpp.html#af9745ab162880406220e467debe3c22e">   97</a></span>    constexpr <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>                        utf8Begin(std::string_view str) noexcept;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="utf8_8hpp.html#af9745ab162880406220e467debe3c22e">   98</a></span>    constexpr <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a> utf8Begin(std::string_view str) noexcept;</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="utf8_8hpp.html#aa0210a04b45f66f8bbe8e0ac42573a35">  106</a></span>    constexpr <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>                        utf8End(std::string_view str) noexcept;</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="utf8_8hpp.html#aa0210a04b45f66f8bbe8e0ac42573a35">  107</a></span>    constexpr <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a> utf8End(std::string_view str) noexcept;</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="utf8_8hpp.html#a61b8ad8446bda9044a04748eb6f94f3a">  115</a></span>    constexpr std::ranges::subrange&lt;<a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>&gt; utf8Range(std::string_view str) noexcept;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="utf8_8hpp.html#a61b8ad8446bda9044a04748eb6f94f3a">  116</a></span>    constexpr std::ranges::subrange&lt;<a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>&gt; utf8Range(std::string_view str) noexcept;</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="utf8_8hpp.html#af97cb3c8f72d4952bd9fceaf49ae67a6">  124</a></span>    constexpr std::<span class="keywordtype">size_t</span>                        utf8Length(std::string_view str) noexcept;</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>} <span class="comment">// namespace tr</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>constexpr tr::<a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>::<a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>(const <span class="keywordtype">char</span>* ptr) noexcept</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    : _impl {ptr}</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="utf8_8hpp.html#af97cb3c8f72d4952bd9fceaf49ae67a6">  125</a></span>    constexpr std::<span class="keywordtype">size_t</span> utf8Length(std::string_view str) noexcept;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>} <span class="comment">// namespace tr</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>constexpr tr::<a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>::<a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">Utf8ConstIt</a>(const <span class="keywordtype">char</span>* ptr) noexcept : _impl{ptr}</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>{</div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    assert(_impl != <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>}</div>
@@ -197,7 +196,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="keyword">constexpr</span> <a class="code hl_class" href="classtr_1_1Utf8ConstIt.html">tr::Utf8ConstIt</a> <a class="code hl_function" href="classtr_1_1Utf8ConstIt.html#a104b606dd4789e59fb24b1a1b707ab5d">tr::Utf8ConstIt::operator++</a>(<span class="keywordtype">int</span>) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>{</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keyword">auto</span> prev {*<span class="keyword">this</span>};</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keyword">auto</span> prev{*<span class="keyword">this</span>};</div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    ++(*this);</div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordflow">return</span> prev;</div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>}</div>

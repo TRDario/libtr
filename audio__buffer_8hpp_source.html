@@ -123,13 +123,13 @@ $(function(){ initResizable(false); });
 <div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfe">   42</a></span>    enum class <a class="code hl_enumeration" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> {</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <a class="code hl_enumvalue" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfea6bb6d6a0741f2a5afd00611ed1ef5f8b">MONO8</a>    = 0x11&#39;00, <span class="comment">// 8-bit mono audio.</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <a class="code hl_enumvalue" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfea6bb6d6a0741f2a5afd00611ed1ef5f8b">MONO8</a> = 0x11&#39;00, <span class="comment">// 8-bit mono audio.</span></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_enumvalue" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfeae155ffb380a7c880b0f0365cdaa2d9c3">STEREO8</a>  = 0x11&#39;02, <span class="comment">// 8-bit stereo audio.</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_enumvalue" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfeae155ffb380a7c880b0f0365cdaa2d9c3">STEREO8</a> = 0x11&#39;02, <span class="comment">// 8-bit stereo audio.</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_enumvalue" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfea59e5ab3f0c1c59504cf28fc887787eab">MONO16</a>   = 0x11&#39;01, <span class="comment">// 16-bit mono audio.</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_enumvalue" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfea59e5ab3f0c1c59504cf28fc887787eab">MONO16</a> = 0x11&#39;01, <span class="comment">// 16-bit mono audio.</span></div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <a class="code hl_enumvalue" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7">STEREO16</a> = 0x11&#39;03 <span class="comment">// 16-bit stereo audio.</span></div>
@@ -139,14 +139,14 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
 <div class="foldopen" id="foldopen00067" data-start="{" data-end="};">
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBufferView.html">   67</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1AudioBufferView.html">AudioBufferView</a> {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>      <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBufferView.html#ae0e3b1bdc50b9e0df7fc00a09e7da358">   72</a></span>        <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code hl_friend" href="classtr_1_1AudioBufferView.html#ae0e3b1bdc50b9e0df7fc00a09e7da358">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1AudioBufferView.html">AudioBufferView</a>&amp;, <span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1AudioBufferView.html">AudioBufferView</a>&amp;) <span class="keyword">noexcept</span> = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBufferView.html#a6764903b3c7ee986ffabad38d2a0bc24">   83</a></span>        <span class="keywordtype">void</span>        <a class="code hl_function" href="classtr_1_1AudioBufferView.html#a6764903b3c7ee986ffabad38d2a0bc24">set</a>(std::span&lt;const std::byte&gt; data, <a class="code hl_enumeration" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> format, <span class="keywordtype">int</span> frequency);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBufferView.html#a6764903b3c7ee986ffabad38d2a0bc24">   83</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1AudioBufferView.html#a6764903b3c7ee986ffabad38d2a0bc24">set</a>(std::span&lt;const std::byte&gt; data, <a class="code hl_enumeration" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> format, <span class="keywordtype">int</span> frequency);</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      <span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id; <span class="comment">// The OpenAL ID of the buffer.</span></div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="comment">// Constructs a audio buffer view from an OpenAL id.</span></div>
@@ -160,7 +160,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
 <div class="foldopen" id="foldopen00102" data-start="{" data-end="};">
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBuffer.html">  102</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1AudioBuffer.html">AudioBuffer</a> {</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>      <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBuffer.html#a4e69169af6c5aebd2b17146a49bcd6a1">  109</a></span>        <a class="code hl_function" href="classtr_1_1AudioBuffer.html#a4e69169af6c5aebd2b17146a49bcd6a1">AudioBuffer</a>();</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
@@ -179,7 +179,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBuffer.html#a82cd9063088eab4aeee8b0244bea135a">  154</a></span>        <span class="keywordtype">void</span> set(std::span&lt;const std::<span class="keywordtype">byte</span>&gt; data, <a class="code hl_enumeration" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> format, <span class="keywordtype">int</span> frequency);</div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    private:</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>      private:</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        struct Deleter {</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            <span class="keywordtype">void</span> operator()(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        };</div>
@@ -211,7 +211,7 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="aclasstr_1_1AudioSource_html"><div class="ttname"><a href="classtr_1_1AudioSource.html">tr::AudioSource</a></div><div class="ttdoc">Audio source.</div><div class="ttdef"><b>Definition</b> audio_source.hpp:79</div></div>
 <div class="ttc" id="aclasstr_1_1FileError_html"><div class="ttname"><a href="classtr_1_1FileError.html">tr::FileError</a></div><div class="ttdoc">Generic file error base exception type.</div><div class="ttdef"><b>Definition</b> iostream.hpp:28</div></div>
 <div class="ttc" id="aclasstr_1_1FileError_html_a40619fbc37d069161d0d1215061ca56c"><div class="ttname"><a href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">tr::FileError::FileError</a></div><div class="ttdeci">FileError(std::string path) noexcept</div><div class="ttdoc">Constructs a file error with a path string.</div></div>
-<div class="ttc" id="aclasstr_1_1Handle_html"><div class="ttname"><a href="classtr_1_1Handle.html">tr::Handle</a></div><div class="ttdoc">RAII wrapper over non-pointer handles.</div><div class="ttdef"><b>Definition</b> handle.hpp:49</div></div>
+<div class="ttc" id="aclasstr_1_1Handle_html"><div class="ttname"><a href="classtr_1_1Handle.html">tr::Handle</a></div><div class="ttdoc">RAII wrapper over non-pointer handles.</div><div class="ttdef"><b>Definition</b> handle.hpp:51</div></div>
 <div class="ttc" id="ahandle_8hpp_html"><div class="ttname"><a href="handle_8hpp.html">handle.hpp</a></div><div class="ttdoc">Provides a RAII wrapper over non-pointer handles.</div></div>
 <div class="ttc" id="aiostream_8hpp_html"><div class="ttname"><a href="iostream_8hpp.html">iostream.hpp</a></div><div class="ttdoc">Provides miscellaneous input/output functionality.</div></div>
 <div class="ttc" id="astructtr_1_1AudioBufferBadAlloc_html"><div class="ttname"><a href="structtr_1_1AudioBufferBadAlloc.html">tr::AudioBufferBadAlloc</a></div><div class="ttdoc">Error thrown when allocating an audio buffer fails.</div><div class="ttdef"><b>Definition</b> audio_buffer.hpp:16</div></div>

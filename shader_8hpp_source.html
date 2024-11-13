@@ -111,17 +111,17 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="shader_8hpp.html#afcfa3e5f9682128a25a9ac5eb1de2579">   27</a></span>    enum class <a class="code hl_enumeration" href="shader_8hpp.html#afcfa3e5f9682128a25a9ac5eb1de2579">ShaderType</a> : std::uint32_t {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        VERTEX       = 0x8B&#39;31,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        VERTEX = 0x8B&#39;31,</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        TESS_CONTROL = 0x8E&#39;88,</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        TESS_EVAL    = 0x8E&#39;87,</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        GEOMETRY     = 0x8D&#39;D9,</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        FRAGMENT     = 0x8B&#39;30,</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        COMPUTE      = 0x91&#39;B9</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        TESS_EVAL = 0x8E&#39;87,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        GEOMETRY = 0x8D&#39;D9,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        FRAGMENT = 0x8B&#39;30,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        COMPUTE = 0x91&#39;B9</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    };</div>
 </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">class </span>Shader {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>      <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        Shader(<span class="keyword">const</span> std::filesystem::path&amp; path, ShaderType type);</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
@@ -132,186 +132,186 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keyword">friend</span> <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> Shader&amp;, <span class="keyword">const</span> Shader&amp;) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        ShaderType  type() const noexcept;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        ShaderType type() const noexcept;</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, <span class="keywordtype">bool</span> value) noexcept;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, <span class="keywordtype">bool</span> value) noexcept;</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, glm::bvec2 value) noexcept;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, glm::bvec2 value) noexcept;</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, glm::bvec3 value) noexcept;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, glm::bvec3 value) noexcept;</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, glm::bvec4 value) noexcept;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, glm::bvec4 value) noexcept;</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, <span class="keywordtype">int</span> value) noexcept;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, <span class="keywordtype">int</span> value) noexcept;</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const <span class="keywordtype">int</span>&gt; value) noexcept;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const <span class="keywordtype">int</span>&gt; value) noexcept;</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, glm::ivec2 value) noexcept;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, glm::ivec2 value) noexcept;</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::ivec2&gt; value) noexcept;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::ivec2&gt; value) noexcept;</div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, glm::ivec3 value) noexcept;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, glm::ivec3 value) noexcept;</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::ivec3&gt; value) noexcept;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::ivec3&gt; value) noexcept;</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, glm::ivec4 value) noexcept;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, glm::ivec4 value) noexcept;</div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::ivec4&gt; value) noexcept;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::ivec4&gt; value) noexcept;</div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> value) noexcept;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> value) noexcept;</div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt; value) noexcept;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&gt; value) noexcept;</div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, glm::uvec2 value) noexcept;</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, glm::uvec2 value) noexcept;</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::uvec2&gt; value) noexcept;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::uvec2&gt; value) noexcept;</div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
 <div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, glm::uvec3 value) noexcept;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, glm::uvec3 value) noexcept;</div>
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::uvec3&gt; value) noexcept;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::uvec3&gt; value) noexcept;</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, glm::uvec4 value) noexcept;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, glm::uvec4 value) noexcept;</div>
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::uvec4&gt; value) noexcept;</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::uvec4&gt; value) noexcept;</div>
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
 <div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, <span class="keywordtype">float</span> value) noexcept;</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, <span class="keywordtype">float</span> value) noexcept;</div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const <span class="keywordtype">float</span>&gt; value) noexcept;</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const <span class="keywordtype">float</span>&gt; value) noexcept;</div>
 <div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
 <div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, glm::vec2 value) noexcept;</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, glm::vec2 value) noexcept;</div>
 <div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
 <div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::vec2&gt; value) noexcept;</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::vec2&gt; value) noexcept;</div>
 <div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, glm::vec3 value) noexcept;</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, glm::vec3 value) noexcept;</div>
 <div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
 <div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::vec3&gt; value) noexcept;</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::vec3&gt; value) noexcept;</div>
 <div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
 <div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, glm::vec4 value) noexcept;</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, glm::vec4 value) noexcept;</div>
 <div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
 <div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::vec4&gt; value) noexcept;</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::vec4&gt; value) noexcept;</div>
 <div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
 <div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, const glm::mat2&amp; value) noexcept;</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, const glm::mat2&amp; value) noexcept;</div>
 <div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
 <div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span> </div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat2&gt; value) noexcept;</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat2&gt; value) noexcept;</div>
 <div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span> </div>
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, const glm::mat3&amp; value) noexcept;</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, const glm::mat3&amp; value) noexcept;</div>
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span> </div>
 <div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat3&gt; value) noexcept;</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat3&gt; value) noexcept;</div>
 <div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
 <div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span> </div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, const glm::mat4&amp; value) noexcept;</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, const glm::mat4&amp; value) noexcept;</div>
 <div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span> </div>
 <div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span> </div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat4&gt; value) noexcept;</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat4&gt; value) noexcept;</div>
 <div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span> </div>
 <div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span> </div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, const glm::mat2x3&amp; value) noexcept;</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, const glm::mat2x3&amp; value) noexcept;</div>
 <div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span> </div>
 <div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span> </div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat2x3&gt; value) noexcept;</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat2x3&gt; value) noexcept;</div>
 <div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span> </div>
 <div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span> </div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, const glm::mat2x4&amp; value) noexcept;</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, const glm::mat2x4&amp; value) noexcept;</div>
 <div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span> </div>
 <div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span> </div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat2x4&gt; value) noexcept;</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat2x4&gt; value) noexcept;</div>
 <div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span> </div>
 <div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span> </div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, const glm::mat3x2&amp; value) noexcept;</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, const glm::mat3x2&amp; value) noexcept;</div>
 <div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span> </div>
 <div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span> </div>
-<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat3x2&gt; value) noexcept;</div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat3x2&gt; value) noexcept;</div>
 <div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span> </div>
 <div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span> </div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, const glm::mat3x4&amp; value) noexcept;</div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, const glm::mat3x4&amp; value) noexcept;</div>
 <div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span> </div>
 <div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span> </div>
-<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat3x4&gt; value) noexcept;</div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat3x4&gt; value) noexcept;</div>
 <div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span> </div>
 <div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span> </div>
-<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, const glm::mat4x2&amp; value) noexcept;</div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, const glm::mat4x2&amp; value) noexcept;</div>
 <div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span> </div>
 <div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span> </div>
-<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat4x2&gt; value) noexcept;</div>
+<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat4x2&gt; value) noexcept;</div>
 <div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span> </div>
 <div class="line"><a id="l00469" name="l00469"></a><span class="lineno">  469</span> </div>
-<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, const glm::mat4x3&amp; value) noexcept;</div>
+<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, const glm::mat4x3&amp; value) noexcept;</div>
 <div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span> </div>
 <div class="line"><a id="l00478" name="l00478"></a><span class="lineno">  478</span> </div>
-<div class="line"><a id="l00485" name="l00485"></a><span class="lineno">  485</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat4x3&gt; value) noexcept;</div>
+<div class="line"><a id="l00485" name="l00485"></a><span class="lineno">  485</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::mat4x3&gt; value) noexcept;</div>
 <div class="line"><a id="l00486" name="l00486"></a><span class="lineno">  486</span> </div>
 <div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span> </div>
-<div class="line"><a id="l00494" name="l00494"></a><span class="lineno">  494</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, <span class="keywordtype">double</span> value) noexcept;</div>
+<div class="line"><a id="l00494" name="l00494"></a><span class="lineno">  494</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, <span class="keywordtype">double</span> value) noexcept;</div>
 <div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span> </div>
 <div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span> </div>
-<div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const <span class="keywordtype">double</span>&gt; value) noexcept;</div>
+<div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const <span class="keywordtype">double</span>&gt; value) noexcept;</div>
 <div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span> </div>
 <div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span> </div>
-<div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, glm::dvec2 value) noexcept;</div>
+<div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, glm::dvec2 value) noexcept;</div>
 <div class="line"><a id="l00513" name="l00513"></a><span class="lineno">  513</span> </div>
 <div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span> </div>
-<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::dvec2&gt; value) noexcept;</div>
+<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::dvec2&gt; value) noexcept;</div>
 <div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span> </div>
 <div class="line"><a id="l00523" name="l00523"></a><span class="lineno">  523</span> </div>
-<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, glm::dvec3 value) noexcept;</div>
+<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, glm::dvec3 value) noexcept;</div>
 <div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span> </div>
 <div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span> </div>
-<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::dvec3&gt; value) noexcept;</div>
+<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::dvec3&gt; value) noexcept;</div>
 <div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span> </div>
 <div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span> </div>
-<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, glm::dvec4 value) noexcept;</div>
+<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, glm::dvec4 value) noexcept;</div>
 <div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span> </div>
 <div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span> </div>
-<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::dvec4&gt; value) noexcept;</div>
+<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, std::span&lt;const glm::dvec4&gt; value) noexcept;</div>
 <div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span> </div>
 <div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span> </div>
-<div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span>        <span class="keywordtype">void</span>        setUniform(<span class="keywordtype">int</span> index, const TextureUnit&amp; unit) noexcept;</div>
+<div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span>        <span class="keywordtype">void</span> setUniform(<span class="keywordtype">int</span> index, const TextureUnit&amp; unit) noexcept;</div>
 <div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span> </div>
 <div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span> </div>
-<div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span>        <span class="keywordtype">void</span>        setStorageBuffer(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index, ShaderBuffer&amp; buffer) noexcept;</div>
+<div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span>        <span class="keywordtype">void</span> setStorageBuffer(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index, ShaderBuffer&amp; buffer) noexcept;</div>
 <div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span> </div>
 <div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span> </div>
-<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span>        <span class="keywordtype">void</span>        setLabel(std::string_view label) noexcept;</div>
+<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span>        <span class="keywordtype">void</span> setLabel(std::string_view label) noexcept;</div>
 <div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span> </div>
-<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span>    private:</div>
+<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span>      private:</div>
 <div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span>        struct Deleter {</div>
 <div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span>            <span class="keywordtype">void</span> operator()(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span>        };</div>
 <div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span> </div>
 <div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span>        Handle&lt;unsigned int, 0, Deleter&gt; _id;</div>
-<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span>        <a class="code hl_enumeration" href="shader_8hpp.html#afcfa3e5f9682128a25a9ac5eb1de2579">ShaderType</a>                       _type;</div>
+<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span>        <a class="code hl_enumeration" href="shader_8hpp.html#afcfa3e5f9682128a25a9ac5eb1de2579">ShaderType</a> _type;</div>
 <div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span> </div>
 <div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span>        <span class="keyword">friend</span> <span class="keyword">class </span>ShaderPipeline;</div>
 <div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span>    };</div>

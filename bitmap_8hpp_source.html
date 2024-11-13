@@ -150,29 +150,29 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="foldopen" id="foldopen00076" data-start="{" data-end="};">
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classtr_1_1SDL__Image.html">   76</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1SDL__Image.html">SDL_Image</a> {</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>      <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classtr_1_1SDL__Image.html#aad5c470c9d0838eaf2c2b6c97215c885">   83</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="classtr_1_1SDL__Image.html#aad5c470c9d0838eaf2c2b6c97215c885">SDL_Image</a>(<a class="code hl_enumeration" href="bitmap_8hpp.html#acdde480f01d536a3cf2b72e83515586e">ImageFormat</a> formats) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classtr_1_1SDL__Image.html#a26b4ded684f339eb7cca181c44f647f8">   90</a></span>        <span class="keyword">static</span> <span class="keywordtype">bool</span>    <a class="code hl_function" href="classtr_1_1SDL__Image.html#a26b4ded684f339eb7cca181c44f647f8">has</a>(<a class="code hl_enumeration" href="bitmap_8hpp.html#acdde480f01d536a3cf2b72e83515586e">ImageFormat</a> format) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classtr_1_1SDL__Image.html#a26b4ded684f339eb7cca181c44f647f8">   90</a></span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classtr_1_1SDL__Image.html#a26b4ded684f339eb7cca181c44f647f8">has</a>(<a class="code hl_enumeration" href="bitmap_8hpp.html#acdde480f01d536a3cf2b72e83515586e">ImageFormat</a> format) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classtr_1_1SDL__Image.html#abacaf5fcddd1e93260351f2d7a09ec8d">   97</a></span>        <span class="keyword">static</span> <a class="code hl_struct" href="structtr_1_1Version.html">Version</a> <a class="code hl_function" href="classtr_1_1SDL__Image.html#abacaf5fcddd1e93260351f2d7a09ec8d">version</a>() noexcept;</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    private:</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>      private:</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        struct Deleter {</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <span class="keywordtype">void</span> operator()(<span class="keywordtype">bool</span>) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        };</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <a class="code hl_class" href="classtr_1_1Handle.html">Handle&lt;bool, false, Deleter&gt;</a> _handle {<span class="keyword">true</span>};</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <a class="code hl_class" href="classtr_1_1Handle.html">Handle&lt;bool, false, Deleter&gt;</a> _handle{<span class="keyword">true</span>};</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    };</div>
 </div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
 <div class="foldopen" id="foldopen00111" data-start="{" data-end="};">
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html">  111</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a> {</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>      <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelRef</a>;</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>;</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
@@ -180,41 +180,41 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#a91a62cee57218f1031278f17ec4067d1">  123</a></span>        <a class="code hl_function" href="classtr_1_1SubBitmap.html#a91a62cee57218f1031278f17ec4067d1">SubBitmap</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>&amp; bitmap, <a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a> rect) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#a02ec0123bbb37ad21d4ef8e64526cd0e">  130</a></span>        glm::ivec2   <a class="code hl_function" href="classtr_1_1SubBitmap.html#a02ec0123bbb37ad21d4ef8e64526cd0e">size</a>() const noexcept;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#a02ec0123bbb37ad21d4ef8e64526cd0e">  130</a></span>        glm::ivec2 <a class="code hl_function" href="classtr_1_1SubBitmap.html#a02ec0123bbb37ad21d4ef8e64526cd0e">size</a>() const noexcept;</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#a6ffcd392d9745154327a5164e72ae034">  140</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>    sub(<a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a> rect) noexcept;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#a6ffcd392d9745154327a5164e72ae034">  140</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a> sub(<a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a> rect) noexcept;</div>
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#add4ecd5446c7f3ebfabfaa8f4178e3c6">  150</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelRef</a>     operator[](glm::ivec2 pos) const noexcept;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#add4ecd5446c7f3ebfabfaa8f4178e3c6">  150</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelRef</a> operator[](glm::ivec2 pos) const noexcept;</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#a5fb76832f6bba9631e5f6158fdc8adce">  157</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>     begin() const noexcept;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#a5fb76832f6bba9631e5f6158fdc8adce">  157</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a> begin() const noexcept;</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#ab66b74b49a82276ef4746548e19bf1b3">  164</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>     cbegin() const noexcept;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#ab66b74b49a82276ef4746548e19bf1b3">  164</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a> cbegin() const noexcept;</div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#ab30a247b075cc28fc4393f72b7477e55">  171</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>     end() const noexcept;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#ab30a247b075cc28fc4393f72b7477e55">  171</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a> end() const noexcept;</div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#a0e70d0bfdbc3a56d07c1adebc6b9a8ae">  178</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>     cend() const noexcept;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#a0e70d0bfdbc3a56d07c1adebc6b9a8ae">  178</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a> cend() const noexcept;</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#a56e53e755911b79638e6dc533335f098">  186</a></span>        const <span class="keywordtype">void</span>*  data() const noexcept;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#a56e53e755911b79638e6dc533335f098">  186</a></span>        const <span class="keywordtype">void</span>* data() const noexcept;</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#ab9565fdf79d2e9f839cade3310d98994">  193</a></span>        <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format() const noexcept;</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#a4113c0e2ba49b345a2e008b7da2ed448">  200</a></span>        <span class="keywordtype">int</span>          rowLength() const noexcept;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#a4113c0e2ba49b345a2e008b7da2ed448">  200</a></span>        <span class="keywordtype">int</span> rowLength() const noexcept;</div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#a3fa1b0580eb43480f80c21524bebddc0">  209</a></span>        <span class="keywordtype">int</span>          pitch() const noexcept;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap.html#a3fa1b0580eb43480f80c21524bebddc0">  209</a></span>        <span class="keywordtype">int</span> pitch() const noexcept;</div>
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    private:</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>      private:</div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        std::reference_wrapper&lt;const <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>&gt; _bitmap;</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a>                               _rect;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a> _rect;</div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        friend class <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>;</div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    };</div>
@@ -223,12 +223,12 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
 <div class="foldopen" id="foldopen00221" data-start="{" data-end="};">
 <div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1PixelRef.html">  221</a></span>    class <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>::<a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelRef</a> {</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>      <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1PixelRef.html#a4685d1df931fcd8cad70db539b968111">  226</a></span>        <span class="keyword">operator</span> <a class="code hl_class" href="structtr_1_1RGBA.html">RGBA8</a>() const noexcept;</div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    private:</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        const <span class="keywordtype">void</span>*      _impl;   <span class="comment">// A pointer to the pixel data.</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>      private:</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        const <span class="keywordtype">void</span>* _impl;        <span class="comment">// A pointer to the pixel data.</span></div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        SDL_PixelFormat* _format; <span class="comment">// The format of the pixel.</span></div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelRef</a>() noexcept = default;</div>
@@ -242,339 +242,339 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
 <div class="foldopen" id="foldopen00244" data-start="{" data-end="};">
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html">  244</a></span>    class <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>::<a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a> {</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>      <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a671e0bebeea96ce221436380d970b97c">  249</a></span>        <span class="keyword">using </span><a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">value_type</a>      = <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelRef</a>;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a671e0bebeea96ce221436380d970b97c">  249</a></span>        <span class="keyword">using </span><a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">value_type</a> = <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelRef</a>;</div>
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a46ce82948c087901176452565fe634d0">  254</a></span>        <span class="keyword">using </span><a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">pointer</a>         = <span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">value_type</a>*;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a46ce82948c087901176452565fe634d0">  254</a></span>        <span class="keyword">using </span><a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">pointer</a> = <span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">value_type</a>*;</div>
 <div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
 <div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">  259</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> = int;</div>
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a50e31fe5bb1bdaaf019556f02319ad0a">  266</a></span>        <a class="code hl_function" href="classtr_1_1SubBitmap_1_1Iterator.html#a50e31fe5bb1bdaaf019556f02319ad0a">Iterator</a>() noexcept   = default;</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a50e31fe5bb1bdaaf019556f02319ad0a">  267</a></span>        <a class="code hl_function" href="classtr_1_1SubBitmap_1_1Iterator.html#a50e31fe5bb1bdaaf019556f02319ad0a">Iterator</a>() noexcept = default;</div>
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a03a3410716fad9adcf627be0e5d4eeb1">  274</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>(<a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a> bitmap, glm::ivec2 pos) noexcept;</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a03a3410716fad9adcf627be0e5d4eeb1">  275</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>(<a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a> bitmap, glm::ivec2 pos) noexcept;</div>
 <div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#afdc8122d19e99662b7dd539cff64bfb8">  279</a></span>        std::partial_ordering  operator&lt;=&gt;(const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp;) const noexcept;</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#afdc8122d19e99662b7dd539cff64bfb8">  280</a></span>        std::partial_ordering operator&lt;=&gt;(const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp;) const noexcept;</div>
 <div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a70607ab11bced106d2e3d9c4d683a045">  284</a></span>        <span class="keywordtype">bool</span>                   operator==(const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp;) const noexcept;</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a70607ab11bced106d2e3d9c4d683a045">  285</a></span>        <span class="keywordtype">bool</span> operator==(const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp;) const noexcept;</div>
 <div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a842d6564410bc424ab9e7e606b4cb6e9">  291</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">value_type</a>             operator*() const noexcept;</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a842d6564410bc424ab9e7e606b4cb6e9">  292</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">value_type</a> operator*() const noexcept;</div>
 <div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a775edbae0a284d189004ed38d0efed10">  300</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">value_type</a>             operator[](<a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> diff) const noexcept;</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a775edbae0a284d189004ed38d0efed10">  301</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">value_type</a> operator[](<a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> diff) const noexcept;</div>
 <div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a008e08eaf6c0a0c4d719cf6d8ea34b0d">  309</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">value_type</a>             operator[](glm::ivec2 diff) const noexcept;</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a008e08eaf6c0a0c4d719cf6d8ea34b0d">  310</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">value_type</a> operator[](glm::ivec2 diff) const noexcept;</div>
 <div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#afcd6b39734c294b07b710cac92b9881d">  316</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">pointer</a>                operator-&gt;() const noexcept;</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#afcd6b39734c294b07b710cac92b9881d">  317</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">pointer</a> operator-&gt;() const noexcept;</div>
 <div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#ae123cdd5649bb20866fc8368330683de">  323</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp;              operator++() noexcept;</div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#ae123cdd5649bb20866fc8368330683de">  324</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; operator++() noexcept;</div>
 <div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#afbf755716c6ab6c800c8e545c0ace4a4">  330</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>               operator++(<span class="keywordtype">int</span>) noexcept;</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span> </div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#afbf755716c6ab6c800c8e545c0ace4a4">  331</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a> operator++(<span class="keywordtype">int</span>) noexcept;</div>
 <div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#afb587c8e203a702b85d52bbe9e995c1b">  339</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp;              operator+=(<a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> diff) noexcept;</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#afb587c8e203a702b85d52bbe9e995c1b">  340</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; operator+=(<a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> diff) noexcept;</div>
 <div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#ab3c4a2107e6d886d30083f2ceab0aea2">  348</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp;              operator+=(glm::ivec2 diff) noexcept;</div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span> </div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#ab3c4a2107e6d886d30083f2ceab0aea2">  349</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; operator+=(glm::ivec2 diff) noexcept;</div>
 <div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span> </div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a02193f1b4e5b2cea283ee011ac5bbfb2">  358</a></span>        friend <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>        operator+(const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; it, <a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> diff) noexcept;</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span> </div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span> </div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a02193f1b4e5b2cea283ee011ac5bbfb2">  359</a></span>        friend <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a> operator+(const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; it, <a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> diff) noexcept;</div>
 <div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a8d8085a1bc52da33306b51e320b36ea7">  368</a></span>        friend <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>        operator+(<a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> diff, const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; it) noexcept;</div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span> </div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span> </div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a8d8085a1bc52da33306b51e320b36ea7">  369</a></span>        friend <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a> operator+(<a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> diff, const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; it) noexcept;</div>
 <div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span> </div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#ab1124f3adfaa3659d165ba80d40649fe">  378</a></span>        friend <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>        operator+(const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; it, glm::ivec2 diff) noexcept;</div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span> </div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span> </div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#ab1124f3adfaa3659d165ba80d40649fe">  379</a></span>        friend <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a> operator+(const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; it, glm::ivec2 diff) noexcept;</div>
 <div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span> </div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#afda01d9136263347ab30520decfdbc3b">  388</a></span>        friend <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>        operator+(glm::ivec2 diff, const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; it) noexcept;</div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span> </div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span> </div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#afda01d9136263347ab30520decfdbc3b">  389</a></span>        friend <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a> operator+(glm::ivec2 diff, const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; it) noexcept;</div>
 <div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span> </div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#ab5885a0a6796be239e97066471544afe">  395</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp;              operator--() noexcept;</div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span> </div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span> </div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#ab5885a0a6796be239e97066471544afe">  396</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; operator--() noexcept;</div>
 <div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span> </div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a940992e3221366d7cae35853cfd1dab1">  402</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>               operator--(<span class="keywordtype">int</span>) noexcept;</div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span> </div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span> </div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a940992e3221366d7cae35853cfd1dab1">  403</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a> operator--(<span class="keywordtype">int</span>) noexcept;</div>
 <div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span> </div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#ab838d906c3cf4d2fe923cf4463cfca33">  411</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp;              operator-=(<a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> diff) noexcept;</div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span> </div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span> </div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#ab838d906c3cf4d2fe923cf4463cfca33">  412</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; operator-=(<a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> diff) noexcept;</div>
 <div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span> </div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a6621f14e8c3b91e504e7a2b4ec693990">  420</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp;              operator-=(glm::ivec2 diff) noexcept;</div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span> </div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span> </div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a6621f14e8c3b91e504e7a2b4ec693990">  421</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; operator-=(glm::ivec2 diff) noexcept;</div>
 <div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span> </div>
-<div class="line"><a id="l00430" name="l00430"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a18fd1201aa16a8448ae6c29baf3c1151">  430</a></span>        friend <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>        operator-(const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; it, <a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> diff) noexcept;</div>
-<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span> </div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span> </div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a18fd1201aa16a8448ae6c29baf3c1151">  431</a></span>        friend <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a> operator-(const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; it, <a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> diff) noexcept;</div>
 <div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span> </div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a2ebddf86b33ef02ec5390ec5efd02e87">  440</a></span>        friend <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>        operator-(<a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> diff, const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; it) noexcept;</div>
-<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span> </div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span> </div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a2ebddf86b33ef02ec5390ec5efd02e87">  441</a></span>        friend <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a> operator-(<a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> diff, const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; it) noexcept;</div>
 <div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span> </div>
-<div class="line"><a id="l00450" name="l00450"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a5fdf6f3b6f1677bc27a2298a66f0d07c">  450</a></span>        friend <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>        operator-(const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; it, glm::ivec2 diff) noexcept;</div>
-<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span> </div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span> </div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a5fdf6f3b6f1677bc27a2298a66f0d07c">  451</a></span>        friend <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a> operator-(const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; it, glm::ivec2 diff) noexcept;</div>
 <div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span> </div>
-<div class="line"><a id="l00460" name="l00460"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a1d36fbccac376e2947619d137111c342">  460</a></span>        friend <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>        operator-(glm::ivec2 diff, const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; it) noexcept;</div>
-<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span> </div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span> </div>
+<div class="line"><a id="l00461" name="l00461"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a1d36fbccac376e2947619d137111c342">  461</a></span>        friend <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a> operator-(glm::ivec2 diff, const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; it) noexcept;</div>
 <div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span> </div>
-<div class="line"><a id="l00471" name="l00471"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a710600c8354c88362a40b24b03b2a92d">  471</a></span>        friend <a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> operator-(const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; l, const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; r) noexcept;</div>
-<div class="line"><a id="l00472" name="l00472"></a><span class="lineno">  472</span> </div>
-<div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span>    private:</div>
-<div class="line"><a id="l00474" name="l00474"></a><span class="lineno">  474</span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelRef</a>   _pixel;</div>
-<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span>        glm::ivec2 _bitmapSize;</div>
-<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span>        <span class="keywordtype">int</span>        _pitch;</div>
-<div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span>        glm::ivec2 _pos;</div>
-<div class="line"><a id="l00478" name="l00478"></a><span class="lineno">  478</span>    };</div>
+<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span> </div>
+<div class="line"><a id="l00472" name="l00472"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a710600c8354c88362a40b24b03b2a92d">  472</a></span>        friend <a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> operator-(const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; l, const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; r) noexcept;</div>
+<div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span> </div>
+<div class="line"><a id="l00474" name="l00474"></a><span class="lineno">  474</span>      private:</div>
+<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelRef</a> _pixel;</div>
+<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span>        glm::ivec2 _bitmapSize;</div>
+<div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span>        <span class="keywordtype">int</span> _pitch;</div>
+<div class="line"><a id="l00478" name="l00478"></a><span class="lineno">  478</span>        glm::ivec2 _pos;</div>
+<div class="line"><a id="l00479" name="l00479"></a><span class="lineno">  479</span>    };</div>
 </div>
-<div class="line"><a id="l00479" name="l00479"></a><span class="lineno">  479</span> </div>
 <div class="line"><a id="l00480" name="l00480"></a><span class="lineno">  480</span> </div>
-<div class="foldopen" id="foldopen00485" data-start="{" data-end="};">
-<div class="line"><a id="l00485" name="l00485"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html">  485</a></span>    class <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a> {</div>
-<div class="line"><a id="l00486" name="l00486"></a><span class="lineno">  486</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span>        <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a>;</div>
-<div class="line"><a id="l00488" name="l00488"></a><span class="lineno">  488</span>        <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>;</div>
-<div class="line"><a id="l00489" name="l00489"></a><span class="lineno">  489</span> </div>
+<div class="line"><a id="l00481" name="l00481"></a><span class="lineno">  481</span> </div>
+<div class="foldopen" id="foldopen00486" data-start="{" data-end="};">
+<div class="line"><a id="l00486" name="l00486"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html">  486</a></span>    class <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a> {</div>
+<div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00488" name="l00488"></a><span class="lineno">  488</span>        <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a>;</div>
+<div class="line"><a id="l00489" name="l00489"></a><span class="lineno">  489</span>        <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>;</div>
 <div class="line"><a id="l00490" name="l00490"></a><span class="lineno">  490</span> </div>
-<div class="line"><a id="l00493" name="l00493"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#ad9d5e3489943ea1b66b814aa49085c73">  493</a></span>        <span class="keyword">using </span><a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelCref</a> = <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">tr::SubBitmap::PixelRef</a>;</div>
-<div class="line"><a id="l00494" name="l00494"></a><span class="lineno">  494</span> </div>
+<div class="line"><a id="l00491" name="l00491"></a><span class="lineno">  491</span> </div>
+<div class="line"><a id="l00494" name="l00494"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#ad9d5e3489943ea1b66b814aa49085c73">  494</a></span>        <span class="keyword">using </span><a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelCref</a> = <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">tr::SubBitmap::PixelRef</a>;</div>
 <div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span> </div>
-<div class="line"><a id="l00498" name="l00498"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a4bfadd9d521de8c9c298e9360121885a">  498</a></span>        <span class="keyword">using </span><a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a>   = <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">tr::SubBitmap::Iterator</a>;</div>
-<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span> </div>
+<div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span> </div>
+<div class="line"><a id="l00499" name="l00499"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a4bfadd9d521de8c9c298e9360121885a">  499</a></span>        <span class="keyword">using </span><a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a> = <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">tr::SubBitmap::Iterator</a>;</div>
 <div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span> </div>
-<div class="line"><a id="l00508" name="l00508"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a30b01788ff43d878b16891b60fad4291">  508</a></span>        <a class="code hl_function" href="classtr_1_1Bitmap.html#a30b01788ff43d878b16891b60fad4291">Bitmap</a>(glm::ivec2 size, <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format);</div>
-<div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span> </div>
+<div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span> </div>
+<div class="line"><a id="l00509" name="l00509"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a30b01788ff43d878b16891b60fad4291">  509</a></span>        <a class="code hl_function" href="classtr_1_1Bitmap.html#a30b01788ff43d878b16891b60fad4291">Bitmap</a>(glm::ivec2 size, <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format);</div>
 <div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span> </div>
-<div class="line"><a id="l00519" name="l00519"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a711b58894a4d75ca6398159eef24d1ba">  519</a></span>        <a class="code hl_function" href="classtr_1_1Bitmap.html#a711b58894a4d75ca6398159eef24d1ba">Bitmap</a>(glm::ivec2 size, std::span&lt;const std::byte&gt; pixelData, <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> dataFormat);</div>
-<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span> </div>
+<div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span> </div>
+<div class="line"><a id="l00520" name="l00520"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a711b58894a4d75ca6398159eef24d1ba">  520</a></span>        <a class="code hl_function" href="classtr_1_1Bitmap.html#a711b58894a4d75ca6398159eef24d1ba">Bitmap</a>(glm::ivec2 size, std::span&lt;const std::byte&gt; pixelData, <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> dataFormat);</div>
 <div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span> </div>
-<div class="line"><a id="l00528" name="l00528"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a7e7cd665c28b8b094957dea46d37c5a6">  528</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="classtr_1_1Bitmap.html#a7e7cd665c28b8b094957dea46d37c5a6">Bitmap</a>(std::span&lt;const std::byte&gt; embeddedFile);</div>
-<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span> </div>
+<div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span> </div>
+<div class="line"><a id="l00529" name="l00529"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a7e7cd665c28b8b094957dea46d37c5a6">  529</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="classtr_1_1Bitmap.html#a7e7cd665c28b8b094957dea46d37c5a6">Bitmap</a>(std::span&lt;const std::byte&gt; embeddedFile);</div>
 <div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span> </div>
-<div class="line"><a id="l00540" name="l00540"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#aa1b4499ce75fb2a294967c48099e3969">  540</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="classtr_1_1Bitmap.html#aa1b4499ce75fb2a294967c48099e3969">Bitmap</a>(<span class="keyword">const</span> std::filesystem::path&amp; path);</div>
-<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span> </div>
+<div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span> </div>
+<div class="line"><a id="l00541" name="l00541"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#aa1b4499ce75fb2a294967c48099e3969">  541</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="classtr_1_1Bitmap.html#aa1b4499ce75fb2a294967c48099e3969">Bitmap</a>(<span class="keyword">const</span> std::filesystem::path&amp; path);</div>
 <div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span> </div>
-<div class="line"><a id="l00550" name="l00550"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#ab6f0af7691af98c0ec6577a9b82c6a86">  550</a></span>        <a class="code hl_function" href="classtr_1_1Bitmap.html#ab6f0af7691af98c0ec6577a9b82c6a86">Bitmap</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>&amp; bitmap, <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format);</div>
-<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span> </div>
+<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span> </div>
+<div class="line"><a id="l00551" name="l00551"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#ab6f0af7691af98c0ec6577a9b82c6a86">  551</a></span>        <a class="code hl_function" href="classtr_1_1Bitmap.html#ab6f0af7691af98c0ec6577a9b82c6a86">Bitmap</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>&amp; bitmap, <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format);</div>
 <div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span> </div>
-<div class="line"><a id="l00560" name="l00560"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a8ae2f21419fed85fa9092fb4701fa1b3">  560</a></span>        <a class="code hl_function" href="classtr_1_1Bitmap.html#a8ae2f21419fed85fa9092fb4701fa1b3">Bitmap</a>(<a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a> source, <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format);</div>
-<div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span> </div>
+<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span> </div>
+<div class="line"><a id="l00561" name="l00561"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a8ae2f21419fed85fa9092fb4701fa1b3">  561</a></span>        <a class="code hl_function" href="classtr_1_1Bitmap.html#a8ae2f21419fed85fa9092fb4701fa1b3">Bitmap</a>(<a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a> source, <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format);</div>
 <div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span> </div>
-<div class="line"><a id="l00565" name="l00565"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a68fdabc43f60e201853a9f7a0085a659">  565</a></span>        <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code hl_friend" href="classtr_1_1Bitmap.html#a68fdabc43f60e201853a9f7a0085a659">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>&amp;, <span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>&amp;) <span class="keyword">noexcept</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span> </div>
+<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span> </div>
+<div class="line"><a id="l00566" name="l00566"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a68fdabc43f60e201853a9f7a0085a659">  566</a></span>        <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code hl_friend" href="classtr_1_1Bitmap.html#a68fdabc43f60e201853a9f7a0085a659">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>&amp;, <span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>&amp;) <span class="keyword">noexcept</span> = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span> </div>
-<div class="line"><a id="l00572" name="l00572"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a45c89c6b9f996dbd99799370de244b45">  572</a></span>        glm::ivec2  <a class="code hl_function" href="classtr_1_1Bitmap.html#a45c89c6b9f996dbd99799370de244b45">size</a>() const noexcept;</div>
-<div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span> </div>
+<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span> </div>
+<div class="line"><a id="l00573" name="l00573"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a45c89c6b9f996dbd99799370de244b45">  573</a></span>        glm::ivec2 <a class="code hl_function" href="classtr_1_1Bitmap.html#a45c89c6b9f996dbd99799370de244b45">size</a>() const noexcept;</div>
 <div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span> </div>
-<div class="line"><a id="l00582" name="l00582"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#aec4f0f2fe733d37b7d30ff97ac93cb68">  582</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a>    operator[](glm::ivec2 pos) noexcept;</div>
-<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span> </div>
+<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span> </div>
+<div class="line"><a id="l00583" name="l00583"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#aec4f0f2fe733d37b7d30ff97ac93cb68">  583</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a> operator[](glm::ivec2 pos) noexcept;</div>
 <div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span> </div>
-<div class="line"><a id="l00592" name="l00592"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a8716efe94ce8e18275b088bd04a11d7d">  592</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelCref</a>   operator[](glm::ivec2 pos) const noexcept;</div>
-<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span> </div>
+<div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span> </div>
+<div class="line"><a id="l00593" name="l00593"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a8716efe94ce8e18275b088bd04a11d7d">  593</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelCref</a> operator[](glm::ivec2 pos) const noexcept;</div>
 <div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span> </div>
-<div class="line"><a id="l00599" name="l00599"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a3402c18edf559bfe08ded3e808cfdb7d">  599</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>       begin() noexcept;</div>
-<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span> </div>
+<div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span> </div>
+<div class="line"><a id="l00600" name="l00600"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a3402c18edf559bfe08ded3e808cfdb7d">  600</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> begin() noexcept;</div>
 <div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span> </div>
-<div class="line"><a id="l00606" name="l00606"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#ad474f5477c28894c3b09d8503bc4f020">  606</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a>     begin() const noexcept;</div>
-<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span> </div>
+<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span> </div>
+<div class="line"><a id="l00607" name="l00607"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#ad474f5477c28894c3b09d8503bc4f020">  607</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a> begin() const noexcept;</div>
 <div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span> </div>
-<div class="line"><a id="l00613" name="l00613"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#adfb7d8a9bfefa1493c445c042eb80914">  613</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a>     cbegin() const noexcept;</div>
-<div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span> </div>
+<div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span> </div>
+<div class="line"><a id="l00614" name="l00614"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#adfb7d8a9bfefa1493c445c042eb80914">  614</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a> cbegin() const noexcept;</div>
 <div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span> </div>
-<div class="line"><a id="l00620" name="l00620"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a475aa60ee49636d05a4cbde3f337e37c">  620</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>       end() noexcept;</div>
-<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span> </div>
+<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span> </div>
+<div class="line"><a id="l00621" name="l00621"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a475aa60ee49636d05a4cbde3f337e37c">  621</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> end() noexcept;</div>
 <div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span> </div>
-<div class="line"><a id="l00627" name="l00627"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a01f09532f7212c624a687440624bc8d4">  627</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a>     end() const noexcept;</div>
-<div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span> </div>
+<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span> </div>
+<div class="line"><a id="l00628" name="l00628"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a01f09532f7212c624a687440624bc8d4">  628</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a> end() const noexcept;</div>
 <div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span> </div>
-<div class="line"><a id="l00634" name="l00634"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a381dcd9b272a9e47b99623342bb1a725">  634</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a>     cend() const noexcept;</div>
-<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span> </div>
+<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span> </div>
+<div class="line"><a id="l00635" name="l00635"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a381dcd9b272a9e47b99623342bb1a725">  635</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a> cend() const noexcept;</div>
 <div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span> </div>
-<div class="line"><a id="l00643" name="l00643"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a684fb06e9980547cef91e6785a9d1023">  643</a></span>        <span class="keywordtype">void</span>        blit(glm::ivec2 tl, <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a> source) noexcept;</div>
-<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span> </div>
+<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span> </div>
+<div class="line"><a id="l00644" name="l00644"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a684fb06e9980547cef91e6785a9d1023">  644</a></span>        <span class="keywordtype">void</span> blit(glm::ivec2 tl, <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a> source) noexcept;</div>
 <div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span> </div>
-<div class="line"><a id="l00652" name="l00652"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#ab6fb93d26662e3de552444d3c9163d53">  652</a></span>        <span class="keywordtype">void</span>        fill(<a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a> rect, <a class="code hl_class" href="structtr_1_1RGBA.html">RGBA8</a> color) noexcept;</div>
-<div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span> </div>
+<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span> </div>
+<div class="line"><a id="l00653" name="l00653"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#ab6fb93d26662e3de552444d3c9163d53">  653</a></span>        <span class="keywordtype">void</span> fill(<a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a> rect, <a class="code hl_class" href="structtr_1_1RGBA.html">RGBA8</a> color) noexcept;</div>
 <div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span> </div>
-<div class="line"><a id="l00657" name="l00657"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#ace45d21639cd13f3f72a39859ba44e24">  657</a></span>        operator <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>() const noexcept;</div>
-<div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span> </div>
+<div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span> </div>
+<div class="line"><a id="l00658" name="l00658"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#ace45d21639cd13f3f72a39859ba44e24">  658</a></span>        operator <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>() const noexcept;</div>
 <div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span> </div>
-<div class="line"><a id="l00667" name="l00667"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a8abe5917960686b1b1edd0f1c9721988">  667</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>    sub(<a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a> rect) const noexcept;</div>
-<div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span> </div>
+<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span> </div>
+<div class="line"><a id="l00668" name="l00668"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a8abe5917960686b1b1edd0f1c9721988">  668</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a> sub(<a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a> rect) const noexcept;</div>
 <div class="line"><a id="l00669" name="l00669"></a><span class="lineno">  669</span> </div>
-<div class="line"><a id="l00675" name="l00675"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#aed84f911dc3a4eb90eb4961517864e78">  675</a></span>        <span class="keywordtype">void</span>*        data() noexcept;</div>
-<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span> </div>
+<div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span> </div>
+<div class="line"><a id="l00676" name="l00676"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#aed84f911dc3a4eb90eb4961517864e78">  676</a></span>        <span class="keywordtype">void</span>* data() noexcept;</div>
 <div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span> </div>
-<div class="line"><a id="l00683" name="l00683"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#aa3398082b899a921cb5afebd8af4c7bc">  683</a></span>        const <span class="keywordtype">void</span>*  data() const noexcept;</div>
-<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span> </div>
+<div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span> </div>
+<div class="line"><a id="l00684" name="l00684"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#aa3398082b899a921cb5afebd8af4c7bc">  684</a></span>        const <span class="keywordtype">void</span>* data() const noexcept;</div>
 <div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span> </div>
-<div class="line"><a id="l00690" name="l00690"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a10ed1ee277822c5aafa78d5413916024">  690</a></span>        <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format() const noexcept;</div>
-<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span> </div>
+<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span> </div>
+<div class="line"><a id="l00691" name="l00691"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a10ed1ee277822c5aafa78d5413916024">  691</a></span>        <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format() const noexcept;</div>
 <div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span> </div>
-<div class="line"><a id="l00699" name="l00699"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a448a8bcae98fa547db2a087eab2b6f38">  699</a></span>        <span class="keywordtype">int</span>          pitch() const noexcept;</div>
-<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span> </div>
+<div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span> </div>
+<div class="line"><a id="l00700" name="l00700"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a448a8bcae98fa547db2a087eab2b6f38">  700</a></span>        <span class="keywordtype">int</span> pitch() const noexcept;</div>
 <div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span> </div>
-<div class="line"><a id="l00709" name="l00709"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a56a34f0e4eb3e13b3b5cb2d6816e9f47">  709</a></span>        <span class="keywordtype">void</span>         save(const std::filesystem::path&amp; path, <a class="code hl_enumeration" href="bitmap_8hpp.html#acdde480f01d536a3cf2b72e83515586e">ImageFormat</a> format);</div>
-<div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span> </div>
-<div class="line"><a id="l00711" name="l00711"></a><span class="lineno">  711</span>    private:</div>
-<div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span>        struct Deleter {</div>
-<div class="line"><a id="l00714" name="l00714"></a><span class="lineno">  714</span>            <span class="keywordtype">void</span> operator()(SDL_Surface* ptr) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span>        };</div>
-<div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span> </div>
-<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span>        std::unique_ptr&lt;SDL_Surface, Deleter&gt; _impl;</div>
-<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span> </div>
-<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span>        <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>(SDL_Surface* ptr);</div>
-<div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span> </div>
-<div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>;</div>
-<div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">tr::SubBitmap::Iterator</a>;</div>
-<div class="line"><a id="l00723" name="l00723"></a><span class="lineno">  723</span>        <span class="keyword">friend</span> <span class="keyword">class </span>MutIt;</div>
-<div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1Cursor.html">Cursor</a>;</div>
-<div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1TTFont.html">TTFont</a>;</div>
-<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1WindowView.html">WindowView</a>;</div>
-<div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span>    };</div>
+<div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span> </div>
+<div class="line"><a id="l00710" name="l00710"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a56a34f0e4eb3e13b3b5cb2d6816e9f47">  710</a></span>        <span class="keywordtype">void</span> save(const std::filesystem::path&amp; path, <a class="code hl_enumeration" href="bitmap_8hpp.html#acdde480f01d536a3cf2b72e83515586e">ImageFormat</a> format);</div>
+<div class="line"><a id="l00711" name="l00711"></a><span class="lineno">  711</span> </div>
+<div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span>      private:</div>
+<div class="line"><a id="l00713" name="l00713"></a><span class="lineno">  713</span>        struct Deleter {</div>
+<div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span>            <span class="keywordtype">void</span> operator()(SDL_Surface* ptr) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span>        };</div>
+<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span> </div>
+<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span>        std::unique_ptr&lt;SDL_Surface, Deleter&gt; _impl;</div>
+<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span> </div>
+<div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span>        <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>(SDL_Surface* ptr);</div>
+<div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span> </div>
+<div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>;</div>
+<div class="line"><a id="l00723" name="l00723"></a><span class="lineno">  723</span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">tr::SubBitmap::Iterator</a>;</div>
+<div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span>        <span class="keyword">friend</span> <span class="keyword">class </span>MutIt;</div>
+<div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1Cursor.html">Cursor</a>;</div>
+<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1TTFont.html">TTFont</a>;</div>
+<div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1WindowView.html">WindowView</a>;</div>
+<div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span>    };</div>
 </div>
-<div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span> </div>
 <div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span> </div>
-<div class="foldopen" id="foldopen00732" data-start="{" data-end="};">
-<div class="line"><a id="l00732" name="l00732"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1PixelRef.html">  732</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">Bitmap::PixelRef</a> {</div>
-<div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span> </div>
-<div class="line"><a id="l00737" name="l00737"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1PixelRef.html#a01b4622178937f279fb24664b3d375d0">  737</a></span>        <span class="keyword">operator</span> <a class="code hl_class" href="structtr_1_1RGBA.html">RGBA8</a>() const noexcept;</div>
-<div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span> </div>
+<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span> </div>
+<div class="foldopen" id="foldopen00733" data-start="{" data-end="};">
+<div class="line"><a id="l00733" name="l00733"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1PixelRef.html">  733</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">Bitmap::PixelRef</a> {</div>
+<div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00735" name="l00735"></a><span class="lineno">  735</span> </div>
+<div class="line"><a id="l00738" name="l00738"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1PixelRef.html#a01b4622178937f279fb24664b3d375d0">  738</a></span>        <span class="keyword">operator</span> <a class="code hl_class" href="structtr_1_1RGBA.html">RGBA8</a>() const noexcept;</div>
 <div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span> </div>
-<div class="line"><a id="l00746" name="l00746"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1PixelRef.html#a7fe2185763b6713c7e1da9e17bc40535">  746</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a>&amp; operator=(<a class="code hl_class" href="structtr_1_1RGBA.html">RGBA8</a> color) noexcept;</div>
-<div class="line"><a id="l00747" name="l00747"></a><span class="lineno">  747</span> </div>
-<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span>    private:</div>
-<div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span>        <span class="keywordtype">void</span>*            _impl;   <span class="comment">// A pointer to the pixel data.</span></div>
-<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>        SDL_PixelFormat* _format; <span class="comment">// The format of the pixel.</span></div>
-<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span> </div>
-<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a>() noexcept = default;</div>
-<div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a>(<span class="keywordtype">void</span>* ptr, SDL_PixelFormat* format) noexcept;</div>
-<div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span> </div>
-<div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span>        friend class <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>;</div>
-<div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span>    };</div>
+<div class="line"><a id="l00740" name="l00740"></a><span class="lineno">  740</span> </div>
+<div class="line"><a id="l00747" name="l00747"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1PixelRef.html#a7fe2185763b6713c7e1da9e17bc40535">  747</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a>&amp; operator=(<a class="code hl_class" href="structtr_1_1RGBA.html">RGBA8</a> color) noexcept;</div>
+<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span> </div>
+<div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span>      private:</div>
+<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>        <span class="keywordtype">void</span>* _impl;              <span class="comment">// A pointer to the pixel data.</span></div>
+<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span>        SDL_PixelFormat* _format; <span class="comment">// The format of the pixel.</span></div>
+<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span> </div>
+<div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a>() noexcept = default;</div>
+<div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a>(<span class="keywordtype">void</span>* ptr, SDL_PixelFormat* format) noexcept;</div>
+<div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span> </div>
+<div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span>        friend class <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>;</div>
+<div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span>    };</div>
 </div>
-<div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span> </div>
 <div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span> </div>
-<div class="foldopen" id="foldopen00763" data-start="{" data-end="};">
-<div class="line"><a id="l00763" name="l00763"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html">  763</a></span>    class <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>::<a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> {</div>
-<div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span> </div>
-<div class="line"><a id="l00768" name="l00768"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a92777a0930fd2d14aced707a0ccba0f5">  768</a></span>        <span class="keyword">using </span><a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">value_type</a>      = <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a>;</div>
-<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span> </div>
+<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span> </div>
+<div class="foldopen" id="foldopen00764" data-start="{" data-end="};">
+<div class="line"><a id="l00764" name="l00764"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html">  764</a></span>    class <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>::<a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> {</div>
+<div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span> </div>
+<div class="line"><a id="l00769" name="l00769"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a92777a0930fd2d14aced707a0ccba0f5">  769</a></span>        <span class="keyword">using </span><a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">value_type</a> = <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a>;</div>
 <div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span> </div>
-<div class="line"><a id="l00773" name="l00773"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a3208bbfbca9121dccd804aa6b1b957b7">  773</a></span>        <span class="keyword">using </span><a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">pointer</a>         = <span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">value_type</a>*;</div>
-<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span> </div>
+<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span> </div>
+<div class="line"><a id="l00774" name="l00774"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a3208bbfbca9121dccd804aa6b1b957b7">  774</a></span>        <span class="keyword">using </span><a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">pointer</a> = <span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">value_type</a>*;</div>
 <div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span> </div>
-<div class="line"><a id="l00778" name="l00778"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">  778</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> = int;</div>
-<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span> </div>
+<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span> </div>
+<div class="line"><a id="l00779" name="l00779"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">  779</a></span>        <span class="keyword">using </span><a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> = int;</div>
 <div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span> </div>
-<div class="line"><a id="l00785" name="l00785"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a0a9bb00ae0e03eee7be7a21842000d02">  785</a></span>        <a class="code hl_function" href="classtr_1_1Bitmap_1_1MutIt.html#a0a9bb00ae0e03eee7be7a21842000d02">MutIt</a>() noexcept      = default;</div>
-<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span> </div>
-<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span> </div>
-<div class="line"><a id="l00793" name="l00793"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a0029ac75b34acdecbe061d49ddf6de4f">  793</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>(<a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>&amp; bitmap, glm::ivec2 pos) noexcept;</div>
-<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span> </div>
-<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span> </div>
-<div class="line"><a id="l00798" name="l00798"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#ab53b84b12247ce4d10609f3158ac77c7">  798</a></span>        std::partial_ordering  operator&lt;=&gt;(const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp;) const noexcept;</div>
-<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span> </div>
-<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span> </div>
-<div class="line"><a id="l00803" name="l00803"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a150a44a8601f5b0dc5af1d61fe46ec6a">  803</a></span>        <span class="keywordtype">bool</span>                   operator==(const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp;) const noexcept;</div>
-<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span> </div>
-<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span> </div>
-<div class="line"><a id="l00810" name="l00810"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a738a66e14fda09ec1dc59b95edd55fae">  810</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">value_type</a>             operator*() const noexcept;</div>
-<div class="line"><a id="l00811" name="l00811"></a><span class="lineno">  811</span> </div>
-<div class="line"><a id="l00812" name="l00812"></a><span class="lineno">  812</span> </div>
-<div class="line"><a id="l00819" name="l00819"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#ab1060c1da4372d184c1d43042ae93219">  819</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">value_type</a>             operator[](<a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> diff) const noexcept;</div>
-<div class="line"><a id="l00820" name="l00820"></a><span class="lineno">  820</span> </div>
-<div class="line"><a id="l00821" name="l00821"></a><span class="lineno">  821</span> </div>
-<div class="line"><a id="l00828" name="l00828"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a90738c2675916f4aadbd268061ff71ac">  828</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">value_type</a>             operator[](glm::ivec2 diff) const noexcept;</div>
-<div class="line"><a id="l00829" name="l00829"></a><span class="lineno">  829</span> </div>
-<div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span> </div>
-<div class="line"><a id="l00835" name="l00835"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#acacc911481a604014e25d60aa072f221">  835</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">pointer</a>                operator-&gt;() const noexcept;</div>
-<div class="line"><a id="l00836" name="l00836"></a><span class="lineno">  836</span> </div>
-<div class="line"><a id="l00837" name="l00837"></a><span class="lineno">  837</span> </div>
-<div class="line"><a id="l00842" name="l00842"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a5ff7c9cbcacaf44849cb73d75aad4aca">  842</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp;                 operator++() noexcept;</div>
-<div class="line"><a id="l00843" name="l00843"></a><span class="lineno">  843</span> </div>
-<div class="line"><a id="l00844" name="l00844"></a><span class="lineno">  844</span> </div>
-<div class="line"><a id="l00849" name="l00849"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a90dea1a9dcd6333e67a4b4824c30689b">  849</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>                  operator++(<span class="keywordtype">int</span>) noexcept;</div>
-<div class="line"><a id="l00850" name="l00850"></a><span class="lineno">  850</span> </div>
-<div class="line"><a id="l00851" name="l00851"></a><span class="lineno">  851</span> </div>
-<div class="line"><a id="l00858" name="l00858"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a62910a03d80b8c66719287f2210dbafa">  858</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp;                 operator+=(<a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> diff) noexcept;</div>
-<div class="line"><a id="l00859" name="l00859"></a><span class="lineno">  859</span> </div>
-<div class="line"><a id="l00860" name="l00860"></a><span class="lineno">  860</span> </div>
-<div class="line"><a id="l00867" name="l00867"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a3dc90e61ab29f43a0a237d54d49d5e5c">  867</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp;                 operator+=(glm::ivec2 diff) noexcept;</div>
-<div class="line"><a id="l00868" name="l00868"></a><span class="lineno">  868</span> </div>
-<div class="line"><a id="l00869" name="l00869"></a><span class="lineno">  869</span> </div>
-<div class="line"><a id="l00877" name="l00877"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a401c58f24622d028039c7cb06087652b">  877</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>           operator+(const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; it, <a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> diff) noexcept;</div>
-<div class="line"><a id="l00878" name="l00878"></a><span class="lineno">  878</span> </div>
-<div class="line"><a id="l00879" name="l00879"></a><span class="lineno">  879</span> </div>
-<div class="line"><a id="l00887" name="l00887"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#abf52e3c958698124e38eb9335e9710cf">  887</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>           operator+(<a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> diff, const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; it) noexcept;</div>
-<div class="line"><a id="l00888" name="l00888"></a><span class="lineno">  888</span> </div>
-<div class="line"><a id="l00889" name="l00889"></a><span class="lineno">  889</span> </div>
-<div class="line"><a id="l00897" name="l00897"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a581f3c316b4dcab03d8084016b7ab46c">  897</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>           operator+(const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; it, glm::ivec2 diff) noexcept;</div>
-<div class="line"><a id="l00898" name="l00898"></a><span class="lineno">  898</span> </div>
-<div class="line"><a id="l00899" name="l00899"></a><span class="lineno">  899</span> </div>
-<div class="line"><a id="l00907" name="l00907"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a8570a5efc493ec6704b533ef48b0f1e5">  907</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>           operator+(glm::ivec2 diff, const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; it) noexcept;</div>
-<div class="line"><a id="l00908" name="l00908"></a><span class="lineno">  908</span> </div>
-<div class="line"><a id="l00909" name="l00909"></a><span class="lineno">  909</span> </div>
-<div class="line"><a id="l00914" name="l00914"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a8a76f37b1e791d5be1f9e0f5eef70d45">  914</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp;                 operator--() noexcept;</div>
-<div class="line"><a id="l00915" name="l00915"></a><span class="lineno">  915</span> </div>
-<div class="line"><a id="l00916" name="l00916"></a><span class="lineno">  916</span> </div>
-<div class="line"><a id="l00921" name="l00921"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#ab3903518be48a11703a410c8dada31c5">  921</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>                  operator--(<span class="keywordtype">int</span>) noexcept;</div>
-<div class="line"><a id="l00922" name="l00922"></a><span class="lineno">  922</span> </div>
-<div class="line"><a id="l00923" name="l00923"></a><span class="lineno">  923</span> </div>
-<div class="line"><a id="l00930" name="l00930"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a933d4372a353400316c3156dffe2af9e">  930</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp;                 operator-=(<a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> diff) noexcept;</div>
-<div class="line"><a id="l00931" name="l00931"></a><span class="lineno">  931</span> </div>
-<div class="line"><a id="l00932" name="l00932"></a><span class="lineno">  932</span> </div>
-<div class="line"><a id="l00939" name="l00939"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a49487d9951eddbd75946d3cf1ae3c3c2">  939</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp;                 operator-=(glm::ivec2 diff) noexcept;</div>
-<div class="line"><a id="l00940" name="l00940"></a><span class="lineno">  940</span> </div>
-<div class="line"><a id="l00941" name="l00941"></a><span class="lineno">  941</span> </div>
-<div class="line"><a id="l00949" name="l00949"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a39ae0295adde090fd1b070bb09c441b0">  949</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>           operator-(const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; it, <a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> diff) noexcept;</div>
-<div class="line"><a id="l00950" name="l00950"></a><span class="lineno">  950</span> </div>
-<div class="line"><a id="l00951" name="l00951"></a><span class="lineno">  951</span> </div>
-<div class="line"><a id="l00959" name="l00959"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a575143a69e2f7332b87ddc504dbdbf62">  959</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>           operator-(<a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> diff, const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; it) noexcept;</div>
-<div class="line"><a id="l00960" name="l00960"></a><span class="lineno">  960</span> </div>
-<div class="line"><a id="l00961" name="l00961"></a><span class="lineno">  961</span> </div>
-<div class="line"><a id="l00969" name="l00969"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#ac585703cdc92dcdef67a92d2ffddc72a">  969</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>           operator-(const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; it, glm::ivec2 diff) noexcept;</div>
-<div class="line"><a id="l00970" name="l00970"></a><span class="lineno">  970</span> </div>
-<div class="line"><a id="l00971" name="l00971"></a><span class="lineno">  971</span> </div>
-<div class="line"><a id="l00979" name="l00979"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#af77f466e26832b2c4d27244135a88101">  979</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>           operator-(glm::ivec2 diff, const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; it) noexcept;</div>
-<div class="line"><a id="l00980" name="l00980"></a><span class="lineno">  980</span> </div>
-<div class="line"><a id="l00981" name="l00981"></a><span class="lineno">  981</span> </div>
-<div class="line"><a id="l00990" name="l00990"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#ac2cae49459c59b3e499b65e57da35e7b">  990</a></span>        friend <a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> operator-(const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; l, const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; r) noexcept;</div>
-<div class="line"><a id="l00991" name="l00991"></a><span class="lineno">  991</span> </div>
-<div class="line"><a id="l00992" name="l00992"></a><span class="lineno">  992</span>    private:</div>
-<div class="line"><a id="l00993" name="l00993"></a><span class="lineno">  993</span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a>   _pixel;</div>
-<div class="line"><a id="l00994" name="l00994"></a><span class="lineno">  994</span>        <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>*    _bitmap;</div>
-<div class="line"><a id="l00995" name="l00995"></a><span class="lineno">  995</span>        glm::ivec2 _pos;</div>
-<div class="line"><a id="l00996" name="l00996"></a><span class="lineno">  996</span>    };</div>
+<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span> </div>
+<div class="line"><a id="l00787" name="l00787"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a0a9bb00ae0e03eee7be7a21842000d02">  787</a></span>        <a class="code hl_function" href="classtr_1_1Bitmap_1_1MutIt.html#a0a9bb00ae0e03eee7be7a21842000d02">MutIt</a>() noexcept = default;</div>
+<div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span> </div>
+<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span> </div>
+<div class="line"><a id="l00795" name="l00795"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a0029ac75b34acdecbe061d49ddf6de4f">  795</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>(<a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>&amp; bitmap, glm::ivec2 pos) noexcept;</div>
+<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span> </div>
+<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span> </div>
+<div class="line"><a id="l00800" name="l00800"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#ab53b84b12247ce4d10609f3158ac77c7">  800</a></span>        std::partial_ordering operator&lt;=&gt;(const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp;) const noexcept;</div>
+<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span> </div>
+<div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span> </div>
+<div class="line"><a id="l00805" name="l00805"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a150a44a8601f5b0dc5af1d61fe46ec6a">  805</a></span>        <span class="keywordtype">bool</span> operator==(const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp;) const noexcept;</div>
+<div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span> </div>
+<div class="line"><a id="l00807" name="l00807"></a><span class="lineno">  807</span> </div>
+<div class="line"><a id="l00812" name="l00812"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a738a66e14fda09ec1dc59b95edd55fae">  812</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">value_type</a> operator*() const noexcept;</div>
+<div class="line"><a id="l00813" name="l00813"></a><span class="lineno">  813</span> </div>
+<div class="line"><a id="l00814" name="l00814"></a><span class="lineno">  814</span> </div>
+<div class="line"><a id="l00821" name="l00821"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#ab1060c1da4372d184c1d43042ae93219">  821</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">value_type</a> operator[](<a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> diff) const noexcept;</div>
+<div class="line"><a id="l00822" name="l00822"></a><span class="lineno">  822</span> </div>
+<div class="line"><a id="l00823" name="l00823"></a><span class="lineno">  823</span> </div>
+<div class="line"><a id="l00830" name="l00830"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a90738c2675916f4aadbd268061ff71ac">  830</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">value_type</a> operator[](glm::ivec2 diff) const noexcept;</div>
+<div class="line"><a id="l00831" name="l00831"></a><span class="lineno">  831</span> </div>
+<div class="line"><a id="l00832" name="l00832"></a><span class="lineno">  832</span> </div>
+<div class="line"><a id="l00837" name="l00837"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#acacc911481a604014e25d60aa072f221">  837</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">pointer</a> operator-&gt;() const noexcept;</div>
+<div class="line"><a id="l00838" name="l00838"></a><span class="lineno">  838</span> </div>
+<div class="line"><a id="l00839" name="l00839"></a><span class="lineno">  839</span> </div>
+<div class="line"><a id="l00844" name="l00844"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a5ff7c9cbcacaf44849cb73d75aad4aca">  844</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; operator++() noexcept;</div>
+<div class="line"><a id="l00845" name="l00845"></a><span class="lineno">  845</span> </div>
+<div class="line"><a id="l00846" name="l00846"></a><span class="lineno">  846</span> </div>
+<div class="line"><a id="l00851" name="l00851"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a90dea1a9dcd6333e67a4b4824c30689b">  851</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> operator++(<span class="keywordtype">int</span>) noexcept;</div>
+<div class="line"><a id="l00852" name="l00852"></a><span class="lineno">  852</span> </div>
+<div class="line"><a id="l00853" name="l00853"></a><span class="lineno">  853</span> </div>
+<div class="line"><a id="l00860" name="l00860"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a62910a03d80b8c66719287f2210dbafa">  860</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; operator+=(<a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> diff) noexcept;</div>
+<div class="line"><a id="l00861" name="l00861"></a><span class="lineno">  861</span> </div>
+<div class="line"><a id="l00862" name="l00862"></a><span class="lineno">  862</span> </div>
+<div class="line"><a id="l00869" name="l00869"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a3dc90e61ab29f43a0a237d54d49d5e5c">  869</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; operator+=(glm::ivec2 diff) noexcept;</div>
+<div class="line"><a id="l00870" name="l00870"></a><span class="lineno">  870</span> </div>
+<div class="line"><a id="l00871" name="l00871"></a><span class="lineno">  871</span> </div>
+<div class="line"><a id="l00879" name="l00879"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a401c58f24622d028039c7cb06087652b">  879</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> operator+(const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; it, <a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> diff) noexcept;</div>
+<div class="line"><a id="l00880" name="l00880"></a><span class="lineno">  880</span> </div>
+<div class="line"><a id="l00881" name="l00881"></a><span class="lineno">  881</span> </div>
+<div class="line"><a id="l00889" name="l00889"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#abf52e3c958698124e38eb9335e9710cf">  889</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> operator+(<a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> diff, const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; it) noexcept;</div>
+<div class="line"><a id="l00890" name="l00890"></a><span class="lineno">  890</span> </div>
+<div class="line"><a id="l00891" name="l00891"></a><span class="lineno">  891</span> </div>
+<div class="line"><a id="l00899" name="l00899"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a581f3c316b4dcab03d8084016b7ab46c">  899</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> operator+(const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; it, glm::ivec2 diff) noexcept;</div>
+<div class="line"><a id="l00900" name="l00900"></a><span class="lineno">  900</span> </div>
+<div class="line"><a id="l00901" name="l00901"></a><span class="lineno">  901</span> </div>
+<div class="line"><a id="l00909" name="l00909"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a8570a5efc493ec6704b533ef48b0f1e5">  909</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> operator+(glm::ivec2 diff, const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; it) noexcept;</div>
+<div class="line"><a id="l00910" name="l00910"></a><span class="lineno">  910</span> </div>
+<div class="line"><a id="l00911" name="l00911"></a><span class="lineno">  911</span> </div>
+<div class="line"><a id="l00916" name="l00916"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a8a76f37b1e791d5be1f9e0f5eef70d45">  916</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; operator--() noexcept;</div>
+<div class="line"><a id="l00917" name="l00917"></a><span class="lineno">  917</span> </div>
+<div class="line"><a id="l00918" name="l00918"></a><span class="lineno">  918</span> </div>
+<div class="line"><a id="l00923" name="l00923"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#ab3903518be48a11703a410c8dada31c5">  923</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> operator--(<span class="keywordtype">int</span>) noexcept;</div>
+<div class="line"><a id="l00924" name="l00924"></a><span class="lineno">  924</span> </div>
+<div class="line"><a id="l00925" name="l00925"></a><span class="lineno">  925</span> </div>
+<div class="line"><a id="l00932" name="l00932"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a933d4372a353400316c3156dffe2af9e">  932</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; operator-=(<a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> diff) noexcept;</div>
+<div class="line"><a id="l00933" name="l00933"></a><span class="lineno">  933</span> </div>
+<div class="line"><a id="l00934" name="l00934"></a><span class="lineno">  934</span> </div>
+<div class="line"><a id="l00941" name="l00941"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a49487d9951eddbd75946d3cf1ae3c3c2">  941</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; operator-=(glm::ivec2 diff) noexcept;</div>
+<div class="line"><a id="l00942" name="l00942"></a><span class="lineno">  942</span> </div>
+<div class="line"><a id="l00943" name="l00943"></a><span class="lineno">  943</span> </div>
+<div class="line"><a id="l00951" name="l00951"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a39ae0295adde090fd1b070bb09c441b0">  951</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> operator-(const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; it, <a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> diff) noexcept;</div>
+<div class="line"><a id="l00952" name="l00952"></a><span class="lineno">  952</span> </div>
+<div class="line"><a id="l00953" name="l00953"></a><span class="lineno">  953</span> </div>
+<div class="line"><a id="l00961" name="l00961"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#a575143a69e2f7332b87ddc504dbdbf62">  961</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> operator-(<a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> diff, const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; it) noexcept;</div>
+<div class="line"><a id="l00962" name="l00962"></a><span class="lineno">  962</span> </div>
+<div class="line"><a id="l00963" name="l00963"></a><span class="lineno">  963</span> </div>
+<div class="line"><a id="l00971" name="l00971"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#ac585703cdc92dcdef67a92d2ffddc72a">  971</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> operator-(const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; it, glm::ivec2 diff) noexcept;</div>
+<div class="line"><a id="l00972" name="l00972"></a><span class="lineno">  972</span> </div>
+<div class="line"><a id="l00973" name="l00973"></a><span class="lineno">  973</span> </div>
+<div class="line"><a id="l00981" name="l00981"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#af77f466e26832b2c4d27244135a88101">  981</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> operator-(glm::ivec2 diff, const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; it) noexcept;</div>
+<div class="line"><a id="l00982" name="l00982"></a><span class="lineno">  982</span> </div>
+<div class="line"><a id="l00983" name="l00983"></a><span class="lineno">  983</span> </div>
+<div class="line"><a id="l00992" name="l00992"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#ac2cae49459c59b3e499b65e57da35e7b">  992</a></span>        friend <a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> operator-(const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; l, const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; r) noexcept;</div>
+<div class="line"><a id="l00993" name="l00993"></a><span class="lineno">  993</span> </div>
+<div class="line"><a id="l00994" name="l00994"></a><span class="lineno">  994</span>      private:</div>
+<div class="line"><a id="l00995" name="l00995"></a><span class="lineno">  995</span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a> _pixel;</div>
+<div class="line"><a id="l00996" name="l00996"></a><span class="lineno">  996</span>        <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>* _bitmap;</div>
+<div class="line"><a id="l00997" name="l00997"></a><span class="lineno">  997</span>        glm::ivec2 _pos;</div>
+<div class="line"><a id="l00998" name="l00998"></a><span class="lineno">  998</span>    };</div>
 </div>
-<div class="line"><a id="l00997" name="l00997"></a><span class="lineno">  997</span> </div>
-<div class="line"><a id="l00998" name="l00998"></a><span class="lineno">  998</span> </div>
-<div class="line"><a id="l01007" name="l01007"></a><span class="lineno"><a class="line" href="bitmap_8hpp.html#af8beb3d49b6411407cbf541c75e9576a"> 1007</a></span>    <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a> createCheckerboard(glm::ivec2 size);</div>
-<div class="line"><a id="l01008" name="l01008"></a><span class="lineno"> 1008</span>} <span class="comment">// namespace tr</span></div>
-<div class="line"><a id="l01009" name="l01009"></a><span class="lineno"> 1009</span> </div>
+<div class="line"><a id="l00999" name="l00999"></a><span class="lineno">  999</span> </div>
+<div class="line"><a id="l01000" name="l01000"></a><span class="lineno"> 1000</span> </div>
+<div class="line"><a id="l01009" name="l01009"></a><span class="lineno"><a class="line" href="bitmap_8hpp.html#af8beb3d49b6411407cbf541c75e9576a"> 1009</a></span>    <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a> createCheckerboard(glm::ivec2 size);</div>
+<div class="line"><a id="l01010" name="l01010"></a><span class="lineno"> 1010</span>} <span class="comment">// namespace tr</span></div>
 <div class="line"><a id="l01011" name="l01011"></a><span class="lineno"> 1011</span> </div>
-<div class="line"><a id="l01012" name="l01012"></a><span class="lineno"> 1012</span>constexpr const <span class="keywordtype">char</span>* tr::<a class="code hl_struct" href="structtr_1_1BitmapBadAlloc.html">BitmapBadAlloc</a>::what() const noexcept</div>
-<div class="line"><a id="l01013" name="l01013"></a><span class="lineno"> 1013</span>{</div>
-<div class="line"><a id="l01014" name="l01014"></a><span class="lineno"> 1014</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;failed bitmap allocation&quot;</span>;</div>
-<div class="line"><a id="l01015" name="l01015"></a><span class="lineno"> 1015</span>}</div>
-<div class="line"><a id="l01016" name="l01016"></a><span class="lineno"> 1016</span> </div>
+<div class="line"><a id="l01013" name="l01013"></a><span class="lineno"> 1013</span> </div>
+<div class="line"><a id="l01014" name="l01014"></a><span class="lineno"> 1014</span>constexpr const <span class="keywordtype">char</span>* tr::<a class="code hl_struct" href="structtr_1_1BitmapBadAlloc.html">BitmapBadAlloc</a>::what() const noexcept</div>
+<div class="line"><a id="l01015" name="l01015"></a><span class="lineno"> 1015</span>{</div>
+<div class="line"><a id="l01016" name="l01016"></a><span class="lineno"> 1016</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;failed bitmap allocation&quot;</span>;</div>
+<div class="line"><a id="l01017" name="l01017"></a><span class="lineno"> 1017</span>}</div>
+<div class="line"><a id="l01018" name="l01018"></a><span class="lineno"> 1018</span> </div>
 <div class="ttc" id="abitmap_8hpp_html_acdde480f01d536a3cf2b72e83515586e"><div class="ttname"><a href="bitmap_8hpp.html#acdde480f01d536a3cf2b72e83515586e">tr::ImageFormat</a></div><div class="ttdeci">ImageFormat</div><div class="ttdoc">Supported image formats (bitmask).</div><div class="ttdef"><b>Definition</b> bitmap.hpp:63</div></div>
 <div class="ttc" id="abitmap__format_8hpp_html"><div class="ttname"><a href="bitmap__format_8hpp.html">bitmap_format.hpp</a></div><div class="ttdoc">Provides a bitmap pixel format type.</div></div>
 <div class="ttc" id="aclasstr_1_1BitmapFormat_html"><div class="ttname"><a href="classtr_1_1BitmapFormat.html">tr::BitmapFormat</a></div><div class="ttdoc">Bitmap format information.</div><div class="ttdef"><b>Definition</b> bitmap_format.hpp:12</div></div>
-<div class="ttc" id="aclasstr_1_1Bitmap_1_1MutIt_html"><div class="ttname"><a href="classtr_1_1Bitmap_1_1MutIt.html">tr::Bitmap::MutIt</a></div><div class="ttdoc">Mutable pixel iterator.</div><div class="ttdef"><b>Definition</b> bitmap.hpp:763</div></div>
+<div class="ttc" id="aclasstr_1_1Bitmap_1_1MutIt_html"><div class="ttname"><a href="classtr_1_1Bitmap_1_1MutIt.html">tr::Bitmap::MutIt</a></div><div class="ttdoc">Mutable pixel iterator.</div><div class="ttdef"><b>Definition</b> bitmap.hpp:764</div></div>
 <div class="ttc" id="aclasstr_1_1Bitmap_1_1MutIt_html_a0a9bb00ae0e03eee7be7a21842000d02"><div class="ttname"><a href="classtr_1_1Bitmap_1_1MutIt.html#a0a9bb00ae0e03eee7be7a21842000d02">tr::Bitmap::MutIt::MutIt</a></div><div class="ttdeci">MutIt() noexcept=default</div><div class="ttdoc">Default-constructs an iterator.</div></div>
-<div class="ttc" id="aclasstr_1_1Bitmap_1_1MutIt_html_aecd97899bef97672aaf83fd05a0b3f21"><div class="ttname"><a href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">tr::Bitmap::MutIt::difference_type</a></div><div class="ttdeci">int difference_type</div><div class="ttdoc">RandomAccessIterator typedef requirement.</div><div class="ttdef"><b>Definition</b> bitmap.hpp:778</div></div>
-<div class="ttc" id="aclasstr_1_1Bitmap_1_1PixelRef_html"><div class="ttname"><a href="classtr_1_1Bitmap_1_1PixelRef.html">tr::Bitmap::PixelRef</a></div><div class="ttdoc">Abstracted mutable reference to a bitmap pixel.</div><div class="ttdef"><b>Definition</b> bitmap.hpp:732</div></div>
-<div class="ttc" id="aclasstr_1_1Bitmap_html"><div class="ttname"><a href="classtr_1_1Bitmap.html">tr::Bitmap</a></div><div class="ttdoc">Class representing a bitmap stored in memory.</div><div class="ttdef"><b>Definition</b> bitmap.hpp:485</div></div>
+<div class="ttc" id="aclasstr_1_1Bitmap_1_1MutIt_html_aecd97899bef97672aaf83fd05a0b3f21"><div class="ttname"><a href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">tr::Bitmap::MutIt::difference_type</a></div><div class="ttdeci">int difference_type</div><div class="ttdoc">RandomAccessIterator typedef requirement.</div><div class="ttdef"><b>Definition</b> bitmap.hpp:779</div></div>
+<div class="ttc" id="aclasstr_1_1Bitmap_1_1PixelRef_html"><div class="ttname"><a href="classtr_1_1Bitmap_1_1PixelRef.html">tr::Bitmap::PixelRef</a></div><div class="ttdoc">Abstracted mutable reference to a bitmap pixel.</div><div class="ttdef"><b>Definition</b> bitmap.hpp:733</div></div>
+<div class="ttc" id="aclasstr_1_1Bitmap_html"><div class="ttname"><a href="classtr_1_1Bitmap.html">tr::Bitmap</a></div><div class="ttdoc">Class representing a bitmap stored in memory.</div><div class="ttdef"><b>Definition</b> bitmap.hpp:486</div></div>
 <div class="ttc" id="aclasstr_1_1Bitmap_html_a30b01788ff43d878b16891b60fad4291"><div class="ttname"><a href="classtr_1_1Bitmap.html#a30b01788ff43d878b16891b60fad4291">tr::Bitmap::Bitmap</a></div><div class="ttdeci">Bitmap(glm::ivec2 size, BitmapFormat format)</div><div class="ttdoc">Creates a blank bitmap.</div></div>
 <div class="ttc" id="aclasstr_1_1Bitmap_html_a45c89c6b9f996dbd99799370de244b45"><div class="ttname"><a href="classtr_1_1Bitmap.html#a45c89c6b9f996dbd99799370de244b45">tr::Bitmap::size</a></div><div class="ttdeci">glm::ivec2 size() const noexcept</div><div class="ttdoc">Gets the size of the bitmap.</div></div>
 <div class="ttc" id="aclasstr_1_1Bitmap_html_a68fdabc43f60e201853a9f7a0085a659"><div class="ttname"><a href="classtr_1_1Bitmap.html#a68fdabc43f60e201853a9f7a0085a659">tr::Bitmap::operator==</a></div><div class="ttdeci">friend bool operator==(const Bitmap &amp;, const Bitmap &amp;) noexcept=default</div><div class="ttdoc">Equality comparison operator.</div></div>
@@ -586,7 +586,7 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="aclasstr_1_1Cursor_html"><div class="ttname"><a href="classtr_1_1Cursor.html">tr::Cursor</a></div><div class="ttdoc">Mouse cursor graphic.</div><div class="ttdef"><b>Definition</b> mouse.hpp:207</div></div>
 <div class="ttc" id="aclasstr_1_1FileError_html"><div class="ttname"><a href="classtr_1_1FileError.html">tr::FileError</a></div><div class="ttdoc">Generic file error base exception type.</div><div class="ttdef"><b>Definition</b> iostream.hpp:28</div></div>
 <div class="ttc" id="aclasstr_1_1FileError_html_a40619fbc37d069161d0d1215061ca56c"><div class="ttname"><a href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">tr::FileError::FileError</a></div><div class="ttdeci">FileError(std::string path) noexcept</div><div class="ttdoc">Constructs a file error with a path string.</div></div>
-<div class="ttc" id="aclasstr_1_1Handle_html"><div class="ttname"><a href="classtr_1_1Handle.html">tr::Handle</a></div><div class="ttdoc">RAII wrapper over non-pointer handles.</div><div class="ttdef"><b>Definition</b> handle.hpp:49</div></div>
+<div class="ttc" id="aclasstr_1_1Handle_html"><div class="ttname"><a href="classtr_1_1Handle.html">tr::Handle</a></div><div class="ttdoc">RAII wrapper over non-pointer handles.</div><div class="ttdef"><b>Definition</b> handle.hpp:51</div></div>
 <div class="ttc" id="aclasstr_1_1SDL__Image_html"><div class="ttname"><a href="classtr_1_1SDL__Image.html">tr::SDL_Image</a></div><div class="ttdoc">Image format handler.</div><div class="ttdef"><b>Definition</b> bitmap.hpp:76</div></div>
 <div class="ttc" id="aclasstr_1_1SDL__Image_html_a26b4ded684f339eb7cca181c44f647f8"><div class="ttname"><a href="classtr_1_1SDL__Image.html#a26b4ded684f339eb7cca181c44f647f8">tr::SDL_Image::has</a></div><div class="ttdeci">static bool has(ImageFormat format) noexcept</div><div class="ttdoc">Determines whether a particular format or set of formats is supported.</div></div>
 <div class="ttc" id="aclasstr_1_1SDL__Image_html_aad5c470c9d0838eaf2c2b6c97215c885"><div class="ttname"><a href="classtr_1_1SDL__Image.html#aad5c470c9d0838eaf2c2b6c97215c885">tr::SDL_Image::SDL_Image</a></div><div class="ttdeci">SDL_Image(ImageFormat formats) noexcept</div><div class="ttdoc">Initializes the image format handler.</div></div>
@@ -611,7 +611,7 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="astructtr_1_1BitmapSaveError_html"><div class="ttname"><a href="structtr_1_1BitmapSaveError.html">tr::BitmapSaveError</a></div><div class="ttdoc">Error thrown when bitmap saving failed.</div><div class="ttdef"><b>Definition</b> bitmap.hpp:49</div></div>
 <div class="ttc" id="astructtr_1_1BitmapSaveError_html_af20b3a2264436da0f630a2399d7fbec5"><div class="ttname"><a href="structtr_1_1BitmapSaveError.html#af20b3a2264436da0f630a2399d7fbec5">tr::BitmapSaveError::what</a></div><div class="ttdeci">virtual const char * what() const noexcept</div><div class="ttdoc">Gets an error message.</div></div>
 <div class="ttc" id="astructtr_1_1RGBA_html"><div class="ttname"><a href="structtr_1_1RGBA.html">tr::RGBA&lt; std::uint8_t &gt;</a></div></div>
-<div class="ttc" id="astructtr_1_1Rect_html"><div class="ttname"><a href="structtr_1_1Rect.html">tr::Rect</a></div><div class="ttdoc">Rectangle object.</div><div class="ttdef"><b>Definition</b> geometry.hpp:18</div></div>
+<div class="ttc" id="astructtr_1_1Rect_html"><div class="ttname"><a href="structtr_1_1Rect.html">tr::Rect</a></div><div class="ttdoc">Rectangle object.</div><div class="ttdef"><b>Definition</b> geometry.hpp:17</div></div>
 <div class="ttc" id="astructtr_1_1Version_html"><div class="ttname"><a href="structtr_1_1Version.html">tr::Version</a></div><div class="ttdoc">Library version information.</div><div class="ttdef"><b>Definition</b> sdl.hpp:43</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
