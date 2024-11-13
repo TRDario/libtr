@@ -5,12 +5,12 @@
 namespace tr {
 	// Checks if a cursor if not null and throws CursorBadAlloc otherwise.
 	SDL_Cursor* checkNotNull(SDL_Cursor* ptr);
-}
+} // namespace tr
 
 SDL_Cursor* tr::checkNotNull(SDL_Cursor* ptr)
 {
 	if (ptr == nullptr) {
-		throw CursorBadAlloc {};
+		throw CursorBadAlloc{};
 	}
 	return ptr;
 }
@@ -65,28 +65,25 @@ bool tr::mouse::setCaptured(bool captured) noexcept
 }
 
 tr::Cursor::Cursor()
-	: _impl {checkNotNull(SDL_GetDefaultCursor())}
-{}
+	: _impl{checkNotNull(SDL_GetDefaultCursor())}
+{
+}
 
 tr::Cursor::Cursor(SysCursor icon)
-	: _impl {checkNotNull(SDL_CreateSystemCursor(SDL_SystemCursor(icon)))}
-{}
+	: _impl{checkNotNull(SDL_CreateSystemCursor(SDL_SystemCursor(icon)))}
+{
+}
 
 tr::Cursor::Cursor(const Bitmap& bitmap, glm::ivec2 focus)
-	: _impl {checkNotNull(SDL_CreateColorCursor(bitmap._impl.get(), focus.x, focus.y))}
-{}
+	: _impl{checkNotNull(SDL_CreateColorCursor(bitmap._impl.get(), focus.x, focus.y))}
+{
+}
 
 tr::Cursor::Cursor(std::span<const std::byte> color, std::span<const std::byte> mask, glm::ivec2 size, glm::ivec2 focus)
 {
 	assert(color.size() == mask.size() && color.size() == size.x * size.y / 64);
-	_impl.reset(checkNotNull(SDL_CreateCursor(
-		(const std::uint8_t*)(color.data()),
-		(const std::uint8_t*)(mask.data()),
-		size.x,
-		size.y,
-		focus.x,
-		focus.y
-	)));
+	_impl.reset(checkNotNull(SDL_CreateCursor((const std::uint8_t*)(color.data()), (const std::uint8_t*)(mask.data()),
+											  size.x, size.y, focus.x, focus.y)));
 }
 
 void tr::Cursor::Deleter::operator()(SDL_Cursor* ptr) const noexcept

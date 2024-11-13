@@ -42,12 +42,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * The back face of a polygon.
 		 **************************************************************************************************************/
-		BACK  = 0x4'05,
+		BACK = 0x4'05,
 
 		/**************************************************************************************************************
 		 * Both faces of a polygon.
 		 **************************************************************************************************************/
-		BOTH  = 0x4'08
+		BOTH = 0x4'08
 	};
 
 	/******************************************************************************************************************
@@ -82,7 +82,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Inverts the bits of the stencil value.
 		 **************************************************************************************************************/
-		INVERT  = 0x15'0A,
+		INVERT = 0x15'0A,
 
 		/**************************************************************************************************************
 		 * Increments the stencil value, wrapping around to 0,
@@ -217,7 +217,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * The operation applied with the source and destination colors.
 		 **************************************************************************************************************/
-		BlendFunction   rgbFn;
+		BlendFunction rgbFn;
 
 		/**************************************************************************************************************
 		 * The multiplier used for the destination color.
@@ -232,7 +232,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * The operation applied with the source and destination alpha.
 		 **************************************************************************************************************/
-		BlendFunction   alphaFn;
+		BlendFunction alphaFn;
 
 		/**************************************************************************************************************
 		 * The multiplier used for the destination alpha.
@@ -243,26 +243,16 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Alpha blending mode.
 	 ******************************************************************************************************************/
-	inline constexpr BlendMode ALPHA_BLENDING {
-		BlendMultiplier::SRC_ALPHA,
-		BlendFunction::ADD,
-		BlendMultiplier::ONE_MINUS_SRC_ALPHA,
-		BlendMultiplier::ONE,
-		BlendFunction::ADD,
-		BlendMultiplier::ZERO
-	};
+	inline constexpr BlendMode ALPHA_BLENDING{
+		BlendMultiplier::SRC_ALPHA, BlendFunction::ADD, BlendMultiplier::ONE_MINUS_SRC_ALPHA,
+		BlendMultiplier::ONE,       BlendFunction::ADD, BlendMultiplier::ZERO};
 
 	/******************************************************************************************************************
 	 * Premultiplied alpha blending mode.
 	 ******************************************************************************************************************/
-	inline constexpr BlendMode PREMUL_ALPHA_BLENDING {
-		BlendMultiplier::ONE,
-		BlendFunction::ADD,
-		BlendMultiplier::ONE_MINUS_SRC_ALPHA,
-		BlendMultiplier::ONE,
-		BlendFunction::ADD,
-		BlendMultiplier::ONE_MINUS_SRC_ALPHA
-	};
+	inline constexpr BlendMode PREMUL_ALPHA_BLENDING{
+		BlendMultiplier::ONE, BlendFunction::ADD, BlendMultiplier::ONE_MINUS_SRC_ALPHA,
+		BlendMultiplier::ONE, BlendFunction::ADD, BlendMultiplier::ONE_MINUS_SRC_ALPHA};
 
 	/******************************************************************************************************************
 	 * Clearable components of the render target.
@@ -271,7 +261,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Clear the depth values.
 		 **************************************************************************************************************/
-		DEPTH   = 0b00000001'00000000,
+		DEPTH = 0b00000001'00000000,
 
 		/**************************************************************************************************************
 		 * Clear the stencil values.
@@ -281,12 +271,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Clear the color values.
 		 **************************************************************************************************************/
-		COLOR   = 0b01000000'00000000,
+		COLOR = 0b01000000'00000000,
 
 		/**************************************************************************************************************
 		 * Clear all values.
 		 **************************************************************************************************************/
-		ALL     = 0b01000101'00000000
+		ALL = 0b01000101'00000000
 	};
 
 	/// @cond IMPLEMENTATION
@@ -357,7 +347,7 @@ namespace tr {
 	 * OpenGL context.
 	 ******************************************************************************************************************/
 	class GLContext {
-	public:
+	  public:
 		/**************************************************************************************************************
 		 * Creates the OpenGL context.
 		 *
@@ -404,7 +394,7 @@ namespace tr {
 		 *
 		 * @return The context's V-sync mode.
 		 **************************************************************************************************************/
-		VSync       vsync() const noexcept;
+		VSync vsync() const noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the context's V-sync mode.
@@ -412,34 +402,34 @@ namespace tr {
 		 * @exception SDLError
 		 * @parblock
 		 * If setting the V-sync mode failed.
-		 * 
+		 *
 		 * The context's V-sync mode will stay unchanged if this exception was thrown (strong exception guarantee).
 		 * @endparblock
 		 *
 		 * @param[in] vsync The new V-sync mode.
 		 **************************************************************************************************************/
-		void        setVSync(VSync vsync);
+		void setVSync(VSync vsync);
 
 		/**************************************************************************************************************
 		 * Sets the target framebuffer.
 		 *
 		 * @param[in] framebuffer The new target framebuffer (user-defined or backbuffer).
 		 **************************************************************************************************************/
-		void        setFramebuffer(BasicFramebuffer& framebuffer) noexcept;
+		void setFramebuffer(BasicFramebuffer& framebuffer) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the active shader pipeline.
 		 *
 		 * @param[in] pipeline The new active shader pipeline.
 		 **************************************************************************************************************/
-		void        setShaderPipeline(const ShaderPipeline& pipeline) noexcept;
+		void setShaderPipeline(const ShaderPipeline& pipeline) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the active vertex format.
 		 *
 		 * @param[in] format The new active vertex format.
 		 **************************************************************************************************************/
-		void        setVertexFormat(const VertexFormat& format) noexcept;
+		void setVertexFormat(const VertexFormat& format) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the active vertex buffer.
@@ -448,42 +438,42 @@ namespace tr {
 		 * @param[in] offset The starting offset within the buffer (an out of bounds offset may trigger an assertion).
 		 * @param[in] vertexStride The distance between consecutive vertices.
 		 **************************************************************************************************************/
-		void        setVertexBuffer(const VertexBuffer& buffer, std::size_t offset, std::size_t vertexStride) noexcept;
+		void setVertexBuffer(const VertexBuffer& buffer, std::size_t offset, std::size_t vertexStride) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the active index buffer.
 		 *
 		 * @param[in] buffer The new active index buffer.
 		 **************************************************************************************************************/
-		void        setIndexBuffer(const IndexBuffer& buffer) noexcept;
+		void setIndexBuffer(const IndexBuffer& buffer) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets whether face culling is performed.
 		 *
 		 * @param use Whether face culling should be performed or not.
 		 **************************************************************************************************************/
-		void        useFaceCulling(bool use) noexcept;
+		void useFaceCulling(bool use) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets whether the scissor test is performed.
 		 *
 		 * @param[in] use Whether the scissor test should be performed or not.
 		 **************************************************************************************************************/
-		void        useScissorTest(bool use) noexcept;
+		void useScissorTest(bool use) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the box used in the scissor test.
 		 *
 		 * @param[in] rect The rectangle outside which to discard fragments.
 		 **************************************************************************************************************/
-		void        setScissorBox(RectI2 rect) noexcept;
+		void setScissorBox(RectI2 rect) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets whether the stencil test is performed.
 		 *
 		 * @param[in] use Whether the stencil test should be performed or not.
 		 **************************************************************************************************************/
-		void        useStencilTest(bool use) noexcept;
+		void useStencilTest(bool use) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the function used for the stencil test.
@@ -491,9 +481,9 @@ namespace tr {
 		 * @param[in] face The pace(s) this function applies to.
 		 * @param[in] func The function to be used for the depth test.
 		 * @param[in] comp The value that will be compared against in the function.
-		 * @param[in] mask The value of the stencil mask. 
+		 * @param[in] mask The value of the stencil mask.
 		 **************************************************************************************************************/
-		void        setStencilTest(StencilFace face, Compare func, int comp, std::uint32_t mask) noexcept;
+		void setStencilTest(StencilFace face, Compare func, int comp, std::uint32_t mask) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the operation performed on the stencil buffer in various circumstances.
@@ -503,12 +493,8 @@ namespace tr {
 		 * @param[in] dfail The operation used in case of a depth test fail.
 		 * @param[in] dpass The operation used in case of a depth test success.
 		 **************************************************************************************************************/
-		void        setStencilOperation(
-				   StencilFace      face,
-				   StencilOperation sfail,
-				   StencilOperation dfail,
-				   StencilOperation dpass
-			   ) noexcept;
+		void setStencilOperation(StencilFace face, StencilOperation sfail, StencilOperation dfail,
+								 StencilOperation dpass) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the stencil mask that enables and disables writing of individual bits in stencil buffers.
@@ -626,7 +612,7 @@ namespace tr {
 		 **************************************************************************************************************/
 		void drawIndexedInstances(Primitive type, std::size_t offset, std::size_t indices, int instances) noexcept;
 
-	private:
+	  private:
 		struct Deleter {
 			/// @private
 			void operator()(void* ptr) const noexcept;
@@ -634,7 +620,7 @@ namespace tr {
 
 		std::unique_ptr<void, Deleter> _impl;
 
-	public:
+	  public:
 		/**************************************************************************************************************
 		 * The window backbuffer.
 		 **************************************************************************************************************/

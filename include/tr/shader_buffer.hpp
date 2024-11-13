@@ -16,7 +16,7 @@ namespace tr {
 	 * Passing 0 to the size/capacity of either component disables them, and they cannot be accessed.
 	 ******************************************************************************************************************/
 	class ShaderBuffer : public GLBuffer {
-	public:
+	  public:
 		/**************************************************************************************************************
 		 * Shader buffer map access type.
 		 **************************************************************************************************************/
@@ -24,7 +24,7 @@ namespace tr {
 			/**********************************************************************************************************
 			 * Buffer maps are read-only.
 			 **********************************************************************************************************/
-			READ_ONLY  = std::uint32_t(Flag::READABLE),
+			READ_ONLY = std::uint32_t(Flag::READABLE),
 
 			/**********************************************************************************************************
 			 * Buffer maps are write-only.
@@ -53,21 +53,21 @@ namespace tr {
 		 *
 		 * @return The size of the header in bytes.
 		 ******************************************************************************************************************/
-		std::size_t            headerSize() const noexcept;
+		std::size_t headerSize() const noexcept;
 
 		/******************************************************************************************************************
 		 * Gets the size of the dynamic array.
 		 *
 		 * @return The size of the dynamic array in bytes.
 		 ******************************************************************************************************************/
-		std::size_t            arraySize() const noexcept;
+		std::size_t arraySize() const noexcept;
 
 		/******************************************************************************************************************
 		 * Gets the maximum capacity of the dynamic array.
 		 *
 		 * @return The maximum capacity of the dynamic array in bytes.
 		 ******************************************************************************************************************/
-		std::size_t            arrayCapacity() const noexcept;
+		std::size_t arrayCapacity() const noexcept;
 
 		/******************************************************************************************************************
 		 * Copies the data of the fixed header to a vector.
@@ -93,7 +93,7 @@ namespace tr {
 		 * @param data The new data of the header. The span must be the same size as the header, otherwise a failed
 		 *             assertion may be raised.
 		 ******************************************************************************************************************/
-		void                   setHeader(std::span<const std::byte> data) noexcept;
+		void setHeader(std::span<const std::byte> data) noexcept;
 
 		/******************************************************************************************************************
 		 * Sets the data of the dynamic array.
@@ -101,7 +101,7 @@ namespace tr {
 		 * @param data The new data of the array. The span must be smaller or have the same size as the array capacity,
 		 *			   otherwise a failed assertion may be raised.
 		 ******************************************************************************************************************/
-		void                   setArray(std::span<const std::byte> data) noexcept;
+		void setArray(std::span<const std::byte> data) noexcept;
 
 		/******************************************************************************************************************
 		 * Resizes the dynamic array.
@@ -109,7 +109,7 @@ namespace tr {
 		 * @param size The new size of the array in bytes. Must be less than the capacity, otherwise a failed assertion
 		 *             may be raised.
 		 ******************************************************************************************************************/
-		void                   resizeArray(std::size_t size) noexcept;
+		void resizeArray(std::size_t size) noexcept;
 
 		using GLBuffer::mapped;
 
@@ -140,8 +140,8 @@ namespace tr {
 
 		using GLBuffer::setLabel;
 
-	private:
-		Access      _access;
+	  private:
+		Access _access;
 		std::size_t _headerSize;
 		std::size_t _size;
 

@@ -3,12 +3,14 @@
 #include <format>
 
 tr::FileError::FileError(std::string path) noexcept
-	: _path {path}
-{}
+	: _path{path}
+{
+}
 
 tr::FileError::FileError(const std::filesystem::path& path)
-	: _path {path.string()}
-{}
+	: _path{path.string()}
+{
+}
 
 const std::string& tr::FileError::path() const noexcept
 {
@@ -34,11 +36,11 @@ const char* tr::FileOpenError::what() const noexcept
 std::ofstream tr::openFileW(const std::filesystem::path& path, std::ios::openmode openmode)
 {
 	if (!is_regular_file(path)) {
-		throw FileNotFound {path};
+		throw FileNotFound{path};
 	}
-	std::ofstream file {path, openmode};
+	std::ofstream file{path, openmode};
 	if (!file.is_open()) {
-		throw FileOpenError {path};
+		throw FileOpenError{path};
 	}
 	file.exceptions(std::ios::badbit | std::ios::failbit);
 	return file;
@@ -47,11 +49,11 @@ std::ofstream tr::openFileW(const std::filesystem::path& path, std::ios::openmod
 std::ifstream tr::openFileR(const std::filesystem::path& path, std::ios::openmode openmode)
 {
 	if (!is_regular_file(path)) {
-		throw FileNotFound {path};
+		throw FileNotFound{path};
 	}
-	std::ifstream file {path, openmode};
+	std::ifstream file{path, openmode};
 	if (!file.is_open()) {
-		throw FileOpenError {path};
+		throw FileOpenError{path};
 	}
 	file.exceptions(std::ios::badbit | std::ios::failbit);
 	return file;

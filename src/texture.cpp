@@ -7,7 +7,7 @@
 namespace tr {
 	// Determines the size of the array texture from a spam of bitmaps.
 	glm::ivec2 determineArrayTextureSize(std::span<SubBitmap> layers);
-}
+} // namespace tr
 
 glm::ivec2 tr::determineArrayTextureSize(std::span<SubBitmap> layers)
 {
@@ -17,7 +17,7 @@ glm::ivec2 tr::determineArrayTextureSize(std::span<SubBitmap> layers)
 }
 
 tr::Texture::Texture(unsigned int target) noexcept
-	: _target {target}
+	: _target{target}
 {
 	GLuint id;
 	glCreateTextures(target, 1, &id);
@@ -112,7 +112,7 @@ void tr::Texture::setSwizzleA(Swizzle swizzle) noexcept
 
 void tr::Texture::setSwizzle(Swizzle r, Swizzle g, Swizzle b, Swizzle a) noexcept
 {
-	std::array<int, 4> glSwizzle {int(r), int(g), int(b), int(a)};
+	std::array<int, 4> glSwizzle{int(r), int(g), int(b), int(a)};
 	glTextureParameteriv(_id.get(), GL_TEXTURE_SWIZZLE_RGBA, glSwizzle.data());
 }
 
@@ -122,7 +122,7 @@ void tr::Texture::setLabel(std::string_view label) noexcept
 }
 
 tr::Texture1D::Texture1D(int size, int mipmaps, TextureFormat format)
-	: Texture {GL_TEXTURE_1D}
+	: Texture{GL_TEXTURE_1D}
 {
 	assert(size > 0);
 	assert(mipmaps > 0);
@@ -130,7 +130,7 @@ tr::Texture1D::Texture1D(int size, int mipmaps, TextureFormat format)
 
 	glTextureStorage1D(_id.get(), mipmaps, GLenum(format), size);
 	if (glGetError() == GL_OUT_OF_MEMORY) {
-		throw TextureBadAlloc {};
+		throw TextureBadAlloc{};
 	}
 }
 
@@ -143,14 +143,14 @@ void tr::Texture1D::setRegion(int offset, SubBitmap bitmap) noexcept
 {
 	assert(bitmap.size().y == 1);
 	assert(offset + bitmap.size().x <= size());
-	auto [format, type] {bitmapToGLFormat(bitmap.format())};
+	auto [format, type]{bitmapToGLFormat(bitmap.format())};
 	glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
 	glTextureSubImage1D(_id.get(), 0, offset, bitmap.size().x, format, type, bitmap.data());
 	glGenerateTextureMipmap(_id.get());
 }
 
 tr::ArrayTexture1D::ArrayTexture1D(int size, int layers, int mipmaps, TextureFormat format)
-	: Texture {GL_TEXTURE_1D_ARRAY}
+	: Texture{GL_TEXTURE_1D_ARRAY}
 {
 	assert(size > 0 && layers > 0);
 	assert(mipmaps > 0);
@@ -158,12 +158,12 @@ tr::ArrayTexture1D::ArrayTexture1D(int size, int layers, int mipmaps, TextureFor
 
 	glTextureStorage2D(_id.get(), mipmaps, GLenum(format), size, layers);
 	if (glGetError() == GL_OUT_OF_MEMORY) {
-		throw TextureBadAlloc {};
+		throw TextureBadAlloc{};
 	}
 }
 
 tr::ArrayTexture1D::ArrayTexture1D(SubBitmap bitmap, int mipmaps, TextureFormat format)
-	: ArrayTexture1D {bitmap.size().x, bitmap.size().y, mipmaps, format}
+	: ArrayTexture1D{bitmap.size().x, bitmap.size().y, mipmaps, format}
 {
 	setRegion({0, 0}, bitmap);
 }
@@ -181,17 +181,17 @@ int tr::ArrayTexture1D::layers() const noexcept
 void tr::ArrayTexture1D::setRegion(glm::ivec2 tl, SubBitmap bitmap) noexcept
 {
 #ifndef NDEBUG
-	RectI2 bounds {size(), layers()};
+	RectI2 bounds{size(), layers()};
 	assert(bounds.contains(tl + bitmap.size()));
 #endif
-	auto [format, type] {bitmapToGLFormat(bitmap.format())};
+	auto [format, type]{bitmapToGLFormat(bitmap.format())};
 	glPixelStorei(GL_UNPACK_ROW_LENGTH, bitmap.pitch() / bitmap.format().pixelBytes());
 	glTextureSubImage2D(_id.get(), 0, tl.x, tl.y, bitmap.size().x, bitmap.size().y, format, type, bitmap.data());
 	glGenerateTextureMipmap(_id.get());
 }
 
 tr::Texture2D::Texture2D(glm::ivec2 size, int mipmaps, TextureFormat format)
-	: Texture {GL_TEXTURE_2D}
+	: Texture{GL_TEXTURE_2D}
 {
 	assert(size.x > 0 && size.y > 0);
 	assert(mipmaps > 0);
@@ -199,12 +199,12 @@ tr::Texture2D::Texture2D(glm::ivec2 size, int mipmaps, TextureFormat format)
 
 	glTextureStorage2D(_id.get(), mipmaps, std::uint32_t(format), size.x, size.y);
 	if (glGetError() == GL_OUT_OF_MEMORY) {
-		throw TextureBadAlloc {};
+		throw TextureBadAlloc{};
 	}
 }
 
 tr::Texture2D::Texture2D(SubBitmap bitmap, int mipmaps, TextureFormat format)
-	: Texture2D {bitmap.size(), mipmaps, format}
+	: Texture2D{bitmap.size(), mipmaps, format}
 {
 	setRegion({0, 0}, bitmap);
 }
@@ -216,15 +216,15 @@ glm::ivec2 tr::Texture2D::size() const noexcept
 
 void tr::Texture2D::setRegion(glm::ivec2 tl, SubBitmap bitmap) noexcept
 {
-	assert(RectI2 {size()}.contains(tl + bitmap.size()));
-	auto [format, type] {bitmapToGLFormat(bitmap.format())};
+	assert(RectI2{size()}.contains(tl + bitmap.size()));
+	auto [format, type]{bitmapToGLFormat(bitmap.format())};
 	glPixelStorei(GL_UNPACK_ROW_LENGTH, bitmap.pitch() / bitmap.format().pixelBytes());
 	glTextureSubImage2D(_id.get(), 0, tl.x, tl.y, bitmap.size().x, bitmap.size().y, format, type, bitmap.data());
 	glGenerateTextureMipmap(_id.get());
 }
 
 tr::ArrayTexture2D::ArrayTexture2D(glm::ivec2 size, int layers, int mipmaps, TextureFormat format)
-	: Texture {GL_TEXTURE_2D_ARRAY}
+	: Texture{GL_TEXTURE_2D_ARRAY}
 {
 	assert(size.x > 0 && size.y > 0 && layers > 0);
 	assert(mipmaps > 0);
@@ -232,12 +232,12 @@ tr::ArrayTexture2D::ArrayTexture2D(glm::ivec2 size, int layers, int mipmaps, Tex
 
 	glTextureStorage3D(_id.get(), mipmaps, std::uint32_t(format), size.x, size.y, layers);
 	if (glGetError() == GL_OUT_OF_MEMORY) {
-		throw TextureBadAlloc {};
+		throw TextureBadAlloc{};
 	}
 }
 
 tr::ArrayTexture2D::ArrayTexture2D(std::span<SubBitmap> layers, int mipmaps, TextureFormat format)
-	: ArrayTexture2D {determineArrayTextureSize(layers), int(layers.size()), mipmaps, format}
+	: ArrayTexture2D{determineArrayTextureSize(layers), int(layers.size()), mipmaps, format}
 {
 	for (int i = 0; i < layers.size(); ++i) {
 		setLayerRegion(i, {}, layers[i]);
@@ -257,27 +257,16 @@ int tr::ArrayTexture2D::layers() const noexcept
 void tr::ArrayTexture2D::setLayerRegion(int layer, glm::ivec2 tl, SubBitmap bitmap) noexcept
 {
 	assert(layer <= layers());
-	assert(RectI2 {size()}.contains(tl + bitmap.size()));
-	auto [format, type] {bitmapToGLFormat(bitmap.format())};
+	assert(RectI2{size()}.contains(tl + bitmap.size()));
+	auto [format, type]{bitmapToGLFormat(bitmap.format())};
 	glPixelStorei(GL_UNPACK_ROW_LENGTH, bitmap.pitch() / bitmap.format().pixelBytes());
-	glTextureSubImage3D(
-		_id.get(),
-		0,
-		tl.x,
-		tl.y,
-		layer,
-		bitmap.size().x,
-		bitmap.size().y,
-		1,
-		format,
-		type,
-		bitmap.data()
-	);
+	glTextureSubImage3D(_id.get(), 0, tl.x, tl.y, layer, bitmap.size().x, bitmap.size().y, 1, format, type,
+						bitmap.data());
 	glGenerateTextureMipmap(_id.get());
 }
 
 tr::Texture3D::Texture3D(glm::ivec3 size, int mipmaps, TextureFormat format)
-	: Texture {GL_TEXTURE_3D}
+	: Texture{GL_TEXTURE_3D}
 {
 	assert(size.x > 0 && size.y > 0 && size.z > 0);
 	assert(mipmaps > 0);
@@ -285,7 +274,7 @@ tr::Texture3D::Texture3D(glm::ivec3 size, int mipmaps, TextureFormat format)
 
 	glTextureStorage3D(_id.get(), mipmaps, std::uint32_t(format), size.x, size.y, size.z);
 	if (glGetError() == GL_OUT_OF_MEMORY) {
-		throw TextureBadAlloc {};
+		throw TextureBadAlloc{};
 	}
 }
 
@@ -297,21 +286,10 @@ glm::ivec3 tr::Texture3D::size() const noexcept
 void tr::Texture3D::setLayerRegion(glm::ivec3 tl, SubBitmap bitmap) noexcept
 {
 	assert(tl.z <= size().z);
-	assert(RectI2 {glm::ivec2(size())}.contains(glm::ivec2(tl) + bitmap.size()));
-	auto [format, type] {bitmapToGLFormat(bitmap.format())};
+	assert(RectI2{glm::ivec2(size())}.contains(glm::ivec2(tl) + bitmap.size()));
+	auto [format, type]{bitmapToGLFormat(bitmap.format())};
 	glPixelStorei(GL_UNPACK_ROW_LENGTH, bitmap.pitch() / bitmap.format().pixelBytes());
-	glTextureSubImage3D(
-		_id.get(),
-		0,
-		tl.x,
-		tl.y,
-		tl.z,
-		bitmap.size().x,
-		bitmap.size().y,
-		1,
-		format,
-		type,
-		bitmap.data()
-	);
+	glTextureSubImage3D(_id.get(), 0, tl.x, tl.y, tl.z, bitmap.size().x, bitmap.size().y, 1, format, type,
+						bitmap.data());
 	glGenerateTextureMipmap(_id.get());
 }

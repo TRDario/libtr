@@ -5,18 +5,21 @@
 using namespace magic_enum::bitwise_operators;
 
 tr::VertexBuffer::VertexBuffer() noexcept
-	: _size {0}
-{}
+	: _size{0}
+{
+}
 
 tr::VertexBuffer::VertexBuffer(std::size_t capacity)
-    : _buffer { { GLBuffer::Target::ARRAY_BUFFER, capacity, GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE } }
-    , _size { 0 }
-{}
+	: _buffer{{GLBuffer::Target::ARRAY_BUFFER, capacity, GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE}},
+	  _size{0}
+{
+}
 
 tr::VertexBuffer::VertexBuffer(std::span<const std::byte> data)
-    : _buffer { { GLBuffer::Target::ARRAY_BUFFER, data, GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE } }
-    , _size { std::size_t(data.size()) }
-{}
+	: _buffer{{GLBuffer::Target::ARRAY_BUFFER, data, GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE}},
+	  _size{std::size_t(data.size())}
+{
+}
 
 bool tr::VertexBuffer::empty() const noexcept
 {
@@ -79,11 +82,8 @@ void tr::VertexBuffer::resize(std::size_t newSize)
 {
 	assert(!mapped());
 	if (newSize > capacity()) {
-		_buffer = GLBuffer {
-			GLBuffer::Target::ARRAY_BUFFER,
-			newSize,
-			GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE
-		};
+		_buffer = GLBuffer{GLBuffer::Target::ARRAY_BUFFER, newSize,
+						   GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE};
 		if (!_label.empty()) {
 			_buffer->setLabel(_label);
 		}

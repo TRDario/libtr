@@ -2,13 +2,9 @@
 
 #include <GL/glew.h>
 
-tr::ShaderPipeline::ShaderPipeline(
-	const Shader&                  vertexShader,
-	boost::optional<const Shader&> tessEvalShader,
-	boost::optional<const Shader&> tessControlShader,
-	boost::optional<const Shader&> geometryShader,
-	const Shader&                  fragmentShader
-) noexcept
+tr::ShaderPipeline::ShaderPipeline(const Shader& vertexShader, boost::optional<const Shader&> tessEvalShader,
+								   boost::optional<const Shader&> tessControlShader,
+								   boost::optional<const Shader&> geometryShader, const Shader& fragmentShader) noexcept
 {
 	GLuint id;
 	glCreateProgramPipelines(1, &id);

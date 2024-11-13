@@ -1,8 +1,8 @@
 #pragma once
 #include "../include/tr/bitmap_format.hpp"
 
-#include <cassert>
 #include <GL/glew.h>
+#include <cassert>
 #include <utility>
 
 namespace tr {
@@ -67,7 +67,7 @@ inline std::pair<GLenum, GLenum> tr::bitmapToGLFormat(BitmapFormat format) noexc
 	default:
 #if defined(_MSC_VER) && !defined(__clang__) // MSVC
 		__assume(false);
-#else										 // GCC, Clang
+#else // GCC, Clang
 		__builtin_unreachable();
 #endif
 		break;

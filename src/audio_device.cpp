@@ -5,12 +5,13 @@
 #include <format>
 
 tr::NamedAudioDeviceOpenError::NamedAudioDeviceOpenError(const char* name)
-	: runtime_error {std::format("Failed to open audio device '{}'.", name)}
-{}
+	: runtime_error{std::format("Failed to open audio device '{}'.", name)}
+{
+}
 
 std::vector<const char*> tr::availableAudioDevices()
 {
-	const ALCchar*			 strs {alcGetString(nullptr, ALC_DEVICE_SPECIFIER)};
+	const ALCchar* strs{alcGetString(nullptr, ALC_DEVICE_SPECIFIER)};
 	std::vector<const char*> names;
 	for (const ALCchar* str = strs; *str != '\0'; str = str + std::strlen(str) + 1) {
 		names.emplace_back(str);
@@ -19,18 +20,18 @@ std::vector<const char*> tr::availableAudioDevices()
 }
 
 tr::AudioDevice::AudioDevice()
-	: _impl {alcOpenDevice(nullptr)}
+	: _impl{alcOpenDevice(nullptr)}
 {
 	if (_impl == nullptr) {
-		throw DefaultAudioDeviceOpenError {};
+		throw DefaultAudioDeviceOpenError{};
 	}
 }
 
 tr::AudioDevice::AudioDevice(const char* name)
-	: _impl {alcOpenDevice(name)}
+	: _impl{alcOpenDevice(name)}
 {
 	if (_impl == nullptr) {
-		throw NamedAudioDeviceOpenError {name};
+		throw NamedAudioDeviceOpenError{name};
 	}
 }
 

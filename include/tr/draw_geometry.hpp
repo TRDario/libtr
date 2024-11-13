@@ -57,10 +57,9 @@ namespace tr {
 	 *
 	 * @param out The output iterator. There has to be space for 4 vertices.
 	 * @param tl The position of the top-left corner of the rectangle.
-	 * @param size The size of the rectangle 
+	 * @param size The size of the rectangle
 	 ******************************************************************************************************************/
-	template <std::output_iterator<glm::vec2> It>
-	constexpr void fillRectVertices(It out, glm::vec2 tl, glm::vec2 size);
+	template <std::output_iterator<glm::vec2> It> constexpr void fillRectVertices(It out, glm::vec2 tl, glm::vec2 size);
 
 	/******************************************************************************************************************
 	 * Outputs vertex positions along an arc.
@@ -145,25 +144,24 @@ constexpr void tr::fillPolygonOutlineIndices(It out, std::uint16_t vertices, std
 	*out++ = base + vertices;
 }
 
-template <std::output_iterator<glm::vec2> It>
-constexpr void tr::fillRectVertices(It out, glm::vec2 tl, glm::vec2 size)
+template <std::output_iterator<glm::vec2> It> constexpr void tr::fillRectVertices(It out, glm::vec2 tl, glm::vec2 size)
 {
 	*out++ = tl;
-	*out++ = glm::vec2 {tl.x, tl.y + size.y};
+	*out++ = glm::vec2{tl.x, tl.y + size.y};
 	*out++ = tl + size;
-	*out++ = glm::vec2 {tl.x + size.x, tl.y};
+	*out++ = glm::vec2{tl.x + size.x, tl.y};
 }
 
 template <std::output_iterator<glm::vec2> It>
 void tr::fillArcVertices(It out, std::size_t vertices, CircleF circ, AngleF startth, AngleF sizeth)
 {
-	auto      dth {sizeth / vertices};
-	auto      dsin {dth.sin()};
-	auto      dcos {dth.cos()};
-	glm::vec2 delta {circ.r * startth.cos(), circ.r * startth.sin()};
+	auto dth{sizeth / vertices};
+	auto dsin{dth.sin()};
+	auto dcos{dth.cos()};
+	glm::vec2 delta{circ.r * startth.cos(), circ.r * startth.sin()};
 	for (std::size_t i = 0; i < vertices; ++i) {
 		*out++ = delta + circ.c;
-		delta  = glm::vec2 {dcos * delta.x - dsin * delta.y, dsin * delta.x + dcos * delta.y};
+		delta = glm::vec2{dcos * delta.x - dsin * delta.y, dsin * delta.x + dcos * delta.y};
 	}
 }
 

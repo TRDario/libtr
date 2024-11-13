@@ -15,10 +15,10 @@ namespace tr {
 	 ******************************************************************************************************************/
 	struct AudioBufferBadAlloc : std::bad_alloc {
 		/**************************************************************************************************************
-         * Gets an error message.
-         *
-         * @return An explanatory error message.
-	     **************************************************************************************************************/
+		 * Gets an error message.
+		 *
+		 * @return An explanatory error message.
+		 **************************************************************************************************************/
 		constexpr virtual const char* what() const noexcept;
 	};
 
@@ -29,10 +29,10 @@ namespace tr {
 		using FileError::FileError;
 
 		/**************************************************************************************************************
-         * Gets an error message.
-         *
-         * @return An explanatory error message.
-	     **************************************************************************************************************/
+		 * Gets an error message.
+		 *
+		 * @return An explanatory error message.
+		 **************************************************************************************************************/
 		virtual const char* what() const noexcept;
 	};
 
@@ -41,23 +41,23 @@ namespace tr {
 	 ******************************************************************************************************************/
 	enum class AudioFormat {
 		/**************************************************************************************************************
-         * 1-channel, 8-bit audio.
-         **************************************************************************************************************/
-		MONO8    = 0x11'00, // 8-bit mono audio.
+		 * 1-channel, 8-bit audio.
+		 **************************************************************************************************************/
+		MONO8 = 0x11'00, // 8-bit mono audio.
 
 		/**************************************************************************************************************
-         * 2-channel, 8-bit audio.
-         **************************************************************************************************************/
-		STEREO8  = 0x11'02, // 8-bit stereo audio.
+		 * 2-channel, 8-bit audio.
+		 **************************************************************************************************************/
+		STEREO8 = 0x11'02, // 8-bit stereo audio.
 
 		/**************************************************************************************************************
-         * 1-channel, 16-bit audio.
-         **************************************************************************************************************/
-		MONO16   = 0x11'01, // 16-bit mono audio.
+		 * 1-channel, 16-bit audio.
+		 **************************************************************************************************************/
+		MONO16 = 0x11'01, // 16-bit mono audio.
 
 		/**************************************************************************************************************
-         * 2-channel, 16-bit audio.
-         **************************************************************************************************************/
+		 * 2-channel, 16-bit audio.
+		 **************************************************************************************************************/
 		STEREO16 = 0x11'03 // 16-bit stereo audio.
 	};
 
@@ -65,24 +65,24 @@ namespace tr {
 	 * Non-owning audio buffer view.
 	 ******************************************************************************************************************/
 	class AudioBufferView {
-	public:
+	  public:
 		/**************************************************************************************************************
-         * Equality comparison operator.
-         **************************************************************************************************************/
+		 * Equality comparison operator.
+		 **************************************************************************************************************/
 		friend bool operator==(const AudioBufferView&, const AudioBufferView&) noexcept = default;
 
 		/**************************************************************************************************************
-         * Sets the data of the buffer.
-         *
-         * @exception AudioBufferBadAlloc If allocating the buffer failed.
-         *
-         * @param data A span over audio data.
-         * @param format The format of the audio data.
-         * @param frequency The frequency of the audio data.
-         **************************************************************************************************************/
-		void        set(std::span<const std::byte> data, AudioFormat format, int frequency);
+		 * Sets the data of the buffer.
+		 *
+		 * @exception AudioBufferBadAlloc If allocating the buffer failed.
+		 *
+		 * @param data A span over audio data.
+		 * @param format The format of the audio data.
+		 * @param frequency The frequency of the audio data.
+		 **************************************************************************************************************/
+		void set(std::span<const std::byte> data, AudioFormat format, int frequency);
 
-	protected:
+	  protected:
 		/// @cond IMPLEMENTATION
 		unsigned int _id; // The OpenAL ID of the buffer.
 
@@ -96,64 +96,64 @@ namespace tr {
 
 	/******************************************************************************************************************
 	 * Owning audio buffer.
-     *
-     * An audio context must be open to instantiate and use objects of this type.
+	 *
+	 * An audio context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	class AudioBuffer {
-	public:
+	  public:
 		/**************************************************************************************************************
-         * Constructs an empty audio buffer.
-         *
-         * @exception AudioBufferBadAlloc If allocating the buffer failed.
-         **************************************************************************************************************/
+		 * Constructs an empty audio buffer.
+		 *
+		 * @exception AudioBufferBadAlloc If allocating the buffer failed.
+		 **************************************************************************************************************/
 		AudioBuffer();
 
 		/**************************************************************************************************************
-         * Constructs an audio buffer containing audio data.
-         *
-         * @exception AudioBufferBadAlloc If allocating the buffer failed.
-         *
-         * @param data A span over audio data.
-         * @param format The format of the audio data.
-         * @param frequency The frequency of the audio data.
-         **************************************************************************************************************/
+		 * Constructs an audio buffer containing audio data.
+		 *
+		 * @exception AudioBufferBadAlloc If allocating the buffer failed.
+		 *
+		 * @param data A span over audio data.
+		 * @param format The format of the audio data.
+		 * @param frequency The frequency of the audio data.
+		 **************************************************************************************************************/
 		AudioBuffer(std::span<const std::byte> data, AudioFormat format, int frequency);
 
 		/**************************************************************************************************************
-         * Loads audio data from file to a buffer.
-         *
-         * @exception FileNotFound If the file wasn't found.
-         * @exception FileOpenError If opening the file failed.
-         * @exception UnsupportedAudioFile If the file is an unsupported or invalid format.
-         * @exception std::bad_alloc If allocating a buffer for reading the data failed.
-         * @exception AudioBufferBadAlloc If allocating the buffer failed.
-         *
-         * @param path The path to an audio file.
-         **************************************************************************************************************/
+		 * Loads audio data from file to a buffer.
+		 *
+		 * @exception FileNotFound If the file wasn't found.
+		 * @exception FileOpenError If opening the file failed.
+		 * @exception UnsupportedAudioFile If the file is an unsupported or invalid format.
+		 * @exception std::bad_alloc If allocating a buffer for reading the data failed.
+		 * @exception AudioBufferBadAlloc If allocating the buffer failed.
+		 *
+		 * @param path The path to an audio file.
+		 **************************************************************************************************************/
 		explicit AudioBuffer(const std::filesystem::path& path);
 
 		/**************************************************************************************************************
-         * Equality comparison operator.
-         **************************************************************************************************************/
+		 * Equality comparison operator.
+		 **************************************************************************************************************/
 		friend bool operator==(const AudioBuffer&, const AudioBuffer&) noexcept = default;
 
 		/**************************************************************************************************************
-         * Casts the audio buffer to an audio buffer view.
-         **************************************************************************************************************/
+		 * Casts the audio buffer to an audio buffer view.
+		 **************************************************************************************************************/
 		operator AudioBufferView() const noexcept;
 
 		/**************************************************************************************************************
-         * Sets the data of the buffer.
-         *
-         * @exception AudioBufferBadAlloc If allocating the buffer failed.
-         *
-         * @param data A span over audio data.
-         * @param format The format of the audio data.
-         * @param frequency The frequency of the audio data.
-         **************************************************************************************************************/
+		 * Sets the data of the buffer.
+		 *
+		 * @exception AudioBufferBadAlloc If allocating the buffer failed.
+		 *
+		 * @param data A span over audio data.
+		 * @param format The format of the audio data.
+		 * @param frequency The frequency of the audio data.
+		 **************************************************************************************************************/
 		void set(std::span<const std::byte> data, AudioFormat format, int frequency);
 
-	private:
+	  private:
 		struct Deleter {
 			void operator()(unsigned int id) const noexcept;
 		};

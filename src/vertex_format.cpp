@@ -6,9 +6,9 @@ tr::VertexFormat::VertexFormat(std::span<const VertexAttribute> attrs) noexcept
 {
 	struct AttribFormatter {
 		GLuint vao;
-		int    i;
+		int i;
 
-		void   operator()(const VertexAttributeF& attr)
+		void operator()(const VertexAttributeF& attr)
 		{
 			glVertexArrayAttribFormat(vao, i, attr.elements, GLenum(attr.type), attr.normalized, attr.offset);
 		}
@@ -27,7 +27,7 @@ tr::VertexFormat::VertexFormat(std::span<const VertexAttribute> attrs) noexcept
 	GLuint vao;
 	glCreateVertexArrays(1, &vao);
 	for (int i = 0; i < attrs.size(); ++i) {
-		std::visit(AttribFormatter {vao, i}, attrs[i]);
+		std::visit(AttribFormatter{vao, i}, attrs[i]);
 		glVertexArrayAttribBinding(vao, i, 0);
 		glEnableVertexArrayAttrib(vao, i);
 	}

@@ -5,7 +5,7 @@
 namespace tr {
 	// Hit-test callback passed directly to SDL that bridges the gap between SDL and tr's callback format.
 	SDL_HitTestResult sdlHitTestCB(SDL_Window* window, const SDL_Point* point, void* data) noexcept;
-}
+} // namespace tr
 
 SDL_HitTestResult tr::sdlHitTestCB(SDL_Window* window, const SDL_Point* point, void* data) noexcept
 {
@@ -13,8 +13,9 @@ SDL_HitTestResult tr::sdlHitTestCB(SDL_Window* window, const SDL_Point* point, v
 }
 
 tr::WindowView::WindowView(SDL_Window* window) noexcept
-	: _impl {window}
-{}
+	: _impl{window}
+{
+}
 
 const char* tr::WindowView::title() const noexcept
 {
@@ -60,21 +61,17 @@ std::optional<tr::DisplayMode> tr::WindowView::fullscreenMode() const noexcept
 	else {
 		SDL_DisplayMode sdlMode;
 		SDL_GetWindowDisplayMode(_impl, &sdlMode);
-		return DisplayMode {
-			{sdlMode.w, sdlMode.h},
-			BitmapFormat::Type(sdlMode.format),
-			sdlMode.refresh_rate
-		};
+		return DisplayMode{{sdlMode.w, sdlMode.h}, BitmapFormat::Type(sdlMode.format), sdlMode.refresh_rate};
 	}
 }
 
 void tr::WindowView::setFullscreenMode(const DisplayMode& dmode) const
 {
 	assert(_impl != nullptr);
-	SDL_DisplayMode
-		sdlMode {std::uint32_t(BitmapFormat::Type(dmode.format)), dmode.size.x, dmode.size.y, dmode.refreshRate};
+	SDL_DisplayMode sdlMode{std::uint32_t(BitmapFormat::Type(dmode.format)), dmode.size.x, dmode.size.y,
+							dmode.refreshRate};
 	if (SDL_SetWindowDisplayMode(_impl, &sdlMode) < 0) {
-		throw WindowError {"Failed to set window fullscreen mode"};
+		throw WindowError{"Failed to set window fullscreen mode"};
 	}
 }
 
@@ -88,7 +85,7 @@ void tr::WindowView::setWindowMode(WindowMode mode) const
 {
 	assert(_impl != nullptr);
 	if (SDL_SetWindowFullscreen(_impl, std::uint32_t(mode)) < 0) {
-		throw WindowError {"Failed to set window mode"};
+		throw WindowError{"Failed to set window mode"};
 	}
 }
 
@@ -235,7 +232,7 @@ void tr::WindowView::setMouseGrab(bool grab) const noexcept
 std::optional<tr::RectI2> tr::WindowView::mouseConfines() const noexcept
 {
 	assert(_impl != nullptr);
-	auto sdlRect {SDL_GetWindowMouseRect(_impl)};
+	auto sdlRect{SDL_GetWindowMouseRect(_impl)};
 	if (sdlRect == nullptr) {
 		return std::nullopt;
 	}
@@ -247,7 +244,7 @@ std::optional<tr::RectI2> tr::WindowView::mouseConfines() const noexcept
 void tr::WindowView::setMouseConfines(const RectI2& rect) const noexcept
 {
 	assert(_impl != nullptr);
-	auto sdlRect {std::bit_cast<SDL_Rect>(rect)};
+	auto sdlRect{std::bit_cast<SDL_Rect>(rect)};
 	SDL_SetWindowMouseRect(_impl, &sdlRect);
 }
 
@@ -273,7 +270,7 @@ void tr::WindowView::flash(FlashOperation operation) const
 {
 	assert(_impl != nullptr);
 	if (SDL_FlashWindow(_impl, SDL_FlashOperation(operation)) < 0) {
-		throw WindowError {"Failed to flash window"};
+		throw WindowError{"Failed to flash window"};
 	}
 }
 
@@ -298,56 +295,41 @@ void tr::WindowView::swap() const noexcept
 }
 
 tr::Window::Window(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFlag flags)
-	: WindowView {SDL_CreateWindow(title, pos.x, pos.y, size.x, size.y, std::uint32_t(flags) | SDL_WINDOW_OPENGL)}
+	: WindowView{SDL_CreateWindow(title, pos.x, pos.y, size.x, size.y, std::uint32_t(flags) | SDL_WINDOW_OPENGL)}
 {
 	if (_impl == nullptr) {
-		throw WindowOpenError {std::format("Failed to open {}x{} window ({}).", size.x, size.y, SDL_GetError())};
+		throw WindowOpenError{std::format("Failed to open {}x{} window ({}).", size.x, size.y, SDL_GetError())};
 	}
 }
 
 tr::Window::Window(const char* title, DisplayInfo display, WindowFlag flags)
-	: WindowView {nullptr}
+	: WindowView{nullptr}
 {
-	const auto dmode {display.desktopMode()};
-	const auto pos {display.centeredPos()};
-	_impl = SDL_CreateWindow(
-		title,
-		pos.x,
-		pos.y,
-		dmode.size.x,
-		dmode.size.y,
-		std::uint32_t(flags) | SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP
-	);
+	const auto dmode{display.desktopMode()};
+	const auto pos{display.centeredPos()};
+	_impl = SDL_CreateWindow(title, pos.x, pos.y, dmode.size.x, dmode.size.y,
+							 std::uint32_t(flags) | SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP);
 	if (_impl == nullptr) {
-		throw WindowOpenError {
-			std::format("Failed to open borderless {}x{} window ({}).", dmode.size.x, dmode.size.y, SDL_GetError())
-		};
+		throw WindowOpenError{
+			std::format("Failed to open borderless {}x{} window ({}).", dmode.size.x, dmode.size.y, SDL_GetError())};
 	}
 }
 
 tr::Window::Window(const char* title, const DisplayMode& dmode, DisplayInfo display, WindowFlag flags)
-	: WindowView {nullptr}
+	: WindowView{nullptr}
 {
-	auto pos {display.centeredPos()};
-	_impl = SDL_CreateWindow(
-		title,
-		pos.x,
-		pos.y,
-		dmode.size.x,
-		dmode.size.y,
-		std::uint32_t(flags) | SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN
-	);
+	auto pos{display.centeredPos()};
+	_impl = SDL_CreateWindow(title, pos.x, pos.y, dmode.size.x, dmode.size.y,
+							 std::uint32_t(flags) | SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN);
 	if (_impl == nullptr) {
-		throw WindowOpenError {
-			std::format("Failed to open fullscreen {}x{} window ({}).", dmode.size.x, dmode.size.y, SDL_GetError())
-		};
+		throw WindowOpenError{
+			std::format("Failed to open fullscreen {}x{} window ({}).", dmode.size.x, dmode.size.y, SDL_GetError())};
 	}
 	setFullscreenMode(dmode);
 }
 
 tr::Window::Window(Window&& r) noexcept
-	: WindowView {r._impl}
-	, _hitTest {std::move(r._hitTest)}
+	: WindowView{r._impl}, _hitTest{std::move(r._hitTest)}
 {
 	r._impl = nullptr;
 }
@@ -370,10 +352,10 @@ void tr::Window::setHitTest(HitTestCB hitTestCB)
 	assert(_impl != nullptr);
 	SDL_SetWindowHitTest(_impl, nullptr, nullptr);
 	if (hitTestCB != nullptr) {
-		auto oldHitTest {std::exchange(_hitTest, std::move(hitTestCB))};
+		auto oldHitTest{std::exchange(_hitTest, std::move(hitTestCB))};
 		if (SDL_SetWindowHitTest(_impl, sdlHitTestCB, &_hitTest) < 0) {
 			std::swap(oldHitTest, _hitTest);
-			throw WindowError {"Failed to set hit test"};
+			throw WindowError{"Failed to set hit test"};
 		}
 	}
 }

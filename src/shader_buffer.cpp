@@ -5,10 +5,11 @@
 using namespace magic_enum::bitwise_operators;
 
 tr::ShaderBuffer::ShaderBuffer(std::size_t headerSize, std::size_t capacity, Access access)
-	: GLBuffer {Target::SHADER_STORAGE_BUFFER, headerSize + capacity, Flag(access) | Flag::DYNAMIC_STORAGE}
-	, _headerSize {headerSize}
-	, _size {0}
-{}
+	: GLBuffer{Target::SHADER_STORAGE_BUFFER, headerSize + capacity, Flag(access) | Flag::DYNAMIC_STORAGE},
+	  _headerSize{headerSize},
+	  _size{0}
+{
+}
 
 std::size_t tr::ShaderBuffer::headerSize() const noexcept
 {

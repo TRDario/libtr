@@ -12,38 +12,34 @@
 namespace tr {
 	/******************************************************************************************************************
 	 * A shader program pipeline.
-     *
-     * An OpenGL context must be open to instantiate and use objects of this type.
+	 *
+	 * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	class ShaderPipeline {
-	public:
+	  public:
 		/**************************************************************************************************************
-	     * Creates a shader pipeline.
-         *
-         * All shaders must actually be of the type they're passed as, otherwise a failed assertion may be triggered.
-         *
-         * @param vertexShader The vertex shader.
-         * @param tessEvalShader An optional tesselation evaluation shader.
-         * @param tessControlShader An optional tesselation control shader.
-         * @param geometryShader An optional geometry shader.
-         * @param fragmentShader The fragment shader.
-	     **************************************************************************************************************/
-		ShaderPipeline(
-			const Shader&                  vertexShader,
-			boost::optional<const Shader&> tessEvalShader,
-			boost::optional<const Shader&> tessControlShader,
-			boost::optional<const Shader&> geometryShader,
-			const Shader&                  fragmentShader
-		) noexcept;
+		 * Creates a shader pipeline.
+		 *
+		 * All shaders must actually be of the type they're passed as, otherwise a failed assertion may be triggered.
+		 *
+		 * @param vertexShader The vertex shader.
+		 * @param tessEvalShader An optional tesselation evaluation shader.
+		 * @param tessControlShader An optional tesselation control shader.
+		 * @param geometryShader An optional geometry shader.
+		 * @param fragmentShader The fragment shader.
+		 **************************************************************************************************************/
+		ShaderPipeline(const Shader& vertexShader, boost::optional<const Shader&> tessEvalShader,
+					   boost::optional<const Shader&> tessControlShader, boost::optional<const Shader&> geometryShader,
+					   const Shader& fragmentShader) noexcept;
 
 		/**************************************************************************************************************
-	     * Sets the debug label of the pipeline.
-         *
-         * @param label The new label of the pipeline.
-	     **************************************************************************************************************/
+		 * Sets the debug label of the pipeline.
+		 *
+		 * @param label The new label of the pipeline.
+		 **************************************************************************************************************/
 		void setLabel(std::string_view label) noexcept;
 
-	private:
+	  private:
 		struct Deleter {
 			/// @private
 			void operator()(unsigned int id) const noexcept;
@@ -51,7 +47,7 @@ namespace tr {
 
 		Handle<unsigned int, 0, Deleter> _id;
 
-		void                             bind() const noexcept;
+		void bind() const noexcept;
 
 		friend class GLContext;
 	};

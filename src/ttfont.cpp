@@ -5,12 +5,12 @@
 namespace tr {
 	// Fixes certain edge artifacts when rendering partially transparent text.
 	void fixAlphaArtifacts(Bitmap& bitmap, std::uint8_t maxAlpha) noexcept;
-}
+} // namespace tr
 
 void tr::fixAlphaArtifacts(Bitmap& bitmap, std::uint8_t maxAlpha) noexcept
 {
 	// We know the bitmap is ARGB_8888.
-	auto it {(std::uint8_t*)(bitmap.data())};
+	auto it{(std::uint8_t*)(bitmap.data())};
 	for (int y = 0; y < bitmap.size().y; ++y) {
 		for (int x = 0; x < bitmap.size().x; ++x) {
 			it[x * 4] = std::min(it[x * 4], maxAlpha);
@@ -22,7 +22,7 @@ void tr::fixAlphaArtifacts(Bitmap& bitmap, std::uint8_t maxAlpha) noexcept
 tr::SDL_TTF::SDL_TTF()
 {
 	if (TTF_Init() < 0) {
-		throw SDLError {"Failed to initialize the SDL TrueType library"};
+		throw SDLError{"Failed to initialize the SDL TrueType library"};
 	}
 }
 
@@ -52,13 +52,14 @@ const char* tr::TTFontLoadError::what() const noexcept
 }
 
 tr::TTFontResizeError::TTFontResizeError()
-	: SDLError {"Failed to resize font"}
-{}
+	: SDLError{"Failed to resize font"}
+{
+}
 
 tr::TTFont::TTFont(const std::filesystem::path& path, int size, glm::uvec2 dpi)
 {
 	if (!is_regular_file(path)) {
-		throw FileNotFound {path};
+		throw FileNotFound{path};
 	}
 
 #ifdef _WIN32
@@ -67,12 +68,12 @@ tr::TTFont::TTFont(const std::filesystem::path& path, int size, glm::uvec2 dpi)
 	_impl.reset(TTF_OpenFontDPI(path.c_str(), size, dpi.x, dpi.y));
 #endif
 	if (_impl == nullptr) {
-		throw TTFontLoadError {path};
+		throw TTFontLoadError{path};
 	}
 }
 
 tr::TTFont::TTFont(std::span<const std::byte> embeddedFile, int size, glm::uvec2 dpi) noexcept
-	: _impl {TTF_OpenFontDPIRW(SDL_RWFromConstMem(embeddedFile.data(), embeddedFile.size()), true, size, dpi.x, dpi.y)}
+	: _impl{TTF_OpenFontDPIRW(SDL_RWFromConstMem(embeddedFile.data(), embeddedFile.size()), true, size, dpi.x, dpi.y)}
 {
 	assert(_impl != nullptr);
 }
@@ -188,7 +189,7 @@ tr::TTFont::Glyph tr::TTFont::glyph(std::uint32_t cp) const noexcept
 void tr::TTFont::resize(int size, glm::uvec2 dpi)
 {
 	if (TTF_SetFontSizeDPI(_impl.get(), size, dpi.x, dpi.y) < 0) {
-		throw TTFontResizeError {};
+		throw TTFontResizeError{};
 	}
 }
 
@@ -203,20 +204,17 @@ tr::TTFont::MeasureResult tr::TTFont::measure(const char* text, int maxWidth) co
 {
 	int extent, count;
 	TTF_MeasureUTF8(_impl.get(), text, maxWidth, &extent, &count);
-	return {
-		std::string_view {text, std::size_t(count)},
-		extent
-	};
+	return {std::string_view{text, std::size_t(count)}, extent};
 }
 
 tr::Bitmap tr::TTFont::render(std::uint32_t cp, RGBA8 color) const
 {
-	return Bitmap {TTF_RenderGlyph32_Blended(_impl.get(), cp, std::bit_cast<SDL_Color>(color))};
+	return Bitmap{TTF_RenderGlyph32_Blended(_impl.get(), cp, std::bit_cast<SDL_Color>(color))};
 }
 
 tr::Bitmap tr::TTFont::render(const char* text, RGBA8 color) const
 {
-	Bitmap render {TTF_RenderUTF8_Blended(_impl.get(), text, std::bit_cast<SDL_Color>(color))};
+	Bitmap render{TTF_RenderUTF8_Blended(_impl.get(), text, std::bit_cast<SDL_Color>(color))};
 	if (color.a < 255) {
 		fixAlphaArtifacts(render, color.a);
 	}
@@ -225,7 +223,7 @@ tr::Bitmap tr::TTFont::render(const char* text, RGBA8 color) const
 
 tr::Bitmap tr::TTFont::renderWrapped(const char* text, RGBA8 color, std::uint32_t width) const
 {
-	Bitmap render {TTF_RenderUTF8_Blended_Wrapped(_impl.get(), text, std::bit_cast<SDL_Color>(color), width)};
+	Bitmap render{TTF_RenderUTF8_Blended_Wrapped(_impl.get(), text, std::bit_cast<SDL_Color>(color), width)};
 	if (color.a < 255) {
 		fixAlphaArtifacts(render, color.a);
 	}

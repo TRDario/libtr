@@ -4,20 +4,18 @@
 #include <SDL2/SDL_image.h>
 
 #ifdef _WIN32
-	#include <windows.h>
+#include <windows.h>
 #endif
 
 namespace tr {
-	template <class T>
-	T	  checkNotNull(T ptr);
+	template <class T> T checkNotNull(T ptr);
 	RGBA8 getPixelColor(const void* data, SDL_PixelFormat* format);
 } // namespace tr
 
-template <class T>
-T tr::checkNotNull(T ptr)
+template <class T> T tr::checkNotNull(T ptr)
 {
 	if (ptr == nullptr) {
-		throw BitmapBadAlloc {};
+		throw BitmapBadAlloc{};
 	}
 	return ptr;
 }
@@ -31,8 +29,8 @@ tr::RGBA8 tr::getPixelColor(const void* data, SDL_PixelFormat* format)
 	case 2:
 		value = *((const std::uint16_t*)(data));
 	case 3:
-		value = ((const std::uint8_t*)(data))[0] << 16 | ((const std::uint8_t*)(data))[1] << 8
-			  | ((const std::uint8_t*)(data))[2];
+		value = ((const std::uint8_t*)(data))[0] << 16 | ((const std::uint8_t*)(data))[1] << 8 |
+				((const std::uint8_t*)(data))[2];
 	case 4:
 		value = *((const std::uint32_t*)(data));
 	}
@@ -79,9 +77,9 @@ tr::Version tr::SDL_Image::version() noexcept
 }
 
 tr::SubBitmap::SubBitmap(const Bitmap& bitmap, RectI2 rect) noexcept
-	: _bitmap {bitmap}
-	, _rect {rect}
-{}
+	: _bitmap{bitmap}, _rect{rect}
+{
+}
 
 glm::ivec2 tr::SubBitmap::size() const noexcept
 {
@@ -91,10 +89,7 @@ glm::ivec2 tr::SubBitmap::size() const noexcept
 tr::SubBitmap tr::SubBitmap::sub(RectI2 rect) noexcept
 {
 	assert(_rect.contains(rect.tl + rect.size));
-	return {
-		_bitmap,
-		{_rect.tl + rect.tl, rect.size}
-	};
+	return {_bitmap, {_rect.tl + rect.tl, rect.size}};
 }
 
 tr::SubBitmap::PixelRef tr::SubBitmap::operator[](glm::ivec2 pos) const noexcept
@@ -114,10 +109,7 @@ tr::SubBitmap::Iterator tr::SubBitmap::cbegin() const noexcept
 
 tr::SubBitmap::Iterator tr::SubBitmap::end() const noexcept
 {
-	return {
-		*this,
-		{0, size().y}
-	};
+	return {*this, {0, size().y}};
 }
 
 tr::SubBitmap::Iterator tr::SubBitmap::cend() const noexcept
@@ -146,9 +138,9 @@ int tr::SubBitmap::pitch() const noexcept
 }
 
 tr::SubBitmap::PixelRef::PixelRef(const void* ptr, SDL_PixelFormat* format) noexcept
-	: _impl {ptr}
-	, _format {format}
-{}
+	: _impl{ptr}, _format{format}
+{
+}
 
 tr::SubBitmap::PixelRef::operator RGBA8() const noexcept
 {
@@ -156,11 +148,13 @@ tr::SubBitmap::PixelRef::operator RGBA8() const noexcept
 }
 
 tr::SubBitmap::Iterator::Iterator(SubBitmap bitmap, glm::ivec2 pos) noexcept
-    : _pixel { (const std::byte*)(bitmap.data()) + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x, bitmap._bitmap.get()._impl.get()->format }
-    , _bitmapSize { bitmap.size() }
-    , _pitch { bitmap.pitch() }
-    , _pos { pos }
-{}
+	: _pixel{(const std::byte*)(bitmap.data()) + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x,
+			 bitmap._bitmap.get()._impl.get()->format},
+	  _bitmapSize{bitmap.size()},
+	  _pitch{bitmap.pitch()},
+	  _pos{pos}
+{
+}
 
 std::partial_ordering tr::SubBitmap::Iterator::operator<=>(const Iterator& r) const noexcept
 {
@@ -182,7 +176,7 @@ bool tr::SubBitmap::Iterator::operator==(const Iterator& r) const noexcept
 
 tr::SubBitmap::Iterator::value_type tr::SubBitmap::Iterator::operator*() const noexcept
 {
-	assert(_pixel._impl != nullptr && RectI2 {_bitmapSize}.contains(_pos));
+	assert(_pixel._impl != nullptr && RectI2{_bitmapSize}.contains(_pos));
 	return _pixel;
 }
 
@@ -208,14 +202,14 @@ tr::SubBitmap::Iterator& tr::SubBitmap::Iterator::operator++() noexcept
 
 tr::SubBitmap::Iterator tr::SubBitmap::Iterator::operator++(int) noexcept
 {
-	Iterator copy {*this};
+	Iterator copy{*this};
 	++*this;
 	return copy;
 }
 
 tr::SubBitmap::Iterator& tr::SubBitmap::Iterator::operator+=(int diff) noexcept
 {
-	auto lines {diff / _bitmapSize.x};
+	auto lines{diff / _bitmapSize.x};
 	diff %= _bitmapSize.x;
 	if (diff + _pos.x >= _bitmapSize.x) {
 		++lines;
@@ -236,7 +230,7 @@ tr::SubBitmap::Iterator& tr::SubBitmap::Iterator::operator+=(glm::ivec2 diff) no
 
 tr::SubBitmap::Iterator tr::operator+(const tr::SubBitmap::Iterator& it, int diff) noexcept
 {
-	tr::SubBitmap::Iterator copy {it};
+	tr::SubBitmap::Iterator copy{it};
 	copy += diff;
 	return copy;
 }
@@ -248,7 +242,7 @@ tr::SubBitmap::Iterator tr::operator+(int diff, const tr::SubBitmap::Iterator& i
 
 tr::SubBitmap::Iterator tr::operator+(const tr::SubBitmap::Iterator& it, glm::ivec2 diff) noexcept
 {
-	tr::SubBitmap::Iterator copy {it};
+	tr::SubBitmap::Iterator copy{it};
 	copy += diff;
 	return copy;
 }
@@ -265,7 +259,7 @@ tr::SubBitmap::Iterator& tr::SubBitmap::Iterator::operator--() noexcept
 
 tr::SubBitmap::Iterator tr::SubBitmap::Iterator::operator--(int) noexcept
 {
-	Iterator copy {*this};
+	Iterator copy{*this};
 	--*this;
 	return copy;
 }
@@ -282,7 +276,7 @@ tr::SubBitmap::Iterator& tr::SubBitmap::Iterator::operator-=(glm::ivec2 diff) no
 
 tr::SubBitmap::Iterator tr::operator-(const tr::SubBitmap::Iterator& it, int diff) noexcept
 {
-	tr::SubBitmap::Iterator copy {it};
+	tr::SubBitmap::Iterator copy{it};
 	copy -= diff;
 	return copy;
 }
@@ -294,7 +288,7 @@ tr::SubBitmap::Iterator tr::operator-(int diff, const tr::SubBitmap::Iterator& i
 
 tr::SubBitmap::Iterator tr::operator-(const tr::SubBitmap::Iterator& it, glm::ivec2 diff) noexcept
 {
-	tr::SubBitmap::Iterator copy {it};
+	tr::SubBitmap::Iterator copy{it};
 	copy -= diff;
 	return copy;
 }
@@ -310,37 +304,31 @@ int tr::operator-(const tr::SubBitmap::Iterator& l, const tr::SubBitmap::Iterato
 }
 
 tr::Bitmap::Bitmap(SDL_Surface* ptr)
-	: _impl {checkNotNull(ptr)}
-{}
+	: _impl{checkNotNull(ptr)}
+{
+}
 
 tr::Bitmap::Bitmap(glm::ivec2 size, BitmapFormat format)
-	: _impl {checkNotNull(SDL_CreateRGBSurfaceWithFormat(
-		  0,
-		  size.x,
-		  size.y,
-		  format.pixelBits(),
-		  SDL_PixelFormatEnum(BitmapFormat::Type(format))
-	  ))}
-{}
+	: _impl{checkNotNull(SDL_CreateRGBSurfaceWithFormat(0, size.x, size.y, format.pixelBits(),
+														SDL_PixelFormatEnum(BitmapFormat::Type(format))))}
+{
+}
 
 tr::Bitmap::Bitmap(glm::ivec2 size, std::span<const std::byte> pixelData, BitmapFormat dataFormat)
-	: _impl {checkNotNull(SDL_CreateRGBSurfaceWithFormat(
-		  0,
-		  size.x,
-		  size.y,
-		  dataFormat.pixelBits(),
-		  std::uint32_t(BitmapFormat::Type(dataFormat))
-	  ))}
-{}
+	: _impl{checkNotNull(SDL_CreateRGBSurfaceWithFormat(0, size.x, size.y, dataFormat.pixelBits(),
+														std::uint32_t(BitmapFormat::Type(dataFormat))))}
+{
+}
 
 tr::Bitmap::Bitmap(std::span<const std::byte> embeddedFile)
-	: _impl {checkNotNull(IMG_Load_RW(SDL_RWFromConstMem(embeddedFile.data(), embeddedFile.size()), true))}
-{}
+	: _impl{checkNotNull(IMG_Load_RW(SDL_RWFromConstMem(embeddedFile.data(), embeddedFile.size()), true))}
+{
+}
 
 tr::Bitmap::Bitmap(const std::filesystem::path& path)
 {
 	if (!is_regular_file(path)) {
-		throw FileNotFound {path};
+		throw FileNotFound{path};
 	}
 
 #ifdef _WIN32
@@ -349,16 +337,17 @@ tr::Bitmap::Bitmap(const std::filesystem::path& path)
 	_impl.reset(IMG_Load(path.c_str()));
 #endif
 	if (_impl == nullptr) {
-		throw BitmapLoadError {path};
+		throw BitmapLoadError{path};
 	}
 }
 
 tr::Bitmap::Bitmap(const Bitmap& bitmap, BitmapFormat format)
-	: _impl {checkNotNull(SDL_ConvertSurfaceFormat(bitmap._impl.get(), std::uint32_t(BitmapFormat::Type(format)), 0))}
-{}
+	: _impl{checkNotNull(SDL_ConvertSurfaceFormat(bitmap._impl.get(), std::uint32_t(BitmapFormat::Type(format)), 0))}
+{
+}
 
 tr::Bitmap::Bitmap(SubBitmap source, BitmapFormat format)
-	: Bitmap {source.size(), format}
+	: Bitmap{source.size(), format}
 {
 	blit({}, source);
 }
@@ -403,10 +392,7 @@ tr::Bitmap::ConstIt tr::Bitmap::cbegin() const noexcept
 tr::Bitmap::MutIt tr::Bitmap::end() noexcept
 {
 	assert(_impl != nullptr);
-	return {
-		*this,
-		{0, size().y}
-	};
+	return {*this, {0, size().y}};
 }
 
 tr::Bitmap::ConstIt tr::Bitmap::end() const noexcept
@@ -424,17 +410,17 @@ tr::Bitmap::ConstIt tr::Bitmap::cend() const noexcept
 void tr::Bitmap::blit(glm::ivec2 tl, SubBitmap source) noexcept
 {
 	assert(_impl != nullptr);
-	assert(RectI2 {size()}.contains(tl + source.size()));
-	SDL_Rect sdlSource {source._rect.tl.x, source._rect.tl.y, source.size().x, source.size().y};
-	SDL_Rect sdlDest {tl.x, tl.y};
+	assert(RectI2{size()}.contains(tl + source.size()));
+	SDL_Rect sdlSource{source._rect.tl.x, source._rect.tl.y, source.size().x, source.size().y};
+	SDL_Rect sdlDest{tl.x, tl.y};
 	SDL_BlitSurface((SDL_Surface*)(source._bitmap.get()._impl.get()), &sdlSource, _impl.get(), &sdlDest);
 }
 
 void tr::Bitmap::fill(RectI2 rect, RGBA8 color) noexcept
 {
 	assert(_impl != nullptr);
-	assert(RectI2 {size()}.contains(rect.tl + rect.size));
-	SDL_Rect sdlRect {rect.tl.x, rect.tl.y, rect.size.x, rect.size.y};
+	assert(RectI2{size()}.contains(rect.tl + rect.size));
+	SDL_Rect sdlRect{rect.tl.x, rect.tl.y, rect.size.x, rect.size.y};
 	SDL_FillRect(_impl.get(), &sdlRect, SDL_MapRGBA(_impl.get()->format, color.r, color.g, color.b, color.a));
 }
 
@@ -445,7 +431,7 @@ tr::Bitmap::operator SubBitmap() const noexcept
 
 tr::SubBitmap tr::Bitmap::sub(RectI2 rect) const noexcept
 {
-	return SubBitmap {*this, rect};
+	return SubBitmap{*this, rect};
 }
 
 void* tr::Bitmap::data() noexcept
@@ -477,7 +463,7 @@ void tr::Bitmap::save(const std::filesystem::path& path, ImageFormat format)
 {
 	assert(_impl != nullptr);
 
-	auto surface {_impl.get()};
+	auto surface{_impl.get()};
 	switch (format) {
 	case ImageFormat::BMP:
 #ifdef _WIN32
@@ -485,7 +471,7 @@ void tr::Bitmap::save(const std::filesystem::path& path, ImageFormat format)
 #else
 		if (SDL_SaveBMP(surface, path.c_str()) < 0) {
 #endif
-			throw BitmapSaveError {path};
+			throw BitmapSaveError{path};
 		}
 		break;
 	case ImageFormat::PNG:
@@ -494,7 +480,7 @@ void tr::Bitmap::save(const std::filesystem::path& path, ImageFormat format)
 #else
 		if (IMG_SavePNG(surface, path.c_str()) < 0) {
 #endif
-			throw BitmapSaveError {path};
+			throw BitmapSaveError{path};
 		}
 		break;
 	case ImageFormat::JPG:
@@ -503,7 +489,7 @@ void tr::Bitmap::save(const std::filesystem::path& path, ImageFormat format)
 #else
 		if (IMG_SaveJPG(surface, path.c_str(), 70) < 0) {
 #endif
-			throw BitmapSaveError {path};
+			throw BitmapSaveError{path};
 		}
 		break;
 	default:
@@ -513,40 +499,22 @@ void tr::Bitmap::save(const std::filesystem::path& path, ImageFormat format)
 
 tr::Bitmap tr::createCheckerboard(glm::ivec2 size)
 {
-	constexpr RGBA8	 BLACK {0, 0, 0, 255};
-	constexpr RGBA8	 MAGENTA {255, 0, 255, 255};
-	const glm::ivec2 halfSize {size / 2};
+	constexpr RGBA8 BLACK{0, 0, 0, 255};
+	constexpr RGBA8 MAGENTA{255, 0, 255, 255};
+	const glm::ivec2 halfSize{size / 2};
 
-	Bitmap			 bitmap {size, BitmapFormat::RGB_332};
-	bitmap.fill(
-		{
-			{0, 0},
-			halfSize
-	},
-		BLACK
-	);
-	bitmap.fill(
-		{
-			{halfSize.x, 0},
-			halfSize
-	},
-		MAGENTA
-	);
-	bitmap.fill(
-		{
-			{0, halfSize.x},
-			halfSize
-	},
-		MAGENTA
-	);
+	Bitmap bitmap{size, BitmapFormat::RGB_332};
+	bitmap.fill({{0, 0}, halfSize}, BLACK);
+	bitmap.fill({{halfSize.x, 0}, halfSize}, MAGENTA);
+	bitmap.fill({{0, halfSize.x}, halfSize}, MAGENTA);
 	bitmap.fill({halfSize, halfSize}, BLACK);
 	return bitmap;
 }
 
 tr::Bitmap::PixelRef::PixelRef(void* ptr, SDL_PixelFormat* format) noexcept
-	: _impl {ptr}
-	, _format {format}
-{}
+	: _impl{ptr}, _format{format}
+{
+}
 
 tr::Bitmap::PixelRef::operator RGBA8() const noexcept
 {
@@ -555,7 +523,7 @@ tr::Bitmap::PixelRef::operator RGBA8() const noexcept
 
 tr::Bitmap::PixelRef& tr::Bitmap::PixelRef::operator=(RGBA8 color) noexcept
 {
-	auto formatted {SDL_MapRGBA(_format, color.r, color.g, color.b, color.a)};
+	auto formatted{SDL_MapRGBA(_format, color.r, color.g, color.b, color.a)};
 	switch (_format->BytesPerPixel) {
 	case 1:
 		*((std::uint8_t*)(_impl)) = formatted;
@@ -575,10 +543,12 @@ tr::Bitmap::PixelRef& tr::Bitmap::PixelRef::operator=(RGBA8 color) noexcept
 }
 
 tr::Bitmap::MutIt::MutIt(Bitmap& bitmap, glm::ivec2 pos) noexcept
-    : _pixel { (std::byte*)(bitmap.data()) + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x, bitmap._impl.get()->format }
-    , _bitmap { &bitmap }
-    , _pos { pos }
-{}
+	: _pixel{(std::byte*)(bitmap.data()) + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x,
+			 bitmap._impl.get()->format},
+	  _bitmap{&bitmap},
+	  _pos{pos}
+{
+}
 
 std::partial_ordering tr::Bitmap::MutIt::operator<=>(const tr::Bitmap::MutIt& r) const noexcept
 {
@@ -600,7 +570,7 @@ bool tr::Bitmap::MutIt::operator==(const MutIt& r) const noexcept
 
 tr::Bitmap::MutIt::value_type tr::Bitmap::MutIt::operator*() const noexcept
 {
-	assert(_pixel._impl != nullptr && RectI2 {_bitmap->size()}.contains(_pos));
+	assert(_pixel._impl != nullptr && RectI2{_bitmap->size()}.contains(_pos));
 	return _pixel;
 }
 
@@ -626,7 +596,7 @@ tr::Bitmap::MutIt& tr::Bitmap::MutIt::operator++() noexcept
 
 tr::Bitmap::MutIt tr::Bitmap::MutIt::operator++(int) noexcept
 {
-	MutIt copy {*this};
+	MutIt copy{*this};
 	++*this;
 	return copy;
 }
@@ -635,8 +605,8 @@ tr::Bitmap::MutIt& tr::Bitmap::MutIt::operator+=(int diff) noexcept
 {
 	assert(_pixel._impl != nullptr);
 
-	const glm::ivec2 bitmapSize {_bitmap->size()};
-	auto			 lines {diff / bitmapSize.x};
+	const glm::ivec2 bitmapSize{_bitmap->size()};
+	auto lines{diff / bitmapSize.x};
 	diff %= bitmapSize.x;
 	if (diff + _pos.x >= bitmapSize.x) {
 		++lines;
@@ -646,8 +616,8 @@ tr::Bitmap::MutIt& tr::Bitmap::MutIt::operator+=(int diff) noexcept
 		--lines;
 		diff += bitmapSize.x;
 	}
-	_pixel._impl  = (std::byte*)(_pixel._impl) + _bitmap->pitch() * lines + _pixel._format->BytesPerPixel * diff;
-	_pos		 += glm::ivec2 {diff, lines};
+	_pixel._impl = (std::byte*)(_pixel._impl) + _bitmap->pitch() * lines + _pixel._format->BytesPerPixel * diff;
+	_pos += glm::ivec2{diff, lines};
 	return *this;
 }
 
@@ -658,7 +628,7 @@ tr::Bitmap::MutIt& tr::Bitmap::MutIt::operator+=(glm::ivec2 diff) noexcept
 
 tr::Bitmap::MutIt tr::operator+(const tr::Bitmap::MutIt& it, int diff) noexcept
 {
-	tr::Bitmap::MutIt copy {it};
+	tr::Bitmap::MutIt copy{it};
 	copy += diff;
 	return copy;
 }
@@ -670,7 +640,7 @@ tr::Bitmap::MutIt tr::operator+(int diff, const tr::Bitmap::MutIt& it) noexcept
 
 tr::Bitmap::MutIt tr::operator+(const tr::Bitmap::MutIt& it, glm::ivec2 diff) noexcept
 {
-	tr::Bitmap::MutIt copy {it};
+	tr::Bitmap::MutIt copy{it};
 	copy += diff;
 	return copy;
 }
@@ -687,7 +657,7 @@ tr::Bitmap::MutIt& tr::Bitmap::MutIt::operator--() noexcept
 
 tr::Bitmap::MutIt tr::Bitmap::MutIt::operator--(int) noexcept
 {
-	MutIt copy {*this};
+	MutIt copy{*this};
 	--*this;
 	return copy;
 }
@@ -704,7 +674,7 @@ tr::Bitmap::MutIt& tr::Bitmap::MutIt::operator-=(glm::ivec2 diff) noexcept
 
 tr::Bitmap::MutIt tr::operator-(const tr::Bitmap::MutIt& it, int diff) noexcept
 {
-	tr::Bitmap::MutIt copy {it};
+	tr::Bitmap::MutIt copy{it};
 	copy -= diff;
 	return copy;
 }
@@ -716,7 +686,7 @@ tr::Bitmap::MutIt tr::operator-(int diff, const tr::Bitmap::MutIt& it) noexcept
 
 tr::Bitmap::MutIt tr::operator-(const tr::Bitmap::MutIt& it, glm::ivec2 diff) noexcept
 {
-	tr::Bitmap::MutIt copy {it};
+	tr::Bitmap::MutIt copy{it};
 	copy -= diff;
 	return copy;
 }

@@ -1,11 +1,11 @@
 #include "../include/tr/texture_unit.hpp"
 
-#include <bitset>
 #include <GL/glew.h>
+#include <bitset>
 
 namespace tr {
 	// Defined by the OpenGL standard.
-	inline constexpr int       MAX_TEX_UNITS {80};
+	inline constexpr int MAX_TEX_UNITS{80};
 	// Bitset where used up units are marked as bit flags.
 	std::bitset<MAX_TEX_UNITS> _texUnitPool;
 } // namespace tr

@@ -9,7 +9,7 @@ tr::AudioSource::AudioSource()
 	ALuint id;
 	alGenSources(1, &id);
 	if (alGetError() == AL_OUT_OF_MEMORY) {
-		throw AudioSourceBadAlloc {};
+		throw AudioSourceBadAlloc{};
 	}
 	_id.reset(id);
 }
@@ -241,7 +241,7 @@ std::optional<tr::AudioBufferView> tr::AudioSource::buffer() const noexcept
 {
 	int id;
 	alGetSourcei(_id.get(), AL_BUFFER, &id);
-	return id != 0 ? std::optional<AudioBufferView> {{(unsigned int)(id)}} : std::nullopt;
+	return id != 0 ? std::optional<AudioBufferView>{{(unsigned int)(id)}} : std::nullopt;
 }
 
 void tr::AudioSource::setBuffer(std::optional<AudioBufferView> buffer) noexcept
@@ -284,7 +284,7 @@ void tr::AudioSource::queueBuffers(std::span<AudioBufferView> buffers) noexcept
 
 std::vector<tr::AudioBufferView> tr::AudioSource::unqueueBuffers(std::size_t max)
 {
-	const auto					 n {std::min(max, processedBuffers())};
+	const auto n{std::min(max, processedBuffers())};
 
 	std::vector<AudioBufferView> buffers;
 	buffers.reserve(n);

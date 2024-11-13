@@ -44,21 +44,12 @@ tr::Orientation tr::Listener::orientation() const noexcept
 {
 	float arr[6];
 	alGetListenerfv(AL_ORIENTATION, arr);
-	return {
-		{arr[0], arr[1], arr[2]},
-		{arr[3], arr[4], arr[5]}
-	};
+	return {{arr[0], arr[1], arr[2]}, {arr[3], arr[4], arr[5]}};
 }
 
 void tr::Listener::setOrientation(Orientation orientation) noexcept
 {
-	float arr[] {
-		orientation.view.x,
-		orientation.view.y,
-		orientation.view.z,
-		orientation.up.x,
-		orientation.up.y,
-		orientation.up.z
-	};
+	float arr[]{orientation.view.x, orientation.view.y, orientation.view.z,
+				orientation.up.x,   orientation.up.y,   orientation.up.z};
 	alListenerfv(AL_ORIENTATION, arr);
 }

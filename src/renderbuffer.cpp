@@ -3,7 +3,7 @@
 #include <GL/glew.h>
 
 tr::Renderbuffer::Renderbuffer(glm::ivec2 size, TextureFormat format)
-	: _size {size}
+	: _size{size}
 {
 	GLuint id;
 	glCreateRenderbuffers(1, &id);
@@ -11,7 +11,7 @@ tr::Renderbuffer::Renderbuffer(glm::ivec2 size, TextureFormat format)
 
 	glNamedRenderbufferStorage(id, GLenum(format), size.x, size.y);
 	if (glGetError() == GL_OUT_OF_MEMORY) {
-		throw RenderbufferBadAlloc {};
+		throw RenderbufferBadAlloc{};
 	}
 }
 

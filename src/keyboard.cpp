@@ -1,15 +1,17 @@
 #include "../include/tr/keyboard.hpp"
 
-#include <cassert>
 #include <SDL2/SDL.h>
+#include <cassert>
 
 tr::Scancode::Scancode(Enum base) noexcept
-	: _enum {base}
-{}
+	: _enum{base}
+{
+}
 
 tr::Scancode::Scancode(const char* name) noexcept
-	: _enum {Enum(SDL_GetScancodeFromName(name))}
-{}
+	: _enum{Enum(SDL_GetScancodeFromName(name))}
+{
+}
 
 tr::Scancode::operator Enum() const noexcept
 {
@@ -27,12 +29,14 @@ const char* tr::Scancode::name() const noexcept
 }
 
 tr::Keycode::Keycode(Enum base) noexcept
-	: _enum {base}
-{}
+	: _enum{base}
+{
+}
 
 tr::Keycode::Keycode(const char* name) noexcept
-	: _enum {Enum(SDL_GetKeyFromName(name))}
-{}
+	: _enum{Enum(SDL_GetKeyFromName(name))}
+{
+}
 
 tr::Keycode::operator Enum() const noexcept
 {

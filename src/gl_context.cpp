@@ -8,34 +8,34 @@
 namespace tr {
 	// Initializes the GL context and GLEW.
 	SDL_GLContext createContext(SDL_Window* window);
-}
+} // namespace tr
 
 SDL_GLContext tr::createContext(SDL_Window* window)
 {
-	std::unique_ptr<void, FunctionCaller<&SDL_GL_DeleteContext>> context {SDL_GL_CreateContext(window)};
+	std::unique_ptr<void, FunctionCaller<&SDL_GL_DeleteContext>> context{SDL_GL_CreateContext(window)};
 	if (context == nullptr) {
-		throw GLContextCreationError {std::format("Failed to create OpenGL context: {}", SDL_GetError())};
+		throw GLContextCreationError{std::format("Failed to create OpenGL context: {}", SDL_GetError())};
 	}
 
 	glewExperimental = true;
 	GLenum glewError;
 	if ((glewError = glewInit()) != GLEW_OK) {
-		throw GLContextCreationError {
-			std::format("Failed to initialize GLEW: {}", (const char*)(glewGetErrorString(glewError)))
-		};
+		throw GLContextCreationError{
+			std::format("Failed to initialize GLEW: {}", (const char*)(glewGetErrorString(glewError)))};
 	}
 
 	return context.release();
 }
 
 tr::VSyncError::VSyncError()
-	: SDLError {"Failed to set V-sync mode"}
-{}
+	: SDLError{"Failed to set V-sync mode"}
+{
+}
 
 tr::GLContext::GLContext(Window& window)
-	: _impl {createContext(window._impl)}
-	, backbuffer {window}
-{}
+	: _impl{createContext(window._impl)}, backbuffer{window}
+{
+}
 
 void tr::GLContext::Deleter::operator()(SDL_GLContext ptr) const noexcept
 {
@@ -65,7 +65,7 @@ tr::VSync tr::GLContext::vsync() const noexcept
 void tr::GLContext::setVSync(VSync vsync)
 {
 	if (SDL_GL_SetSwapInterval(int(vsync)) < 0) {
-		throw VSyncError {};
+		throw VSyncError{};
 	}
 }
 
@@ -104,12 +104,8 @@ void tr::GLContext::setStencilTest(StencilFace face, Compare func, int comp, std
 	glStencilFuncSeparate(GLenum(face), GLenum(func), comp, mask);
 }
 
-void tr::GLContext::setStencilOperation(
-	StencilFace      face,
-	StencilOperation sfail,
-	StencilOperation dfail,
-	StencilOperation dpass
-) noexcept
+void tr::GLContext::setStencilOperation(StencilFace face, StencilOperation sfail, StencilOperation dfail,
+										StencilOperation dpass) noexcept
 {
 	glStencilOpSeparate(GLenum(face), GLenum(sfail), GLenum(dfail), GLenum(dpass));
 }
@@ -137,12 +133,8 @@ void tr::GLContext::useBlending(bool use) noexcept
 void tr::GLContext::setBlendingMode(BlendMode blendMode) noexcept
 {
 	glBlendEquationSeparate(GLenum(blendMode.rgbFn), GLenum(blendMode.alphaFn));
-	glBlendFuncSeparate(
-		GLenum(blendMode.rgbSrc),
-		GLenum(blendMode.rgbDst),
-		GLenum(blendMode.alphaSrc),
-		GLenum(blendMode.alphaDst)
-	);
+	glBlendFuncSeparate(GLenum(blendMode.rgbSrc), GLenum(blendMode.rgbDst), GLenum(blendMode.alphaSrc),
+						GLenum(blendMode.alphaDst));
 }
 
 void tr::GLContext::setBlendingColor(RGBAF clr)
@@ -208,12 +200,8 @@ void tr::GLContext::drawIndexed(Primitive type, std::size_t offset, std::size_t 
 	glDrawElements(GLenum(type), indices, GL_UNSIGNED_SHORT, (const void*)(offset));
 }
 
-void tr::GLContext::drawIndexedInstances(
-	Primitive   type,
-	std::size_t offset,
-	std::size_t indices,
-	int         instances
-) noexcept
+void tr::GLContext::drawIndexedInstances(Primitive type, std::size_t offset, std::size_t indices,
+										 int instances) noexcept
 {
 	glDrawElementsInstanced(GLenum(type), indices, GL_UNSIGNED_SHORT, (const void*)(offset), instances);
 }

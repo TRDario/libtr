@@ -11,13 +11,13 @@
 
 namespace tr {
 	/******************************************************************************************************************
-     * Display mode information.
-     ******************************************************************************************************************/
+	 * Display mode information.
+	 ******************************************************************************************************************/
 	struct DisplayMode {
 		/**************************************************************************************************************
 		 * The size of the display mode.
 		 **************************************************************************************************************/
-		glm::ivec2   size;
+		glm::ivec2 size;
 
 		/**************************************************************************************************************
 		 * The pixel format of the display mode.
@@ -27,19 +27,18 @@ namespace tr {
 		/**************************************************************************************************************
 		 * The refresh rate of the display mode.
 		 **************************************************************************************************************/
-		int          refreshRate;
+		int refreshRate;
 	};
 
 	/******************************************************************************************************************
-     * Display information.
-     ******************************************************************************************************************/
+	 * Display information.
+	 ******************************************************************************************************************/
 	class DisplayInfo {
-	public:
+	  public:
 		/**************************************************************************************************************
 		 * Creates an information object for the default display (see: DEFAULT_DISPLAY).
 		 **************************************************************************************************************/
-		constexpr DisplayInfo() noexcept
-			: _id {0} {};
+		constexpr DisplayInfo() noexcept : _id{0} {};
 
 		/**************************************************************************************************************
 		 * Creates an information object for a display.
@@ -64,14 +63,14 @@ namespace tr {
 		 *
 		 * @return The bounds of the display.
 		 **************************************************************************************************************/
-		RectI2                            bounds() const noexcept;
+		RectI2 bounds() const noexcept;
 
 		/**************************************************************************************************************
 		 * Creates a value usable by a Window constructor for centering a window on the display.
 		 *
 		 * @return A sentinel value used by the window's positioning function to center itself on the display.
 		 **************************************************************************************************************/
-		glm::ivec2                        centeredPos() const noexcept;
+		glm::ivec2 centeredPos() const noexcept;
 
 		/**************************************************************************************************************
 		 * Converts global coordinates to local coordinates on the display.
@@ -80,7 +79,7 @@ namespace tr {
 		 *
 		 * @return The corresponding local coordinates.
 		 **************************************************************************************************************/
-		glm::ivec2                        toLocalCoords(glm::ivec2 globalCoords) const noexcept;
+		glm::ivec2 toLocalCoords(glm::ivec2 globalCoords) const noexcept;
 
 		/**************************************************************************************************************
 		 * Converts local coordinates on the display to global coordinates.
@@ -89,7 +88,7 @@ namespace tr {
 		 *
 		 * @return The corresponding global coordinates.
 		 **************************************************************************************************************/
-		glm::ivec2                        toGlobalCoords(glm::ivec2 localCoords) const noexcept;
+		glm::ivec2 toGlobalCoords(glm::ivec2 localCoords) const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the display's display modes.
@@ -98,21 +97,21 @@ namespace tr {
 		 *
 		 * @return The modes of the display.
 		 **************************************************************************************************************/
-		std::vector<DisplayMode>          modes() const;
+		std::vector<DisplayMode> modes() const;
 
 		/**************************************************************************************************************
 		 * Gets the display's highest-ordered display mode.
 		 *
 		 * @return The display's highest-ordered display mode.
 		 **************************************************************************************************************/
-		DisplayMode                       highestMode() const noexcept;
+		DisplayMode highestMode() const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the display's desktop display mode.
 		 *
 		 * @return The display's desktop display mode.
 		 **************************************************************************************************************/
-		DisplayMode                       desktopMode() const noexcept;
+		DisplayMode desktopMode() const noexcept;
 
 		/**************************************************************************************************************
 		 * Tries to get the closest compatible display mode to the desired one.
@@ -121,21 +120,21 @@ namespace tr {
 		 *
 		 * @return The closest compatible display mode or std::nullopt if no display is close enough.
 		 **************************************************************************************************************/
-		std::optional<DisplayMode>        closestModeTo(const DisplayMode& mode) const noexcept;
+		std::optional<DisplayMode> closestModeTo(const DisplayMode& mode) const noexcept;
 
-	private:
+	  private:
 		int _id;
 	};
 
 	/******************************************************************************************************************
-     * Default display information.
-     ******************************************************************************************************************/
-	inline constexpr DisplayInfo DEFAULT_DISPLAY {};
+	 * Default display information.
+	 ******************************************************************************************************************/
+	inline constexpr DisplayInfo DEFAULT_DISPLAY{};
 
 	/******************************************************************************************************************
-     * Gets the number of available displays.
+	 * Gets the number of available displays.
 	 *
 	 * @return The number of available displays.
-     ******************************************************************************************************************/
-	int                          displayCount() noexcept;
+	 ******************************************************************************************************************/
+	int displayCount() noexcept;
 } // namespace tr

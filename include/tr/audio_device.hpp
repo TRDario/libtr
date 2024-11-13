@@ -17,10 +17,10 @@ namespace tr {
 	 ******************************************************************************************************************/
 	struct DefaultAudioDeviceOpenError : std::exception {
 		/**************************************************************************************************************
-         * Gets an error message.
-         *
-         * @return An explanatory error message.
-	     **************************************************************************************************************/
+		 * Gets an error message.
+		 *
+		 * @return An explanatory error message.
+		 **************************************************************************************************************/
 		constexpr virtual const char* what() const noexcept;
 	};
 
@@ -29,21 +29,21 @@ namespace tr {
 	 ******************************************************************************************************************/
 	struct NamedAudioDeviceOpenError : std::runtime_error {
 		/**************************************************************************************************************
-         * Constructs a device opening error.
-         *
-         * @param name The name of the device.
-         *
-         * @exception std::bad_alloc If constructing the error string failed.
-	     **************************************************************************************************************/
+		 * Constructs a device opening error.
+		 *
+		 * @param name The name of the device.
+		 *
+		 * @exception std::bad_alloc If constructing the error string failed.
+		 **************************************************************************************************************/
 		NamedAudioDeviceOpenError(const char* name);
 	};
 
 	/******************************************************************************************************************
 	 * Gets a list of available audio devices.
-     *
-     * @exception std::bad_alloc If allocating the vector failed.
-     *
-     * @return A vector of audio device names.
+	 *
+	 * @exception std::bad_alloc If allocating the vector failed.
+	 *
+	 * @return A vector of audio device names.
 	 ******************************************************************************************************************/
 	std::vector<const char*> availableAudioDevices();
 
@@ -51,31 +51,31 @@ namespace tr {
 	 * Physical audio device.
 	 ******************************************************************************************************************/
 	class AudioDevice {
-	public:
+	  public:
 		/**************************************************************************************************************
-         * Opens the default audio device.
-         *
-         * @exception DefaultAudioDeviceOpenError If opening the device failed.
-	     **************************************************************************************************************/
+		 * Opens the default audio device.
+		 *
+		 * @exception DefaultAudioDeviceOpenError If opening the device failed.
+		 **************************************************************************************************************/
 		AudioDevice();
 
 		/**************************************************************************************************************
-         * Opens a named audio device.
-         *
-         * @param name The name of the audio device to open.
-         *
-         * @exception NamedAudioDeviceOpenError If opening the device failed.
-	     **************************************************************************************************************/
+		 * Opens a named audio device.
+		 *
+		 * @param name The name of the audio device to open.
+		 *
+		 * @exception NamedAudioDeviceOpenError If opening the device failed.
+		 **************************************************************************************************************/
 		AudioDevice(const char* name);
 
 		/**************************************************************************************************************
-         * Gets the name of the device.
-         *
-         * @return A C-string with the name of the device.
-	     **************************************************************************************************************/
+		 * Gets the name of the device.
+		 *
+		 * @return A C-string with the name of the device.
+		 **************************************************************************************************************/
 		const char* name() const noexcept;
 
-	private:
+	  private:
 		struct Deleter {
 			/// @private
 			void operator()(ALCdevice* ptr) const noexcept;

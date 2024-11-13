@@ -6,8 +6,9 @@
 using namespace magic_enum::bitwise_operators;
 
 tr::IndexBufferMap::IndexBufferMap(GLBufferMap base) noexcept
-	: GLBufferMap {std::move(base)}
-{}
+	: GLBufferMap{std::move(base)}
+{
+}
 
 tr::IndexBufferMap::operator std::span<std::uint16_t>() const noexcept
 {
@@ -20,18 +21,23 @@ std::span<std::uint16_t> tr::IndexBufferMap::span() const noexcept
 }
 
 tr::IndexBuffer::IndexBuffer() noexcept
-	: _size {0}
-{}
+	: _size{0}
+{
+}
 
 tr::IndexBuffer::IndexBuffer(std::size_t capacity)
-    : _buffer { { GLBuffer::Target::ELEMENT_ARRAY_BUFFER, std::size_t(capacity * sizeof(std::uint16_t)), GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE } }
-    , _size { 0 }
-{}
+	: _buffer{{GLBuffer::Target::ELEMENT_ARRAY_BUFFER, std::size_t(capacity * sizeof(std::uint16_t)),
+			   GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE}},
+	  _size{0}
+{
+}
 
 tr::IndexBuffer::IndexBuffer(std::span<const std::uint16_t> data)
-    : _buffer { { GLBuffer::Target::ELEMENT_ARRAY_BUFFER, rangeBytes(data), GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE } }
-    , _size { std::size_t(data.size()) }
-{}
+	: _buffer{{GLBuffer::Target::ELEMENT_ARRAY_BUFFER, rangeBytes(data),
+			   GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE}},
+	  _size{std::size_t(data.size())}
+{
+}
 
 bool tr::IndexBuffer::empty() const noexcept
 {
@@ -75,29 +81,23 @@ bool tr::IndexBuffer::mapped() const noexcept
 tr::IndexBufferMap tr::IndexBuffer::mapNew(std::size_t size)
 {
 	resize(size);
-	return _buffer->mapRegion(
-		0,
-		_size * sizeof(std::uint16_t),
-		GLBuffer::MapFlag::WRITABLE | GLBuffer::MapFlag::INVALIDATE_BUFFER
-	);
+	return _buffer->mapRegion(0, _size * sizeof(std::uint16_t),
+							  GLBuffer::MapFlag::WRITABLE | GLBuffer::MapFlag::INVALIDATE_BUFFER);
 }
 
 tr::IndexBufferMap tr::IndexBuffer::mapRegion(std::size_t offset, std::size_t size)
 {
 	assert(offset + size <= _size);
-	return _buffer
-		->mapRegion(offset * sizeof(std::uint16_t), size * sizeof(std::uint16_t), GLBuffer::MapFlag::WRITABLE);
+	return _buffer->mapRegion(offset * sizeof(std::uint16_t), size * sizeof(std::uint16_t),
+							  GLBuffer::MapFlag::WRITABLE);
 }
 
 void tr::IndexBuffer::resize(std::size_t newSize)
 {
 	assert(!mapped());
 	if (newSize > capacity()) {
-		_buffer = GLBuffer {
-			GLBuffer::Target::ELEMENT_ARRAY_BUFFER,
-			std::size_t(newSize * sizeof(std::uint16_t)),
-			GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE
-		};
+		_buffer = GLBuffer{GLBuffer::Target::ELEMENT_ARRAY_BUFFER, std::size_t(newSize * sizeof(std::uint16_t)),
+						   GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE};
 		if (!_label.empty()) {
 			_buffer->setLabel(_label);
 		}

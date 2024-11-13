@@ -5,17 +5,15 @@
 namespace tr {
 	void setSDLGLAttributes(const GLAttrs& attrs) noexcept;
 	void suppressUnsupportedEvents() noexcept;
-}
+} // namespace tr
 
 void tr::setSDLGLAttributes(const GLAttrs& attrs) noexcept
 {
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 6);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-	SDL_GL_SetAttribute(
-		SDL_GL_CONTEXT_FLAGS,
-		SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG | (attrs.debugContext ? SDL_GL_CONTEXT_DEBUG_FLAG : 0)
-	);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS,
+						SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG | (attrs.debugContext ? SDL_GL_CONTEXT_DEBUG_FLAG : 0));
 	SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, true);
 	SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
 	SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
@@ -60,14 +58,15 @@ void tr::suppressUnsupportedEvents() noexcept
 }
 
 tr::SDLError::SDLError(std::string_view message)
-	: runtime_error {std::format("{} ({})", message, SDL_GetError())}
-{}
+	: runtime_error{std::format("{} ({})", message, SDL_GetError())}
+{
+}
 
 tr::SDL::SDL(const GLAttrs& glAttrs)
 {
 	if (SDL_InitSubSystem(SDL_INIT_VIDEO) < 0) {
 		SDL_Quit();
-		throw SDLError {"Failed to initialize SDL"};
+		throw SDLError{"Failed to initialize SDL"};
 	}
 	setSDLGLAttributes(glAttrs);
 	suppressUnsupportedEvents();

@@ -15,12 +15,12 @@ namespace tr {
 	 ******************************************************************************************************************/
 	struct AudioContextCreationError : std::runtime_error {
 		/**************************************************************************************************************
-         * Constructs an audio context creation error.
-         *
-         * @param error The error string.
-         *
-         * @exception std::bad_alloc If constructing the error string failed.
-	     **************************************************************************************************************/
+		 * Constructs an audio context creation error.
+		 *
+		 * @param error The error string.
+		 *
+		 * @exception std::bad_alloc If constructing the error string failed.
+		 **************************************************************************************************************/
 		AudioContextCreationError(const char* error);
 	};
 
@@ -28,22 +28,22 @@ namespace tr {
 	 * OpenAL audio context.
 	 ******************************************************************************************************************/
 	class AudioContext {
-	public:
+	  public:
 		/**************************************************************************************************************
-         * Creates an audio context on an audio device.
-         *
-         * @exception AudioContextCreationError If creating the audio context failed.
-         *
-         * @param device The device to open the context on.
-	     **************************************************************************************************************/
+		 * Creates an audio context on an audio device.
+		 *
+		 * @exception AudioContextCreationError If creating the audio context failed.
+		 *
+		 * @param device The device to open the context on.
+		 **************************************************************************************************************/
 		AudioContext(AudioDevice& device);
 
 		/**************************************************************************************************************
-         * The global audio listener.
-	     **************************************************************************************************************/
+		 * The global audio listener.
+		 **************************************************************************************************************/
 		Listener listener;
 
-	private:
+	  private:
 		struct Deleter {
 			/// @private
 			void operator()(ALCcontext* ptr) const noexcept;

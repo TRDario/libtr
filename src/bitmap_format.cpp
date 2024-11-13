@@ -3,7 +3,7 @@
 #include <SDL2/SDL.h>
 
 tr::BitmapFormat::BitmapFormat(Type type) noexcept
-	: _type {type}
+	: _type{type}
 {
 	switch (type) {
 	case RGBA32:
@@ -35,7 +35,7 @@ const char* tr::BitmapFormat::name() const noexcept
 
 tr::BitmapFormat::Order tr::BitmapFormat::order() const noexcept
 {
-	int order {SDL_PIXELORDER(SDL_PixelFormatEnum(_type))};
+	int order{SDL_PIXELORDER(SDL_PixelFormatEnum(_type))};
 	if (isPacked()) {
 		order += int(Order::PACKED_NONE);
 	}

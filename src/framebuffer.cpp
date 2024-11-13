@@ -37,10 +37,9 @@ GLenum tr::getGLAttachment(Framebuffer::Slot slot) noexcept
 }
 
 tr::BasicFramebuffer::BasicFramebuffer(GLuint id, RectI2 viewport, DepthRange depthRange) noexcept
-	: _id {id}
-	, _viewport {viewport}
-	, _depthRange {depthRange}
-{}
+	: _id{id}, _viewport{viewport}, _depthRange{depthRange}
+{
+}
 
 bool tr::BasicFramebuffer::operator==(const BasicFramebuffer& r) const noexcept
 {
@@ -49,8 +48,8 @@ bool tr::BasicFramebuffer::operator==(const BasicFramebuffer& r) const noexcept
 
 tr::Bitmap tr::BasicFramebuffer::readRegion(RectI2 rect, BitmapFormat format) const
 {
-	auto [glFormat, glType] {bitmapToGLFormat(format)};
-	Bitmap bitmap {rect.size, format};
+	auto [glFormat, glType]{bitmapToGLFormat(format)};
+	Bitmap bitmap{rect.size, format};
 	bindRead();
 	glReadPixels(rect.tl.x, rect.tl.y, rect.size.x, rect.size.y, glFormat, glType, bitmap.data());
 	return bitmap;
@@ -59,16 +58,8 @@ tr::Bitmap tr::BasicFramebuffer::readRegion(RectI2 rect, BitmapFormat format) co
 void tr::BasicFramebuffer::copyRegion(RectI2 rect, Texture2D& texture, glm::ivec2 textureTL) const noexcept
 {
 	bindRead();
-	glCopyTextureSubImage2D(
-		((Texture&)(texture))._id.get(),
-		0,
-		textureTL.x,
-		textureTL.y,
-		rect.tl.x,
-		rect.tl.y,
-		rect.size.x,
-		rect.size.y
-	);
+	glCopyTextureSubImage2D(((Texture&)(texture))._id.get(), 0, textureTL.x, textureTL.y, rect.tl.x, rect.tl.y,
+							rect.size.x, rect.size.y);
 }
 
 tr::RectI2 tr::BasicFramebuffer::viewport() const noexcept
@@ -108,24 +99,19 @@ void tr::BasicFramebuffer::bindWrite() const noexcept
 }
 
 tr::Framebuffer::Framebuffer() noexcept
-	: BasicFramebuffer {
-		  createFramebuffer(),
-		  {{0, 0}, {0, 0}},
-		  {   0.0,	1.0}
+	: BasicFramebuffer{createFramebuffer(), {{0, 0}, {0, 0}}, {0.0, 1.0}}
+{
 }
-{}
 
 tr::Framebuffer::Framebuffer(Framebuffer&& r) noexcept
-	: BasicFramebuffer {r}
-	, _attachSizes {r._attachSizes}
-	, _size {r._size}
+	: BasicFramebuffer{r}, _attachSizes{r._attachSizes}, _size{r._size}
 {
 	r._id = 0;
 }
 
 tr::Framebuffer& tr::Framebuffer::operator=(Framebuffer&& r) noexcept
 {
-	Framebuffer temp {std::move(*this)};
+	Framebuffer temp{std::move(*this)};
 	std::swap(_id, r._id);
 	std::swap(_attachSizes, r._attachSizes);
 	std::swap(_size, r._size);
@@ -201,9 +187,7 @@ void tr::Framebuffer::setLabel(std::string_view label) noexcept
 
 glm::ivec2 tr::Framebuffer::calcSize() noexcept
 {
-	auto attachments {std::views::filter(_attachSizes, [](glm::ivec2 attachSize) {
-		return attachSize != EMPTY_ATTACHMENT;
-	})};
+	auto attachments{std::views::filter(_attachSizes, [](glm::ivec2 size) { return size != EMPTY_ATTACHMENT; })};
 	if (attachments.empty()) {
 		_size = {0, 0};
 	}
@@ -218,10 +202,10 @@ glm::ivec2 tr::Framebuffer::calcSize() noexcept
 
 void tr::Framebuffer::clampViewport() noexcept
 {
-	auto size {calcSize()};
-	auto newViewportSize {_viewport.size};
-	if (!RectI2 {size}.contains(_viewport.tl)) {
-		setViewport(RectI2 {size});
+	auto size{calcSize()};
+	auto newViewportSize{_viewport.size};
+	if (!RectI2{size}.contains(_viewport.tl)) {
+		setViewport(RectI2{size});
 	}
 	else {
 		if (_viewport.tl.x + _viewport.size.x >= size.x) {
@@ -237,9 +221,9 @@ void tr::Framebuffer::clampViewport() noexcept
 }
 
 tr::Backbuffer::Backbuffer(const Window& window) noexcept
-    : BasicFramebuffer { 0, { {}, window.size() }, { 0.0, 1.0 } }
-    , _window { window }
-{}
+	: BasicFramebuffer{0, {{}, window.size()}, {0.0, 1.0}}, _window{window}
+{
+}
 
 glm::ivec2 tr::Backbuffer::size() const noexcept
 {

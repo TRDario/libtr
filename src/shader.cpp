@@ -8,12 +8,12 @@
 namespace tr {
 	// Loads, compiles and links a shader program. Returns 0 on failure.
 	GLuint constructProgram(std::span<const std::byte> data, ShaderType type) noexcept;
-}
+} // namespace tr
 
 GLuint tr::constructProgram(std::span<const std::byte> data, ShaderType type) noexcept
 {
-	Handle<GLuint, 0, decltype([](GLuint id) { glDeleteShader(id); })>  shader {glCreateShader(GLenum(type))};
-	Handle<GLuint, 0, decltype([](GLuint id) { glDeleteProgram(id); })> program {glCreateProgram()};
+	Handle<GLuint, 0, decltype([](GLuint id) { glDeleteShader(id); })> shader{glCreateShader(GLenum(type))};
+	Handle<GLuint, 0, decltype([](GLuint id) { glDeleteProgram(id); })> program{glCreateProgram()};
 
 	glShaderBinary(1, &shader.get(), GL_SHADER_BINARY_FORMAT_SPIR_V, data.data(), data.size());
 	glSpecializeShader(shader.get(), "main", 0, nullptr, nullptr);
@@ -47,20 +47,20 @@ const char* tr::ShaderLoadError::what() const noexcept
 }
 
 tr::Shader::Shader(const std::filesystem::path& path, ShaderType type)
-	: _type {type}
+	: _type{type}
 {
-	auto file {openFileR(path, std::ios::binary)};
-	auto data {flushBinary<std::vector<char>>(file)};
+	auto file{openFileR(path, std::ios::binary)};
+	auto data{flushBinary<std::vector<char>>(file)};
 	_id.reset(constructProgram(rangeBytes(data), type), NO_EMPTY_HANDLE_CHECK);
 	if (!_id.has_value()) {
-		throw ShaderLoadError {path};
+		throw ShaderLoadError{path};
 	}
 }
 
 tr::Shader::Shader(std::span<const std::byte> embeddedFile, ShaderType type) noexcept
-	: _id {constructProgram(embeddedFile, type)}
-	, _type {type}
-{}
+	: _id{constructProgram(embeddedFile, type)}, _type{type}
+{
+}
 
 void tr::Shader::Deleter::operator()(unsigned int id) const noexcept
 {

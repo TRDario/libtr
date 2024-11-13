@@ -11,23 +11,23 @@
 #include <thread>
 
 #ifdef _WIN32
-	#include <windows.h>
+#include <windows.h>
 #endif
 
 namespace tr {
 	// The size of the buffers used in streams.
-	inline constexpr int								   AUDIO_STREAM_BUFFER_SIZE {16'384};
+	inline constexpr int AUDIO_STREAM_BUFFER_SIZE{16'384};
 
 	// List of active streams.
 	std::forward_list<std::reference_wrapper<AudioStream>> _audioStreams;
 	// Mutex protecting _audioStreams.
-	std::mutex											   _audioStreamsMutex;
+	std::mutex _audioStreamsMutex;
 	// Audio stream refreshing thread.
-	std::thread											   _audioStreamsThread;
+	std::thread _audioStreamsThread;
 	// Audio stream refreshing thread activity flag.
-	std::atomic_bool									   _audioStreamsThreadExited {true};
+	std::atomic_bool _audioStreamsThreadExited{true};
 	// Audio stream refreshing thread function.
-	void												   audioStreamThread() noexcept;
+	void audioStreamThread() noexcept;
 } // namespace tr
 
 void tr::audioStreamThread() noexcept
@@ -35,10 +35,10 @@ void tr::audioStreamThread() noexcept
 	try {
 		_audioStreamsThreadExited = false;
 		for (; !_audioStreams.empty(); std::this_thread::sleep_for(std::chrono::milliseconds(10))) {
-			std::lock_guard listLock {_audioStreamsMutex};
+			std::lock_guard listLock{_audioStreamsMutex};
 			for (AudioStream& stream : _audioStreams) {
-				std::lock_guard streamLock {stream._mutex};
-				auto			buffers {stream.unqueueBuffers()};
+				std::lock_guard streamLock{stream._mutex};
+				auto buffers{stream.unqueueBuffers()};
 				for (auto& buffer : buffers) {
 					stream.refillBuffer(*std::ranges::find(stream._buffers, buffer));
 					stream.queueBuffer(buffer);
@@ -55,18 +55,14 @@ void tr::audioStreamThread() noexcept
 }
 
 tr::AudioStream::AudioStream()
-	: _length {0}
-	, _channels {1}
-	, _sampleRate {1}
-	, _looping {false}
-	, _loopStart {0}
-	, _loopEnd {0}
-{}
+	: _length{0}, _channels{1}, _sampleRate{1}, _looping{false}, _loopStart{0}, _loopEnd{0}
+{
+}
 
 tr::AudioStream::AudioStream(const std::filesystem::path& path)
 {
 	if (!is_regular_file(path)) {
-		throw FileNotFound {path};
+		throw FileNotFound{path};
 	}
 
 	SF_INFO info;
@@ -76,15 +72,15 @@ tr::AudioStream::AudioStream(const std::filesystem::path& path)
 	_file.reset(sf_open(path.c_str(), SFM_READ, &info));
 #endif
 	if (_file == nullptr) {
-		throw FileOpenError {path};
+		throw FileOpenError{path};
 	}
 
-	_length		= info.frames;
+	_length = info.frames;
 	_sampleRate = info.samplerate;
-	_loopEnd	= _length;
-	_channels	= info.channels;
+	_loopEnd = _length;
+	_channels = info.channels;
 	if (_channels > 2) {
-		throw UnsupportedAudioFile {path};
+		throw UnsupportedAudioFile{path};
 	}
 	else if (_channels == 2) {
 		alSourcei(AudioSource::_id.get(), AL_DIRECT_CHANNELS_SOFT, 1);
@@ -94,16 +90,16 @@ tr::AudioStream::AudioStream(const std::filesystem::path& path)
 		sf_command(_file.get(), SFC_SET_SCALE_FLOAT_INT_READ, nullptr, true);
 	}
 
-	bool threadInactive {_audioStreams.empty() || _audioStreamsThreadExited};
+	bool threadInactive{_audioStreams.empty() || _audioStreamsThreadExited};
 	if (threadInactive) {
 		if (_audioStreamsThread.joinable()) {
 			_audioStreamsThread.join();
 		}
 		_audioStreams.push_front(*this);
-		_audioStreamsThread = std::thread {audioStreamThread};
+		_audioStreamsThread = std::thread{audioStreamThread};
 	}
 	else {
-		std::lock_guard lock {_audioStreamsMutex};
+		std::lock_guard lock{_audioStreamsMutex};
 		_audioStreams.push_front(*this);
 	}
 }
@@ -116,7 +112,7 @@ tr::AudioStream::AudioStream(AudioStream&& r) noexcept
 tr::AudioStream::~AudioStream() noexcept
 {
 	if (!empty()) {
-		std::lock_guard lock {_audioStreamsMutex};
+		std::lock_guard lock{_audioStreamsMutex};
 		_audioStreams.remove(*this);
 		if (_audioStreams.empty() && _audioStreamsThread.joinable()) {
 			_audioStreamsThread.join();
@@ -127,10 +123,10 @@ tr::AudioStream::~AudioStream() noexcept
 tr::AudioStream& tr::AudioStream::operator=(AudioStream&& r) noexcept
 {
 	if (!empty()) {
-		std::ignore = AudioStream {std::move(*this)};
+		std::ignore = AudioStream{std::move(*this)};
 	}
 
-	std::lock_guard lock {_audioStreamsMutex};
+	std::lock_guard lock{_audioStreamsMutex};
 	std::swap((AudioSource&)(*this), (AudioSource&)(r));
 	std::swap(_buffers, r._buffers);
 	std::swap(_file, r._file);
@@ -162,7 +158,7 @@ bool tr::AudioStream::looping() const noexcept
 
 void tr::AudioStream::setLooping(bool looping) noexcept
 {
-	std::lock_guard lock {_mutex};
+	std::lock_guard lock{_mutex};
 	_looping = looping;
 }
 
@@ -172,7 +168,7 @@ void tr::AudioStream::play()
 		return;
 	}
 
-	std::lock_guard lock {_mutex};
+	std::lock_guard lock{_mutex};
 	if (state() == AudioState::INITIAL || state() == AudioState::STOPPED) {
 		AudioSource::setBuffer(std::nullopt);
 		for (auto& buffer : _buffers) {
@@ -192,14 +188,14 @@ void tr::AudioStream::stop() noexcept
 		return;
 	}
 
-	std::lock_guard lock {_mutex};
+	std::lock_guard lock{_mutex};
 	AudioSource::stop();
 	sf_seek(_file.get(), _loopStart, SF_SEEK_SET);
 }
 
 tr::SecondsF tr::AudioStream::length() const noexcept
 {
-	return SecondsF {float(_length) / _sampleRate};
+	return SecondsF{float(_length) / _sampleRate};
 }
 
 tr::SecondsF tr::AudioStream::offset() const noexcept
@@ -208,15 +204,15 @@ tr::SecondsF tr::AudioStream::offset() const noexcept
 		return SecondsF::zero();
 	}
 
-	std::lock_guard lock {_mutex};
-	const auto		state {this->state()};
+	std::lock_guard lock{_mutex};
+	const auto state{this->state()};
 
 	if (state == AudioState::INITIAL || state == AudioState::STOPPED) {
-		return SecondsF {sf_seek(_file.get(), 0, SF_SEEK_CUR) / float(_sampleRate)};
+		return SecondsF{sf_seek(_file.get(), 0, SF_SEEK_CUR) / float(_sampleRate)};
 	}
 
-	auto& buffer {*std::ranges::find(_buffers, AudioSource::buffer())};
-	return SecondsF {buffer.startFileOffset / float(_sampleRate)} + AudioSource::offset();
+	auto& buffer{*std::ranges::find(_buffers, AudioSource::buffer())};
+	return SecondsF{buffer.startFileOffset / float(_sampleRate)} + AudioSource::offset();
 }
 
 void tr::AudioStream::setOffset(SecondsF off)
@@ -225,9 +221,9 @@ void tr::AudioStream::setOffset(SecondsF off)
 		return;
 	}
 
-	auto state {AudioSource::state()};
+	auto state{AudioSource::state()};
 	{
-		std::lock_guard lock {_mutex};
+		std::lock_guard lock{_mutex};
 
 		if (off <= SecondsF::zero()) {
 			sf_seek(_file.get(), 0, SF_SEEK_SET);
@@ -257,12 +253,12 @@ void tr::AudioStream::setOffset(SecondsF off)
 
 tr::SecondsF tr::AudioStream::loopStart() const noexcept
 {
-	return SecondsF {float(_loopStart) / _sampleRate};
+	return SecondsF{float(_loopStart) / _sampleRate};
 }
 
 tr::SecondsF tr::AudioStream::loopEnd() const noexcept
 {
-	return SecondsF {float(_loopEnd) / _sampleRate};
+	return SecondsF{float(_loopEnd) / _sampleRate};
 }
 
 void tr::AudioStream::setLoopPoints(SecondsF start, SecondsF end) noexcept
@@ -272,12 +268,12 @@ void tr::AudioStream::setLoopPoints(SecondsF start, SecondsF end) noexcept
 	}
 
 	start = std::clamp(start, START, length());
-	end	  = std::clamp(end, START, length());
+	end = std::clamp(end, START, length());
 	assert(start < end);
 
-	std::unique_lock lock {_mutex};
+	std::unique_lock lock{_mutex};
 	_loopStart = start.count() * _sampleRate;
-	_loopEnd   = end.count() * _sampleRate;
+	_loopEnd = end.count() * _sampleRate;
 }
 
 void tr::AudioStream::refillBuffer(Buffer& buffer)
@@ -285,8 +281,8 @@ void tr::AudioStream::refillBuffer(Buffer& buffer)
 	static boost::container::static_vector<std::int16_t, AUDIO_STREAM_BUFFER_SIZE * 2> dataBuffer;
 	buffer.startFileOffset = sf_seek(_file.get(), 0, SF_SEEK_CUR);
 
-	auto samplesLeft {_loopEnd - buffer.startFileOffset};
-	auto samplesToRead {std::min<int>(AUDIO_STREAM_BUFFER_SIZE, samplesLeft)};
+	auto samplesLeft{_loopEnd - buffer.startFileOffset};
+	auto samplesToRead{std::min<int>(AUDIO_STREAM_BUFFER_SIZE, samplesLeft)};
 	dataBuffer.resize(samplesToRead * _channels);
 	sf_readf_short(_file.get(), dataBuffer.data(), samplesToRead);
 	buffer.set(rangeBytes(dataBuffer), _channels == 2 ? AudioFormat::STEREO16 : AudioFormat::MONO16, _sampleRate);

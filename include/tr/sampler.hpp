@@ -17,7 +17,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * The texture is repeated.
 		 **************************************************************************************************************/
-		REPEAT        = 0x29'01,
+		REPEAT = 0x29'01,
 
 		/**************************************************************************************************************
 		 * The texture is repeated and mirrored.
@@ -27,12 +27,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * The value of the edge pixel is used.
 		 **************************************************************************************************************/
-		EDGE_CLAMP    = 0x81'2F,
+		EDGE_CLAMP = 0x81'2F,
 
 		/**************************************************************************************************************
 		 * The value of the border color is used.
 		 **************************************************************************************************************/
-		BORDER_CLAMP  = 0x81'2D
+		BORDER_CLAMP = 0x81'2D
 	};
 
 	/******************************************************************************************************************
@@ -40,24 +40,24 @@ namespace tr {
 	 ******************************************************************************************************************/
 	enum class MinFilter {
 		/**************************************************************************************************************
-		 * The value of the texture element that is nearest to the specified texture coordinates is used. 
+		 * The value of the texture element that is nearest to the specified texture coordinates is used.
 		 **************************************************************************************************************/
-		NEAREST       = 0x26'00,
+		NEAREST = 0x26'00,
 
 		/**************************************************************************************************************
 		 * The average of the four texture elements that are closest to the specified texture coordinates is used.
 		 **************************************************************************************************************/
-		LINEAR        = 0x26'01,
+		LINEAR = 0x26'01,
 
 		/**************************************************************************************************************
 		 * Chooses the mipmap that most closely matches the size of the pixel being textured and uses "nearest".
 		 **************************************************************************************************************/
-		NMIP_NEAREST  = 0x27'00,
+		NMIP_NEAREST = 0x27'00,
 
 		/**************************************************************************************************************
 		 * Chooses the mipmap that most closely matches the size of the pixel being textured and uses "linear".
 		 **************************************************************************************************************/
-		NMIP_LINEAR   = 0x27'02,
+		NMIP_LINEAR = 0x27'02,
 
 		/**************************************************************************************************************
 		 * Chooses the two mipmaps that most closely match the size of the pixel being textured and uses "nearest".
@@ -67,7 +67,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Chooses the two mipmaps that most closely match the size of the pixel being textured and uses "linear".
 		 **************************************************************************************************************/
-		LMIPS_LINEAR  = 0x27'03
+		LMIPS_LINEAR = 0x27'03
 	};
 
 	/******************************************************************************************************************
@@ -75,14 +75,14 @@ namespace tr {
 	 ******************************************************************************************************************/
 	enum class MagFilter {
 		/**************************************************************************************************************
-		 * The value of the texture element that is nearest to the specified texture coordinates is used. 
+		 * The value of the texture element that is nearest to the specified texture coordinates is used.
 		 **************************************************************************************************************/
 		NEAREST = 0x26'00,
 
 		/**************************************************************************************************************
 		 * The average of the four texture elements that are closest to the specified texture coordinates is used.
 		 **************************************************************************************************************/
-		LINEAR  = 0x26'01
+		LINEAR = 0x26'01
 	};
 
 	/******************************************************************************************************************
@@ -92,22 +92,22 @@ namespace tr {
 		/**************************************************************************************************************
 		 * The function always returns false.
 		 **************************************************************************************************************/
-		NEVER   = 0x02'00,
+		NEVER = 0x02'00,
 
 		/**************************************************************************************************************
 		 * The function returns true if the value is less than the value being compared to.
 		 **************************************************************************************************************/
-		LESS    = 0x02'01,
+		LESS = 0x02'01,
 
 		/**************************************************************************************************************
 		 * The function returns true if the value is equal to the value being compared to.
 		 **************************************************************************************************************/
-		EQUAL   = 0x02'02,
+		EQUAL = 0x02'02,
 
 		/**************************************************************************************************************
 		 * The function returns true if the value is less than or equal to the value being compared to.
 		 **************************************************************************************************************/
-		LEQUAL  = 0x02'03,
+		LEQUAL = 0x02'03,
 
 		/**************************************************************************************************************
 		 * The function returns true if the value is greater than the value being compared to.
@@ -117,17 +117,17 @@ namespace tr {
 		/**************************************************************************************************************
 		 * The function returns true if the value is not equal to the value being compared to.
 		 **************************************************************************************************************/
-		NEQUAL  = 0x02'05,
+		NEQUAL = 0x02'05,
 
 		/**************************************************************************************************************
 		 * The function returns true if the value is greater than or equal to the value being compared to.
 		 **************************************************************************************************************/
-		GEQUAL  = 0x02'06,
+		GEQUAL = 0x02'06,
 
 		/**************************************************************************************************************
 		 * The function always returns true.
 		 **************************************************************************************************************/
-		ALWAYS  = 0x02'07
+		ALWAYS = 0x02'07
 	};
 
 	/******************************************************************************************************************
@@ -136,7 +136,7 @@ namespace tr {
 	 * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	class Sampler {
-	public:
+	  public:
 		/**************************************************************************************************************
 		 * Creates a sampler.
 		 **************************************************************************************************************/
@@ -152,84 +152,84 @@ namespace tr {
 		 *
 		 * @param filter The new minifying filter type.
 		 **************************************************************************************************************/
-		void        setMinFilter(MinFilter filter) noexcept;
+		void setMinFilter(MinFilter filter) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the magnifying filter used by the sampler.
 		 *
 		 * @param filter The new magnifying filter type.
 		 **************************************************************************************************************/
-		void        setMagFilter(MagFilter filter) noexcept;
+		void setMagFilter(MagFilter filter) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the minimum allowed level-of-detail parameter used by the sampler.
 		 *
 		 * @param lod The new minimum LOD.
 		 **************************************************************************************************************/
-		void        setMinLOD(int lod) noexcept;
+		void setMinLOD(int lod) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the maximum allowed level-of-detail parameter used by the sampler.
 		 *
 		 * @param lod The new maximum LOD.
 		 **************************************************************************************************************/
-		void        setMaxLOD(int lod) noexcept;
+		void setMaxLOD(int lod) noexcept;
 
 		/**************************************************************************************************************
 		 * Disables the use of depth comparison.
 		 **************************************************************************************************************/
-		void        disableComparison() noexcept;
+		void disableComparison() noexcept;
 
 		/**************************************************************************************************************
 		 * Enables the use of depth comparison and sets the depth comparison operator of the sampler.
 		 *
 		 * @param op The function to use for comparison.
 		 **************************************************************************************************************/
-		void        setComparisonMode(Compare op) noexcept;
+		void setComparisonMode(Compare op) noexcept;
 
 		/**************************************************************************************************************
-        * Sets the wrapping used for the s/x coordinate.
-		*
-		* @param wrap The new wrapping type.
-        **************************************************************************************************************/
-		void        setWrapS(Wrap wrap) noexcept;
+		 * Sets the wrapping used for the s/x coordinate.
+		 *
+		 * @param wrap The new wrapping type.
+		 **************************************************************************************************************/
+		void setWrapS(Wrap wrap) noexcept;
 
 		/**************************************************************************************************************
-        * Sets the wrapping used for the t/y coordinate.
-		*
-		* @param wrap The new wrapping type.
-        **************************************************************************************************************/
-		void        setWrapT(Wrap wrap) noexcept;
+		 * Sets the wrapping used for the t/y coordinate.
+		 *
+		 * @param wrap The new wrapping type.
+		 **************************************************************************************************************/
+		void setWrapT(Wrap wrap) noexcept;
 
 		/**************************************************************************************************************
-        * Sets the wrapping used for the r/z coordinate.
-		*
-		* @param wrap The new wrapping type.
-        **************************************************************************************************************/
-		void        setWrapR(Wrap wrap) noexcept;
+		 * Sets the wrapping used for the r/z coordinate.
+		 *
+		 * @param wrap The new wrapping type.
+		 **************************************************************************************************************/
+		void setWrapR(Wrap wrap) noexcept;
 
 		/**************************************************************************************************************
-        * Sets the wrapping used for all coordinates.
-		*
-		* @param wrap The new wrapping type.
-        **************************************************************************************************************/
-		void        setWrap(Wrap wrap) noexcept;
+		 * Sets the wrapping used for all coordinates.
+		 *
+		 * @param wrap The new wrapping type.
+		 **************************************************************************************************************/
+		void setWrap(Wrap wrap) noexcept;
 
 		/**************************************************************************************************************
-        * Sets the border color of the sampler (used when Wrap::BORDER_CLAMP is in use).
-		*
-		* @param color The border color in floating point RGBA format.
-        **************************************************************************************************************/
-		void        setBorderColor(RGBAF color) noexcept;
+		 * Sets the border color of the sampler (used when Wrap::BORDER_CLAMP is in use).
+		 *
+		 * @param color The border color in floating point RGBA format.
+		 **************************************************************************************************************/
+		void setBorderColor(RGBAF color) noexcept;
 
 		/**************************************************************************************************************
-        * Sets the debug label of the sampler.
-        *
-        * @param label The new label of the sampler.
-        **************************************************************************************************************/
-		void        setLabel(std::string_view label) noexcept;
+		 * Sets the debug label of the sampler.
+		 *
+		 * @param label The new label of the sampler.
+		 **************************************************************************************************************/
+		void setLabel(std::string_view label) noexcept;
 
-	private:
+	  private:
 		struct Deleter {
 			/// @private
 			void operator()(unsigned int id) const noexcept;
@@ -244,14 +244,13 @@ namespace tr {
 
 /// @cond IMPLEMENTATION
 
-template <>
-struct std::hash<tr::Sampler> {
+template <> struct std::hash<tr::Sampler> {
 	inline std::size_t operator()(const tr::Sampler& sampler) const noexcept;
 };
 
 std::size_t std::hash<tr::Sampler>::operator()(const tr::Sampler& sampler) const noexcept
 {
-	return std::hash<decltype(sampler._id)> {}(sampler._id);
+	return std::hash<decltype(sampler._id)>{}(sampler._id);
 }
 
 /// @endcond

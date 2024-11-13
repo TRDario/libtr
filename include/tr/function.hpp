@@ -8,17 +8,16 @@
 
 namespace tr {
 	/******************************************************************************************************************
-     * Wrapper around a function that turns it into a stateless functor.
+	 * Wrapper around a function that turns it into a stateless functor.
 	 *
 	 * @tparam FunctionPointer a function pointer.
-     ******************************************************************************************************************/
-	template <auto FunctionPointer>
-	struct FunctionCaller {
+	 ******************************************************************************************************************/
+	template <auto FunctionPointer> struct FunctionCaller {
 		/**************************************************************************************************************
-    	 * Calls the function.
+		 * Calls the function.
 		 *
 		 * @param us The function parameters to forward.
-    	 **************************************************************************************************************/
+		 **************************************************************************************************************/
 		template <class... Ts>
 		constexpr auto operator()(Ts&&... us) const noexcept(noexcept(FunctionPointer(std::forward<Ts...>(us...))));
 	};
