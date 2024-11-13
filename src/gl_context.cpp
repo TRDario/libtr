@@ -79,7 +79,7 @@ void tr::GLContext::setShaderPipeline(const ShaderPipeline& pipeline) noexcept
 	pipeline.bind();
 }
 
-void useFaceCulling(bool use) noexcept
+void tr::GLContext::useFaceCulling(bool use) noexcept
 {
 	use ? glEnable(GL_CULL_FACE) : glDisable(GL_CULL_FACE);
 }
@@ -105,7 +105,7 @@ void tr::GLContext::setStencilTest(StencilFace face, Compare func, int comp, std
 }
 
 void tr::GLContext::setStencilOperation(
-	StencilFace		 face,
+	StencilFace      face,
 	StencilOperation sfail,
 	StencilOperation dfail,
 	StencilOperation dpass
@@ -209,10 +209,10 @@ void tr::GLContext::drawIndexed(Primitive type, std::size_t offset, std::size_t 
 }
 
 void tr::GLContext::drawIndexedInstances(
-	Primitive	type,
+	Primitive   type,
 	std::size_t offset,
 	std::size_t indices,
-	int			instances
+	int         instances
 ) noexcept
 {
 	glDrawElementsInstanced(GLenum(type), indices, GL_UNSIGNED_SHORT, (const void*)(offset), instances);
