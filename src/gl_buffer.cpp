@@ -52,15 +52,13 @@ std::size_t tr::GLBuffer::size() const noexcept
 	return _size;
 }
 
-std::vector<std::byte> tr::GLBuffer::copyRegion(std::size_t offset, std::size_t size) const
+void tr::GLBuffer::copyRegionToBase(void* ptr, std::size_t offset, std::size_t size) const noexcept
 {
 	if (size == 0) {
-		return {};
+		return;
 	}
 	assert(offset + size <= _size);
-	std::vector<std::byte> data(size);
-	glGetNamedBufferSubData(_id.get(), offset, size, data.data());
-	return data;
+	glGetNamedBufferSubData(_id.get(), offset, size, ptr);
 }
 
 void tr::GLBuffer::setRegion(std::size_t offset, std::span<const std::byte> data) noexcept

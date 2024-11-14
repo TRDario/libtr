@@ -26,16 +26,6 @@ std::size_t tr::ShaderBuffer::arrayCapacity() const noexcept
 	return GLBuffer::size() - _headerSize;
 }
 
-std::vector<std::byte> tr::ShaderBuffer::copyHeader() const
-{
-	return GLBuffer::copyRegion(0, _headerSize);
-}
-
-std::vector<std::byte> tr::ShaderBuffer::copyArray() const
-{
-	return GLBuffer::copyRegion(_headerSize, _size);
-}
-
 void tr::ShaderBuffer::setHeader(std::span<const std::byte> data) noexcept
 {
 	assert(data.size() == headerSize());

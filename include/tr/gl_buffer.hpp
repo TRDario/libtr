@@ -10,10 +10,18 @@
 #include <optional>
 #include <span>
 #include <string_view>
-#include <vector>
 
 namespace tr {
 	class GLBufferMap;
+
+	/******************************************************************************************************************
+	 * Concept denoting an iterator suitable for GLBuffer::copyRegionTo.
+	 ******************************************************************************************************************/
+	template <class It>
+	concept GLCopyOutputIterator =
+		std::contiguous_iterator<It> && (std::same_as<typename std::iterator_traits<It>::value_type, std::byte> ||
+										 std::same_as<typename std::iterator_traits<It>::value_type, char> ||
+										 std::same_as<typename std::iterator_traits<It>::value_type, std::uint8_t>);
 
 	/******************************************************************************************************************
 	 * Error thrown when allocating a GPU buffer fails.
@@ -144,7 +152,11 @@ namespace tr {
 
 		std::size_t size() const noexcept;
 
-		std::vector<std::byte> copyRegion(std::size_t offset, std::size_t size) const;
+		template <GLCopyOutputIterator It>
+		void copyRegionTo(It out, std::size_t offset, std::size_t size) const noexcept
+		{
+			copyRegionBase(std::to_address(out), offset, size);
+		}
 
 		void setRegion(std::size_t offset, std::span<const std::byte> data) noexcept;
 
@@ -163,6 +175,8 @@ namespace tr {
 
 		void setLabel(std::string_view label) noexcept;
 		/// @endcond
+	  private:
+		void copyRegionToBase(void* ptr, std::size_t offset, std::size_t size) const noexcept;
 
 		friend class Shader;
 		friend class GLContext;

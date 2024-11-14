@@ -70,22 +70,24 @@ namespace tr {
 		std::size_t arrayCapacity() const noexcept;
 
 		/******************************************************************************************************************
-		 * Copies the data of the fixed header to a vector.
+		 * Copies the data of the fixed header to an output iterator.
 		 *
-		 * @exception std::bad_alloc If allocating the vector failed.
-		 *
-		 * @return A vector containing a copy of the header's data.
+		 * @param out An iterator to the beginning of the range to copy the header to.
 		 ******************************************************************************************************************/
-		std::vector<std::byte> copyHeader() const;
+		template <GLCopyOutputIterator It> void copyHeaderTo(It out) const noexcept
+		{
+			copyRegionTo(out, 0, _headerSize);
+		}
 
 		/******************************************************************************************************************
-		 * Copies the data of the dynamic array to a vector.
+		 * Copies the data of the dynamic array to an output iterator.
 		 *
-		 * @exception std::bad_alloc If allocating the vector failed.
-		 *
-		 * @return A vector containing a copy of the dynamic array's data.
+		 * @param out An iterator to the beginning of the range to copy the header to.
 		 ******************************************************************************************************************/
-		std::vector<std::byte> copyArray() const;
+		template <GLCopyOutputIterator It> void copyArrayTo(It out) const noexcept
+		{
+			copyRegionTo(out, _headerSize, _size);
+		}
 
 		/******************************************************************************************************************
 		 * Sets the data of the header.
