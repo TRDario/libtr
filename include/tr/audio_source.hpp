@@ -376,15 +376,13 @@ namespace tr {
 		void queueBuffers(std::span<AudioBufferView> buffers) noexcept;
 
 		/**************************************************************************************************************
-		 * Removes at most max (or all processed buffers with UNQUEUE_PROCESSED) of buffers from the source's queue.
+		 * Removes a buffer from the source's queue.
 		 *
-		 * @exception std::bad_alloc If allocating the return vector failed.
+		 * A failed assertion may be triggered if no buffers can be unqueued when this function is called.
 		 *
-		 * @param max The number of buffers to unqueue.
-		 *
-		 * @return A vector containing the removed buffers.
+		 * @return A view over the unqueued buffer.
 		 **************************************************************************************************************/
-		std::vector<AudioBufferView> unqueueBuffers(std::size_t max = UNQUEUE_PROCESSED);
+		AudioBufferView unqueueBuffer() const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the source's playback position within the current buffer.

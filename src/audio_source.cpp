@@ -282,18 +282,12 @@ void tr::AudioSource::queueBuffers(std::span<AudioBufferView> buffers) noexcept
 	assert(alGetError() != AL_INVALID_OPERATION);
 }
 
-std::vector<tr::AudioBufferView> tr::AudioSource::unqueueBuffers(std::size_t max)
+tr::AudioBufferView tr::AudioSource::unqueueBuffer() const noexcept
 {
-	const auto n{std::min(max, processedBuffers())};
-
-	std::vector<AudioBufferView> buffers;
-	buffers.reserve(n);
-	for (std::size_t i = 0; i < n; ++i) {
-		ALuint id;
-		alSourceUnqueueBuffers(_id.get(), 1, &id);
-		buffers.push_back(id);
-	}
-	return buffers;
+	assert(processedBuffers() >= 1);
+	ALuint id;
+	alSourceUnqueueBuffers(_id.get(), 1, &id);
+	return id;
 }
 
 tr::SecondsF tr::AudioSource::offset() const noexcept
