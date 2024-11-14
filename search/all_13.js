@@ -7,7 +7,7 @@ var searchData=
   ['uint_4',['uint',['../structtr_1_1CustomEventBase.html#ad12ba0186d1443c37ae7b68fefd039d6',1,'tr::CustomEventBase']]],
   ['underline_5',['UNDERLINE',['../classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06a0086c73c90c261db630b4dc8aea09bcf',1,'tr::TTFont']]],
   ['unqueue_5fprocessed_6',['UNQUEUE_PROCESSED',['../audio__source_8hpp.html#a6340a356507e099bafcf3cdfe72dcc52',1,'tr']]],
-  ['unqueuebuffers_7',['unqueueBuffers',['../classtr_1_1AudioSource.html#ad21a44dd3dc87948635144f6fb2a3cf8',1,'tr::AudioSource']]],
+  ['unqueuebuffer_7',['unqueueBuffer',['../classtr_1_1AudioSource.html#a75fe7e0c8c3520f7e642b0d77ae61f28',1,'tr::AudioSource']]],
   ['unsupportedaudiofile_8',['UnsupportedAudioFile',['../structtr_1_1UnsupportedAudioFile.html',1,'tr']]],
   ['until_5ffocused_9',['UNTIL_FOCUSED',['../window_8hpp.html#a41769bf3df85aadb5d910148498e9585a37ee9d0a11de019f916518dc5f79c2b3',1,'tr']]],
   ['up_10',['up',['../structtr_1_1Orientation.html#a120cd4fac22aaf6befdce1ae75708685',1,'tr::Orientation']]],

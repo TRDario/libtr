@@ -19,7 +19,7 @@ var searchData=
   ['heldmods_16',['heldMods',['../namespacetr_1_1keyboard.html#a277d8c3803d0f2f7393aeacacea182a9',1,'tr::keyboard']]],
   ['hidden_17',['HIDDEN',['../window_8hpp.html#ad463b226a0cad7ea3e64dd5b07ecf12fa347e628a8f72626a0611ef842fe9d304',1,'tr']]],
   ['hide_18',['hide',['../classtr_1_1WindowView.html#ae66793d926781a492adc023680f7d961',1,'tr::WindowView']]],
-  ['highestmode_19',['highestMode',['../classtr_1_1DisplayInfo.html#a2aec0b173111f48da4bafad167a7dd10',1,'tr::DisplayInfo']]],
+  ['highest_5fmode_19',['HIGHEST_MODE',['../display_8hpp.html#a358e16e96eb853ad393b10bbc9b9a7b7',1,'tr']]],
   ['hint_20',['Hint',['../classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2',1,'tr::TTFont']]],
   ['hinting_21',['hinting',['../classtr_1_1TTFont.html#ace8154ed7bc4cc26a813ba85fe431c19',1,'tr::TTFont']]],
   ['hittestcb_22',['HitTestCB',['../window_8hpp.html#a98e99d2f98693cefc8863e2bd8b6b514',1,'tr']]],

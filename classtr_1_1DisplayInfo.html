@@ -121,15 +121,12 @@ constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>DisplayInfo</b> 
 <tr class="memitem:a340d2190c4e7cabc5c573ddf9d5673c6" id="r_a340d2190c4e7cabc5c573ddf9d5673c6"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a340d2190c4e7cabc5c573ddf9d5673c6">closestModeTo</a> (const <a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> &amp;mode) const noexcept</td></tr>
 <tr class="memdesc:a340d2190c4e7cabc5c573ddf9d5673c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to get the closest compatible display mode to the desired one.  <br /></td></tr>
 <tr class="separator:a340d2190c4e7cabc5c573ddf9d5673c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdf25ae6619c7deb3ad4ee999c9a7d93" id="r_abdf25ae6619c7deb3ad4ee999c9a7d93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abdf25ae6619c7deb3ad4ee999c9a7d93">desktopMode</a> () const noexcept</td></tr>
-<tr class="memdesc:abdf25ae6619c7deb3ad4ee999c9a7d93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the display's desktop display mode.  <br /></td></tr>
-<tr class="separator:abdf25ae6619c7deb3ad4ee999c9a7d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2aec0b173111f48da4bafad167a7dd10" id="r_a2aec0b173111f48da4bafad167a7dd10"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2aec0b173111f48da4bafad167a7dd10">highestMode</a> () const noexcept</td></tr>
-<tr class="memdesc:a2aec0b173111f48da4bafad167a7dd10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the display's highest-ordered display mode.  <br /></td></tr>
-<tr class="separator:a2aec0b173111f48da4bafad167a7dd10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3da2480e68eca7a7858ba0705793a8f2" id="r_a3da2480e68eca7a7858ba0705793a8f2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3da2480e68eca7a7858ba0705793a8f2">modes</a> () const</td></tr>
-<tr class="memdesc:a3da2480e68eca7a7858ba0705793a8f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the display's display modes.  <br /></td></tr>
-<tr class="separator:a3da2480e68eca7a7858ba0705793a8f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeea84569590550c077a8985e1647eece" id="r_aeea84569590550c077a8985e1647eece"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeea84569590550c077a8985e1647eece">displayMode</a> (int index) const noexcept</td></tr>
+<tr class="memdesc:aeea84569590550c077a8985e1647eece"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets one of the display's display modes.  <br /></td></tr>
+<tr class="separator:aeea84569590550c077a8985e1647eece"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf825c4dfb82beafd4d3638d31aa3f16" id="r_abf825c4dfb82beafd4d3638d31aa3f16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf825c4dfb82beafd4d3638d31aa3f16">displayModeCount</a> () const noexcept</td></tr>
+<tr class="memdesc:abf825c4dfb82beafd4d3638d31aa3f16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of display modes available on the display.  <br /></td></tr>
+<tr class="separator:abf825c4dfb82beafd4d3638d31aa3f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05ed1ed471b2566e57ce8a1808b125ee" id="r_a05ed1ed471b2566e57ce8a1808b125ee"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05ed1ed471b2566e57ce8a1808b125ee">toGlobalCoords</a> (glm::ivec2 localCoords) const noexcept</td></tr>
 <tr class="memdesc:a05ed1ed471b2566e57ce8a1808b125ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts local coordinates on the display to global coordinates.  <br /></td></tr>
 <tr class="separator:a05ed1ed471b2566e57ce8a1808b125ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -270,8 +267,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="abdf25ae6619c7deb3ad4ee999c9a7d93" name="abdf25ae6619c7deb3ad4ee999c9a7d93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abdf25ae6619c7deb3ad4ee999c9a7d93">&#9670;&#160;</a></span>desktopMode()</h2>
+<a id="aeea84569590550c077a8985e1647eece" name="aeea84569590550c077a8985e1647eece"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeea84569590550c077a8985e1647eece">&#9670;&#160;</a></span>displayMode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -280,7 +277,41 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> tr::DisplayInfo::desktopMode </td>
+          <td class="memname"><a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> tr::DisplayInfo::displayMode </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets one of the display's display modes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>The index of the display mode, HIGHEST_MODE, or DESKTOP_MODE. If an index, it must be in the range [0, displayModeCount), otherwise a failed assertion may be triggered.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The display at the requested index. </dd></dl>
+
+</div>
+</div>
+<a id="abf825c4dfb82beafd4d3638d31aa3f16" name="abf825c4dfb82beafd4d3638d31aa3f16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf825c4dfb82beafd4d3638d31aa3f16">&#9670;&#160;</a></span>displayModeCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int tr::DisplayInfo::displayModeCount </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -293,8 +324,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the display's desktop display mode. </p>
-<dl class="section return"><dt>Returns</dt><dd>The display's desktop display mode. </dd></dl>
+<p>Gets the number of display modes available on the display. </p>
+<dl class="section return"><dt>Returns</dt><dd>The number of display modes available on the display. </dd></dl>
 
 </div>
 </div>
@@ -329,60 +360,6 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::nullopt if the coordinates are not in the bounds of any display, or display information of the display the coordinates are in otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a2aec0b173111f48da4bafad167a7dd10" name="a2aec0b173111f48da4bafad167a7dd10"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2aec0b173111f48da4bafad167a7dd10">&#9670;&#160;</a></span>highestMode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> tr::DisplayInfo::highestMode </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the display's highest-ordered display mode. </p>
-<dl class="section return"><dt>Returns</dt><dd>The display's highest-ordered display mode. </dd></dl>
-
-</div>
-</div>
-<a id="a3da2480e68eca7a7858ba0705793a8f2" name="a3da2480e68eca7a7858ba0705793a8f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3da2480e68eca7a7858ba0705793a8f2">&#9670;&#160;</a></span>modes()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> &gt; tr::DisplayInfo::modes </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets the display's display modes. </p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::bad_alloc</td><td>If allocating the vector failed.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The modes of the display. </dd></dl>
 
 </div>
 </div>

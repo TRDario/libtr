@@ -101,17 +101,6 @@ $(function(){ initResizable(false); });
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="audio__source_8hpp_source.html">audio_source.hpp</a>&gt;</code></p>
-<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for tr::AudioSource:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
- <div class="center">
-  <img src="classtr_1_1AudioSource.png" usemap="#tr::AudioSource_map" alt=""/>
-  <map id="tr::AudioSource_map" name="tr::AudioSource_map">
-<area href="classtr_1_1AudioStream.html" title="Streamed audio source." alt="tr::AudioStream" shape="rect" coords="0,56,100,80"/>
-  </map>
-</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -247,9 +236,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>play</b> () noexcept<
 void&#160;</td><td class="memItemRight" valign="bottom"><b>stop</b> () noexcept</td></tr>
 <tr class="memdesc:ad346f6a9e24cbfeecffd2e93bc5c8965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the source and rewinds it to the beginning. <br /></td></tr>
 <tr class="separator:ad346f6a9e24cbfeecffd2e93bc5c8965"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad21a44dd3dc87948635144f6fb2a3cf8" id="r_ad21a44dd3dc87948635144f6fb2a3cf8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classtr_1_1AudioBufferView.html">AudioBufferView</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad21a44dd3dc87948635144f6fb2a3cf8">unqueueBuffers</a> (std::size_t max=<a class="el" href="audio__source_8hpp.html#a6340a356507e099bafcf3cdfe72dcc52">UNQUEUE_PROCESSED</a>)</td></tr>
-<tr class="memdesc:ad21a44dd3dc87948635144f6fb2a3cf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes at most max (or all processed buffers with UNQUEUE_PROCESSED) of buffers from the source's queue.  <br /></td></tr>
-<tr class="separator:ad21a44dd3dc87948635144f6fb2a3cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75fe7e0c8c3520f7e642b0d77ae61f28" id="r_a75fe7e0c8c3520f7e642b0d77ae61f28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1AudioBufferView.html">AudioBufferView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75fe7e0c8c3520f7e642b0d77ae61f28">unqueueBuffer</a> () const noexcept</td></tr>
+<tr class="memdesc:a75fe7e0c8c3520f7e642b0d77ae61f28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a buffer from the source's queue.  <br /></td></tr>
+<tr class="separator:a75fe7e0c8c3520f7e642b0d77ae61f28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee6060e87105f58580f778a06d7877bc" id="r_aee6060e87105f58580f778a06d7877bc"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee6060e87105f58580f778a06d7877bc">velocity</a> () const noexcept</td></tr>
 <tr class="memdesc:aee6060e87105f58580f778a06d7877bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the velocity of the source.  <br /></td></tr>
 <tr class="separator:aee6060e87105f58580f778a06d7877bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1474,35 +1463,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>stop</b> () noexcept<
 
 </div>
 </div>
-<a id="ad21a44dd3dc87948635144f6fb2a3cf8" name="ad21a44dd3dc87948635144f6fb2a3cf8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad21a44dd3dc87948635144f6fb2a3cf8">&#9670;&#160;</a></span>unqueueBuffers()</h2>
+<a id="a75fe7e0c8c3520f7e642b0d77ae61f28" name="a75fe7e0c8c3520f7e642b0d77ae61f28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75fe7e0c8c3520f7e642b0d77ae61f28">&#9670;&#160;</a></span>unqueueBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="classtr_1_1AudioBufferView.html">AudioBufferView</a> &gt; tr::AudioSource::unqueueBuffers </td>
+          <td class="memname"><a class="el" href="classtr_1_1AudioBufferView.html">AudioBufferView</a> tr::AudioSource::unqueueBuffer </td>
           <td>(</td>
-          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>max</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="audio__source_8hpp.html#a6340a356507e099bafcf3cdfe72dcc52">UNQUEUE_PROCESSED</a></span></td><td>)</td>
-          <td></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Removes at most max (or all processed buffers with UNQUEUE_PROCESSED) of buffers from the source's queue. </p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::bad_alloc</td><td>If allocating the return vector failed.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">max</td><td>The number of buffers to unqueue.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector containing the removed buffers. </dd></dl>
+<p>Removes a buffer from the source's queue. </p>
+<p>A failed assertion may be triggered if no buffers can be unqueued when this function is called.</p>
+<dl class="section return"><dt>Returns</dt><dd>A view over the unqueued buffer. </dd></dl>
 
 </div>
 </div>

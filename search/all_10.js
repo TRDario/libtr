@@ -20,7 +20,7 @@ var searchData=
   ['rectf3_17',['RectF3',['../geometry_8hpp.html#a2365f401a0c3c72f48fa4b636573ad77',1,'tr']]],
   ['recti2_18',['RectI2',['../geometry_8hpp.html#a386ecd8029d58f09791896b6421218d9',1,'tr']]],
   ['recti3_19',['RectI3',['../geometry_8hpp.html#a390b094b8bc7eb8fb107168f2ce8a6c0',1,'tr']]],
-  ['referencedistance_20',['referenceDistance',['../classtr_1_1AudioSource.html#ae7dff2a8a581f4798e7d3e963060a6f8',1,'tr::AudioSource::referenceDistance()'],['../classtr_1_1AudioStream.html#ae7dff2a8a581f4798e7d3e963060a6f8',1,'tr::AudioStream::referenceDistance()']]],
+  ['referencedistance_20',['referenceDistance',['../classtr_1_1AudioSource.html#ae7dff2a8a581f4798e7d3e963060a6f8',1,'tr::AudioSource']]],
   ['refreshrate_21',['refreshRate',['../structtr_1_1DisplayMode.html#a46dd1b13f1d671ecf14fe5a4c32dc2a7',1,'tr::DisplayMode']]],
   ['release_22',['release',['../classtr_1_1Handle.html#ad337cdca4f3215dce14cb517597b01ac',1,'tr::Handle']]],
   ['remove_5fnoexcept_5ft_23',['remove_noexcept_t',['../concepts_8hpp.html#a7d27da0979dd5dcecf290bb304d95aa5',1,'tr']]],
@@ -59,7 +59,7 @@ var searchData=
   ['rgbfn_56',['rgbFn',['../structtr_1_1BlendMode.html#abb86ded01daaa9c6a9e98bcbdc1300bb',1,'tr::BlendMode']]],
   ['rgbsrc_57',['rgbSrc',['../structtr_1_1BlendMode.html#aa9a44cb89d38d94471ec787f72a4ddc9',1,'tr::BlendMode']]],
   ['right_58',['RIGHT',['../classtr_1_1TTFont.html#afd715019ff947708ce95f3670331b0fea21507b40c80068eda19865706fdc2403',1,'tr::TTFont::RIGHT'],['../window_8hpp.html#af09e8a848420f5464858f667b96bdab4a21507b40c80068eda19865706fdc2403',1,'RIGHTtr']]],
-  ['rolloff_59',['rolloff',['../classtr_1_1AudioSource.html#ad42824ce1b8b7cc491d45f2a38595859',1,'tr::AudioSource::rolloff()'],['../classtr_1_1AudioStream.html#ad42824ce1b8b7cc491d45f2a38595859',1,'tr::AudioStream::rolloff()']]],
+  ['rolloff_59',['rolloff',['../classtr_1_1AudioSource.html#ad42824ce1b8b7cc491d45f2a38595859',1,'tr::AudioSource']]],
   ['rotatearoundpoint2_60',['rotateAroundPoint2',['../geometry_8hpp.html#a24619c6cf354c12058a51733736459ce',1,'tr']]],
   ['rotatearoundpoint3_61',['rotateAroundPoint3',['../geometry_8hpp.html#ab3ae26e166308ba24edd77e345da07d9',1,'tr']]],
   ['rowlength_62',['rowLength',['../classtr_1_1SubBitmap.html#a4113c0e2ba49b345a2e008b7da2ed448',1,'tr::SubBitmap']]]

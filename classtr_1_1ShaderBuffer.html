@@ -134,12 +134,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aad12e5aebf82068f07f7b4b138a88639" id="r_aad12e5aebf82068f07f7b4b138a88639"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad12e5aebf82068f07f7b4b138a88639">arraySize</a> () const noexcept</td></tr>
 <tr class="memdesc:aad12e5aebf82068f07f7b4b138a88639"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the dynamic array.  <br /></td></tr>
 <tr class="separator:aad12e5aebf82068f07f7b4b138a88639"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7291a06154de792d7b315b4858d9965d" id="r_a7291a06154de792d7b315b4858d9965d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::byte &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7291a06154de792d7b315b4858d9965d">copyArray</a> () const</td></tr>
-<tr class="memdesc:a7291a06154de792d7b315b4858d9965d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the data of the dynamic array to a vector.  <br /></td></tr>
-<tr class="separator:a7291a06154de792d7b315b4858d9965d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19327951ab351c4da06f18bbf3d7b42a" id="r_a19327951ab351c4da06f18bbf3d7b42a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::byte &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19327951ab351c4da06f18bbf3d7b42a">copyHeader</a> () const</td></tr>
-<tr class="memdesc:a19327951ab351c4da06f18bbf3d7b42a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the data of the fixed header to a vector.  <br /></td></tr>
-<tr class="separator:a19327951ab351c4da06f18bbf3d7b42a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af279fd9d5e86f974247f2ab631671868" id="r_af279fd9d5e86f974247f2ab631671868"><td class="memTemplParams" colspan="2">template&lt;GLCopyOutputIterator It&gt; </td></tr>
+<tr class="memitem:af279fd9d5e86f974247f2ab631671868"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af279fd9d5e86f974247f2ab631671868">copyArrayTo</a> (It out) const noexcept</td></tr>
+<tr class="memdesc:af279fd9d5e86f974247f2ab631671868"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the data of the dynamic array to an output iterator.  <br /></td></tr>
+<tr class="separator:af279fd9d5e86f974247f2ab631671868"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeba551416241803f1298dec493add27c" id="r_aeba551416241803f1298dec493add27c"><td class="memTemplParams" colspan="2">template&lt;GLCopyOutputIterator It&gt; </td></tr>
+<tr class="memitem:aeba551416241803f1298dec493add27c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aeba551416241803f1298dec493add27c">copyHeaderTo</a> (It out) const noexcept</td></tr>
+<tr class="memdesc:aeba551416241803f1298dec493add27c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the data of the fixed header to an output iterator.  <br /></td></tr>
+<tr class="separator:aeba551416241803f1298dec493add27c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa82d11a61eb3723000004471d4530715" id="r_aa82d11a61eb3723000004471d4530715"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa82d11a61eb3723000004471d4530715">headerSize</a> () const noexcept</td></tr>
 <tr class="memdesc:aa82d11a61eb3723000004471d4530715"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the fixed header block.  <br /></td></tr>
 <tr class="separator:aa82d11a61eb3723000004471d4530715"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -299,55 +301,73 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7291a06154de792d7b315b4858d9965d" name="a7291a06154de792d7b315b4858d9965d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7291a06154de792d7b315b4858d9965d">&#9670;&#160;</a></span>copyArray()</h2>
+<a id="af279fd9d5e86f974247f2ab631671868" name="af279fd9d5e86f974247f2ab631671868"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af279fd9d5e86f974247f2ab631671868">&#9670;&#160;</a></span>copyArrayTo()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;GLCopyOutputIterator It&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; std::byte &gt; tr::ShaderBuffer::copyArray </td>
+          <td class="memname">void tr::ShaderBuffer::copyArrayTo </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">It</td>          <td class="paramname"><span class="paramname"><em>out</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Copies the data of the dynamic array to a vector. </p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::bad_alloc</td><td>If allocating the vector failed.</td></tr>
+<p>Copies the data of the dynamic array to an output iterator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">out</td><td>An iterator to the beginning of the range to copy the header to. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector containing a copy of the dynamic array's data. </dd></dl>
 
 </div>
 </div>
-<a id="a19327951ab351c4da06f18bbf3d7b42a" name="a19327951ab351c4da06f18bbf3d7b42a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19327951ab351c4da06f18bbf3d7b42a">&#9670;&#160;</a></span>copyHeader()</h2>
+<a id="aeba551416241803f1298dec493add27c" name="aeba551416241803f1298dec493add27c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeba551416241803f1298dec493add27c">&#9670;&#160;</a></span>copyHeaderTo()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;GLCopyOutputIterator It&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; std::byte &gt; tr::ShaderBuffer::copyHeader </td>
+          <td class="memname">void tr::ShaderBuffer::copyHeaderTo </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">It</td>          <td class="paramname"><span class="paramname"><em>out</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Copies the data of the fixed header to a vector. </p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::bad_alloc</td><td>If allocating the vector failed.</td></tr>
+<p>Copies the data of the fixed header to an output iterator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">out</td><td>An iterator to the beginning of the range to copy the header to. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector containing a copy of the header's data. </dd></dl>
 
 </div>
 </div>

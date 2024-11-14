@@ -10,6 +10,5 @@ var searchData=
   ['held_7',['held',['../namespacetr_1_1keyboard.html#a794023d0d14f1278a1dd95947e5d3c30',1,'tr::keyboard::held()'],['../namespacetr_1_1mouse.html#a65f38737d8c68a55f0368776c73dabd1',1,'tr::mouse::held(MouseButton button) noexcept'],['../namespacetr_1_1mouse.html#a824def1411eb7445990c41816f104fe7',1,'tr::mouse::held(MouseButton button, MouseButtonMask mask) noexcept']]],
   ['heldmods_8',['heldMods',['../namespacetr_1_1keyboard.html#a277d8c3803d0f2f7393aeacacea182a9',1,'tr::keyboard']]],
   ['hide_9',['hide',['../classtr_1_1WindowView.html#ae66793d926781a492adc023680f7d961',1,'tr::WindowView']]],
-  ['highestmode_10',['highestMode',['../classtr_1_1DisplayInfo.html#a2aec0b173111f48da4bafad167a7dd10',1,'tr::DisplayInfo']]],
-  ['hinting_11',['hinting',['../classtr_1_1TTFont.html#ace8154ed7bc4cc26a813ba85fe431c19',1,'tr::TTFont']]]
+  ['hinting_10',['hinting',['../classtr_1_1TTFont.html#ace8154ed7bc4cc26a813ba85fe431c19',1,'tr::TTFont']]]
 ];

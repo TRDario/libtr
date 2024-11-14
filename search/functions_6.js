@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gain_0',['gain',['../classtr_1_1AudioSource.html#ab98cdf334cc03905f1d8ffdae0c2ca2f',1,'tr::AudioSource::gain()'],['../classtr_1_1Listener.html#a76eb2a8b1e10615b9038aa4d301bd2f3',1,'tr::Listener::gain()'],['../classtr_1_1AudioStream.html#ab98cdf334cc03905f1d8ffdae0c2ca2f',1,'tr::AudioStream::gain()']]],
+  ['gain_0',['gain',['../classtr_1_1AudioSource.html#ab98cdf334cc03905f1d8ffdae0c2ca2f',1,'tr::AudioSource::gain()'],['../classtr_1_1Listener.html#a76eb2a8b1e10615b9038aa4d301bd2f3',1,'tr::Listener::gain()']]],
   ['generateeventtype_1',['generateEventType',['../event_8hpp.html#adf2ab77adac0f06ed67394e862154c30',1,'tr']]],
   ['get_2',['get',['../classtr_1_1Handle.html#a60852e33eff675327cf0a47dc45d2397',1,'tr::Handle::get() const noexcept'],['../classtr_1_1Handle.html#a2283dd42c1b70d34e5dd1b5e332d0fc9',1,'tr::Handle::get(NoEmptyHandleCheck) const noexcept']]],
   ['getexedir_3',['getExeDir',['../path_8hpp.html#a499a4fb44878eb1a868aeb1445464629',1,'tr']]],

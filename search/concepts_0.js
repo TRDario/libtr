@@ -11,11 +11,12 @@ var searchData=
   ['tr_3a_3acustomeventtype_8',['CustomEventType',['../concepttr_1_1CustomEventType.html',1,'tr']]],
   ['tr_3a_3aenumerator_9',['Enumerator',['../concepttr_1_1Enumerator.html',1,'tr']]],
   ['tr_3a_3afloatingpoint_10',['FloatingPoint',['../concepttr_1_1FloatingPoint.html',1,'tr']]],
-  ['tr_3a_3ahandledeleter_11',['HandleDeleter',['../concepttr_1_1HandleDeleter.html',1,'tr']]],
-  ['tr_3a_3ahandletype_12',['HandleType',['../concepttr_1_1HandleType.html',1,'tr']]],
-  ['tr_3a_3apositionsrange_13',['PositionsRange',['../concepttr_1_1PositionsRange.html',1,'tr']]],
-  ['tr_3a_3aspecializationof_14',['SpecializationOf',['../concepttr_1_1SpecializationOf.html',1,'tr']]],
-  ['tr_3a_3astandardlayout_15',['StandardLayout',['../concepttr_1_1StandardLayout.html',1,'tr']]],
-  ['tr_3a_3astandardlayoutrange_16',['StandardLayoutRange',['../concepttr_1_1StandardLayoutRange.html',1,'tr']]],
-  ['tr_3a_3auvsrange_17',['UVsRange',['../concepttr_1_1UVsRange.html',1,'tr']]]
+  ['tr_3a_3aglcopyoutputiterator_11',['GLCopyOutputIterator',['../concepttr_1_1GLCopyOutputIterator.html',1,'tr']]],
+  ['tr_3a_3ahandledeleter_12',['HandleDeleter',['../concepttr_1_1HandleDeleter.html',1,'tr']]],
+  ['tr_3a_3ahandletype_13',['HandleType',['../concepttr_1_1HandleType.html',1,'tr']]],
+  ['tr_3a_3apositionsrange_14',['PositionsRange',['../concepttr_1_1PositionsRange.html',1,'tr']]],
+  ['tr_3a_3aspecializationof_15',['SpecializationOf',['../concepttr_1_1SpecializationOf.html',1,'tr']]],
+  ['tr_3a_3astandardlayout_16',['StandardLayout',['../concepttr_1_1StandardLayout.html',1,'tr']]],
+  ['tr_3a_3astandardlayoutrange_17',['StandardLayoutRange',['../concepttr_1_1StandardLayoutRange.html',1,'tr']]],
+  ['tr_3a_3auvsrange_18',['UVsRange',['../concepttr_1_1UVsRange.html',1,'tr']]]
 ];

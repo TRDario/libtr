@@ -104,9 +104,9 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae4b3a8eadc49b25c091f96d39e2bdd4b" id="r_ae4b3a8eadc49b25c091f96d39e2bdd4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4b3a8eadc49b25c091f96d39e2bdd4b">ShaderPipeline</a> (const Shader &amp;vertexShader, boost::optional&lt; const Shader &amp; &gt; tessEvalShader, boost::optional&lt; const Shader &amp; &gt; tessControlShader, boost::optional&lt; const Shader &amp; &gt; geometryShader, const Shader &amp;fragmentShader) noexcept</td></tr>
-<tr class="memdesc:ae4b3a8eadc49b25c091f96d39e2bdd4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a shader pipeline.  <br /></td></tr>
-<tr class="separator:ae4b3a8eadc49b25c091f96d39e2bdd4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97b39dd85970525568b659b17f5029a4" id="r_a97b39dd85970525568b659b17f5029a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97b39dd85970525568b659b17f5029a4">ShaderPipeline</a> (const Shader &amp;vertexShader, const Shader &amp;fragmentShader) noexcept</td></tr>
+<tr class="memdesc:a97b39dd85970525568b659b17f5029a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a shader pipeline.  <br /></td></tr>
+<tr class="separator:a97b39dd85970525568b659b17f5029a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc22c081966d36d420b4a42d95ab0f51" id="r_acc22c081966d36d420b4a42d95ab0f51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc22c081966d36d420b4a42d95ab0f51">setLabel</a> (std::string_view label) noexcept</td></tr>
 <tr class="memdesc:acc22c081966d36d420b4a42d95ab0f51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug label of the pipeline.  <br /></td></tr>
 <tr class="separator:acc22c081966d36d420b4a42d95ab0f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,8 +115,8 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>A shader program pipeline. </p>
 <p>An OpenGL context must be open to instantiate and use objects of this type. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae4b3a8eadc49b25c091f96d39e2bdd4b" name="ae4b3a8eadc49b25c091f96d39e2bdd4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4b3a8eadc49b25c091f96d39e2bdd4b">&#9670;&#160;</a></span>ShaderPipeline()</h2>
+<a id="a97b39dd85970525568b659b17f5029a4" name="a97b39dd85970525568b659b17f5029a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97b39dd85970525568b659b17f5029a4">&#9670;&#160;</a></span>ShaderPipeline()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -128,21 +128,6 @@ Public Member Functions</h2></td></tr>
           <td class="memname">tr::ShaderPipeline::ShaderPipeline </td>
           <td>(</td>
           <td class="paramtype">const Shader &amp;</td>          <td class="paramname"><span class="paramname"><em>vertexShader</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">boost::optional&lt; const Shader &amp; &gt;</td>          <td class="paramname"><span class="paramname"><em>tessEvalShader</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">boost::optional&lt; const Shader &amp; &gt;</td>          <td class="paramname"><span class="paramname"><em>tessControlShader</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">boost::optional&lt; const Shader &amp; &gt;</td>          <td class="paramname"><span class="paramname"><em>geometryShader</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -162,9 +147,6 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">vertexShader</td><td>The vertex shader. </td></tr>
-    <tr><td class="paramname">tessEvalShader</td><td>An optional tesselation evaluation shader. </td></tr>
-    <tr><td class="paramname">tessControlShader</td><td>An optional tesselation control shader. </td></tr>
-    <tr><td class="paramname">geometryShader</td><td>An optional geometry shader. </td></tr>
     <tr><td class="paramname">fragmentShader</td><td>The fragment shader. </td></tr>
   </table>
   </dd>

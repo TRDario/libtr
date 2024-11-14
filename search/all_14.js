@@ -2,7 +2,7 @@ var searchData=
 [
   ['v_0',['v',['../structtr_1_1HSV.html#a637352bb0de0defa6d9bf8724cea50a4',1,'tr::HSV']]],
   ['value_5ftype_1',['value_type',['../classtr_1_1SubBitmap_1_1Iterator.html#a671e0bebeea96ce221436380d970b97c',1,'tr::SubBitmap::Iterator::value_type'],['../classtr_1_1Bitmap_1_1MutIt.html#a92777a0930fd2d14aced707a0ccba0f5',1,'tr::Bitmap::MutIt::value_type'],['../classtr_1_1Utf8ConstIt.html#aec3210b1d029fa6e30a22ab065299c18',1,'tr::Utf8ConstIt::value_type']]],
-  ['velocity_2',['velocity',['../classtr_1_1AudioSource.html#aee6060e87105f58580f778a06d7877bc',1,'tr::AudioSource::velocity()'],['../classtr_1_1Listener.html#aa690380247f1e0134ba170792949f834',1,'tr::Listener::velocity()'],['../classtr_1_1AudioStream.html#aee6060e87105f58580f778a06d7877bc',1,'tr::AudioStream::velocity()']]],
+  ['velocity_2',['velocity',['../classtr_1_1AudioSource.html#aee6060e87105f58580f778a06d7877bc',1,'tr::AudioSource::velocity()'],['../classtr_1_1Listener.html#aa690380247f1e0134ba170792949f834',1,'tr::Listener::velocity()']]],
   ['vendorstr_3',['vendorStr',['../classtr_1_1GLContext.html#a94646f3495fc47b48d8a683017517e73',1,'tr::GLContext']]],
   ['version_4',['Version',['../structtr_1_1Version.html',1,'tr']]],
   ['version_5',['version',['../classtr_1_1SDL__Image.html#abacaf5fcddd1e93260351f2d7a09ec8d',1,'tr::SDL_Image::version()'],['../classtr_1_1SDL.html#a2f81ceb70edc42d484d2d08aade6fbd0',1,'tr::SDL::version()'],['../classtr_1_1SDL__TTF.html#ac3c659bad5b8833dc53d10e64894e41c',1,'tr::SDL_TTF::version()']]],
