@@ -1,33 +1,24 @@
 #include "../include/tr/vertex_format.hpp"
 
+#include "../include/tr/overloaded_lambda.hpp"
 #include <GL/glew.h>
 
 tr::VertexFormat::VertexFormat(std::span<const VertexAttribute> attrs) noexcept
 {
-	struct AttribFormatter {
-		GLuint vao;
-		int i;
-
-		void operator()(const VertexAttributeF& attr)
-		{
-			glVertexArrayAttribFormat(vao, i, attr.elements, GLenum(attr.type), attr.normalized, attr.offset);
-		}
-
-		void operator()(const VertexAttributeD& attr)
-		{
-			glVertexArrayAttribLFormat(vao, i, attr.elements, GL_DOUBLE, attr.offset);
-		}
-
-		void operator()(const VertexAttributeI& attr)
-		{
-			glVertexArrayAttribIFormat(vao, i, attr.elements, GLenum(attr.type), attr.offset);
-		}
-	};
-
 	GLuint vao;
 	glCreateVertexArrays(1, &vao);
 	for (int i = 0; i < attrs.size(); ++i) {
-		std::visit(AttribFormatter{vao, i}, attrs[i]);
+		std::visit(overloaded{[=](const VertexAttributeF& attr) {
+								  glVertexArrayAttribFormat(vao, i, attr.elements, GLenum(attr.type), attr.normalized,
+															attr.offset);
+							  },
+							  [=](const VertexAttributeD& attr) {
+								  glVertexArrayAttribLFormat(vao, i, attr.elements, GL_DOUBLE, attr.offset);
+							  },
+							  [=](const VertexAttributeI& attr) {
+								  glVertexArrayAttribIFormat(vao, i, attr.elements, GLenum(attr.type), attr.offset);
+							  }},
+				   attrs[i]);
 		glVertexArrayAttribBinding(vao, i, 0);
 		glEnableVertexArrayAttrib(vao, i);
 	}
