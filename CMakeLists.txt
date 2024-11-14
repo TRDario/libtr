@@ -32,10 +32,10 @@ target_sources(tr PUBLIC
         include/tr/framebuffer.hpp include/tr/function.hpp include/tr/geometry.hpp include/tr/gl_buffer.hpp
         include/tr/gl_context.hpp include/tr/handle.hpp include/tr/hashmap.hpp include/tr/index_buffer.hpp
         include/tr/iostream.hpp include/tr/keyboard.hpp include/tr/listener.hpp include/tr/mouse.hpp
-        include/tr/norm_cast.hpp include/tr/path.hpp include/tr/ranges.hpp include/tr/renderbuffer.hpp
-        include/tr/sampler.hpp include/tr/sdl.hpp include/tr/shader_buffer.hpp include/tr/shader_pipeline.hpp
-        include/tr/shader.hpp include/tr/texture_unit.hpp include/tr/texture.hpp include/tr/tr.hpp
-        include/tr/ttfont.hpp include/tr/utf8.hpp include/tr/vertex_buffer.hpp include/tr/vertex_format.hpp
+        include/tr/norm_cast.hpp include/tr/overloaded_lambda.hpp include/tr/path.hpp include/tr/ranges.hpp
+        include/tr/renderbuffer.hpp include/tr/sampler.hpp include/tr/sdl.hpp include/tr/shader_buffer.hpp
+        include/tr/shader_pipeline.hpp include/tr/shader.hpp include/tr/texture_unit.hpp include/tr/texture.hpp
+        include/tr/tr.hpp include/tr/ttfont.hpp include/tr/utf8.hpp include/tr/vertex_buffer.hpp include/tr/vertex_format.hpp
         include/tr/vertex.hpp include/tr/window.hpp
 )
 set_target_properties(tr PROPERTIES DEBUG_POSTFIX d)
