@@ -3,20 +3,40 @@
 #include <AL/alc.h>
 #include <format>
 
-tr::AudioContextCreationError::AudioContextCreationError(const char* error)
-	: runtime_error{std::format("Failed to create audio context ({})", error)}
-{
-}
+namespace tr {
+	ALCdevice* openALCDeviceChecked();
+	ALCcontext* createALCContextChecked(ALCdevice* device);
+} // namespace tr
 
-tr::AudioContext::AudioContext(AudioDevice& device)
-	: _impl{alcCreateContext(device._impl.get(), nullptr)}
+ALCdevice* tr::openALCDeviceChecked()
 {
-	if (_impl == nullptr || !alcMakeContextCurrent(_impl.get())) {
-		throw AudioContextCreationError{alcGetString(device._impl.get(), alcGetError(device._impl.get()))};
+	auto ptr{alcOpenDevice(nullptr)};
+	if (ptr == nullptr) {
+		throw AudioContextCreationError{"Failed to open audio device."};
 	}
+	return ptr;
 }
 
-void tr::AudioContext::Deleter::operator()(ALCcontext* ptr) const noexcept
+ALCcontext* tr::createALCContextChecked(ALCdevice* device)
+{
+	auto ptr{alcCreateContext(device, nullptr)};
+	if (ptr == nullptr) {
+		throw AudioContextCreationError{std::format("Failed to create audio context ({})", alcGetError(device))};
+	}
+	return ptr;
+}
+
+tr::AudioContext::AudioContext()
+	: _device{openALCDeviceChecked()}, _context{createALCContextChecked(_device.get())}
+{
+}
+
+void tr::AudioContext::DeviceDeleter::operator()(ALCdevice* ptr) const noexcept
+{
+	alcCloseDevice(ptr);
+}
+
+void tr::AudioContext::ContextDeleter::operator()(ALCcontext* ptr) const noexcept
 {
 	alcMakeContextCurrent(0);
 	alcDestroyContext(ptr);

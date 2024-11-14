@@ -13,7 +13,7 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     target_compile_options(tr PRIVATE -march=x86-64-v2)
 endif()
 target_sources(tr PRIVATE
-    src/audio_buffer.cpp src/audio_context.cpp src/audio_device.cpp src/audio_source.cpp src/audio_stream.cpp
+    src/audio_buffer.cpp src/audio_context.cpp src/audio_device.cpp src/audio_source.cpp
     src/benchmark.cpp src/bitmap_format.cpp src/bitmap.cpp src/display.cpp src/event.cpp src/framebuffer.cpp
     src/gl_buffer.cpp src/gl_context.cpp src/index_buffer.cpp src/iostream.cpp src/keyboard.cpp src/listener.cpp
     src/mouse.cpp src/path.cpp src/renderbuffer.cpp src/sampler.cpp src/sdl.cpp src/shader_buffer.cpp src/shader_pipeline.cpp
@@ -25,8 +25,8 @@ target_sources(tr PUBLIC
     BASE_DIRS include
     FILES
         include/tr/dependencies/half.hpp include/tr/dependencies/EnumBitmask.hpp include/tr/dependencies/magic_enum.hpp
-        include/tr/angle.hpp include/tr/audio_buffer.hpp include/tr/audio_context.hpp include/tr/audio_device.hpp
-        include/tr/audio_source.hpp include/tr/audio_stream.hpp include/tr/benchmark.hpp include/tr/bitmap_format.hpp
+        include/tr/angle.hpp include/tr/audio_buffer.hpp include/tr/audio_context.hpp
+        include/tr/audio_source.hpp include/tr/benchmark.hpp include/tr/bitmap_format.hpp
         include/tr/bitmap.hpp include/tr/chrono.hpp include/tr/color_cast.hpp include/tr/color.hpp
         include/tr/concepts.hpp include/tr/display.hpp include/tr/draw_geometry.hpp include/tr/event.hpp
         include/tr/framebuffer.hpp include/tr/function.hpp include/tr/geometry.hpp include/tr/gl_buffer.hpp

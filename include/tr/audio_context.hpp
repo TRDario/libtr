@@ -4,9 +4,11 @@
  */
 
 #pragma once
-#include "audio_device.hpp"
 #include "listener.hpp"
+#include <memory>
+#include <stdexcept>
 
+struct ALCdevice;
 struct ALCcontext;
 
 namespace tr {
@@ -14,14 +16,7 @@ namespace tr {
 	 * Error thrown when creating an audio context failed.
 	 ******************************************************************************************************************/
 	struct AudioContextCreationError : std::runtime_error {
-		/**************************************************************************************************************
-		 * Constructs an audio context creation error.
-		 *
-		 * @param error The error string.
-		 *
-		 * @exception std::bad_alloc If constructing the error string failed.
-		 **************************************************************************************************************/
-		AudioContextCreationError(const char* error);
+		using runtime_error::runtime_error;
 	};
 
 	/******************************************************************************************************************
@@ -30,13 +25,11 @@ namespace tr {
 	class AudioContext {
 	  public:
 		/**************************************************************************************************************
-		 * Creates an audio context on an audio device.
+		 * Creates an audio context.
 		 *
-		 * @exception AudioContextCreationError If creating the audio context failed.
-		 *
-		 * @param device The device to open the context on.
+		 * @exception AudioContextCreationError If opening an audio device or creating the audio context failed.
 		 **************************************************************************************************************/
-		AudioContext(AudioDevice& device);
+		AudioContext();
 
 		/**************************************************************************************************************
 		 * The global audio listener.
@@ -44,11 +37,16 @@ namespace tr {
 		Listener listener;
 
 	  private:
-		struct Deleter {
+		struct DeviceDeleter {
+			/// @private
+			void operator()(ALCdevice* ptr) const noexcept;
+		};
+		struct ContextDeleter {
 			/// @private
 			void operator()(ALCcontext* ptr) const noexcept;
 		};
 
-		std::unique_ptr<ALCcontext, Deleter> _impl;
+		std::unique_ptr<ALCdevice, DeviceDeleter> _device;
+		std::unique_ptr<ALCcontext, ContextDeleter> _context;
 	};
 } // namespace tr
