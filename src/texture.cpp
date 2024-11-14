@@ -181,7 +181,7 @@ int tr::ArrayTexture1D::layers() const noexcept
 void tr::ArrayTexture1D::setRegion(glm::ivec2 tl, SubBitmap bitmap) noexcept
 {
 #ifndef NDEBUG
-	RectI2 bounds{size(), layers()};
+	RectI2 bounds{{size(), layers()}};
 	assert(bounds.contains(tl + bitmap.size()));
 #endif
 	auto [format, type]{bitmapToGLFormat(bitmap.format())};
