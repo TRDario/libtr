@@ -2,16 +2,6 @@
 
 #include <SDL2/SDL.h>
 
-namespace tr {
-	// Hit-test callback passed directly to SDL that bridges the gap between SDL and tr's callback format.
-	SDL_HitTestResult sdlHitTestCB(SDL_Window* window, const SDL_Point* point, void* data) noexcept;
-} // namespace tr
-
-SDL_HitTestResult tr::sdlHitTestCB(SDL_Window* window, const SDL_Point* point, void* data) noexcept
-{
-	return SDL_HitTestResult((*(HitTestCB*)(data))({point->x, point->y}));
-}
-
 tr::WindowView::WindowView(SDL_Window* window) noexcept
 	: _impl{window}
 {
@@ -329,7 +319,7 @@ tr::Window::Window(const char* title, const DisplayMode& dmode, DisplayInfo disp
 }
 
 tr::Window::Window(Window&& r) noexcept
-	: WindowView{r._impl}, _hitTest{std::move(r._hitTest)}
+	: WindowView{r._impl}
 {
 	r._impl = nullptr;
 }
@@ -343,19 +333,5 @@ tr::Window& tr::Window::operator=(Window&& r) noexcept
 {
 	std::ignore = std::move(*this);
 	std::swap(_impl, r._impl);
-	std::swap(_hitTest, r._hitTest);
 	return *this;
-}
-
-void tr::Window::setHitTest(HitTestCB hitTestCB)
-{
-	assert(_impl != nullptr);
-	SDL_SetWindowHitTest(_impl, nullptr, nullptr);
-	if (hitTestCB != nullptr) {
-		auto oldHitTest{std::exchange(_hitTest, std::move(hitTestCB))};
-		if (SDL_SetWindowHitTest(_impl, sdlHitTestCB, &_hitTest) < 0) {
-			std::swap(oldHitTest, _hitTest);
-			throw WindowError{"Failed to set hit test"};
-		}
-	}
 }

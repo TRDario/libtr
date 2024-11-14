@@ -524,18 +524,6 @@ namespace tr {
 		 **************************************************************************************************************/
 		Window& operator=(Window&&) noexcept;
 
-		/**************************************************************************************************************
-		 * Sets a hit-test callback that designates pieces of the window as special.
-		 *
-		 * @exception WindowError If setting the hit-test failed.
-		 *
-		 * @param hitTestCB The funciton to use for the callback.
-		 **************************************************************************************************************/
-		void setHitTest(HitTestCB hitTestCB);
-
-	  private:
-		std::optional<HitTestCB> _hitTest;
-
 		friend class GLContext;
 	};
 } // namespace tr
