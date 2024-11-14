@@ -5,8 +5,6 @@
 
 #pragma once
 #include "shader.hpp"
-
-#include <boost/optional.hpp>
 #include <string_view>
 
 namespace tr {
@@ -23,14 +21,9 @@ namespace tr {
 		 * All shaders must actually be of the type they're passed as, otherwise a failed assertion may be triggered.
 		 *
 		 * @param vertexShader The vertex shader.
-		 * @param tessEvalShader An optional tesselation evaluation shader.
-		 * @param tessControlShader An optional tesselation control shader.
-		 * @param geometryShader An optional geometry shader.
 		 * @param fragmentShader The fragment shader.
 		 **************************************************************************************************************/
-		ShaderPipeline(const Shader& vertexShader, boost::optional<const Shader&> tessEvalShader,
-					   boost::optional<const Shader&> tessControlShader, boost::optional<const Shader&> geometryShader,
-					   const Shader& fragmentShader) noexcept;
+		ShaderPipeline(const Shader& vertexShader, const Shader& fragmentShader) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the debug label of the pipeline.

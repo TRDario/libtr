@@ -26,11 +26,8 @@ namespace tr {
 	 ******************************************************************************************************************/
 	enum class ShaderType : std::uint32_t {
 		VERTEX = 0x8B'31,
-		TESS_CONTROL = 0x8E'88,
-		TESS_EVAL = 0x8E'87,
-		GEOMETRY = 0x8D'D9,
 		FRAGMENT = 0x8B'30,
-		COMPUTE = 0x91'B9
+		// COMPUTE = 0x91'B9
 	};
 
 	class Shader {
