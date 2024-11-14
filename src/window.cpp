@@ -295,7 +295,7 @@ tr::Window::Window(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFla
 tr::Window::Window(const char* title, DisplayInfo display, WindowFlag flags)
 	: WindowView{nullptr}
 {
-	const auto dmode{display.desktopMode()};
+	const auto dmode{display.displayMode(DESKTOP_MODE)};
 	const auto pos{display.centeredPos()};
 	_impl = SDL_CreateWindow(title, pos.x, pos.y, dmode.size.x, dmode.size.y,
 							 std::uint32_t(flags) | SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP);

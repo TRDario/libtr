@@ -30,6 +30,10 @@ namespace tr {
 		int refreshRate;
 	};
 
+	inline constexpr int HIGHEST_MODE{-1};
+
+	inline constexpr int DESKTOP_MODE{-2};
+
 	/******************************************************************************************************************
 	 * Display information.
 	 ******************************************************************************************************************/
@@ -38,7 +42,8 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates an information object for the default display (see: DEFAULT_DISPLAY).
 		 **************************************************************************************************************/
-		constexpr DisplayInfo() noexcept : _id{0} {};
+		constexpr DisplayInfo() noexcept
+			: _id{0} {};
 
 		/**************************************************************************************************************
 		 * Creates an information object for a display.
@@ -91,27 +96,21 @@ namespace tr {
 		glm::ivec2 toGlobalCoords(glm::ivec2 localCoords) const noexcept;
 
 		/**************************************************************************************************************
-		 * Gets the display's display modes.
+		 * Gets the number of display modes available on the display.
 		 *
-		 * @exception std::bad_alloc If allocating the vector failed.
-		 *
-		 * @return The modes of the display.
+		 * @return The number of display modes available on the display.
 		 **************************************************************************************************************/
-		std::vector<DisplayMode> modes() const;
+		int displayModeCount() const noexcept;
 
 		/**************************************************************************************************************
-		 * Gets the display's highest-ordered display mode.
+		 * Gets one of the display's display modes.
 		 *
-		 * @return The display's highest-ordered display mode.
-		 **************************************************************************************************************/
-		DisplayMode highestMode() const noexcept;
-
-		/**************************************************************************************************************
-		 * Gets the display's desktop display mode.
+		 * @param index The index of the display mode, HIGHEST_MODE, or DESKTOP_MODE. If an index, it must be in the
+		 *              range [0, displayModeCount), otherwise a failed assertion may be triggered.
 		 *
-		 * @return The display's desktop display mode.
+		 * @return The display at the requested index.
 		 **************************************************************************************************************/
-		DisplayMode desktopMode() const noexcept;
+		DisplayMode displayMode(int index) const noexcept;
 
 		/**************************************************************************************************************
 		 * Tries to get the closest compatible display mode to the desired one.

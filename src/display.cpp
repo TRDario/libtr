@@ -50,30 +50,21 @@ glm::ivec2 tr::DisplayInfo::centeredPos() const noexcept
 	return {SDL_WINDOWPOS_CENTERED_DISPLAY(_id), SDL_WINDOWPOS_CENTERED_DISPLAY(_id)};
 }
 
-std::vector<tr::DisplayMode> tr::DisplayInfo::modes() const
+int tr::DisplayInfo::displayModeCount() const noexcept
 {
-	auto nmodes{SDL_GetNumDisplayModes(_id)};
-	std::vector<DisplayMode> modes;
-	modes.reserve(nmodes);
-	for (int i = 0; i < nmodes; ++i) {
-		SDL_DisplayMode sdlMode;
-		SDL_GetDisplayMode(_id, i, &sdlMode);
-		modes.push_back(toDisplayMode(sdlMode));
+	return SDL_GetNumDisplayModes(_id);
+}
+
+tr::DisplayMode tr::DisplayInfo::displayMode(int index) const noexcept
+{
+	assert(index >= -2 && index < displayModeCount());
+	SDL_DisplayMode sdlMode;
+	if (index == DESKTOP_MODE) {
+		SDL_GetDesktopDisplayMode(_id, &sdlMode);
 	}
-	return modes;
-}
-
-tr::DisplayMode tr::DisplayInfo::highestMode() const noexcept
-{
-	SDL_DisplayMode sdlMode;
-	SDL_GetDisplayMode(_id, 0, &sdlMode);
-	return toDisplayMode(sdlMode);
-}
-
-tr::DisplayMode tr::DisplayInfo::desktopMode() const noexcept
-{
-	SDL_DisplayMode sdlMode;
-	SDL_GetDesktopDisplayMode(_id, &sdlMode);
+	else {
+		SDL_GetDisplayMode(_id, index == HIGHEST_MODE ? 0 : index, &sdlMode);
+	}
 	return toDisplayMode(sdlMode);
 }
 
