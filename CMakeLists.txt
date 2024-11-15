@@ -3,15 +3,19 @@ if(POLICY CMP0167)
   cmake_policy(SET CMP0167 NEW)
 endif()
 
-project(tr LANGUAGES C CXX VERSION 0.0.1)
+include(GNUInstallDirs)
+include(CMakePackageConfigHelpers)
 
+project(tr LANGUAGES C CXX VERSION 0.0.1)
 add_library(tr STATIC)
+
 target_compile_features(tr PRIVATE cxx_std_20)
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     target_compile_options(tr PRIVATE -Wall -Wpedantic)
     target_compile_options(tr PRIVATE -fno-trapping-math -fno-math-errno -fno-signed-zeros -fassociative-math -ffp-contract=fast)
     target_compile_options(tr PRIVATE -march=x86-64-v2)
 endif()
+
 target_sources(tr PRIVATE
     src/audio_buffer.cpp src/audio_context.cpp src/audio_source.cpp
     src/benchmark.cpp src/bitmap_format.cpp src/bitmap.cpp src/display.cpp src/event.cpp src/framebuffer.cpp
@@ -38,10 +42,6 @@ target_sources(tr PUBLIC
         include/tr/tr.hpp include/tr/ttfont.hpp include/tr/utf8.hpp include/tr/vertex_buffer.hpp include/tr/vertex_format.hpp
         include/tr/vertex.hpp include/tr/window.hpp
 )
-set_target_properties(tr PROPERTIES DEBUG_POSTFIX d)
-
-include(GNUInstallDirs)
-include(CMakePackageConfigHelpers)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/build/tr.pc.in ${CMAKE_CURRENT_BINARY_DIR}/tr.pc @ONLY)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/tr.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
