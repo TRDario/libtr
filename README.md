@@ -30,4 +30,13 @@ libtr depends on the following external libraries:
 - [libsndfile](https://github.com/libsndfile/libsndfile)
 
 ## Building ##
-libtr requires a C++20-compatible compiler. Files for building with CMake are provided.
+The following is required to build libtre:
+- A C++20 compiler.
+- CMake 3.23.0 or higher.
+
+libtr can be easily integrated into a project using CMake FetchContent:
+```
+include(FetchContent)
+FetchContent_Declare(tr GIT_REPOSITORY https://github.com/TRDario/libtr.git GIT_TAG main FIND_PACKAGE_ARGS NAMES tr)
+FetchContent_MakeAvailable(tr)
+```
