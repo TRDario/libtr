@@ -27,3 +27,40 @@ void tr::ShaderPipeline::bind() const noexcept
 {
 	glBindProgramPipeline(_id.get());
 }
+
+tr::OwningShaderPipeline::OwningShaderPipeline(Shader vertexShader, Shader fragmentShader) noexcept
+	: _vertexShader{std::move(vertexShader)},
+	  _fragmentShader{std::move(fragmentShader)},
+	  _pipeline{_vertexShader, _fragmentShader}
+{
+}
+
+tr::OwningShaderPipeline::operator const ShaderPipeline&() const noexcept
+{
+	return _pipeline;
+}
+
+tr::Shader& tr::OwningShaderPipeline::vertexShader() noexcept
+{
+	return _vertexShader;
+}
+
+const tr::Shader& tr::OwningShaderPipeline::vertexShader() const noexcept
+{
+	return _vertexShader;
+}
+
+tr::Shader& tr::OwningShaderPipeline::fragmentShader() noexcept
+{
+	return _fragmentShader;
+}
+
+const tr::Shader& tr::OwningShaderPipeline::fragmentShader() const noexcept
+{
+	return _fragmentShader;
+}
+
+void tr::OwningShaderPipeline::setLabel(std::string_view label) noexcept
+{
+	_pipeline.setLabel(label);
+}
