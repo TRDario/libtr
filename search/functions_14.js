@@ -7,7 +7,8 @@ var searchData=
   ['vertexbuffer_4',['VertexBuffer',['../classtr_1_1VertexBuffer.html#af2497bbea6b53bc876abfea82376ca44',1,'tr::VertexBuffer::VertexBuffer() noexcept'],['../classtr_1_1VertexBuffer.html#a7ed5bc742a2130b749e2774c704fe864',1,'tr::VertexBuffer::VertexBuffer(std::size_t capacity)'],['../classtr_1_1VertexBuffer.html#ad77bdca8a9cba9788e210d6850de5c5a',1,'tr::VertexBuffer::VertexBuffer(std::span&lt; const std::byte &gt; data)']]],
   ['vertexformat_5',['VertexFormat',['../classtr_1_1VertexFormat.html#abf29ac95c6db9478c5340585ea4f98a9',1,'tr::VertexFormat']]],
   ['vertexformat_6',['vertexFormat',['../structtr_1_1ClrVtx2.html#a8c5e7f2e079f903556f6849b8e3665e0',1,'tr::ClrVtx2::vertexFormat()'],['../structtr_1_1TexVtx2.html#ad403653c918993442def847c3d0f1ede',1,'tr::TexVtx2::vertexFormat()'],['../structtr_1_1TintVtx2.html#a973ee423004f0ef6f67abeb0a697a121',1,'tr::TintVtx2::vertexFormat()']]],
-  ['viewport_7',['viewport',['../classtr_1_1BasicFramebuffer.html#accd451322c6e20a2d0b05f69491b1435',1,'tr::BasicFramebuffer']]],
-  ['vsync_8',['vsync',['../classtr_1_1GLContext.html#a17104b880ed940987b1e07cc40aba5d0',1,'tr::GLContext']]],
-  ['vsyncerror_9',['VSyncError',['../structtr_1_1VSyncError.html#aa5bed6dc952a2d06dc8b8eac2e622a66',1,'tr::VSyncError']]]
+  ['vertexshader_7',['vertexShader',['../classtr_1_1OwningShaderPipeline.html#af1f56f28c624616e4fae9b21e9e00348',1,'tr::OwningShaderPipeline::vertexShader() noexcept'],['../classtr_1_1OwningShaderPipeline.html#a1b6e53aa7f676e7a4b77141631f09c6a',1,'tr::OwningShaderPipeline::vertexShader() const noexcept']]],
+  ['viewport_8',['viewport',['../classtr_1_1BasicFramebuffer.html#accd451322c6e20a2d0b05f69491b1435',1,'tr::BasicFramebuffer']]],
+  ['vsync_9',['vsync',['../classtr_1_1GLContext.html#a17104b880ed940987b1e07cc40aba5d0',1,'tr::GLContext']]],
+  ['vsyncerror_10',['VSyncError',['../structtr_1_1VSyncError.html#aa5bed6dc952a2d06dc8b8eac2e622a66',1,'tr::VSyncError']]]
 ];
