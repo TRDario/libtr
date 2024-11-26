@@ -955,6 +955,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Resizes the font. </p>
+<p>Doing this clears the glyph cache.</p>
+<p>If the size and dpi match the current configuration, nothing happens and the cache isn't cleared.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1TTFontResizeError.html" title="Error thrown when TrueType font resizing failed.">TTFontResizeError</a></td><td>If resizing the font failed.</td></tr>
@@ -995,6 +997,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the hinting of the font. </p>
+<p>Doing this clears the glyph cache.</p>
+<p>If the value matches the current configuration, nothing happens and the cache isn't cleared.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">hinting</td><td>The new hinting type of the font. </td></tr>
@@ -1061,6 +1065,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the outline thickness of the font. </p>
+<p>Doing this clears the glyph cache.</p>
+<p>If the value matches the current configuration, nothing happens and the cache isn't cleared.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">thickness</td><td>The new outline thickness of the font. </td></tr>
@@ -1094,6 +1100,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the style of the font. </p>
+<p>Doing this clears the glyph cache.</p>
+<p>If the style matches the current configuration, nothing happens and the cache isn't cleared.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">style</td><td>The new style of the font. </td></tr>
