@@ -130,6 +130,9 @@ tr::TTFont::Hint tr::TTFont::hinting() const noexcept
 
 void tr::TTFont::setHinting(Hint hinting) noexcept
 {
+	if (hinting == this->hinting()) {
+		return;
+	}
 	TTF_SetFontHinting(_impl.get(), int(hinting));
 }
 
@@ -150,6 +153,9 @@ tr::TTFont::Style tr::TTFont::style() const noexcept
 
 void tr::TTFont::setStyle(Style style) noexcept
 {
+	if (style == this->style()) {
+		return;
+	}
 	TTF_SetFontStyle(_impl.get(), int(style));
 }
 
@@ -160,6 +166,9 @@ int tr::TTFont::outline() const noexcept
 
 void tr::TTFont::setOutline(int thickness) noexcept
 {
+	if (thickness == outline()) {
+		return;
+	}
 	TTF_SetFontOutline(_impl.get(), thickness);
 }
 
@@ -188,9 +197,15 @@ tr::TTFont::Glyph tr::TTFont::glyph(std::uint32_t cp) const noexcept
 
 void tr::TTFont::resize(int size, glm::uvec2 dpi)
 {
+	if (size == _size && dpi == _dpi) {
+		return;
+	}
+
 	if (TTF_SetFontSizeDPI(_impl.get(), size, dpi.x, dpi.y) < 0) {
 		throw TTFontResizeError{};
 	}
+	_size = size;
+	_dpi = dpi;
 }
 
 glm::ivec2 tr::TTFont::textSize(const char* text) const noexcept
@@ -214,6 +229,7 @@ tr::Bitmap tr::TTFont::render(std::uint32_t cp, RGBA8 color) const
 
 tr::Bitmap tr::TTFont::render(const char* text, RGBA8 color) const
 {
+	assert(!std::string_view{text}.empty());
 	Bitmap render{TTF_RenderUTF8_Blended(_impl.get(), text, std::bit_cast<SDL_Color>(color))};
 	if (color.a < 255) {
 		fixAlphaArtifacts(render, color.a);
@@ -223,6 +239,7 @@ tr::Bitmap tr::TTFont::render(const char* text, RGBA8 color) const
 
 tr::Bitmap tr::TTFont::renderWrapped(const char* text, RGBA8 color, std::uint32_t width) const
 {
+	assert(!std::string_view{text}.empty());
 	Bitmap render{TTF_RenderUTF8_Blended_Wrapped(_impl.get(), text, std::bit_cast<SDL_Color>(color), width)};
 	if (color.a < 255) {
 		fixAlphaArtifacts(render, color.a);

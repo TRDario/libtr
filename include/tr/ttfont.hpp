@@ -275,7 +275,9 @@ namespace tr {
 		Hint hinting() const noexcept;
 
 		/**************************************************************************************************************
-		 * Sets the hinting of the font.
+		 * Sets the hinting of the font. Doing this clears the glyph cache.
+		 *
+		 * If the value matches the current configuration, nothing happens and the cache isn't cleared.
 		 *
 		 * @param hinting The new hinting type of the font.
 		 **************************************************************************************************************/
@@ -303,7 +305,9 @@ namespace tr {
 		Style style() const noexcept;
 
 		/**************************************************************************************************************
-		 * Sets the style of the font.
+		 * Sets the style of the font. Doing this clears the glyph cache.
+		 *
+		 * If the style matches the current configuration, nothing happens and the cache isn't cleared.
 		 *
 		 * @param style The new style of the font.
 		 **************************************************************************************************************/
@@ -317,7 +321,9 @@ namespace tr {
 		int outline() const noexcept;
 
 		/**************************************************************************************************************
-		 * Sets the outline thickness of the font.
+		 * Sets the outline thickness of the font. Doing this clears the glyph cache.
+		 *
+		 * If the value matches the current configuration, nothing happens and the cache isn't cleared.
 		 *
 		 * @param thickness The new outline thickness of the font.
 		 **************************************************************************************************************/
@@ -357,7 +363,9 @@ namespace tr {
 		Glyph glyph(std::uint32_t glyph) const noexcept;
 
 		/**************************************************************************************************************
-		 * Resizes the font.
+		 * Resizes the font. Doing this clears the glyph cache.
+		 *
+		 * If the size and dpi match the current configuration, nothing happens and the cache isn't cleared.
 		 *
 		 * @exception TTFontResizeError If resizing the font failed.
 		 *
@@ -431,6 +439,8 @@ namespace tr {
 		};
 
 		std::unique_ptr<_TTF_Font, Deleter> _impl;
+		int _size;
+		glm::uvec2 _dpi;
 	};
 
 	/// @cond IMPLEMENTATION
