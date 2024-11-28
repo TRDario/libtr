@@ -42,17 +42,17 @@ void tr::GLContext::Deleter::operator()(SDL_GLContext ptr) const noexcept
 	SDL_GL_DeleteContext(ptr);
 }
 
-const char* tr::GLContext::vendorStr() const noexcept
+const char* tr::GLContext::vendorInfo() const noexcept
 {
 	return (const char*)(glGetString(GL_VENDOR));
 }
 
-const char* tr::GLContext::rendererStr() const noexcept
+const char* tr::GLContext::rendererInfo() const noexcept
 {
 	return (const char*)(glGetString(GL_RENDERER));
 }
 
-const char* tr::GLContext::versionStr() const noexcept
+const char* tr::GLContext::versionInfo() const noexcept
 {
 	return (const char*)(glGetString(GL_VERSION));
 }

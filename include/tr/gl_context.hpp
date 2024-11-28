@@ -373,21 +373,21 @@ namespace tr {
 		 *
 		 * @return A vendor information C-string.
 		 **************************************************************************************************************/
-		const char* vendorStr() const noexcept;
+		const char* vendorInfo() const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the context's renderer string.
 		 *
 		 * @return A renderer information C-string.
 		 **************************************************************************************************************/
-		const char* rendererStr() const noexcept;
+		const char* rendererInfo() const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the context's version string.
 		 *
 		 * @return A version information C-string.
 		 **************************************************************************************************************/
-		const char* versionStr() const noexcept;
+		const char* versionInfo() const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the context's V-sync mode.
