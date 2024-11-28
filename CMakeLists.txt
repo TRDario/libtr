@@ -6,7 +6,7 @@ endif()
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
-project(tr LANGUAGES C CXX VERSION 0.0.1)
+project(tr LANGUAGES C CXX VERSION 0.1.0)
 add_library(tr STATIC)
 
 target_compile_features(tr PRIVATE cxx_std_20)

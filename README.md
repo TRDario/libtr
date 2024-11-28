@@ -3,19 +3,13 @@ libtr is a personal C++ base library for gamedev projects.
 
 libtr includes C++ wrappers for OpenAL, OpenGL 4.6, and SDL2 objects, as well as a number of miscellaneous helper functions, classes, and templates.
 
-## Important notice ##
-
-If you plan to use this library for any reason, it is important to stress that it is currently in unstable development and the API may change on a whim until I deem it stable. There may also be bugs I haven't fixed yet.
-
 ## Documentation ##
 
 Documentation can be built with Doxygen, or can be viewed [here](https://trdario.github.io/libtr/).
 
-Currently work-in-progress.
-
 ## Examples ##
 
-TO-DO.
+(Work in progress...)
 
 ## Dependencies ##
 libtr depends on the following external libraries:
