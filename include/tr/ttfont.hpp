@@ -27,10 +27,20 @@ namespace tr {
 	 * Error thrown when TrueType font resizing failed.
 	 ******************************************************************************************************************/
 	struct TTFontResizeError : SDLError {
-		/******************************************************************************************************************
+		/**************************************************************************************************************
 		 * Constructs the error.
-		 ******************************************************************************************************************/
+		 **************************************************************************************************************/
 		TTFontResizeError();
+	};
+
+	/******************************************************************************************************************
+	 * Error thrown when rendering from a TrueType font failed.
+	 ******************************************************************************************************************/
+	struct TTFontRenderError : SDLError {
+		/**************************************************************************************************************
+		 * Constructs the error.
+		 **************************************************************************************************************/
+		TTFontRenderError();
 	};
 
 	/******************************************************************************************************************
@@ -398,7 +408,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Renders a glyph.
 		 *
-		 * @exception BitmapBadAlloc If rendering the bitmap failed.
+		 * @exception TTFontRenderError If rendering the bitmap failed.
 		 *
 		 * @param cp The unicode codepoint to render.
 		 * @param color The color of the glyph.
@@ -410,7 +420,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Renders a line of text.
 		 *
-		 * @exception BitmapBadAlloc If rendering the bitmap failed.
+		 * @exception TTFontRenderError If rendering the bitmap failed.
 		 *
 		 * @param text The line of text to render (\n not supported).
 		 * @param color The color of the text.
@@ -422,7 +432,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Renders wrapped text.
 		 *
-		 * @exception BitmapBadAlloc If rendering the bitmap failed.
+		 * @exception TTFontRenderError If rendering the bitmap failed.
 		 *
 		 * @param text The line of text to render (\n supported).
 		 * @param color The color of the text.

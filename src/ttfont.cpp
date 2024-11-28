@@ -56,6 +56,11 @@ tr::TTFontResizeError::TTFontResizeError()
 {
 }
 
+tr::TTFontRenderError::TTFontRenderError()
+	: SDLError{"Failed to render text from TrueType font"}
+{
+}
+
 tr::TTFont::TTFont(const std::filesystem::path& path, int size, glm::uvec2 dpi)
 {
 	if (!is_regular_file(path)) {
@@ -224,25 +229,37 @@ tr::TTFont::MeasureResult tr::TTFont::measure(const char* text, int maxWidth) co
 
 tr::Bitmap tr::TTFont::render(std::uint32_t cp, RGBA8 color) const
 {
-	return Bitmap{TTF_RenderGlyph32_Blended(_impl.get(), cp, std::bit_cast<SDL_Color>(color))};
+	auto ptr{TTF_RenderGlyph32_Blended(_impl.get(), cp, std::bit_cast<SDL_Color>(color))};
+	if (ptr == nullptr) {
+		throw TTFontRenderError{};
+	}
+	return Bitmap{ptr};
 }
 
 tr::Bitmap tr::TTFont::render(const char* text, RGBA8 color) const
 {
 	assert(!std::string_view{text}.empty());
-	Bitmap render{TTF_RenderUTF8_Blended(_impl.get(), text, std::bit_cast<SDL_Color>(color))};
-	if (color.a < 255) {
-		fixAlphaArtifacts(render, color.a);
+	auto ptr{TTF_RenderUTF8_Blended(_impl.get(), text, std::bit_cast<SDL_Color>(color))};
+	if (ptr == nullptr) {
+		throw TTFontRenderError{};
 	}
-	return render;
+	Bitmap bitmap{ptr};
+	if (color.a < 255) {
+		fixAlphaArtifacts(bitmap, color.a);
+	}
+	return bitmap;
 }
 
 tr::Bitmap tr::TTFont::renderWrapped(const char* text, RGBA8 color, std::uint32_t width) const
 {
 	assert(!std::string_view{text}.empty());
-	Bitmap render{TTF_RenderUTF8_Blended_Wrapped(_impl.get(), text, std::bit_cast<SDL_Color>(color), width)};
-	if (color.a < 255) {
-		fixAlphaArtifacts(render, color.a);
+	auto ptr{TTF_RenderUTF8_Blended_Wrapped(_impl.get(), text, std::bit_cast<SDL_Color>(color), width)};
+	if (ptr == nullptr) {
+		throw TTFontRenderError{};
 	}
-	return render;
+	Bitmap bitmap{ptr};
+	if (color.a < 255) {
+		fixAlphaArtifacts(bitmap, color.a);
+	}
+	return bitmap;
 }
