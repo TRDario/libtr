@@ -13,5 +13,6 @@ var searchData=
   ['tintvtx2_10',['TintVtx2',['../structtr_1_1TintVtx2.html',1,'tr']]],
   ['ttfont_11',['TTFont',['../classtr_1_1TTFont.html',1,'tr']]],
   ['ttfontloaderror_12',['TTFontLoadError',['../structtr_1_1TTFontLoadError.html',1,'tr']]],
-  ['ttfontresizeerror_13',['TTFontResizeError',['../structtr_1_1TTFontResizeError.html',1,'tr']]]
+  ['ttfontrendererror_13',['TTFontRenderError',['../structtr_1_1TTFontRenderError.html',1,'tr']]],
+  ['ttfontresizeerror_14',['TTFontResizeError',['../structtr_1_1TTFontResizeError.html',1,'tr']]]
 ];

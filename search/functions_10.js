@@ -13,7 +13,7 @@ var searchData=
   ['removeticker_10',['removeTicker',['../classtr_1_1EventQueue.html#a7dadabbb345366c733e4e1fe2b7bd7af',1,'tr::EventQueue']]],
   ['render_11',['render',['../classtr_1_1TTFont.html#abe28f80837b1793585d04f6455b4f89f',1,'tr::TTFont::render(std::uint32_t cp, RGBA8 color) const'],['../classtr_1_1TTFont.html#a383f2fb68eb5481acdc5786f3cf42293',1,'tr::TTFont::render(const char *text, RGBA8 color) const']]],
   ['renderbuffer_12',['Renderbuffer',['../classtr_1_1Renderbuffer.html#a6ec7ef71711f5b1ee2e14091cafb25d5',1,'tr::Renderbuffer']]],
-  ['rendererstr_13',['rendererStr',['../classtr_1_1GLContext.html#a5172a96fedb4aa24320e28215be2a65f',1,'tr::GLContext']]],
+  ['rendererinfo_13',['rendererInfo',['../classtr_1_1GLContext.html#ade1cf0170b1f0790a389512c40b7328a',1,'tr::GLContext']]],
   ['renderwrapped_14',['renderWrapped',['../classtr_1_1TTFont.html#a06cf520a8ecae2fbd957604f348e81b8',1,'tr::TTFont']]],
   ['reset_15',['reset',['../classtr_1_1Handle.html#ae350ebfc8469d797d40e47f06c4ca071',1,'tr::Handle::reset() noexcept'],['../classtr_1_1Handle.html#a0677d3a3d1a1522f5feb341ea63e930d',1,'tr::Handle::reset(T value) noexcept'],['../classtr_1_1Handle.html#ae1bb138c8cd178c3dd70e3366123e273',1,'tr::Handle::reset(T value, NoEmptyHandleCheck) noexcept']]],
   ['resetmouseconfines_16',['resetMouseConfines',['../classtr_1_1WindowView.html#adc846e2c18579efa4fb9b5161d5b78b3',1,'tr::WindowView']]],

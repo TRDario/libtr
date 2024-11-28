@@ -11,7 +11,8 @@ var searchData=
   ['toglobalcoords_8',['toGlobalCoords',['../classtr_1_1DisplayInfo.html#a05ed1ed471b2566e57ce8a1808b125ee',1,'tr::DisplayInfo']]],
   ['tolocalcoords_9',['toLocalCoords',['../classtr_1_1DisplayInfo.html#a1dc04e7ad92a84adc7e7e168b06261a0',1,'tr::DisplayInfo']]],
   ['ttfont_10',['TTFont',['../classtr_1_1TTFont.html#aebe51e4647bf92e3d2d97d7275db3a1d',1,'tr::TTFont::TTFont(const std::filesystem::path &amp;path, int size, glm::uvec2 dpi={72, 72})'],['../classtr_1_1TTFont.html#a1da5fe93056dce70da1b06061de7d2c5',1,'tr::TTFont::TTFont(std::span&lt; const std::byte &gt; embeddedFile, int size, glm::uvec2 dpi={72, 72}) noexcept']]],
-  ['ttfontresizeerror_11',['TTFontResizeError',['../structtr_1_1TTFontResizeError.html#abdc38a5e041e5658689fc5f903a59baa',1,'tr::TTFontResizeError']]],
-  ['turns_12',['turns',['../classtr_1_1Angle.html#a83954391a60becfd227ab94b5907d580',1,'tr::Angle::turns()'],['../angle_8hpp.html#a3115bc0bbac5c9d6e2f081c8d3b95eb1',1,'tr::turns()']]],
-  ['type_13',['type',['../classtr_1_1Event.html#ae65941cf1b4cc2976294f391877fb3c1',1,'tr::Event']]]
+  ['ttfontrendererror_11',['TTFontRenderError',['../structtr_1_1TTFontRenderError.html#a0cf8a38d7384822eb1d26d5ad04ef172',1,'tr::TTFontRenderError']]],
+  ['ttfontresizeerror_12',['TTFontResizeError',['../structtr_1_1TTFontResizeError.html#abdc38a5e041e5658689fc5f903a59baa',1,'tr::TTFontResizeError']]],
+  ['turns_13',['turns',['../classtr_1_1Angle.html#a83954391a60becfd227ab94b5907d580',1,'tr::Angle::turns()'],['../angle_8hpp.html#a3115bc0bbac5c9d6e2f081c8d3b95eb1',1,'tr::turns()']]],
+  ['type_14',['type',['../classtr_1_1Event.html#ae65941cf1b4cc2976294f391877fb3c1',1,'tr::Event']]]
 ];

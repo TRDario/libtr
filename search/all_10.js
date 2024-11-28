@@ -29,7 +29,7 @@ var searchData=
   ['renderbuffer_26',['Renderbuffer',['../classtr_1_1Renderbuffer.html',1,'tr::Renderbuffer'],['../classtr_1_1Renderbuffer.html#a6ec7ef71711f5b1ee2e14091cafb25d5',1,'tr::Renderbuffer::Renderbuffer()']]],
   ['renderbuffer_2ehpp_27',['renderbuffer.hpp',['../renderbuffer_8hpp.html',1,'']]],
   ['renderbufferbadalloc_28',['RenderbufferBadAlloc',['../structtr_1_1RenderbufferBadAlloc.html',1,'tr']]],
-  ['rendererstr_29',['rendererStr',['../classtr_1_1GLContext.html#a5172a96fedb4aa24320e28215be2a65f',1,'tr::GLContext']]],
+  ['rendererinfo_29',['rendererInfo',['../classtr_1_1GLContext.html#ade1cf0170b1f0790a389512c40b7328a',1,'tr::GLContext']]],
   ['renderwrapped_30',['renderWrapped',['../classtr_1_1TTFont.html#a06cf520a8ecae2fbd957604f348e81b8',1,'tr::TTFont']]],
   ['repeat_31',['REPEAT',['../sampler_8hpp.html#a68fa0648b9a72034f88944a16cadaea8a5be68175be14dfaa080165456c2e9555',1,'tr']]],
   ['repeat_32',['repeat',['../structtr_1_1KeyDownEvent.html#a22a441ced1ad417b81fbe7c9b021125c',1,'tr::KeyDownEvent']]],
