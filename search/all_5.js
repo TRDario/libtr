@@ -30,7 +30,5 @@ var searchData=
   ['frombuiltin_27',['fromBuiltin',['../structtr_1_1ColorCaster_3_01HSV_01_4.html#a38f84621ecf947aa45d0e6e19e955f86',1,'tr::ColorCaster&lt; HSV &gt;']]],
   ['fromcoords_28',['fromCoords',['../classtr_1_1DisplayInfo.html#ae7f53d33eb3c2efe7a71308d724c752c',1,'tr::DisplayInfo']]],
   ['front_29',['FRONT',['../gl__context_8hpp.html#ae1a255c2dd97c61884a0c90d6e7aae8fabb2fe5c916efb43aab8cbb68f997d2ee',1,'tr']]],
-  ['fullscreenmode_30',['fullscreenMode',['../classtr_1_1WindowView.html#a0e3dfc61aa7cd526f3f80380d7fbe39c',1,'tr::WindowView']]],
-  ['function_2ehpp_31',['function.hpp',['../function_8hpp.html',1,'']]],
-  ['functioncaller_32',['FunctionCaller',['../structtr_1_1FunctionCaller.html',1,'tr']]]
+  ['fullscreenmode_30',['fullscreenMode',['../classtr_1_1WindowView.html#a0e3dfc61aa7cd526f3f80380d7fbe39c',1,'tr::WindowView']]]
 ];
