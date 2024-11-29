@@ -214,7 +214,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>      private:</div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        std::reference_wrapper&lt;const <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>&gt; _bitmap;</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a> _rect;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a>                               _rect;</div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        friend class <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>;</div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    };</div>
@@ -228,7 +228,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1PixelRef.html#a4685d1df931fcd8cad70db539b968111">  226</a></span>        <span class="keyword">operator</span> <a class="code hl_class" href="structtr_1_1RGBA.html">RGBA8</a>() const noexcept;</div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>      private:</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        const <span class="keywordtype">void</span>* _impl;        <span class="comment">// A pointer to the pixel data.</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        const <span class="keywordtype">void</span>*      _impl;   <span class="comment">// A pointer to the pixel data.</span></div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        SDL_PixelFormat* _format; <span class="comment">// The format of the pixel.</span></div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelRef</a>() noexcept = default;</div>
@@ -328,9 +328,9 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00472" name="l00472"></a><span class="lineno"><a class="line" href="classtr_1_1SubBitmap_1_1Iterator.html#a710600c8354c88362a40b24b03b2a92d">  472</a></span>        friend <a class="code hl_typedef" href="classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632">difference_type</a> operator-(const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; l, const <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">Iterator</a>&amp; r) noexcept;</div>
 <div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span> </div>
 <div class="line"><a id="l00474" name="l00474"></a><span class="lineno">  474</span>      private:</div>
-<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelRef</a> _pixel;</div>
+<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelRef</a>   _pixel;</div>
 <div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span>        glm::ivec2 _bitmapSize;</div>
-<div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span>        <span class="keywordtype">int</span> _pitch;</div>
+<div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span>        <span class="keywordtype">int</span>        _pitch;</div>
 <div class="line"><a id="l00478" name="l00478"></a><span class="lineno">  478</span>        glm::ivec2 _pos;</div>
 <div class="line"><a id="l00479" name="l00479"></a><span class="lineno">  479</span>    };</div>
 </div>
@@ -452,7 +452,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00747" name="l00747"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1PixelRef.html#a7fe2185763b6713c7e1da9e17bc40535">  747</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a>&amp; operator=(<a class="code hl_class" href="structtr_1_1RGBA.html">RGBA8</a> color) noexcept;</div>
 <div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span> </div>
 <div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span>      private:</div>
-<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>        <span class="keywordtype">void</span>* _impl;              <span class="comment">// A pointer to the pixel data.</span></div>
+<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>        <span class="keywordtype">void</span>*            _impl;   <span class="comment">// A pointer to the pixel data.</span></div>
 <div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span>        SDL_PixelFormat* _format; <span class="comment">// The format of the pixel.</span></div>
 <div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span> </div>
 <div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a>() noexcept = default;</div>
@@ -551,8 +551,8 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00992" name="l00992"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap_1_1MutIt.html#ac2cae49459c59b3e499b65e57da35e7b">  992</a></span>        friend <a class="code hl_typedef" href="classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21">difference_type</a> operator-(const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; l, const <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&amp; r) noexcept;</div>
 <div class="line"><a id="l00993" name="l00993"></a><span class="lineno">  993</span> </div>
 <div class="line"><a id="l00994" name="l00994"></a><span class="lineno">  994</span>      private:</div>
-<div class="line"><a id="l00995" name="l00995"></a><span class="lineno">  995</span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a> _pixel;</div>
-<div class="line"><a id="l00996" name="l00996"></a><span class="lineno">  996</span>        <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>* _bitmap;</div>
+<div class="line"><a id="l00995" name="l00995"></a><span class="lineno">  995</span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a>   _pixel;</div>
+<div class="line"><a id="l00996" name="l00996"></a><span class="lineno">  996</span>        <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>*    _bitmap;</div>
 <div class="line"><a id="l00997" name="l00997"></a><span class="lineno">  997</span>        glm::ivec2 _pos;</div>
 <div class="line"><a id="l00998" name="l00998"></a><span class="lineno">  998</span>    };</div>
 </div>

@@ -138,62 +138,62 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>      <span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="comment">// Enum representing an OpenGL buffer target.</span></div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keyword">enum class</span> Target : std::uint32_t {</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            ARRAY_BUFFER = 0x88&#39;92,</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            ATOMIC_COUNTER_BUFFER = 0x92&#39;C0,</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            COPY_READ_BUFFER = 0x8F&#39;36,</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            COPY_WRITE_BUFFER = 0x8F&#39;37,</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            DISPATCH_INDIRECT_BUFFER = 0x90&#39;EE,</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            DRAW_INDIRECT_BUFFER = 0x8F&#39;3F,</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            ELEMENT_ARRAY_BUFFER = 0x88&#39;93,</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            PIXEL_PACK_BUFFER = 0x88&#39;EB,</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            PIXEL_UNPACK_BUFFER = 0x88&#39;EC,</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            QUERY_BUFFER = 0x91&#39;92,</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            SHADER_STORAGE_BUFFER = 0x90&#39;D2,</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            TEXTURE_BUFFER = 0x8C&#39;2A,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            ARRAY_BUFFER              = 0x88&#39;92,</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            ATOMIC_COUNTER_BUFFER     = 0x92&#39;C0,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            COPY_READ_BUFFER          = 0x8F&#39;36,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            COPY_WRITE_BUFFER         = 0x8F&#39;37,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            DISPATCH_INDIRECT_BUFFER  = 0x90&#39;EE,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            DRAW_INDIRECT_BUFFER      = 0x8F&#39;3F,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            ELEMENT_ARRAY_BUFFER      = 0x88&#39;93,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            PIXEL_PACK_BUFFER         = 0x88&#39;EB,</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            PIXEL_UNPACK_BUFFER       = 0x88&#39;EC,</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            QUERY_BUFFER              = 0x91&#39;92,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            SHADER_STORAGE_BUFFER     = 0x90&#39;D2,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            TEXTURE_BUFFER            = 0x8C&#39;2A,</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            TRANSFORM_FEEDBACK_BUFFER = 0x8C&#39;8E,</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            UNIFORM_BUFFER = 0x8A&#39;11</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            UNIFORM_BUFFER            = 0x8A&#39;11</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        };</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="comment">// Enum representing buffer creation flags.</span></div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keyword">enum class</span> Flag : std::uint32_t {</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            NONE = 0x0,</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            READABLE = 0x1,</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            WRITABLE = 0x2,</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            PERSISTENT = 0x40,</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            COHERENT = 0x80,</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            NONE            = 0x0,</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            READABLE        = 0x1,</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            WRITABLE        = 0x2,</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            PERSISTENT      = 0x40,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            COHERENT        = 0x80,</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            DYNAMIC_STORAGE = 0x1&#39;00,</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            CPU_STORAGE = 0x2&#39;00</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            CPU_STORAGE     = 0x2&#39;00</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        };</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="comment">// Enum representing a buffer format.</span></div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keyword">enum class</span> Format {</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            R8 = 0x82&#39;29,</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            R16 = 0x82&#39;2A,</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            R_FP16 = 0x82&#39;2D,</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            R_FP32 = 0x82&#39;2E,</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            R_SI8 = 0x82&#39;31,</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            R_UI8 = 0x82&#39;32,</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            R_SI16 = 0x82&#39;33,</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            R_UI16 = 0x82&#39;34,</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            R_SI32 = 0x82&#39;35,</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            R_UI32 = 0x82&#39;36,</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            RG8 = 0x82&#39;2B,</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            RG16 = 0x82&#39;2C,</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            RG_FP16 = 0x82&#39;2F,</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            RG_FP32 = 0x82&#39;30,</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            RG_SI8 = 0x82&#39;37,</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            RG_UI8 = 0x82&#39;38,</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            RG_SI16 = 0x82&#39;39,</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            RG_UI16 = 0x82&#39;3A,</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            RG_SI32 = 0x82&#39;3B,</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            RG_UI32 = 0x82&#39;3C,</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            RGB_FP32 = 0x88&#39;15,</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            RGB_SI32 = 0x8D&#39;83,</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            RGB_UI32 = 0x8D&#39;71,</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            RGBA8 = 0x80&#39;58,</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            RGBA16 = 0x80&#39;5B,</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            R8        = 0x82&#39;29,</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            R16       = 0x82&#39;2A,</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            R_FP16    = 0x82&#39;2D,</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            R_FP32    = 0x82&#39;2E,</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            R_SI8     = 0x82&#39;31,</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            R_UI8     = 0x82&#39;32,</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            R_SI16    = 0x82&#39;33,</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            R_UI16    = 0x82&#39;34,</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            R_SI32    = 0x82&#39;35,</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            R_UI32    = 0x82&#39;36,</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            RG8       = 0x82&#39;2B,</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            RG16      = 0x82&#39;2C,</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            RG_FP16   = 0x82&#39;2F,</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            RG_FP32   = 0x82&#39;30,</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            RG_SI8    = 0x82&#39;37,</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            RG_UI8    = 0x82&#39;38,</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            RG_SI16   = 0x82&#39;39,</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            RG_UI16   = 0x82&#39;3A,</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            RG_SI32   = 0x82&#39;3B,</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            RG_UI32   = 0x82&#39;3C,</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            RGB_FP32  = 0x88&#39;15,</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            RGB_SI32  = 0x8D&#39;83,</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            RGB_UI32  = 0x8D&#39;71,</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            RGBA8     = 0x80&#39;58,</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            RGBA16    = 0x80&#39;5B,</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            RGBA_FP16 = 0x88&#39;1A,</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            RGBA_FP32 = 0x88&#39;14,</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            RGBA_SI8 = 0x8D&#39;8E,</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            RGBA_UI8 = 0x8D&#39;7C,</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            RGBA_SI8  = 0x8D&#39;8E,</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            RGBA_UI8  = 0x8D&#39;7C,</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            RGBA_SI16 = 0x8D&#39;88,</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            RGBA_UI16 = 0x8D&#39;76,</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            RGBA_SI32 = 0x8D&#39;82,</div>
@@ -201,15 +201,15 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        };</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="comment">// Enum representing a mapping flag.</span></div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keyword">enum class</span> MapFlag {</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            NONE = 0x0,</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            READABLE = 0x1,</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            WRITABLE = 0x2,</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            INVALIDATE_RANGE = 0x4,</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            NONE              = 0x0,</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            READABLE          = 0x1,</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            WRITABLE          = 0x2,</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            INVALIDATE_RANGE  = 0x4,</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            INVALIDATE_BUFFER = 0x8,</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            EXPLICIT_FLUSH = 0x10,</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            UNSYNCHRONIZED = 0x20,</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            PERSISTENT = 0x40,</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            COHERENT = 0x80</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            EXPLICIT_FLUSH    = 0x10,</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            UNSYNCHRONIZED    = 0x20,</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            PERSISTENT        = 0x40,</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            COHERENT          = 0x80</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        };</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <span class="keyword">struct </span>Deleter {</div>
@@ -217,8 +217,8 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        };</div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        Handle&lt;unsigned int, 0, Deleter&gt; _id;</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        Target _target;</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        std::size_t _size;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        Target                           _target;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        std::size_t                      _size;</div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="comment">// Creates an uninitialized buffer.</span></div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        GLBuffer(Target target, std::size_t size, Flag flags);</div>
@@ -235,7 +235,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordtype">void</span> setRegion(std::size_t offset, std::span&lt;const std::byte&gt; data) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <span class="keywordtype">bool</span> mapped() const noexcept;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <span class="keywordtype">bool</span>        mapped() const noexcept;</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        GLBufferMap mapRegion(std::<span class="keywordtype">size_t</span> offset, std::<span class="keywordtype">size_t</span> size, MapFlag flags);</div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="comment">// Resets the buffer&#39;s target binding point.</span></div>
@@ -275,7 +275,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        };</div>
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        <a class="code hl_class" href="classtr_1_1Handle.html">Handle&lt;unsigned int, 0, Deleter&gt;</a> _buffer;</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        std::span&lt;std::byte&gt; _span;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        std::span&lt;std::byte&gt;             _span;</div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <a class="code hl_class" href="classtr_1_1GLBufferMap.html">GLBufferMap</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> buffer, std::span&lt;std::byte&gt; span) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>

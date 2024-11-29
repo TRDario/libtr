@@ -141,8 +141,8 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>      protected:</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a> _viewport;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <a class="code hl_struct" href="structtr_1_1DepthRange.html">DepthRange</a> _depthRange;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a>       _viewport;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <a class="code hl_struct" href="structtr_1_1DepthRange.html">DepthRange</a>   _depthRange;</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <a class="code hl_class" href="classtr_1_1BasicFramebuffer.html">BasicFramebuffer</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a> <a class="code hl_function" href="classtr_1_1BasicFramebuffer.html#accd451322c6e20a2d0b05f69491b1435">viewport</a>, <a class="code hl_struct" href="structtr_1_1DepthRange.html">DepthRange</a> <a class="code hl_function" href="classtr_1_1BasicFramebuffer.html#accc1deb5ffcef0a1e9cf4cd08507a9d1">depthRange</a>) noexcept;</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
@@ -234,8 +234,8 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
 <div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>      private:</div>
 <div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        static constexpr glm::ivec2 EMPTY_ATTACHMENT{-1, -1};</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        std::array&lt;glm::ivec2, 10&gt; _attachSizes; <span class="comment">// The sizes of the framebuffer attachments.</span></div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        glm::ivec2 _size;</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        std::array&lt;glm::ivec2, 10&gt;  _attachSizes; <span class="comment">// The sizes of the framebuffer attachments.</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        glm::ivec2                  _size;</div>
 <div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        <span class="comment">// Recalculates the size of the framebuffer.</span></div>
 <div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        glm::ivec2 calcSize() noexcept;</div>
