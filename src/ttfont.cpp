@@ -210,7 +210,7 @@ void tr::TTFont::resize(int size, glm::uvec2 dpi)
 		throw TTFontResizeError{};
 	}
 	_size = size;
-	_dpi = dpi;
+	_dpi  = dpi;
 }
 
 glm::ivec2 tr::TTFont::textSize(const char* text) const noexcept

@@ -25,7 +25,7 @@ namespace tr {
 	 * Shader types.
 	 ******************************************************************************************************************/
 	enum class ShaderType : std::uint32_t {
-		VERTEX = 0x8B'31,
+		VERTEX   = 0x8B'31,
 		FRAGMENT = 0x8B'30,
 		// COMPUTE = 0x91'B9
 	};
@@ -584,7 +584,7 @@ namespace tr {
 		};
 
 		Handle<unsigned int, 0, Deleter> _id;
-		ShaderType _type;
+		ShaderType                       _type;
 
 		friend class ShaderPipeline;
 	};

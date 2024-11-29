@@ -155,13 +155,13 @@ template <std::output_iterator<glm::vec2> It> constexpr void tr::fillRectVertice
 template <std::output_iterator<glm::vec2> It>
 void tr::fillArcVertices(It out, std::size_t vertices, CircleF circ, AngleF startth, AngleF sizeth)
 {
-	auto dth{sizeth / vertices};
-	auto dsin{dth.sin()};
-	auto dcos{dth.cos()};
+	auto      dth{sizeth / vertices};
+	auto      dsin{dth.sin()};
+	auto      dcos{dth.cos()};
 	glm::vec2 delta{circ.r * startth.cos(), circ.r * startth.sin()};
 	for (std::size_t i = 0; i < vertices; ++i) {
 		*out++ = delta + circ.c;
-		delta = glm::vec2{dcos * delta.x - dsin * delta.y, dsin * delta.x + dcos * delta.y};
+		delta  = glm::vec2{dcos * delta.x - dsin * delta.y, dsin * delta.x + dcos * delta.y};
 	}
 }
 

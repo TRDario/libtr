@@ -10,14 +10,14 @@ tr::VertexBuffer::VertexBuffer() noexcept
 }
 
 tr::VertexBuffer::VertexBuffer(std::size_t capacity)
-	: _buffer{{GLBuffer::Target::ARRAY_BUFFER, capacity, GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE}},
-	  _size{0}
+	: _buffer{{GLBuffer::Target::ARRAY_BUFFER, capacity, GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE}}
+	, _size{0}
 {
 }
 
 tr::VertexBuffer::VertexBuffer(std::span<const std::byte> data)
-	: _buffer{{GLBuffer::Target::ARRAY_BUFFER, data, GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE}},
-	  _size{std::size_t(data.size())}
+	: _buffer{{GLBuffer::Target::ARRAY_BUFFER, data, GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE}}
+	, _size{std::size_t(data.size())}
 {
 }
 

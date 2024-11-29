@@ -659,10 +659,15 @@ namespace tr {
 
 /// @cond IMPLEMENTATION
 
-template <tr::ColorDatatype T> constexpr tr::RGBA<T>::RGBA(T r, T g, T b, T a) noexcept : r{r}, g{g}, b{b}, a{a} {}
+template <tr::ColorDatatype T>
+constexpr tr::RGBA<T>::RGBA(T r, T g, T b, T a) noexcept
+	: r{r}, g{g}, b{b}, a{a}
+{
+}
 
 template <tr::ColorDatatype T>
-constexpr tr::RGBA<T>::RGBA(RGB<T> rgb, T a) noexcept : r{rgb.r}, g{rgb.g}, b{rgb.b}, a{a}
+constexpr tr::RGBA<T>::RGBA(RGB<T> rgb, T a) noexcept
+	: r{rgb.r}, g{rgb.g}, b{rgb.b}, a{a}
 {
 }
 

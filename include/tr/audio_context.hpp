@@ -46,7 +46,7 @@ namespace tr {
 			void operator()(ALCcontext* ptr) const noexcept;
 		};
 
-		std::unique_ptr<ALCdevice, DeviceDeleter> _device;
+		std::unique_ptr<ALCdevice, DeviceDeleter>   _device;
 		std::unique_ptr<ALCcontext, ContextDeleter> _context;
 	};
 } // namespace tr

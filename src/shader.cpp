@@ -12,7 +12,7 @@ namespace tr {
 
 GLuint tr::constructProgram(std::span<const std::byte> data, ShaderType type) noexcept
 {
-	Handle<GLuint, 0, decltype([](GLuint id) { glDeleteShader(id); })> shader{glCreateShader(GLenum(type))};
+	Handle<GLuint, 0, decltype([](GLuint id) { glDeleteShader(id); })>  shader{glCreateShader(GLenum(type))};
 	Handle<GLuint, 0, decltype([](GLuint id) { glDeleteProgram(id); })> program{glCreateProgram()};
 
 	glShaderBinary(1, &shader.get(), GL_SHADER_BINARY_FORMAT_SPIR_V, data.data(), data.size());

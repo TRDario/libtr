@@ -18,11 +18,11 @@ tr::Event::Event(const CustomEventBase& custom)
 {
 	auto& sdl{*(SDL_Event*)(&_impl)};
 
-	sdl.type = custom.type;
+	sdl.type          = custom.type;
 	sdl.user.windowID = custom.uint;
-	sdl.user.code = custom.sint;
-	sdl.user.data1 = custom.any1.has_value() ? new std::any{std::move(custom.any1)} : nullptr;
-	sdl.user.data2 = custom.any2.has_value() ? new std::any{std::move(custom.any2)} : nullptr;
+	sdl.user.code     = custom.sint;
+	sdl.user.data1    = custom.any1.has_value() ? new std::any{std::move(custom.any1)} : nullptr;
+	sdl.user.data2    = custom.any2.has_value() ? new std::any{std::move(custom.any2)} : nullptr;
 }
 
 tr::Event::operator KeyDownEvent() const noexcept
@@ -30,10 +30,10 @@ tr::Event::operator KeyDownEvent() const noexcept
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
 	assert(type() == EventType::KEY_DOWN);
-	return {.win = WindowView{SDL_GetWindowFromID(sdl.key.windowID)},
+	return {.win    = WindowView{SDL_GetWindowFromID(sdl.key.windowID)},
 			.repeat = bool(sdl.key.repeat),
 			.key{.scan = Scancode::Enum(sdl.key.keysym.scancode),
-				 .key = Keycode::Enum(sdl.key.keysym.sym),
+				 .key  = Keycode::Enum(sdl.key.keysym.sym),
 				 .mods = Keymods(sdl.key.keysym.mod)}};
 }
 
@@ -44,7 +44,7 @@ tr::Event::operator KeyUpEvent() const noexcept
 	assert(type() == EventType::KEY_UP);
 	return {.win = WindowView{SDL_GetWindowFromID(sdl.key.windowID)},
 			.key = {.scan = Scancode::Enum(sdl.key.keysym.scancode),
-					.key = Keycode::Enum(sdl.key.keysym.sym),
+					.key  = Keycode::Enum(sdl.key.keysym.sym),
 					.mods = Keymods(sdl.key.keysym.mod)}};
 }
 
@@ -71,10 +71,10 @@ tr::Event::operator MouseMotionEvent() const noexcept
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
 	assert(type() == EventType::MOUSE_MOTION);
-	return {.win = WindowView{SDL_GetWindowFromID(sdl.motion.windowID)},
+	return {.win     = WindowView{SDL_GetWindowFromID(sdl.motion.windowID)},
 			.buttons = MouseButtonMask(sdl.motion.state),
-			.pos = {sdl.motion.x, sdl.motion.y},
-			.delta = {sdl.motion.xrel, sdl.motion.yrel}};
+			.pos     = {sdl.motion.x, sdl.motion.y},
+			.delta   = {sdl.motion.xrel, sdl.motion.yrel}};
 }
 
 tr::Event::operator MouseDownEvent() const noexcept
@@ -82,10 +82,10 @@ tr::Event::operator MouseDownEvent() const noexcept
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
 	assert(type() == EventType::MOUSE_DOWN);
-	return {.win = WindowView{SDL_GetWindowFromID(sdl.button.windowID)},
+	return {.win    = WindowView{SDL_GetWindowFromID(sdl.button.windowID)},
 			.button = MouseButton(sdl.button.button),
 			.clicks = sdl.button.clicks,
-			.pos = {sdl.button.x, sdl.button.y}};
+			.pos    = {sdl.button.x, sdl.button.y}};
 }
 
 tr::Event::operator MouseUpEvent() const noexcept
@@ -93,9 +93,9 @@ tr::Event::operator MouseUpEvent() const noexcept
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
 	assert(type() == EventType::MOUSE_UP);
-	return {.win = WindowView{SDL_GetWindowFromID(sdl.button.windowID)},
+	return {.win    = WindowView{SDL_GetWindowFromID(sdl.button.windowID)},
 			.button = MouseButton(sdl.button.button),
-			.pos = {sdl.button.x, sdl.button.y}};
+			.pos    = {sdl.button.x, sdl.button.y}};
 }
 
 tr::Event::operator MouseWheelEvent() const noexcept
@@ -103,7 +103,7 @@ tr::Event::operator MouseWheelEvent() const noexcept
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
 	assert(type() == EventType::MOUSE_WHEEL);
-	return {.win = WindowView{SDL_GetWindowFromID(sdl.wheel.windowID)},
+	return {.win   = WindowView{SDL_GetWindowFromID(sdl.wheel.windowID)},
 			.delta = {sdl.wheel.preciseX, sdl.wheel.preciseY},
 			.mousePos{sdl.wheel.mouseX, sdl.wheel.mouseY}};
 }
@@ -128,7 +128,7 @@ tr::Event::operator WindowEvent() const noexcept
 		return WindowMotionEvent{.win = WindowView{SDL_GetWindowFromID(sdl.window.windowID)},
 								 .pos = {sdl.window.data1, sdl.window.data2}};
 	case SDL_WINDOWEVENT_RESIZED:
-		return WindowResizeEvent{.win = WindowView{SDL_GetWindowFromID(sdl.window.windowID)},
+		return WindowResizeEvent{.win  = WindowView{SDL_GetWindowFromID(sdl.window.windowID)},
 								 .size = {sdl.window.data1, sdl.window.data2}};
 	case SDL_WINDOWEVENT_SIZE_CHANGED:
 		return WindowSizeChangeEvent{.win = WindowView{SDL_GetWindowFromID(sdl.window.windowID)}};
@@ -273,7 +273,7 @@ void tr::EventQueue::sendDrawEvents(unsigned int frequency)
 			_drawTicker = NO_DRAW_EVENTS;
 		}
 		else {
-			_tickerData[_drawTicker]->preciseInterval = 1000.0ms / frequency;
+			_tickerData[_drawTicker]->preciseInterval  = 1000.0ms / frequency;
 			_tickerData[_drawTicker]->accumulatedError = 0.0ms;
 		}
 	}

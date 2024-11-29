@@ -701,8 +701,8 @@ namespace tr {
 		/// @cond IMPLEMENTATION
 		// Data used by a ticker.
 		struct TickerData {
-			EventQueue& queue;
-			std::int32_t id;
+			EventQueue&   queue;
+			std::int32_t  id;
 			MillisecondsD preciseInterval;
 			MillisecondsD
 				accumulatedError;    // The accumulated error caused by imprecise SDL timers, used for correction.
@@ -715,7 +715,7 @@ namespace tr {
 		static std::uint32_t drawTickerCallback(std::uint32_t interval, void* ptr) noexcept;
 
 		std::unordered_map<int, std::unique_ptr<TickerData>> _tickerData;
-		int _drawTicker = 0; // The ID of the draw event ticker.
+		int                                                  _drawTicker = 0; // The ID of the draw event ticker.
 	};
 } // namespace tr
 

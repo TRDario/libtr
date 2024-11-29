@@ -474,11 +474,16 @@ namespace tr {
 
 /// @cond IMPLEMENTATION
 
-template <tr::AngleBase T> constexpr tr::Angle<T>::Angle(T rads) noexcept : _rads{rads} {}
+template <tr::AngleBase T>
+constexpr tr::Angle<T>::Angle(T rads) noexcept
+	: _rads{rads}
+{
+}
 
 template <tr::AngleBase T>
 template <tr::AngleBase U>
-constexpr tr::Angle<T>::Angle(Angle<U> th) noexcept : _rads{T(th.rads())}
+constexpr tr::Angle<T>::Angle(Angle<U> th) noexcept
+	: _rads{T(th.rads())}
 {
 }
 

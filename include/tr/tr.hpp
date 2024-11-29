@@ -19,7 +19,6 @@
 #include "draw_geometry.hpp"
 #include "event.hpp"
 #include "framebuffer.hpp"
-#include "function.hpp"
 #include "geometry.hpp"
 #include "gl_context.hpp"
 #include "handle.hpp"

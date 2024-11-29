@@ -4,7 +4,7 @@
 #include <format>
 
 namespace tr {
-	ALCdevice* openALCDeviceChecked();
+	ALCdevice*  openALCDeviceChecked();
 	ALCcontext* createALCContextChecked(ALCdevice* device);
 } // namespace tr
 

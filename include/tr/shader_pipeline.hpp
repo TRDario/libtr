@@ -101,8 +101,8 @@ namespace tr {
 		void setLabel(std::string_view label) noexcept;
 
 	  private:
-		Shader _vertexShader;
-		Shader _fragmentShader;
+		Shader         _vertexShader;
+		Shader         _fragmentShader;
 		ShaderPipeline _pipeline;
 	};
 } // namespace tr

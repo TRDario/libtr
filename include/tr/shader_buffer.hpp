@@ -143,7 +143,7 @@ namespace tr {
 		using GLBuffer::setLabel;
 
 	  private:
-		Access _access;
+		Access      _access;
 		std::size_t _headerSize;
 		std::size_t _size;
 

@@ -210,7 +210,7 @@ namespace tr {
 
 	  private:
 		std::reference_wrapper<const Bitmap> _bitmap;
-		RectI2 _rect;
+		RectI2                               _rect;
 
 		friend class Bitmap;
 	};
@@ -226,7 +226,7 @@ namespace tr {
 		operator RGBA8() const noexcept;
 
 	  private:
-		const void* _impl;        // A pointer to the pixel data.
+		const void*      _impl;   // A pointer to the pixel data.
 		SDL_PixelFormat* _format; // The format of the pixel.
 
 		PixelRef() noexcept = default;
@@ -472,9 +472,9 @@ namespace tr {
 		friend difference_type operator-(const Iterator& l, const Iterator& r) noexcept;
 
 	  private:
-		PixelRef _pixel;
+		PixelRef   _pixel;
 		glm::ivec2 _bitmapSize;
-		int _pitch;
+		int        _pitch;
 		glm::ivec2 _pos;
 	};
 
@@ -747,7 +747,7 @@ namespace tr {
 		PixelRef& operator=(RGBA8 color) noexcept;
 
 	  private:
-		void* _impl;              // A pointer to the pixel data.
+		void*            _impl;   // A pointer to the pixel data.
 		SDL_PixelFormat* _format; // The format of the pixel.
 
 		PixelRef() noexcept = default;
@@ -992,8 +992,8 @@ namespace tr {
 		friend difference_type operator-(const MutIt& l, const MutIt& r) noexcept;
 
 	  private:
-		PixelRef _pixel;
-		Bitmap* _bitmap;
+		PixelRef   _pixel;
+		Bitmap*    _bitmap;
 		glm::ivec2 _pos;
 	};
 

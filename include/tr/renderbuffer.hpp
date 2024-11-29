@@ -61,7 +61,7 @@ namespace tr {
 		};
 
 		Handle<unsigned int, 0, Deleter> _id;
-		glm::ivec2 _size;
+		glm::ivec2                       _size;
 
 		void bind() const noexcept;
 

@@ -449,8 +449,8 @@ namespace tr {
 		};
 
 		std::unique_ptr<_TTF_Font, Deleter> _impl;
-		int _size;
-		glm::uvec2 _dpi;
+		int                                 _size;
+		glm::uvec2                          _dpi;
 	};
 
 	/// @cond IMPLEMENTATION

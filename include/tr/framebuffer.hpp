@@ -99,8 +99,8 @@ namespace tr {
 	  protected:
 		/// @cond IMPLEMENTATION
 		unsigned int _id;
-		RectI2 _viewport;
-		DepthRange _depthRange;
+		RectI2       _viewport;
+		DepthRange   _depthRange;
 
 		BasicFramebuffer(unsigned int id, RectI2 viewport, DepthRange depthRange) noexcept;
 
@@ -284,8 +284,8 @@ namespace tr {
 
 	  private:
 		static constexpr glm::ivec2 EMPTY_ATTACHMENT{-1, -1};
-		std::array<glm::ivec2, 10> _attachSizes; // The sizes of the framebuffer attachments.
-		glm::ivec2 _size;
+		std::array<glm::ivec2, 10>  _attachSizes; // The sizes of the framebuffer attachments.
+		glm::ivec2                  _size;
 
 		// Recalculates the size of the framebuffer.
 		glm::ivec2 calcSize() noexcept;

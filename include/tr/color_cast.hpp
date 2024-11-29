@@ -1165,9 +1165,9 @@ template <tr::ColorCastableTo To, tr::ColorCastableFrom From> constexpr To tr::c
 constexpr tr::RGBAF tr::ColorCaster<tr::HSV>::toBuiltin(const HSV& from) noexcept
 {
 	constexpr auto constexprAbs = [](float arg) { return arg >= 0 ? arg : -arg; };
-	constexpr auto eucMod = [](float arg, float modulo) {
-		const float mod{arg - modulo * std::int64_t(arg / modulo)};
-		return mod >= 0 ? mod : mod + modulo;
+	constexpr auto eucMod       = [](float arg, float modulo) {
+        const float mod{arg - modulo * std::int64_t(arg / modulo)};
+        return mod >= 0 ? mod : mod + modulo;
 	};
 
 	const float h{eucMod(from.h, 360.0f)};

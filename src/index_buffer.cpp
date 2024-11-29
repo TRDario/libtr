@@ -27,15 +27,15 @@ tr::IndexBuffer::IndexBuffer() noexcept
 
 tr::IndexBuffer::IndexBuffer(std::size_t capacity)
 	: _buffer{{GLBuffer::Target::ELEMENT_ARRAY_BUFFER, std::size_t(capacity * sizeof(std::uint16_t)),
-			   GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE}},
-	  _size{0}
+			   GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE}}
+	, _size{0}
 {
 }
 
 tr::IndexBuffer::IndexBuffer(std::span<const std::uint16_t> data)
 	: _buffer{{GLBuffer::Target::ELEMENT_ARRAY_BUFFER, rangeBytes(data),
-			   GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE}},
-	  _size{std::size_t(data.size())}
+			   GLBuffer::Flag::DYNAMIC_STORAGE | GLBuffer::Flag::WRITABLE}}
+	, _size{std::size_t(data.size())}
 {
 }
 

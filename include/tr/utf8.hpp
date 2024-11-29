@@ -8,6 +8,7 @@
 #include <compare>
 #include <cstddef>
 #include <cstdint>
+#include <ranges>
 #include <string_view>
 
 namespace tr {
@@ -127,7 +128,8 @@ namespace tr {
 
 /// @cond IMPLEMENTATION
 
-constexpr tr::Utf8ConstIt::Utf8ConstIt(const char* ptr) noexcept : _impl{ptr}
+constexpr tr::Utf8ConstIt::Utf8ConstIt(const char* ptr) noexcept
+	: _impl{ptr}
 {
 	assert(_impl != nullptr);
 }

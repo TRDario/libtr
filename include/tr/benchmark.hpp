@@ -92,7 +92,7 @@ namespace tr {
 		const Deque& measurements() const noexcept;
 
 	  private:
-		Deque _durations;      // The measurement deque.
+		Deque     _durations;  // The measurement deque.
 		TimePoint _startPoint; // The start point of the latest started (but not ended) measurement.
 	};
 } // namespace tr

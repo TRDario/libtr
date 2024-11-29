@@ -186,8 +186,8 @@ namespace tr {
 
 	  private:
 		std::optional<GLBuffer> _buffer;
-		std::size_t _size; // Size of the allocated portion of the buffer.
-		std::string _label;
+		std::size_t             _size; // Size of the allocated portion of the buffer.
+		std::string             _label;
 
 		// Resizes the buffer, reallocating if needed.
 		void resize(std::size_t newSize);

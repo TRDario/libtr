@@ -482,11 +482,16 @@ namespace tr {
 /// @cond IMPLEMENTATION
 
 template <int S, class T>
-constexpr tr::Rect<S, T>::Rect(glm::vec<S, T> tl, glm::vec<S, T> size) noexcept : tl{tl}, size{size}
+constexpr tr::Rect<S, T>::Rect(glm::vec<S, T> tl, glm::vec<S, T> size) noexcept
+	: tl{tl}, size{size}
 {
 }
 
-template <int S, class T> constexpr tr::Rect<S, T>::Rect(glm::vec<S, T> size) noexcept : tl{}, size{size} {}
+template <int S, class T>
+constexpr tr::Rect<S, T>::Rect(glm::vec<S, T> size) noexcept
+	: tl{}, size{size}
+{
+}
 
 template <int S, class T>
 template <class T1>
@@ -514,11 +519,16 @@ constexpr bool tr::Rect<S, T>::contains(glm::vec<S, T1> point) const noexcept
 	return true;
 }
 
-template <class T> constexpr tr::Circle<T>::Circle(glm::tvec2<T> c, T r) noexcept : c{c}, r{r} {}
+template <class T>
+constexpr tr::Circle<T>::Circle(glm::tvec2<T> c, T r) noexcept
+	: c{c}, r{r}
+{
+}
 
 template <class T>
 template <class T1>
-constexpr tr::Circle<T>::Circle(const Circle<T1>& circle) noexcept : c{glm::tvec2<T>(circle.c)}, r{T(circle.r)}
+constexpr tr::Circle<T>::Circle(const Circle<T1>& circle) noexcept
+	: c{glm::tvec2<T>(circle.c)}, r{T(circle.r)}
 {
 }
 
@@ -570,9 +580,9 @@ template <std::floating_point T>
 constexpr std::optional<glm::tvec2<T>> tr::segmentIntersect(glm::tvec2<T> a1, glm::tvec2<T> b1, glm::tvec2<T> a2,
 															glm::tvec2<T> b2) noexcept
 {
-	auto r{b2 - a2};
+	auto          r{b2 - a2};
 	glm::tvec2<T> n{b1.y - a1.y, -b1.x + a1.x};
-	auto d{dot(r, n)};
+	auto          d{dot(r, n)};
 	if (!d) {
 		return std::nullopt;
 	}
@@ -601,9 +611,9 @@ template <std::floating_point T>
 std::optional<glm::tvec2<T>> tr::segmentIntersect(glm::tvec2<T> a1, Angle<T> th1, glm::tvec2<T> a2,
 												  glm::tvec2<T> b2) noexcept
 {
-	auto r{b2 - a2};
+	auto          r{b2 - a2};
 	glm::tvec2<T> n{sin(th1), -cos(th1)};
-	auto d{dot(r, n)};
+	auto          d{dot(r, n)};
 	if (!d) {
 		return std::nullopt;
 	}
@@ -628,7 +638,7 @@ std::optional<glm::tvec2<T>> tr::intersect(glm::tvec2<T> a1, Angle<T> th1, glm::
 {
 	glm::tvec2<T> r{cos(th2), sin(th2)};
 	glm::tvec2<T> n{sin(th1), -cos(th1)};
-	auto d{dot(r, n)};
+	auto          d{dot(r, n)};
 	if (!d) {
 		return std::nullopt;
 	}
@@ -646,9 +656,9 @@ template <std::floating_point T>
 constexpr std::optional<glm::tvec2<T>> tr::intersect(glm::tvec2<T> a1, glm::tvec2<T> b1, glm::tvec2<T> a2,
 													 glm::tvec2<T> b2) noexcept
 {
-	auto r{b2 - a2};
+	auto          r{b2 - a2};
 	glm::tvec2<T> n{b1.y - a1.y, -b1.x + a1.x};
-	auto d{dot(r, n)};
+	auto          d{dot(r, n)};
 	if (!d) {
 		return std::nullopt;
 	}
@@ -659,9 +669,9 @@ constexpr std::optional<glm::tvec2<T>> tr::intersect(glm::tvec2<T> a1, glm::tvec
 template <std::floating_point T>
 std::optional<glm::tvec2<T>> tr::intersect(glm::tvec2<T> a1, Angle<T> th1, glm::tvec2<T> a2, glm::tvec2<T> b2) noexcept
 {
-	auto r{b2 - a2};
+	auto          r{b2 - a2};
 	glm::tvec2<T> n{sin(th1), -cos(th1)};
-	auto d{dot(r, n)};
+	auto          d{dot(r, n)};
 	if (!d) {
 		return std::nullopt;
 	}

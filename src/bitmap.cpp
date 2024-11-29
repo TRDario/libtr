@@ -9,7 +9,7 @@
 
 namespace tr {
 	template <class T> T checkNotNull(T ptr);
-	RGBA8 getPixelColor(const void* data, SDL_PixelFormat* format);
+	RGBA8                getPixelColor(const void* data, SDL_PixelFormat* format);
 } // namespace tr
 
 template <class T> T tr::checkNotNull(T ptr)
@@ -149,10 +149,10 @@ tr::SubBitmap::PixelRef::operator RGBA8() const noexcept
 
 tr::SubBitmap::Iterator::Iterator(SubBitmap bitmap, glm::ivec2 pos) noexcept
 	: _pixel{(const std::byte*)(bitmap.data()) + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x,
-			 bitmap._bitmap.get()._impl.get()->format},
-	  _bitmapSize{bitmap.size()},
-	  _pitch{bitmap.pitch()},
-	  _pos{pos}
+			 bitmap._bitmap.get()._impl.get()->format}
+	, _bitmapSize{bitmap.size()}
+	, _pitch{bitmap.pitch()}
+	, _pos{pos}
 {
 }
 
@@ -499,8 +499,8 @@ void tr::Bitmap::save(const std::filesystem::path& path, ImageFormat format)
 
 tr::Bitmap tr::createCheckerboard(glm::ivec2 size)
 {
-	constexpr RGBA8 BLACK{0, 0, 0, 255};
-	constexpr RGBA8 MAGENTA{255, 0, 255, 255};
+	constexpr RGBA8  BLACK{0, 0, 0, 255};
+	constexpr RGBA8  MAGENTA{255, 0, 255, 255};
 	const glm::ivec2 halfSize{size / 2};
 
 	Bitmap bitmap{size, BitmapFormat::RGB_332};
@@ -544,9 +544,9 @@ tr::Bitmap::PixelRef& tr::Bitmap::PixelRef::operator=(RGBA8 color) noexcept
 
 tr::Bitmap::MutIt::MutIt(Bitmap& bitmap, glm::ivec2 pos) noexcept
 	: _pixel{(std::byte*)(bitmap.data()) + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x,
-			 bitmap._impl.get()->format},
-	  _bitmap{&bitmap},
-	  _pos{pos}
+			 bitmap._impl.get()->format}
+	, _bitmap{&bitmap}
+	, _pos{pos}
 {
 }
 
@@ -606,7 +606,7 @@ tr::Bitmap::MutIt& tr::Bitmap::MutIt::operator+=(int diff) noexcept
 	assert(_pixel._impl != nullptr);
 
 	const glm::ivec2 bitmapSize{_bitmap->size()};
-	auto lines{diff / bitmapSize.x};
+	auto             lines{diff / bitmapSize.x};
 	diff %= bitmapSize.x;
 	if (diff + _pos.x >= bitmapSize.x) {
 		++lines;

@@ -25,7 +25,7 @@ namespace tr {
 		using is_transparent = std::true_type;
 
 		template <std::size_t Cap> auto operator()(const boost::static_string<Cap>& str) const noexcept;
-		inline auto operator()(std::string_view str) const noexcept;
+		inline auto                     operator()(std::string_view str) const noexcept;
 	};
 
 	struct StringEquals {
