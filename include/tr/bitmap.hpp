@@ -183,7 +183,7 @@ namespace tr {
 		 * @return A pointer to the data of the sub-bitmap. This data is not necessarily contiguous,
 		 *         the distance between rows is pitch() bytes and may differ from `size().x * format().pixelBytes()`.
 		 **************************************************************************************************************/
-		const void* data() const noexcept;
+		const std::byte* data() const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the format of the bitmap.
@@ -226,11 +226,11 @@ namespace tr {
 		operator RGBA8() const noexcept;
 
 	  private:
-		const void*      _impl;   // A pointer to the pixel data.
+		const std::byte* _impl;   // A pointer to the pixel data.
 		SDL_PixelFormat* _format; // The format of the pixel.
 
 		PixelRef() noexcept = default;
-		PixelRef(const void* ptr, SDL_PixelFormat* format) noexcept;
+		PixelRef(const std::byte* ptr, SDL_PixelFormat* format) noexcept;
 
 		friend class SubBitmap;
 		friend class Iterator;
@@ -509,17 +509,6 @@ namespace tr {
 		Bitmap(glm::ivec2 size, BitmapFormat format);
 
 		/**************************************************************************************************************
-		 * Creates a bitmap from raw pixel data.
-		 *
-		 * @exception BitmapBadAlloc If allocating the bitmap failed.
-		 *
-		 * @param size The size of the bitmap.
-		 * @param pixelData The pixel data.
-		 * @param dataFormat The format of the pixel data.
-		 **************************************************************************************************************/
-		Bitmap(glm::ivec2 size, std::span<const std::byte> pixelData, BitmapFormat dataFormat);
-
-		/**************************************************************************************************************
 		 * Loads an embedded bitmap file.
 		 *
 		 * @exception BitmapBadAlloc If allocating the bitmap failed.
@@ -529,7 +518,7 @@ namespace tr {
 		explicit Bitmap(std::span<const std::byte> embeddedFile);
 
 		/**************************************************************************************************************
-		 * Loads an bitmap from file.
+		 * Loads a bitmap from file.
 		 *
 		 * Make sure to initialize support for any file formats you plan to use.
 		 *
@@ -593,44 +582,44 @@ namespace tr {
 		PixelCref operator[](glm::ivec2 pos) const noexcept;
 
 		/**************************************************************************************************************
-		 * Gets a mutable iterator to the beginning of the sub-bitmap.
+		 * Gets a mutable iterator to the beginning of the bitmap.
 		 *
-		 * @return A mutable iterator to the beginning of the sub-bitmap.
+		 * @return A mutable iterator to the beginning of the bitmap.
 		 **************************************************************************************************************/
 		MutIt begin() noexcept;
 
 		/**************************************************************************************************************
-		 * Gets an immutable iterator to the beginning of the sub-bitmap.
+		 * Gets an immutable iterator to the beginning of the bitmap.
 		 *
-		 * @return An immutable iterator to the beginning of the sub-bitmap.
+		 * @return An immutable iterator to the beginning of the bitmap.
 		 **************************************************************************************************************/
 		ConstIt begin() const noexcept;
 
 		/**************************************************************************************************************
-		 * Gets an immutable iterator to the beginning of the sub-bitmap.
+		 * Gets an immutable iterator to the beginning of the bitmap.
 		 *
-		 * @return An immutable iterator to the beginning of the sub-bitmap.
+		 * @return An immutable iterator to the beginning of the bitmap.
 		 **************************************************************************************************************/
 		ConstIt cbegin() const noexcept;
 
 		/**************************************************************************************************************
-		 * Gets a mutable iterator to one past the end of the sub-bitmap.
+		 * Gets a mutable iterator to one past the end of the bitmap.
 		 *
-		 * @return A mutable iterator to one past the end of the sub-bitmap.
+		 * @return A mutable iterator to one past the end of the bitmap.
 		 **************************************************************************************************************/
 		MutIt end() noexcept;
 
 		/**************************************************************************************************************
-		 * Gets an immutable iterator to one past the end of the sub-bitmap.
+		 * Gets an immutable iterator to one past the end of the bitmap.
 		 *
-		 * @return An immutable iterator to one past the end of the sub-bitmap.
+		 * @return An immutable iterator to one past the end of the bitmap.
 		 **************************************************************************************************************/
 		ConstIt end() const noexcept;
 
 		/**************************************************************************************************************
-		 * Gets an immutable iterator to one past the end of the sub-bitmap.
+		 * Gets an immutable iterator to one past the end of the bitmap.
 		 *
-		 * @return An immutable iterator to one past the end of the sub-bitmap.
+		 * @return An immutable iterator to one past the end of the bitmap.
 		 **************************************************************************************************************/
 		ConstIt cend() const noexcept;
 
@@ -673,7 +662,7 @@ namespace tr {
 		 * @return A pointer to the data of the bitmap. This data is not necessarily contiguous,
 		 *         the distance between rows is pitch() bytes and may differ from `size().x * format().pixelBytes()`.
 		 **************************************************************************************************************/
-		void* data() noexcept;
+		std::byte* data() noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the raw data of the bitmap.
@@ -681,7 +670,7 @@ namespace tr {
 		 * @return A pointer to the data of the bitmap. This data is not necessarily contiguous,
 		 *         the distance between rows is pitch() bytes and may differ from `size().x * format().pixelBytes()`.
 		 **************************************************************************************************************/
-		const void* data() const noexcept;
+		const std::byte* data() const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the format of the bitmap.
@@ -747,11 +736,11 @@ namespace tr {
 		PixelRef& operator=(RGBA8 color) noexcept;
 
 	  private:
-		void*            _impl;   // A pointer to the pixel data.
+		std::byte*       _impl;   // A pointer to the pixel data.
 		SDL_PixelFormat* _format; // The format of the pixel.
 
 		PixelRef() noexcept = default;
-		PixelRef(void* ptr, SDL_PixelFormat* format) noexcept;
+		PixelRef(std::byte* ptr, SDL_PixelFormat* format) noexcept;
 
 		friend class MutIt;
 	};

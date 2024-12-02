@@ -117,9 +117,9 @@ tr::SubBitmap::Iterator tr::SubBitmap::cend() const noexcept
 	return end();
 }
 
-const void* tr::SubBitmap::data() const noexcept
+const std::byte* tr::SubBitmap::data() const noexcept
 {
-	return (const std::byte*)(_bitmap.get().data()) + pitch() * _rect.tl.y + format().pixelBytes() * _rect.tl.x;
+	return _bitmap.get().data() + pitch() * _rect.tl.y + format().pixelBytes() * _rect.tl.x;
 }
 
 tr::BitmapFormat tr::SubBitmap::format() const noexcept
@@ -137,7 +137,7 @@ int tr::SubBitmap::pitch() const noexcept
 	return _bitmap.get().pitch();
 }
 
-tr::SubBitmap::PixelRef::PixelRef(const void* ptr, SDL_PixelFormat* format) noexcept
+tr::SubBitmap::PixelRef::PixelRef(const std::byte* ptr, SDL_PixelFormat* format) noexcept
 	: _impl{ptr}, _format{format}
 {
 }
@@ -148,7 +148,7 @@ tr::SubBitmap::PixelRef::operator RGBA8() const noexcept
 }
 
 tr::SubBitmap::Iterator::Iterator(SubBitmap bitmap, glm::ivec2 pos) noexcept
-	: _pixel{(const std::byte*)(bitmap.data()) + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x,
+	: _pixel{bitmap.data() + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x,
 			 bitmap._bitmap.get()._impl.get()->format}
 	, _bitmapSize{bitmap.size()}
 	, _pitch{bitmap.pitch()}
@@ -219,7 +219,7 @@ tr::SubBitmap::Iterator& tr::SubBitmap::Iterator::operator+=(int diff) noexcept
 		--lines;
 		diff += _bitmapSize.x;
 	}
-	_pixel._impl = (const std::byte*)(_pixel._impl) + _pitch * lines + _pixel._format->BytesPerPixel * diff;
+	_pixel._impl = _pixel._impl + _pitch * lines + _pixel._format->BytesPerPixel * diff;
 	return *this;
 }
 
@@ -311,12 +311,6 @@ tr::Bitmap::Bitmap(SDL_Surface* ptr)
 tr::Bitmap::Bitmap(glm::ivec2 size, BitmapFormat format)
 	: _impl{checkNotNull(SDL_CreateRGBSurfaceWithFormat(0, size.x, size.y, format.pixelBits(),
 														SDL_PixelFormatEnum(BitmapFormat::Type(format))))}
-{
-}
-
-tr::Bitmap::Bitmap(glm::ivec2 size, std::span<const std::byte> pixelData, BitmapFormat dataFormat)
-	: _impl{checkNotNull(SDL_CreateRGBSurfaceWithFormat(0, size.x, size.y, dataFormat.pixelBits(),
-														std::uint32_t(BitmapFormat::Type(dataFormat))))}
 {
 }
 
@@ -413,7 +407,7 @@ void tr::Bitmap::blit(glm::ivec2 tl, SubBitmap source) noexcept
 	assert(RectI2{size()}.contains(tl + source.size()));
 	SDL_Rect sdlSource{source._rect.tl.x, source._rect.tl.y, source.size().x, source.size().y};
 	SDL_Rect sdlDest{tl.x, tl.y};
-	SDL_BlitSurface((SDL_Surface*)(source._bitmap.get()._impl.get()), &sdlSource, _impl.get(), &sdlDest);
+	SDL_BlitSurface(source._bitmap.get()._impl.get(), &sdlSource, _impl.get(), &sdlDest);
 }
 
 void tr::Bitmap::fill(RectI2 rect, RGBA8 color) noexcept
@@ -434,16 +428,16 @@ tr::SubBitmap tr::Bitmap::sub(RectI2 rect) const noexcept
 	return SubBitmap{*this, rect};
 }
 
-void* tr::Bitmap::data() noexcept
+std::byte* tr::Bitmap::data() noexcept
 {
 	assert(_impl != nullptr);
-	return _impl.get()->pixels;
+	return (std::byte*)(_impl.get()->pixels);
 }
 
-const void* tr::Bitmap::data() const noexcept
+const std::byte* tr::Bitmap::data() const noexcept
 {
 	assert(_impl != nullptr);
-	return _impl.get()->pixels;
+	return (const std::byte*)(_impl.get()->pixels);
 }
 
 tr::BitmapFormat tr::Bitmap::format() const noexcept
@@ -511,7 +505,7 @@ tr::Bitmap tr::createCheckerboard(glm::ivec2 size)
 	return bitmap;
 }
 
-tr::Bitmap::PixelRef::PixelRef(void* ptr, SDL_PixelFormat* format) noexcept
+tr::Bitmap::PixelRef::PixelRef(std::byte* ptr, SDL_PixelFormat* format) noexcept
 	: _impl{ptr}, _format{format}
 {
 }
@@ -543,8 +537,7 @@ tr::Bitmap::PixelRef& tr::Bitmap::PixelRef::operator=(RGBA8 color) noexcept
 }
 
 tr::Bitmap::MutIt::MutIt(Bitmap& bitmap, glm::ivec2 pos) noexcept
-	: _pixel{(std::byte*)(bitmap.data()) + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x,
-			 bitmap._impl.get()->format}
+	: _pixel{bitmap.data() + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x, bitmap._impl.get()->format}
 	, _bitmap{&bitmap}
 	, _pos{pos}
 {
@@ -616,7 +609,7 @@ tr::Bitmap::MutIt& tr::Bitmap::MutIt::operator+=(int diff) noexcept
 		--lines;
 		diff += bitmapSize.x;
 	}
-	_pixel._impl = (std::byte*)(_pixel._impl) + _bitmap->pitch() * lines + _pixel._format->BytesPerPixel * diff;
+	_pixel._impl = _pixel._impl + _bitmap->pitch() * lines + _pixel._format->BytesPerPixel * diff;
 	_pos += glm::ivec2{diff, lines};
 	return *this;
 }
