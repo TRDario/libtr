@@ -714,8 +714,8 @@ namespace tr {
 		static std::uint32_t tickerCallback(std::uint32_t interval, void* ptr) noexcept;
 		static std::uint32_t drawTickerCallback(std::uint32_t interval, void* ptr) noexcept;
 
-		std::unordered_map<int, std::unique_ptr<TickerData>> _tickerData;
-		int                                                  _drawTicker = 0; // The ID of the draw event ticker.
+		std::unordered_map<int, TickerData> _tickerData;
+		int                                 _drawTicker = 0; // The ID of the draw event ticker.
 	};
 } // namespace tr
 

@@ -216,12 +216,16 @@ std::optional<tr::Event> tr::EventQueue::waitForEventTimeout(std::chrono::millis
 
 tr::Ticker tr::EventQueue::addTicker(std::int32_t id, MillisecondsD interval, std::uint32_t nticks)
 {
-	auto tickerData{std::make_unique<TickerData>(std::ref(*this), id, interval, 0.0ms, nticks)};
-	auto ticker{SDL_AddTimer(interval.count(), tickerCallback, tickerData.get())};
+	// Allocate the ticker data within the hashmap, then move it to the right key when that's gotten from SDL.
+	auto dataIt{_tickerData.emplace(0, TickerData{*this, id, interval, 0.0ms, nticks}).first};
+	auto ticker{SDL_AddTimer(interval.count(), tickerCallback, &dataIt->second)};
 	if (ticker == 0) {
+		_tickerData.erase(dataIt);
 		throw SDLError{"Failed to add event ticker to event queue"};
 	}
-	_tickerData.emplace(ticker, std::move(tickerData));
+	auto node{_tickerData.extract(dataIt)};
+	node.key() = ticker;
+	_tickerData.insert(std::move(node));
 	return Ticker{ticker};
 }
 
@@ -273,17 +277,21 @@ void tr::EventQueue::sendDrawEvents(unsigned int frequency)
 			_drawTicker = NO_DRAW_EVENTS;
 		}
 		else {
-			_tickerData[_drawTicker]->preciseInterval  = 1000.0ms / frequency;
-			_tickerData[_drawTicker]->accumulatedError = 0.0ms;
+			auto& drawTicker{_tickerData.at(_drawTicker)};
+			drawTicker.preciseInterval  = 1000.0ms / frequency;
+			drawTicker.accumulatedError = 0.0ms;
 		}
 	}
 	else {
-		auto tickerData{std::make_unique<TickerData>(std::ref(*this), 0, 1000.0ms / frequency, 0.0ms, 0)};
-		auto ticker{SDL_AddTimer(1'000 / frequency, drawTickerCallback, tickerData.get())};
+		auto dataIt{_tickerData.emplace(0, TickerData{*this, 0, 1000.0ms / frequency, 0.0ms, 0}).first};
+		auto ticker{SDL_AddTimer(1'000 / frequency, drawTickerCallback, &dataIt->second)};
 		if (ticker == 0) {
+			_tickerData.erase(dataIt);
 			throw SDLError{"Failed to add draw event ticker to event queue"};
 		}
-		_tickerData.emplace(ticker, std::move(tickerData));
+		auto node{_tickerData.extract(dataIt)};
+		node.key() = ticker;
+		_tickerData.insert(std::move(node));
 		_drawTicker = ticker;
 	}
 }
