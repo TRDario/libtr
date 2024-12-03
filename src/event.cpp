@@ -157,7 +157,7 @@ tr::Event::operator WindowEvent() const noexcept
 #endif
 }
 
-tr::Event::operator TickEvent() const noexcept
+tr::Event::operator Ticker::Event() const noexcept
 {
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
@@ -179,15 +179,55 @@ tr::CustomEventBase tr::Event::getCustomEventBase() const noexcept
 			.any2 = any2 != nullptr ? std::move(*any2) : std::any{}};
 }
 
-tr::EventQueue::~EventQueue() noexcept
+tr::EventQueue* tr::Ticker::_eventQueue{nullptr};
+
+tr::Ticker::Ticker(std::int32_t id, MillisecondsD interval, std::uint32_t ticks)
+	: Ticker{id, interval, ticks, false}
 {
-	if (_drawTicker != NO_DRAW_EVENTS) {
-		SDL_RemoveTimer(_drawTicker);
-		_tickerData.erase(_drawTicker);
+	assert(_eventQueue != nullptr);
+}
+
+tr::Ticker::Ticker(std::int32_t id, MillisecondsD interval, std::uint32_t ticks, bool sendDrawEvents)
+	: _sendDrawEvents{sendDrawEvents}, _eventID{id}, _ticksLeft{ticks}, _interval{interval}
+{
+	_id = SDL_AddTimer(interval.count(), callback, this);
+	if (_id == 0) {
+		throw SDLError{"Failed to create event ticker"};
 	}
-	for (auto& ticker : std::views::keys(_tickerData)) {
-		SDL_RemoveTimer(ticker);
+}
+
+void tr::Ticker::resetInterval(MillisecondsD interval) noexcept
+{
+	_interval = interval;
+}
+
+std::uint32_t tr::Ticker::callback(std::uint32_t interval, void* ptr) noexcept
+{
+	auto& self = *(Ticker*)(ptr);
+	if (self._sendDrawEvents) {
+		_eventQueue->pushEvent(CustomEventBase{.type = EventType::DRAW});
 	}
+	else {
+		_eventQueue->pushEvent(CustomEventBase{.type = EventType::TICK, .uint = std::uint32_t(self._eventID)});
+	}
+	if (self._ticksLeft != TICK_FOREVER && --self._ticksLeft == 0) {
+		return 0;
+	}
+	else {
+		self._accumulatedTimerError += self._interval.load() - std::chrono::milliseconds{interval};
+		if (self._accumulatedTimerError >= 1ms) {
+			self._accumulatedTimerError -= 1ms;
+			return std::ceil(self._accumulatedTimerError.count());
+		}
+		else {
+			return std::floor(self._accumulatedTimerError.count());
+		}
+	}
+}
+
+tr::EventQueue::EventQueue() noexcept
+{
+	Ticker::_eventQueue = this;
 }
 
 std::optional<tr::Event> tr::EventQueue::pollEvent() noexcept
@@ -214,85 +254,18 @@ std::optional<tr::Event> tr::EventQueue::waitForEventTimeout(std::chrono::millis
 	}
 }
 
-tr::Ticker tr::EventQueue::addTicker(std::int32_t id, MillisecondsD interval, std::uint32_t nticks)
-{
-	// Allocate the ticker data within the hashmap, then move it to the right key when that's gotten from SDL.
-	auto dataIt{_tickerData.emplace(0, TickerData{*this, id, interval, 0.0ms, nticks}).first};
-	auto ticker{SDL_AddTimer(interval.count(), tickerCallback, &dataIt->second)};
-	if (ticker == 0) {
-		_tickerData.erase(dataIt);
-		throw SDLError{"Failed to add event ticker to event queue"};
-	}
-	auto node{_tickerData.extract(dataIt)};
-	node.key() = ticker;
-	_tickerData.insert(std::move(node));
-	return Ticker{ticker};
-}
-
-void tr::EventQueue::removeTicker(Ticker ticker) noexcept
-{
-	SDL_RemoveTimer(SDL_TimerID(ticker));
-	_tickerData.erase(std::uint32_t(ticker));
-}
-
-std::uint32_t tr::EventQueue::tickerCallback(std::uint32_t interval, void* ptr) noexcept
-{
-	auto& data{*(TickerData*)(ptr)};
-	data.queue.pushEvent(CustomEventBase{.type = EventType::TICK, .uint = std::uint32_t(data.id)});
-	if (data.ticksLeft != TICK_FOREVER && --data.ticksLeft == 0) {
-		return 0;
-	}
-	else {
-		data.accumulatedError += data.preciseInterval - std::chrono::milliseconds{interval};
-		if (data.accumulatedError >= 1ms) {
-			data.accumulatedError -= 1ms;
-			return std::ceil(data.preciseInterval.count());
-		}
-		else {
-			return std::floor(data.preciseInterval.count());
-		}
-	}
-}
-
-std::uint32_t tr::EventQueue::drawTickerCallback(std::uint32_t interval, void* ptr) noexcept
-{
-	auto& data{*(TickerData*)(ptr)};
-	data.queue.pushEvent(CustomEventBase{.type = EventType::DRAW});
-	data.accumulatedError += MillisecondsD{std::fmod(data.preciseInterval.count(), 1.0)};
-	if (data.accumulatedError >= 1ms) {
-		data.accumulatedError -= 1ms;
-		return std::ceil(data.preciseInterval.count());
-	}
-	else {
-		return data.preciseInterval.count();
-	}
-}
-
 void tr::EventQueue::sendDrawEvents(unsigned int frequency)
 {
-	if (_drawTicker != NO_DRAW_EVENTS) {
+	if (_drawTicker.has_value()) {
 		if (frequency == NO_DRAW_EVENTS) {
-			SDL_RemoveTimer(_drawTicker);
-			_tickerData.erase(_drawTicker);
-			_drawTicker = NO_DRAW_EVENTS;
+			_drawTicker.reset();
 		}
 		else {
-			auto& drawTicker{_tickerData.at(_drawTicker)};
-			drawTicker.preciseInterval  = 1000.0ms / frequency;
-			drawTicker.accumulatedError = 0.0ms;
+			_drawTicker->resetInterval(1000.0ms / frequency);
 		}
 	}
 	else {
-		auto dataIt{_tickerData.emplace(0, TickerData{*this, 0, 1000.0ms / frequency, 0.0ms, 0}).first};
-		auto ticker{SDL_AddTimer(1'000 / frequency, drawTickerCallback, &dataIt->second)};
-		if (ticker == 0) {
-			_tickerData.erase(dataIt);
-			throw SDLError{"Failed to add draw event ticker to event queue"};
-		}
-		auto node{_tickerData.extract(dataIt)};
-		node.key() = ticker;
-		_tickerData.insert(std::move(node));
-		_drawTicker = ticker;
+		_drawTicker.emplace(0, 1000.0ms / frequency, TICK_FOREVER, true);
 	}
 }
 

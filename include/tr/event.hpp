@@ -11,9 +11,12 @@
 #include "mouse.hpp"
 #include "window.hpp"
 
+#include <atomic>
 #include <boost/static_string.hpp>
 
 namespace tr {
+	class EventQueue;
+
 	/******************************************************************************************************************
 	 * Generates a new valid event type ID.
 	 *
@@ -425,13 +428,64 @@ namespace tr {
 									 WindowLoseFocusEvent, WindowCloseEvent, HitTestEvent>;
 
 	/******************************************************************************************************************
-	 * Event emitted when a user-defined tick occurs.
+	 * Sentinel value that signals that a ticker should tick forever.
 	 ******************************************************************************************************************/
-	struct TickEvent {
+	[[maybe_unused]] inline constexpr std::uint32_t TICK_FOREVER{0};
+
+	/******************************************************************************************************************
+	 * Ticker that regularly emits events.
+	 *
+	 * This class cannot be instantiated before the SDL library is initialized.
+	 ******************************************************************************************************************/
+	class Ticker {
+	  public:
 		/**************************************************************************************************************
-		 * The ticker ID.
+		 * The event type emitted by tickers.
 		 **************************************************************************************************************/
-		std::uint32_t id;
+		struct Event {
+			/**********************************************************************************************************
+			 * The user-assigned ID attached to the ticker emitting the event.
+			 **********************************************************************************************************/
+			std::uint32_t id;
+		};
+
+		/**************************************************************************************************************
+		 * Creates a ticker.
+		 *
+		 * @exception SDLError If creating the ticker failed.
+		 *
+		 * @param id The ID that will be attached to events emitted by this ticker.
+		 * @param interval The interval between events.
+		 * @param nticks The number of ticks before halting or TICK_FOREVER.
+		 **************************************************************************************************************/
+		Ticker(std::int32_t id, MillisecondsD interval, std::uint32_t nticks);
+
+		/// @private
+		explicit Ticker(std::int32_t id, MillisecondsD interval, std::uint32_t nticks, bool sendDrawEvents);
+
+		Ticker(Ticker&&) = delete;
+
+		Ticker& operator=(Ticker&&) = delete;
+
+		/**************************************************************************************************************
+		 * Resets the ticker's interval.
+		 *
+		 * @param interval The new interval between events.
+		 **************************************************************************************************************/
+		void resetInterval(MillisecondsD interval) noexcept;
+
+	  private:
+		static EventQueue*         _eventQueue;
+		int                        _id;
+		bool                       _sendDrawEvents;
+		std::int32_t               _eventID;
+		std::uint32_t              _ticksLeft; // The number of ticks left before automatically halting or TICK_FOREVER.
+		std::atomic<MillisecondsD> _interval;
+		MillisecondsD              _accumulatedTimerError;
+
+		static std::uint32_t callback(std::uint32_t interval, void* ptr) noexcept;
+
+		friend class EventQueue;
 	};
 
 	/******************************************************************************************************************
@@ -561,7 +615,7 @@ namespace tr {
 		 *
 		 * The type must match, otherwise a failed assertion may be triggered.
 		 **************************************************************************************************************/
-		operator TickEvent() const noexcept;
+		operator Ticker::Event() const noexcept;
 
 		/**************************************************************************************************************
 		 * Converts the event into a key down event.
@@ -581,17 +635,6 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Opaque ticker handle.
-	 ******************************************************************************************************************/
-	enum class Ticker : int {
-	};
-
-	/******************************************************************************************************************
-	 * Sentinel value that signals that a ticker should tick forever.
-	 ******************************************************************************************************************/
-	[[maybe_unused]] inline constexpr std::uint32_t TICK_FOREVER{0};
-
-	/******************************************************************************************************************
 	 * Sentinel value that signals that no draw events should be emitted.
 	 ******************************************************************************************************************/
 	[[maybe_unused]] inline constexpr std::uint32_t NO_DRAW_EVENTS{0};
@@ -606,26 +649,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs an event queue.
 		 **************************************************************************************************************/
-		EventQueue() noexcept = default;
-
-		EventQueue(const EventQueue&) = delete;
-
-		/**************************************************************************************************************
-		 * Move constructs an event queue.
-		 **************************************************************************************************************/
-		EventQueue(EventQueue&&) = default;
-
-		/**************************************************************************************************************
-		 * Destroys an event queue.
-		 **************************************************************************************************************/
-		~EventQueue() noexcept;
-
-		void operator=(const EventQueue&) = delete;
-
-		/**************************************************************************************************************
-		 * Move assignment operator.
-		 **************************************************************************************************************/
-		EventQueue& operator=(EventQueue&&) = default;
+		EventQueue() noexcept;
 
 		/**************************************************************************************************************
 		 * Polls for an event, returning it from the event queue if it exists.
@@ -651,30 +675,8 @@ namespace tr {
 		std::optional<Event> waitForEventTimeout(std::chrono::milliseconds timeout) noexcept;
 
 		/**************************************************************************************************************
-		 * Adds a ticker that generates tick events at a regular interval.
-		 *
-		 * @exception std::bad_alloc If an internal allocation fails.
-		 * @exception SDLError If creating the draw ticker fails.
-		 *
-		 * @param id The ticker ID.
-		 * @param interval The interval between ticks.
-		 * @param nticks The number of ticks to generate, or TICK_FOREVER to tick forever.
-		 *
-		 * @return A ticker handle that can be used to halt the ticker.
-		 **************************************************************************************************************/
-		Ticker addTicker(std::int32_t id, MillisecondsD interval, std::uint32_t nticks);
-
-		/**************************************************************************************************************
-		 * Halts a ticker.
-		 *
-		 * @param ticker A ticker handle.
-		 **************************************************************************************************************/
-		void removeTicker(Ticker ticker) noexcept;
-
-		/**************************************************************************************************************
 		 * Sets the frequency at which draw events are sent at.
 		 *
-		 * @exception std::bad_alloc If an internal allocation fails.
 		 * @exception SDLError If creating the draw ticker fails.
 		 *
 		 * @param frequency The frequency of draw events, or NO_DRAW_EVENTS to stop sending draw events.
@@ -698,24 +700,7 @@ namespace tr {
 		void pushEvent(const Event& event);
 
 	  private:
-		/// @cond IMPLEMENTATION
-		// Data used by a ticker.
-		struct TickerData {
-			EventQueue&   queue;
-			std::int32_t  id;
-			MillisecondsD preciseInterval;
-			MillisecondsD
-				accumulatedError;    // The accumulated error caused by imprecise SDL timers, used for correction.
-			std::uint32_t ticksLeft; // The number of ticks left before automatically halting or TICK_FOREVER.
-		};
-
-		/// @endcond
-
-		static std::uint32_t tickerCallback(std::uint32_t interval, void* ptr) noexcept;
-		static std::uint32_t drawTickerCallback(std::uint32_t interval, void* ptr) noexcept;
-
-		std::unordered_map<int, TickerData> _tickerData;
-		int                                 _drawTicker = 0; // The ID of the draw event ticker.
+		std::optional<Ticker> _drawTicker;
 	};
 } // namespace tr
 
