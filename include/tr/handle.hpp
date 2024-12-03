@@ -4,8 +4,8 @@
  */
 
 #pragma once
+#include "concepts.hpp"
 #include <cassert>
-#include <concepts>
 #include <functional>
 #include <tuple>
 #include <type_traits>
@@ -21,12 +21,20 @@ namespace tr {
 	concept HandleType = std::is_trivially_copyable_v<T> && std::equality_comparable<T>;
 
 	/******************************************************************************************************************
-	 * Concept that denotes a valid handle deleter type for a Handle of base type <em>HandleT</em>.
+	 * Concept that denotes a valid handle deleter type for a Handle of base type @em HandleT.
 	 *
-	 * To satisfy this requirement, a type must be invocable with <em>HandleT</em>.
+	 * To satisfy this requirement, a type must be invocable with @em HandleT, be move- or copy-constructible.
 	 ******************************************************************************************************************/
 	template <class T, class HandleT>
-	concept HandleDeleter = std::invocable<T, HandleT>;
+	concept HandleDeleter = std::invocable<T, HandleT> && (std::move_constructible<T> || std::copy_constructible<T>);
+
+	/******************************************************************************************************************
+	 * Concept that denotes a default constructible handle deleter.
+	 *
+	 * To satisfy this requirement, a type must be default initializable, but not a pointer.
+	 ******************************************************************************************************************/
+	template <class T>
+	concept DefaultConstructibleHandleDeleter = std::default_initializable<T> && !std::is_pointer_v<T>;
 
 	/******************************************************************************************************************
 	 * Tag struct used in some handle functions to suppress empty value checking.
@@ -48,42 +56,179 @@ namespace tr {
 	 * @tparam Deleter The deleter used by the handle, must satisfy @link HandleDeleter <em>HandleDeleter<T></em>
 	 *@endlink.
 	 ******************************************************************************************************************/
-	template <HandleType T, T EmptyValue, HandleDeleter<T> Deleter> class Handle {
+	template <HandleType T, T EmptyValue, HandleDeleter<T> Deleter> class Handle : private Deleter {
 	  public:
 		/**************************************************************************************************************
-		 * Default-constructs a handle.
+		 * Default-constructs an empty handle.
 		 *
-		 * A handle constructed like this will be empty.
+		 * Requires that @em Deleter is default constructible (pointers are not counted as default constructible).
 		 **************************************************************************************************************/
-		constexpr Handle() noexcept;
+		constexpr Handle() noexcept
+			requires(DefaultConstructibleHandleDeleter<Deleter>);
 
 		/**************************************************************************************************************
 		 * Constructs a handle from a base type value.
 		 *
 		 * A handle constructed like this is guaranteed to hold a value.
 		 *
-		 * If <em>EmptyValue</em> is an expected input, Handle(T, NoEmptyHandleCheck)
+		 * If @em EmptyValue is an expected input, Handle(T, NoEmptyHandleCheck)
 		 * may be used instead.
+		 *
+		 * Requires that @em Deleter is default constructible (pointers are not counted as default constructible).
 		 *
 		 * @param[in] value
 		 * @parblock
 		 * The base type value that will be managed by the handle.
 		 *
-		 * May not equal <em>EmptyValue</em>, an assertion may be raised otherwise.
+		 * May not equal @em EmptyValue, an assertion may be raised otherwise.
 		 * @endparblock
 		 **************************************************************************************************************/
-		constexpr explicit Handle(T value) noexcept;
+		constexpr explicit Handle(T value) noexcept
+			requires(DefaultConstructibleHandleDeleter<Deleter>);
 
 		/**************************************************************************************************************
-		 * Constructs a handle from a base type value without checking for the invalid <em>EmptyValue</em> case.
+		 * Constructs a handle from a base type value and a deleter.
+		 *
+		 * A handle constructed like this is guaranteed to hold a value.
+		 *
+		 * If @em EmptyValue is an expected input, Handle(T, deleter, NoEmptyHandleCheck)
+		 * may be used instead.
+		 *
+		 * Requires that @em Deleter is copy-constructible.
+		 *
+		 * @param[in] value
+		 * @parblock
+		 * The base type value that will be managed by the handle.
+		 *
+		 * May not equal @em EmptyValue, an assertion may be raised otherwise.
+		 * @endparblock
+		 * @param[in] deleter The deleter value to copy.
+		 **************************************************************************************************************/
+		constexpr explicit Handle(T value, Deleter& deleter) noexcept(std::is_nothrow_copy_constructible_v<Deleter>)
+			requires(std::copy_constructible<Deleter>);
+
+		/**************************************************************************************************************
+		 * Constructs a handle from a base type value and a deleter.
+		 *
+		 * A handle constructed like this is guaranteed to hold a value.
+		 *
+		 * If @em EmptyValue is an expected input, Handle(T, deleter, NoEmptyHandleCheck)
+		 * may be used instead.
+		 *
+		 * Requires that @em Deleter is copy-constructible.
+		 *
+		 * @param[in] value
+		 * @parblock
+		 * The base type value that will be managed by the handle.
+		 *
+		 * May not equal @em EmptyValue, an assertion may be raised otherwise.
+		 * @endparblock
+		 * @param[in] deleter The deleter value to copy.
+		 **************************************************************************************************************/
+		constexpr explicit Handle(T              value,
+								  const Deleter& deleter) noexcept(std::is_nothrow_copy_constructible_v<Deleter>)
+			requires(std::copy_constructible<Deleter> && !NonConstReference<Deleter>);
+
+		/**************************************************************************************************************
+		 * Constructs a handle from a base type value and a deleter.
+		 *
+		 * A handle constructed like this is guaranteed to hold a value.
+		 *
+		 * If @em EmptyValue is an expected input, Handle(T, deleter, NoEmptyHandleCheck)
+		 * may be used instead.
+		 *
+		 * Requires that @em Deleter is move-constructible.
+		 *
+		 * @param[in] value
+		 * @parblock
+		 * The base type value that will be managed by the handle.
+		 *
+		 * May not equal @em EmptyValue, an assertion may be raised otherwise.
+		 * @endparblock
+		 * @param[in] deleter The deleter value to move.
+		 **************************************************************************************************************/
+		constexpr explicit Handle(T value, Deleter&& deleter) noexcept(std::is_nothrow_move_constructible_v<Deleter>)
+			requires(std::move_constructible<Deleter> && !std::is_lvalue_reference_v<Deleter>);
+
+		/**************************************************************************************************************
+		 * Constructs a handle from a base type value without checking for the invalid @em EmptyValue case.
 		 *
 		 * A handle constructed like this may or may not hold a value.
 		 *
 		 * Handle(T) should be used in cases where this isn't necessary.
 		 *
+		 * Requires that @em Deleter is default constructible (pointers are not counted as default constructible).
+		 *
 		 * @param[in] value The base type value that will be managed by the handle.
 		 **************************************************************************************************************/
-		constexpr explicit Handle(T value, NoEmptyHandleCheck) noexcept;
+		constexpr explicit Handle(T value, NoEmptyHandleCheck) noexcept
+			requires(DefaultConstructibleHandleDeleter<Deleter>);
+
+		/**************************************************************************************************************
+		 * Constructs a handle from a base type value and a deleter without checking for the invalid @em EmptyValue
+		 * case.
+		 *
+		 * A handle constructed like this may or may not hold a value.
+		 *
+		 * Handle(T, deleter) should be used in cases where this isn't necessary.
+		 *
+		 * Requires that @em Deleter is copy-constructible.
+		 *
+		 * @param[in] value
+		 * @parblock
+		 * The base type value that will be managed by the handle.
+		 *
+		 * May not equal @em EmptyValue, an assertion may be raised otherwise.
+		 * @endparblock
+		 * @param[in] deleter The deleter value to copy.
+		 **************************************************************************************************************/
+		constexpr explicit Handle(T value, Deleter& deleter,
+								  NoEmptyHandleCheck) noexcept(std::is_nothrow_copy_constructible_v<Deleter>)
+			requires(std::copy_constructible<Deleter>);
+
+		/**************************************************************************************************************
+		 * Constructs a handle from a base type value and a deleter without checking for the invalid @em EmptyValue
+		 * case.
+		 *
+		 * A handle constructed like this may or may not hold a value.
+		 *
+		 * Handle(T, deleter) should be used in cases where this isn't necessary.
+		 *
+		 * Requires that @em Deleter is copy-constructible.
+		 *
+		 * @param[in] value
+		 * @parblock
+		 * The base type value that will be managed by the handle.
+		 *
+		 * May not equal @em EmptyValue, an assertion may be raised otherwise.
+		 * @endparblock
+		 * @param[in] deleter The deleter value to copy.
+		 **************************************************************************************************************/
+		constexpr explicit Handle(T value, const Deleter& deleter,
+								  NoEmptyHandleCheck) noexcept(std::is_nothrow_copy_constructible_v<Deleter>)
+			requires(std::copy_constructible<Deleter> && !NonConstReference<Deleter>);
+
+		/**************************************************************************************************************
+		 * Constructs a handle from a base type value and a deleter without checking for the invalid @em EmptyValue
+		 * case.
+		 *
+		 * A handle constructed like this may or may not hold a value.
+		 *
+		 * Handle(T, deleter) should be used in cases where this isn't necessary.
+		 *
+		 * Requires that @em Deleter is move-constructible.
+		 *
+		 * @param[in] value
+		 * @parblock
+		 * The base type value that will be managed by the handle.
+		 *
+		 * May not equal @em EmptyValue, an assertion may be raised otherwise.
+		 * @endparblock
+		 * @param[in] deleter The deleter value to move.
+		 **************************************************************************************************************/
+		constexpr explicit Handle(T value, Deleter&& deleter,
+								  NoEmptyHandleCheck) noexcept(std::is_nothrow_move_constructible_v<Deleter>)
+			requires(std::move_constructible<Deleter> && !std::is_lvalue_reference_v<Deleter>);
 
 		/**************************************************************************************************************
 		 * Constructs a handle by moving from another handle.
@@ -97,7 +242,7 @@ namespace tr {
 		 * It will be left in a valid empty state afterwards.
 		 * @endparblock
 		 **************************************************************************************************************/
-		constexpr Handle(Handle&& move) noexcept;
+		template <HandleDeleter<T> Deleter1> constexpr Handle(Handle<T, EmptyValue, Deleter1>&& move) noexcept;
 
 		/**************************************************************************************************************
 		 * Destroys the handle.
@@ -168,6 +313,20 @@ namespace tr {
 		 * @return A reference to the handle's base type value.
 		 **************************************************************************************************************/
 		constexpr const T& get(NoEmptyHandleCheck) const noexcept;
+
+		/**************************************************************************************************************
+		 * Gets the handle's deleter.
+		 *
+		 * @return A mutable reference to the handle's deleter.
+		 **************************************************************************************************************/
+		constexpr Deleter& get_deleter() noexcept;
+
+		/**************************************************************************************************************
+		 * Gets the handle's deleter.
+		 *
+		 * @return An immutable reference to the handle's deleter.
+		 **************************************************************************************************************/
+		constexpr Deleter& get_deleter() const noexcept;
 
 		/**************************************************************************************************************
 		 * Releases ownership over the handle, if any.
@@ -247,26 +406,80 @@ constexpr auto std::hash<tr::Handle<T, EmptyValue, Deleter>>::operator()(
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr tr::Handle<T, EmptyValue, Deleter>::Handle() noexcept
+	requires(DefaultConstructibleHandleDeleter<Deleter>)
 	: _base{EmptyValue}
-
 {
 }
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr tr::Handle<T, EmptyValue, Deleter>::Handle(T value) noexcept
+	requires(DefaultConstructibleHandleDeleter<Deleter>)
 	: _base{value}
 {
 	assert(value != EmptyValue);
 }
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
+constexpr tr::Handle<T, EmptyValue, Deleter>::Handle(T value, Deleter& deleter) noexcept(
+	std::is_nothrow_copy_constructible_v<Deleter>)
+	requires(std::copy_constructible<Deleter>)
+	: Deleter{deleter}, _base{value}
+{
+	assert(value != EmptyValue);
+}
+
+template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
+constexpr tr::Handle<T, EmptyValue, Deleter>::Handle(T value, const Deleter& deleter) noexcept(
+	std::is_nothrow_copy_constructible_v<Deleter>)
+	requires(std::copy_constructible<Deleter> && !NonConstReference<Deleter>)
+	: Deleter{deleter}, _base{value}
+{
+	assert(value != EmptyValue);
+}
+
+template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
+constexpr tr::Handle<T, EmptyValue, Deleter>::Handle(T value, Deleter&& deleter) noexcept(
+	std::is_nothrow_move_constructible_v<Deleter>)
+	requires(std::move_constructible<Deleter> && !std::is_lvalue_reference_v<Deleter>)
+	: Deleter{std::move(deleter)}, _base{value}
+{
+	assert(value != EmptyValue);
+}
+
+template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr tr::Handle<T, EmptyValue, Deleter>::Handle(T value, NoEmptyHandleCheck) noexcept
+	requires(DefaultConstructibleHandleDeleter<Deleter>)
 	: _base{value}
 {
 }
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
-constexpr tr::Handle<T, EmptyValue, Deleter>::Handle(Handle&& move) noexcept
+constexpr tr::Handle<T, EmptyValue, Deleter>::Handle(T value, Deleter& deleter, NoEmptyHandleCheck) noexcept(
+	std::is_nothrow_copy_constructible_v<Deleter>)
+	requires(std::copy_constructible<Deleter>)
+	: Deleter{deleter}, _base{value}
+{
+}
+
+template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
+constexpr tr::Handle<T, EmptyValue, Deleter>::Handle(T value, const Deleter& deleter, NoEmptyHandleCheck) noexcept(
+	std::is_nothrow_copy_constructible_v<Deleter>)
+	requires(std::copy_constructible<Deleter> && !NonConstReference<Deleter>)
+	: Deleter{deleter}, _base{value}
+{
+}
+
+template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
+constexpr tr::Handle<T, EmptyValue, Deleter>::Handle(T value, Deleter&& deleter, NoEmptyHandleCheck) noexcept(
+	std::is_nothrow_move_constructible_v<Deleter>)
+	requires(std::move_constructible<Deleter> && !std::is_lvalue_reference_v<Deleter>)
+	: Deleter{std::move(deleter)}, _base{value}
+{
+}
+
+template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
+template <tr::HandleDeleter<T> Deleter1>
+constexpr tr::Handle<T, EmptyValue, Deleter>::Handle(Handle<T, EmptyValue, Deleter1>&& move) noexcept
 	: _base{std::exchange(move._base, EmptyValue)}
 {
 }
@@ -275,7 +488,7 @@ template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr tr::Handle<T, EmptyValue, Deleter>::~Handle<T, EmptyValue, Deleter>() noexcept
 {
 	if (_base != EmptyValue) {
-		Deleter{}(_base);
+		Deleter::operator()(_base);
 	}
 }
 
@@ -316,6 +529,18 @@ template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
 constexpr const T& tr::Handle<T, EmptyValue, Deleter>::get(NoEmptyHandleCheck) const noexcept
 {
 	return _base;
+}
+
+template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
+constexpr Deleter& tr::Handle<T, EmptyValue, Deleter>::get_deleter() noexcept
+{
+	return *this;
+}
+
+template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
+constexpr Deleter& tr::Handle<T, EmptyValue, Deleter>::get_deleter() const noexcept
+{
+	return *this;
 }
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
