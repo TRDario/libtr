@@ -220,23 +220,28 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="classtr_1_1Cursor.html#a543cd1be843f75e1899fe83f506c7bdf">  233</a></span>        <a class="code hl_function" href="classtr_1_1Cursor.html#a543cd1be843f75e1899fe83f506c7bdf">Cursor</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>&amp; bitmap, glm::ivec2 focus);</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno"><a class="line" href="classtr_1_1Cursor.html#a56458c22c18d9de447d1bba9068b9b34">  247</a></span>        <a class="code hl_function" href="classtr_1_1Cursor.html#a56458c22c18d9de447d1bba9068b9b34">Cursor</a>(std::span&lt;const std::byte&gt; color, std::span&lt;const std::byte&gt; mask, glm::ivec2 size, glm::ivec2 focus);</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>      <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        <span class="keyword">struct </span>Deleter {</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>            <span class="keywordtype">void</span> operator()(SDL_Cursor* ptr) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        };</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        std::unique_ptr&lt;SDL_Cursor, Deleter&gt; _impl;</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        <span class="keyword">friend</span> <span class="keywordtype">void</span> mouse::setCursor(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Cursor.html">Cursor</a>&amp; cursor) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    };</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="classtr_1_1Cursor.html#a40939433fcd04d4e29731ae9b5d58d75">  243</a></span>        <a class="code hl_function" href="classtr_1_1Cursor.html#a40939433fcd04d4e29731ae9b5d58d75">Cursor</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1BitmapView.html">BitmapView</a>&amp; view, glm::ivec2 focus);</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="classtr_1_1Cursor.html#a56458c22c18d9de447d1bba9068b9b34">  257</a></span>        <a class="code hl_function" href="classtr_1_1Cursor.html#a56458c22c18d9de447d1bba9068b9b34">Cursor</a>(std::span&lt;const std::byte&gt; color, std::span&lt;const std::byte&gt; mask, glm::ivec2 size, glm::ivec2 focus);</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>      <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keyword">struct </span>Deleter {</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>            <span class="keywordtype">void</span> operator()(SDL_Cursor* ptr) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        };</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        std::unique_ptr&lt;SDL_Cursor, Deleter&gt; _impl;</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        <span class="keyword">friend</span> <span class="keywordtype">void</span> mouse::setCursor(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Cursor.html">Cursor</a>&amp; cursor) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    };</div>
 </div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>} <span class="comment">// namespace tr</span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>} <span class="comment">// namespace tr</span></div>
 <div class="ttc" id="abitmap_8hpp_html"><div class="ttname"><a href="bitmap_8hpp.html">bitmap.hpp</a></div><div class="ttdoc">Provides a bitmap class and related functionality.</div></div>
-<div class="ttc" id="aclasstr_1_1Bitmap_html"><div class="ttname"><a href="classtr_1_1Bitmap.html">tr::Bitmap</a></div><div class="ttdoc">Class representing a bitmap stored in memory.</div><div class="ttdef"><b>Definition</b> bitmap.hpp:486</div></div>
+<div class="ttc" id="aclasstr_1_1BitmapView_html"><div class="ttname"><a href="classtr_1_1BitmapView.html">tr::BitmapView</a></div><div class="ttdoc">Non-owning view over bitmap data.</div><div class="ttdef"><b>Definition</b> bitmap.hpp:496</div></div>
+<div class="ttc" id="aclasstr_1_1Bitmap_html"><div class="ttname"><a href="classtr_1_1Bitmap.html">tr::Bitmap</a></div><div class="ttdoc">Class representing a bitmap stored in memory.</div><div class="ttdef"><b>Definition</b> bitmap.hpp:638</div></div>
 <div class="ttc" id="aclasstr_1_1Cursor_html"><div class="ttname"><a href="classtr_1_1Cursor.html">tr::Cursor</a></div><div class="ttdoc">Mouse cursor graphic.</div><div class="ttdef"><b>Definition</b> mouse.hpp:207</div></div>
 <div class="ttc" id="aclasstr_1_1Cursor_html_a17a604a4562a2fd5f79326e597ad7c92"><div class="ttname"><a href="classtr_1_1Cursor.html#a17a604a4562a2fd5f79326e597ad7c92">tr::Cursor::Cursor</a></div><div class="ttdeci">Cursor()</div><div class="ttdoc">Creates the default mouse cursor.</div></div>
+<div class="ttc" id="aclasstr_1_1Cursor_html_a40939433fcd04d4e29731ae9b5d58d75"><div class="ttname"><a href="classtr_1_1Cursor.html#a40939433fcd04d4e29731ae9b5d58d75">tr::Cursor::Cursor</a></div><div class="ttdeci">Cursor(const BitmapView &amp;view, glm::ivec2 focus)</div><div class="ttdoc">Creates a cursor from a bitmap view.</div></div>
 <div class="ttc" id="aclasstr_1_1Cursor_html_a543cd1be843f75e1899fe83f506c7bdf"><div class="ttname"><a href="classtr_1_1Cursor.html#a543cd1be843f75e1899fe83f506c7bdf">tr::Cursor::Cursor</a></div><div class="ttdeci">Cursor(const Bitmap &amp;bitmap, glm::ivec2 focus)</div><div class="ttdoc">Creates a cursor from a bitmap.</div></div>
 <div class="ttc" id="aclasstr_1_1Cursor_html_a56458c22c18d9de447d1bba9068b9b34"><div class="ttname"><a href="classtr_1_1Cursor.html#a56458c22c18d9de447d1bba9068b9b34">tr::Cursor::Cursor</a></div><div class="ttdeci">Cursor(std::span&lt; const std::byte &gt; color, std::span&lt; const std::byte &gt; mask, glm::ivec2 size, glm::ivec2 focus)</div><div class="ttdoc">Creates a simple black-and-white cursor from color and mask bitfields.</div></div>
 <div class="ttc" id="aclasstr_1_1Cursor_html_a6562091426c7c405290eb55de08ea0d3"><div class="ttname"><a href="classtr_1_1Cursor.html#a6562091426c7c405290eb55de08ea0d3">tr::Cursor::Cursor</a></div><div class="ttdeci">Cursor(SysCursor icon)</div><div class="ttdoc">Creates a system cursor.</div></div>

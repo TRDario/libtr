@@ -110,6 +110,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a543cd1be843f75e1899fe83f506c7bdf" id="r_a543cd1be843f75e1899fe83f506c7bdf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a543cd1be843f75e1899fe83f506c7bdf">Cursor</a> (const <a class="el" href="classtr_1_1Bitmap.html">Bitmap</a> &amp;bitmap, glm::ivec2 focus)</td></tr>
 <tr class="memdesc:a543cd1be843f75e1899fe83f506c7bdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a cursor from a bitmap.  <br /></td></tr>
 <tr class="separator:a543cd1be843f75e1899fe83f506c7bdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40939433fcd04d4e29731ae9b5d58d75" id="r_a40939433fcd04d4e29731ae9b5d58d75"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40939433fcd04d4e29731ae9b5d58d75">Cursor</a> (const <a class="el" href="classtr_1_1BitmapView.html">BitmapView</a> &amp;view, glm::ivec2 focus)</td></tr>
+<tr class="memdesc:a40939433fcd04d4e29731ae9b5d58d75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a cursor from a bitmap view.  <br /></td></tr>
+<tr class="separator:a40939433fcd04d4e29731ae9b5d58d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56458c22c18d9de447d1bba9068b9b34" id="r_a56458c22c18d9de447d1bba9068b9b34"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56458c22c18d9de447d1bba9068b9b34">Cursor</a> (std::span&lt; const std::byte &gt; color, std::span&lt; const std::byte &gt; mask, glm::ivec2 size, glm::ivec2 focus)</td></tr>
 <tr class="memdesc:a56458c22c18d9de447d1bba9068b9b34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a simple black-and-white cursor from color and mask bitfields.  <br /></td></tr>
 <tr class="separator:a56458c22c18d9de447d1bba9068b9b34"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,7 +124,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Mouse cursor graphic. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a17a604a4562a2fd5f79326e597ad7c92" name="a17a604a4562a2fd5f79326e597ad7c92"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17a604a4562a2fd5f79326e597ad7c92">&#9670;&#160;</a></span>Cursor() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a17a604a4562a2fd5f79326e597ad7c92">&#9670;&#160;</a></span>Cursor() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -146,7 +149,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a6562091426c7c405290eb55de08ea0d3" name="a6562091426c7c405290eb55de08ea0d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6562091426c7c405290eb55de08ea0d3">&#9670;&#160;</a></span>Cursor() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6562091426c7c405290eb55de08ea0d3">&#9670;&#160;</a></span>Cursor() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,7 +180,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a543cd1be843f75e1899fe83f506c7bdf" name="a543cd1be843f75e1899fe83f506c7bdf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a543cd1be843f75e1899fe83f506c7bdf">&#9670;&#160;</a></span>Cursor() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a543cd1be843f75e1899fe83f506c7bdf">&#9670;&#160;</a></span>Cursor() <span class="overload">[3/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,8 +215,44 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a40939433fcd04d4e29731ae9b5d58d75" name="a40939433fcd04d4e29731ae9b5d58d75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40939433fcd04d4e29731ae9b5d58d75">&#9670;&#160;</a></span>Cursor() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tr::Cursor::Cursor </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtr_1_1BitmapView.html">BitmapView</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>view</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::ivec2</td>          <td class="paramname"><span class="paramname"><em>focus</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a cursor from a bitmap view. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structtr_1_1CursorBadAlloc.html" title="Error thrown when cursor allocation fails.">CursorBadAlloc</a></td><td>If allocating the cursor failed.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">view</td><td>The cursor bitmap. </td></tr>
+    <tr><td class="paramname">focus</td><td>The focus point of the cursor (where the actual mouse position is relative to the graphic). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a56458c22c18d9de447d1bba9068b9b34" name="a56458c22c18d9de447d1bba9068b9b34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56458c22c18d9de447d1bba9068b9b34">&#9670;&#160;</a></span>Cursor() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a56458c22c18d9de447d1bba9068b9b34">&#9670;&#160;</a></span>Cursor() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

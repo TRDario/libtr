@@ -9,7 +9,7 @@ var searchData=
   ['texturebadalloc_6',['TextureBadAlloc',['../structtr_1_1TextureBadAlloc.html',1,'tr']]],
   ['textureunit_7',['TextureUnit',['../classtr_1_1TextureUnit.html',1,'tr']]],
   ['texvtx2_8',['TexVtx2',['../structtr_1_1TexVtx2.html',1,'tr']]],
-  ['tickevent_9',['TickEvent',['../structtr_1_1TickEvent.html',1,'tr']]],
+  ['ticker_9',['Ticker',['../classtr_1_1Ticker.html',1,'tr']]],
   ['tintvtx2_10',['TintVtx2',['../structtr_1_1TintVtx2.html',1,'tr']]],
   ['ttfont_11',['TTFont',['../classtr_1_1TTFont.html',1,'tr']]],
   ['ttfontloaderror_12',['TTFontLoadError',['../structtr_1_1TTFontLoadError.html',1,'tr']]],

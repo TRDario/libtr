@@ -96,7 +96,6 @@ $(function(){ initResizable(false); });
 <a href="#concepts">Concepts</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">event.hpp File Reference</div></div>
@@ -110,6 +109,7 @@ $(function(){ initResizable(false); });
 <code>#include &quot;<a class="el" href="keyboard_8hpp_source.html">keyboard.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="mouse_8hpp_source.html">mouse.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="window_8hpp_source.html">window.hpp</a>&quot;</code><br />
+<code>#include &lt;atomic&gt;</code><br />
 <code>#include &lt;boost/static_string.hpp&gt;</code><br />
 </div>
 <p><a href="event_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -118,6 +118,9 @@ $(function(){ initResizable(false); });
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1CustomEventBase.html">tr::CustomEventBase</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intermediate interface between custom event types and <a class="el" href="classtr_1_1Event.html" title="Unified event type.">Event</a>.  <a href="structtr_1_1CustomEventBase.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1Ticker_1_1Event.html">tr::Ticker::Event</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The event type emitted by tickers.  <a href="structtr_1_1Ticker_1_1Event.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1Event.html">tr::Event</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unified event type.  <a href="classtr_1_1Event.html#details">More...</a><br /></td></tr>
@@ -152,8 +155,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1TextInputEvent.html">tr::TextInputEvent</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtr_1_1Event.html" title="Unified event type.">Event</a> emitted when text is inputted.  <a href="structtr_1_1TextInputEvent.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1TickEvent.html">tr::TickEvent</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtr_1_1Event.html" title="Unified event type.">Event</a> emitted when a user-defined tick occurs.  <a href="structtr_1_1TickEvent.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1Ticker.html">tr::Ticker</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtr_1_1Ticker.html" title="Ticker that regularly emits events.">Ticker</a> that regularly emits events.  <a href="classtr_1_1Ticker.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1WindowCloseEvent.html">tr::WindowCloseEvent</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtr_1_1Event.html" title="Unified event type.">Event</a> emitted when a window close request is made.  <a href="structtr_1_1WindowCloseEvent.html#details">More...</a><br /></td></tr>
@@ -215,12 +218,6 @@ Typedefs</h2></td></tr>
 <tr class="memitem:af8866fa48b4ceeda181aa2196b19a355" id="r_af8866fa48b4ceeda181aa2196b19a355"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8866fa48b4ceeda181aa2196b19a355">tr::WindowEvent</a></td></tr>
 <tr class="memdesc:af8866fa48b4ceeda181aa2196b19a355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Union of window event types.  <br /></td></tr>
 <tr class="separator:af8866fa48b4ceeda181aa2196b19a355"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a68e9b0556d21b1dfe59c902e924247df" id="r_a68e9b0556d21b1dfe59c902e924247df"><td class="memItemLeft" align="right" valign="top"><a id="a68e9b0556d21b1dfe59c902e924247df" name="a68e9b0556d21b1dfe59c902e924247df"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68e9b0556d21b1dfe59c902e924247df">tr::Ticker</a> : int </td></tr>
-<tr class="memdesc:a68e9b0556d21b1dfe59c902e924247df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opaque ticker handle. <br /></td></tr>
-<tr class="separator:a68e9b0556d21b1dfe59c902e924247df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -284,7 +281,7 @@ constexpr std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>tr
 <tr class="separator:aa5d59a238d664decdd31b0ddf5b96f9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78577572efa1f4a0acfdc15f88880558" id="r_a78577572efa1f4a0acfdc15f88880558"><td class="memItemLeft" align="right" valign="top"><a id="a78577572efa1f4a0acfdc15f88880558" name="a78577572efa1f4a0acfdc15f88880558"></a>
 const std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>tr::EventType::TICK</b> {<a class="el" href="#adf2ab77adac0f06ed67394e862154c30">generateEventType</a>()}</td></tr>
-<tr class="memdesc:a78577572efa1f4a0acfdc15f88880558"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID for <a class="el" href="structtr_1_1TickEvent.html" title="Event emitted when a user-defined tick occurs.">TickEvent</a>. <br /></td></tr>
+<tr class="memdesc:a78577572efa1f4a0acfdc15f88880558"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID for TickEvent. <br /></td></tr>
 <tr class="separator:a78577572efa1f4a0acfdc15f88880558"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48b9aa5c3a496d0b7e622af0f3e7b0c5" id="r_a48b9aa5c3a496d0b7e622af0f3e7b0c5"><td class="memItemLeft" align="right" valign="top"><a id="a48b9aa5c3a496d0b7e622af0f3e7b0c5" name="a48b9aa5c3a496d0b7e622af0f3e7b0c5"></a>
 constexpr std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>tr::TICK_FOREVER</b> {0}</td></tr>

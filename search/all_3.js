@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['data_0',['data',['../classtr_1_1SubBitmap.html#a56e53e755911b79638e6dc533335f098',1,'tr::SubBitmap::data()'],['../classtr_1_1Bitmap.html#aed84f911dc3a4eb90eb4961517864e78',1,'tr::Bitmap::data() noexcept'],['../classtr_1_1Bitmap.html#aa3398082b899a921cb5afebd8af4c7bc',1,'tr::Bitmap::data() const noexcept']]],
+  ['data_0',['data',['../classtr_1_1SubBitmap.html#a47e237c95d705174fb68a34087d1d48e',1,'tr::SubBitmap::data()'],['../classtr_1_1BitmapView.html#a546e523d49b732baf11f2803310b9773',1,'tr::BitmapView::data()'],['../classtr_1_1Bitmap.html#a93db84aad7415a26c201d7b496d38f1d',1,'tr::Bitmap::data() noexcept'],['../classtr_1_1Bitmap.html#a3d16c9297dc25dad1ff4844efc69e8a2',1,'tr::Bitmap::data() const noexcept']]],
   ['debugcontext_1',['debugContext',['../structtr_1_1GLAttrs.html#ac5111f5526c188a2fa065f394c28f7ff',1,'tr::GLAttrs']]],
   ['dec_2',['DEC',['../gl__context_8hpp.html#a8c440fc4a94422129e86a69114e35b50a38344a4d87bb35ec197f26fad338b6ab',1,'tr']]],
   ['default_3',['DEFAULT',['../window_8hpp.html#ad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee',1,'tr']]],

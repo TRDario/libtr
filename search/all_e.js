@@ -5,7 +5,7 @@ var searchData=
   ['path_2ehpp_2',['path.hpp',['../path_8hpp.html',1,'']]],
   ['pause_3',['pause',['../classtr_1_1AudioSource.html#a0100578fca4da6f5adfb8844ee742622',1,'tr::AudioSource']]],
   ['paused_4',['PAUSED',['../audio__source_8hpp.html#a6c94829f0dfe0e9696cc57a3c7aff830a99b2439e63f73ad515f7ab2447a80673',1,'tr']]],
-  ['pitch_5',['pitch',['../classtr_1_1AudioSource.html#a56e454e4465bbfa0611d033180db062a',1,'tr::AudioSource::pitch()'],['../classtr_1_1SubBitmap.html#a3fa1b0580eb43480f80c21524bebddc0',1,'tr::SubBitmap::pitch()'],['../classtr_1_1Bitmap.html#a448a8bcae98fa547db2a087eab2b6f38',1,'tr::Bitmap::pitch()']]],
+  ['pitch_5',['pitch',['../classtr_1_1AudioSource.html#a56e454e4465bbfa0611d033180db062a',1,'tr::AudioSource::pitch()'],['../classtr_1_1SubBitmap.html#a3fa1b0580eb43480f80c21524bebddc0',1,'tr::SubBitmap::pitch()'],['../classtr_1_1BitmapView.html#ae1c30d801c22c2d0ca5a6a696e8a276b',1,'tr::BitmapView::pitch()'],['../classtr_1_1Bitmap.html#a448a8bcae98fa547db2a087eab2b6f38',1,'tr::Bitmap::pitch()']]],
   ['pixelbits_6',['pixelBits',['../classtr_1_1BitmapFormat.html#ac7e852c20f12faeed6991e4ad3de2178',1,'tr::BitmapFormat']]],
   ['pixelbytes_7',['pixelBytes',['../classtr_1_1BitmapFormat.html#aa73127cdc21bb2918caa8fa7913a4c3b',1,'tr::BitmapFormat']]],
   ['pixelcref_8',['PixelCref',['../classtr_1_1Bitmap.html#ad9d5e3489943ea1b66b814aa49085c73',1,'tr::Bitmap']]],

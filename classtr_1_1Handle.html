@@ -104,18 +104,37 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a499dd3d29cea5e37edec131cc84bd161" id="r_a499dd3d29cea5e37edec131cc84bd161"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a499dd3d29cea5e37edec131cc84bd161">Handle</a> () noexcept</td></tr>
-<tr class="memdesc:a499dd3d29cea5e37edec131cc84bd161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default-constructs a handle.  <br /></td></tr>
-<tr class="separator:a499dd3d29cea5e37edec131cc84bd161"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37f53461f913ec92fcd2f3d59202a756" id="r_a37f53461f913ec92fcd2f3d59202a756"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37f53461f913ec92fcd2f3d59202a756">Handle</a> (<a class="el" href="classtr_1_1Handle.html">Handle</a> &amp;&amp;move) noexcept</td></tr>
-<tr class="memdesc:a37f53461f913ec92fcd2f3d59202a756"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a handle by moving from another handle.  <br /></td></tr>
-<tr class="separator:a37f53461f913ec92fcd2f3d59202a756"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32c55bc5ef1873ba9cba53f2006ebf04" id="r_a32c55bc5ef1873ba9cba53f2006ebf04"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32c55bc5ef1873ba9cba53f2006ebf04">Handle</a> (T value) noexcept</td></tr>
-<tr class="memdesc:a32c55bc5ef1873ba9cba53f2006ebf04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a handle from a base type value.  <br /></td></tr>
-<tr class="separator:a32c55bc5ef1873ba9cba53f2006ebf04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab711a774693e140e2b19642d8b06fe73" id="r_ab711a774693e140e2b19642d8b06fe73"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab711a774693e140e2b19642d8b06fe73">Handle</a> (T value, <a class="el" href="structtr_1_1NoEmptyHandleCheck.html">NoEmptyHandleCheck</a>) noexcept</td></tr>
-<tr class="memdesc:ab711a774693e140e2b19642d8b06fe73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a handle from a base type value without checking for the invalid <em>EmptyValue</em> case.  <br /></td></tr>
-<tr class="separator:ab711a774693e140e2b19642d8b06fe73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90b86568d753f6c86f9514a6aba1460b" id="r_a90b86568d753f6c86f9514a6aba1460b"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90b86568d753f6c86f9514a6aba1460b">Handle</a> () noexcept</td></tr>
+<tr class="memdesc:a90b86568d753f6c86f9514a6aba1460b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default-constructs an empty handle.  <br /></td></tr>
+<tr class="separator:a90b86568d753f6c86f9514a6aba1460b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12b565a3f4337d284d513064e833f7f9" id="r_a12b565a3f4337d284d513064e833f7f9"><td class="memTemplParams" colspan="2">template&lt;HandleDeleter&lt; T &gt; Deleter1&gt; </td></tr>
+<tr class="memitem:a12b565a3f4337d284d513064e833f7f9"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a12b565a3f4337d284d513064e833f7f9">Handle</a> (<a class="el" href="classtr_1_1Handle.html">Handle</a>&lt; T, EmptyValue, Deleter1 &gt; &amp;&amp;move) noexcept</td></tr>
+<tr class="memdesc:a12b565a3f4337d284d513064e833f7f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a handle by moving from another handle.  <br /></td></tr>
+<tr class="separator:a12b565a3f4337d284d513064e833f7f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bfe6c2bf71bc5f40754b831fb580990" id="r_a0bfe6c2bf71bc5f40754b831fb580990"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0bfe6c2bf71bc5f40754b831fb580990">Handle</a> (T value) noexcept</td></tr>
+<tr class="memdesc:a0bfe6c2bf71bc5f40754b831fb580990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a handle from a base type value.  <br /></td></tr>
+<tr class="separator:a0bfe6c2bf71bc5f40754b831fb580990"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b1da81c75f1f07547763c310431a9ea" id="r_a1b1da81c75f1f07547763c310431a9ea"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b1da81c75f1f07547763c310431a9ea">Handle</a> (T value, const Deleter &amp;deleter) noexcept(std::is_nothrow_copy_constructible_v&lt; Deleter &gt;)</td></tr>
+<tr class="memdesc:a1b1da81c75f1f07547763c310431a9ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a handle from a base type value and a deleter.  <br /></td></tr>
+<tr class="separator:a1b1da81c75f1f07547763c310431a9ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3279f5670c21b60c8ddcf096f3f098f2" id="r_a3279f5670c21b60c8ddcf096f3f098f2"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3279f5670c21b60c8ddcf096f3f098f2">Handle</a> (T value, const Deleter &amp;deleter, <a class="el" href="structtr_1_1NoEmptyHandleCheck.html">NoEmptyHandleCheck</a>) noexcept(std::is_nothrow_copy_constructible_v&lt; Deleter &gt;)</td></tr>
+<tr class="memdesc:a3279f5670c21b60c8ddcf096f3f098f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a handle from a base type value and a deleter without checking for the invalid <em>EmptyValue</em> case.  <br /></td></tr>
+<tr class="separator:a3279f5670c21b60c8ddcf096f3f098f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2474b30a54bfa52e1e10b73af08c4c1a" id="r_a2474b30a54bfa52e1e10b73af08c4c1a"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2474b30a54bfa52e1e10b73af08c4c1a">Handle</a> (T value, Deleter &amp;&amp;deleter) noexcept(std::is_nothrow_move_constructible_v&lt; Deleter &gt;)</td></tr>
+<tr class="memdesc:a2474b30a54bfa52e1e10b73af08c4c1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a handle from a base type value and a deleter.  <br /></td></tr>
+<tr class="separator:a2474b30a54bfa52e1e10b73af08c4c1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a739628b7cd86c1abf7dc43f0b8e7e7e5" id="r_a739628b7cd86c1abf7dc43f0b8e7e7e5"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a739628b7cd86c1abf7dc43f0b8e7e7e5">Handle</a> (T value, Deleter &amp;&amp;deleter, <a class="el" href="structtr_1_1NoEmptyHandleCheck.html">NoEmptyHandleCheck</a>) noexcept(std::is_nothrow_move_constructible_v&lt; Deleter &gt;)</td></tr>
+<tr class="memdesc:a739628b7cd86c1abf7dc43f0b8e7e7e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a handle from a base type value and a deleter without checking for the invalid <em>EmptyValue</em> case.  <br /></td></tr>
+<tr class="separator:a739628b7cd86c1abf7dc43f0b8e7e7e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d6fa91052583263578c25182486292d" id="r_a0d6fa91052583263578c25182486292d"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d6fa91052583263578c25182486292d">Handle</a> (T value, Deleter &amp;deleter) noexcept(std::is_nothrow_copy_constructible_v&lt; Deleter &gt;)</td></tr>
+<tr class="memdesc:a0d6fa91052583263578c25182486292d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a handle from a base type value and a deleter.  <br /></td></tr>
+<tr class="separator:a0d6fa91052583263578c25182486292d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4852ccd54aed3d1546cca6035df4a4aa" id="r_a4852ccd54aed3d1546cca6035df4a4aa"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4852ccd54aed3d1546cca6035df4a4aa">Handle</a> (T value, Deleter &amp;deleter, <a class="el" href="structtr_1_1NoEmptyHandleCheck.html">NoEmptyHandleCheck</a>) noexcept(std::is_nothrow_copy_constructible_v&lt; Deleter &gt;)</td></tr>
+<tr class="memdesc:a4852ccd54aed3d1546cca6035df4a4aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a handle from a base type value and a deleter without checking for the invalid <em>EmptyValue</em> case.  <br /></td></tr>
+<tr class="separator:a4852ccd54aed3d1546cca6035df4a4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a802572aca91256efb26c5f57b14493cb" id="r_a802572aca91256efb26c5f57b14493cb"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a802572aca91256efb26c5f57b14493cb">Handle</a> (T value, <a class="el" href="structtr_1_1NoEmptyHandleCheck.html">NoEmptyHandleCheck</a>) noexcept</td></tr>
+<tr class="memdesc:a802572aca91256efb26c5f57b14493cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a handle from a base type value without checking for the invalid <em>EmptyValue</em> case.  <br /></td></tr>
+<tr class="separator:a802572aca91256efb26c5f57b14493cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4241f53911907ee3ff79f13302c5896" id="r_ad4241f53911907ee3ff79f13302c5896"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4241f53911907ee3ff79f13302c5896">~Handle</a> () noexcept</td></tr>
 <tr class="memdesc:ad4241f53911907ee3ff79f13302c5896"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the handle.  <br /></td></tr>
 <tr class="separator:ad4241f53911907ee3ff79f13302c5896"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,6 +144,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2283dd42c1b70d34e5dd1b5e332d0fc9" id="r_a2283dd42c1b70d34e5dd1b5e332d0fc9"><td class="memItemLeft" align="right" valign="top">constexpr const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2283dd42c1b70d34e5dd1b5e332d0fc9">get</a> (<a class="el" href="structtr_1_1NoEmptyHandleCheck.html">NoEmptyHandleCheck</a>) const noexcept</td></tr>
 <tr class="memdesc:a2283dd42c1b70d34e5dd1b5e332d0fc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the handle's base type value.  <br /></td></tr>
 <tr class="separator:a2283dd42c1b70d34e5dd1b5e332d0fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57afae313361ff209068f8239d7c4af9" id="r_a57afae313361ff209068f8239d7c4af9"><td class="memItemLeft" align="right" valign="top">constexpr Deleter &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57afae313361ff209068f8239d7c4af9">get_deleter</a> () const noexcept</td></tr>
+<tr class="memdesc:a57afae313361ff209068f8239d7c4af9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the handle's deleter.  <br /></td></tr>
+<tr class="separator:a57afae313361ff209068f8239d7c4af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97721eb9ea8980f6ec4deb62211149f1" id="r_a97721eb9ea8980f6ec4deb62211149f1"><td class="memItemLeft" align="right" valign="top">constexpr Deleter &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97721eb9ea8980f6ec4deb62211149f1">get_deleter</a> () noexcept</td></tr>
+<tr class="memdesc:a97721eb9ea8980f6ec4deb62211149f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the handle's deleter.  <br /></td></tr>
+<tr class="separator:a97721eb9ea8980f6ec4deb62211149f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7f3720178f6b868e0f5bd10ad16767e" id="r_ab7f3720178f6b868e0f5bd10ad16767e"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7f3720178f6b868e0f5bd10ad16767e">has_value</a> () const noexcept</td></tr>
 <tr class="memdesc:ab7f3720178f6b868e0f5bd10ad16767e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the handle contains a value.  <br /></td></tr>
 <tr class="separator:ab7f3720178f6b868e0f5bd10ad16767e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,8 +191,8 @@ class tr::Handle&lt; T, EmptyValue, Deleter &gt;</div><p>RAII wrapper over non-p
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a499dd3d29cea5e37edec131cc84bd161" name="a499dd3d29cea5e37edec131cc84bd161"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a499dd3d29cea5e37edec131cc84bd161">&#9670;&#160;</a></span>Handle() <span class="overload">[1/4]</span></h2>
+<a id="a90b86568d753f6c86f9514a6aba1460b" name="a90b86568d753f6c86f9514a6aba1460b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90b86568d753f6c86f9514a6aba1460b">&#9670;&#160;</a></span>Handle() <span class="overload">[1/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -191,13 +216,13 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 </table>
 </div><div class="memdoc">
 
-<p>Default-constructs a handle. </p>
-<p>A handle constructed like this will be empty. </p>
+<p>Default-constructs an empty handle. </p>
+<p>Requires that <em>Deleter</em> is default constructible (pointers are not counted as default constructible). </p>
 
 </div>
 </div>
-<a id="a32c55bc5ef1873ba9cba53f2006ebf04" name="a32c55bc5ef1873ba9cba53f2006ebf04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32c55bc5ef1873ba9cba53f2006ebf04">&#9670;&#160;</a></span>Handle() <span class="overload">[2/4]</span></h2>
+<a id="a0bfe6c2bf71bc5f40754b831fb580990" name="a0bfe6c2bf71bc5f40754b831fb580990"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bfe6c2bf71bc5f40754b831fb580990">&#9670;&#160;</a></span>Handle() <span class="overload">[2/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,7 +248,8 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 
 <p>Constructs a handle from a base type value. </p>
 <p>A handle constructed like this is guaranteed to hold a value.</p>
-<p>If <em>EmptyValue</em> is an expected input, <a class="el" href="#ab711a774693e140e2b19642d8b06fe73" title="Constructs a handle from a base type value without checking for the invalid EmptyValue case.">Handle(T, NoEmptyHandleCheck)</a> may be used instead.</p>
+<p>If <em>EmptyValue</em> is an expected input, <a class="el" href="#a802572aca91256efb26c5f57b14493cb" title="Constructs a handle from a base type value without checking for the invalid EmptyValue case.">Handle(T, NoEmptyHandleCheck)</a> may be used instead.</p>
+<p>Requires that <em>Deleter</em> is default constructible (pointers are not counted as default constructible).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>
@@ -235,8 +261,143 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 
 </div>
 </div>
-<a id="ab711a774693e140e2b19642d8b06fe73" name="ab711a774693e140e2b19642d8b06fe73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab711a774693e140e2b19642d8b06fe73">&#9670;&#160;</a></span>Handle() <span class="overload">[3/4]</span></h2>
+<a id="a0d6fa91052583263578c25182486292d" name="a0d6fa91052583263578c25182486292d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d6fa91052583263578c25182486292d">&#9670;&#160;</a></span>Handle() <span class="overload">[3/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtr_1_1Handle.html">tr::Handle</a>&lt; T, EmptyValue, Deleter &gt;::Handle </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Deleter &amp;</td>          <td class="paramname"><span class="paramname"><em>deleter</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a handle from a base type value and a deleter. </p>
+<p>A handle constructed like this is guaranteed to hold a value.</p>
+<p>If <em>EmptyValue</em> is an expected input, Handle(T, deleter, NoEmptyHandleCheck) may be used instead.</p>
+<p>Requires that <em>Deleter</em> is copy-constructible.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>
+<p class="endtd">May not equal <em>EmptyValue</em>, an assertion may be raised otherwise. </p>
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">deleter</td><td>The deleter value to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1b1da81c75f1f07547763c310431a9ea" name="a1b1da81c75f1f07547763c310431a9ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b1da81c75f1f07547763c310431a9ea">&#9670;&#160;</a></span>Handle() <span class="overload">[4/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtr_1_1Handle.html">tr::Handle</a>&lt; T, EmptyValue, Deleter &gt;::Handle </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Deleter &amp;</td>          <td class="paramname"><span class="paramname"><em>deleter</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a handle from a base type value and a deleter. </p>
+<p>A handle constructed like this is guaranteed to hold a value.</p>
+<p>If <em>EmptyValue</em> is an expected input, Handle(T, deleter, NoEmptyHandleCheck) may be used instead.</p>
+<p>Requires that <em>Deleter</em> is copy-constructible.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>
+<p class="endtd">May not equal <em>EmptyValue</em>, an assertion may be raised otherwise. </p>
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">deleter</td><td>The deleter value to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2474b30a54bfa52e1e10b73af08c4c1a" name="a2474b30a54bfa52e1e10b73af08c4c1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2474b30a54bfa52e1e10b73af08c4c1a">&#9670;&#160;</a></span>Handle() <span class="overload">[5/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtr_1_1Handle.html">tr::Handle</a>&lt; T, EmptyValue, Deleter &gt;::Handle </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Deleter &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>deleter</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a handle from a base type value and a deleter. </p>
+<p>A handle constructed like this is guaranteed to hold a value.</p>
+<p>If <em>EmptyValue</em> is an expected input, Handle(T, deleter, NoEmptyHandleCheck) may be used instead.</p>
+<p>Requires that <em>Deleter</em> is move-constructible.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>
+<p class="endtd">May not equal <em>EmptyValue</em>, an assertion may be raised otherwise. </p>
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">deleter</td><td>The deleter value to move. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a802572aca91256efb26c5f57b14493cb" name="a802572aca91256efb26c5f57b14493cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a802572aca91256efb26c5f57b14493cb">&#9670;&#160;</a></span>Handle() <span class="overload">[6/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -266,7 +427,8 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 
 <p>Constructs a handle from a base type value without checking for the invalid <em>EmptyValue</em> case. </p>
 <p>A handle constructed like this may or may not hold a value.</p>
-<p><a class="el" href="#a32c55bc5ef1873ba9cba53f2006ebf04" title="Constructs a handle from a base type value.">Handle(T)</a> should be used in cases where this isn't necessary.</p>
+<p><a class="el" href="#a0bfe6c2bf71bc5f40754b831fb580990" title="Constructs a handle from a base type value.">Handle(T)</a> should be used in cases where this isn't necessary.</p>
+<p>Requires that <em>Deleter</em> is default constructible (pointers are not counted as default constructible).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The base type value that will be managed by the handle. </td></tr>
@@ -276,8 +438,8 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 
 </div>
 </div>
-<a id="a37f53461f913ec92fcd2f3d59202a756" name="a37f53461f913ec92fcd2f3d59202a756"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37f53461f913ec92fcd2f3d59202a756">&#9670;&#160;</a></span>Handle() <span class="overload">[4/4]</span></h2>
+<a id="a4852ccd54aed3d1546cca6035df4a4aa" name="a4852ccd54aed3d1546cca6035df4a4aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4852ccd54aed3d1546cca6035df4a4aa">&#9670;&#160;</a></span>Handle() <span class="overload">[7/10]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -290,7 +452,159 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
         <tr>
           <td class="memname"><a class="el" href="classtr_1_1Handle.html">tr::Handle</a>&lt; T, EmptyValue, Deleter &gt;::Handle </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtr_1_1Handle.html">Handle</a>&lt; T, EmptyValue, Deleter &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>move</em></span></td><td>)</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Deleter &amp;</td>          <td class="paramname"><span class="paramname"><em>deleter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structtr_1_1NoEmptyHandleCheck.html">NoEmptyHandleCheck</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a handle from a base type value and a deleter without checking for the invalid <em>EmptyValue</em> case. </p>
+<p>A handle constructed like this may or may not hold a value.</p>
+<p>Handle(T, deleter) should be used in cases where this isn't necessary.</p>
+<p>Requires that <em>Deleter</em> is copy-constructible.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>
+<p class="endtd">May not equal <em>EmptyValue</em>, an assertion may be raised otherwise. </p>
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">deleter</td><td>The deleter value to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3279f5670c21b60c8ddcf096f3f098f2" name="a3279f5670c21b60c8ddcf096f3f098f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3279f5670c21b60c8ddcf096f3f098f2">&#9670;&#160;</a></span>Handle() <span class="overload">[8/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtr_1_1Handle.html">tr::Handle</a>&lt; T, EmptyValue, Deleter &gt;::Handle </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Deleter &amp;</td>          <td class="paramname"><span class="paramname"><em>deleter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structtr_1_1NoEmptyHandleCheck.html">NoEmptyHandleCheck</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a handle from a base type value and a deleter without checking for the invalid <em>EmptyValue</em> case. </p>
+<p>A handle constructed like this may or may not hold a value.</p>
+<p>Handle(T, deleter) should be used in cases where this isn't necessary.</p>
+<p>Requires that <em>Deleter</em> is copy-constructible.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>
+<p class="endtd">May not equal <em>EmptyValue</em>, an assertion may be raised otherwise. </p>
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">deleter</td><td>The deleter value to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a739628b7cd86c1abf7dc43f0b8e7e7e5" name="a739628b7cd86c1abf7dc43f0b8e7e7e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a739628b7cd86c1abf7dc43f0b8e7e7e5">&#9670;&#160;</a></span>Handle() <span class="overload">[9/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtr_1_1Handle.html">tr::Handle</a>&lt; T, EmptyValue, Deleter &gt;::Handle </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Deleter &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>deleter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structtr_1_1NoEmptyHandleCheck.html">NoEmptyHandleCheck</a></td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a handle from a base type value and a deleter without checking for the invalid <em>EmptyValue</em> case. </p>
+<p>A handle constructed like this may or may not hold a value.</p>
+<p>Handle(T, deleter) should be used in cases where this isn't necessary.</p>
+<p>Requires that <em>Deleter</em> is move-constructible.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>
+<p class="endtd">May not equal <em>EmptyValue</em>, an assertion may be raised otherwise. </p>
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">deleter</td><td>The deleter value to move. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a12b565a3f4337d284d513064e833f7f9" name="a12b565a3f4337d284d513064e833f7f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12b565a3f4337d284d513064e833f7f9">&#9670;&#160;</a></span>Handle() <span class="overload">[10/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </div>
+<div class="memtemplate">
+template&lt;HandleDeleter&lt; T &gt; Deleter1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtr_1_1Handle.html">tr::Handle</a>&lt; T, EmptyValue, Deleter &gt;::Handle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtr_1_1Handle.html">Handle</a>&lt; T, EmptyValue, Deleter1 &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>move</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -406,6 +720,66 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 <p>This function circuments the notion of an "empty" handle and returns a value even if it's <em>EmptyValue</em>.</p>
 <p><a class="el" href="#a60852e33eff675327cf0a47dc45d2397" title="Gets the handle&#39;s base type value.">get()</a> should be used in cases where this isn't necessary.</p>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the handle's base type value. </dd></dl>
+
+</div>
+</div>
+<a id="a57afae313361ff209068f8239d7c4af9" name="a57afae313361ff209068f8239d7c4af9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57afae313361ff209068f8239d7c4af9">&#9670;&#160;</a></span>get_deleter() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Deleter &amp; <a class="el" href="classtr_1_1Handle.html">tr::Handle</a>&lt; T, EmptyValue, Deleter &gt;::get_deleter </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the handle's deleter. </p>
+<dl class="section return"><dt>Returns</dt><dd>An immutable reference to the handle's deleter. </dd></dl>
+
+</div>
+</div>
+<a id="a97721eb9ea8980f6ec4deb62211149f1" name="a97721eb9ea8980f6ec4deb62211149f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97721eb9ea8980f6ec4deb62211149f1">&#9670;&#160;</a></span>get_deleter() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Deleter &amp; <a class="el" href="classtr_1_1Handle.html">tr::Handle</a>&lt; T, EmptyValue, Deleter &gt;::get_deleter </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the handle's deleter. </p>
+<dl class="section return"><dt>Returns</dt><dd>A mutable reference to the handle's deleter. </dd></dl>
 
 </div>
 </div>
