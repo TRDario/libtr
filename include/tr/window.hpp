@@ -197,6 +197,13 @@ namespace tr {
 		void setIcon(const Bitmap& bitmap) const noexcept;
 
 		/**************************************************************************************************************
+		 * Sets the icon of the window.
+		 *
+		 * @param view The new window icon.
+		 **************************************************************************************************************/
+		void setIcon(const BitmapView& view) const noexcept;
+
+		/**************************************************************************************************************
 		 * Gets the size of the window.
 		 *
 		 * @return The size of the window in pixels.

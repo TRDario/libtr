@@ -233,6 +233,16 @@ namespace tr {
 		Cursor(const Bitmap& bitmap, glm::ivec2 focus);
 
 		/**************************************************************************************************************
+		 * Creates a cursor from a bitmap view.
+		 *
+		 * @exception CursorBadAlloc If allocating the cursor failed.
+		 *
+		 * @param view The cursor bitmap.
+		 * @param focus The focus point of the cursor (where the actual mouse position is relative to the graphic).
+		 **************************************************************************************************************/
+		Cursor(const BitmapView& view, glm::ivec2 focus);
+
+		/**************************************************************************************************************
 		 * Creates a simple black-and-white cursor from color and mask bitfields.
 		 *
 		 * @exception CursorBadAlloc If allocating the cursor failed.

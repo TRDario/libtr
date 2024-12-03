@@ -16,6 +16,7 @@ struct SDL_PixelFormat;
 
 namespace tr {
 	class Bitmap;
+	class BitmapView;
 
 	/******************************************************************************************************************
 	 * Error thrown when bitmap allocation failed.
@@ -123,6 +124,15 @@ namespace tr {
 		SubBitmap(const Bitmap& bitmap, RectI2 rect) noexcept;
 
 		/**************************************************************************************************************
+		 * Constructs a sub-bitmap.
+		 *
+		 * @param view The parent bitmap view.
+		 * @param rect The region of the sub-bitmap. If the region stretches outside of the bitmap bounds, a failed
+		 *             assertion may be triggered.
+		 **************************************************************************************************************/
+		SubBitmap(const BitmapView& bitmap, RectI2 rect) noexcept;
+
+		/**************************************************************************************************************
 		 * Gets the size of the sub-bitmap.
 		 *
 		 * @return The size of the sub-bitmap in pixels.
@@ -209,8 +219,8 @@ namespace tr {
 		int pitch() const noexcept;
 
 	  private:
-		std::reference_wrapper<const Bitmap> _bitmap;
-		RectI2                               _rect;
+		SDL_Surface* _bitmap;
+		RectI2       _rect;
 
 		friend class Bitmap;
 	};
@@ -479,6 +489,148 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
+	 * Non-owning view over bitmap data.
+	 *
+	 * No instances of this class can be created before initializing SDL.
+	 ******************************************************************************************************************/
+	class BitmapView {
+	  public:
+		using PixelRef = SubBitmap::PixelRef;
+		using Iterator = SubBitmap::Iterator;
+
+		/**************************************************************************************************************
+		 * Creates a bitmap view over contiguous pixel data.
+		 *
+		 * @exception BitmapBadAlloc If allocating the bitmap view's internals failed.
+		 *
+		 * @param rawData The pixel data span. The size of the span must match size.x * size.y * [pixel bytes],
+		 *                otherwise a failed assertion may be triggered.
+		 * @param size The size of the bitmap.
+		 * @param format The format of the bitmap.
+		 **************************************************************************************************************/
+		BitmapView(std::span<const std::byte> rawData, glm::ivec2 size, BitmapFormat format);
+
+		/**************************************************************************************************************
+		 * Creates a bitmap view over pixel data.
+		 *
+		 * @exception BitmapBadAlloc If allocating the bitmap view's internals failed.
+		 *
+		 * @param rawDataStart A pointer to the start of the pixel data.
+		 * @param pitch The distance between rows of pixels in bytes.
+		 * @param size The size of the bitmap.
+		 * @param format The format of the bitmap.
+		 **************************************************************************************************************/
+		BitmapView(const std::byte* rawDataStart, int pitch, glm::ivec2 size, BitmapFormat format);
+
+		/**************************************************************************************************************
+		 * Gets the size of the bitmap.
+		 *
+		 * @return The size of the bitmap in pixels.
+		 **************************************************************************************************************/
+		glm::ivec2 size() const noexcept;
+
+		/**************************************************************************************************************
+		 * Gets immutable access to a pixel of the bitmap.
+		 *
+		 * @param pos The position of the pixel within the sub-bitmap. Accessing an out-of-bounds pixel may trigger
+		 *            a failed assertion.
+		 *
+		 * @return An immutable reference to a pixel of the bitmap.
+		 **************************************************************************************************************/
+		PixelRef operator[](glm::ivec2 pos) const noexcept;
+
+		/**************************************************************************************************************
+		 * Gets an immutable iterator to the beginning of the bitmap.
+		 *
+		 * @return An immutable iterator to the beginning of the bitmap.
+		 **************************************************************************************************************/
+		Iterator begin() const noexcept;
+
+		/**************************************************************************************************************
+		 * Gets an immutable iterator to the beginning of the bitmap.
+		 *
+		 * @return An immutable iterator to the beginning of the bitmap.
+		 **************************************************************************************************************/
+		Iterator cbegin() const noexcept;
+
+		/**************************************************************************************************************
+		 * Gets an immutable iterator to one past the end of the bitmap.
+		 *
+		 * @return An immutable iterator to one past the end of the bitmap.
+		 **************************************************************************************************************/
+		Iterator end() const noexcept;
+
+		/**************************************************************************************************************
+		 * Gets an immutable iterator to one past the end of the bitmap.
+		 *
+		 * @return An immutable iterator to one past the end of the bitmap.
+		 **************************************************************************************************************/
+		Iterator cend() const noexcept;
+
+		/**************************************************************************************************************
+		 * Creates a sub-bitmap spanning the entire bitmap.
+		 **************************************************************************************************************/
+		operator SubBitmap() const noexcept;
+
+		/**************************************************************************************************************
+		 * Creates a sub-bitmap of the bitmap.
+		 *
+		 * @param rect The region of the sub-bitmap. If the region stretches outside of the bitmap bounds, a failed
+		 *             assertion may be triggered.
+		 *
+		 * @return The sub-bitmap.
+		 **************************************************************************************************************/
+		SubBitmap sub(RectI2 rect) const noexcept;
+
+		/**************************************************************************************************************
+		 * Gets the raw data of the bitmap.
+		 *
+		 * @return A pointer to the data of the bitmap. This data is not necessarily contiguous,
+		 *         the distance between rows is pitch() bytes and may differ from `size().x * format().pixelBytes()`.
+		 **************************************************************************************************************/
+		const std::byte* data() const noexcept;
+
+		/**************************************************************************************************************
+		 * Gets the format of the bitmap.
+		 *
+		 * @return The format of the bitmap.
+		 **************************************************************************************************************/
+		BitmapFormat format() const noexcept;
+
+		/**************************************************************************************************************
+		 * Gets the pitch of the bitmap.
+		 *
+		 * The pitch is the length of a row of pixels in bytes.
+		 *
+		 * @return The pitch of the bitmap in bytes.
+		 **************************************************************************************************************/
+		int pitch() const noexcept;
+
+		/**************************************************************************************************************
+		 * Saves the bitmap to file.
+		 *
+		 * @exception BitmapSaveError If saving the bitmap failed.
+		 *
+		 * @param path The path to the file.
+		 * @param format The image format.
+		 **************************************************************************************************************/
+		void save(const std::filesystem::path& path, ImageFormat format) const;
+
+	  private:
+		struct Deleter {
+			/// @private
+			void operator()(SDL_Surface* ptr) const noexcept;
+		};
+
+		std::unique_ptr<SDL_Surface, Deleter> _impl;
+
+		friend class Bitmap;
+		friend class SubBitmap;
+		friend class Cursor;
+		friend class WindowView;
+	};
+
+	/******************************************************************************************************************
 	 * Class representing a bitmap stored in memory.
 	 *
 	 * No instances of this class can be created before initializing SDL.
@@ -538,6 +690,16 @@ namespace tr {
 		 * @param format The format of the new bitmap.
 		 **************************************************************************************************************/
 		Bitmap(const Bitmap& bitmap, BitmapFormat format);
+
+		/**************************************************************************************************************
+		 * Clones a bitmap view.
+		 *
+		 * @exception BitmapBadAlloc If allocating the bitmap failed.
+		 *
+		 * @param view The bitmap view to clone.
+		 * @param format The format of the new bitmap.
+		 **************************************************************************************************************/
+		Bitmap(const BitmapView& view, BitmapFormat format);
 
 		/**************************************************************************************************************
 		 * Clones a sub-bitmap.
@@ -696,15 +858,10 @@ namespace tr {
 		 * @param path The path to the file.
 		 * @param format The image format.
 		 **************************************************************************************************************/
-		void save(const std::filesystem::path& path, ImageFormat format);
+		void save(const std::filesystem::path& path, ImageFormat format) const;
 
 	  private:
-		struct Deleter {
-			/// @private
-			void operator()(SDL_Surface* ptr) const noexcept;
-		};
-
-		std::unique_ptr<SDL_Surface, Deleter> _impl;
+		std::unique_ptr<SDL_Surface, BitmapView::Deleter> _impl;
 
 		Bitmap(SDL_Surface* ptr);
 

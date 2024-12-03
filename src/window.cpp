@@ -22,7 +22,13 @@ void tr::WindowView::setTitle(const char* title) const noexcept
 void tr::WindowView::setIcon(const Bitmap& bitmap) const noexcept
 {
 	assert(_impl != nullptr);
-	SDL_SetWindowIcon(_impl, (SDL_Surface*)(bitmap._impl.get()));
+	SDL_SetWindowIcon(_impl, bitmap._impl.get());
+}
+
+void tr::WindowView::setIcon(const BitmapView& view) const noexcept
+{
+	assert(_impl != nullptr);
+	SDL_SetWindowIcon(_impl, view._impl.get());
 }
 
 glm::ivec2 tr::WindowView::size() const noexcept
