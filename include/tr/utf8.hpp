@@ -33,15 +33,15 @@ namespace tr {
 		 * Default-constructs an iterator.
 		 *
 		 * An iterator constructed in this manner is in an non-dereferencable state until a valid value is assigned to
-		 *it.
-		 ***************************************************************************************************************/
+		 * it.
+		 **************************************************************************************************************/
 		constexpr Utf8ConstIt() noexcept = default;
 
 		/**************************************************************************************************************
 		 * Constructs an iterator pointing to a UTF-8 sequence in memory.
 		 *
 		 * @param[in] ptr A pointer to a valid UTF-8 char sequence.
-		 ***************************************************************************************************************/
+		 **************************************************************************************************************/
 		constexpr Utf8ConstIt(const char* ptr) noexcept;
 
 		/**************************************************************************************************************
@@ -55,13 +55,18 @@ namespace tr {
 		constexpr friend bool operator==(const Utf8ConstIt&, const Utf8ConstIt&) = default;
 
 		/**************************************************************************************************************
+		 * Converts the iterator to a const char pointer to the beginning of its UTF-8 character.
+		 **************************************************************************************************************/
+		explicit constexpr operator const char*() const noexcept;
+
+		/**************************************************************************************************************
 		 * Dereferences the iterator.
 		 *
 		 * The iterator must be in a dereferencable state (i.e., not in a default-constructed state or an iterator
 		 * created by utf8End()) for a call to this function to be valid.
 		 *
 		 * @return A Unicode codepoint.
-		 ***************************************************************************************************************/
+		 **************************************************************************************************************/
 		constexpr std::uint32_t operator*() const noexcept;
 
 		/**************************************************************************************************************
@@ -71,7 +76,7 @@ namespace tr {
 		 * created by utf8End()) for a call to this function to be valid.
 		 *
 		 * @return A reference to the incremented iterator.
-		 ***************************************************************************************************************/
+		 **************************************************************************************************************/
 		constexpr Utf8ConstIt& operator++() noexcept;
 
 		/**************************************************************************************************************
@@ -81,7 +86,7 @@ namespace tr {
 		 * created by utf8End()) for a call to this function to be valid.
 		 *
 		 * @return An iterator with the prior state of the incremented iterator.
-		 ***************************************************************************************************************/
+		 **************************************************************************************************************/
 		constexpr Utf8ConstIt operator++(int) noexcept;
 
 	  private:
@@ -132,6 +137,11 @@ constexpr tr::Utf8ConstIt::Utf8ConstIt(const char* ptr) noexcept
 	: _impl{ptr}
 {
 	assert(_impl != nullptr);
+}
+
+constexpr tr::Utf8ConstIt::operator const char*() const noexcept
+{
+	return _impl;
 }
 
 constexpr std::uint32_t tr::Utf8ConstIt::operator*() const noexcept
