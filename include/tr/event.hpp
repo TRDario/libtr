@@ -1,21 +1,22 @@
-/**
- * @file event.hpp
- * @brief Provides event functionality.
- */
-
 #pragma once
-#include <any>
 #define BOOST_STATIC_STRING_STANDALONE
 #include "chrono.hpp"
 #include "keyboard.hpp"
 #include "mouse.hpp"
 #include "sdl.hpp"
-
+#include <any>
 #include <atomic>
 #include <boost/static_string.hpp>
 
 namespace tr {
 	class EventQueue;
+
+	/** @defgroup event Events
+	 *  Event handling functionality.
+	 *
+	 *  An instance of Window must be created before any other functionality from this section can be used.
+	 *  @{
+	 */
 
 	/******************************************************************************************************************
 	 * Error thrown when an event operation fails.
@@ -25,86 +26,84 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Generates a new valid event type ID.
-	 *
-	 * @return A unique, unused event type ID.
-	 ******************************************************************************************************************/
-	std::uint32_t generateEventType() noexcept;
-
-	/******************************************************************************************************************
 	 * Namespace containing event type IDs.
 	 ******************************************************************************************************************/
-	namespace EventType {
+	namespace event_type {
 		/**************************************************************************************************************
 		 * ID for KeyDownEvent.
 		 **************************************************************************************************************/
-		inline constexpr std::uint32_t KEY_DOWN{0x3'00};
+		inline constexpr std::uint32_t KEY_DOWN{0x300};
 
 		/**************************************************************************************************************
 		 * ID for KeyUpEvent.
 		 **************************************************************************************************************/
-		inline constexpr std::uint32_t KEY_UP{0x3'01};
+		inline constexpr std::uint32_t KEY_UP{0x301};
 
 		/**************************************************************************************************************
 		 * ID for TextEditEvent.
 		 **************************************************************************************************************/
-		inline constexpr std::uint32_t TEXT_EDIT{0x3'02};
+		inline constexpr std::uint32_t TEXT_EDIT{0x302};
 
 		/**************************************************************************************************************
 		 * ID for TextInputEvent.
 		 **************************************************************************************************************/
-		inline constexpr std::uint32_t TEXT_INPUT{0x3'03};
+		inline constexpr std::uint32_t TEXT_INPUT{0x303};
 
 		/**************************************************************************************************************
 		 * ID for a keymap change event (no associated type).
 		 **************************************************************************************************************/
-		inline constexpr std::uint32_t KEYMAP_CHANGE{0x3'04};
+		inline constexpr std::uint32_t KEYMAP_CHANGE{0x304};
 
 		/**************************************************************************************************************
 		 * ID for a clipboard update event (no associated type).
 		 **************************************************************************************************************/
-		inline constexpr std::uint32_t CLIPBOARD_UPDATE{0x9'00};
+		inline constexpr std::uint32_t CLIPBOARD_UPDATE{0x900};
 
 		/**************************************************************************************************************
 		 * ID for MouseMotionEvent.
 		 **************************************************************************************************************/
-		inline constexpr std::uint32_t MOUSE_MOTION{0x4'00};
+		inline constexpr std::uint32_t MOUSE_MOTION{0x400};
 
 		/**************************************************************************************************************
 		 * ID for MouseDownEvent.
 		 **************************************************************************************************************/
-		inline constexpr std::uint32_t MOUSE_DOWN{0x4'01};
+		inline constexpr std::uint32_t MOUSE_DOWN{0x401};
 
 		/**************************************************************************************************************
 		 * ID for MouseUpEvent.
 		 **************************************************************************************************************/
-		inline constexpr std::uint32_t MOUSE_UP{0x4'02};
+		inline constexpr std::uint32_t MOUSE_UP{0x402};
 
 		/**************************************************************************************************************
 		 * ID for MouseWheelEvent.
 		 **************************************************************************************************************/
-		inline constexpr std::uint32_t MOUSE_WHEEL{0x4'03};
+		inline constexpr std::uint32_t MOUSE_WHEEL{0x403};
 
 		/**************************************************************************************************************
 		 * ID for a quit event (no associated type).
 		 **************************************************************************************************************/
-		inline constexpr std::uint32_t QUIT{0x1'00};
+		inline constexpr std::uint32_t QUIT{0x100};
 
 		/**************************************************************************************************************
 		 * ID for WindowEvent.
 		 **************************************************************************************************************/
-		inline constexpr std::uint32_t WINDOW{0x2'00};
+		inline constexpr std::uint32_t WINDOW{0x200};
 
 		/**************************************************************************************************************
 		 * ID for TickEvent.
 		 **************************************************************************************************************/
-		inline const std::uint32_t TICK{generateEventType()};
+		inline constexpr std::uint32_t TICK{0x8000};
 
 		/**************************************************************************************************************
 		 * ID for a draw event (no associated type).
 		 **************************************************************************************************************/
-		inline const std::uint32_t DRAW{generateEventType()};
-	} // namespace EventType
+		inline constexpr std::uint32_t DRAW{0x8001};
+	} // namespace event_type
+
+	/******************************************************************************************************************
+	 * ID of the first user defined event.
+	 ******************************************************************************************************************/
+	inline constexpr std::uint32_t USER_EVENT_START{0x9000};
 
 	/******************************************************************************************************************
 	 * Event emitted when a key is pressed.
@@ -326,8 +325,6 @@ namespace tr {
 
 	/******************************************************************************************************************
 	 * Ticker that regularly emits events.
-	 *
-	 * This class cannot be instantiated before the SDL library is initialized.
 	 ******************************************************************************************************************/
 	class Ticker {
 	  public:
@@ -346,9 +343,9 @@ namespace tr {
 		 *
 		 * @exception SDLError If creating the ticker failed.
 		 *
-		 * @param id The ID that will be attached to events emitted by this ticker.
-		 * @param interval The interval between events.
-		 * @param nticks The number of ticks before halting or TICK_FOREVER.
+		 * @param[in] id The ID that will be attached to events emitted by this ticker.
+		 * @param[in] interval The interval between events.
+		 * @param[in] nticks The number of ticks before halting or TICK_FOREVER.
 		 **************************************************************************************************************/
 		Ticker(std::int32_t id, MillisecondsD interval, std::uint32_t nticks);
 
@@ -362,7 +359,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Resets the ticker's interval.
 		 *
-		 * @param interval The new interval between events.
+		 * @param[in] interval The new interval between events.
 		 **************************************************************************************************************/
 		void resetInterval(MillisecondsD interval) noexcept;
 
@@ -425,9 +422,9 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs an event from a custom event base.
 		 *
-		 * @exception std::bad_alloc If allocating generic values failed.
+		 * @exception std::bad_alloc If allocating generic values fails.
 		 *
-		 * @param custom The custom event base to convert into a generic event.
+		 * @param[in] custom The custom event base to convert into a generic event.
 		 **************************************************************************************************************/
 		Event(const CustomEventBase& custom);
 
@@ -533,7 +530,7 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Global event queue.
 	 *
-	 * This class cannot be instantiated before the SDL library is initialized.
+	 * This type cannot be directly instantiated.
 	 ******************************************************************************************************************/
 	class EventQueue {
 	  public:
@@ -554,7 +551,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Gets an event from the event queue, waiting until one appears or until a certain amount of time has passed.
 		 *
-		 * @param timeout The maximum amount of time to wait before returning.
+		 * @param[in] timeout The maximum amount of time to wait before returning.
 		 *
 		 * @return The polled event, if one was found.
 		 **************************************************************************************************************/
@@ -565,14 +562,14 @@ namespace tr {
 		 *
 		 * @exception EventError If creating the draw ticker fails.
 		 *
-		 * @param frequency The frequency of draw events, or NO_DRAW_EVENTS to stop sending draw events.
+		 * @param[in] frequency The frequency of draw events, or NO_DRAW_EVENTS to stop sending draw events.
 		 **************************************************************************************************************/
 		void sendDrawEvents(unsigned int frequency);
 
 		/**************************************************************************************************************
 		 * Sets whether text input events should be sent to the event queue.
 		 *
-		 * @param arg Whether text input events should be sent.
+		 * @param[in] arg Whether text input events should be sent.
 		 **************************************************************************************************************/
 		void sendTextInputEvents(bool arg) noexcept;
 
@@ -581,7 +578,7 @@ namespace tr {
 		 *
 		 * @exception EventError If pushing the event failed.
 		 *
-		 * @param event The event to push.
+		 * @param[in] event The event to push.
 		 **************************************************************************************************************/
 		void pushEvent(const Event& event);
 
@@ -592,6 +589,8 @@ namespace tr {
 
 		friend class Window;
 	};
+
+	/// @}
 } // namespace tr
 
 /// @cond

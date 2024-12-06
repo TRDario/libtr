@@ -163,7 +163,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Initializes an RGBA value.
 		 *
-		 * @param r, g, b, a Channel values.
+		 * @param[in] r, g, b, a Channel values.
 		 **************************************************************************************************************/
 		constexpr RGBA(T r, T g, T b, T a) noexcept;
 
@@ -171,7 +171,7 @@ namespace tr {
 		 * Initializes an RGBA value from an RGB value and an alpha channel.
 		 *
 		 * @param rgb The RGB values.
-		 * @param a The alpha channel value.
+		 * @param[in] a The alpha channel value.
 		 **************************************************************************************************************/
 		constexpr RGBA(RGB<T> rgb, T a) noexcept;
 

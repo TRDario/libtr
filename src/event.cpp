@@ -4,11 +4,6 @@
 
 using namespace std::chrono_literals;
 
-std::uint32_t tr::generateEventType() noexcept
-{
-	return SDL_RegisterEvents(1);
-}
-
 std::uint32_t tr::Event::type() const noexcept
 {
 	return ((const SDL_Event*)(&_impl))->type;
@@ -29,7 +24,7 @@ tr::Event::operator KeyDownEvent() const noexcept
 {
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
-	assert(type() == EventType::KEY_DOWN);
+	assert(type() == event_type::KEY_DOWN);
 	return {.repeat = bool(sdl.key.repeat),
 			.key{.scan = Scancode::Enum(sdl.key.keysym.scancode),
 				 .key  = Keycode::Enum(sdl.key.keysym.sym),
@@ -40,7 +35,7 @@ tr::Event::operator KeyUpEvent() const noexcept
 {
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
-	assert(type() == EventType::KEY_UP);
+	assert(type() == event_type::KEY_UP);
 	return {.key = {.scan = Scancode::Enum(sdl.key.keysym.scancode),
 					.key  = Keycode::Enum(sdl.key.keysym.sym),
 					.mods = Keymods(sdl.key.keysym.mod)}};
@@ -50,7 +45,7 @@ tr::Event::operator TextEditEvent() const noexcept
 {
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
-	assert(type() == EventType::TEXT_EDIT);
+	assert(type() == event_type::TEXT_EDIT);
 	TextEditEvent event{.text = sdl.edit.text};
 	event.selected = {event.text.data() + sdl.edit.start, std::size_t(sdl.edit.length)};
 	return event;
@@ -60,7 +55,7 @@ tr::Event::operator TextInputEvent() const noexcept
 {
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
-	assert(type() == EventType::TEXT_INPUT);
+	assert(type() == event_type::TEXT_INPUT);
 	return {.text = sdl.text.text};
 }
 
@@ -68,7 +63,7 @@ tr::Event::operator MouseMotionEvent() const noexcept
 {
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
-	assert(type() == EventType::MOUSE_MOTION);
+	assert(type() == event_type::MOUSE_MOTION);
 	return {.buttons = MouseButtonMask(sdl.motion.state),
 			.pos     = {sdl.motion.x, sdl.motion.y},
 			.delta   = {sdl.motion.xrel, sdl.motion.yrel}};
@@ -78,7 +73,7 @@ tr::Event::operator MouseDownEvent() const noexcept
 {
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
-	assert(type() == EventType::MOUSE_DOWN);
+	assert(type() == event_type::MOUSE_DOWN);
 	return {.button = MouseButton(sdl.button.button), .clicks = sdl.button.clicks, .pos = {sdl.button.x, sdl.button.y}};
 }
 
@@ -86,7 +81,7 @@ tr::Event::operator MouseUpEvent() const noexcept
 {
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
-	assert(type() == EventType::MOUSE_UP);
+	assert(type() == event_type::MOUSE_UP);
 	return {.button = MouseButton(sdl.button.button), .pos = {sdl.button.x, sdl.button.y}};
 }
 
@@ -94,7 +89,7 @@ tr::Event::operator MouseWheelEvent() const noexcept
 {
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
-	assert(type() == EventType::MOUSE_WHEEL);
+	assert(type() == event_type::MOUSE_WHEEL);
 	return {.delta = {sdl.wheel.preciseX, sdl.wheel.preciseY}, .mousePos{sdl.wheel.mouseX, sdl.wheel.mouseY}};
 }
 
@@ -102,7 +97,7 @@ tr::Event::operator WindowEvent() const noexcept
 {
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
-	assert(type() == EventType::WINDOW);
+	assert(type() == event_type::WINDOW);
 	switch (sdl.window.event) {
 	case SDL_WINDOWEVENT_ENTER:
 		return WindowEnterEvent{};
@@ -149,7 +144,7 @@ tr::Event::operator Ticker::Event() const noexcept
 {
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
-	assert(type() == EventType::TICK);
+	assert(type() == event_type::TICK);
 	return {.id = sdl.user.windowID};
 }
 
@@ -191,10 +186,11 @@ std::uint32_t tr::Ticker::callback(std::uint32_t interval, void* ptr) noexcept
 {
 	auto& self = *(Ticker*)(ptr);
 	if (self._sendDrawEvents) {
-		window().eventQueue().pushEvent(CustomEventBase{.type = EventType::DRAW});
+		window().eventQueue().pushEvent(CustomEventBase{.type = event_type::DRAW});
 	}
 	else {
-		window().eventQueue().pushEvent(CustomEventBase{.type = EventType::TICK, .uint = std::uint32_t(self._eventID)});
+		window().eventQueue().pushEvent(
+			CustomEventBase{.type = event_type::TICK, .uint = std::uint32_t(self._eventID)});
 	}
 	if (self._ticksLeft != TICK_FOREVER && --self._ticksLeft == 0) {
 		return 0;
