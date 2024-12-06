@@ -4,11 +4,15 @@
 #include <limits>
 
 namespace tr {
+	/** @defgroup norm_cast Normalized Casts
+	 *  Functions for casting between normalized forms.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Converts a floating point number in the range [0-1] to another floating point number in the range [0-1].
 	 *
-	 * @param[in] from A floating point number in the range [0-1]. A failed assertion may be triggered if a value
-	 *outside this range is passed.
+	 * @param[in] from A floating point number in the range [0-1].
 	 *
 	 * @return A floating point number in the range [0-1].
 	 ******************************************************************************************************************/
@@ -26,8 +30,7 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Converts a floating point number in the range [0-1] to a normalized integer.
 	 *
-	 * @param[in] from A floating point number in the range [0-1]. A failed assertion may be triggered if a value
-	 *outside this range is passed.
+	 * @param[in] from A floating point number in the range [0-1].
 	 *
 	 * @return A normalized integer.
 	 ******************************************************************************************************************/
@@ -41,6 +44,8 @@ namespace tr {
 	 * @return A normalized integer value.
 	 ******************************************************************************************************************/
 	template <std::integral To, std::integral From> constexpr To norm_cast(From from) noexcept;
+
+	/// @}
 } // namespace tr
 
 /// @cond IMPLEMENTATION

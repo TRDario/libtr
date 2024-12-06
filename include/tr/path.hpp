@@ -1,13 +1,13 @@
-/**
- * @file path.hpp
- * @brief Provides common directory accessors.
- */
-
 #pragma once
 #include <exception>
 #include <filesystem>
 
 namespace tr {
+	/** @defgroup path Paths
+	 *  Path getters.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Error in getting the executable directory path.
 	 ******************************************************************************************************************/
@@ -37,8 +37,8 @@ namespace tr {
 	 *
 	 * This function should only be called once at the beginning of the program as it may be relatively expensive.
 	 *
-	 * @exception ExeDirInitError If getting the path failed.
-	 * @exception std::bad_alloc If allocating the path failed.
+	 * @exception ExeDirInitError If getting the path fails.
+	 * @exception std::bad_alloc If allocating the path fails.
 	 *
 	 * @return A fath to the executable directory.
 	 ******************************************************************************************************************/
@@ -49,15 +49,17 @@ namespace tr {
 	 *
 	 * This function should only be called once at the beginning of the program as it may be relatively expensive.
 	 *
-	 * @exception UserDirInitError If getting the path failed.
-	 * @exception std::bad_alloc If allocating the path failed.
+	 * @exception UserDirInitError If getting the path fails.
+	 * @exception std::bad_alloc If allocating the path fails.
 	 *
-	 * @param org The organization name, used so that all applications under this organization share a folder.
-	 * @param app The application name, used to that a specific subdirectory be made for the application.
+	 * @param[in] org The organization name, used so that all applications under this organization share a folder.
+	 * @param[in] app The application name, used to that a specific subdirectory be made for the application.
 	 *
 	 * @return A path to the executable directory.
 	 ******************************************************************************************************************/
 	std::filesystem::path getUserDir(const char* org, const char* app);
+
+	/// @}
 } // namespace tr
 
 /// @cond IMPLEMENTATION

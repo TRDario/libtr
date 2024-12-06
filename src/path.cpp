@@ -1,7 +1,5 @@
 #include "../include/tr/path.hpp"
-
 #include "../include/tr/function.hpp"
-
 #include <SDL2/SDL.h>
 
 std::filesystem::path tr::getExeDir()

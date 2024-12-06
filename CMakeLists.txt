@@ -47,11 +47,11 @@ target_sources(tr PUBLIC
         include/tr/angle_impl.hpp include/tr/angle.hpp include/tr/audio_buffer.hpp include/tr/audio_source.hpp
         include/tr/audio_system.hpp include/tr/benchmark.hpp include/tr/bitmap_format.hpp include/tr/bitmap_iterators.hpp
         include/tr/bitmap.hpp include/tr/chrono.hpp include/tr/color_cast.hpp include/tr/chrono.hpp include/tr/color_cast_impl.hpp
-        include/tr/color.hpp include/tr/concepts.hpp include/tr/display.hpp include/tr/draw_geometry.hpp include/tr/event.hpp
-        include/tr/framebuffer.hpp include/tr/geometry.hpp include/tr/gl_buffer.hpp include/tr/gl_context.hpp include/tr/handle.hpp
-        include/tr/hashmap.hpp include/tr/index_buffer.hpp include/tr/iostream.hpp include/tr/keyboard.hpp include/tr/listener.hpp
-        include/tr/mouse.hpp include/tr/norm_cast.hpp include/tr/overloaded_lambda.hpp include/tr/path.hpp
-        include/tr/ranges.hpp include/tr/renderbuffer.hpp include/tr/sampler.hpp include/tr/sdl.hpp
+        include/tr/color.hpp include/tr/concepts.hpp include/tr/display.hpp include/tr/draw_geometry_impl.hpp
+        include/tr/draw_geometry.hpp include/tr/event.hpp include/tr/framebuffer.hpp include/tr/geometry.hpp include/tr/gl_buffer.hpp
+        include/tr/gl_context.hpp include/tr/handle.hpp include/tr/hashmap.hpp include/tr/index_buffer.hpp include/tr/iostream.hpp
+        include/tr/keyboard.hpp include/tr/listener.hpp include/tr/mouse.hpp include/tr/norm_cast.hpp include/tr/overloaded_lambda.hpp
+        include/tr/path.hpp include/tr/ranges.hpp include/tr/renderbuffer.hpp include/tr/sampler.hpp include/tr/sdl.hpp
         include/tr/shader_buffer.hpp include/tr/shader_pipeline.hpp include/tr/shader.hpp include/tr/texture_unit.hpp
         include/tr/texture.hpp include/tr/tr.hpp include/tr/ttfont.hpp include/tr/utf8.hpp include/tr/vertex_buffer.hpp
         include/tr/vertex_format.hpp include/tr/vertex.hpp include/tr/window.hpp
