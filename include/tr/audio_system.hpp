@@ -63,7 +63,7 @@ namespace tr {
 	 *
 	 * @return True if the audio system is active, and false otherwise.
 	 ******************************************************************************************************************/
-	bool audioSystemActive() noexcept;
+	bool audioActive() noexcept;
 
 	/******************************************************************************************************************
 	 * Gets a reference to the active audio system.
@@ -72,5 +72,5 @@ namespace tr {
 	 *
 	 * @return A reference to the audio system.
 	 ******************************************************************************************************************/
-	AudioSystem& audioSystem() noexcept;
+	AudioSystem& audio() noexcept;
 } // namespace tr

@@ -31,7 +31,7 @@ ALCcontext* tr::createALCContextChecked(ALCdevice* device)
 tr::AudioSystem::AudioSystem()
 	: _device{openALCDeviceChecked()}, _context{createALCContextChecked(_device.get())}
 {
-	assert(!audioSystemActive());
+	assert(!audioActive());
 	_audioSystem = this;
 }
 
@@ -51,13 +51,13 @@ void tr::AudioSystem::ContextDeleter::operator()(ALCcontext* ptr) const noexcept
 	alcDestroyContext(ptr);
 }
 
-bool tr::audioSystemActive() noexcept
+bool tr::audioActive() noexcept
 {
 	return _audioSystem != nullptr;
 }
 
-tr::AudioSystem& tr::audioSystem() noexcept
+tr::AudioSystem& tr::audio() noexcept
 {
-	assert(audioSystemActive());
+	assert(audioActive());
 	return *_audioSystem;
 }
