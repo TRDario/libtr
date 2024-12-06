@@ -5,6 +5,7 @@
 
 #pragma once
 #include "bitmap.hpp"
+#include "sdl.hpp"
 
 struct _TTF_Font;
 
@@ -24,58 +25,10 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Error thrown when TrueType font resizing failed.
+	 * Error thrown when a TrueType font operation fails.
 	 ******************************************************************************************************************/
-	struct TTFontResizeError : SDLError {
-		/**************************************************************************************************************
-		 * Constructs the error.
-		 **************************************************************************************************************/
-		TTFontResizeError();
-	};
-
-	/******************************************************************************************************************
-	 * Error thrown when rendering from a TrueType font failed.
-	 ******************************************************************************************************************/
-	struct TTFontRenderError : SDLError {
-		/**************************************************************************************************************
-		 * Constructs the error.
-		 **************************************************************************************************************/
-		TTFontRenderError();
-	};
-
-	/******************************************************************************************************************
-	 * SDL_TTF library RAII wrapper.
-	 ******************************************************************************************************************/
-	class SDL_TTF {
-	  public:
-		/**************************************************************************************************************
-		 * Initializes the SDL_TTF library.
-		 *
-		 * @exception SDLError If initializing the library failed.
-		 **************************************************************************************************************/
-		SDL_TTF();
-
-		/**************************************************************************************************************
-		 * Gets the version of the SDL_TTF library.
-		 *
-		 * @return The version of the SDL_TTF library.
-		 **************************************************************************************************************/
-		Version version() const noexcept;
-
-		/**************************************************************************************************************
-		 * Gets the version of the FreeType library.
-		 *
-		 * @return The version of the FreeType library.
-		 **************************************************************************************************************/
-		Version freetypeVersion() const noexcept;
-
-	  private:
-		struct Deleter {
-			/// @private
-			void operator()(bool) const noexcept;
-		};
-
-		Handle<bool, false, Deleter> _handle{true};
+	struct TTFontError : SDLError {
+		using SDLError::SDLError;
 	};
 
 	/**************************************************************************************************************
@@ -377,7 +330,7 @@ namespace tr {
 		 *
 		 * If the size and dpi match the current configuration, nothing happens and the cache isn't cleared.
 		 *
-		 * @exception TTFontResizeError If resizing the font failed.
+		 * @exception TTFontError If resizing the font failed.
 		 *
 		 * @param size The new point size of the font.
 		 * @param dpi The new DPI of the font.
@@ -408,7 +361,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Renders a glyph.
 		 *
-		 * @exception TTFontRenderError If rendering the bitmap failed.
+		 * @exception TTFontError If rendering the bitmap failed.
 		 *
 		 * @param cp The unicode codepoint to render.
 		 * @param color The color of the glyph.
@@ -420,7 +373,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Renders a line of text.
 		 *
-		 * @exception TTFontRenderError If rendering the bitmap failed.
+		 * @exception TTFontError If rendering the bitmap failed.
 		 *
 		 * @param text The line of text to render (\n not supported).
 		 * @param color The color of the text.
@@ -432,7 +385,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Renders wrapped text.
 		 *
-		 * @exception TTFontRenderError If rendering the bitmap failed.
+		 * @exception TTFontError If rendering the bitmap failed.
 		 *
 		 * @param text The line of text to render (\n supported).
 		 * @param color The color of the text.

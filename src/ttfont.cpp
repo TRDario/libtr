@@ -19,48 +19,6 @@ void tr::fixAlphaArtifacts(Bitmap& bitmap, std::uint8_t maxAlpha) noexcept
 	}
 }
 
-tr::SDL_TTF::SDL_TTF()
-{
-	if (TTF_Init() < 0) {
-		throw SDLError{"Failed to initialize the SDL TrueType library"};
-	}
-}
-
-void tr::SDL_TTF::Deleter::operator()(bool) const noexcept
-{
-	TTF_Quit();
-}
-
-tr::Version tr::SDL_TTF::version() const noexcept
-{
-	return std::bit_cast<Version>(*TTF_Linked_Version());
-}
-
-tr::Version tr::SDL_TTF::freetypeVersion() const noexcept
-{
-	int major, minor, patch;
-	TTF_GetFreeTypeVersion(&major, &minor, &patch);
-	return {std::uint8_t(major), std::uint8_t(minor), std::uint8_t(patch)};
-}
-
-const char* tr::TTFontLoadError::what() const noexcept
-{
-	static std::string str;
-	str.clear();
-	format_to(back_inserter(str), "Failed to load TrueType font file ({}): '{}'", SDL_GetError(), path());
-	return str.c_str();
-}
-
-tr::TTFontResizeError::TTFontResizeError()
-	: SDLError{"Failed to resize font"}
-{
-}
-
-tr::TTFontRenderError::TTFontRenderError()
-	: SDLError{"Failed to render text from TrueType font"}
-{
-}
-
 tr::TTFont::TTFont(const std::filesystem::path& path, int size, glm::uvec2 dpi)
 {
 	if (!is_regular_file(path)) {
@@ -207,7 +165,7 @@ void tr::TTFont::resize(int size, glm::uvec2 dpi)
 	}
 
 	if (TTF_SetFontSizeDPI(_impl.get(), size, dpi.x, dpi.y) < 0) {
-		throw TTFontResizeError{};
+		throw TTFontError{"Failed to resize font"};
 	}
 	_size = size;
 	_dpi  = dpi;
@@ -231,7 +189,7 @@ tr::Bitmap tr::TTFont::render(std::uint32_t cp, RGBA8 color) const
 {
 	auto ptr{TTF_RenderGlyph32_Blended(_impl.get(), cp, std::bit_cast<SDL_Color>(color))};
 	if (ptr == nullptr) {
-		throw TTFontRenderError{};
+		throw TTFontError{"Failed to render codepoint"};
 	}
 	return Bitmap{ptr};
 }
@@ -241,7 +199,7 @@ tr::Bitmap tr::TTFont::render(const char* text, RGBA8 color) const
 	assert(!std::string_view{text}.empty());
 	auto ptr{TTF_RenderUTF8_Blended(_impl.get(), text, std::bit_cast<SDL_Color>(color))};
 	if (ptr == nullptr) {
-		throw TTFontRenderError{};
+		throw TTFontError{"Failed to render text"};
 	}
 	Bitmap bitmap{ptr};
 	if (color.a < 255) {
@@ -255,7 +213,7 @@ tr::Bitmap tr::TTFont::renderWrapped(const char* text, RGBA8 color, std::uint32_
 	assert(!std::string_view{text}.empty());
 	auto ptr{TTF_RenderUTF8_Blended_Wrapped(_impl.get(), text, std::bit_cast<SDL_Color>(color), width)};
 	if (ptr == nullptr) {
-		throw TTFontRenderError{};
+		throw TTFontError{"Failed to render wrapped text"};
 	}
 	Bitmap bitmap{ptr};
 	if (color.a < 255) {

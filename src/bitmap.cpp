@@ -2,6 +2,7 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <format>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -10,7 +11,7 @@
 namespace tr {
 	template <class T> T checkNotNull(T ptr);
 	RGBA8                getPixelColor(const void* data, SDL_PixelFormat* format);
-	void                 saveBitmap(SDL_Surface* bitmap, const std::filesystem::path& path, ImageFormat format);
+	void                 saveBitmap(SDL_Surface* bitmap, const std::filesystem::path& path);
 } // namespace tr
 
 template <class T> T tr::checkNotNull(T ptr)
@@ -41,40 +42,16 @@ tr::RGBA8 tr::getPixelColor(const void* data, SDL_PixelFormat* format)
 	return color;
 }
 
-void tr::saveBitmap(SDL_Surface* bitmap, const std::filesystem::path& path, ImageFormat format)
+void tr::saveBitmap(SDL_Surface* bitmap, const std::filesystem::path& path)
 {
 	assert(bitmap != nullptr);
 
-	switch (format) {
-	case ImageFormat::BMP:
 #ifdef _WIN32
-		if (SDL_SaveBMP_RW(bitmap, SDL_RWFromFP(_wfopen(path.c_str(), L"w"), true), true) < 0) {
+	if (!IMG_Init(IMG_INIT_PNG) || IMG_SavePNG_RW(bitmap, SDL_RWFromFP(_wfopen(path.c_str(), L"w"), true), true) < 0) {
 #else
-		if (SDL_SaveBMP(bitmap, path.c_str()) < 0) {
+	if (!IMG_Init(IMG_INIT_PNG) || IMG_SavePNG(bitmap, path.c_str()) < 0) {
 #endif
-			throw BitmapSaveError{path};
-		}
-		break;
-	case ImageFormat::PNG:
-#ifdef _WIN32
-		if (IMG_SavePNG_RW(bitmap, SDL_RWFromFP(_wfopen(path.c_str(), L"w"), true), true) < 0) {
-#else
-		if (IMG_SavePNG(bitmap, path.c_str()) < 0) {
-#endif
-			throw BitmapSaveError{path};
-		}
-		break;
-	case ImageFormat::JPG:
-#ifdef _WIN32
-		if (IMG_SaveJPG_RW(bitmap, SDL_RWFromFP(_wfopen(path.c_str(), L"w"), true), true, 70) < 0) {
-#else
-		if (IMG_SaveJPG(bitmap, path.c_str(), 70) < 0) {
-#endif
-			throw BitmapSaveError{path};
-		}
-		break;
-	default:
-		assert(false);
+		throw BitmapSaveError{path};
 	}
 }
 
@@ -92,26 +69,6 @@ const char* tr::BitmapSaveError::what() const noexcept
 	str.clear();
 	format_to(back_inserter(str), "Failed to save bitmap file ({}): '{}'", IMG_GetError(), path());
 	return str.c_str();
-}
-
-tr::SDL_Image::SDL_Image(ImageFormat formats) noexcept
-{
-	IMG_Init(int(formats));
-}
-
-void tr::SDL_Image::Deleter::operator()(bool) const noexcept
-{
-	IMG_Quit();
-}
-
-bool tr::SDL_Image::has(ImageFormat format) noexcept
-{
-	return format == ImageFormat::BMP ? true : IMG_Init(0) & int(format);
-}
-
-tr::Version tr::SDL_Image::version() noexcept
-{
-	return std::bit_cast<Version>(*IMG_Linked_Version());
 }
 
 tr::SubBitmap::SubBitmap(const Bitmap& bitmap, RectI2 rect) noexcept
@@ -425,9 +382,9 @@ int tr::BitmapView::pitch() const noexcept
 	return _impl.get()->pitch;
 }
 
-void tr::BitmapView::save(const std::filesystem::path& path, ImageFormat format) const
+void tr::BitmapView::save(const std::filesystem::path& path) const
 {
-	saveBitmap(_impl.get(), path, format);
+	saveBitmap(_impl.get(), path);
 }
 
 tr::Bitmap::Bitmap(SDL_Surface* ptr)
@@ -580,9 +537,9 @@ int tr::Bitmap::pitch() const noexcept
 	return _impl.get()->pitch;
 }
 
-void tr::Bitmap::save(const std::filesystem::path& path, ImageFormat format) const
+void tr::Bitmap::save(const std::filesystem::path& path) const
 {
-	saveBitmap(_impl.get(), path, format);
+	saveBitmap(_impl.get(), path);
 }
 
 tr::Bitmap tr::createCheckerboard(glm::ivec2 size)

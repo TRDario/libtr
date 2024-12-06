@@ -9,13 +9,20 @@
 #include "chrono.hpp"
 #include "keyboard.hpp"
 #include "mouse.hpp"
-#include "window.hpp"
+#include "sdl.hpp"
 
 #include <atomic>
 #include <boost/static_string.hpp>
 
 namespace tr {
 	class EventQueue;
+
+	/******************************************************************************************************************
+	 * Error thrown when an event operation fails.
+	 ******************************************************************************************************************/
+	struct EventError : SDLError {
+		using SDLError::SDLError;
+	};
 
 	/******************************************************************************************************************
 	 * Generates a new valid event type ID.
@@ -360,7 +367,6 @@ namespace tr {
 		void resetInterval(MillisecondsD interval) noexcept;
 
 	  private:
-		static EventQueue*         _eventQueue;
 		int                        _id;
 		bool                       _sendDrawEvents;
 		std::int32_t               _eventID;
@@ -532,11 +538,6 @@ namespace tr {
 	class EventQueue {
 	  public:
 		/**************************************************************************************************************
-		 * Constructs an event queue.
-		 **************************************************************************************************************/
-		EventQueue() noexcept;
-
-		/**************************************************************************************************************
 		 * Polls for an event, returning it from the event queue if it exists.
 		 *
 		 * @return The polled event, if one was found.
@@ -562,7 +563,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the frequency at which draw events are sent at.
 		 *
-		 * @exception SDLError If creating the draw ticker fails.
+		 * @exception EventError If creating the draw ticker fails.
 		 *
 		 * @param frequency The frequency of draw events, or NO_DRAW_EVENTS to stop sending draw events.
 		 **************************************************************************************************************/
@@ -578,7 +579,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Pushes an event to the queue.
 		 *
-		 * @exception SDLError If pushing the event failed.
+		 * @exception EventError If pushing the event failed.
 		 *
 		 * @param event The event to push.
 		 **************************************************************************************************************/
@@ -586,6 +587,10 @@ namespace tr {
 
 	  private:
 		std::optional<Ticker> _drawTicker;
+
+		EventQueue() noexcept = default;
+
+		friend class Window;
 	};
 } // namespace tr
 

@@ -6,9 +6,10 @@
 #pragma once
 #include "renderbuffer.hpp"
 #include "texture.hpp"
-#include "window.hpp"
 
 namespace tr {
+	class Window;
+
 	/******************************************************************************************************************
 	 * Framebuffer depth range.
 	 ******************************************************************************************************************/
@@ -296,17 +297,15 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Special context backbuffer.
+	 * Special window backbuffer.
 	 ******************************************************************************************************************/
 	class Backbuffer : public BasicFramebuffer {
 	  public:
 		virtual glm::ivec2 size() const noexcept;
 
 	  private:
-		const Window& _window;
+		Backbuffer() noexcept;
 
-		Backbuffer(const Window& window) noexcept;
-
-		friend class GLContext;
+		friend class Window;
 	};
 } // namespace tr

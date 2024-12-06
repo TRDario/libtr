@@ -10,24 +10,32 @@
 #include "vertex_buffer.hpp"
 #include "vertex_format.hpp"
 
+struct SDL_Window;
+
 namespace tr {
 	/******************************************************************************************************************
-	 * Error thrown when creating an OpenGL context fails.
+	 * OpenGL context properties.
 	 ******************************************************************************************************************/
-	struct GLContextCreationError : std::runtime_error {
-		using runtime_error::runtime_error;
-	};
+	struct GLContextProperties {
+		/**************************************************************************************************************
+		 * Whether a debug context should be used.
+		 **************************************************************************************************************/
+		bool debugContext = false;
 
-	/******************************************************************************************************************
-	 * Error thrown if setting the V-sync mode failed.
-	 ******************************************************************************************************************/
-	struct VSyncError : SDLError {
-		/******************************************************************************************************************
-		 * Constructs the error.
-		 *
-		 * @exception std::bad_alloc If allocating the error string failed.
-		 ******************************************************************************************************************/
-		VSyncError();
+		/**************************************************************************************************************
+		 * The number of bits to use for backbuffer depth.
+		 **************************************************************************************************************/
+		std::uint8_t depthBits = 0;
+
+		/**************************************************************************************************************
+		 * The number of bits to use for backbuffer stencil.
+		 **************************************************************************************************************/
+		std::uint8_t stencilBits = 0;
+
+		/**************************************************************************************************************
+		 * The number of samples used around a pixel for multisampled anti-aliasing.
+		 **************************************************************************************************************/
+		std::uint8_t multisamples = 0;
 	};
 
 	/******************************************************************************************************************
@@ -349,26 +357,6 @@ namespace tr {
 	class GLContext {
 	  public:
 		/**************************************************************************************************************
-		 * Creates the OpenGL context.
-		 *
-		 * @exception GLContextCreationError
-		 * @parblock
-		 * If creating the context failed, or if initializing GLEW failed.
-		 *
-		 * Program state is reverted to as it was before the constructor call if this exception is thrown
-		 * (strong exception guarantee).
-		 * @endparblock
-		 *
-		 * @param window
-		 * @parblock
-		 * The window to create the context for.
-		 *
-		 * Calling this function on a window with a context already created is considered undefined behavior.
-		 * @endparblock
-		 **************************************************************************************************************/
-		GLContext(Window& window);
-
-		/**************************************************************************************************************
 		 * Gets the context's vendor string.
 		 *
 		 * @return A vendor information C-string.
@@ -399,7 +387,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the context's V-sync mode.
 		 *
-		 * @exception SDLError
+		 * @exception WindowError
 		 * @parblock
 		 * If setting the V-sync mode failed.
 		 *
@@ -620,10 +608,8 @@ namespace tr {
 
 		std::unique_ptr<void, Deleter> _impl;
 
-	  public:
-		/**************************************************************************************************************
-		 * The window backbuffer.
-		 **************************************************************************************************************/
-		Backbuffer backbuffer;
+		GLContext(SDL_Window* window);
+
+		friend class Window;
 	};
 } // namespace tr

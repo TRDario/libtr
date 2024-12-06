@@ -6,10 +6,9 @@
 #pragma once
 #include "bitmap_format.hpp"
 #include "color.hpp"
-#include "dependencies/EnumBitmask.hpp"
 #include "geometry.hpp"
 #include "iostream.hpp"
-#include "sdl.hpp"
+#include <EnumBitmask.hpp>
 
 struct SDL_Surface;
 struct SDL_PixelFormat;
@@ -56,54 +55,6 @@ namespace tr {
 		 * @return An explanatory error message.
 		 **************************************************************************************************************/
 		virtual const char* what() const noexcept;
-	};
-
-	/******************************************************************************************************************
-	 * Supported image formats (bitmask).
-	 ******************************************************************************************************************/
-	enum class ImageFormat {
-		BMP = 0x0,
-		JPG = 0x1,
-		PNG = 0x2
-	};
-	/// @cond IMPLEMENTATION
-	DEFINE_BITMASK_OPERATORS(ImageFormat);
-
-	/// @endcond
-
-	/******************************************************************************************************************
-	 * Image format handler.
-	 ******************************************************************************************************************/
-	class SDL_Image {
-	  public:
-		/**************************************************************************************************************
-		 * Initializes the image format handler.
-		 *
-		 * @param formats A bitmask of formats to support.
-		 **************************************************************************************************************/
-		explicit SDL_Image(ImageFormat formats) noexcept;
-
-		/**************************************************************************************************************
-		 * Determines whether a particular format or set of formats is supported.
-		 *
-		 * @return True if the formats are supported, and false otherwise.
-		 **************************************************************************************************************/
-		static bool has(ImageFormat format) noexcept;
-
-		/**************************************************************************************************************
-		 * Gets the version of the image format handler library.
-		 *
-		 * @return The version of the image format handler library.
-		 **************************************************************************************************************/
-		static Version version() noexcept;
-
-	  private:
-		struct Deleter {
-			/// @private
-			void operator()(bool) const noexcept;
-		};
-
-		Handle<bool, false, Deleter> _handle{true};
 	};
 
 	/******************************************************************************************************************
@@ -607,14 +558,13 @@ namespace tr {
 		int pitch() const noexcept;
 
 		/**************************************************************************************************************
-		 * Saves the bitmap to file.
+		 * Saves the bitmap as a .png file.
 		 *
 		 * @exception BitmapSaveError If saving the bitmap failed.
 		 *
 		 * @param path The path to the file.
-		 * @param format The image format.
 		 **************************************************************************************************************/
-		void save(const std::filesystem::path& path, ImageFormat format) const;
+		void save(const std::filesystem::path& path) const;
 
 	  private:
 		struct Deleter {
@@ -627,7 +577,7 @@ namespace tr {
 		friend class Bitmap;
 		friend class SubBitmap;
 		friend class Cursor;
-		friend class WindowView;
+		friend class Window;
 	};
 
 	/******************************************************************************************************************
@@ -851,14 +801,13 @@ namespace tr {
 		int pitch() const noexcept;
 
 		/**************************************************************************************************************
-		 * Saves the bitmap to file.
+		 * Saves the bitmap as a .png file.
 		 *
 		 * @exception BitmapSaveError If saving the bitmap failed.
 		 *
 		 * @param path The path to the file.
-		 * @param format The image format.
 		 **************************************************************************************************************/
-		void save(const std::filesystem::path& path, ImageFormat format) const;
+		void save(const std::filesystem::path& path) const;
 
 	  private:
 		std::unique_ptr<SDL_Surface, BitmapView::Deleter> _impl;
@@ -870,7 +819,7 @@ namespace tr {
 		friend class MutIt;
 		friend class Cursor;
 		friend class TTFont;
-		friend class WindowView;
+		friend class Window;
 	};
 
 	/******************************************************************************************************************

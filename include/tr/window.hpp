@@ -1,12 +1,11 @@
-/**
- * @file window.hpp
- * @brief Provides application window functionality.
- */
-
 #pragma once
 #include "bitmap.hpp"
-#include "dependencies/magic_enum.hpp"
 #include "display.hpp"
+#include "event.hpp"
+#include "framebuffer.hpp"
+#include "gl_context.hpp"
+#include "sdl.hpp"
+#include <magic_enum/magic_enum.hpp>
 
 struct SDL_Window;
 
@@ -19,7 +18,7 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Error thrown on a window operation failure.
+	 * Error thrown when a window operation fails.
 	 ******************************************************************************************************************/
 	struct WindowError : SDLError {
 		using SDLError::SDLError;
@@ -42,16 +41,6 @@ namespace tr {
 		 * Default flags.
 		 **************************************************************************************************************/
 		DEFAULT = 0x0,
-
-		/**************************************************************************************************************
-		 * The window is visible.
-		 **************************************************************************************************************/
-		SHOWN = 0x4,
-
-		/**************************************************************************************************************
-		 * The window is not visible.
-		 **************************************************************************************************************/
-		HIDDEN = 0x8,
 
 		/**************************************************************************************************************
 		 * The window has no decoration (topbar, etc.).
@@ -108,72 +97,58 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Hit test results.
-	 ******************************************************************************************************************/
-	enum class HitTestResult {
-		/**************************************************************************************************************
-		 * Region is normal and has no special properties.
-		 **************************************************************************************************************/
-		NORMAL,
-
-		/**************************************************************************************************************
-		 * Region can drag entire window.
-		 **************************************************************************************************************/
-		DRAGGABLE,
-
-		/**************************************************************************************************************
-		 * Region can resize from the top left of the window.
-		 **************************************************************************************************************/
-		TOP, // Region can resize from the top of the window.
-
-		/**************************************************************************************************************
-		 * Region can resize from the top right of the window.
-		 **************************************************************************************************************/
-		TR,
-
-		/**************************************************************************************************************
-		 * Region can resize from the right of the window.
-		 **************************************************************************************************************/
-		RIGHT,
-
-		/**************************************************************************************************************
-		 * Region can resize from the bottom right of the window.
-		 **************************************************************************************************************/
-		BR,
-
-		/**************************************************************************************************************
-		 * Region can resize from the bottom of the window.
-		 **************************************************************************************************************/
-		BOTTOM,
-
-		/**************************************************************************************************************
-		 * Region can resize from the bottom left of the window.
-		 **************************************************************************************************************/
-		BL,
-
-		/**************************************************************************************************************
-		 * Region can resize from the left of the window.
-		 **************************************************************************************************************/
-		LEFT
-	};
-
-	/******************************************************************************************************************
-	 * Hit test callback signature type.
-	 ******************************************************************************************************************/
-	using HitTestCB = std::function<HitTestResult(glm::ivec2)>;
-
-	/******************************************************************************************************************
 	 * Sentinel for a centered position on the screen.
 	 ******************************************************************************************************************/
 	inline constexpr glm::ivec2 CENTERED_POS{0x2F'FF'00'00, 0x2F'FF'00'00};
 
-	/******************************************************************************************************************
-	 * Non-owning view over a window.
-	 ******************************************************************************************************************/
-	class WindowView {
+	class Window {
 	  public:
-		/// @private
-		explicit WindowView(SDL_Window* window) noexcept;
+		/**************************************************************************************************************
+		 * Opens a windowed window.
+		 *
+		 * @exception WindowOpenError If opening the window failed.
+		 *
+		 * @param title The title of the window.
+		 * @param size The size of the window in pixels.
+		 * @param pos The position of the window, offset to the top-left corner of the window in pixels.
+		 *            Several special sentinels exist, such as CENTERED_POS, as well as DisplayInfo::centeredPos().
+		 * @param flags The flags of the window.
+		 * @param glProperties The properties of the window's OpenGL context.
+		 **************************************************************************************************************/
+		Window(const char* title, glm::ivec2 size, glm::ivec2 pos = CENTERED_POS,
+			   WindowFlag flags = WindowFlag::DEFAULT, const GLContextProperties& glProperties = {});
+
+		/**************************************************************************************************************
+		 * Opens a borderless fullscreen window.
+		 *
+		 * @exception WindowOpenError If opening the window failed.
+		 *
+		 * @param title The title of the window.
+		 * @param display The display to put the window on.
+		 * @param flags The flags of the window.
+		 * @param glProperties The properties of the window's OpenGL context.
+		 **************************************************************************************************************/
+		Window(const char* title, DisplayInfo display = DEFAULT_DISPLAY, WindowFlag flags = WindowFlag::DEFAULT,
+			   const GLContextProperties& glProperties = {});
+
+		/**************************************************************************************************************
+		 * Opens a fullscreen window.
+		 *
+		 * @exception WindowOpenError If opening the window failed.
+		 *
+		 * @param title The title of the window.
+		 * @param dmode The display mode to use.
+		 * @param display The display to put the window on.
+		 * @param flags The flags of the window.
+		 * @param glProperties The properties of the window's OpenGL context.
+		 **************************************************************************************************************/
+		Window(const char* title, const DisplayMode& dmode, DisplayInfo display = DEFAULT_DISPLAY,
+			   WindowFlag flags = WindowFlag::DEFAULT, const GLContextProperties& glProperties = {});
+
+		/**************************************************************************************************************
+		 * Closes the window.
+		 **************************************************************************************************************/
+		~Window() noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the title of the window.
@@ -187,21 +162,28 @@ namespace tr {
 		 *
 		 * @param title The new title of the window.
 		 **************************************************************************************************************/
-		void setTitle(const char* title) const noexcept;
+		void setTitle(const char* title) noexcept;
+
+		/**************************************************************************************************************
+		 * Sets the title of the window.
+		 *
+		 * @param title The new title of the window.
+		 **************************************************************************************************************/
+		void setTitle(const std::string& title) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the icon of the window.
 		 *
 		 * @param bitmap The new window icon.
 		 **************************************************************************************************************/
-		void setIcon(const Bitmap& bitmap) const noexcept;
+		void setIcon(const Bitmap& bitmap) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the icon of the window.
 		 *
 		 * @param view The new window icon.
 		 **************************************************************************************************************/
-		void setIcon(const BitmapView& view) const noexcept;
+		void setIcon(const BitmapView& view) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the size of the window.
@@ -215,7 +197,7 @@ namespace tr {
 		 *
 		 * @param size The new size of the window in pixels.
 		 **************************************************************************************************************/
-		void setSize(glm::ivec2 size) const noexcept;
+		void setSize(glm::ivec2 size) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the window's fullscreen display mode.
@@ -233,7 +215,7 @@ namespace tr {
 		 *
 		 * @param dmode The new fullscreen mode.
 		 **************************************************************************************************************/
-		void setFullscreenMode(const DisplayMode& dmode) const;
+		void setFullscreenMode(const DisplayMode& dmode);
 
 		/**************************************************************************************************************
 		 * Gets the window's window mode.
@@ -249,7 +231,7 @@ namespace tr {
 		 *
 		 * @param mode The new display mode.
 		 **************************************************************************************************************/
-		void setWindowMode(WindowMode mode) const;
+		void setWindowMode(WindowMode mode);
 
 		/**************************************************************************************************************
 		 * Gets whether the window is resizable.
@@ -263,7 +245,7 @@ namespace tr {
 		 *
 		 * @param resizable Whether the window should be resizable.
 		 **************************************************************************************************************/
-		void setResizable(bool resizable) const noexcept;
+		void setResizable(bool resizable) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the minimum resizable size of the window.
@@ -277,7 +259,7 @@ namespace tr {
 		 *
 		 * @param minSize The minimum resiable size of the window.
 		 **************************************************************************************************************/
-		void setMinSize(glm::ivec2 minSize) const noexcept;
+		void setMinSize(glm::ivec2 minSize) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the maximum resizable size of the window.
@@ -291,21 +273,21 @@ namespace tr {
 		 *
 		 * @param maxSize The maximum resiable size of the window.
 		 **************************************************************************************************************/
-		void setMaxSize(glm::ivec2 maxSize) const noexcept;
+		void setMaxSize(glm::ivec2 maxSize) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the position of the window relative to the top-left corner of the display.
 		 *
 		 * @return The position of the window relative to the top-left corner of the display in pixels.
 		 **************************************************************************************************************/
-		glm::ivec2 pos() const noexcept;
+		glm::ivec2 position() const noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the position of the window relative to the top-left corner of the display.
 		 *
 		 * @param pos The new position of the window relative to the top-left corner of the display in pixels.
 		 **************************************************************************************************************/
-		void setPos(glm::ivec2 pos) const noexcept;
+		void setPosition(glm::ivec2 pos) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets whether the window is bordered.
@@ -319,7 +301,7 @@ namespace tr {
 		 *
 		 * @param bordered Whether the mouse should be bordered.
 		 **************************************************************************************************************/
-		void setBordered(bool bordered) const noexcept;
+		void setBordered(bool bordered) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets whether the window is being shown.
@@ -331,12 +313,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Unhides the window.
 		 **************************************************************************************************************/
-		void show() const noexcept;
+		void show() noexcept;
 
 		/**************************************************************************************************************
 		 * Hides the window.
 		 **************************************************************************************************************/
-		void hide() const noexcept;
+		void hide() noexcept;
 
 		/**************************************************************************************************************
 		 * Gets whether the window is maximized.
@@ -348,12 +330,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Maximizes the window.
 		 **************************************************************************************************************/
-		void maximize() const noexcept;
+		void maximize() noexcept;
 
 		/**************************************************************************************************************
 		 * Restores the window back to its previous size.
 		 **************************************************************************************************************/
-		void restore() const noexcept;
+		void restore() noexcept;
 
 		/**************************************************************************************************************
 		 * Gets whether the window is minimized.
@@ -365,7 +347,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Minimizes the window.
 		 **************************************************************************************************************/
-		void minimize() const noexcept;
+		void minimize() noexcept;
 
 		/**************************************************************************************************************
 		 * Gets whether the window has input focus.
@@ -377,7 +359,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Raises the window above the rest and gives it input focus.
 		 **************************************************************************************************************/
-		void raise() const noexcept;
+		void raise() noexcept;
 
 		/**************************************************************************************************************
 		 * Gets whether the mouse is grabbed and confined to this window.
@@ -391,7 +373,7 @@ namespace tr {
 		 *
 		 * @param grab Whether the mouse should be grabbed.
 		 **************************************************************************************************************/
-		void setMouseGrab(bool grab) const noexcept;
+		void setMouseGrab(bool grab) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the area the mouse is confined to when this window has focus.
@@ -405,12 +387,12 @@ namespace tr {
 		 *
 		 * @param rect The confinement rectangle.
 		 **************************************************************************************************************/
-		void setMouseConfines(const RectI2& rect) const noexcept;
+		void setMouseConfines(const RectI2& rect) noexcept;
 
 		/**************************************************************************************************************
 		 * Resets the area the mouse is confined to.
 		 **************************************************************************************************************/
-		void resetMouseConfines() const noexcept;
+		void resetMouseConfines() noexcept;
 
 		/**************************************************************************************************************
 		 * Gets whether the window is always on top.
@@ -424,7 +406,7 @@ namespace tr {
 		 *
 		 * @param alwaysOnTop Whether the window should be always on top.
 		 **************************************************************************************************************/
-		void setAlwaysOnTop(bool alwaysOnTop) const noexcept;
+		void setAlwaysOnTop(bool alwaysOnTop) noexcept;
 
 		/**************************************************************************************************************
 		 * Flashes the window to get the user's attention.
@@ -433,7 +415,7 @@ namespace tr {
 		 *
 		 * @param operation The type of flashing to perform.
 		 **************************************************************************************************************/
-		void flash(FlashOperation operation) const;
+		void flash(FlashOperation operation);
 
 		/**************************************************************************************************************
 		 * Gets the opacity of the window.
@@ -447,92 +429,87 @@ namespace tr {
 		 *
 		 * @param opacity The opacity of the window [0.0, 1.0].
 		 **************************************************************************************************************/
-		void setOpacity(float opacity) const noexcept;
+		void setOpacity(float opacity) noexcept;
 
 		/**************************************************************************************************************
 		 * Swaps the display's front and back buffers.
 		 **************************************************************************************************************/
-		void swap() const noexcept;
+		void swap() noexcept;
 
-	  protected:
-		/// @private
-		// The underlying SDL window pointer.
-		SDL_Window* _impl;
+		/**************************************************************************************************************
+		 * Gets the window's OpenGL context.
+		 *
+		 * @return A reference to the window's OpenGL context.
+		 **************************************************************************************************************/
+		GLContext& glContext() noexcept;
 
-		friend class Event;
+		/**************************************************************************************************************
+		 * Gets the window's OpenGL context.
+		 *
+		 * @return A reference to the window's OpenGL context.
+		 **************************************************************************************************************/
+		const GLContext& glContext() const noexcept;
+
+		/**************************************************************************************************************
+		 * Gets the window's event queue.
+		 *
+		 * @return A reference to the window's event queue.
+		 **************************************************************************************************************/
+		EventQueue& eventQueue() noexcept;
+
+		/**************************************************************************************************************
+		 * Gets the window's event queue.
+		 *
+		 * @return A reference to the window's event queue.
+		 **************************************************************************************************************/
+		const EventQueue& eventQueue() const noexcept;
+
+		/**************************************************************************************************************
+		 * Gets the window's backbuffer.
+		 *
+		 * @return A reference to the window's backbuffer.
+		 **************************************************************************************************************/
+		Backbuffer& backbuffer() noexcept;
+
+		/**************************************************************************************************************
+		 * Gets the window's backbuffer.
+		 *
+		 * @return A reference to the window's backbuffer.
+		 **************************************************************************************************************/
+		const Backbuffer& backbuffer() const noexcept;
+
+	  private:
+		/// @cond IMPLEMENTATION
+		struct SDLDeleter {
+			void operator()(bool) const noexcept;
+		};
+		struct WindowDeleter {
+			void operator()(SDL_Window* ptr) const noexcept;
+		};
+		/// @endcond
+
+		Handle<bool, false, SDLDeleter>            _sdl{true};
+		std::unique_ptr<SDL_Window, WindowDeleter> _impl;
+		EventQueue                                 _eventQueue;
+		GLContext                                  _glContext;
+		Backbuffer                                 _backbuffer;
 	};
 
-	/**************************************************************************************************************
-	 * Application window.
+	/******************************************************************************************************************
+	 * Gets whether the window was opened.
 	 *
-	 * No instances of this class can be created before initializing SDL.
-	 **************************************************************************************************************/
-	class Window : public WindowView {
-	  public:
-		/**************************************************************************************************************
-		 * Opens a window.
-		 *
-		 * @exception WindowOpenError If creating the window failed.
-		 *
-		 * @param title The title of the window.
-		 * @param size The size of the window in pixels.
-		 * @param pos The position of the window, offset to the top-left corner of the window in pixels.
-		 *            Several special sentinels exist, such as CENTERED_POS, as well as DisplayInfo::centeredPos().
-		 * @param flags The flags of the window.
-		 **************************************************************************************************************/
-		Window(const char* title, glm::ivec2 size, glm::ivec2 pos = CENTERED_POS,
-			   WindowFlag flags = WindowFlag::DEFAULT);
+	 * @return True if the window was opened, and false otherwise.
+	 ******************************************************************************************************************/
+	bool windowOpened() noexcept;
 
-		/**************************************************************************************************************
-		 * Opens a borderless fullscreen window.
-		 *
-		 * @exception WindowOpenError If creating the window failed.
-		 *
-		 * @param title The title of the window.
-		 * @param display The display to put the window on.
-		 * @param flags The flags of the window.
-		 **************************************************************************************************************/
-		Window(const char* title, DisplayInfo display = DEFAULT_DISPLAY, WindowFlag flags = WindowFlag::DEFAULT);
-
-		/**************************************************************************************************************
-		 * Opens a fullscreen window.
-		 *
-		 * @exception WindowOpenError If creating the window failed.
-		 * @exception WindowError If setting the fullscreen mode failed.
-		 *
-		 * @param title The title of the window.
-		 * @param dmode The display mode to use.
-		 * @param display The display to put the window on.
-		 * @param flags The flags of the window.
-		 **************************************************************************************************************/
-		Window(const char* title, const DisplayMode& dmode, DisplayInfo display = DEFAULT_DISPLAY,
-			   WindowFlag flags = WindowFlag::DEFAULT);
-
-		/**************************************************************************************************************
-		 * Move-constructs a window.
-		 *
-		 * The assigned-from window will be left in a state on which operations are not allowed to be performed.
-		 **************************************************************************************************************/
-		Window(Window&&) noexcept;
-
-		/**************************************************************************************************************
-		 * Destroys the window.
-		 *
-		 * Using any views of this window after destruction is undefined behavior.
-		 **************************************************************************************************************/
-		~Window() noexcept;
-
-		/**************************************************************************************************************
-		 * Move-assigns the window.
-		 *
-		 * The assigned-from window will be left in a state on which operations are not allowed to be performed.
-		 *
-		 * @return A reference to the assigned window.
-		 **************************************************************************************************************/
-		Window& operator=(Window&&) noexcept;
-
-		friend class GLContext;
-	};
+	/******************************************************************************************************************
+	 * Gets a reference to the window.
+	 *
+	 * A failed assertion may be triggered if the window hasn't been opened.
+	 *
+	 * @return A reference to the window.
+	 ******************************************************************************************************************/
+	Window& window() noexcept;
 } // namespace tr
 
 /// @cond IMPLEMENTATION

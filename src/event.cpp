@@ -1,4 +1,5 @@
 #include "../include/tr/event.hpp"
+#include "../include/tr/window.hpp"
 
 #include <SDL2/SDL.h>
 
@@ -30,8 +31,7 @@ tr::Event::operator KeyDownEvent() const noexcept
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
 	assert(type() == EventType::KEY_DOWN);
-	return {.win    = WindowView{SDL_GetWindowFromID(sdl.key.windowID)},
-			.repeat = bool(sdl.key.repeat),
+	return {.repeat = bool(sdl.key.repeat),
 			.key{.scan = Scancode::Enum(sdl.key.keysym.scancode),
 				 .key  = Keycode::Enum(sdl.key.keysym.sym),
 				 .mods = Keymods(sdl.key.keysym.mod)}};
@@ -42,8 +42,7 @@ tr::Event::operator KeyUpEvent() const noexcept
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
 	assert(type() == EventType::KEY_UP);
-	return {.win = WindowView{SDL_GetWindowFromID(sdl.key.windowID)},
-			.key = {.scan = Scancode::Enum(sdl.key.keysym.scancode),
+	return {.key = {.scan = Scancode::Enum(sdl.key.keysym.scancode),
 					.key  = Keycode::Enum(sdl.key.keysym.sym),
 					.mods = Keymods(sdl.key.keysym.mod)}};
 }
@@ -53,7 +52,7 @@ tr::Event::operator TextEditEvent() const noexcept
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
 	assert(type() == EventType::TEXT_EDIT);
-	TextEditEvent event{.win = WindowView{SDL_GetWindowFromID(sdl.edit.windowID)}, .text = sdl.edit.text};
+	TextEditEvent event{.text = sdl.edit.text};
 	event.selected = {event.text.data() + sdl.edit.start, std::size_t(sdl.edit.length)};
 	return event;
 }
@@ -63,7 +62,7 @@ tr::Event::operator TextInputEvent() const noexcept
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
 	assert(type() == EventType::TEXT_INPUT);
-	return {.win = WindowView{SDL_GetWindowFromID(sdl.text.windowID)}, .text = sdl.text.text};
+	return {.text = sdl.text.text};
 }
 
 tr::Event::operator MouseMotionEvent() const noexcept
@@ -71,8 +70,7 @@ tr::Event::operator MouseMotionEvent() const noexcept
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
 	assert(type() == EventType::MOUSE_MOTION);
-	return {.win     = WindowView{SDL_GetWindowFromID(sdl.motion.windowID)},
-			.buttons = MouseButtonMask(sdl.motion.state),
+	return {.buttons = MouseButtonMask(sdl.motion.state),
 			.pos     = {sdl.motion.x, sdl.motion.y},
 			.delta   = {sdl.motion.xrel, sdl.motion.yrel}};
 }
@@ -82,10 +80,7 @@ tr::Event::operator MouseDownEvent() const noexcept
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
 	assert(type() == EventType::MOUSE_DOWN);
-	return {.win    = WindowView{SDL_GetWindowFromID(sdl.button.windowID)},
-			.button = MouseButton(sdl.button.button),
-			.clicks = sdl.button.clicks,
-			.pos    = {sdl.button.x, sdl.button.y}};
+	return {.button = MouseButton(sdl.button.button), .clicks = sdl.button.clicks, .pos = {sdl.button.x, sdl.button.y}};
 }
 
 tr::Event::operator MouseUpEvent() const noexcept
@@ -93,9 +88,7 @@ tr::Event::operator MouseUpEvent() const noexcept
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
 	assert(type() == EventType::MOUSE_UP);
-	return {.win    = WindowView{SDL_GetWindowFromID(sdl.button.windowID)},
-			.button = MouseButton(sdl.button.button),
-			.pos    = {sdl.button.x, sdl.button.y}};
+	return {.button = MouseButton(sdl.button.button), .pos = {sdl.button.x, sdl.button.y}};
 }
 
 tr::Event::operator MouseWheelEvent() const noexcept
@@ -103,9 +96,7 @@ tr::Event::operator MouseWheelEvent() const noexcept
 	auto& sdl{*(const SDL_Event*)(&_impl)};
 
 	assert(type() == EventType::MOUSE_WHEEL);
-	return {.win   = WindowView{SDL_GetWindowFromID(sdl.wheel.windowID)},
-			.delta = {sdl.wheel.preciseX, sdl.wheel.preciseY},
-			.mousePos{sdl.wheel.mouseX, sdl.wheel.mouseY}};
+	return {.delta = {sdl.wheel.preciseX, sdl.wheel.preciseY}, .mousePos{sdl.wheel.mouseX, sdl.wheel.mouseY}};
 }
 
 tr::Event::operator WindowEvent() const noexcept
@@ -115,40 +106,38 @@ tr::Event::operator WindowEvent() const noexcept
 	assert(type() == EventType::WINDOW);
 	switch (sdl.window.event) {
 	case SDL_WINDOWEVENT_ENTER:
-		return WindowEnterEvent{.win = WindowView{SDL_GetWindowFromID(sdl.window.windowID)}};
+		return WindowEnterEvent{};
 	case SDL_WINDOWEVENT_LEAVE:
-		return WindowLeaveEvent{.win = WindowView{SDL_GetWindowFromID(sdl.window.windowID)}};
+		return WindowLeaveEvent{};
 	case SDL_WINDOWEVENT_SHOWN:
-		return WindowShowEvent{.win = WindowView{SDL_GetWindowFromID(sdl.window.windowID)}};
+		return WindowShowEvent{};
 	case SDL_WINDOWEVENT_HIDDEN:
-		return WindowHideEvent{.win = WindowView{SDL_GetWindowFromID(sdl.window.windowID)}};
+		return WindowHideEvent{};
 	case SDL_WINDOWEVENT_EXPOSED:
-		return WindowExposeEvent{.win = WindowView{SDL_GetWindowFromID(sdl.window.windowID)}};
+		return WindowExposeEvent{};
 	case SDL_WINDOWEVENT_MOVED:
-		return WindowMotionEvent{.win = WindowView{SDL_GetWindowFromID(sdl.window.windowID)},
-								 .pos = {sdl.window.data1, sdl.window.data2}};
+		return WindowMotionEvent{.pos = {sdl.window.data1, sdl.window.data2}};
 	case SDL_WINDOWEVENT_RESIZED:
-		return WindowResizeEvent{.win  = WindowView{SDL_GetWindowFromID(sdl.window.windowID)},
-								 .size = {sdl.window.data1, sdl.window.data2}};
+		return WindowResizeEvent{.size = {sdl.window.data1, sdl.window.data2}};
 	case SDL_WINDOWEVENT_SIZE_CHANGED:
-		return WindowSizeChangeEvent{.win = WindowView{SDL_GetWindowFromID(sdl.window.windowID)}};
+		return WindowSizeChangeEvent{};
 	case SDL_WINDOWEVENT_MINIMIZED:
-		return WindowMinimizeEvent{.win = WindowView{SDL_GetWindowFromID(sdl.window.windowID)}};
+		return WindowMinimizeEvent{};
 	case SDL_WINDOWEVENT_MAXIMIZED:
-		return WindowMaximizeEvent{.win = WindowView{SDL_GetWindowFromID(sdl.window.windowID)}};
+		return WindowMaximizeEvent{};
 	case SDL_WINDOWEVENT_RESTORED:
-		return WindowRestoreEvent{.win = WindowView{SDL_GetWindowFromID(sdl.window.windowID)}};
+		return WindowRestoreEvent{};
 	case SDL_WINDOWEVENT_FOCUS_GAINED:
-		return WindowGainFocusEvent{.win = WindowView{SDL_GetWindowFromID(sdl.window.windowID)}};
+		return WindowGainFocusEvent{};
 	case SDL_WINDOWEVENT_FOCUS_LOST:
-		return WindowLoseFocusEvent{.win = WindowView{SDL_GetWindowFromID(sdl.window.windowID)}};
+		return WindowLoseFocusEvent{};
 	case SDL_WINDOWEVENT_TAKE_FOCUS:
 		SDL_SetWindowInputFocus(SDL_GetWindowFromID(sdl.window.windowID));
 		break;
 	case SDL_WINDOWEVENT_CLOSE:
-		return WindowCloseEvent{.win = WindowView{SDL_GetWindowFromID(sdl.window.windowID)}};
+		return WindowCloseEvent{};
 	case SDL_WINDOWEVENT_HIT_TEST:
-		return HitTestEvent{.win = WindowView{SDL_GetWindowFromID(sdl.window.windowID)}};
+		return HitTestEvent{};
 	}
 #if defined(_MSC_VER) && !defined(__clang__) // MSVC
 	__assume(false);
@@ -179,20 +168,18 @@ tr::CustomEventBase tr::Event::getCustomEventBase() const noexcept
 			.any2 = any2 != nullptr ? std::move(*any2) : std::any{}};
 }
 
-tr::EventQueue* tr::Ticker::_eventQueue{nullptr};
-
 tr::Ticker::Ticker(std::int32_t id, MillisecondsD interval, std::uint32_t ticks)
 	: Ticker{id, interval, ticks, false}
 {
-	assert(_eventQueue != nullptr);
 }
 
 tr::Ticker::Ticker(std::int32_t id, MillisecondsD interval, std::uint32_t ticks, bool sendDrawEvents)
 	: _sendDrawEvents{sendDrawEvents}, _eventID{id}, _ticksLeft{ticks}, _interval{interval}
 {
+	assert(windowOpened());
 	_id = SDL_AddTimer(interval.count(), callback, this);
 	if (_id == 0) {
-		throw SDLError{"Failed to create event ticker"};
+		throw EventError{"Failed to create event ticker"};
 	}
 }
 
@@ -205,10 +192,10 @@ std::uint32_t tr::Ticker::callback(std::uint32_t interval, void* ptr) noexcept
 {
 	auto& self = *(Ticker*)(ptr);
 	if (self._sendDrawEvents) {
-		_eventQueue->pushEvent(CustomEventBase{.type = EventType::DRAW});
+		window().eventQueue().pushEvent(CustomEventBase{.type = EventType::DRAW});
 	}
 	else {
-		_eventQueue->pushEvent(CustomEventBase{.type = EventType::TICK, .uint = std::uint32_t(self._eventID)});
+		window().eventQueue().pushEvent(CustomEventBase{.type = EventType::TICK, .uint = std::uint32_t(self._eventID)});
 	}
 	if (self._ticksLeft != TICK_FOREVER && --self._ticksLeft == 0) {
 		return 0;
@@ -223,11 +210,6 @@ std::uint32_t tr::Ticker::callback(std::uint32_t interval, void* ptr) noexcept
 			return std::floor(self._accumulatedTimerError.count());
 		}
 	}
-}
-
-tr::EventQueue::EventQueue() noexcept
-{
-	Ticker::_eventQueue = this;
 }
 
 std::optional<tr::Event> tr::EventQueue::pollEvent() noexcept
@@ -277,6 +259,6 @@ void tr::EventQueue::sendTextInputEvents(bool arg) noexcept
 void tr::EventQueue::pushEvent(const Event& event)
 {
 	if (SDL_PushEvent((SDL_Event*)(&event)) < 0) {
-		throw SDLError{"Failed to push event to event queue"};
+		throw EventError{"Failed to push event to event queue"};
 	}
 }

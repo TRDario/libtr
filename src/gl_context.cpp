@@ -1,9 +1,11 @@
 #include "../include/tr/gl_context.hpp"
+#include "../include/tr/window.hpp"
 
 #include "../include/tr/function.hpp"
 
 #include <GL/glew.h>
 #include <SDL2/SDL.h>
+#include <format>
 
 namespace tr {
 	// Initializes the GL context and GLEW.
@@ -12,28 +14,24 @@ namespace tr {
 
 SDL_GLContext tr::createContext(SDL_Window* window)
 {
-	std::unique_ptr<void, FunctionCaller<&SDL_GL_DeleteContext>> context{SDL_GL_CreateContext(window)};
+	SDL_GLContext context{SDL_GL_CreateContext(window)};
 	if (context == nullptr) {
-		throw GLContextCreationError{std::format("Failed to create OpenGL context: {}", SDL_GetError())};
+		throw WindowOpenError{std::format("Failed to create OpenGL context: {}", SDL_GetError())};
 	}
 
 	glewExperimental = true;
 	GLenum glewError;
 	if ((glewError = glewInit()) != GLEW_OK) {
-		throw GLContextCreationError{
-			std::format("Failed to initialize GLEW: {}", (const char*)(glewGetErrorString(glewError)))};
+		SDL_GL_DeleteContext(context);
+		auto error{(const char*)(glewGetErrorString(glewError))};
+		throw WindowOpenError{std::format("Failed to initialize GLEW: {}", error)};
 	}
 
-	return context.release();
+	return context;
 }
 
-tr::VSyncError::VSyncError()
-	: SDLError{"Failed to set V-sync mode"}
-{
-}
-
-tr::GLContext::GLContext(Window& window)
-	: _impl{createContext(window._impl)}, backbuffer{window}
+tr::GLContext::GLContext(SDL_Window* window)
+	: _impl{createContext(window)}
 {
 }
 
@@ -65,7 +63,7 @@ tr::VSync tr::GLContext::vsync() const noexcept
 void tr::GLContext::setVSync(VSync vsync)
 {
 	if (SDL_GL_SetSwapInterval(int(vsync)) < 0) {
-		throw VSyncError{};
+		throw WindowError{"Failed to set V-sync mode"};
 	}
 }
 

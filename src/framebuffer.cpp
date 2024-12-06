@@ -1,4 +1,5 @@
 #include "../include/tr/framebuffer.hpp"
+#include "../include/tr/window.hpp"
 
 #include "bitmap_to_gl_format.hpp"
 
@@ -220,12 +221,12 @@ void tr::Framebuffer::clampViewport() noexcept
 	}
 }
 
-tr::Backbuffer::Backbuffer(const Window& window) noexcept
-	: BasicFramebuffer{0, {{}, window.size()}, {0.0, 1.0}}, _window{window}
+tr::Backbuffer::Backbuffer() noexcept
+	: BasicFramebuffer{0, {{}, window().size()}, {0.0, 1.0}}
 {
 }
 
 glm::ivec2 tr::Backbuffer::size() const noexcept
 {
-	return _window.size();
+	return window().size();
 }
