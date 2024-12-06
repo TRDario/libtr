@@ -1,12 +1,6 @@
-/**
- * @file display.hpp
- * @brief Provides ways of getting display information.
- */
-
 #pragma once
 #include "bitmap_format.hpp"
 #include "geometry.hpp"
-
 #include <optional>
 
 namespace tr {
@@ -54,15 +48,14 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates an information object for a display.
 		 *
-		 * @param id The ID of the display. Must be in the range (0, displayCount()), otherwise a failed assertion
-		 *			 may be raised.
+		 * @param[in] id The ID of the display. Must be in the range (0, displayCount()).
 		 **************************************************************************************************************/
 		DisplayInfo(int id) noexcept;
 
 		/**************************************************************************************************************
 		 * Tries to return a display information object from global coordinates.
 		 *
-		 * @param globalCoords The global coordinates.
+		 * @param[in] globalCoords The global coordinates.
 		 *
 		 * @return std::nullopt if the coordinates are not in the bounds of any display, or display information of the
 		 *         display the coordinates are in otherwise.
@@ -86,7 +79,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Converts global coordinates to local coordinates on the display.
 		 *
-		 * @param globalCoords The global coordinates to convert.
+		 * @param[in] globalCoords The global coordinates to convert.
 		 *
 		 * @return The corresponding local coordinates.
 		 **************************************************************************************************************/
@@ -95,7 +88,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Converts local coordinates on the display to global coordinates.
 		 *
-		 * @param localCoords The local coordinates on the display to convert.
+		 * @param[in] localCoords The local coordinates on the display to convert.
 		 *
 		 * @return The corresponding global coordinates.
 		 **************************************************************************************************************/
@@ -111,8 +104,8 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Gets one of the display's display modes.
 		 *
-		 * @param index The index of the display mode, HIGHEST_MODE, or DESKTOP_MODE. If an index, it must be in the
-		 *              range [0, displayModeCount), otherwise a failed assertion may be triggered.
+		 * @param[in] index The index of the display mode, HIGHEST_MODE, or DESKTOP_MODE. If an index, it must be in the
+		 *              	range [0, displayModeCount).
 		 *
 		 * @return The display at the requested index.
 		 **************************************************************************************************************/
@@ -121,7 +114,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Tries to get the closest compatible display mode to the desired one.
 		 *
-		 * @param mode The mode to look for.
+		 * @param[in] mode The mode to look for.
 		 *
 		 * @return The closest compatible display mode or std::nullopt if no display is close enough.
 		 **************************************************************************************************************/

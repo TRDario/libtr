@@ -1,8 +1,3 @@
-/**
- * @file chrono.hpp
- * @brief Provides chrono typedefs.
- */
-
 #pragma once
 #include <chrono>
 

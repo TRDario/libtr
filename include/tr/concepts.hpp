@@ -1,12 +1,6 @@
-/**
- * @file concepts.hpp
- * @brief Provides miscellaneous concepts.
- */
-
 #pragma once
-#include "../include/tr/dependencies/half.hpp"
-
 #include <concepts>
+#include <half.hpp>
 
 namespace tr {
 	/// @private
