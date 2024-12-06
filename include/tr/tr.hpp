@@ -1,8 +1,3 @@
-/**
- * @file tr.hpp
- * @brief Includes the trlib library
- */
-
 #pragma once
 #include "angle.hpp"
 #include "audio_buffer.hpp"
@@ -11,6 +6,7 @@
 #include "benchmark.hpp"
 #include "bitmap.hpp"
 #include "bitmap_format.hpp"
+#include "bitmap_iterators.hpp"
 #include "chrono.hpp"
 #include "color.hpp"
 #include "color_cast.hpp"
@@ -46,3 +42,7 @@
 #include "vertex_buffer.hpp"
 #include "vertex_format.hpp"
 #include "window.hpp"
+
+/// Namespace containing all libtr functionality.
+namespace tr {
+}
