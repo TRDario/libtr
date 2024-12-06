@@ -92,7 +92,7 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Owning audio buffer.
 	 *
-	 * An audio context must be open to instantiate and use objects of this type.
+	 * This class cannot be instantiated before the audio system is initialized.
 	 ******************************************************************************************************************/
 	class AudioBuffer {
 	  public:
