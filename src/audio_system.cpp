@@ -1,5 +1,4 @@
 #include "../include/tr/audio_system.hpp"
-
 #include <AL/alc.h>
 #include <format>
 

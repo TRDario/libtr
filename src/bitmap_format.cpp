@@ -1,5 +1,4 @@
 #include "../include/tr/bitmap_format.hpp"
-
 #include <SDL2/SDL.h>
 
 tr::BitmapFormat::BitmapFormat(Type type) noexcept

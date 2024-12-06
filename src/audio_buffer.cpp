@@ -1,7 +1,5 @@
 #include "../include/tr/audio_buffer.hpp"
-
 #include "../include/tr/ranges.hpp"
-
 #include <AL/al.h>
 #include <format>
 #include <sndfile.h>

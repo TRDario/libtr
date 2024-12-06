@@ -1,5 +1,4 @@
 #include "../include/tr/benchmark.hpp"
-
 #include <algorithm>
 #include <atomic>
 #include <cassert>

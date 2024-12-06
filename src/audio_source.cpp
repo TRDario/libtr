@@ -1,5 +1,4 @@
 #include "../include/tr/audio_source.hpp"
-
 #include <AL/al.h>
 #include <AL/alext.h>
 #include <glm/ext.hpp>
