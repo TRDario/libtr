@@ -1,5 +1,4 @@
 #include "../include/tr/keyboard.hpp"
-
 #include <SDL2/SDL.h>
 #include <cassert>
 

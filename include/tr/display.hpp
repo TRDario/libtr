@@ -4,8 +4,7 @@
 #include <optional>
 
 namespace tr {
-	/** @defgroup display_mode Display Modes
-	 *  Functionality for querying and expressing display modes.
+	/** @addtogroup input
 	 *  @{
 	 */
 

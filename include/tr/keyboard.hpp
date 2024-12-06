@@ -1,8 +1,3 @@
-/**
- * @file keyboard.hpp
- * @brief Provides keyboard functionality.
- */
-
 #pragma once
 #include <EnumBitmask.hpp>
 #include <cstdint>
@@ -10,6 +5,10 @@
 
 namespace tr {
 	class Keycode;
+
+	/** @addtogroup input
+	 *  @{
+	 */
 
 	/******************************************************************************************************************
 	 * Physical keycode.
@@ -134,14 +133,14 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs a keycode from the base enumerator.
 		 *
-		 * @param base The base enumerator.
+		 * @param[in] base The base enumerator.
 		 **************************************************************************************************************/
 		Scancode(Enum base) noexcept;
 
 		/**************************************************************************************************************
 		 * Constructs a scancode by matching it against a key name string.
 		 *
-		 * @param name A key name string. If the name isn't recognised, the keycode will be UNKNOWN.
+		 * @param[in] name A key name string. If the name isn't recognised, the keycode will be UNKNOWN.
 		 **************************************************************************************************************/
 		Scancode(const char* name) noexcept;
 
@@ -305,14 +304,14 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs a keycode from the base enumerator.
 		 *
-		 * @param base The base enumerator.
+		 * @param[in] base The base enumerator.
 		 **************************************************************************************************************/
 		Keycode(Enum base) noexcept;
 
 		/**************************************************************************************************************
 		 * Constructs a scancode by matching it against a key name string.
 		 *
-		 * @param name A key name string. If the name isn't recognised, the keycode will be UNKNOWN.
+		 * @param[in] name A key name string. If the name isn't recognised, the keycode will be UNKNOWN.
 		 **************************************************************************************************************/
 		Keycode(const char* name) noexcept;
 
@@ -381,6 +380,11 @@ namespace tr {
 		Keymods mods;
 	};
 
+	/******************************************************************************************************************
+	 * Keyboard functionality.
+	 *
+	 * This class cannot be directly instantiated.
+	 ******************************************************************************************************************/
 	class Keyboard {
 	  public:
 		/**************************************************************************************************************
@@ -405,4 +409,5 @@ namespace tr {
 		friend class Window;
 	};
 
+	/// @}
 } // namespace tr

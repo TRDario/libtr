@@ -11,8 +11,15 @@
 struct SDL_Window;
 
 namespace tr {
+	/** @defgroup input Input
+	 *  Input and display functionality.
+	 *
+	 *  An instance of Window must be created before any other functionality from this section can be used.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
-	 * Error thrown when opening a window failed.
+	 * Error thrown when opening a window fails.
 	 ******************************************************************************************************************/
 	struct WindowOpenError : std::runtime_error {
 		using runtime_error::runtime_error;
@@ -102,19 +109,26 @@ namespace tr {
 	 ******************************************************************************************************************/
 	inline constexpr glm::ivec2 CENTERED_POS{0x2F'FF'00'00, 0x2F'FF'00'00};
 
+	/******************************************************************************************************************
+	 * Application window.
+	 *
+	 * Only one instance of the audio system is allowed to exist at a time.
+	 ******************************************************************************************************************/
 	class Window {
 	  public:
 		/**************************************************************************************************************
 		 * Opens a windowed window.
 		 *
-		 * @exception WindowOpenError If opening the window failed.
+		 * The window starts hidden and show() must be called.
 		 *
-		 * @param title The title of the window.
-		 * @param size The size of the window in pixels.
-		 * @param pos The position of the window, offset to the top-left corner of the window in pixels.
-		 *            Several special sentinels exist, such as CENTERED_POS, as well as DisplayInfo::centeredPos().
-		 * @param flags The flags of the window.
-		 * @param glProperties The properties of the window's OpenGL context.
+		 * @exception WindowOpenError If opening the window fails.
+		 *
+		 * @param[in] title The title of the window.
+		 * @param[in] size The size of the window in pixels.
+		 * @param[in] pos The position of the window, offset to the top-left corner of the window in pixels.
+		 *                Several special sentinels exist, such as CENTERED_POS, as well as DisplayInfo::centeredPos().
+		 * @param[in] flags The flags of the window.
+		 * @param[in] glProperties The properties of the window's OpenGL context.
 		 **************************************************************************************************************/
 		Window(const char* title, glm::ivec2 size, glm::ivec2 pos = CENTERED_POS,
 			   WindowFlag flags = WindowFlag::DEFAULT, const GLContextProperties& glProperties = {});
@@ -122,12 +136,14 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Opens a borderless fullscreen window.
 		 *
-		 * @exception WindowOpenError If opening the window failed.
+		 * The window starts hidden and show() must be called.
 		 *
-		 * @param title The title of the window.
-		 * @param display The display to put the window on.
-		 * @param flags The flags of the window.
-		 * @param glProperties The properties of the window's OpenGL context.
+		 * @exception WindowOpenError If opening the window fails.
+		 *
+		 * @param[in] title The title of the window.
+		 * @param[in] display The display to put the window on.
+		 * @param[in] flags The flags of the window.
+		 * @param[in] glProperties The properties of the window's OpenGL context.
 		 **************************************************************************************************************/
 		Window(const char* title, DisplayInfo display = DEFAULT_DISPLAY, WindowFlag flags = WindowFlag::DEFAULT,
 			   const GLContextProperties& glProperties = {});
@@ -135,13 +151,15 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Opens a fullscreen window.
 		 *
-		 * @exception WindowOpenError If opening the window failed.
+		 * The window starts hidden and show() must be called.
 		 *
-		 * @param title The title of the window.
-		 * @param dmode The display mode to use.
-		 * @param display The display to put the window on.
-		 * @param flags The flags of the window.
-		 * @param glProperties The properties of the window's OpenGL context.
+		 * @exception WindowOpenError If opening the window fails.
+		 *
+		 * @param[in] title The title of the window.
+		 * @param[in] dmode The display mode to use.
+		 * @param[in] display The display to put the window on.
+		 * @param[in] flags The flags of the window.
+		 * @param[in] glProperties The properties of the window's OpenGL context.
 		 **************************************************************************************************************/
 		Window(const char* title, const DisplayMode& dmode, DisplayInfo display = DEFAULT_DISPLAY,
 			   WindowFlag flags = WindowFlag::DEFAULT, const GLContextProperties& glProperties = {});
@@ -161,28 +179,28 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the title of the window.
 		 *
-		 * @param title The new title of the window.
+		 * @param[in] title The new title of the window.
 		 **************************************************************************************************************/
 		void setTitle(const char* title) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the title of the window.
 		 *
-		 * @param title The new title of the window.
+		 * @param[in] title The new title of the window.
 		 **************************************************************************************************************/
 		void setTitle(const std::string& title) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the icon of the window.
 		 *
-		 * @param bitmap The new window icon.
+		 * @param[in] bitmap The new window icon.
 		 **************************************************************************************************************/
 		void setIcon(const Bitmap& bitmap) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the icon of the window.
 		 *
-		 * @param view The new window icon.
+		 * @param[in] view The new window icon.
 		 **************************************************************************************************************/
 		void setIcon(const BitmapView& view) noexcept;
 
@@ -196,7 +214,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the size of the window.
 		 *
-		 * @param size The new size of the window in pixels.
+		 * @param[in] size The new size of the window in pixels.
 		 **************************************************************************************************************/
 		void setSize(glm::ivec2 size) noexcept;
 
@@ -212,9 +230,9 @@ namespace tr {
 		 *
 		 * This function sets the window to fullscreen if it isn't already.
 		 *
-		 * @exception WindowError If setting the fullscreen mode failed.
+		 * @exception WindowError If setting the fullscreen mode fails.
 		 *
-		 * @param dmode The new fullscreen mode.
+		 * @param[in] dmode The new fullscreen mode.
 		 **************************************************************************************************************/
 		void setFullscreenMode(const DisplayMode& dmode);
 
@@ -228,9 +246,9 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the window's window mode.
 		 *
-		 * @exception WindowError If setting the window mode failed.
+		 * @exception WindowError If setting the window mode fails.
 		 *
-		 * @param mode The new display mode.
+		 * @param[in] mode The new display mode.
 		 **************************************************************************************************************/
 		void setWindowMode(WindowMode mode);
 
@@ -244,7 +262,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets whether the window is resizable.
 		 *
-		 * @param resizable Whether the window should be resizable.
+		 * @param[in] resizable Whether the window should be resizable.
 		 **************************************************************************************************************/
 		void setResizable(bool resizable) noexcept;
 
@@ -258,7 +276,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the minimum resizable size of the window.
 		 *
-		 * @param minSize The minimum resiable size of the window.
+		 * @param[in] minSize The minimum resiable size of the window.
 		 **************************************************************************************************************/
 		void setMinSize(glm::ivec2 minSize) noexcept;
 
@@ -272,7 +290,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the maximum resizable size of the window.
 		 *
-		 * @param maxSize The maximum resiable size of the window.
+		 * @param[in] maxSize The maximum resiable size of the window.
 		 **************************************************************************************************************/
 		void setMaxSize(glm::ivec2 maxSize) noexcept;
 
@@ -286,7 +304,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the position of the window relative to the top-left corner of the display.
 		 *
-		 * @param pos The new position of the window relative to the top-left corner of the display in pixels.
+		 * @param[in] pos The new position of the window relative to the top-left corner of the display in pixels.
 		 **************************************************************************************************************/
 		void setPosition(glm::ivec2 pos) noexcept;
 
@@ -300,7 +318,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets whether the mouse is bordered.
 		 *
-		 * @param bordered Whether the mouse should be bordered.
+		 * @param[in] bordered Whether the mouse should be bordered.
 		 **************************************************************************************************************/
 		void setBordered(bool bordered) noexcept;
 
@@ -372,7 +390,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets whether the mouse is grabbed and confined to this window.
 		 *
-		 * @param grab Whether the mouse should be grabbed.
+		 * @param[in] grab Whether the mouse should be grabbed.
 		 **************************************************************************************************************/
 		void setMouseGrab(bool grab) noexcept;
 
@@ -386,7 +404,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the area the mouse is confined to when this window has focus.
 		 *
-		 * @param rect The confinement rectangle.
+		 * @param[in] rect The confinement rectangle.
 		 **************************************************************************************************************/
 		void setMouseConfines(const RectI2& rect) noexcept;
 
@@ -405,16 +423,16 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets whether the window is always on top.
 		 *
-		 * @param alwaysOnTop Whether the window should be always on top.
+		 * @param[in] alwaysOnTop Whether the window should be always on top.
 		 **************************************************************************************************************/
 		void setAlwaysOnTop(bool alwaysOnTop) noexcept;
 
 		/**************************************************************************************************************
 		 * Flashes the window to get the user's attention.
 		 *
-		 * @exception WindowError If flashing the window failed.
+		 * @exception WindowError If flashing the window fails.
 		 *
-		 * @param operation The type of flashing to perform.
+		 * @param[in] operation The type of flashing to perform.
 		 **************************************************************************************************************/
 		void flash(FlashOperation operation);
 
@@ -527,13 +545,13 @@ namespace tr {
 	bool windowOpened() noexcept;
 
 	/******************************************************************************************************************
-	 * Gets a reference to the window.
-	 *
-	 * A failed assertion may be triggered if the window hasn't been opened.
+	 * Gets a reference to the window. This function cannot be called if the window wasn't opened.
 	 *
 	 * @return A reference to the window.
 	 ******************************************************************************************************************/
 	Window& window() noexcept;
+
+	/// @}
 } // namespace tr
 
 /// @cond IMPLEMENTATION

@@ -1,8 +1,3 @@
-/**
- * @file mouse.hpp
- * @brief Provides mouse functionality.
- */
-
 #pragma once
 #include "bitmap.hpp"
 
@@ -10,6 +5,10 @@ struct SDL_Cursor;
 
 namespace tr {
 	class Cursor;
+
+	/** @addtogroup input
+	 *  @{
+	 */
 
 	/******************************************************************************************************************
 	 * System mouse cursor icons.
@@ -106,9 +105,9 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Mouse-related functionality.
+	 * Mouse functionality.
 	 *
-	 * Nothing in this namespace can be used before SDL is initialized.
+	 * This class cannot be directly instantiated.
 	 ******************************************************************************************************************/
 	class Mouse {
 	  public:
@@ -136,7 +135,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Gets whether a specific mouse button is held.
 		 *
-		 * @param button A mouse button. May be any of the named ones or in the range [1, 32].
+		 * @param[in] button A mouse button. May be any of the named ones or in the range [1, 32].
 		 *
 		 * @return True if the button is held, and false otherwise.
 		 **************************************************************************************************************/
@@ -145,8 +144,8 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Gets whether a specific mouse button is held for a given mask.
 		 *
-		 * @param button A mouse button. May be any of the named ones or in the range [1, 32].
-		 * @param mask The button mask to check.
+		 * @param[in] button A mouse button. May be any of the named ones or in the range [1, 32].
+		 * @param[in] mask The button mask to check.
 		 *
 		 * @return True if the button is held, and false otherwise.
 		 **************************************************************************************************************/
@@ -166,7 +165,7 @@ namespace tr {
 		 *
 		 * In relative mouse mode, only deltas are reported, mouse position isn't changed.
 		 *
-		 * @param relative Whether relative mouse mode should be enabled.
+		 * @param[in] relative Whether relative mouse mode should be enabled.
 		 **************************************************************************************************************/
 		bool setRelativeMode(bool relative) noexcept;
 
@@ -190,14 +189,14 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets whether the mouse cursor is visible.
 		 *
-		 * @param show Whether to show the mouse cursor.
+		 * @param[in] show Whether to show the mouse cursor.
 		 **************************************************************************************************************/
 		void showCursor(bool show) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the mouse cursor.
 		 *
-		 * @param cursor A reference to a mouse cursor.
+		 * @param[in] cursor A reference to a mouse cursor.
 		 **************************************************************************************************************/
 		void setCursor(const Cursor& cursor) noexcept;
 
@@ -215,26 +214,26 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates the default mouse cursor.
 		 *
-		 * @exception CursorBadAlloc If allocating the cursor failed.
+		 * @exception CursorBadAlloc If allocating the cursor fails.
 		 **************************************************************************************************************/
 		Cursor();
 
 		/**************************************************************************************************************
 		 * Creates a system cursor.
 		 *
-		 * @exception CursorBadAlloc If allocating the cursor failed.
+		 * @exception CursorBadAlloc If allocating the cursor fails.
 		 *
-		 * @param icon The cursor icon to use.
+		 * @param[in] icon The cursor icon to use.
 		 **************************************************************************************************************/
 		Cursor(SysCursor icon);
 
 		/**************************************************************************************************************
 		 * Creates a cursor from a bitmap.
 		 *
-		 * @exception CursorBadAlloc If allocating the cursor failed.
+		 * @exception CursorBadAlloc If allocating the cursor fails.
 		 *
-		 * @param bitmap The cursor bitmap.
-		 * @param focus The focus point of the cursor (where the actual mouse position is relative to the graphic).
+		 * @param[in] bitmap The cursor bitmap.
+		 * @param[in] focus The focus point of the cursor (where the actual mouse position is relative to the graphic).
 		 **************************************************************************************************************/
 		Cursor(const Bitmap& bitmap, glm::ivec2 focus);
 
@@ -243,28 +242,27 @@ namespace tr {
 		 *
 		 * @exception CursorBadAlloc If allocating the cursor failed.
 		 *
-		 * @param view The cursor bitmap.
-		 * @param focus The focus point of the cursor (where the actual mouse position is relative to the graphic).
+		 * @param[in] view The cursor bitmap.
+		 * @param[in] focus The focus point of the cursor (where the actual mouse position is relative to the graphic).
 		 **************************************************************************************************************/
 		Cursor(const BitmapView& view, glm::ivec2 focus);
 
 		/**************************************************************************************************************
 		 * Creates a simple black-and-white cursor from color and mask bitfields.
 		 *
-		 * @exception CursorBadAlloc If allocating the cursor failed.
+		 * @exception CursorBadAlloc If allocating the cursor fails.
 		 *
-		 * @param color A span of bits where 0 is white and 1 black.
-		 * @param mask A span of bits determining the mask: 1 is opaque, 0 + white = transparent,
-		 *             0 + black = inverted color.
-		 * @param size The size of the cursor graphic, both coordinates must be multiples of 8 and match the sizes of
-		 *             the bitfields.
-		 * @param focus The focus point of the cursor (where the actual mouse position is relative to the graphic).
+		 * @param[in] color A span of bits where 0 is white and 1 black.
+		 * @param[in] mask A span of bits determining the mask: 1 is opaque, 0 + white = transparent,
+		 *             	   0 + black = inverted color.
+		 * @param[in] size The size of the cursor graphic, both coordinates must be multiples of 8 and match the sizes
+		 *                 of the bitfields.
+		 * @param[in] focus The focus point of the cursor (where the actual mouse position is relative to the graphic).
 		 **************************************************************************************************************/
 		Cursor(std::span<const std::byte> color, std::span<const std::byte> mask, glm::ivec2 size, glm::ivec2 focus);
 
 	  private:
 		struct Deleter {
-			/// @private
 			void operator()(SDL_Cursor* ptr) const noexcept;
 		};
 
@@ -272,4 +270,6 @@ namespace tr {
 
 		friend class Mouse;
 	};
+
+	/// @}
 } // namespace tr

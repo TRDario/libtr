@@ -1,6 +1,5 @@
 #include "../include/tr/event.hpp"
 #include "../include/tr/window.hpp"
-
 #include <SDL2/SDL.h>
 
 using namespace std::chrono_literals;

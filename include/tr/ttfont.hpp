@@ -1,8 +1,3 @@
-/**
- * @file ttfont.hpp
- * @brief Provides TrueType font functionality.
- */
-
 #pragma once
 #include "bitmap.hpp"
 #include "sdl.hpp"
@@ -10,8 +5,13 @@
 struct _TTF_Font;
 
 namespace tr {
+	/** @defgroup ttfont TrueType Fonts
+	 *  TrueType font functionality.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
-	 * Error thrown when TrueType font loading failed.
+	 * Error thrown when TrueType font loading fails.
 	 ******************************************************************************************************************/
 	struct TTFontLoadError : FileError {
 		using FileError::FileError;
@@ -154,23 +154,21 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Loads a font from file.
 		 *
-		 * @exception FileNotFound If the file was not found.
-		 * @exception TTFontLoadError If loading the font failed.
+		 * @exception FileNotFound If the file is not found.
+		 * @exception TTFontLoadError If loading the font fails.
 		 *
-		 * @param path The path to the font file.
-		 * @param size The point size of the font.
-		 * @param dpi The target resolution of the font.
+		 * @param[in] path The path to the font file.
+		 * @param[in] size The point size of the font.
+		 * @param[in] dpi The target resolution of the font.
 		 **************************************************************************************************************/
 		TTFont(const std::filesystem::path& path, int size, glm::uvec2 dpi = {72, 72});
 
 		/**************************************************************************************************************
 		 * Loads an embedded font file.
 		 *
-		 * A failed assertion may be triggered if loading the font failed.
-		 *
-		 * @param embeddedFile The embedded font file.
-		 * @param size The point size of the font.
-		 * @param dpi The target resolution of the font.
+		 * @param[in] embeddedFile The embedded font file.
+		 * @param[in] size The point size of the font.
+		 * @param[in] dpi The target resolution of the font.
 		 **************************************************************************************************************/
 		TTFont(std::span<const std::byte> embeddedFile, int size, glm::uvec2 dpi = {72, 72}) noexcept;
 
@@ -242,7 +240,7 @@ namespace tr {
 		 *
 		 * If the value matches the current configuration, nothing happens and the cache isn't cleared.
 		 *
-		 * @param hinting The new hinting type of the font.
+		 * @param[in] hinting The new hinting type of the font.
 		 **************************************************************************************************************/
 		void setHinting(Hint hinting) noexcept;
 
@@ -256,7 +254,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets whether kerning is enabled.
 		 *
-		 * @param kerning Whether kerning should be enabled.
+		 * @param[in] kerning Whether kerning should be enabled.
 		 **************************************************************************************************************/
 		void setKerning(bool kerning) noexcept;
 
@@ -272,7 +270,7 @@ namespace tr {
 		 *
 		 * If the style matches the current configuration, nothing happens and the cache isn't cleared.
 		 *
-		 * @param style The new style of the font.
+		 * @param[in] style The new style of the font.
 		 **************************************************************************************************************/
 		void setStyle(Style style) noexcept;
 
@@ -288,7 +286,7 @@ namespace tr {
 		 *
 		 * If the value matches the current configuration, nothing happens and the cache isn't cleared.
 		 *
-		 * @param thickness The new outline thickness of the font.
+		 * @param[in] thickness The new outline thickness of the font.
 		 **************************************************************************************************************/
 		void setOutline(int thickness) noexcept;
 
@@ -302,14 +300,14 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the wrap alignment of the font.
 		 *
-		 * @param alignment The new wrap alignment of the font.
+		 * @param[in] alignment The new wrap alignment of the font.
 		 **************************************************************************************************************/
 		void setWrapAlignment(WrapAlignment alignment) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets whether a glyph is contained in the font.
 		 *
-		 * @param glyph The glyph to check for.
+		 * @param[in] glyph The glyph to check for.
 		 *
 		 * @return True if the glyph is contained in the font, and false otherwise.
 		 **************************************************************************************************************/
@@ -318,8 +316,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Gets the metrics of a glyph.
 		 *
-		 * @param glyph The glyph to get the metrics of. If the glyph isn't contained in the font, a failed assertion
-		 *              may be triggered.
+		 * @param[in] glyph The glyph to get the metrics of. The glyph must be contained in the font.
 		 *
 		 * @return The metrics of the glyph.
 		 **************************************************************************************************************/
@@ -330,17 +327,17 @@ namespace tr {
 		 *
 		 * If the size and dpi match the current configuration, nothing happens and the cache isn't cleared.
 		 *
-		 * @exception TTFontError If resizing the font failed.
+		 * @exception TTFontError If resizing the font fails.
 		 *
-		 * @param size The new point size of the font.
-		 * @param dpi The new DPI of the font.
+		 * @param[in] size The new point size of the font.
+		 * @param[in] dpi The new DPI of the font.
 		 **************************************************************************************************************/
 		void resize(int size, glm::uvec2 dpi = {72, 72});
 
 		/**************************************************************************************************************
 		 * Gets the size of a line of text.
 		 *
-		 * @param text The line of text to get the size of.
+		 * @param[in] text The line of text to get the size of.
 		 *
 		 * @return The size of the bitmap required to hold the text.
 		 **************************************************************************************************************/
@@ -349,8 +346,8 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Measures how much of a line of text can fit within a certain width.
 		 *
-		 * @param text The line of text to get the measure of.
-		 * @param maxWidth The maximum width that the text can occupy.
+		 * @param[in] text The line of text to get the measure of.
+		 * @param[in] maxWidth The maximum width that the text can occupy.
 		 *
 		 * @return The string that can be contained in the width, and the width of that string.
 		 **************************************************************************************************************/
@@ -361,10 +358,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Renders a glyph.
 		 *
-		 * @exception TTFontError If rendering the bitmap failed.
+		 * @exception TTFontError If rendering the bitmap fails.
 		 *
-		 * @param cp The unicode codepoint to render.
-		 * @param color The color of the glyph.
+		 * @param[in] cp The unicode codepoint to render.
+		 * @param[in] color The color of the glyph.
 		 *
 		 * @return A bitmap holding the glyph.
 		 **************************************************************************************************************/
@@ -373,10 +370,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Renders a line of text.
 		 *
-		 * @exception TTFontError If rendering the bitmap failed.
+		 * @exception TTFontError If rendering the bitmap fails.
 		 *
-		 * @param text The line of text to render (\n not supported).
-		 * @param color The color of the text.
+		 * @param[in] text The line of text to render (\\n not supported).
+		 * @param[in] color The color of the text.
 		 *
 		 * @return A bitmap holding the text.
 		 **************************************************************************************************************/
@@ -385,11 +382,11 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Renders wrapped text.
 		 *
-		 * @exception TTFontError If rendering the bitmap failed.
+		 * @exception TTFontError If rendering the bitmap fails.
 		 *
-		 * @param text The line of text to render (\n supported).
-		 * @param color The color of the text.
-		 * @param width The bounding width of the text.
+		 * @param[in] text The line of text to render (\\n supported).
+		 * @param[in] color The color of the text.
+		 * @param[in] width The bounding width of the text.
 		 *
 		 * @return A bitmap holding the text.
 		 **************************************************************************************************************/
@@ -397,7 +394,6 @@ namespace tr {
 
 	  private:
 		struct Deleter {
-			/// @private
 			void operator()(_TTF_Font* ptr) const noexcept;
 		};
 
@@ -409,4 +405,6 @@ namespace tr {
 	/// @cond IMPLEMENTATION
 	DEFINE_BITMASK_OPERATORS(TTFont::Style);
 	/// @endcond
+
+	/// @}
 } // namespace tr
