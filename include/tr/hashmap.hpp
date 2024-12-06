@@ -1,12 +1,6 @@
-/**
- * @file hashmap.hpp
- * @brief Provides extra hashmap functionality.
- */
-
 #pragma once
 #define BOOST_STATIC_STRING_STANDALONE
 #include "concepts.hpp"
-
 #include <boost/static_string.hpp>
 
 namespace tr {

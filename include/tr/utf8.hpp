@@ -1,8 +1,3 @@
-/**
- * @file utf8.hpp
- * @brief Provides a Unicode codepoint iterator interface over a UTF-8 string view.
- */
-
 #pragma once
 #include <cassert>
 #include <compare>

@@ -1,8 +1,3 @@
-/**
- * @file handle.hpp
- * @brief Provides a RAII wrapper over non-pointer handles.
- */
-
 #pragma once
 #include "concepts.hpp"
 #include <cassert>

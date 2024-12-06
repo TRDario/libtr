@@ -1,11 +1,5 @@
-/**
- * @file norm_cast.hpp
- * @brief Provides a cast between normalized integers and floats.
- */
-
 #pragma once
 #include "concepts.hpp"
-
 #include <cassert>
 #include <limits>
 
@@ -13,8 +7,8 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Converts a floating point number in the range [0-1] to another floating point number in the range [0-1].
 	 *
-	 * @param from A floating point number in the range [0-1]. A failed assertion may be triggered if a value outside
-	 *             this range is passed.
+	 * @param[in] from A floating point number in the range [0-1]. A failed assertion may be triggered if a value
+	 *outside this range is passed.
 	 *
 	 * @return A floating point number in the range [0-1].
 	 ******************************************************************************************************************/
@@ -23,7 +17,7 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Converts a normalized integer value to a floating point number in the range [0-1].
 	 *
-	 * @param from A normalized integer value.
+	 * @param[in] from A normalized integer value.
 	 *
 	 * @return A floating point number in the range [0-1].
 	 ******************************************************************************************************************/
@@ -32,8 +26,8 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Converts a floating point number in the range [0-1] to a normalized integer.
 	 *
-	 * @param from A floating point number in the range [0-1]. A failed assertion may be triggered if a value outside
-	 *             this range is passed.
+	 * @param[in] from A floating point number in the range [0-1]. A failed assertion may be triggered if a value
+	 *outside this range is passed.
 	 *
 	 * @return A normalized integer.
 	 ******************************************************************************************************************/
@@ -42,7 +36,7 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Converts a normalized integer value to another normalied integer value.
 	 *
-	 * @param from A normalized integer value.
+	 * @param[in] from A normalized integer value.
 	 *
 	 * @return A normalized integer value.
 	 ******************************************************************************************************************/

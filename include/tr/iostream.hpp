@@ -1,16 +1,15 @@
-/**
- * @file iostream.hpp
- * @brief Provides miscellaneous input/output functionality.
- */
-
 #pragma once
 #include "concepts.hpp"
-
 #include <filesystem>
 #include <fstream>
 #include <ranges>
 
 namespace tr {
+	/** @defgroup file Files
+	 *  Helper file functionality.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Concept that denotes a binaryFlush-compatible container.
 	 *
@@ -30,16 +29,16 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs a file error with a path string.
 		 *
-		 * @param path A path string.
+		 * @param[in] path A path string.
 		 **************************************************************************************************************/
 		FileError(std::string path) noexcept;
 
 		/**************************************************************************************************************
 		 * Constructs a file error with a path.
 		 *
-		 * @param path A filesystem path.
+		 * @param[in] path A filesystem path.
 		 *
-		 * @exception std::bad_alloc If copying the string failed.
+		 * @exception std::bad_alloc If copying the string fails.
 		 **************************************************************************************************************/
 		FileError(const std::filesystem::path& path);
 
@@ -93,8 +92,7 @@ namespace tr {
 	 * @exception FileNotFound If the file path does not lead to a regular file.
 	 * @exception FileOpenError If the file at path cannot be opened.
 	 *
-	 * @param[in] path The file path. Must be a valid, writable file, otherwise one of FileNotFound, FileOpenError
-	 * may be thrown.
+	 * @param[in] path The file path. Must be a valid, writable file.
 	 * @param[in] openmode std::ostream openmode arguments.
 	 *
 	 * @return An output file stream.
@@ -107,8 +105,7 @@ namespace tr {
 	 * @exception FileNotFound If the file path does not lead to a regular file.
 	 * @exception FileOpenError If the file at path cannot be opened.
 	 *
-	 * @param[in] path The file path. Must be a valid, readable file, otherwise one of FileNotFound, FileOpenError
-	 * may be thrown.
+	 * @param[in] path The file path. Must be a valid, readable file.
 	 * @param[in] openmode std::istream openmode arguments.
 	 *
 	 * @return An input file stream.
@@ -199,6 +196,8 @@ namespace tr {
 	 * @param[in] cstr The input string.
 	 ******************************************************************************************************************/
 	inline void writeBinary(std::ostream& os, const char* cstr);
+
+	/// @}
 } // namespace tr
 
 /// @cond IMPLEMENTATION
