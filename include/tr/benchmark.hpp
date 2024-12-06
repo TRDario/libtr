@@ -1,11 +1,5 @@
-/**
- * @file benchmark.hpp
- * @brief Provides a simple benchmarking class.
- */
-
 #pragma once
 #include "chrono.hpp"
-
 #include <deque>
 
 namespace tr {
@@ -29,16 +23,16 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Starts a new measurement.
 		 *
-		 * If a previous measurement was started but not ended, a failed assertion may be raised.
+		 * This function cannot be called if a previous measurement was started but not ended.
 		 **************************************************************************************************************/
 		void start() noexcept;
 
 		/**************************************************************************************************************
 		 * Stops a measurement.
 		 *
-		 * @exception std::bad_alloc If the deque failed to allocate memory for the measurement.
+		 * @exception std::bad_alloc If an internal allocation fails.
 		 *
-		 * If a measurement was not started, a failed assertion may be raised.
+		 * This function cannot be called if a measurement was not started.
 		 **************************************************************************************************************/
 		void stop();
 

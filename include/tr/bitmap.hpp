@@ -1,8 +1,3 @@
-/**
- * @file bitmap.hpp
- * @brief Provides a bitmap class and related functionality.
- */
-
 #pragma once
 #include "bitmap_format.hpp"
 #include "color.hpp"
@@ -18,7 +13,7 @@ namespace tr {
 	class BitmapView;
 
 	/******************************************************************************************************************
-	 * Error thrown when bitmap allocation failed.
+	 * Error thrown when bitmap allocation fails.
 	 ******************************************************************************************************************/
 	struct BitmapBadAlloc : std::bad_alloc {
 		/**************************************************************************************************************
@@ -30,7 +25,7 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Error thrown when bitmap loading failed.
+	 * Error thrown when bitmap loading fails.
 	 ******************************************************************************************************************/
 	struct BitmapLoadError : FileError {
 		using FileError::FileError;
@@ -44,7 +39,7 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Error thrown when bitmap saving failed.
+	 * Error thrown when bitmap saving fails.
 	 ******************************************************************************************************************/
 	struct BitmapSaveError : FileError {
 		using FileError::FileError;
@@ -58,7 +53,7 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Bitmap region reference.
+	 * View over a rectangular region of a bitmap.
 	 ******************************************************************************************************************/
 	class SubBitmap {
 	  public:
@@ -68,20 +63,18 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs a sub-bitmap.
 		 *
-		 * @param bitmap The parent bitmap.
-		 * @param rect The region of the sub-bitmap. If the region stretches outside of the bitmap bounds, a failed
-		 *             assertion may be triggered.
+		 * @param[in] bitmap The parent bitmap.
+		 * @param[in] rect The region of the sub-bitmap. The region is not allowed to strech outside the bitmap bounds.
 		 **************************************************************************************************************/
 		SubBitmap(const Bitmap& bitmap, RectI2 rect) noexcept;
 
 		/**************************************************************************************************************
 		 * Constructs a sub-bitmap.
 		 *
-		 * @param view The parent bitmap view.
-		 * @param rect The region of the sub-bitmap. If the region stretches outside of the bitmap bounds, a failed
-		 *             assertion may be triggered.
+		 * @param[in] view The parent bitmap view.
+		 * @param[in] rect The region of the sub-bitmap. The region is not allowed to strech outside the bitmap bounds.
 		 **************************************************************************************************************/
-		SubBitmap(const BitmapView& bitmap, RectI2 rect) noexcept;
+		SubBitmap(const BitmapView& view, RectI2 rect) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the size of the sub-bitmap.
@@ -93,8 +86,8 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates a sub-bitmap of the sub-bitmap.
 		 *
-		 * @param rect The region of the sub-bitmap. If the region stretches outside of the sub-bitmap bounds, a failed
-		 *             assertion may be triggered.
+		 * @param[in] rect The region of the sub-bitmap. The region is not allowed to strech outside the sub-bitmap
+		 *                 bounds.
 		 *
 		 * @return The new sub-bitmap.
 		 **************************************************************************************************************/
@@ -103,8 +96,8 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Gets immutable access to a pixel of the bitmap.
 		 *
-		 * @param pos The position of the pixel within the sub-bitmap. Accessing an out-of-bounds pixel may trigger
-		 *            a failed assertion.
+		 * @param[in] pos The position of the pixel within the sub-bitmap. Accessing an out-of-bounds pixel is not
+		 *                allowed.
 		 *
 		 * @return An immutable reference to a pixel of the bitmap.
 		 **************************************************************************************************************/
@@ -177,299 +170,42 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Abstracted read-only reference to a bitmap pixel.
-	 ******************************************************************************************************************/
-	class SubBitmap::PixelRef {
-	  public:
-		/**************************************************************************************************************
-		 * Casts the pixel to an RGBA8 color.
-		 **************************************************************************************************************/
-		operator RGBA8() const noexcept;
-
-	  private:
-		const std::byte* _impl;   // A pointer to the pixel data.
-		SDL_PixelFormat* _format; // The format of the pixel.
-
-		PixelRef() noexcept = default;
-		PixelRef(const std::byte* ptr, SDL_PixelFormat* format) noexcept;
-
-		friend class SubBitmap;
-		friend class Iterator;
-	};
-
-	/******************************************************************************************************************
-	 * Immutable pixel iterator.
-	 *
-	 * The iterator fulfills the @em RandomAccessIterator requirements.
-	 ******************************************************************************************************************/
-	class SubBitmap::Iterator {
-	  public:
-		/**************************************************************************************************************
-		 * @em RandomAccessIterator typedef requirement.
-		 **************************************************************************************************************/
-		using value_type = PixelRef;
-
-		/**************************************************************************************************************
-		 * @em RandomAccessIterator typedef requirement.
-		 **************************************************************************************************************/
-		using pointer = const value_type*;
-
-		/**************************************************************************************************************
-		 * @em RandomAccessIterator typedef requirement.
-		 **************************************************************************************************************/
-		using difference_type = int;
-
-		/**************************************************************************************************************
-		 * Default-constructs an iterator.
-		 *
-		 * An iterator constructed in this manner is in an non-dereferencable state until a valid value is assigned to
-		 *it.
-		 **************************************************************************************************************/
-		Iterator() noexcept = default;
-
-		/**************************************************************************************************************
-		 * Constructs an iterator to a bitmap pixel.
-		 *
-		 * @param bitmap The sub-bitmap.
-		 * @param pos The position of the pixel within the sub-bitmap.
-		 **************************************************************************************************************/
-		Iterator(SubBitmap bitmap, glm::ivec2 pos) noexcept;
-
-		/**************************************************************************************************************
-		 * Three-way comparison operator.
-		 **************************************************************************************************************/
-		std::partial_ordering operator<=>(const Iterator&) const noexcept;
-
-		/**************************************************************************************************************
-		 * Equality comparison operator.
-		 **************************************************************************************************************/
-		bool operator==(const Iterator&) const noexcept;
-
-		/**************************************************************************************************************
-		 * Dereferences the iterator.
-		 *
-		 * @return The pixel reference.
-		 **************************************************************************************************************/
-		value_type operator*() const noexcept;
-
-		/**************************************************************************************************************
-		 * Dereferences the iterator with a subscript.
-		 *
-		 * @param diff The pixel relative to the iterator to access.
-		 *
-		 * @return The pixel reference.
-		 **************************************************************************************************************/
-		value_type operator[](difference_type diff) const noexcept;
-
-		/**************************************************************************************************************
-		 * Dereferences the iterator with a subscript.
-		 *
-		 * @param diff The pixel relative to the iterator to access (in vector form).
-		 *
-		 * @return The pixel reference.
-		 **************************************************************************************************************/
-		value_type operator[](glm::ivec2 diff) const noexcept;
-
-		/**************************************************************************************************************
-		 * Dereferences the iterator through a pointer.
-		 *
-		 * @return A pointer to the pixel reference.
-		 **************************************************************************************************************/
-		pointer operator->() const noexcept;
-
-		/**************************************************************************************************************
-		 * Increments the iterator.
-		 *
-		 * @return A reference to the iterator.
-		 **************************************************************************************************************/
-		Iterator& operator++() noexcept;
-
-		/**************************************************************************************************************
-		 * Post-increments the iterator.
-		 *
-		 * @return An iterator with the prior state of the incremented iterator.
-		 **************************************************************************************************************/
-		Iterator operator++(int) noexcept;
-
-		/**************************************************************************************************************
-		 * Advances the iterator.
-		 *
-		 * @param diff The number of pixels to move forward.
-		 *
-		 * @return A reference to the iterator.
-		 **************************************************************************************************************/
-		Iterator& operator+=(difference_type diff) noexcept;
-
-		/**************************************************************************************************************
-		 * Advances the iterator.
-		 *
-		 * @param diff The number of pixels to move forward (in vector form).
-		 *
-		 * @return A reference to the iterator.
-		 **************************************************************************************************************/
-		Iterator& operator+=(glm::ivec2 diff) noexcept;
-
-		/**************************************************************************************************************
-		 * Adds to the iterator.
-		 *
-		 * @param it The iterator to add to.
-		 * @param diff The number of pixels to move forward.
-		 *
-		 * @return An iterator equal to @em it advanced by @em diff pixels.
-		 **************************************************************************************************************/
-		friend Iterator operator+(const Iterator& it, difference_type diff) noexcept;
-
-		/**************************************************************************************************************
-		 * Adds to the iterator.
-		 *
-		 * @param diff The number of pixels to move forward.
-		 * @param it The iterator to add to.
-		 *
-		 * @return An iterator equal to @em it advanced by @em diff pixels.
-		 **************************************************************************************************************/
-		friend Iterator operator+(difference_type diff, const Iterator& it) noexcept;
-
-		/**************************************************************************************************************
-		 * Adds to the iterator.
-		 *
-		 * @param it The iterator to add to.
-		 * @param diff The number of pixels to move forward (in vector form).
-		 *
-		 * @return An iterator equal to @em it advanced by @em diff pixels.
-		 **************************************************************************************************************/
-		friend Iterator operator+(const Iterator& it, glm::ivec2 diff) noexcept;
-
-		/**************************************************************************************************************
-		 * Adds to the iterator.
-		 *
-		 * @param diff The number of pixels to move forward (in vector form).
-		 * @param it The iterator to add to.
-		 *
-		 * @return An iterator equal to @em it advanced by @em diff pixels.
-		 **************************************************************************************************************/
-		friend Iterator operator+(glm::ivec2 diff, const Iterator& it) noexcept;
-
-		/**************************************************************************************************************
-		 * Decrements the iterator.
-		 *
-		 * @return A reference to the iterator.
-		 **************************************************************************************************************/
-		Iterator& operator--() noexcept;
-
-		/**************************************************************************************************************
-		 * Post-decrements the iterator.
-		 *
-		 * @return An iterator with the prior state of the decremented iterator.
-		 **************************************************************************************************************/
-		Iterator operator--(int) noexcept;
-
-		/**************************************************************************************************************
-		 * Moves the iterator back.
-		 *
-		 * @param diff The number of pixels to move backward.
-		 *
-		 * @return A reference to the iterator.
-		 **************************************************************************************************************/
-		Iterator& operator-=(difference_type diff) noexcept;
-
-		/**************************************************************************************************************
-		 * Moves the iterator back.
-		 *
-		 * @param diff The number of pixels to move backward (in vector form).
-		 *
-		 * @return A reference to the iterator.
-		 **************************************************************************************************************/
-		Iterator& operator-=(glm::ivec2 diff) noexcept;
-
-		/**************************************************************************************************************
-		 * Subtracts from the iterator.
-		 *
-		 * @param diff The number of pixels to move backward.
-		 * @param it The iterator to add to.
-		 *
-		 * @return An iterator equal to @em it moved back by @em diff pixels.
-		 **************************************************************************************************************/
-		friend Iterator operator-(const Iterator& it, difference_type diff) noexcept;
-
-		/**************************************************************************************************************
-		 * Subtracts from the iterator.
-		 *
-		 * @param it The iterator to add to.
-		 * @param diff The number of pixels to move backward.
-		 *
-		 * @return An iterator equal to @em it moved back by @em diff pixels.
-		 **************************************************************************************************************/
-		friend Iterator operator-(difference_type diff, const Iterator& it) noexcept;
-
-		/**************************************************************************************************************
-		 * Subtracts from the iterator.
-		 *
-		 * @param diff The number of pixels to move backward (in vector form).
-		 * @param it The iterator to add to.
-		 *
-		 * @return An iterator equal to @em it moved back by @em diff pixels.
-		 **************************************************************************************************************/
-		friend Iterator operator-(const Iterator& it, glm::ivec2 diff) noexcept;
-
-		/**************************************************************************************************************
-		 * Subtracts from the iterator.
-		 *
-		 * @param it The iterator to add to.
-		 * @param diff The number of pixels to move backward (in vector form).
-		 *
-		 * @return An iterator equal to @em it moved back by @em diff pixels.
-		 **************************************************************************************************************/
-		friend Iterator operator-(glm::ivec2 diff, const Iterator& it) noexcept;
-
-		/**************************************************************************************************************
-		 * Gets the distance between two iterators.
-		 *
-		 * This function only makes sense if two iterators are pointing to the same bitmap.
-		 *
-		 * @param l, r Iterators to the same bitmap.
-		 *
-		 * @return The distance between the iterators.
-		 **************************************************************************************************************/
-		friend difference_type operator-(const Iterator& l, const Iterator& r) noexcept;
-
-	  private:
-		PixelRef   _pixel;
-		glm::ivec2 _bitmapSize;
-		int        _pitch;
-		glm::ivec2 _pos;
-	};
-
-	/******************************************************************************************************************
 	 * Non-owning view over bitmap data.
 	 *
-	 * No instances of this class can be created before initializing SDL.
+	 * This class cannot be instantiated before the window is opened.
 	 ******************************************************************************************************************/
 	class BitmapView {
 	  public:
-		using PixelRef = SubBitmap::PixelRef;
-		using Iterator = SubBitmap::Iterator;
+		/**************************************************************************************************************
+		 * Immutable pixel reference.
+		 **************************************************************************************************************/
+		using PixelRef = tr::SubBitmap::PixelRef;
+
+		/**************************************************************************************************************
+		 * Immutable iterator.
+		 **************************************************************************************************************/
+		using Iterator = tr::SubBitmap::Iterator;
 
 		/**************************************************************************************************************
 		 * Creates a bitmap view over contiguous pixel data.
 		 *
-		 * @exception BitmapBadAlloc If allocating the bitmap view's internals failed.
+		 * @exception BitmapBadAlloc If allocating the bitmap view's internals fails.
 		 *
-		 * @param rawData The pixel data span. The size of the span must match size.x * size.y * [pixel bytes],
-		 *                otherwise a failed assertion may be triggered.
-		 * @param size The size of the bitmap.
-		 * @param format The format of the bitmap.
+		 * @param[in] rawData The pixel data span. The size of the span must match size.x * size.y * [pixel bytes].
+		 * @param[in] size The size of the bitmap.
+		 * @param[in] format The format of the bitmap.
 		 **************************************************************************************************************/
 		BitmapView(std::span<const std::byte> rawData, glm::ivec2 size, BitmapFormat format);
 
 		/**************************************************************************************************************
 		 * Creates a bitmap view over pixel data.
 		 *
-		 * @exception BitmapBadAlloc If allocating the bitmap view's internals failed.
+		 * @exception BitmapBadAlloc If allocating the bitmap view's internals fails.
 		 *
-		 * @param rawDataStart A pointer to the start of the pixel data.
-		 * @param pitch The distance between rows of pixels in bytes.
-		 * @param size The size of the bitmap.
-		 * @param format The format of the bitmap.
+		 * @param[in] rawDataStart A pointer to the start of the pixel data.
+		 * @param[in] pitch The distance between rows of pixels in bytes.
+		 * @param[in] size The size of the bitmap.
+		 * @param[in] format The format of the bitmap.
 		 **************************************************************************************************************/
 		BitmapView(const std::byte* rawDataStart, int pitch, glm::ivec2 size, BitmapFormat format);
 
@@ -483,8 +219,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Gets immutable access to a pixel of the bitmap.
 		 *
-		 * @param pos The position of the pixel within the sub-bitmap. Accessing an out-of-bounds pixel may trigger
-		 *            a failed assertion.
+		 * @param[in] pos The position of the pixel within the bitmap. Accessing an out-of-bounds pixel is not allowed.
 		 *
 		 * @return An immutable reference to a pixel of the bitmap.
 		 **************************************************************************************************************/
@@ -519,15 +254,14 @@ namespace tr {
 		Iterator cend() const noexcept;
 
 		/**************************************************************************************************************
-		 * Creates a sub-bitmap spanning the entire bitmap.
+		 * Creates a sub-bitmap spanning the entire bitmap view.
 		 **************************************************************************************************************/
 		operator SubBitmap() const noexcept;
 
 		/**************************************************************************************************************
 		 * Creates a sub-bitmap of the bitmap.
 		 *
-		 * @param rect The region of the sub-bitmap. If the region stretches outside of the bitmap bounds, a failed
-		 *             assertion may be triggered.
+		 * @param[in] rect The region of the sub-bitmap. The region is not allowed to strech outside the view bounds.
 		 *
 		 * @return The sub-bitmap.
 		 **************************************************************************************************************/
@@ -558,11 +292,11 @@ namespace tr {
 		int pitch() const noexcept;
 
 		/**************************************************************************************************************
-		 * Saves the bitmap as a .png file.
+		 * Saves the bitmap to a .png file.
 		 *
-		 * @exception BitmapSaveError If saving the bitmap failed.
+		 * @exception BitmapSaveError If saving the bitmap fails.
 		 *
-		 * @param path The path to the file.
+		 * @param[in] path The path to the file.
 		 **************************************************************************************************************/
 		void save(const std::filesystem::path& path) const;
 
@@ -581,9 +315,9 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Class representing a bitmap stored in memory.
+	 * Class containing owned bitmap data.
 	 *
-	 * No instances of this class can be created before initializing SDL.
+	 * This class cannot be instantiated before the window is opened.
 	 ******************************************************************************************************************/
 	class Bitmap {
 	  public:
@@ -603,67 +337,62 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates a blank bitmap.
 		 *
-		 * @exception BitmapBadAlloc If allocating the bitmap failed.
+		 * @exception BitmapBadAlloc If allocating the bitmap fails.
 		 *
-		 * @param size The size of the bitmap.
-		 * @param format The format of the bitmap.
+		 * @param[in] size The size of the bitmap.
+		 * @param[in] format The format of the bitmap.
 		 **************************************************************************************************************/
 		Bitmap(glm::ivec2 size, BitmapFormat format);
 
 		/**************************************************************************************************************
 		 * Loads an embedded bitmap file.
 		 *
-		 * @exception BitmapBadAlloc If allocating the bitmap failed.
+		 * @exception BitmapBadAlloc If allocating the bitmap fails.
 		 *
-		 * @param embeddedFile The embedded file data.
+		 * @param[in] embeddedFile The embedded file data.
 		 **************************************************************************************************************/
 		explicit Bitmap(std::span<const std::byte> embeddedFile);
 
 		/**************************************************************************************************************
-		 * Loads a bitmap from file.
+		 * Loads a bitmap from file (BMP/QOI).
 		 *
-		 * Make sure to initialize support for any file formats you plan to use.
+		 * @exception FileNotFound If the file isn't found.
+		 * @exception BitmapLoadError If loading the bitmap fails.
 		 *
-		 * @exception FileNotFound If the file could not be found.
-		 * @exception BitmapLoadError If loading the bitmap failed.
-		 *
-		 * @param path The path to the bitmap file.
+		 * @param[in] path The path to the bitmap file.
 		 **************************************************************************************************************/
 		explicit Bitmap(const std::filesystem::path& path);
 
 		/**************************************************************************************************************
 		 * Clones a bitmap.
 		 *
-		 * @exception BitmapBadAlloc If allocating the bitmap failed.
+		 * @exception BitmapBadAlloc If allocating the bitmap fails.
 		 *
-		 * @param bitmap The bitmap to clone.
-		 * @param format The format of the new bitmap.
+		 * @param[in] bitmap The bitmap to clone.
+		 * @param[in] format The format of the new bitmap.
 		 **************************************************************************************************************/
 		Bitmap(const Bitmap& bitmap, BitmapFormat format);
 
 		/**************************************************************************************************************
 		 * Clones a bitmap view.
 		 *
-		 * @exception BitmapBadAlloc If allocating the bitmap failed.
+		 * @exception BitmapBadAlloc If allocating the bitmap fails.
 		 *
-		 * @param view The bitmap view to clone.
-		 * @param format The format of the new bitmap.
+		 * @param[in] view The bitmap view to clone.
+		 * @param[in] format The format of the new bitmap.
 		 **************************************************************************************************************/
 		Bitmap(const BitmapView& view, BitmapFormat format);
 
 		/**************************************************************************************************************
 		 * Clones a sub-bitmap.
 		 *
-		 * @exception BitmapBadAlloc If allocating the bitmap failed.
+		 * @exception BitmapBadAlloc If allocating the bitmap fails.
 		 *
-		 * @param source The sub-bitmap to clone.
-		 * @param format The format of the new bitmap.
+		 * @param[in] source The sub-bitmap to clone.
+		 * @param[in] format The format of the new bitmap.
 		 **************************************************************************************************************/
 		Bitmap(SubBitmap source, BitmapFormat format);
 
-		/**************************************************************************************************************
-		 * Equality comparison operator.
-		 **************************************************************************************************************/
 		friend bool operator==(const Bitmap&, const Bitmap&) noexcept = default;
 
 		/**************************************************************************************************************
@@ -676,18 +405,16 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Gets mutable access to a pixel of the bitmap.
 		 *
-		 * @param pos The position of the pixel within the bitmap. Accessing an out-of-bounds pixel may trigger
-		 *            a failed assertion.
+		 * @param[in] pos The position of the pixel within the bitmap. Accessing an out-of-bounds pixel is not allowed.
 		 *
-		 * @return An immutable reference to a pixel of the bitmap.
+		 * @return A mutable reference to a pixel of the bitmap.
 		 **************************************************************************************************************/
 		PixelRef operator[](glm::ivec2 pos) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets immutable access to a pixel of the bitmap.
 		 *
-		 * @param pos The position of the pixel within the sub-bitmap. Accessing an out-of-bounds pixel may trigger
-		 *            a failed assertion.
+		 * @param[in] pos The position of the pixel within the bitmap. Accessing an out-of-bounds pixel is not allowed.
 		 *
 		 * @return An immutable reference to a pixel of the bitmap.
 		 **************************************************************************************************************/
@@ -738,18 +465,17 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Blits a sub-bitmap to the bitmap.
 		 *
-		 * @param tl The top-left corner of the region to blit to.
-		 *           If the region stretches outside of the sub-bitmap bounds, a failed assertion may be triggered.
-		 * @param source The source sub-bitmap.
+		 * @param[in] tl The top-left corner of the region to blit to.
+		 *               The region is not allowed to stretch outside the bitmap bounds.
+		 * @param[in] source The source sub-bitmap.
 		 **************************************************************************************************************/
 		void blit(glm::ivec2 tl, SubBitmap source) noexcept;
 
 		/**************************************************************************************************************
 		 * Fills a region of the bitmap with a solid color.
 		 *
-		 * @param rect The rect to fill.
-		 *             If the region stretches outside of the sub-bitmap bounds, a failed assertion may be triggered.
-		 * @param color The fill color.
+		 * @param[in] rect The region to fill. The region is not allowed to stretch outside the bitmap bounds.
+		 * @param[in] color The fill color.
 		 **************************************************************************************************************/
 		void fill(RectI2 rect, RGBA8 color) noexcept;
 
@@ -761,8 +487,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates a sub-bitmap of the bitmap.
 		 *
-		 * @param rect The region of the sub-bitmap. If the region stretches outside of the bitmap bounds, a failed
-		 *             assertion may be triggered.
+		 * @param[in] rect The region of the sub-bitmap. The region is not allowed to stretch outside the bitmap bounds.
 		 *
 		 * @return The sub-bitmap.
 		 **************************************************************************************************************/
@@ -801,11 +526,11 @@ namespace tr {
 		int pitch() const noexcept;
 
 		/**************************************************************************************************************
-		 * Saves the bitmap as a .png file.
+		 * Saves the bitmap to a .png file.
 		 *
-		 * @exception BitmapSaveError If saving the bitmap failed.
+		 * @exception BitmapSaveError If saving the bitmap fails.
 		 *
-		 * @param path The path to the file.
+		 * @param[in] path The path to the file.
 		 **************************************************************************************************************/
 		void save(const std::filesystem::path& path) const;
 
@@ -823,281 +548,11 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Abstracted mutable reference to a bitmap pixel.
-	 ******************************************************************************************************************/
-	class Bitmap::PixelRef {
-	  public:
-		/**************************************************************************************************************
-		 * Casts the pixel to an RGBA8 color.
-		 **************************************************************************************************************/
-		operator RGBA8() const noexcept;
-
-		/**************************************************************************************************************
-		 * Sets the pixel to an RGBA color.
-		 *
-		 * @param color The color to set the pixel to.
-		 *
-		 * @return A reference to the pixel being assigned.
-		 **************************************************************************************************************/
-		PixelRef& operator=(RGBA8 color) noexcept;
-
-	  private:
-		std::byte*       _impl;   // A pointer to the pixel data.
-		SDL_PixelFormat* _format; // The format of the pixel.
-
-		PixelRef() noexcept = default;
-		PixelRef(std::byte* ptr, SDL_PixelFormat* format) noexcept;
-
-		friend class MutIt;
-	};
-
-	/******************************************************************************************************************
-	 * Mutable pixel iterator.
-	 *
-	 * The iterator fulfills the @em RandomAccessIterator requirements.
-	 ******************************************************************************************************************/
-	class Bitmap::MutIt {
-	  public:
-		/**************************************************************************************************************
-		 * @em RandomAccessIterator typedef requirement.
-		 **************************************************************************************************************/
-		using value_type = PixelRef;
-
-		/**************************************************************************************************************
-		 * @em RandomAccessIterator typedef requirement.
-		 **************************************************************************************************************/
-		using pointer = const value_type*;
-
-		/**************************************************************************************************************
-		 * @em RandomAccessIterator typedef requirement.
-		 **************************************************************************************************************/
-		using difference_type = int;
-
-		/**************************************************************************************************************
-		 * Default-constructs an iterator.
-		 *
-		 * An iterator constructed in this manner is in an non-dereferencable state until a valid value is assigned to
-		 *it.
-		 **************************************************************************************************************/
-		MutIt() noexcept = default;
-
-		/**************************************************************************************************************
-		 * Constructs an iterator to a bitmap pixel.
-		 *
-		 * @param bitmap The sub-bitmap.
-		 * @param pos The position of the pixel within the sub-bitmap.
-		 **************************************************************************************************************/
-		MutIt(Bitmap& bitmap, glm::ivec2 pos) noexcept;
-
-		/**************************************************************************************************************
-		 * Three-way comparison operator.
-		 **************************************************************************************************************/
-		std::partial_ordering operator<=>(const MutIt&) const noexcept;
-
-		/**************************************************************************************************************
-		 * Equality comparison operator.
-		 **************************************************************************************************************/
-		bool operator==(const MutIt&) const noexcept;
-
-		/**************************************************************************************************************
-		 * Dereferences the iterator.
-		 *
-		 * @return The pixel reference.
-		 **************************************************************************************************************/
-		value_type operator*() const noexcept;
-
-		/**************************************************************************************************************
-		 * Dereferences the iterator with a subscript.
-		 *
-		 * @param diff The pixel relative to the iterator to access.
-		 *
-		 * @return The pixel reference.
-		 **************************************************************************************************************/
-		value_type operator[](difference_type diff) const noexcept;
-
-		/**************************************************************************************************************
-		 * Dereferences the iterator with a subscript.
-		 *
-		 * @param diff The pixel relative to the iterator to access (in vector form).
-		 *
-		 * @return The pixel reference.
-		 **************************************************************************************************************/
-		value_type operator[](glm::ivec2 diff) const noexcept;
-
-		/**************************************************************************************************************
-		 * Dereferences the iterator through a pointer.
-		 *
-		 * @return A pointer to the pixel reference.
-		 **************************************************************************************************************/
-		pointer operator->() const noexcept;
-
-		/**************************************************************************************************************
-		 * Increments the iterator.
-		 *
-		 * @return A reference to the iterator.
-		 **************************************************************************************************************/
-		MutIt& operator++() noexcept;
-
-		/**************************************************************************************************************
-		 * Post-increments the iterator.
-		 *
-		 * @return An iterator with the prior state of the incremented iterator.
-		 **************************************************************************************************************/
-		MutIt operator++(int) noexcept;
-
-		/**************************************************************************************************************
-		 * Advances the iterator.
-		 *
-		 * @param diff The number of pixels to move forward.
-		 *
-		 * @return A reference to the iterator.
-		 **************************************************************************************************************/
-		MutIt& operator+=(difference_type diff) noexcept;
-
-		/**************************************************************************************************************
-		 * Advances the iterator.
-		 *
-		 * @param diff The number of pixels to move forward (in vector form).
-		 *
-		 * @return A reference to the iterator.
-		 **************************************************************************************************************/
-		MutIt& operator+=(glm::ivec2 diff) noexcept;
-
-		/**************************************************************************************************************
-		 * Adds to the iterator.
-		 *
-		 * @param it The iterator to add to.
-		 * @param diff The number of pixels to move forward.
-		 *
-		 * @return An iterator equal to @em it advanced by @em diff pixels.
-		 **************************************************************************************************************/
-		friend MutIt operator+(const MutIt& it, difference_type diff) noexcept;
-
-		/**************************************************************************************************************
-		 * Adds to the iterator.
-		 *
-		 * @param diff The number of pixels to move forward.
-		 * @param it The iterator to add to.
-		 *
-		 * @return An iterator equal to @em it advanced by @em diff pixels.
-		 **************************************************************************************************************/
-		friend MutIt operator+(difference_type diff, const MutIt& it) noexcept;
-
-		/**************************************************************************************************************
-		 * Adds to the iterator.
-		 *
-		 * @param it The iterator to add to.
-		 * @param diff The number of pixels to move forward (in vector form).
-		 *
-		 * @return An iterator equal to @em it advanced by @em diff pixels.
-		 **************************************************************************************************************/
-		friend MutIt operator+(const MutIt& it, glm::ivec2 diff) noexcept;
-
-		/**************************************************************************************************************
-		 * Adds to the iterator.
-		 *
-		 * @param diff The number of pixels to move forward (in vector form).
-		 * @param it The iterator to add to.
-		 *
-		 * @return An iterator equal to @em it advanced by @em diff pixels.
-		 **************************************************************************************************************/
-		friend MutIt operator+(glm::ivec2 diff, const MutIt& it) noexcept;
-
-		/**************************************************************************************************************
-		 * Decrements the iterator.
-		 *
-		 * @return A reference to the iterator.
-		 **************************************************************************************************************/
-		MutIt& operator--() noexcept;
-
-		/**************************************************************************************************************
-		 * Post-decrements the iterator.
-		 *
-		 * @return An iterator with the prior state of the decremented iterator.
-		 **************************************************************************************************************/
-		MutIt operator--(int) noexcept;
-
-		/**************************************************************************************************************
-		 * Moves the iterator back.
-		 *
-		 * @param diff The number of pixels to move backward.
-		 *
-		 * @return A reference to the iterator.
-		 **************************************************************************************************************/
-		MutIt& operator-=(difference_type diff) noexcept;
-
-		/**************************************************************************************************************
-		 * Moves the iterator back.
-		 *
-		 * @param diff The number of pixels to move backward (in vector form).
-		 *
-		 * @return A reference to the iterator.
-		 **************************************************************************************************************/
-		MutIt& operator-=(glm::ivec2 diff) noexcept;
-
-		/**************************************************************************************************************
-		 * Subtracts from the iterator.
-		 *
-		 * @param diff The number of pixels to move backward.
-		 * @param it The iterator to add to.
-		 *
-		 * @return An iterator equal to @em it moved back by @em diff pixels.
-		 **************************************************************************************************************/
-		friend MutIt operator-(const MutIt& it, difference_type diff) noexcept;
-
-		/**************************************************************************************************************
-		 * Subtracts from the iterator.
-		 *
-		 * @param it The iterator to add to.
-		 * @param diff The number of pixels to move backward.
-		 *
-		 * @return An iterator equal to @em it moved back by @em diff pixels.
-		 **************************************************************************************************************/
-		friend MutIt operator-(difference_type diff, const MutIt& it) noexcept;
-
-		/**************************************************************************************************************
-		 * Subtracts from the iterator.
-		 *
-		 * @param diff The number of pixels to move backward (in vector form).
-		 * @param it The iterator to add to.
-		 *
-		 * @return An iterator equal to @em it moved back by @em diff pixels.
-		 **************************************************************************************************************/
-		friend MutIt operator-(const MutIt& it, glm::ivec2 diff) noexcept;
-
-		/**************************************************************************************************************
-		 * Subtracts from the iterator.
-		 *
-		 * @param it The iterator to add to.
-		 * @param diff The number of pixels to move backward (in vector form).
-		 *
-		 * @return An iterator equal to @em it moved back by @em diff pixels.
-		 **************************************************************************************************************/
-		friend MutIt operator-(glm::ivec2 diff, const MutIt& it) noexcept;
-
-		/**************************************************************************************************************
-		 * Gets the distance between two iterators.
-		 *
-		 * This function only makes sense if two iterators are pointing to the same bitmap.
-		 *
-		 * @param l, r Iterators to the same bitmap.
-		 *
-		 * @return The distance between the iterators.
-		 **************************************************************************************************************/
-		friend difference_type operator-(const MutIt& l, const MutIt& r) noexcept;
-
-	  private:
-		PixelRef   _pixel;
-		Bitmap*    _bitmap;
-		glm::ivec2 _pos;
-	};
-
-	/******************************************************************************************************************
 	 * Creates a bitmap with the missing texture checkerboard pattern.
 	 *
-	 * @exception BitmapBadAlloc If allocating the bitmap failed.
+	 * @exception BitmapBadAlloc If allocating the bitmap fails.
 	 *
-	 * @param size The size of the bitmap.
+	 * @param[in] size The size of the bitmap.
 	 *
 	 * @return A bitmap with the missing texture checkerboard pattern.
 	 ******************************************************************************************************************/

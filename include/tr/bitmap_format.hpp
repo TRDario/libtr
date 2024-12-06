@@ -1,8 +1,3 @@
-/**
- * @file bitmap_format.hpp
- * @brief Provides a bitmap pixel format type.
- */
-
 #pragma once
 
 namespace tr {
@@ -100,13 +95,11 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs a bitmap format from the base enumerator.
 		 *
-		 * @param base The base enumerator.
+		 * @param[in] base The base enumerator.
 		 **************************************************************************************************************/
 		BitmapFormat(Type base) noexcept;
 
-		/**************************************************************************************************************
-		 * Casts the format to the base enumerator.
-		 **************************************************************************************************************/
+		/// @private
 		operator Type() const noexcept;
 
 		/**************************************************************************************************************
