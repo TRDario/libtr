@@ -1,22 +1,21 @@
-/**
- * @file ranges.hpp
- * @brief Provides miscellaneous range functionality.
- */
-
 #pragma once
 #include "concepts.hpp"
-
 #include <cassert>
 #include <ranges>
 #include <span>
 
 namespace tr {
+	/** @defgroup ranges Ranges
+	 *  Ranges functionality.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Gets a view of a contiguous range as a span of immutable bytes.
 	 *
 	 * @tparam T A type that fulfills <em>StandardLayoutRange</em>.
 	 *
-	 * @param range The range to get a byte view of.
+	 * @param[in] range The range to get a byte view of.
 	 *
 	 * @return A span over the range's bytes.
 	 ******************************************************************************************************************/
@@ -27,7 +26,7 @@ namespace tr {
 	 *
 	 * @tparam T A standard layout type.
 	 *
-	 * @param object The object to get a byte view of.
+	 * @param[in] object The object to get a byte view of.
 	 *
 	 * @return A span over the object's bytes.
 	 ******************************************************************************************************************/
@@ -38,7 +37,7 @@ namespace tr {
 	 *
 	 * @tparam T A type that fulfills <em>StandardLayoutRange</em>.
 	 *
-	 * @param range The range to get a byte view of.
+	 * @param[in] range The range to get a byte view of.
 	 *
 	 * @return A mutable span over the range's bytes.
 	 ******************************************************************************************************************/
@@ -49,7 +48,7 @@ namespace tr {
 	 *
 	 * @tparam T A standard layout type.
 	 *
-	 * @param object The object to get a byte view of.
+	 * @param[in] object The object to get a byte view of.
 	 *
 	 * @return A mutable span over the object's bytes.
 	 ******************************************************************************************************************/
@@ -61,7 +60,7 @@ namespace tr {
 	 * The span must be an integer multiple of the size of the object being cast into. If the span has a static length,
 	 * the function will fail to compile, and if the span has a dynamic length, a failed assertion may be triggered.
 	 *
-	 * @param bytes The byte span to reinterpret.
+	 * @param[in] bytes The byte span to reinterpret.
 	 *
 	 * @return A mutable span over objects.
 	 ******************************************************************************************************************/
@@ -73,7 +72,7 @@ namespace tr {
 	 * The span must be an integer multiple of the size of the object being cast into. If the span has a static length,
 	 * the function will fail to compile, and if the span has a dynamic length, a failed assertion may be triggered.
 	 *
-	 * @param bytes The byte span to reinterpret.
+	 * @param[in] bytes The byte span to reinterpret.
 	 *
 	 * @return A span over const objects.
 	 ******************************************************************************************************************/
@@ -82,7 +81,7 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Creates an adaptor for a transformed view over a range as a range of one of its members.
 	 *
-	 * @param ptr A class member pointer.
+	 * @param[in] ptr A class member pointer.
 	 *
 	 * @return An adaptor for the projection transformer.
 	 ******************************************************************************************************************/
@@ -93,13 +92,15 @@ namespace tr {
 	 *
 	 * @tparam R A range type.
 	 *
-	 * @param range The range to transform.
-	 * @param ptr A class member pointer.
+	 * @param[in] range The range to transform.
+	 * @param[in] ptr A class member pointer.
 	 *
 	 * @return The transformed view.
 	 ******************************************************************************************************************/
 	template <std::ranges::range R>
 	constexpr auto project(R&& range, auto std::ranges::range_value_t<R>::*ptr) noexcept;
+
+	/// @}
 } // namespace tr
 
 /// @cond IMPLEMENTATION
