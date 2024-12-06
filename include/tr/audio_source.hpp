@@ -5,6 +5,10 @@
 #include <glm/glm.hpp>
 
 namespace tr {
+	/** @addtogroup audio
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Error thrown when allocating an audio source fails.
 	 ******************************************************************************************************************/
@@ -401,6 +405,8 @@ namespace tr {
 
 		friend class AudioStream;
 	};
+
+	/// @}
 } // namespace tr
 
 /// @cond IMPLEMENTATION

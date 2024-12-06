@@ -12,6 +12,13 @@ namespace tr {
 	class Bitmap;
 	class BitmapView;
 
+	/** @defgroup bitmap Bitmaps
+	 * Functionality for manipulating bitmaps.
+	 *
+	 *  An instance of Window must be created before any functionality from this section can be used.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Error thrown when bitmap allocation fails.
 	 ******************************************************************************************************************/
@@ -557,6 +564,8 @@ namespace tr {
 	 * @return A bitmap with the missing texture checkerboard pattern.
 	 ******************************************************************************************************************/
 	Bitmap createCheckerboard(glm::ivec2 size);
+
+	/// @}
 } // namespace tr
 
 /// @cond IMPLEMENTATION

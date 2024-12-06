@@ -4,6 +4,11 @@
 #include <optional>
 
 namespace tr {
+	/** @defgroup display_mode Display Modes
+	 *  Functionality for querying and expressing display modes.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Display mode information.
 	 ******************************************************************************************************************/
@@ -135,4 +140,6 @@ namespace tr {
 	 * @return The number of available displays.
 	 ******************************************************************************************************************/
 	int displayCount() noexcept;
+
+	/// @}
 } // namespace tr

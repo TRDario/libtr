@@ -7,6 +7,13 @@ struct ALCdevice;
 struct ALCcontext;
 
 namespace tr {
+	/** @defgroup audio Audio
+	 *  Audio subsystem.
+	 *
+	 *  An instance of AudioSystem must be created before any other functionality from this section can be used.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Error thrown when creating the audio system fails.
 	 ******************************************************************************************************************/
@@ -60,4 +67,6 @@ namespace tr {
 	 * @return A reference to the audio system.
 	 ******************************************************************************************************************/
 	AudioSystem& audio() noexcept;
+
+	/// @}
 } // namespace tr

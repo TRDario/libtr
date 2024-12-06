@@ -3,6 +3,11 @@
 #include <concepts>
 
 namespace tr {
+	/** @defgroup angle Angles
+	 *  Types and functions for angle manipulation.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Concept denoting a valid angle base type.
 	 *
@@ -463,6 +468,8 @@ namespace tr {
 		 **************************************************************************************************************/
 		consteval AngleL operator"" _turnsl(unsigned long long tr) noexcept;
 	} // namespace angle_literals
+
+	/// @}
 } // namespace tr
 
 #include "angle_impl.hpp"

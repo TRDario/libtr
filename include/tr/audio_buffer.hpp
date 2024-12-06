@@ -4,6 +4,10 @@
 #include <span>
 
 namespace tr {
+	/** @addtogroup audio
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Error thrown when allocating an audio buffer fails.
 	 ******************************************************************************************************************/
@@ -148,6 +152,8 @@ namespace tr {
 
 		Handle<unsigned int, 0, Deleter> _id;
 	};
+
+	/// @}
 } // namespace tr
 
 /// @cond IMPLEMENTATION

@@ -3,6 +3,10 @@
 #include <boost/type_traits.hpp>
 
 namespace tr {
+	/** @addtogroup color
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Interface for custom casters for use in color_cast.
 	 *
@@ -355,6 +359,7 @@ namespace tr {
 		static constexpr HSV fromBuiltin(const RGBAF& from) noexcept;
 	};
 
+	/// @}
 } // namespace tr
 
 #include "color_cast_impl.hpp"

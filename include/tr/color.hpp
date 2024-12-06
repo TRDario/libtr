@@ -2,6 +2,11 @@
 #include "concepts.hpp"
 
 namespace tr {
+	/** @defgroup color Colors
+	 *  Structures and functions for color manipulation.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Concept denoting a valid color datatype.
 	 *
@@ -660,6 +665,8 @@ namespace tr {
 		std::same_as<T, BGRA_Ui16_5_5_5_1> || std::same_as<T, BGRA_Ui32_10_10_10_2> ||
 		std::same_as<T, ARGB_Ui16_4_4_4_4> || std::same_as<T, ARGB_Ui16_1_5_5_5> ||
 		std::same_as<T, ARGB_Ui32_2_10_10_10>;
+
+	/// @}
 } // namespace tr
 
 /// @cond IMPLEMENTATION
