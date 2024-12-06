@@ -1,14 +1,12 @@
-/**
- * @file index_buffer.hpp
- * @brief Provides a GPU index buffer class.
- */
-
 #pragma once
 #include "gl_buffer.hpp"
-
 #include <string>
 
 namespace tr {
+	/** @addtogroup graphics
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * RAII wrapper over an index buffer map.
 	 *
@@ -36,15 +34,13 @@ namespace tr {
 
 	/******************************************************************************************************************
 	 * GPU index buffer class.
-	 *
-	 * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	class IndexBuffer {
 	  public:
 		/**************************************************************************************************************
 		 * Constructs an empty index buffer.
 		 *
-		 * This function can be called before creating a GLContext, but most operations on the buffer still require it.
+		 * This function can be called before opening the window.
 		 **************************************************************************************************************/
 		IndexBuffer() noexcept;
 
@@ -53,12 +49,10 @@ namespace tr {
 		 *
 		 * The buffer will be of size 0 and capacity @em capacity after construction.
 		 *
-		 * This function can't be called before creating a GLContext.
+		 * @exception GLBufferBadAlloc If allocating the buffer fails.
 		 *
-		 * @exception GLBufferBadAlloc If allocating the buffer failed.
-		 *
-		 * @param capacity The capacity of the buffer in indices. Must be greater than 0, otherwise a failed assertion
-		 *                 may be triggered.
+		 * @param[in] capacity The capacity of the buffer in indices. Must be greater than 0, otherwise a failed
+		 *                     assertion may be triggered.
 		 **************************************************************************************************************/
 		IndexBuffer(std::size_t capacity);
 
@@ -67,12 +61,10 @@ namespace tr {
 		 *
 		 * The buffer will be of size and capacity @em data.size() after construction.
 		 *
-		 * This function can't be called before creating a GLContext.
+		 * @exception GLBufferBadAlloc If allocating the buffer fails.
 		 *
-		 * @exception GLBufferBadAlloc If allocating the buffer failed.
-		 *
-		 * @param data The data to be uploaded to be buffer. Must not be empty, otherwise a failed assertion
-		 *             may be triggered.
+		 * @param[in] data The data to be uploaded to be buffer. Must not be empty, otherwise a failed assertion
+		 *                 may be triggered.
 		 **************************************************************************************************************/
 		IndexBuffer(std::span<const std::uint16_t> data);
 
@@ -112,14 +104,14 @@ namespace tr {
 		 * Sets the contents of the buffer.
 		 *
 		 * If data.size() is greater than the capacity of the buffer, a reallocation will be done. This voids any
-		 *previous bindings of the buffer to the context, and so it must be rebound. setRegion() will never cause a
+		 * previous bindings of the buffer to the context, and so it must be rebound. setRegion() will never cause a
 		 * reallocation, so may be used in cases where that's a requirement.
 		 *
 		 * The buffer cannot be mapped when this function is called.
 		 *
-		 * @exception GLBufferBadAlloc If a reallocation was triggered and reallocating the buffer failed.
+		 * @exception GLBufferBadAlloc If a reallocation is triggered and reallocating the buffer fails.
 		 *
-		 * @param data The new data of the buffer.
+		 * @param[in] data The new data of the buffer.
 		 **************************************************************************************************************/
 		void set(std::span<const std::uint16_t> data);
 
@@ -131,9 +123,9 @@ namespace tr {
 		 *
 		 * The buffer cannot be mapped when this function is called.
 		 *
-		 * @param offset The starting offset within the buffer in indices.
-		 * @param data The new data of the buffer. `offset + data.size() <= capacity()` must hold true, otherwise a
-		 *failed assertion may be triggered.
+		 * @param[in] offset The starting offset within the buffer in indices.
+		 * @param[in] data The new data of the buffer. `offset + data.size() <= capacity()` must hold true, otherwise a
+		 *                 failed assertion may be triggered.
 		 **************************************************************************************************************/
 		void setRegion(std::size_t offset, std::span<const std::uint16_t> data) noexcept;
 
@@ -151,11 +143,11 @@ namespace tr {
 		 * bindings of the buffer to the context, and so it must be rebound. mapRegion() will never cause a
 		 * reallocation, so may be used in cases where that's a requirement.
 		 *
-		 * @exception GLBufferBadAlloc If a reallocation was triggered and reallocating the buffer failed.
-		 * @exception GLMapBadAlloc If mapping the buffer failed.
+		 * @exception GLBufferBadAlloc If a reallocation was triggered and reallocating the buffer fails.
+		 * @exception GLMapBadAlloc If mapping the buffer fails.
 		 *
-		 * @param size The new size of the buffer in indices. Must be greater than 0, otherwise a failed assertion may
-		 *             be triggered.
+		 * @param[in] size The new size of the buffer in indices. Must be greater than 0, otherwise a failed assertion
+		 *                 may be triggered.
 		 *
 		 * @return A map object.
 		 **************************************************************************************************************/
@@ -169,9 +161,9 @@ namespace tr {
 		 *
 		 * @exception GLMapBadAlloc If mapping the buffer failed.
 		 *
-		 * @param offset The starting offset within the buffer in indices.
-		 * @param size The size of the mapped region in indices. Must be greater than 0, and `offset + data.size() <=
-		 *capacity()` must hold true, otherwise a failed assertion may be triggered.
+		 * @param[in] offset The starting offset within the buffer in indices.
+		 * @param[in] size The size of the mapped region in indices. Must be greater than 0, and `offset + data.size()
+		 *                 <= capacity()` must hold true, otherwise a failed assertion may be triggered.
 		 *
 		 * @return A map object.
 		 **************************************************************************************************************/
@@ -180,7 +172,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the debug label of the vertex buffer.
 		 *
-		 * @param label The new label of the index buffer.
+		 * @param[in] label The new label of the index buffer.
 		 **************************************************************************************************************/
 		void setLabel(std::string label) noexcept;
 
@@ -194,4 +186,6 @@ namespace tr {
 
 		friend class GLContext;
 	};
+
+	/// @}
 } // namespace tr

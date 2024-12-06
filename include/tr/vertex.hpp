@@ -1,15 +1,13 @@
-/**
- * @file vertex.hpp
- * @brief Provides generic vertex types and special views for manipulating ranges of them.
- */
-
 #pragma once
 #include "color.hpp"
 #include "vertex_format.hpp"
-
 #include <glm/glm.hpp>
 
 namespace tr {
+	/** @addtogroup drawing
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Concept denoting a range transformable with tr::positions.
 	 *
@@ -117,7 +115,7 @@ namespace tr {
 		 *
 		 * @tparam R A range type that fulfills <em>PositionsRange</em>.
 		 *
-		 * @param range The range to transform.
+		 * @param[in] range The range to transform.
 		 *
 		 * @return The transformed view.
 		 **************************************************************************************************************/
@@ -129,7 +127,7 @@ namespace tr {
 	 *
 	 * @tparam R A range type that fulfills <em>PositionsRange</em>.
 	 *
-	 * @param range The range to transform.
+	 * @param[in] range The range to transform.
 	 *
 	 * @return The transformed view.
 	 ******************************************************************************************************************/
@@ -149,7 +147,7 @@ namespace tr {
 		 *
 		 * @tparam R A range type that fulfills <em>UVsRange</em>.
 		 *
-		 * @param range The range to transform.
+		 * @param[in] range The range to transform.
 		 *
 		 * @return The transformed view.
 		 **************************************************************************************************************/
@@ -161,7 +159,7 @@ namespace tr {
 	 *
 	 * @tparam R A range type that fulfills <em>UVsRange</em>.
 	 *
-	 * @param range The range to transform.
+	 * @param[in] range The range to transform.
 	 *
 	 * @return The transformed view.
 	 ******************************************************************************************************************/
@@ -181,7 +179,7 @@ namespace tr {
 		 *
 		 * @tparam R A range type that fulfills <em>ColorsRange</em>.
 		 *
-		 * @param range The range to transform.
+		 * @param[in] range The range to transform.
 		 *
 		 * @return The transformed view.
 		 **************************************************************************************************************/
@@ -193,7 +191,7 @@ namespace tr {
 	 *
 	 * @tparam R A range type that fulfills <em>ColorsRange</em>.
 	 *
-	 * @param range The range to transform.
+	 * @param[in] range The range to transform.
 	 *
 	 * @return The transformed view.
 	 ******************************************************************************************************************/
@@ -203,6 +201,8 @@ namespace tr {
 	 * Instance of Colors.
 	 *******************************************************************************************************************/
 	inline constexpr Colors colors;
+
+	/// @}
 } // namespace tr
 
 /// @cond IMPLEMENTATION

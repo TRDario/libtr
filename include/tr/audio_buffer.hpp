@@ -99,7 +99,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs an empty audio buffer.
 		 *
-		 * @exception AudioBufferBadAlloc If allocating the buffer failed.
+		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
 		 **************************************************************************************************************/
 		AudioBuffer();
 

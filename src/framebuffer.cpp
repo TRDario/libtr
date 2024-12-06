@@ -1,8 +1,6 @@
 #include "../include/tr/framebuffer.hpp"
 #include "../include/tr/window.hpp"
-
 #include "bitmap_to_gl_format.hpp"
-
 #include <GL/glew.h>
 
 namespace tr {

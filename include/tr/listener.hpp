@@ -1,8 +1,3 @@
-/**
- * @file listener.hpp
- * @brief Provides access to the global audio listener.
- */
-
 #pragma once
 #include <glm/glm.hpp>
 

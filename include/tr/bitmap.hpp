@@ -309,7 +309,6 @@ namespace tr {
 
 	  private:
 		struct Deleter {
-			/// @private
 			void operator()(SDL_Surface* ptr) const noexcept;
 		};
 

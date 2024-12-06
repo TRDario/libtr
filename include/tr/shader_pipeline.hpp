@@ -1,40 +1,36 @@
-/**
- * @file shader_pipeline.hpp
- * @brief Provides a shader program pipeline class.
- */
-
 #pragma once
 #include "shader.hpp"
 #include <string_view>
 
 namespace tr {
+	/** @addtogroup graphics
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
-	 * A shader program pipeline.
-	 *
-	 * An OpenGL context must be open to instantiate and use objects of this type.
+	 * Shader program pipeline.
 	 ******************************************************************************************************************/
 	class ShaderPipeline {
 	  public:
 		/**************************************************************************************************************
 		 * Creates a shader pipeline.
 		 *
-		 * All shaders must actually be of the type they're passed as, otherwise a failed assertion may be triggered.
+		 * All shaders must actually be of the type they're passed as.
 		 *
-		 * @param vertexShader The vertex shader.
-		 * @param fragmentShader The fragment shader.
+		 * @param[in] vertexShader The vertex shader.
+		 * @param[in] fragmentShader The fragment shader.
 		 **************************************************************************************************************/
 		ShaderPipeline(const Shader& vertexShader, const Shader& fragmentShader) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the debug label of the pipeline.
 		 *
-		 * @param label The new label of the pipeline.
+		 * @param[in] label The new label of the pipeline.
 		 **************************************************************************************************************/
 		void setLabel(std::string_view label) noexcept;
 
 	  private:
 		struct Deleter {
-			/// @private
 			void operator()(unsigned int id) const noexcept;
 		};
 
@@ -46,15 +42,17 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * A shader program pipeline that owns its shaders.
+	 * Shader program pipeline that owns its shaders.
 	 ******************************************************************************************************************/
 	class OwningShaderPipeline {
 	  public:
 		/**************************************************************************************************************
 		 * Creates an owning shader pipeline.
 		 *
-		 * @param vertexShader The vertex shader.
-		 * @param fragmentShader The fragment shader.
+		 * All shaders must actually be of the type they're passed as.
+		 *
+		 * @param[in] vertexShader The vertex shader.
+		 * @param[in] fragmentShader The fragment shader.
 		 **************************************************************************************************************/
 		OwningShaderPipeline(Shader vertexShader, Shader fragmentShader) noexcept;
 
@@ -96,7 +94,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the debug label of the pipeline.
 		 *
-		 * @param label The new label of the pipeline.
+		 * @param[in] label The new label of the pipeline.
 		 **************************************************************************************************************/
 		void setLabel(std::string_view label) noexcept;
 
@@ -105,4 +103,6 @@ namespace tr {
 		Shader         _fragmentShader;
 		ShaderPipeline _pipeline;
 	};
+
+	/// @}
 } // namespace tr

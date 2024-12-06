@@ -1,5 +1,4 @@
 #include "../include/tr/sampler.hpp"
-
 #include <GL/glew.h>
 
 tr::Sampler::Sampler() noexcept

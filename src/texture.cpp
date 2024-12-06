@@ -1,7 +1,5 @@
 #include "../include/tr/texture.hpp"
-
 #include "bitmap_to_gl_format.hpp"
-
 #include <GL/glew.h>
 
 namespace tr {

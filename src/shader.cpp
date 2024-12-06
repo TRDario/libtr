@@ -1,8 +1,7 @@
 #include "../include/tr/shader.hpp"
-
 #include "../include/tr/ranges.hpp"
-
 #include <GL/glew.h>
+#include <format>
 #include <glm/ext.hpp>
 
 namespace tr {

@@ -1,13 +1,12 @@
-/**
- * @file texture_unit.hpp
- * @brief Provides an OpenGL texture unit interface class.
- */
-
 #pragma once
 #include "sampler.hpp"
 #include "texture.hpp"
 
 namespace tr {
+	/** @addtogroup graphics
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * A texture unit onto which texture and samplers can be bound.
 	 *
@@ -21,7 +20,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs a new texture unit.
 		 *
-		 * This function may trigger a failed assertion if the limit of 80 simultaneous texture units is surpassed.
+		 * No more than 80 texture units can exist simultaneously.
 		 **************************************************************************************************************/
 		TextureUnit() noexcept;
 
@@ -45,7 +44,6 @@ namespace tr {
 
 	  private:
 		struct Deleter {
-			/// @private
 			void operator()(unsigned int id) noexcept;
 		};
 
@@ -53,4 +51,6 @@ namespace tr {
 
 		friend class Shader;
 	};
+
+	/// @}
 } // namespace tr

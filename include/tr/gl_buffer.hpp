@@ -1,11 +1,5 @@
-/**
- * @file gl_buffer.hpp
- * @brief Provides basic OpenGL buffer functionality.
- */
-
 #pragma once
 #include "handle.hpp"
-
 #include <cstdint>
 #include <optional>
 #include <span>
@@ -13,6 +7,10 @@
 
 namespace tr {
 	class GLBufferMap;
+
+	/** @addtogroup graphics
+	 *  @{
+	 */
 
 	/******************************************************************************************************************
 	 * Concept denoting an iterator suitable for GLBuffer::copyRegionTo.
@@ -50,7 +48,7 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Base OpenGL buffer class.
 	 *
-	 * This class is not meant to be used directly.
+	 * This class cannot be constructed directly.
 	 ******************************************************************************************************************/
 	class GLBuffer {
 	  public:
@@ -215,6 +213,8 @@ namespace tr {
 
 		friend class GLBuffer;
 	};
+
+	/// @}
 } // namespace tr
 
 /// @cond IMPLEMENTATION

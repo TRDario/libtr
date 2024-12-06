@@ -1,15 +1,13 @@
-/**
- * @file sampler.hpp
- * @brief Provides a texture sampler type.
- */
-
 #pragma once
 #include "color.hpp"
 #include "handle.hpp"
-
 #include <string_view>
 
 namespace tr {
+	/** @addtogroup graphics
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Texture wrapping types.
 	 ******************************************************************************************************************/
@@ -132,8 +130,6 @@ namespace tr {
 
 	/******************************************************************************************************************
 	 * GPU Texture sampler.
-	 *
-	 * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	class Sampler {
 	  public:
@@ -142,36 +138,33 @@ namespace tr {
 		 **************************************************************************************************************/
 		Sampler() noexcept;
 
-		/**************************************************************************************************************
-		 * Equality comparison operator.
-		 **************************************************************************************************************/
 		friend bool operator==(const Sampler&, const Sampler&) noexcept = default;
 
 		/**************************************************************************************************************
 		 * Sets the minifying filter used by the sampler.
 		 *
-		 * @param filter The new minifying filter type.
+		 * @param[in] filter The new minifying filter type.
 		 **************************************************************************************************************/
 		void setMinFilter(MinFilter filter) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the magnifying filter used by the sampler.
 		 *
-		 * @param filter The new magnifying filter type.
+		 * @param[in] filter The new magnifying filter type.
 		 **************************************************************************************************************/
 		void setMagFilter(MagFilter filter) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the minimum allowed level-of-detail parameter used by the sampler.
 		 *
-		 * @param lod The new minimum LOD.
+		 * @param[in] lod The new minimum LOD.
 		 **************************************************************************************************************/
 		void setMinLOD(int lod) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the maximum allowed level-of-detail parameter used by the sampler.
 		 *
-		 * @param lod The new maximum LOD.
+		 * @param[in] lod The new maximum LOD.
 		 **************************************************************************************************************/
 		void setMaxLOD(int lod) noexcept;
 
@@ -183,55 +176,54 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Enables the use of depth comparison and sets the depth comparison operator of the sampler.
 		 *
-		 * @param op The function to use for comparison.
+		 * @param[in] op The function to use for comparison.
 		 **************************************************************************************************************/
 		void setComparisonMode(Compare op) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the wrapping used for the s/x coordinate.
 		 *
-		 * @param wrap The new wrapping type.
+		 * @param[in] wrap The new wrapping type.
 		 **************************************************************************************************************/
 		void setWrapS(Wrap wrap) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the wrapping used for the t/y coordinate.
 		 *
-		 * @param wrap The new wrapping type.
+		 * @param[in] wrap The new wrapping type.
 		 **************************************************************************************************************/
 		void setWrapT(Wrap wrap) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the wrapping used for the r/z coordinate.
 		 *
-		 * @param wrap The new wrapping type.
+		 * @param[in] wrap The new wrapping type.
 		 **************************************************************************************************************/
 		void setWrapR(Wrap wrap) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the wrapping used for all coordinates.
 		 *
-		 * @param wrap The new wrapping type.
+		 * @param[in] wrap The new wrapping type.
 		 **************************************************************************************************************/
 		void setWrap(Wrap wrap) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the border color of the sampler (used when Wrap::BORDER_CLAMP is in use).
 		 *
-		 * @param color The border color in floating point RGBA format.
+		 * @param[in] color The border color in floating point RGBA format.
 		 **************************************************************************************************************/
 		void setBorderColor(RGBAF color) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the debug label of the sampler.
 		 *
-		 * @param label The new label of the sampler.
+		 * @param[in] label The new label of the sampler.
 		 **************************************************************************************************************/
 		void setLabel(std::string_view label) noexcept;
 
 	  private:
 		struct Deleter {
-			/// @private
 			void operator()(unsigned int id) const noexcept;
 		};
 
@@ -240,6 +232,8 @@ namespace tr {
 		friend class TextureUnit;
 		friend class std::hash<Sampler>;
 	};
+
+	/// @}
 } // namespace tr
 
 /// @cond IMPLEMENTATION

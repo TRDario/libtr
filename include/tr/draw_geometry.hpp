@@ -2,8 +2,8 @@
 #include "geometry.hpp"
 
 namespace tr {
-	/** @defgroup draw_geometry Drawing Geometry Functions
-	 *  Helper functions for geometry used in drawing.
+	/** @defgroup drawing Drawing Helpers
+	 *  Helper functionality for drawing.
 	 *  @{
 	 */
 

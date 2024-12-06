@@ -1,5 +1,4 @@
 #include "../include/tr/sdl.hpp"
-
 #include <SDL2/SDL.h>
 #include <format>
 

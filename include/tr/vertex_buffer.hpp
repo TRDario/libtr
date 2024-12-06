@@ -1,25 +1,21 @@
-/**
- * @file vertex_buffer.hpp
- * @brief Provides a GPU vertex buffer class.
- */
-
 #pragma once
 #include "gl_buffer.hpp"
-
 #include <string>
 
 namespace tr {
+	/** @addtogroup graphics
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * GPU vertex buffer class.
-	 *
-	 * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	class VertexBuffer {
 	  public:
 		/**************************************************************************************************************
 		 * Constructs an empty vertex buffer.
 		 *
-		 * This function can be called before creating a GLContext, but most operations on the buffer still require it.
+		 * This function can be called before creating a GLContext.
 		 **************************************************************************************************************/
 		VertexBuffer() noexcept;
 
@@ -30,10 +26,9 @@ namespace tr {
 		 *
 		 * This function can't be called before creating a GLContext.
 		 *
-		 * @exception GLBufferBadAlloc If allocating the buffer failed.
+		 * @exception GLBufferBadAlloc If allocating the buffer fails.
 		 *
-		 * @param capacity The capacity of the buffer in bytes. Must be greater than 0, otherwise a failed assertion may
-		 *                 be triggered.
+		 * @param capacity The capacity of the buffer in bytes. Must be greater than 0.
 		 **************************************************************************************************************/
 		VertexBuffer(std::size_t capacity);
 
@@ -44,10 +39,9 @@ namespace tr {
 		 *
 		 * This function can't be called before creating a GLContext.
 		 *
-		 * @exception GLBufferBadAlloc If allocating the buffer failed.
+		 * @exception GLBufferBadAlloc If allocating the buffer fails.
 		 *
-		 * @param data The data to be uploaded to be buffer. Must not be empty, otherwise a failed assertion
-		 *             may be triggered.
+		 * @param[in] data The data to be uploaded to be buffer. Must not be empty.
 		 **************************************************************************************************************/
 		VertexBuffer(std::span<const std::byte> data);
 
@@ -92,9 +86,9 @@ namespace tr {
 		 *
 		 * The buffer cannot be mapped when this function is called.
 		 *
-		 * @exception GLBufferBadAlloc If a reallocation was triggered and reallocating the buffer failed.
+		 * @exception GLBufferBadAlloc If a reallocation is triggered and reallocating the buffer fails.
 		 *
-		 * @param data The new data of the buffer.
+		 * @param[in] data The new data of the buffer.
 		 **************************************************************************************************************/
 		void set(std::span<const std::byte> data);
 
@@ -106,9 +100,8 @@ namespace tr {
 		 *
 		 * The buffer cannot be mapped when this function is called.
 		 *
-		 * @param offset The starting offset within the buffer in bytes.
-		 * @param data The new data of the buffer. `offset + data.size() <= capacity()` must hold true, otherwise a
-		 *failed assertion may be triggered.
+		 * @param[in] offset The starting offset within the buffer in bytes.
+		 * @param[in] data The new data of the buffer. `offset + data.size() <= capacity()` must hold true.
 		 **************************************************************************************************************/
 		void setRegion(std::size_t offset, std::span<const std::byte> data) noexcept;
 
@@ -129,8 +122,8 @@ namespace tr {
 		 * @exception GLBufferBadAlloc If a reallocation was triggered and reallocating the buffer failed.
 		 * @exception GLMapBadAlloc If mapping the buffer failed.
 		 *
-		 * @param size The new size of the buffer in bytes. Must be greater than 0, otherwise a failed assertion may
-		 *             be triggered.
+		 * @param[in] size The new size of the buffer in bytes. Must be greater than 0, otherwise a failed assertion may
+		 *                 be triggered.
 		 *
 		 * @return A map object.
 		 **************************************************************************************************************/
@@ -144,9 +137,9 @@ namespace tr {
 		 *
 		 * @exception GLMapBadAlloc If mapping the buffer failed.
 		 *
-		 * @param offset The starting offset within the buffer in bytes.
-		 * @param size The size of the mapped region in bytes. Must be greater than 0, and `offset + data.size() <=
-		 *capacity()` must hold true, otherwise a failed assertion may be triggered.
+		 * @param[in] offset The starting offset within the buffer in bytes.
+		 * @param[in] size The size of the mapped region in bytes. Must be greater than 0, and `offset + data.size() <=
+		 *                 capacity()` must hold true, otherwise a failed assertion may be triggered.
 		 *
 		 * @return A map object.
 		 **************************************************************************************************************/
@@ -155,7 +148,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the debug label of the vertex buffer.
 		 *
-		 * @param label The new label of the vertex buffer.
+		 * @param[in] label The new label of the vertex buffer.
 		 **************************************************************************************************************/
 		void setLabel(std::string label) noexcept;
 
@@ -169,4 +162,6 @@ namespace tr {
 
 		friend class GLContext;
 	};
+
+	/// @}
 } // namespace tr

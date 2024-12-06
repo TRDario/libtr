@@ -1,5 +1,4 @@
 #include "../include/tr/vertex_format.hpp"
-
 #include "../include/tr/overloaded_lambda.hpp"
 #include <GL/glew.h>
 

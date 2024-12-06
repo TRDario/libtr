@@ -1,14 +1,13 @@
-/**
- * @file framebuffer.hpp
- * @brief Provides OpenGL framebuffer classes.
- */
-
 #pragma once
 #include "renderbuffer.hpp"
 #include "texture.hpp"
 
 namespace tr {
 	class Window;
+
+	/** @addtogroup graphics
+	 *  @{
+	 */
 
 	/******************************************************************************************************************
 	 * Framebuffer depth range.
@@ -28,7 +27,7 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Base framebuffer class.
 	 *
-	 * This class cannot be constructed directly.
+	 * This class cannot be instantiated directly.
 	 ******************************************************************************************************************/
 	class BasicFramebuffer {
 	  public:
@@ -49,10 +48,10 @@ namespace tr {
 		 *
 		 * The image is copied from the color attachments bound to the framebuffer.
 		 *
-		 * @exception BitmapBadAlloc If allocating the bitmap failed.
+		 * @exception BitmapBadAlloc If allocating the bitmap fails.
 		 *
-		 * @param rect The rect of the framebuffer to copy.
-		 * @param format The format to use for the bitmap pixels.
+		 * @param[in] rect The rect of the framebuffer to copy.
+		 * @param[in] format The format to use for the bitmap pixels.
 		 *
 		 * @return A bitmap containing the pixel data.
 		 **************************************************************************************************************/
@@ -63,9 +62,9 @@ namespace tr {
 		 *
 		 * The image is copied from the color attachments bound to the framebuffer.
 		 *
-		 * @param rect The rect of the framebuffer to copy.
-		 * @param texture The texture to copy the pixels to.
-		 * @param textureTL The coordinates of the top-left corner of the rect within the texture.
+		 * @param[in] rect The rect of the framebuffer to copy.
+		 * @param[out] texture The texture to copy the pixels to.
+		 * @param[in] textureTL The coordinates of the top-left corner of the rect within the texture.
 		 **************************************************************************************************************/
 		void copyRegion(RectI2 rect, Texture2D& texture, glm::ivec2 textureTL) const noexcept;
 
@@ -79,7 +78,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the viewport rect of the framebuffer.
 		 *
-		 * @param viewport The new viewport.
+		 * @param[in] viewport The new viewport.
 		 **************************************************************************************************************/
 		void setViewport(RectI2 viewport) noexcept;
 
@@ -93,12 +92,11 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the depth range of the framebuffer.
 		 *
-		 * @param range The new depth range.
+		 * @param[in] range The new depth range.
 		 **************************************************************************************************************/
 		void setDepthRange(DepthRange range) noexcept;
 
 	  protected:
-		/// @cond IMPLEMENTATION
 		unsigned int _id;
 		RectI2       _viewport;
 		DepthRange   _depthRange;
@@ -109,15 +107,12 @@ namespace tr {
 		void bindRead() const noexcept;
 		// Binds the framebuffer for writing.
 		void bindWrite() const noexcept;
-		/// @endcond
 
 		friend class GLContext;
 	};
 
 	/******************************************************************************************************************
-	 * Custom framebuffer.
-	 *
-	 * An OpenGL context must be open to instantiate and use objects of this type.
+	 * User framebuffer.
 	 ******************************************************************************************************************/
 	class Framebuffer : public BasicFramebuffer {
 	  public:
@@ -220,7 +215,7 @@ namespace tr {
 		 * The viewport of the framebuffer will be clamped to the minimum size of all attachments.
 		 *
 		 * @param tex The texture to attach.
-		 * @param layer The layer of the texture to attach.
+		 * @param[in] layer The layer of the texture to attach.
 		 * @param slot The slot to attach the texture to.
 		 **************************************************************************************************************/
 		void attach(ArrayTexture1D& tex, int layer, Slot slot) noexcept;
@@ -241,7 +236,7 @@ namespace tr {
 		 * The viewport of the framebuffer will be clamped to the minimum size of all attachments.
 		 *
 		 * @param tex The texture to attach.
-		 * @param layer The layer of the texture to attach.
+		 * @param[in] layer The layer of the texture to attach.
 		 * @param slot The slot to attach the texture to.
 		 **************************************************************************************************************/
 		void attach(ArrayTexture2D& tex, int layer, Slot slot) noexcept;
@@ -279,7 +274,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the debug label of the framebuffer.
 		 *
-		 * @param label The new label of the framebuffer.
+		 * @param[in] label The new label of the framebuffer.
 		 **************************************************************************************************************/
 		void setLabel(std::string_view label) noexcept;
 
@@ -298,6 +293,8 @@ namespace tr {
 
 	/******************************************************************************************************************
 	 * Special window backbuffer.
+	 *
+	 * This class cannot be instantiated directly.
 	 ******************************************************************************************************************/
 	class Backbuffer : public BasicFramebuffer {
 	  public:
@@ -308,4 +305,6 @@ namespace tr {
 
 		friend class Window;
 	};
+
+	/// @}
 } // namespace tr

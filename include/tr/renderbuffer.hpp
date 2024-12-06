@@ -1,14 +1,13 @@
-/**
- * @file renderbuffer.hpp
- * @brief Provides a renderbuffer class.
- */
-
 #pragma once
 #include "texture.hpp"
 
 namespace tr {
+	/** @addtogroup graphics
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
-	 * Error thrown on a failed renderbuffer bad allocation.
+	 * Error thrown if a failed renderbuffer allocation fails.
 	 ******************************************************************************************************************/
 	struct RenderbufferBadAlloc : std::bad_alloc {
 		/**************************************************************************************************************
@@ -21,18 +20,16 @@ namespace tr {
 
 	/******************************************************************************************************************
 	 * Image buffer optimized for use as a render target in a framebuffer.
-	 *
-	 * Wrapper over an OpenGL renderbuffer. An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	class Renderbuffer {
 	  public:
 		/**************************************************************************************************************
 		 * Allocates a blank renderbuffer.
 		 *
-		 * @exception RenderbufferBadAlloc If allocating the renderbuffer failed.
+		 * @exception RenderbufferBadAlloc If allocating the renderbuffer fails.
 		 *
-		 * @param size The size of the renderbuffer in pixels.
-		 * @param format The pixel format of the renderbuffer.
+		 * @param[in] size The size of the renderbuffer in pixels.
+		 * @param[in] format The pixel format of the renderbuffer.
 		 **************************************************************************************************************/
 		Renderbuffer(glm::ivec2 size, TextureFormat format);
 
@@ -51,7 +48,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the debug label of the renderbuffer.
 		 *
-		 * @param label The new label of the renderbuffer.
+		 * @param[in] label The new label of the renderbuffer.
 		 **************************************************************************************************************/
 		void setLabel(std::string_view label) noexcept;
 
@@ -67,6 +64,8 @@ namespace tr {
 
 		friend class Framebuffer;
 	};
+
+	/// @}
 } // namespace tr
 
 /// @cond IMPLEMENTATION

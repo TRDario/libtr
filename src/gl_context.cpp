@@ -1,8 +1,5 @@
 #include "../include/tr/gl_context.hpp"
 #include "../include/tr/window.hpp"
-
-#include "../include/tr/function.hpp"
-
 #include <GL/glew.h>
 #include <SDL2/SDL.h>
 #include <format>

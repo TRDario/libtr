@@ -1,5 +1,4 @@
 #include "../include/tr/gl_buffer.hpp"
-
 #include <GL/glew.h>
 
 tr::GLBuffer::GLBuffer(Target target, std::size_t size, Flag flags)

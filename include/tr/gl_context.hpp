@@ -1,8 +1,3 @@
-/**
- * @file gl_context.hpp
- * @brief Provides access to the OpenGL context and state.
- */
-
 #pragma once
 #include "framebuffer.hpp"
 #include "index_buffer.hpp"
@@ -13,6 +8,11 @@
 struct SDL_Window;
 
 namespace tr {
+	/** @defgroup graphics Graphics
+	 *  Graphics functionality.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * OpenGL context properties.
 	 ******************************************************************************************************************/
@@ -353,6 +353,8 @@ namespace tr {
 
 	/******************************************************************************************************************
 	 * OpenGL context.
+	 *
+	 * This class cannot be directly instantiated.
 	 ******************************************************************************************************************/
 	class GLContext {
 	  public:
@@ -438,7 +440,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets whether face culling is performed.
 		 *
-		 * @param use Whether face culling should be performed or not.
+		 * @param[in] use Whether face culling should be performed or not.
 		 **************************************************************************************************************/
 		void useFaceCulling(bool use) noexcept;
 
@@ -602,7 +604,6 @@ namespace tr {
 
 	  private:
 		struct Deleter {
-			/// @private
 			void operator()(void* ptr) const noexcept;
 		};
 
@@ -612,4 +613,6 @@ namespace tr {
 
 		friend class Window;
 	};
+
+	/// @}
 } // namespace tr

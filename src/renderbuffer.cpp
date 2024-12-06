@@ -1,5 +1,4 @@
 #include "../include/tr/renderbuffer.hpp"
-
 #include <GL/glew.h>
 
 tr::Renderbuffer::Renderbuffer(glm::ivec2 size, TextureFormat format)

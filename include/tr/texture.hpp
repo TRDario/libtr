@@ -1,13 +1,12 @@
-/**
- * @file texture.hpp
- * @brief Provides texture functionality.
- */
-
 #pragma once
 #include "bitmap.hpp"
 #include "handle.hpp"
 
 namespace tr {
+	/** @addtogroup graphics
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Texture format types.
 	 ******************************************************************************************************************/
@@ -181,42 +180,42 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the swizzle parameter for the red channel.
 		 *
-		 * @param swizzle The new red channel swizzle.
+		 * @param[in] swizzle The new red channel swizzle.
 		 **************************************************************************************************************/
 		void setSwizzleR(Swizzle swizzle) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the swizzle parameter for the green channel.
 		 *
-		 * @param swizzle The new green channel swizzle.
+		 * @param[in] swizzle The new green channel swizzle.
 		 **************************************************************************************************************/
 		void setSwizzleG(Swizzle swizzle) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the swizzle parameter for the blue channel.
 		 *
-		 * @param swizzle The new blue channel swizzle.
+		 * @param[in] swizzle The new blue channel swizzle.
 		 **************************************************************************************************************/
 		void setSwizzleB(Swizzle swizzle) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the swizzle parameter for the alpha channel.
 		 *
-		 * @param swizzle The new alpha channel swizzle.
+		 * @param[in] swizzle The new alpha channel swizzle.
 		 **************************************************************************************************************/
 		void setSwizzleA(Swizzle swizzle) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the swizzle parameters of the texture.
 		 *
-		 * @param r, g, b, a The new swizzles.
+		 * @param[in] r, g, b, a The new swizzles.
 		 **************************************************************************************************************/
 		void setSwizzle(Swizzle r, Swizzle g, Swizzle b, Swizzle a) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the debug label of the texture.
 		 *
-		 * @param label The new label of the texture.
+		 * @param[in] label The new label of the texture.
 		 **************************************************************************************************************/
 		void setLabel(std::string_view label) noexcept;
 
@@ -244,30 +243,27 @@ namespace tr {
 
 	/******************************************************************************************************************
 	 * One-dimensional texture.
-	 *
-	 * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	struct Texture1D : Texture {
 		/**************************************************************************************************************
 		 * Allocates an uninitialized 1D texture.
 		 *
-		 * @exception TextureBadAlloc If allocating the texture failed.
+		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
-		 * @param size The size of the texture in texels.
-		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
-		 * @param format The internal format of the texture.
+		 * @param[in] size The size of the texture in texels.
+		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
 		Texture1D(int size, int mipmaps, TextureFormat format = TextureFormat::RGBA8);
 
 		/**************************************************************************************************************
 		 * Constructs a 1D texture with data uploaded from a bitmap.
 		 *
-		 * @exception TextureBadAlloc If allocating the texture failed.
+		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
-		 * @param bitmap The bitmap data. The bitmap must be 1 pixel tall, otherwise a failed assertion may be
-		 *triggered.
-		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
-		 * @param format The internal format of the texture.
+		 * @param[in] bitmap The bitmap data. The bitmap must be 1 pixel tall.
+		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
 		Texture1D(SubBitmap bitmap, int mipmaps, TextureFormat format = TextureFormat::RGBA8);
 
@@ -281,41 +277,38 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets a region of the texture.
 		 *
-		 * Trying to set a region outside the bounds of the texture may trigger a failed assertion.
+		 * The region must fully be inside the bounds of the texture.
 		 *
-		 * @param offset The starting offset within the texture
-		 * @param bitmap The bitmap data to set the region to. The bitmap must be 1 pixel tall, otherwise a failed
-		 *               assertion may be triggered.
+		 * @param[in] offset The starting offset within the texture
+		 * @param[in] bitmap The bitmap data to set the region to. The bitmap must be 1 pixel tall.
 		 **************************************************************************************************************/
 		void setRegion(int offset, SubBitmap bitmap) noexcept;
 	};
 
 	/******************************************************************************************************************
 	 * One-dimensional array texture.
-	 *
-	 * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	struct ArrayTexture1D : Texture {
 		/**************************************************************************************************************
 		 * Allocates an uninitialized 1D array texture.
 		 *
-		 * @exception TextureBadAlloc If allocating the texture failed.
+		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
-		 * @param size The size of the texture in texels.
-		 * @param layers The number of layers in the texture.
-		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
-		 * @param format The internal format of the texture.
+		 * @param[in] size The size of the texture in texels.
+		 * @param[in] layers The number of layers in the texture.
+		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
 		ArrayTexture1D(int size, int layers, int mipmaps, TextureFormat format);
 
 		/**************************************************************************************************************
-		 * Constructs a 1d array texture with data uploaded from a bitmap.
+		 * Constructs a 1D array texture with data uploaded from a bitmap.
 		 *
-		 * @exception TextureBadAlloc If allocating the texture failed.
+		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
-		 * @param bitmap The bitmap data.
-		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
-		 * @param format The internal format of the texture.
+		 * @param[in] bitmap The bitmap data.
+		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
 		ArrayTexture1D(SubBitmap bitmap, int mipmaps, TextureFormat format);
 
@@ -336,39 +329,37 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets a region of the texture as if it were a 2D texture.
 		 *
-		 * Trying to set a region outside the bounds of the texture may trigger a failed assertion.
+		 * The region must fully be inside the bounds of the texture.
 		 *
-		 * @param tl The top-left corner of the region within the texture.
-		 * @param bitmap The bitmap data to set the region to.
+		 * @param[in] tl The top-left corner of the region within the texture.
+		 * @param[in] bitmap The bitmap data to set the region to.
 		 **************************************************************************************************************/
 		void setRegion(glm::ivec2 tl, SubBitmap bitmap) noexcept;
 	};
 
 	/******************************************************************************************************************
 	 * Two-dimensional texture.
-	 *
-	 * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	struct Texture2D : Texture {
 		/**************************************************************************************************************
 		 * Allocates an uninitialized 2D texture.
 		 *
-		 * @exception TextureBadAlloc If allocating the texture failed.
+		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
-		 * @param size The size of the texture in texels.
-		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
-		 * @param format The internal format of the texture.
+		 * @param[in] size The size of the texture in texels.
+		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
 		Texture2D(glm::ivec2 size, int mipmaps, TextureFormat format);
 
 		/**************************************************************************************************************
 		 * Constructs a 2D texture with data uploaded from a bitmap.
 		 *
-		 * @exception TextureBadAlloc If allocating the texture failed.
+		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
-		 * @param bitmap The bitmap data.
-		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
-		 * @param format The internal format of the texture.
+		 * @param[in] bitmap The bitmap data.
+		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
 		Texture2D(SubBitmap bitmap, int mipmaps, TextureFormat format);
 
@@ -382,41 +373,38 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets a region of the texture.
 		 *
-		 * Trying to set a region outside the bounds of the texture may trigger a failed assertion.
+		 * The region must fully be inside the bounds of the texture.
 		 *
-		 * @param tl The top-left corner of the region within the texture.
-		 * @param bitmap The bitmap data to set the region to.
+		 * @param[in] tl The top-left corner of the region within the texture.
+		 * @param[in] bitmap The bitmap data to set the region to.
 		 **************************************************************************************************************/
 		void setRegion(glm::ivec2 tl, SubBitmap bitmap) noexcept;
 	};
 
 	/******************************************************************************************************************
 	 * Two-dimensional array texture.
-	 *
-	 * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	struct ArrayTexture2D : Texture {
 		/**************************************************************************************************************
 		 * Allocates an uninitialized 1D array texture.
 		 *
-		 * @exception TextureBadAlloc If allocating the texture failed.
+		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
-		 * @param size The size of the texture in texels.
-		 * @param layers The number of layers in the texture.
-		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
-		 * @param format The internal format of the texture.
+		 * @param[in] size The size of the texture in texels.
+		 * @param[in] layers The number of layers in the texture.
+		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
 		ArrayTexture2D(glm::ivec2 size, int layers, int mipmaps, TextureFormat format);
 
 		/**************************************************************************************************************
 		 * Constructs a 2D array texture with data uploaded from a list of bitmaps.
 		 *
-		 * @exception TextureBadAlloc If allocating the texture failed.
+		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
-		 * @param layers the layer bitmaps. The span cannot be empty, and the bitmaps must all be of the same size,
-		 *               otherwise a failed assertion may be triggered.
-		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
-		 * @param format The internal format of the texture.
+		 * @param[in] layers the layer bitmaps. The span cannot be empty, and the bitmaps must all be of the same size.
+		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
 		ArrayTexture2D(std::span<SubBitmap> layers, int mipmaps, TextureFormat format);
 
@@ -437,41 +425,39 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets a region of a layer.
 		 *
-		 * Trying to set a region outside the bounds of the texture may trigger a failed assertion.
+		 * The region must fully be inside the bounds of the texture.
 		 *
-		 * @param layer The layer whose region to set.
-		 * @param tl The top-left corner of the region within the layer.
-		 * @param bitmap The bitmap data to set the region to.
+		 * @param[in] layer The layer whose region to set.
+		 * @param[in] tl The top-left corner of the region within the layer.
+		 * @param[in] bitmap The bitmap data to set the region to.
 		 **************************************************************************************************************/
 		void setLayerRegion(int layer, glm::ivec2 tl, SubBitmap bitmap) noexcept;
 	};
 
 	/******************************************************************************************************************
 	 * Three-dimensional texture.
-	 *
-	 * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	struct Texture3D : Texture {
 		/**************************************************************************************************************
 		 * Allocates an uninitialized 2D texture.
 		 *
-		 * @exception TextureBadAlloc If allocating the texture failed.
+		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
-		 * @param size The size of the texture in texels.
-		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
-		 * @param format The internal format of the texture.
+		 * @param[in] size The size of the texture in texels.
+		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
 		Texture3D(glm::ivec3 size, int mipmaps, TextureFormat format);
 
 		/**************************************************************************************************************
 		 * Constructs a 3D texture with data uploaded from a list of bitmaps.
 		 *
-		 * @exception TextureBadAlloc If allocating the texture failed.
+		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
-		 * @param layers the Z layer bitmaps. The span cannot be empty, and the bitmaps must all be of the same size,
-		 *               otherwise a failed assertion may be triggered.
-		 * @param mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
-		 * @param format The internal format of the texture.
+		 * @param[in] layers the Z layer bitmaps. The span cannot be empty, and the bitmaps must all be of the same
+		 *                   size.
+		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
 		Texture3D(std::span<SubBitmap> layers, int mipmaps, TextureFormat format);
 
@@ -485,13 +471,15 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets a region of a Z layer.
 		 *
-		 * Trying to set a region outside the bounds of the texture may trigger a failed assertion.
+		 * The region must fully be inside the bounds of the texture.
 		 *
-		 * @param tl The top-left corner of the region within the texture.
-		 * @param bitmap The bitmap data to set the region to.
+		 * @param[in] tl The top-left corner of the region within the texture.
+		 * @param[in] bitmap The bitmap data to set the region to.
 		 **************************************************************************************************************/
 		void setLayerRegion(glm::ivec3 tl, SubBitmap bitmap) noexcept;
 	};
+
+	/// @}
 } // namespace tr
 
 /// @cond IMPLEMENTATION

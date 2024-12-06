@@ -1,17 +1,15 @@
-/**
- * @file vertex_format.hpp
- * @brief Provides a vertex format class.
- */
-
 #pragma once
 #include "handle.hpp"
-
 #include <cstdint>
 #include <span>
 #include <string_view>
 #include <variant>
 
 namespace tr {
+	/** @addtogroup graphics
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Single-precision float vertex attribute.
 	 ******************************************************************************************************************/
@@ -194,33 +192,27 @@ namespace tr {
 
 	/******************************************************************************************************************
 	 * GPU Vertex format.
-	 *
-	 * An OpenGL context must be open to instantiate and use objects of this type.
 	 ******************************************************************************************************************/
 	class VertexFormat {
 	  public:
 		/**************************************************************************************************************
 		 * Creates a new vertex format.
 		 *
-		 * @param attrs A list of vertex attributes.
+		 * @param[in] attrs A list of vertex attributes.
 		 **************************************************************************************************************/
 		VertexFormat(std::span<const VertexAttribute> attrs) noexcept;
 
-		/**************************************************************************************************************
-		 * Equality comparison operator.
-		 **************************************************************************************************************/
 		friend bool operator==(const VertexFormat&, const VertexFormat&) noexcept = default;
 
 		/**************************************************************************************************************
 		 * Sets the debug label of the vertex format.
 		 *
-		 * @param label The new label of the format.
+		 * @param[in] label The new label of the format.
 		 **************************************************************************************************************/
 		void setLabel(std::string_view label) noexcept;
 
 	  private:
 		struct Deleter {
-			/// @private
 			void operator()(unsigned int id) const noexcept;
 		};
 
@@ -231,4 +223,6 @@ namespace tr {
 
 		friend class GLContext;
 	};
+
+	/// @}
 } // namespace tr
