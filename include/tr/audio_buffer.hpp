@@ -1,12 +1,6 @@
-/**
- * @file audio_buffer.hpp
- * @brief Provides an audio buffer class.
- */
-
 #pragma once
 #include "handle.hpp"
 #include "iostream.hpp"
-
 #include <span>
 
 namespace tr {
@@ -66,19 +60,16 @@ namespace tr {
 	 ******************************************************************************************************************/
 	class AudioBufferView {
 	  public:
-		/**************************************************************************************************************
-		 * Equality comparison operator.
-		 **************************************************************************************************************/
 		friend bool operator==(const AudioBufferView&, const AudioBufferView&) noexcept = default;
 
 		/**************************************************************************************************************
 		 * Sets the data of the buffer.
 		 *
-		 * @exception AudioBufferBadAlloc If allocating the buffer failed.
+		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
 		 *
-		 * @param data A span over audio data.
-		 * @param format The format of the audio data.
-		 * @param frequency The frequency of the audio data.
+		 * @param[in] data A span over the audio data.
+		 * @param[in] format The format of the audio data.
+		 * @param[in] frequency The frequency of the audio data.
 		 **************************************************************************************************************/
 		void set(std::span<const std::byte> data, AudioFormat format, int frequency);
 
@@ -109,32 +100,29 @@ namespace tr {
 		AudioBuffer();
 
 		/**************************************************************************************************************
-		 * Constructs an audio buffer containing audio data.
+		 * Constructs an audio buffer and immediately sets it.
 		 *
-		 * @exception AudioBufferBadAlloc If allocating the buffer failed.
+		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
 		 *
-		 * @param data A span over audio data.
-		 * @param format The format of the audio data.
-		 * @param frequency The frequency of the audio data.
+		 * @param[in] data A span over audio data.
+		 * @param[in] format The format of the audio data.
+		 * @param[in] frequency The frequency of the audio data.
 		 **************************************************************************************************************/
 		AudioBuffer(std::span<const std::byte> data, AudioFormat format, int frequency);
 
 		/**************************************************************************************************************
 		 * Loads audio data from file to a buffer.
 		 *
-		 * @exception FileNotFound If the file wasn't found.
-		 * @exception FileOpenError If opening the file failed.
+		 * @exception FileNotFound If the file isn't found.
+		 * @exception FileOpenError If opening the file fails.
 		 * @exception UnsupportedAudioFile If the file is an unsupported or invalid format.
-		 * @exception std::bad_alloc If allocating a buffer for reading the data failed.
-		 * @exception AudioBufferBadAlloc If allocating the buffer failed.
+		 * @exception std::bad_alloc If allocating a buffer for reading the data fails.
+		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
 		 *
-		 * @param path The path to an audio file.
+		 * @param[in] path The path to an audio file.
 		 **************************************************************************************************************/
 		explicit AudioBuffer(const std::filesystem::path& path);
 
-		/**************************************************************************************************************
-		 * Equality comparison operator.
-		 **************************************************************************************************************/
 		friend bool operator==(const AudioBuffer&, const AudioBuffer&) noexcept = default;
 
 		/**************************************************************************************************************
@@ -145,11 +133,11 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the data of the buffer.
 		 *
-		 * @exception AudioBufferBadAlloc If allocating the buffer failed.
+		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
 		 *
-		 * @param data A span over audio data.
-		 * @param format The format of the audio data.
-		 * @param frequency The frequency of the audio data.
+		 * @param[in] data A span over audio data.
+		 * @param[in] format The format of the audio data.
+		 * @param[in] frequency The frequency of the audio data.
 		 **************************************************************************************************************/
 		void set(std::span<const std::byte> data, AudioFormat format, int frequency);
 

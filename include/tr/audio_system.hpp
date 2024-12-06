@@ -1,8 +1,3 @@
-/**
- * @file audio_system.hpp
- * @brief Provides an audio context class.
- */
-
 #pragma once
 #include "listener.hpp"
 #include <memory>
@@ -13,7 +8,7 @@ struct ALCcontext;
 
 namespace tr {
 	/******************************************************************************************************************
-	 * Error thrown when creating the audio system failed.
+	 * Error thrown when creating the audio system fails.
 	 ******************************************************************************************************************/
 	struct AudioSystemInitializationError : std::runtime_error {
 		using runtime_error::runtime_error;
@@ -22,21 +17,17 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Audio system manager required for using audio classes.
 	 *
-	 * Only one instance of the audio system can exist at a time, any further attemped constructions may trigger a
-	 * failed assertion.
+	 * Only one instance of the audio system is allowed to exist at a time.
 	 ******************************************************************************************************************/
 	class AudioSystem {
 	  public:
 		/**************************************************************************************************************
 		 * Initializes the audio system.
 		 *
-		 * @exception AudioSystemInitializationError If opening an audio device or creating the audio context failed.
+		 * @exception AudioSystemInitializationError If initializing the audio system fails.
 		 **************************************************************************************************************/
 		AudioSystem();
 
-		/**************************************************************************************************************
-		 * Deinitializes the audio system.
-		 **************************************************************************************************************/
 		~AudioSystem() noexcept;
 
 		/**************************************************************************************************************
@@ -46,11 +37,9 @@ namespace tr {
 
 	  private:
 		struct DeviceDeleter {
-			/// @private
 			void operator()(ALCdevice* ptr) const noexcept;
 		};
 		struct ContextDeleter {
-			/// @private
 			void operator()(ALCcontext* ptr) const noexcept;
 		};
 
@@ -66,9 +55,7 @@ namespace tr {
 	bool audioActive() noexcept;
 
 	/******************************************************************************************************************
-	 * Gets a reference to the active audio system.
-	 *
-	 * A failed assertion may be triggered if the audio system is inactive.
+	 * Gets a reference to the active audio system. This function cannot be called if the audio system isn't active.
 	 *
 	 * @return A reference to the audio system.
 	 ******************************************************************************************************************/

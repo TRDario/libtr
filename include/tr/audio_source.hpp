@@ -1,13 +1,7 @@
-/**
- * @file audio_source.hpp
- * @brief Provides an audio source class.
- */
-
 #pragma once
 #include "angle.hpp"
 #include "audio_buffer.hpp"
 #include "chrono.hpp"
-
 #include <glm/glm.hpp>
 
 namespace tr {
@@ -81,16 +75,16 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs an audio source.
 		 *
-		 * @exception AudioSourceBadAlloc If allocating the audio source failed.
+		 * @exception AudioSourceBadAlloc If allocating the audio source fails.
 		 **************************************************************************************************************/
 		AudioSource();
 
 		/**************************************************************************************************************
 		 * Constructs an audio source with a pre-set buffer.
 		 *
-		 * @exception AudioSourceBadAlloc If allocating the audio source failed.
+		 * @exception AudioSourceBadAlloc If allocating the audio source fails.
 		 *
-		 * @param buffer The buffer to attach to the source.
+		 * @param[in] buffer The buffer to attach to the source.
 		 **************************************************************************************************************/
 		AudioSource(AudioBufferView buffer);
 
@@ -109,7 +103,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the pitch (and speed) of the source.
 		 *
-		 * @param pitch The pitch multiplier of the source, clamped to [0.5, 2.0].
+		 * @param[in] pitch The pitch multiplier of the source, clamped to [0.5, 2.0].
 		 **************************************************************************************************************/
 		void setPitch(float pitch) noexcept;
 
@@ -123,7 +117,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the gain of the source.
 		 *
-		 * @param gain The gain multiplier of the source, clamped to a non-negative value.
+		 * @param[in] gain The gain multiplier of the source, clamped to a non-negative value.
 		 **************************************************************************************************************/
 		void setGain(float gain) noexcept;
 
@@ -137,7 +131,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the distance where the source will no longer be attenuated any further.
 		 *
-		 * @param maxDistance The maximum distance of the source, clamped to a non-negative value.
+		 * @param[in] maxDistance The maximum distance of the source, clamped to a non-negative value.
 		 **************************************************************************************************************/
 		void setMaxDistance(float maxDistance) noexcept;
 
@@ -151,7 +145,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the distance rolloff factor of the source.
 		 *
-		 * @param rolloff The distance rolloff factor of the source, clamped to a non-negative value.
+		 * @param[in] rolloff The distance rolloff factor of the source, clamped to a non-negative value.
 		 **************************************************************************************************************/
 		void setRolloff(float rolloff) noexcept;
 
@@ -165,7 +159,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the reference distance of the source, where there is no attenuation.
 		 *
-		 * @param referenceDistance The new reference distance of the source, clamped to a non-negative value.
+		 * @param[in] referenceDistance The new reference distance of the source, clamped to a non-negative value.
 		 **************************************************************************************************************/
 		void setReferenceDistance(float referenceDistance) noexcept;
 
@@ -179,7 +173,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the minimum allowed gain multiplier for the source.
 		 *
-		 * @param minGain The new minimum allowed gain multiplier, clamped to [0.0, maxGain()].
+		 * @param[in] minGain The new minimum allowed gain multiplier, clamped to [0.0, maxGain()].
 		 **************************************************************************************************************/
 		void setMinGain(float minGain) noexcept;
 
@@ -193,7 +187,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the maximum allowed gain multiplier for the source.
 		 *
-		 * @param maxGain The new maximum allowed gain multiplier, clamped to [minGain(), 1.0].
+		 * @param[in] maxGain The new maximum allowed gain multiplier, clamped to [minGain(), 1.0].
 		 **************************************************************************************************************/
 		void setMaxGain(float maxGain) noexcept;
 
@@ -207,7 +201,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the gain multiplier applied when the listener is outside the source's outer cone angle.
 		 *
-		 * @param outGain The new gain multiplier, clamped to [0.0, 1.0].
+		 * @param[in] outGain The new gain multiplier, clamped to [0.0, 1.0].
 		 **************************************************************************************************************/
 		void setOuterConeGain(float outGain) noexcept;
 
@@ -221,7 +215,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the width of the inner cone of the source (where no direction attenuation is done).
 		 *
-		 * @param inConeW The new width, clamped to [0.0, outerConeWidth()].
+		 * @param[in] inConeW The new width, clamped to [0.0, outerConeWidth()].
 		 **************************************************************************************************************/
 		void setInnerConeWidth(AngleF inConeW) noexcept;
 
@@ -235,7 +229,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the width of the outer cone of the source (where direction attenuation is done).
 		 *
-		 * @param outConeW The new width, clamped to [innerConeWidth(), 360 degrees].
+		 * @param[in] outConeW The new width, clamped to [innerConeWidth(), 360 degrees].
 		 **************************************************************************************************************/
 		void setOuterConeWidth(AngleF outConeW) noexcept;
 
@@ -249,7 +243,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the position of the source.
 		 *
-		 * @param position The position of the source.
+		 * @param[in] position The position of the source.
 		 **************************************************************************************************************/
 		void setPosition(const glm::vec3& position) noexcept;
 
@@ -263,7 +257,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the velocity of the source.
 		 *
-		 * @param velocity The velocity of the source.
+		 * @param[in] velocity The velocity of the source.
 		 **************************************************************************************************************/
 		void setVelocity(const glm::vec3& velocity) noexcept;
 
@@ -277,7 +271,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the direction of the source cone.
 		 *
-		 * @param direction The direction of the source cone. Can also be OMNIDRECTIONAL.
+		 * @param[in] direction The direction of the source cone. Can also be OMNIDRECTIONAL.
 		 **************************************************************************************************************/
 		void setDirection(const glm::vec3& direction) noexcept;
 
@@ -291,7 +285,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the origin of the source's position.
 		 *
-		 * @param type The new origin type.
+		 * @param[in] type The new origin type.
 		 **************************************************************************************************************/
 		void setOrigin(AudioOrigin type) noexcept;
 
@@ -305,7 +299,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets whether the source is looping.
 		 *
-		 * @param looping Whether the source should loop.
+		 * @param[in] looping Whether the source should loop.
 		 **************************************************************************************************************/
 		void setLooping(bool looping) noexcept;
 
@@ -343,7 +337,7 @@ namespace tr {
 		 *
 		 * Calling this function is not allowed while the source is playing/paused.
 		 *
-		 * @param buffer The buffer to use, or nullopt to unset any set/queued buffers.
+		 * @param[in] buffer The buffer to use, or nullopt to unset any set/queued buffers.
 		 **************************************************************************************************************/
 		void setBuffer(std::optional<AudioBufferView> buffer) noexcept;
 
@@ -364,21 +358,21 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Queues a buffer for streaming.
 		 *
-		 * @param buffer The buffer to attach. It must be of the same audio format as any other queued buffers.
+		 * @param[in] buffer The buffer to attach. It must be of the same audio format as any other queued buffers.
 		 **************************************************************************************************************/
 		void queueBuffer(AudioBufferView buffer) noexcept;
 
 		/**************************************************************************************************************
 		 * Queues buffers for streaming.
 		 *
-		 * @param buffers The buffers to attach. They must be of the same audio format as any other queued buffers.
+		 * @param[in] buffers The buffers to attach. They must be of the same audio format as any other queued buffers.
 		 **************************************************************************************************************/
 		void queueBuffers(std::span<AudioBufferView> buffers) noexcept;
 
 		/**************************************************************************************************************
 		 * Removes a buffer from the source's queue.
 		 *
-		 * A failed assertion may be triggered if no buffers can be unqueued when this function is called.
+		 * This function cannot be called if no buffers are able to be unqueued.
 		 *
 		 * @return A view over the unqueued buffer.
 		 **************************************************************************************************************/
@@ -394,13 +388,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the source's playback position within the current buffer.
 		 *
-		 * @param offset The new playback position within the current buffer in seconds.
+		 * @param[in] offset The new playback position within the current buffer in seconds.
 		 **************************************************************************************************************/
 		void setOffset(SecondsF offset) noexcept;
 
 	  private:
 		struct Deleter {
-			/// @private
 			void operator()(unsigned int id) const noexcept;
 		};
 
