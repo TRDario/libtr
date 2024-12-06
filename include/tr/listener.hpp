@@ -86,6 +86,6 @@ namespace tr {
 	  private:
 		Listener() noexcept = default;
 
-		friend class AudioContext;
+		friend class AudioSystem;
 	};
 } // namespace tr
