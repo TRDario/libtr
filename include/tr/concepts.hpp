@@ -1,6 +1,6 @@
 #pragma once
 #include <concepts>
-#include <half.hpp>
+#include "dependencies/half.hpp"
 
 namespace tr {
 	/// @private

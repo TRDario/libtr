@@ -1,5 +1,3 @@
-find_package(EnumBitmask REQUIRED)
-find_package(half REQUIRED)
 find_package(magic_enum REQUIRED)
 find_package(Boost REQUIRED)
 find_package(glm REQUIRED)

@@ -1,5 +1,5 @@
 #pragma once
-#include <EnumBitmask.hpp>
+#include "dependencies/EnumBitmask.hpp"
 #include <cstdint>
 #include <string>
 

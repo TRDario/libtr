@@ -1,9 +1,9 @@
 #pragma once
 #include "bitmap_format.hpp"
 #include "color.hpp"
+#include "dependencies/EnumBitmask.hpp"
 #include "geometry.hpp"
 #include "iostream.hpp"
-#include <EnumBitmask.hpp>
 
 struct SDL_Surface;
 struct SDL_PixelFormat;
