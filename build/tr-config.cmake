@@ -1,7 +1,6 @@
 find_package(magic_enum REQUIRED)
 find_package(Boost REQUIRED)
 find_package(glm REQUIRED)
-find_package(GL REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(OpenAL REQUIRED)
 find_package(SDL2 REQUIRED)
