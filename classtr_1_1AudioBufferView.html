@@ -85,7 +85,7 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>tr</b></li><li class="navelem"><a class="el" href="classtr_1_1AudioBufferView.html">AudioBufferView</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1AudioBufferView.html">AudioBufferView</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -93,18 +93,16 @@ $(function(){ initResizable(false); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1AudioBufferView-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::AudioBufferView Class Reference</div></div>
+  <div class="headertitle"><div class="title">tr::AudioBufferView Class Reference<div class="ingroups"><a class="el" href="group__audio.html">Audio</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Non-owning audio buffer view.  
  <a href="#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="audio__buffer_8hpp_source.html">audio_buffer.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6764903b3c7ee986ffabad38d2a0bc24" id="r_a6764903b3c7ee986ffabad38d2a0bc24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6764903b3c7ee986ffabad38d2a0bc24">set</a> (std::span&lt; const std::byte &gt; data, <a class="el" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> format, int frequency)</td></tr>
+<tr class="memitem:a6764903b3c7ee986ffabad38d2a0bc24" id="r_a6764903b3c7ee986ffabad38d2a0bc24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6764903b3c7ee986ffabad38d2a0bc24">set</a> (std::span&lt; const std::byte &gt; data, <a class="el" href="group__audio.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> format, int frequency)</td></tr>
 <tr class="memdesc:a6764903b3c7ee986ffabad38d2a0bc24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the data of the buffer.  <br /></td></tr>
 <tr class="separator:a6764903b3c7ee986ffabad38d2a0bc24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -125,7 +123,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a></td>          <td class="paramname"><span class="paramname"><em>format</em></span>, </td>
+          <td class="paramtype"><a class="el" href="group__audio.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a></td>          <td class="paramname"><span class="paramname"><em>format</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -138,24 +136,21 @@ Public Member Functions</h2></td></tr>
 <p>Sets the data of the buffer. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1AudioBufferBadAlloc.html" title="Error thrown when allocating an audio buffer fails.">AudioBufferBadAlloc</a></td><td>If allocating the buffer failed.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1AudioBufferBadAlloc.html" title="Error thrown when allocating an audio buffer fails.">AudioBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>A span over audio data. </td></tr>
-    <tr><td class="paramname">format</td><td>The format of the audio data. </td></tr>
-    <tr><td class="paramname">frequency</td><td>The frequency of the audio data. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>A span over the audio data. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>The format of the audio data. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">frequency</td><td>The frequency of the audio data. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="audio__buffer_8hpp_source.html">audio_buffer.hpp</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

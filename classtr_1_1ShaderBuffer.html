@@ -85,7 +85,7 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>tr</b></li><li class="navelem"><a class="el" href="classtr_1_1ShaderBuffer.html">ShaderBuffer</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1ShaderBuffer.html">ShaderBuffer</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -94,14 +94,12 @@ $(function(){ initResizable(false); });
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1ShaderBuffer-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::ShaderBuffer Class Reference</div></div>
+  <div class="headertitle"><div class="title">tr::ShaderBuffer Class Reference<div class="ingroups"><a class="el" href="group__graphics.html">Graphics</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>GPU buffer accessable by a shader.  
  <a href="#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="shader__buffer_8hpp_source.html">shader_buffer.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for tr::ShaderBuffer:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -120,7 +118,7 @@ Public Types</h2></td></tr>
 , <a class="el" href="#a5e4be997fde54af6dc7ca12d4a76a8daad8fddf06187e680ab5a6355f76a17357">WRITE_ONLY</a> = std::uint32_t(Flag::WRITABLE)
 , <a class="el" href="#a5e4be997fde54af6dc7ca12d4a76a8daaa7b843fb734e3b3fea8e5f902d3f4144">READ_WRITE</a> = std::uint32_t(Flag::READABLE) | std::uint32_t(Flag::WRITABLE)
  }</td></tr>
-<tr class="memdesc:a5e4be997fde54af6dc7ca12d4a76a8da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shader buffer map access type.  <a href="#a5e4be997fde54af6dc7ca12d4a76a8da">More...</a><br /></td></tr>
+<tr class="memdesc:a5e4be997fde54af6dc7ca12d4a76a8da"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtr_1_1Shader.html" title="GPU shader program.">Shader</a> buffer map access type.  <a href="#a5e4be997fde54af6dc7ca12d4a76a8da">More...</a><br /></td></tr>
 <tr class="separator:a5e4be997fde54af6dc7ca12d4a76a8da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -166,7 +164,6 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>GPU buffer accessable by a shader. </p>
-<p>An OpenGL context must be open to instantiate and use objects of this type.</p>
 <p>The API is designed as a dynamic-length array with a fixed-length header in front. Passing 0 to the size/capacity of either component disables them, and they cannot be accessed. </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a5e4be997fde54af6dc7ca12d4a76a8da" name="a5e4be997fde54af6dc7ca12d4a76a8da"></a>
@@ -189,7 +186,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Shader buffer map access type. </p>
+<p><a class="el" href="classtr_1_1Shader.html" title="GPU shader program.">Shader</a> buffer map access type. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5e4be997fde54af6dc7ca12d4a76a8daa47c7e7cb36a953a8c47e02000036bb44" name="a5e4be997fde54af6dc7ca12d4a76a8daa47c7e7cb36a953a8c47e02000036bb44"></a>READ_ONLY&#160;</td><td class="fielddoc"><p>Buffer maps are read-only. </p>
 </td></tr>
@@ -229,15 +226,15 @@ Public Member Functions</h2></td></tr>
 <p>Allocates an uninitialized shader buffer. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1GLBufferBadAlloc.html" title="Error thrown when allocating a GPU buffer fails.">GLBufferBadAlloc</a></td><td>If allocating the GPU buffer failed.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1GLBufferBadAlloc.html" title="Error thrown when allocating a GPU buffer fails.">GLBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">headerSize</td><td>The size of the fixed header block in bytes (may be 0). </td></tr>
-    <tr><td class="paramname">capacity</td><td>The maximum capacity of the dynamic array in bytes (may be 0). </td></tr>
-    <tr><td class="paramname">access</td><td>The access permissions of buffer maps. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">headerSize</td><td>The size of the fixed header block in bytes (may be 0). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">capacity</td><td>The maximum capacity of the dynamic array in bytes (may be 0). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">access</td><td>The access permissions of buffer maps. </td></tr>
   </table>
   </dd>
 </dl>
@@ -329,7 +326,7 @@ template&lt;GLCopyOutputIterator It&gt; </div>
 <p>Copies the data of the dynamic array to an output iterator. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">out</td><td>An iterator to the beginning of the range to copy the header to. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>An iterator to the beginning of the range to copy the header to. </td></tr>
   </table>
   </dd>
 </dl>
@@ -364,7 +361,7 @@ template&lt;GLCopyOutputIterator It&gt; </div>
 <p>Copies the data of the fixed header to an output iterator. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">out</td><td>An iterator to the beginning of the range to copy the header to. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>An iterator to the beginning of the range to copy the header to. </td></tr>
   </table>
   </dd>
 </dl>
@@ -451,7 +448,7 @@ template&lt;GLCopyOutputIterator It&gt; </div>
 </div><div class="memdoc">
 
 <p>Maps the dynamic array. </p>
-<p>The buffer must have a dynamic array block, otherwise a failed assertion may be raised.</p>
+<p>This function cannot be called if the buffer doesn't have a dynamic array block.</p>
 <dl class="section return"><dt>Returns</dt><dd>The mapped dynamic array. </dd></dl>
 
 </div>
@@ -480,7 +477,7 @@ template&lt;GLCopyOutputIterator It&gt; </div>
 </div><div class="memdoc">
 
 <p>Maps the fixed header. </p>
-<p>The buffer must have a fixed header block, otherwise a failed assertion may be raised.</p>
+<p>This function cannot be called if the buffer doesn't have a fixed header block.</p>
 <dl class="section return"><dt>Returns</dt><dd>The mapped fixed header. </dd></dl>
 
 </div>
@@ -511,7 +508,7 @@ template&lt;GLCopyOutputIterator It&gt; </div>
 <p>Resizes the dynamic array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">size</td><td>The new size of the array in bytes. Must be less than the capacity, otherwise a failed assertion may be raised. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The new size of the array in bytes. Must be less than the capacity. </td></tr>
   </table>
   </dd>
 </dl>
@@ -544,7 +541,7 @@ template&lt;GLCopyOutputIterator It&gt; </div>
 <p>Sets the data of the dynamic array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>The new data of the array. The span must be smaller or have the same size as the array capacity, otherwise a failed assertion may be raised. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The new data of the array. The span must be smaller or have the same size as the array capacity. </td></tr>
   </table>
   </dd>
 </dl>
@@ -577,16 +574,13 @@ template&lt;GLCopyOutputIterator It&gt; </div>
 <p>Sets the data of the header. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>The new data of the header. The span must be the same size as the header, otherwise a failed assertion may be raised. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The new data of the header. The span must be the same size as the header. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="shader__buffer_8hpp_source.html">shader_buffer.hpp</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

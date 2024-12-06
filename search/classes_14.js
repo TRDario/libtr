@@ -16,6 +16,5 @@ var searchData=
   ['windowresizeevent_13',['WindowResizeEvent',['../structtr_1_1WindowResizeEvent.html',1,'tr']]],
   ['windowrestoreevent_14',['WindowRestoreEvent',['../structtr_1_1WindowRestoreEvent.html',1,'tr']]],
   ['windowshowevent_15',['WindowShowEvent',['../structtr_1_1WindowShowEvent.html',1,'tr']]],
-  ['windowsizechangeevent_16',['WindowSizeChangeEvent',['../structtr_1_1WindowSizeChangeEvent.html',1,'tr']]],
-  ['windowview_17',['WindowView',['../classtr_1_1WindowView.html',1,'tr']]]
+  ['windowsizechangeevent_16',['WindowSizeChangeEvent',['../structtr_1_1WindowSizeChangeEvent.html',1,'tr']]]
 ];

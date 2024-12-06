@@ -1,13 +1,6 @@
 var searchData=
 [
-  ['rect2_0',['Rect2',['../geometry_8hpp.html#a6e31feda1c62eb3fbfa243766f0fe3d4',1,'tr']]],
-  ['rect3_1',['Rect3',['../geometry_8hpp.html#ab1850cd63ebd391cea147ab721dbfbdc',1,'tr']]],
-  ['rectf2_2',['RectF2',['../geometry_8hpp.html#a7aeb24c702d132772be7de37fa94c0a2',1,'tr']]],
-  ['rectf3_3',['RectF3',['../geometry_8hpp.html#a2365f401a0c3c72f48fa4b636573ad77',1,'tr']]],
-  ['recti2_4',['RectI2',['../geometry_8hpp.html#a386ecd8029d58f09791896b6421218d9',1,'tr']]],
-  ['recti3_5',['RectI3',['../geometry_8hpp.html#a390b094b8bc7eb8fb107168f2ce8a6c0',1,'tr']]],
-  ['remove_5fnoexcept_5ft_6',['remove_noexcept_t',['../concepts_8hpp.html#a7d27da0979dd5dcecf290bb304d95aa5',1,'tr']]],
-  ['rgb8_7',['RGB8',['../color_8hpp.html#a9168e2ec57685569404fd7bb3b77dc70',1,'tr']]],
-  ['rgba8_8',['RGBA8',['../color_8hpp.html#a1713cee25653ace2c701e2811e86386c',1,'tr']]],
-  ['rgbaf_9',['RGBAF',['../color_8hpp.html#aaede9b1d58e8ca2c89f538b907a9c688',1,'tr']]]
+  ['pixelcref_0',['PixelCref',['../classtr_1_1Bitmap.html#ad9d5e3489943ea1b66b814aa49085c73',1,'tr::Bitmap']]],
+  ['pixelref_1',['PixelRef',['../classtr_1_1BitmapView.html#a7a28fece053365751d2587ebd83dd56a',1,'tr::BitmapView']]],
+  ['pointer_2',['pointer',['../classtr_1_1SubBitmap_1_1Iterator.html#a46ce82948c087901176452565fe634d0',1,'tr::SubBitmap::Iterator::pointer'],['../classtr_1_1Bitmap_1_1MutIt.html#a3208bbfbca9121dccd804aa6b1b957b7',1,'tr::Bitmap::MutIt::pointer']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['keymods_0',['Keymods',['../keyboard_8hpp.html#a1e5a857eb2f40e2b55bfb43225cbc658',1,'tr']]]
+  ['layout_0',['Layout',['../classtr_1_1BitmapFormat.html#a079a4959fd2fefb871a55b43c888c054',1,'tr::BitmapFormat']]]
 ];

@@ -1,8 +1,23 @@
 var searchData=
 [
-  ['ibeam_0',['IBEAM',['../mouse_8hpp.html#afb288c9c0ebc6c9d4b511786aadb5d8eab1f1fadc084a79020f4bf64cf8817ca9',1,'tr']]],
-  ['inc_1',['INC',['../gl__context_8hpp.html#a8c440fc4a94422129e86a69114e35b50a38924f2227ebf15f4bdc6dca5c5eca91',1,'tr']]],
-  ['initial_2',['INITIAL',['../audio__source_8hpp.html#a6c94829f0dfe0e9696cc57a3c7aff830a91d26e4b2b105c74655093c9becd30b7',1,'tr']]],
-  ['invert_3',['INVERT',['../gl__context_8hpp.html#a8c440fc4a94422129e86a69114e35b50aa2727ae72447eea06d4cc0ef67187280',1,'tr']]],
-  ['italic_4',['ITALIC',['../classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06a25093123b8943308104129e1d762f3b7',1,'tr::TTFont']]]
+  ['i_0',['I',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204dadd7536794b63bf90eccfd37f9b147d7f',1,'tr::Scancode::I'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88add7536794b63bf90eccfd37f9b147d7f',1,'tr::Keycode::I']]],
+  ['i16_5f1555_1',['I16_1555',['../classtr_1_1BitmapFormat.html#a079a4959fd2fefb871a55b43c888c054a850b31a2a71a9b80a27f0a6b307479d2',1,'tr::BitmapFormat']]],
+  ['i16_5f4444_2',['I16_4444',['../classtr_1_1BitmapFormat.html#a079a4959fd2fefb871a55b43c888c054abaaa836aa565bde205be5ea05e51837c',1,'tr::BitmapFormat']]],
+  ['i16_5f5551_3',['I16_5551',['../classtr_1_1BitmapFormat.html#a079a4959fd2fefb871a55b43c888c054aee5bef3b3dc58a3d43d19f62ce9ec851',1,'tr::BitmapFormat']]],
+  ['i16_5f565_4',['I16_565',['../classtr_1_1BitmapFormat.html#a079a4959fd2fefb871a55b43c888c054a853c8926f6d72814af920c2d69f59b68',1,'tr::BitmapFormat']]],
+  ['i32_5f1010102_5',['I32_1010102',['../classtr_1_1BitmapFormat.html#a079a4959fd2fefb871a55b43c888c054af453327aab412c28c221c42014c88502',1,'tr::BitmapFormat']]],
+  ['i32_5f2101010_6',['I32_2101010',['../classtr_1_1BitmapFormat.html#a079a4959fd2fefb871a55b43c888c054aaf353f3bdddb89cecf49c0353aaa4459',1,'tr::BitmapFormat']]],
+  ['i32_5f8888_7',['I32_8888',['../classtr_1_1BitmapFormat.html#a079a4959fd2fefb871a55b43c888c054a64dc0269103194feac032e23224dde0c',1,'tr::BitmapFormat']]],
+  ['i8_5f332_8',['I8_332',['../classtr_1_1BitmapFormat.html#a079a4959fd2fefb871a55b43c888c054a9117b26309f98e9d825d8c83ddd79eac',1,'tr::BitmapFormat']]],
+  ['ibeam_9',['IBEAM',['../group__input.html#ggafb288c9c0ebc6c9d4b511786aadb5d8eab1f1fadc084a79020f4bf64cf8817ca9',1,'tr']]],
+  ['inc_10',['INC',['../group__graphics.html#gga8c440fc4a94422129e86a69114e35b50a38924f2227ebf15f4bdc6dca5c5eca91',1,'tr']]],
+  ['index_5f1lsb_11',['INDEX_1LSB',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464a02b49fdb506f71ab9c0be21c14edecc4',1,'tr::BitmapFormat']]],
+  ['index_5f1msb_12',['INDEX_1MSB',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464a5592aeb4f9d00cb41dd66c71dedb5514',1,'tr::BitmapFormat']]],
+  ['index_5f4lsb_13',['INDEX_4LSB',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464a8ef9ba95598643ff3dfe1232da1c6829',1,'tr::BitmapFormat']]],
+  ['index_5f4msb_14',['INDEX_4MSB',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464a58c814ec3c226a22c11706d81a98aba1',1,'tr::BitmapFormat']]],
+  ['index_5f8_15',['INDEX_8',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464aff04f6cce089caf4da816ddcb08a6535',1,'tr::BitmapFormat']]],
+  ['initial_16',['INITIAL',['../group__audio.html#gga6c94829f0dfe0e9696cc57a3c7aff830a91d26e4b2b105c74655093c9becd30b7',1,'tr']]],
+  ['insert_17',['INSERT',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204da61ee777e7f71dc466c3b2c685d8d313b',1,'tr::Scancode::INSERT'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a61ee777e7f71dc466c3b2c685d8d313b',1,'tr::Keycode::INSERT']]],
+  ['invert_18',['INVERT',['../group__graphics.html#gga8c440fc4a94422129e86a69114e35b50aa2727ae72447eea06d4cc0ef67187280',1,'tr']]],
+  ['italic_19',['ITALIC',['../classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06a25093123b8943308104129e1d762f3b7',1,'tr::TTFont']]]
 ];

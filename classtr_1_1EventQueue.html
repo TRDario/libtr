@@ -85,7 +85,7 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>tr</b></li><li class="navelem"><a class="el" href="classtr_1_1EventQueue.html">EventQueue</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1EventQueue.html">EventQueue</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -93,21 +93,15 @@ $(function(){ initResizable(false); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1EventQueue-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::EventQueue Class Reference</div></div>
+  <div class="headertitle"><div class="title">tr::EventQueue Class Reference<div class="ingroups"><a class="el" href="group__event.html">Events</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Global event queue.  
  <a href="#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="event_8hpp_source.html">event.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aee2fa7a7802450d1b9c2c8f404d45838" id="r_aee2fa7a7802450d1b9c2c8f404d45838"><td class="memItemLeft" align="right" valign="top"><a id="aee2fa7a7802450d1b9c2c8f404d45838" name="aee2fa7a7802450d1b9c2c8f404d45838"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EventQueue</b> () noexcept</td></tr>
-<tr class="memdesc:aee2fa7a7802450d1b9c2c8f404d45838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an event queue. <br /></td></tr>
-<tr class="separator:aee2fa7a7802450d1b9c2c8f404d45838"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa10a8604f514c189b796ad320b19800e" id="r_aa10a8604f514c189b796ad320b19800e"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="classtr_1_1Event.html">Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa10a8604f514c189b796ad320b19800e">pollEvent</a> () noexcept</td></tr>
 <tr class="memdesc:aa10a8604f514c189b796ad320b19800e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polls for an event, returning it from the event queue if it exists.  <br /></td></tr>
 <tr class="separator:aa10a8604f514c189b796ad320b19800e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,7 +123,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Global event queue. </p>
-<p>This class cannot be instantiated before the <a class="el" href="classtr_1_1SDL.html" title="SDL library RAII wrapper.">SDL</a> library is initialized. </p>
+<p>This type cannot be directly instantiated. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa10a8604f514c189b796ad320b19800e" name="aa10a8604f514c189b796ad320b19800e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa10a8604f514c189b796ad320b19800e">&#9670;&#160;</a></span>pollEvent()</h2>
@@ -177,13 +171,13 @@ Public Member Functions</h2></td></tr>
 <p>Pushes an event to the queue. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1SDLError.html" title="Error thrown by an SDL function failing.">SDLError</a></td><td>If pushing the event failed.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1EventError.html" title="Error thrown when an event operation fails.">EventError</a></td><td>If pushing the event failed.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">event</td><td>The event to push. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>The event to push. </td></tr>
   </table>
   </dd>
 </dl>
@@ -208,13 +202,13 @@ Public Member Functions</h2></td></tr>
 <p>Sets the frequency at which draw events are sent at. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1SDLError.html" title="Error thrown by an SDL function failing.">SDLError</a></td><td>If creating the draw ticker fails.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1EventError.html" title="Error thrown when an event operation fails.">EventError</a></td><td>If creating the draw ticker fails.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">frequency</td><td>The frequency of draw events, or NO_DRAW_EVENTS to stop sending draw events. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">frequency</td><td>The frequency of draw events, or NO_DRAW_EVENTS to stop sending draw events. </td></tr>
   </table>
   </dd>
 </dl>
@@ -247,7 +241,7 @@ Public Member Functions</h2></td></tr>
 <p>Sets whether text input events should be sent to the event queue. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">arg</td><td>Whether text input events should be sent. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">arg</td><td>Whether text input events should be sent. </td></tr>
   </table>
   </dd>
 </dl>
@@ -308,7 +302,7 @@ Public Member Functions</h2></td></tr>
 <p>Gets an event from the event queue, waiting until one appears or until a certain amount of time has passed. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeout</td><td>The maximum amount of time to wait before returning.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">timeout</td><td>The maximum amount of time to wait before returning.</td></tr>
   </table>
   </dd>
 </dl>
@@ -316,9 +310,6 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="event_8hpp_source.html">event.hpp</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

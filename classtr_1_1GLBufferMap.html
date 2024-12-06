@@ -85,7 +85,7 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>tr</b></li><li class="navelem"><a class="el" href="classtr_1_1GLBufferMap.html">GLBufferMap</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1GLBufferMap.html">GLBufferMap</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -93,14 +93,12 @@ $(function(){ initResizable(false); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1GLBufferMap-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::GLBufferMap Class Reference</div></div>
+  <div class="headertitle"><div class="title">tr::GLBufferMap Class Reference<div class="ingroups"><a class="el" href="group__graphics.html">Graphics</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>RAII wrapper over an OpenGL buffer map.  
  <a href="#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="gl__buffer_8hpp_source.html">gl_buffer.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for tr::GLBufferMap:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -115,9 +113,8 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7177e91ac3293bd9e2cfd9ea3ac12da3" id="r_a7177e91ac3293bd9e2cfd9ea3ac12da3"><td class="memItemLeft" align="right" valign="top"><a id="a7177e91ac3293bd9e2cfd9ea3ac12da3" name="a7177e91ac3293bd9e2cfd9ea3ac12da3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>operator std::span&lt; std::byte &gt;</b> () const noexcept</td></tr>
-<tr class="memdesc:a7177e91ac3293bd9e2cfd9ea3ac12da3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Casts the map into a regular byte span. <br /></td></tr>
+<tr class="memitem:a7177e91ac3293bd9e2cfd9ea3ac12da3" id="r_a7177e91ac3293bd9e2cfd9ea3ac12da3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7177e91ac3293bd9e2cfd9ea3ac12da3">operator std::span&lt; std::byte &gt;</a> () const noexcept</td></tr>
+<tr class="memdesc:a7177e91ac3293bd9e2cfd9ea3ac12da3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Casts the map into a regular byte span.  <br /></td></tr>
 <tr class="separator:a7177e91ac3293bd9e2cfd9ea3ac12da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14b96c40d9bbc1459f93f62ca6dc1d67" id="r_a14b96c40d9bbc1459f93f62ca6dc1d67"><td class="memItemLeft" align="right" valign="top">std::span&lt; std::byte &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14b96c40d9bbc1459f93f62ca6dc1d67">span</a> () const noexcept</td></tr>
 <tr class="memdesc:a14b96c40d9bbc1459f93f62ca6dc1d67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Casts the map into a regular byte span.  <br /></td></tr>
@@ -127,6 +124,33 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>RAII wrapper over an OpenGL buffer map. </p>
 <p>The buffer is automatically unmapped once the map goes out of scope. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7177e91ac3293bd9e2cfd9ea3ac12da3" name="a7177e91ac3293bd9e2cfd9ea3ac12da3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7177e91ac3293bd9e2cfd9ea3ac12da3">&#9670;&#160;</a></span>operator std::span&lt; std::byte &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tr::GLBufferMap::operator std::span&lt; std::byte &gt; </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Casts the map into a regular byte span. </p>
+
+</div>
+</div>
 <a id="a14b96c40d9bbc1459f93f62ca6dc1d67" name="a14b96c40d9bbc1459f93f62ca6dc1d67"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a14b96c40d9bbc1459f93f62ca6dc1d67">&#9670;&#160;</a></span>span()</h2>
 
@@ -155,9 +179,6 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="gl__buffer_8hpp_source.html">gl_buffer.hpp</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

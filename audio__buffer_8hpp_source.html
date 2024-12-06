@@ -93,130 +93,126 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">audio_buffer.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="audio__buffer_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="handle_8hpp.html">handle.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="iostream_8hpp.html">iostream.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;span&gt;</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;handle.hpp&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;iostream.hpp&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;span&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetr.html">tr</a> {</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span>tr {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structtr_1_1AudioBufferBadAlloc.html">   16</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtr_1_1AudioBufferBadAlloc.html">AudioBufferBadAlloc</a> : std::bad_alloc {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structtr_1_1AudioBufferBadAlloc.html#a4d0e3d0f2587f15626c3f7a31bd840ed">   22</a></span>        <span class="keyword">constexpr</span> <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1AudioBufferBadAlloc.html#a4d0e3d0f2587f15626c3f7a31bd840ed">what</a>() const noexcept;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    };</div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structtr_1_1AudioBufferBadAlloc.html">   14</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtr_1_1AudioBufferBadAlloc.html">AudioBufferBadAlloc</a> : std::bad_alloc {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structtr_1_1AudioBufferBadAlloc.html#a4d0e3d0f2587f15626c3f7a31bd840ed">   20</a></span>        <span class="keyword">constexpr</span> <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1AudioBufferBadAlloc.html#a4d0e3d0f2587f15626c3f7a31bd840ed">what</a>() const noexcept;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    };</div>
 </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structtr_1_1UnsupportedAudioFile.html">   28</a></span>    struct <a class="code hl_struct" href="structtr_1_1UnsupportedAudioFile.html">UnsupportedAudioFile</a> : <a class="code hl_class" href="classtr_1_1FileError.html">FileError</a> {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keyword">using </span><a class="code hl_function" href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">FileError::FileError</a>;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structtr_1_1UnsupportedAudioFile.html#a0a0c8176aa73c3acbf9b0259ec8f876f">   36</a></span>        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1UnsupportedAudioFile.html#a0a0c8176aa73c3acbf9b0259ec8f876f">what</a>() const noexcept;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    };</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structtr_1_1UnsupportedAudioFile.html">   26</a></span>    struct <a class="code hl_struct" href="structtr_1_1UnsupportedAudioFile.html">UnsupportedAudioFile</a> : <a class="code hl_class" href="classtr_1_1FileError.html">FileError</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keyword">using </span><a class="code hl_function" href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">FileError::FileError</a>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structtr_1_1UnsupportedAudioFile.html#a0a0c8176aa73c3acbf9b0259ec8f876f">   34</a></span>        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1UnsupportedAudioFile.html#a0a0c8176aa73c3acbf9b0259ec8f876f">what</a>() const noexcept;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    };</div>
 </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfe">   42</a></span>    enum class <a class="code hl_enumeration" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <a class="code hl_enumvalue" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfea6bb6d6a0741f2a5afd00611ed1ef5f8b">MONO8</a> = 0x11&#39;00, <span class="comment">// 8-bit mono audio.</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_enumvalue" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfeae155ffb380a7c880b0f0365cdaa2d9c3">STEREO8</a> = 0x11&#39;02, <span class="comment">// 8-bit stereo audio.</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_enumvalue" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfea59e5ab3f0c1c59504cf28fc887787eab">MONO16</a> = 0x11&#39;01, <span class="comment">// 16-bit mono audio.</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <a class="code hl_enumvalue" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7">STEREO16</a> = 0x11&#39;03 <span class="comment">// 16-bit stereo audio.</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    };</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="group__audio.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">   40</a></span>    enum class <a class="code hl_enumeration" href="group__audio.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_enumvalue" href="group__audio.html#gga0cd93ec18a3882266f1c6cd2657e7cfea6bb6d6a0741f2a5afd00611ed1ef5f8b">MONO8</a> = 0x11&#39;00, <span class="comment">// 8-bit mono audio.</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <a class="code hl_enumvalue" href="group__audio.html#gga0cd93ec18a3882266f1c6cd2657e7cfeae155ffb380a7c880b0f0365cdaa2d9c3">STEREO8</a> = 0x11&#39;02, <span class="comment">// 8-bit stereo audio.</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <a class="code hl_enumvalue" href="group__audio.html#gga0cd93ec18a3882266f1c6cd2657e7cfea59e5ab3f0c1c59504cf28fc887787eab">MONO16</a> = 0x11&#39;01, <span class="comment">// 16-bit mono audio.</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_enumvalue" href="group__audio.html#gga0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7">STEREO16</a> = 0x11&#39;03 <span class="comment">// 16-bit stereo audio.</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    };</div>
 </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="foldopen" id="foldopen00067" data-start="{" data-end="};">
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBufferView.html">   67</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1AudioBufferView.html">AudioBufferView</a> {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="};">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBufferView.html">   65</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1AudioBufferView.html">AudioBufferView</a> {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBufferView.html#ae0e3b1bdc50b9e0df7fc00a09e7da358">   67</a></span>        <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code hl_friend" href="classtr_1_1AudioBufferView.html#ae0e3b1bdc50b9e0df7fc00a09e7da358">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1AudioBufferView.html">AudioBufferView</a>&amp;, <span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1AudioBufferView.html">AudioBufferView</a>&amp;) <span class="keyword">noexcept</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBufferView.html#ae0e3b1bdc50b9e0df7fc00a09e7da358">   72</a></span>        <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code hl_friend" href="classtr_1_1AudioBufferView.html#ae0e3b1bdc50b9e0df7fc00a09e7da358">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1AudioBufferView.html">AudioBufferView</a>&amp;, <span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1AudioBufferView.html">AudioBufferView</a>&amp;) <span class="keyword">noexcept</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBufferView.html#a6764903b3c7ee986ffabad38d2a0bc24">   83</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1AudioBufferView.html#a6764903b3c7ee986ffabad38d2a0bc24">set</a>(std::span&lt;const std::byte&gt; data, <a class="code hl_enumeration" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> format, <span class="keywordtype">int</span> frequency);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id; <span class="comment">// The OpenAL ID of the buffer.</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="comment">// Constructs a audio buffer view from an OpenAL id.</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <a class="code hl_class" href="classtr_1_1AudioBufferView.html">AudioBufferView</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBufferView.html#a6764903b3c7ee986ffabad38d2a0bc24">   78</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1AudioBufferView.html#a6764903b3c7ee986ffabad38d2a0bc24">set</a>(std::span&lt;const std::byte&gt; data, <a class="code hl_enumeration" href="group__audio.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> format, <span class="keywordtype">int</span> frequency);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>      <span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id; <span class="comment">// The OpenAL ID of the buffer.</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="comment">// Constructs a audio buffer view from an OpenAL id.</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_class" href="classtr_1_1AudioBufferView.html">AudioBufferView</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBufferView.html#ae9156751e1a37bc46c0c4b10649f81a9">   88</a></span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1AudioBuffer.html">AudioBuffer</a>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBufferView.html#a4c6a4b0d9827213876805011e3d9a751">   89</a></span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1AudioSource.html">AudioSource</a>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    };</div>
+</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1AudioBuffer.html">AudioBuffer</a>;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1AudioSource.html">AudioSource</a>;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    };</div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="};">
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBuffer.html">   97</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1AudioBuffer.html">AudioBuffer</a> {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBuffer.html#a4e69169af6c5aebd2b17146a49bcd6a1">  104</a></span>        <a class="code hl_function" href="classtr_1_1AudioBuffer.html#a4e69169af6c5aebd2b17146a49bcd6a1">AudioBuffer</a>();</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBuffer.html#aa26b66c2c1ec732eefbcb32d5837ee71">  115</a></span>        <a class="code hl_function" href="classtr_1_1AudioBuffer.html#aa26b66c2c1ec732eefbcb32d5837ee71">AudioBuffer</a>(std::span&lt;const std::byte&gt; data, <a class="code hl_enumeration" href="group__audio.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> format, <span class="keywordtype">int</span> frequency);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBuffer.html#aa035951cfb588b32a7f0a5d14508c851">  128</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="classtr_1_1AudioBuffer.html#aa035951cfb588b32a7f0a5d14508c851">AudioBuffer</a>(<span class="keyword">const</span> std::filesystem::path&amp; path);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBuffer.html#a5704d26c70d01e0a246729541edd3a1e">  130</a></span>        <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code hl_friend" href="classtr_1_1AudioBuffer.html#a5704d26c70d01e0a246729541edd3a1e">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1AudioBuffer.html">AudioBuffer</a>&amp;, <span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1AudioBuffer.html">AudioBuffer</a>&amp;) <span class="keyword">noexcept</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBuffer.html#afbfccd0bb4a9ac3fa6afb710eebfae9c">  135</a></span>        <span class="keyword">operator</span> <a class="code hl_class" href="classtr_1_1AudioBufferView.html">AudioBufferView</a>() const noexcept;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBuffer.html#a82cd9063088eab4aeee8b0244bea135a">  146</a></span>        <span class="keywordtype">void</span> set(std::span&lt;const std::<span class="keywordtype">byte</span>&gt; data, <a class="code hl_enumeration" href="group__audio.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> format, <span class="keywordtype">int</span> frequency);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>      private:</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        struct Deleter {</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            <span class="keywordtype">void</span> operator()(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        };</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <a class="code hl_class" href="classtr_1_1Handle.html">Handle&lt;unsigned int, 0, Deleter&gt;</a> _id;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    };</div>
 </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="foldopen" id="foldopen00102" data-start="{" data-end="};">
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBuffer.html">  102</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1AudioBuffer.html">AudioBuffer</a> {</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>      <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBuffer.html#a4e69169af6c5aebd2b17146a49bcd6a1">  109</a></span>        <a class="code hl_function" href="classtr_1_1AudioBuffer.html#a4e69169af6c5aebd2b17146a49bcd6a1">AudioBuffer</a>();</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBuffer.html#aa26b66c2c1ec732eefbcb32d5837ee71">  120</a></span>        <a class="code hl_function" href="classtr_1_1AudioBuffer.html#aa26b66c2c1ec732eefbcb32d5837ee71">AudioBuffer</a>(std::span&lt;const std::byte&gt; data, <a class="code hl_enumeration" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> format, <span class="keywordtype">int</span> frequency);</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBuffer.html#aa035951cfb588b32a7f0a5d14508c851">  133</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="classtr_1_1AudioBuffer.html#aa035951cfb588b32a7f0a5d14508c851">AudioBuffer</a>(<span class="keyword">const</span> std::filesystem::path&amp; path);</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBuffer.html#a5704d26c70d01e0a246729541edd3a1e">  138</a></span>        <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code hl_friend" href="classtr_1_1AudioBuffer.html#a5704d26c70d01e0a246729541edd3a1e">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1AudioBuffer.html">AudioBuffer</a>&amp;, <span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1AudioBuffer.html">AudioBuffer</a>&amp;) <span class="keyword">noexcept</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBuffer.html#afbfccd0bb4a9ac3fa6afb710eebfae9c">  143</a></span>        <span class="keyword">operator</span> <a class="code hl_class" href="classtr_1_1AudioBufferView.html">AudioBufferView</a>() const noexcept;</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="classtr_1_1AudioBuffer.html#a82cd9063088eab4aeee8b0244bea135a">  154</a></span>        <span class="keywordtype">void</span> set(std::span&lt;const std::<span class="keywordtype">byte</span>&gt; data, <a class="code hl_enumeration" href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> format, <span class="keywordtype">int</span> frequency);</div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>      private:</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        struct Deleter {</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            <span class="keywordtype">void</span> operator()(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        };</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>} <span class="comment">// namespace tr</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <a class="code hl_class" href="classtr_1_1Handle.html">Handle&lt;unsigned int, 0, Deleter&gt;</a> _id;</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    };</div>
-</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>} <span class="comment">// namespace tr</span></div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1AudioBufferBadAlloc.html#a4d0e3d0f2587f15626c3f7a31bd840ed">tr::AudioBufferBadAlloc::what</a>() const noexcept</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>{</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;failed audio buffer allocation&quot;</span>;</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>}</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="ttc" id="aaudio__buffer_8hpp_html_a0cd93ec18a3882266f1c6cd2657e7cfe"><div class="ttname"><a href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfe">tr::AudioFormat</a></div><div class="ttdeci">AudioFormat</div><div class="ttdoc">Audio data format.</div><div class="ttdef"><b>Definition</b> audio_buffer.hpp:42</div></div>
-<div class="ttc" id="aaudio__buffer_8hpp_html_a0cd93ec18a3882266f1c6cd2657e7cfea59e5ab3f0c1c59504cf28fc887787eab"><div class="ttname"><a href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfea59e5ab3f0c1c59504cf28fc887787eab">tr::AudioFormat::MONO16</a></div><div class="ttdeci">@ MONO16</div><div class="ttdoc">1-channel, 16-bit audio.</div></div>
-<div class="ttc" id="aaudio__buffer_8hpp_html_a0cd93ec18a3882266f1c6cd2657e7cfea6bb6d6a0741f2a5afd00611ed1ef5f8b"><div class="ttname"><a href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfea6bb6d6a0741f2a5afd00611ed1ef5f8b">tr::AudioFormat::MONO8</a></div><div class="ttdeci">@ MONO8</div><div class="ttdoc">1-channel, 8-bit audio.</div></div>
-<div class="ttc" id="aaudio__buffer_8hpp_html_a0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7"><div class="ttname"><a href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7">tr::AudioFormat::STEREO16</a></div><div class="ttdeci">@ STEREO16</div><div class="ttdoc">2-channel, 16-bit audio.</div></div>
-<div class="ttc" id="aaudio__buffer_8hpp_html_a0cd93ec18a3882266f1c6cd2657e7cfeae155ffb380a7c880b0f0365cdaa2d9c3"><div class="ttname"><a href="audio__buffer_8hpp.html#a0cd93ec18a3882266f1c6cd2657e7cfeae155ffb380a7c880b0f0365cdaa2d9c3">tr::AudioFormat::STEREO8</a></div><div class="ttdeci">@ STEREO8</div><div class="ttdoc">2-channel, 8-bit audio.</div></div>
-<div class="ttc" id="aclasstr_1_1AudioBufferView_html"><div class="ttname"><a href="classtr_1_1AudioBufferView.html">tr::AudioBufferView</a></div><div class="ttdoc">Non-owning audio buffer view.</div><div class="ttdef"><b>Definition</b> audio_buffer.hpp:67</div></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1AudioBufferBadAlloc.html#a4d0e3d0f2587f15626c3f7a31bd840ed">tr::AudioBufferBadAlloc::what</a>() const noexcept</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>{</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;failed audio buffer allocation&quot;</span>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>}</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="ttc" id="aclasstr_1_1AudioBufferView_html"><div class="ttname"><a href="classtr_1_1AudioBufferView.html">tr::AudioBufferView</a></div><div class="ttdoc">Non-owning audio buffer view.</div><div class="ttdef"><b>Definition</b> audio_buffer.hpp:65</div></div>
 <div class="ttc" id="aclasstr_1_1AudioBufferView_html_a6764903b3c7ee986ffabad38d2a0bc24"><div class="ttname"><a href="classtr_1_1AudioBufferView.html#a6764903b3c7ee986ffabad38d2a0bc24">tr::AudioBufferView::set</a></div><div class="ttdeci">void set(std::span&lt; const std::byte &gt; data, AudioFormat format, int frequency)</div><div class="ttdoc">Sets the data of the buffer.</div></div>
-<div class="ttc" id="aclasstr_1_1AudioBufferView_html_ae0e3b1bdc50b9e0df7fc00a09e7da358"><div class="ttname"><a href="classtr_1_1AudioBufferView.html#ae0e3b1bdc50b9e0df7fc00a09e7da358">tr::AudioBufferView::operator==</a></div><div class="ttdeci">friend bool operator==(const AudioBufferView &amp;, const AudioBufferView &amp;) noexcept=default</div><div class="ttdoc">Equality comparison operator.</div></div>
-<div class="ttc" id="aclasstr_1_1AudioBuffer_html"><div class="ttname"><a href="classtr_1_1AudioBuffer.html">tr::AudioBuffer</a></div><div class="ttdoc">Owning audio buffer.</div><div class="ttdef"><b>Definition</b> audio_buffer.hpp:102</div></div>
+<div class="ttc" id="aclasstr_1_1AudioBufferView_html_ae0e3b1bdc50b9e0df7fc00a09e7da358"><div class="ttname"><a href="classtr_1_1AudioBufferView.html#ae0e3b1bdc50b9e0df7fc00a09e7da358">tr::AudioBufferView::operator==</a></div><div class="ttdeci">friend bool operator==(const AudioBufferView &amp;, const AudioBufferView &amp;) noexcept=default</div></div>
+<div class="ttc" id="aclasstr_1_1AudioBuffer_html"><div class="ttname"><a href="classtr_1_1AudioBuffer.html">tr::AudioBuffer</a></div><div class="ttdoc">Owning audio buffer.</div><div class="ttdef"><b>Definition</b> audio_buffer.hpp:97</div></div>
 <div class="ttc" id="aclasstr_1_1AudioBuffer_html_a4e69169af6c5aebd2b17146a49bcd6a1"><div class="ttname"><a href="classtr_1_1AudioBuffer.html#a4e69169af6c5aebd2b17146a49bcd6a1">tr::AudioBuffer::AudioBuffer</a></div><div class="ttdeci">AudioBuffer()</div><div class="ttdoc">Constructs an empty audio buffer.</div></div>
-<div class="ttc" id="aclasstr_1_1AudioBuffer_html_a5704d26c70d01e0a246729541edd3a1e"><div class="ttname"><a href="classtr_1_1AudioBuffer.html#a5704d26c70d01e0a246729541edd3a1e">tr::AudioBuffer::operator==</a></div><div class="ttdeci">friend bool operator==(const AudioBuffer &amp;, const AudioBuffer &amp;) noexcept=default</div><div class="ttdoc">Equality comparison operator.</div></div>
+<div class="ttc" id="aclasstr_1_1AudioBuffer_html_a5704d26c70d01e0a246729541edd3a1e"><div class="ttname"><a href="classtr_1_1AudioBuffer.html#a5704d26c70d01e0a246729541edd3a1e">tr::AudioBuffer::operator==</a></div><div class="ttdeci">friend bool operator==(const AudioBuffer &amp;, const AudioBuffer &amp;) noexcept=default</div></div>
 <div class="ttc" id="aclasstr_1_1AudioBuffer_html_aa035951cfb588b32a7f0a5d14508c851"><div class="ttname"><a href="classtr_1_1AudioBuffer.html#aa035951cfb588b32a7f0a5d14508c851">tr::AudioBuffer::AudioBuffer</a></div><div class="ttdeci">AudioBuffer(const std::filesystem::path &amp;path)</div><div class="ttdoc">Loads audio data from file to a buffer.</div></div>
-<div class="ttc" id="aclasstr_1_1AudioBuffer_html_aa26b66c2c1ec732eefbcb32d5837ee71"><div class="ttname"><a href="classtr_1_1AudioBuffer.html#aa26b66c2c1ec732eefbcb32d5837ee71">tr::AudioBuffer::AudioBuffer</a></div><div class="ttdeci">AudioBuffer(std::span&lt; const std::byte &gt; data, AudioFormat format, int frequency)</div><div class="ttdoc">Constructs an audio buffer containing audio data.</div></div>
+<div class="ttc" id="aclasstr_1_1AudioBuffer_html_aa26b66c2c1ec732eefbcb32d5837ee71"><div class="ttname"><a href="classtr_1_1AudioBuffer.html#aa26b66c2c1ec732eefbcb32d5837ee71">tr::AudioBuffer::AudioBuffer</a></div><div class="ttdeci">AudioBuffer(std::span&lt; const std::byte &gt; data, AudioFormat format, int frequency)</div><div class="ttdoc">Constructs an audio buffer and immediately sets it.</div></div>
 <div class="ttc" id="aclasstr_1_1AudioSource_html"><div class="ttname"><a href="classtr_1_1AudioSource.html">tr::AudioSource</a></div><div class="ttdoc">Audio source.</div><div class="ttdef"><b>Definition</b> audio_source.hpp:79</div></div>
-<div class="ttc" id="aclasstr_1_1FileError_html"><div class="ttname"><a href="classtr_1_1FileError.html">tr::FileError</a></div><div class="ttdoc">Generic file error base exception type.</div><div class="ttdef"><b>Definition</b> iostream.hpp:28</div></div>
+<div class="ttc" id="aclasstr_1_1FileError_html"><div class="ttname"><a href="classtr_1_1FileError.html">tr::FileError</a></div><div class="ttdoc">Generic file error base exception type.</div><div class="ttdef"><b>Definition</b> iostream.hpp:27</div></div>
 <div class="ttc" id="aclasstr_1_1FileError_html_a40619fbc37d069161d0d1215061ca56c"><div class="ttname"><a href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">tr::FileError::FileError</a></div><div class="ttdeci">FileError(std::string path) noexcept</div><div class="ttdoc">Constructs a file error with a path string.</div></div>
-<div class="ttc" id="aclasstr_1_1Handle_html"><div class="ttname"><a href="classtr_1_1Handle.html">tr::Handle</a></div><div class="ttdoc">RAII wrapper over non-pointer handles.</div><div class="ttdef"><b>Definition</b> handle.hpp:59</div></div>
-<div class="ttc" id="ahandle_8hpp_html"><div class="ttname"><a href="handle_8hpp.html">handle.hpp</a></div><div class="ttdoc">Provides a RAII wrapper over non-pointer handles.</div></div>
-<div class="ttc" id="aiostream_8hpp_html"><div class="ttname"><a href="iostream_8hpp.html">iostream.hpp</a></div><div class="ttdoc">Provides miscellaneous input/output functionality.</div></div>
-<div class="ttc" id="astructtr_1_1AudioBufferBadAlloc_html"><div class="ttname"><a href="structtr_1_1AudioBufferBadAlloc.html">tr::AudioBufferBadAlloc</a></div><div class="ttdoc">Error thrown when allocating an audio buffer fails.</div><div class="ttdef"><b>Definition</b> audio_buffer.hpp:16</div></div>
+<div class="ttc" id="aclasstr_1_1Handle_html"><div class="ttname"><a href="classtr_1_1Handle.html">tr::Handle</a></div><div class="ttdoc">RAII wrapper over non-pointer handles.</div><div class="ttdef"><b>Definition</b> handle.hpp:54</div></div>
+<div class="ttc" id="agroup__audio_html_ga0cd93ec18a3882266f1c6cd2657e7cfe"><div class="ttname"><a href="group__audio.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">tr::AudioFormat</a></div><div class="ttdeci">AudioFormat</div><div class="ttdoc">Audio data format.</div><div class="ttdef"><b>Definition</b> audio_buffer.hpp:40</div></div>
+<div class="ttc" id="agroup__audio_html_gga0cd93ec18a3882266f1c6cd2657e7cfea59e5ab3f0c1c59504cf28fc887787eab"><div class="ttname"><a href="group__audio.html#gga0cd93ec18a3882266f1c6cd2657e7cfea59e5ab3f0c1c59504cf28fc887787eab">tr::AudioFormat::MONO16</a></div><div class="ttdeci">@ MONO16</div><div class="ttdoc">1-channel, 16-bit audio.</div></div>
+<div class="ttc" id="agroup__audio_html_gga0cd93ec18a3882266f1c6cd2657e7cfea6bb6d6a0741f2a5afd00611ed1ef5f8b"><div class="ttname"><a href="group__audio.html#gga0cd93ec18a3882266f1c6cd2657e7cfea6bb6d6a0741f2a5afd00611ed1ef5f8b">tr::AudioFormat::MONO8</a></div><div class="ttdeci">@ MONO8</div><div class="ttdoc">1-channel, 8-bit audio.</div></div>
+<div class="ttc" id="agroup__audio_html_gga0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7"><div class="ttname"><a href="group__audio.html#gga0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7">tr::AudioFormat::STEREO16</a></div><div class="ttdeci">@ STEREO16</div><div class="ttdoc">2-channel, 16-bit audio.</div></div>
+<div class="ttc" id="agroup__audio_html_gga0cd93ec18a3882266f1c6cd2657e7cfeae155ffb380a7c880b0f0365cdaa2d9c3"><div class="ttname"><a href="group__audio.html#gga0cd93ec18a3882266f1c6cd2657e7cfeae155ffb380a7c880b0f0365cdaa2d9c3">tr::AudioFormat::STEREO8</a></div><div class="ttdeci">@ STEREO8</div><div class="ttdoc">2-channel, 8-bit audio.</div></div>
+<div class="ttc" id="anamespacetr_html"><div class="ttname"><a href="namespacetr.html">tr</a></div><div class="ttdoc">Namespace containing all libtr functionality.</div><div class="ttdef"><b>Definition</b> angle.hpp:5</div></div>
+<div class="ttc" id="astructtr_1_1AudioBufferBadAlloc_html"><div class="ttname"><a href="structtr_1_1AudioBufferBadAlloc.html">tr::AudioBufferBadAlloc</a></div><div class="ttdoc">Error thrown when allocating an audio buffer fails.</div><div class="ttdef"><b>Definition</b> audio_buffer.hpp:14</div></div>
 <div class="ttc" id="astructtr_1_1AudioBufferBadAlloc_html_a4d0e3d0f2587f15626c3f7a31bd840ed"><div class="ttname"><a href="structtr_1_1AudioBufferBadAlloc.html#a4d0e3d0f2587f15626c3f7a31bd840ed">tr::AudioBufferBadAlloc::what</a></div><div class="ttdeci">virtual constexpr const char * what() const noexcept</div><div class="ttdoc">Gets an error message.</div></div>
-<div class="ttc" id="astructtr_1_1UnsupportedAudioFile_html"><div class="ttname"><a href="structtr_1_1UnsupportedAudioFile.html">tr::UnsupportedAudioFile</a></div><div class="ttdoc">Error thrown when an trying to load an unsupported audio file.</div><div class="ttdef"><b>Definition</b> audio_buffer.hpp:28</div></div>
+<div class="ttc" id="astructtr_1_1UnsupportedAudioFile_html"><div class="ttname"><a href="structtr_1_1UnsupportedAudioFile.html">tr::UnsupportedAudioFile</a></div><div class="ttdoc">Error thrown when an trying to load an unsupported audio file.</div><div class="ttdef"><b>Definition</b> audio_buffer.hpp:26</div></div>
 <div class="ttc" id="astructtr_1_1UnsupportedAudioFile_html_a0a0c8176aa73c3acbf9b0259ec8f876f"><div class="ttname"><a href="structtr_1_1UnsupportedAudioFile.html#a0a0c8176aa73c3acbf9b0259ec8f876f">tr::UnsupportedAudioFile::what</a></div><div class="ttdeci">virtual const char * what() const noexcept</div><div class="ttdoc">Gets an error message.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

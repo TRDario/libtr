@@ -85,7 +85,7 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>tr</b></li><li class="navelem"><a class="el" href="structtr_1_1SDLError.html">SDLError</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="structtr_1_1SDLError.html">SDLError</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -97,10 +97,8 @@ $(function(){ initResizable(false); });
 </div><!--header-->
 <div class="contents">
 
-<p>Error thrown by an <a class="el" href="classtr_1_1SDL.html" title="SDL library RAII wrapper.">SDL</a> function failing.  
+<p>Base error type for all SDL operation errors.  
  <a href="#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="sdl_8hpp_source.html">sdl.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for tr::SDLError:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -109,21 +107,20 @@ $(function(){ initResizable(false); });
  <div class="center">
   <img src="structtr_1_1SDLError.png" usemap="#tr::SDLError_map" alt=""/>
   <map id="tr::SDLError_map" name="tr::SDLError_map">
-<area href="structtr_1_1TTFontRenderError.html" title="Error thrown when rendering from a TrueType font failed." alt="tr::TTFontRenderError" shape="rect" coords="0,168,136,192"/>
-<area href="structtr_1_1TTFontResizeError.html" title="Error thrown when TrueType font resizing failed." alt="tr::TTFontResizeError" shape="rect" coords="146,168,282,192"/>
-<area href="structtr_1_1VSyncError.html" title="Error thrown if setting the V-sync mode failed." alt="tr::VSyncError" shape="rect" coords="292,168,428,192"/>
-<area href="structtr_1_1WindowError.html" title="Error thrown on a window operation failure." alt="tr::WindowError" shape="rect" coords="438,168,574,192"/>
+<area href="structtr_1_1EventError.html" title="Error thrown when an event operation fails." alt="tr::EventError" shape="rect" coords="0,168,111,192"/>
+<area href="structtr_1_1TTFontError.html" title="Error thrown when a TrueType font operation fails." alt="tr::TTFontError" shape="rect" coords="121,168,232,192"/>
+<area href="structtr_1_1WindowError.html" title="Error thrown when a window operation fails." alt="tr::WindowError" shape="rect" coords="242,168,353,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a78397e28638efd10cac278a160395583" id="r_a78397e28638efd10cac278a160395583"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78397e28638efd10cac278a160395583">SDLError</a> (std::string_view message)</td></tr>
-<tr class="memdesc:a78397e28638efd10cac278a160395583"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="classtr_1_1SDL.html" title="SDL library RAII wrapper.">SDL</a> error.  <br /></td></tr>
+<tr class="memdesc:a78397e28638efd10cac278a160395583"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an SDL error.  <br /></td></tr>
 <tr class="separator:a78397e28638efd10cac278a160395583"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Error thrown by an <a class="el" href="classtr_1_1SDL.html" title="SDL library RAII wrapper.">SDL</a> function failing. </p>
+<div class="textblock"><p>Base error type for all SDL operation errors. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a78397e28638efd10cac278a160395583" name="a78397e28638efd10cac278a160395583"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a78397e28638efd10cac278a160395583">&#9670;&#160;</a></span>SDLError()</h2>
@@ -140,7 +137,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs an <a class="el" href="classtr_1_1SDL.html" title="SDL library RAII wrapper.">SDL</a> error. </p>
+<p>Constructs an SDL error. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::bad_alloc</td><td>If allocating the error string failed.</td></tr>
@@ -156,9 +153,6 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="sdl_8hpp_source.html">sdl.hpp</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

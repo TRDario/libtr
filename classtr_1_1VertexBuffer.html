@@ -85,7 +85,7 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>tr</b></li><li class="navelem"><a class="el" href="classtr_1_1VertexBuffer.html">VertexBuffer</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1VertexBuffer.html">VertexBuffer</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -93,14 +93,12 @@ $(function(){ initResizable(false); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1VertexBuffer-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::VertexBuffer Class Reference</div></div>
+  <div class="headertitle"><div class="title">tr::VertexBuffer Class Reference<div class="ingroups"><a class="el" href="group__graphics.html">Graphics</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>GPU vertex buffer class.  
  <a href="#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="vertex__buffer_8hpp_source.html">vertex_buffer.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -146,7 +144,6 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>GPU vertex buffer class. </p>
-<p>An OpenGL context must be open to instantiate and use objects of this type. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af2497bbea6b53bc876abfea82376ca44" name="af2497bbea6b53bc876abfea82376ca44"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af2497bbea6b53bc876abfea82376ca44">&#9670;&#160;</a></span>VertexBuffer() <span class="overload">[1/3]</span></h2>
@@ -172,7 +169,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructs an empty vertex buffer. </p>
-<p>This function can be called before creating a <a class="el" href="classtr_1_1GLContext.html" title="OpenGL context.">GLContext</a>, but most operations on the buffer still require it. </p>
+<p>This function can be called before creating a <a class="el" href="classtr_1_1GLContext.html" title="OpenGL context.">GLContext</a>. </p>
 
 </div>
 </div>
@@ -196,13 +193,13 @@ Public Member Functions</h2></td></tr>
 <p>This function can't be called before creating a <a class="el" href="classtr_1_1GLContext.html" title="OpenGL context.">GLContext</a>.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1GLBufferBadAlloc.html" title="Error thrown when allocating a GPU buffer fails.">GLBufferBadAlloc</a></td><td>If allocating the buffer failed.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1GLBufferBadAlloc.html" title="Error thrown when allocating a GPU buffer fails.">GLBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">capacity</td><td>The capacity of the buffer in bytes. Must be greater than 0, otherwise a failed assertion may be triggered. </td></tr>
+    <tr><td class="paramname">capacity</td><td>The capacity of the buffer in bytes. Must be greater than 0. </td></tr>
   </table>
   </dd>
 </dl>
@@ -229,13 +226,13 @@ Public Member Functions</h2></td></tr>
 <p>This function can't be called before creating a <a class="el" href="classtr_1_1GLContext.html" title="OpenGL context.">GLContext</a>.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1GLBufferBadAlloc.html" title="Error thrown when allocating a GPU buffer fails.">GLBufferBadAlloc</a></td><td>If allocating the buffer failed.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1GLBufferBadAlloc.html" title="Error thrown when allocating a GPU buffer fails.">GLBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>The data to be uploaded to be buffer. Must not be empty, otherwise a failed assertion may be triggered. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The data to be uploaded to be buffer. Must not be empty. </td></tr>
   </table>
   </dd>
 </dl>
@@ -355,7 +352,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">size</td><td>The new size of the buffer in bytes. Must be greater than 0, otherwise a failed assertion may be triggered.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The new size of the buffer in bytes. Must be greater than 0, otherwise a failed assertion may be triggered.</td></tr>
   </table>
   </dd>
 </dl>
@@ -420,8 +417,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">offset</td><td>The starting offset within the buffer in bytes. </td></tr>
-    <tr><td class="paramname">size</td><td>The size of the mapped region in bytes. Must be greater than 0, and <code>offset + data.size() &lt;= <a class="el" href="#a5f80acdd1710f2af851efbe70e97b373" title="Gets the capacity of the vertex buffer.">capacity()</a></code> must hold true, otherwise a failed assertion may be triggered.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">offset</td><td>The starting offset within the buffer in bytes. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The size of the mapped region in bytes. Must be greater than 0, and <code>offset + data.size() &lt;= <a class="el" href="#a5f80acdd1710f2af851efbe70e97b373" title="Gets the capacity of the vertex buffer.">capacity()</a></code> must hold true, otherwise a failed assertion may be triggered.</td></tr>
   </table>
   </dd>
 </dl>
@@ -449,13 +446,13 @@ Public Member Functions</h2></td></tr>
 <p>The buffer cannot be mapped when this function is called.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1GLBufferBadAlloc.html" title="Error thrown when allocating a GPU buffer fails.">GLBufferBadAlloc</a></td><td>If a reallocation was triggered and reallocating the buffer failed.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1GLBufferBadAlloc.html" title="Error thrown when allocating a GPU buffer fails.">GLBufferBadAlloc</a></td><td>If a reallocation is triggered and reallocating the buffer fails.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>The new data of the buffer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The new data of the buffer. </td></tr>
   </table>
   </dd>
 </dl>
@@ -488,7 +485,7 @@ Public Member Functions</h2></td></tr>
 <p>Sets the debug label of the vertex buffer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">label</td><td>The new label of the vertex buffer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">label</td><td>The new label of the vertex buffer. </td></tr>
   </table>
   </dd>
 </dl>
@@ -527,8 +524,8 @@ Public Member Functions</h2></td></tr>
 <p>The buffer cannot be mapped when this function is called.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">offset</td><td>The starting offset within the buffer in bytes. </td></tr>
-    <tr><td class="paramname">data</td><td>The new data of the buffer. <code>offset + data.size() &lt;= <a class="el" href="#a5f80acdd1710f2af851efbe70e97b373" title="Gets the capacity of the vertex buffer.">capacity()</a></code> must hold true, otherwise a failed assertion may be triggered. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">offset</td><td>The starting offset within the buffer in bytes. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The new data of the buffer. <code>offset + data.size() &lt;= <a class="el" href="#a5f80acdd1710f2af851efbe70e97b373" title="Gets the capacity of the vertex buffer.">capacity()</a></code> must hold true. </td></tr>
   </table>
   </dd>
 </dl>
@@ -563,9 +560,6 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="vertex__buffer_8hpp_source.html">vertex_buffer.hpp</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

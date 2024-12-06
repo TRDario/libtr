@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['_7eframebuffer_0',['~Framebuffer',['../classtr_1_1Framebuffer.html#a2bbb8f8143b9583d94d2b368a7a3c457',1,'tr::Framebuffer']]],
-  ['_7ehandle_1',['~Handle',['../classtr_1_1Handle.html#ad4241f53911907ee3ff79f13302c5896',1,'tr::Handle']]],
-  ['_7ewindow_2',['~Window',['../classtr_1_1Window.html#a216f7a0afcdfe22fd1aa8c918daaa87a',1,'tr::Window']]]
+  ['y_0',['Y',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204da57cec4137b614c87cb4e24a3d003a3e0',1,'tr::Scancode::Y'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a57cec4137b614c87cb4e24a3d003a3e0',1,'tr::Keycode::Y']]],
+  ['y_5faxis_1',['Y_AXIS',['../namespacetr.html#a14a1d007443269c085460bdbdd7099f7',1,'tr']]]
 ];

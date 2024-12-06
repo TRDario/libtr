@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['debugcontext_0',['debugContext',['../structtr_1_1GLAttrs.html#ac5111f5526c188a2fa065f394c28f7ff',1,'tr::GLAttrs']]],
-  ['default_5fdisplay_1',['DEFAULT_DISPLAY',['../display_8hpp.html#a88146faba98c2818257ab7b3d06f5392',1,'tr']]],
-  ['delta_2',['delta',['../structtr_1_1MouseMotionEvent.html#a6f8c539942c5eafbb41c9242590f945a',1,'tr::MouseMotionEvent::delta'],['../structtr_1_1MouseWheelEvent.html#adb84e4c3c4b059042399cc8a7c441ae4',1,'tr::MouseWheelEvent::delta']]],
-  ['depthbits_3',['depthBits',['../structtr_1_1GLAttrs.html#a19ed886a594b9cb97188de6631adef52',1,'tr::GLAttrs']]],
-  ['desktop_5fmode_4',['DESKTOP_MODE',['../display_8hpp.html#a5f87abb661ca3280aa64f73b1395589b',1,'tr']]],
-  ['draw_5',['DRAW',['../namespacetr_1_1EventType.html#ab269a113fc5fd5fee40ce3d75aadff1b',1,'tr::EventType']]]
+  ['c_0',['c',['../structtr_1_1Circle.html#aa44105e726740988ae0f018d579579bc',1,'tr::Circle']]],
+  ['centered_5fpos_1',['CENTERED_POS',['../group__input.html#ga3d79ab32d9b1afaebc7c4f45002ae5b6',1,'tr']]],
+  ['clicks_2',['clicks',['../structtr_1_1MouseDownEvent.html#acaf40374085c9256f32d7cb750f29d1c',1,'tr::MouseDownEvent']]],
+  ['clipboard_5fupdate_3',['CLIPBOARD_UPDATE',['../namespacetr_1_1event__type.html#ab486d7d37fcc94d319914397eb05ceab',1,'tr::event_type']]],
+  ['color_4',['color',['../structtr_1_1ClrVtx2.html#a86c6855471da11546454a645eb0a9032',1,'tr::ClrVtx2::color'],['../structtr_1_1TintVtx2.html#afdbd15dc5ea2ea7e0961f659501b5c81',1,'tr::TintVtx2::color']]],
+  ['colors_5',['colors',['../group__drawing.html#gae217c35009c80b033d79c54b66c6329b',1,'tr']]]
 ];

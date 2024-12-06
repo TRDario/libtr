@@ -93,153 +93,155 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">iostream.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="iostream_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="concepts_8hpp.html">concepts.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;filesystem&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;ranges&gt;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span>tr {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="concepttr_1_1BinaryFlushableContainer.html">   20</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="concepttr_1_1BinaryFlushableContainer.html">BinaryFlushableContainer</a> =</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        std::ranges::contiguous_range&lt;T&gt; &amp;&amp; <span class="keyword">sizeof</span>(<span class="keyword">typename</span> T::value_type) == <span class="keyword">sizeof</span>(std::byte);</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;concepts.hpp&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;filesystem&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;ranges&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetr.html">tr</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="concepttr_1_1BinaryFlushableContainer.html">   19</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="concepttr_1_1BinaryFlushableContainer.html">BinaryFlushableContainer</a> =</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        std::ranges::contiguous_range&lt;T&gt; &amp;&amp; <span class="keyword">sizeof</span>(<span class="keyword">typename</span> T::value_type) == <span class="keyword">sizeof</span>(std::byte);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classtr_1_1FileError.html">   28</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1FileError.html">FileError</a> : <span class="keyword">public</span> std::exception {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>      <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">   35</a></span>        <a class="code hl_function" href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">FileError</a>(std::string <a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>) <span class="keyword">noexcept</span>;</div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classtr_1_1FileError.html">   27</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1FileError.html">FileError</a> : <span class="keyword">public</span> std::exception {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">   34</a></span>        <a class="code hl_function" href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">FileError</a>(std::string <a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classtr_1_1FileError.html#a2721806b29b337df88b1872d26c235a9">   44</a></span>        <a class="code hl_function" href="classtr_1_1FileError.html#a2721806b29b337df88b1872d26c235a9">FileError</a>(<span class="keyword">const</span> std::filesystem::path&amp; <a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classtr_1_1FileError.html#a2721806b29b337df88b1872d26c235a9">   43</a></span>        <a class="code hl_function" href="classtr_1_1FileError.html#a2721806b29b337df88b1872d26c235a9">FileError</a>(<span class="keyword">const</span> std::filesystem::path&amp; <a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classtr_1_1FileError.html#ac8f84377c0b78974035783120950083e">   49</a></span>        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="classtr_1_1FileError.html#ac8f84377c0b78974035783120950083e">what</a>() const noexcept = 0;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classtr_1_1FileError.html#ac8f84377c0b78974035783120950083e">   48</a></span>        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="classtr_1_1FileError.html#ac8f84377c0b78974035783120950083e">what</a>() const noexcept = 0;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">   56</a></span>        const std::<span class="keywordtype">string</span>&amp; <a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>() const noexcept;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>      private:</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        std::<span class="keywordtype">string</span> _path;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    };</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">   55</a></span>        const std::<span class="keywordtype">string</span>&amp; <a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>() const noexcept;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      private:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        std::<span class="keywordtype">string</span> _path;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    };</div>
 </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="foldopen" id="foldopen00065" data-start="{" data-end="};">
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="structtr_1_1FileNotFound.html">   65</a></span>    struct <a class="code hl_struct" href="structtr_1_1FileNotFound.html">FileNotFound</a> : <a class="code hl_class" href="classtr_1_1FileError.html">FileError</a> {</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keyword">using </span><a class="code hl_function" href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">FileError::FileError</a>;</div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="};">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="structtr_1_1FileNotFound.html">   64</a></span>    struct <a class="code hl_struct" href="structtr_1_1FileNotFound.html">FileNotFound</a> : <a class="code hl_class" href="classtr_1_1FileError.html">FileError</a> {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keyword">using </span><a class="code hl_function" href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">FileError::FileError</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="structtr_1_1FileNotFound.html#a04b95a1cd6067f64248a241447cb2350">   73</a></span>        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1FileNotFound.html#a04b95a1cd6067f64248a241447cb2350">what</a>() const noexcept;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    };</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="structtr_1_1FileNotFound.html#a04b95a1cd6067f64248a241447cb2350">   72</a></span>        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1FileNotFound.html#a04b95a1cd6067f64248a241447cb2350">what</a>() const noexcept;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    };</div>
 </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="foldopen" id="foldopen00079" data-start="{" data-end="};">
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="structtr_1_1FileOpenError.html">   79</a></span>    struct <a class="code hl_struct" href="structtr_1_1FileOpenError.html">FileOpenError</a> : <a class="code hl_class" href="classtr_1_1FileError.html">FileError</a> {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keyword">using </span><a class="code hl_function" href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">FileError::FileError</a>;</div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="};">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="structtr_1_1FileOpenError.html">   78</a></span>    struct <a class="code hl_struct" href="structtr_1_1FileOpenError.html">FileOpenError</a> : <a class="code hl_class" href="classtr_1_1FileError.html">FileError</a> {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keyword">using </span><a class="code hl_function" href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">FileError::FileError</a>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="structtr_1_1FileOpenError.html#a154a619d8790490a78ed04dea19458dc">   87</a></span>        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1FileOpenError.html#a154a619d8790490a78ed04dea19458dc">what</a>() const noexcept;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    };</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="structtr_1_1FileOpenError.html#a154a619d8790490a78ed04dea19458dc">   86</a></span>        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1FileOpenError.html#a154a619d8790490a78ed04dea19458dc">what</a>() const noexcept;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    };</div>
 </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="iostream_8hpp.html#a4c86f4771c25e8344d52aba259c0d5a0">  102</a></span>    std::ofstream openFileW(const std::filesystem::<a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>&amp; <a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>, std::ios::openmode openmode = std::ios::in);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="iostream_8hpp.html#ad0830420d60ccc61b523706fcf496ebe">  116</a></span>    std::ifstream openFileR(const std::filesystem::<a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>&amp; <a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>, std::ios::openmode openmode = std::ios::out);</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="iostream_8hpp.html#abb3f546b6b97aac72c8518f521338f56">  126</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayout.html">StandardLayout</a> T&gt; <span class="keywordtype">void</span> readBinary(std::istream&amp; is, T&amp; out);</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="iostream_8hpp.html#a5a5a266fb0a9988c099579df154d2a24">  137</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayout.html">StandardLayout</a> T&gt; T readBinary(std::istream&amp; is);</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="iostream_8hpp.html#a21d194e8831d9b864d9c8449ca981f7a">  147</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayoutRange.html">StandardLayoutRange</a> Range&gt; <span class="keywordtype">void</span> readBinaryRange(std::istream&amp; is, Range&amp;&amp; out);</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="iostream_8hpp.html#a9cb9e3658a32a63b88f0575c32bfc104">  157</a></span>    template &lt;std::output_iterator&lt;<span class="keywordtype">char</span>&gt; It&gt; <span class="keywordtype">void</span> flushBinary(std::istream&amp; is, It out);</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="iostream_8hpp.html#abe01d793d646480829aa01f15c0b04f6">  171</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1BinaryFlushableContainer.html">BinaryFlushableContainer</a> Container&gt; Container flushBinary(std::istream&amp; is);</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="iostream_8hpp.html#ab409e56d6da2e1919ad0a7dd46cecdc2">  181</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayout.html">StandardLayout</a> T&gt; <span class="keywordtype">void</span> writeBinary(std::ostream&amp; os, const T&amp; in);</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="iostream_8hpp.html#a4d2a4dfa9cd9afca524a24e28957ce20">  191</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayoutRange.html">StandardLayoutRange</a> Range&gt; <span class="keywordtype">void</span> writeBinaryRange(std::ostream&amp; os, const Range&amp; range);</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="iostream_8hpp.html#ac5f90bbe1a5a9410262b417a1ba4e8d3">  201</a></span>    inline <span class="keywordtype">void</span> writeBinary(std::ostream&amp; os, const <span class="keywordtype">char</span>* cstr);</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>} <span class="comment">// namespace tr</span></div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>template &lt;tr::<a class="code hl_concept" href="concepttr_1_1StandardLayout.html">StandardLayout</a> T&gt; <span class="keywordtype">void</span> tr::readBinary(std::istream&amp; is, T&amp; out)</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>{</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    is.read((<span class="keywordtype">char</span>*)(std::addressof(out)), <span class="keyword">sizeof</span>(T));</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>}</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="keyword">template</span> &lt;tr::StandardLayout T&gt; T tr::readBinary(std::istream&amp; is)</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>{</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    std::array&lt;char, <span class="keyword">sizeof</span>(T)&gt; bytes;</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    is.read(bytes.data(), <span class="keyword">sizeof</span>(T));</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keywordflow">return</span> std::bit_cast&lt;T&gt;(bytes);</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>}</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="keyword">template</span> &lt;tr::StandardLayoutRange Range&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="iostream_8hpp.html#a21d194e8831d9b864d9c8449ca981f7a">tr::readBinaryRange</a>(std::istream&amp; is, Range&amp;&amp; out)</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>{</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    is.read((<span class="keywordtype">char</span>*)(std::addressof(*out.begin())), out.size() * <span class="keyword">sizeof</span>(<span class="keyword">typename</span> Range::value_type));</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>}</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="keyword">template</span> &lt;std::output_iterator&lt;<span class="keywordtype">char</span>&gt; It&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="iostream_8hpp.html#a9cb9e3658a32a63b88f0575c32bfc104">tr::flushBinary</a>(std::istream&amp; is, It out)</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>{</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    std::copy(std::istreambuf_iterator&lt;char&gt;{is}, std::istreambuf_iterator&lt;char&gt;{}, out);</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>}</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="keyword">template</span> &lt;tr::BinaryFlushableContainer Container&gt; Container <a class="code hl_function" href="iostream_8hpp.html#a9cb9e3658a32a63b88f0575c32bfc104">tr::flushBinary</a>(std::istream&amp; is)</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>{</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    Container out;</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <a class="code hl_function" href="iostream_8hpp.html#a9cb9e3658a32a63b88f0575c32bfc104">flushBinary</a>(is, std::back_inserter(out));</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <span class="keywordflow">return</span> out;</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>}</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="keyword">template</span> &lt;tr::StandardLayout T&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="iostream_8hpp.html#ab409e56d6da2e1919ad0a7dd46cecdc2">tr::writeBinary</a>(std::ostream&amp; os, <span class="keyword">const</span> T&amp; in)</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>{</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    os.write((<span class="keyword">const</span> <span class="keywordtype">char</span>*)(std::addressof(in)), <span class="keyword">sizeof</span>(T));</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>}</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="keyword">template</span> &lt;tr::StandardLayoutRange Range&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="iostream_8hpp.html#a4d2a4dfa9cd9afca524a24e28957ce20">tr::writeBinaryRange</a>(std::ostream&amp; os, <span class="keyword">const</span> Range&amp; range)</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>{</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    os.write((<span class="keyword">const</span> <span class="keywordtype">char</span>*)(std::addressof(*range.begin())), range.size() * <span class="keyword">sizeof</span>(<span class="keyword">typename</span> Range::value_type));</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>}</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="iostream_8hpp.html#ab409e56d6da2e1919ad0a7dd46cecdc2">tr::writeBinary</a>(std::ostream&amp; os, <span class="keyword">const</span> <span class="keywordtype">char</span>* cstr)</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>{</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    os.write(cstr, std::strlen(cstr));</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>}</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
-<div class="ttc" id="aclasstr_1_1FileError_html"><div class="ttname"><a href="classtr_1_1FileError.html">tr::FileError</a></div><div class="ttdoc">Generic file error base exception type.</div><div class="ttdef"><b>Definition</b> iostream.hpp:28</div></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="group__file.html#ga4c86f4771c25e8344d52aba259c0d5a0">  100</a></span>    std::ofstream <a class="code hl_function" href="group__file.html#ga4c86f4771c25e8344d52aba259c0d5a0">openFileW</a>(const std::filesystem::<a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>&amp; <a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>, std::ios::openmode openmode = std::ios::in);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="group__file.html#gad0830420d60ccc61b523706fcf496ebe">  113</a></span>    std::ifstream <a class="code hl_function" href="group__file.html#gad0830420d60ccc61b523706fcf496ebe">openFileR</a>(const std::filesystem::<a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>&amp; <a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>, std::ios::openmode openmode = std::ios::out);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="group__file.html#gabb3f546b6b97aac72c8518f521338f56">  123</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayout.html">StandardLayout</a> T&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__file.html#gabb3f546b6b97aac72c8518f521338f56">readBinary</a>(std::istream&amp; is, T&amp; out);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="group__file.html#ga5a5a266fb0a9988c099579df154d2a24">  134</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayout.html">StandardLayout</a> T&gt; T <a class="code hl_function" href="group__file.html#gabb3f546b6b97aac72c8518f521338f56">readBinary</a>(std::istream&amp; is);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="group__file.html#ga21d194e8831d9b864d9c8449ca981f7a">  144</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayoutRange.html">StandardLayoutRange</a> Range&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__file.html#ga21d194e8831d9b864d9c8449ca981f7a">readBinaryRange</a>(std::istream&amp; is, Range&amp;&amp; out);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="group__file.html#ga9cb9e3658a32a63b88f0575c32bfc104">  154</a></span>    template &lt;std::output_iterator&lt;<span class="keywordtype">char</span>&gt; It&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__file.html#ga9cb9e3658a32a63b88f0575c32bfc104">flushBinary</a>(std::istream&amp; is, It out);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="group__file.html#gabe01d793d646480829aa01f15c0b04f6">  168</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1BinaryFlushableContainer.html">BinaryFlushableContainer</a> Container&gt; Container <a class="code hl_function" href="group__file.html#ga9cb9e3658a32a63b88f0575c32bfc104">flushBinary</a>(std::istream&amp; is);</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="group__file.html#gab409e56d6da2e1919ad0a7dd46cecdc2">  178</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayout.html">StandardLayout</a> T&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__file.html#gab409e56d6da2e1919ad0a7dd46cecdc2">writeBinary</a>(std::ostream&amp; os, const T&amp; in);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="group__file.html#ga4d2a4dfa9cd9afca524a24e28957ce20">  188</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayoutRange.html">StandardLayoutRange</a> Range&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__file.html#ga4d2a4dfa9cd9afca524a24e28957ce20">writeBinaryRange</a>(std::ostream&amp; os, const Range&amp; range);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="group__file.html#gac5f90bbe1a5a9410262b417a1ba4e8d3">  198</a></span>    inline <span class="keywordtype">void</span> <a class="code hl_function" href="group__file.html#gab409e56d6da2e1919ad0a7dd46cecdc2">writeBinary</a>(std::ostream&amp; os, const <span class="keywordtype">char</span>* cstr);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>} <span class="comment">// namespace tr</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>template &lt;<a class="code hl_namespace" href="namespacetr.html">tr</a>::<a class="code hl_concept" href="concepttr_1_1StandardLayout.html">StandardLayout</a> T&gt; <span class="keywordtype">void</span> <a class="code hl_namespace" href="namespacetr.html">tr</a>::<a class="code hl_function" href="group__file.html#gabb3f546b6b97aac72c8518f521338f56">readBinary</a>(std::istream&amp; is, T&amp; out)</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>{</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    is.read((<span class="keywordtype">char</span>*)(std::addressof(out)), <span class="keyword">sizeof</span>(T));</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>}</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="keyword">template</span> &lt;tr::StandardLayout T&gt; T <a class="code hl_function" href="group__file.html#gabb3f546b6b97aac72c8518f521338f56">tr::readBinary</a>(std::istream&amp; is)</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>{</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    std::array&lt;char, <span class="keyword">sizeof</span>(T)&gt; bytes;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    is.read(bytes.data(), <span class="keyword">sizeof</span>(T));</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <span class="keywordflow">return</span> std::bit_cast&lt;T&gt;(bytes);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>}</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="keyword">template</span> &lt;tr::StandardLayoutRange Range&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__file.html#ga21d194e8831d9b864d9c8449ca981f7a">tr::readBinaryRange</a>(std::istream&amp; is, Range&amp;&amp; out)</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>{</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    is.read((<span class="keywordtype">char</span>*)(std::addressof(*out.begin())), out.size() * <span class="keyword">sizeof</span>(<span class="keyword">typename</span> Range::value_type));</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>}</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="keyword">template</span> &lt;std::output_iterator&lt;<span class="keywordtype">char</span>&gt; It&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__file.html#ga9cb9e3658a32a63b88f0575c32bfc104">tr::flushBinary</a>(std::istream&amp; is, It out)</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>{</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    std::copy(std::istreambuf_iterator&lt;char&gt;{is}, std::istreambuf_iterator&lt;char&gt;{}, out);</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>}</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="keyword">template</span> &lt;tr::BinaryFlushableContainer Container&gt; Container <a class="code hl_function" href="group__file.html#ga9cb9e3658a32a63b88f0575c32bfc104">tr::flushBinary</a>(std::istream&amp; is)</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>{</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    Container out;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <a class="code hl_function" href="group__file.html#ga9cb9e3658a32a63b88f0575c32bfc104">flushBinary</a>(is, std::back_inserter(out));</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordflow">return</span> out;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>}</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="keyword">template</span> &lt;tr::StandardLayout T&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__file.html#gab409e56d6da2e1919ad0a7dd46cecdc2">tr::writeBinary</a>(std::ostream&amp; os, <span class="keyword">const</span> T&amp; in)</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>{</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    os.write((<span class="keyword">const</span> <span class="keywordtype">char</span>*)(std::addressof(in)), <span class="keyword">sizeof</span>(T));</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>}</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="keyword">template</span> &lt;tr::StandardLayoutRange Range&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__file.html#ga4d2a4dfa9cd9afca524a24e28957ce20">tr::writeBinaryRange</a>(std::ostream&amp; os, <span class="keyword">const</span> Range&amp; range)</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>{</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    os.write((<span class="keyword">const</span> <span class="keywordtype">char</span>*)(std::addressof(*range.begin())), range.size() * <span class="keyword">sizeof</span>(<span class="keyword">typename</span> Range::value_type));</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>}</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="group__file.html#gab409e56d6da2e1919ad0a7dd46cecdc2">tr::writeBinary</a>(std::ostream&amp; os, <span class="keyword">const</span> <span class="keywordtype">char</span>* cstr)</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>{</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    os.write(cstr, std::strlen(cstr));</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>}</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
+<div class="ttc" id="aclasstr_1_1FileError_html"><div class="ttname"><a href="classtr_1_1FileError.html">tr::FileError</a></div><div class="ttdoc">Generic file error base exception type.</div><div class="ttdef"><b>Definition</b> iostream.hpp:27</div></div>
 <div class="ttc" id="aclasstr_1_1FileError_html_a2721806b29b337df88b1872d26c235a9"><div class="ttname"><a href="classtr_1_1FileError.html#a2721806b29b337df88b1872d26c235a9">tr::FileError::FileError</a></div><div class="ttdeci">FileError(const std::filesystem::path &amp;path)</div><div class="ttdoc">Constructs a file error with a path.</div></div>
 <div class="ttc" id="aclasstr_1_1FileError_html_a40619fbc37d069161d0d1215061ca56c"><div class="ttname"><a href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">tr::FileError::FileError</a></div><div class="ttdeci">FileError(std::string path) noexcept</div><div class="ttdoc">Constructs a file error with a path string.</div></div>
 <div class="ttc" id="aclasstr_1_1FileError_html_ac1cf35f6d24c69fe3b3c642c78db506c"><div class="ttname"><a href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">tr::FileError::path</a></div><div class="ttdeci">const std::string &amp; path() const noexcept</div><div class="ttdoc">Gets the path string.</div></div>
 <div class="ttc" id="aclasstr_1_1FileError_html_ac8f84377c0b78974035783120950083e"><div class="ttname"><a href="classtr_1_1FileError.html#ac8f84377c0b78974035783120950083e">tr::FileError::what</a></div><div class="ttdeci">virtual const char * what() const noexcept=0</div><div class="ttdoc">Pure virtual what() function.</div></div>
-<div class="ttc" id="aconcepts_8hpp_html"><div class="ttname"><a href="concepts_8hpp.html">concepts.hpp</a></div><div class="ttdoc">Provides miscellaneous concepts.</div></div>
-<div class="ttc" id="aconcepttr_1_1BinaryFlushableContainer_html"><div class="ttname"><a href="concepttr_1_1BinaryFlushableContainer.html">tr::BinaryFlushableContainer</a></div><div class="ttdoc">Concept that denotes a binaryFlush-compatible container.</div><div class="ttdef"><b>Definition</b> iostream.hpp:20</div></div>
-<div class="ttc" id="aconcepttr_1_1StandardLayoutRange_html"><div class="ttname"><a href="concepttr_1_1StandardLayoutRange.html">tr::StandardLayoutRange</a></div><div class="ttdoc">Concept denoting a contiguous range of standard layout objects.</div><div class="ttdef"><b>Definition</b> concepts.hpp:89</div></div>
-<div class="ttc" id="aconcepttr_1_1StandardLayout_html"><div class="ttname"><a href="concepttr_1_1StandardLayout.html">tr::StandardLayout</a></div><div class="ttdoc">Concept wrapper over std::is_standard_layout_v.</div><div class="ttdef"><b>Definition</b> concepts.hpp:55</div></div>
-<div class="ttc" id="aiostream_8hpp_html_a21d194e8831d9b864d9c8449ca981f7a"><div class="ttname"><a href="iostream_8hpp.html#a21d194e8831d9b864d9c8449ca981f7a">tr::readBinaryRange</a></div><div class="ttdeci">void readBinaryRange(std::istream &amp;is, Range &amp;&amp;out)</div><div class="ttdoc">Reads binary data into a contiguous range.</div></div>
-<div class="ttc" id="aiostream_8hpp_html_a4d2a4dfa9cd9afca524a24e28957ce20"><div class="ttname"><a href="iostream_8hpp.html#a4d2a4dfa9cd9afca524a24e28957ce20">tr::writeBinaryRange</a></div><div class="ttdeci">void writeBinaryRange(std::ostream &amp;os, const Range &amp;range)</div><div class="ttdoc">Writes a contiguous range's binary data to stream.</div></div>
-<div class="ttc" id="aiostream_8hpp_html_a9cb9e3658a32a63b88f0575c32bfc104"><div class="ttname"><a href="iostream_8hpp.html#a9cb9e3658a32a63b88f0575c32bfc104">tr::flushBinary</a></div><div class="ttdeci">void flushBinary(std::istream &amp;is, It out)</div><div class="ttdoc">Flushes the rest of the stream into an output iterator.</div></div>
-<div class="ttc" id="aiostream_8hpp_html_ab409e56d6da2e1919ad0a7dd46cecdc2"><div class="ttname"><a href="iostream_8hpp.html#ab409e56d6da2e1919ad0a7dd46cecdc2">tr::writeBinary</a></div><div class="ttdeci">void writeBinary(std::ostream &amp;os, const T &amp;in)</div><div class="ttdoc">Writes an object's binary data to stream.</div></div>
-<div class="ttc" id="astructtr_1_1FileNotFound_html"><div class="ttname"><a href="structtr_1_1FileNotFound.html">tr::FileNotFound</a></div><div class="ttdoc">File not found exception.</div><div class="ttdef"><b>Definition</b> iostream.hpp:65</div></div>
+<div class="ttc" id="aconcepttr_1_1BinaryFlushableContainer_html"><div class="ttname"><a href="concepttr_1_1BinaryFlushableContainer.html">tr::BinaryFlushableContainer</a></div><div class="ttdoc">Concept that denotes a binaryFlush-compatible container.</div><div class="ttdef"><b>Definition</b> iostream.hpp:19</div></div>
+<div class="ttc" id="aconcepttr_1_1StandardLayoutRange_html"><div class="ttname"><a href="concepttr_1_1StandardLayoutRange.html">tr::StandardLayoutRange</a></div><div class="ttdoc">Concept denoting a contiguous range of standard layout objects.</div><div class="ttdef"><b>Definition</b> concepts.hpp:83</div></div>
+<div class="ttc" id="aconcepttr_1_1StandardLayout_html"><div class="ttname"><a href="concepttr_1_1StandardLayout.html">tr::StandardLayout</a></div><div class="ttdoc">Concept wrapper over std::is_standard_layout_v.</div><div class="ttdef"><b>Definition</b> concepts.hpp:49</div></div>
+<div class="ttc" id="agroup__file_html_ga21d194e8831d9b864d9c8449ca981f7a"><div class="ttname"><a href="group__file.html#ga21d194e8831d9b864d9c8449ca981f7a">tr::readBinaryRange</a></div><div class="ttdeci">void readBinaryRange(std::istream &amp;is, Range &amp;&amp;out)</div><div class="ttdoc">Reads binary data into a contiguous range.</div></div>
+<div class="ttc" id="agroup__file_html_ga4c86f4771c25e8344d52aba259c0d5a0"><div class="ttname"><a href="group__file.html#ga4c86f4771c25e8344d52aba259c0d5a0">tr::openFileW</a></div><div class="ttdeci">std::ofstream openFileW(const std::filesystem::path &amp;path, std::ios::openmode openmode=std::ios::in)</div><div class="ttdoc">Opens a file for writing with extra checks.</div></div>
+<div class="ttc" id="agroup__file_html_ga4d2a4dfa9cd9afca524a24e28957ce20"><div class="ttname"><a href="group__file.html#ga4d2a4dfa9cd9afca524a24e28957ce20">tr::writeBinaryRange</a></div><div class="ttdeci">void writeBinaryRange(std::ostream &amp;os, const Range &amp;range)</div><div class="ttdoc">Writes a contiguous range's binary data to stream.</div></div>
+<div class="ttc" id="agroup__file_html_ga9cb9e3658a32a63b88f0575c32bfc104"><div class="ttname"><a href="group__file.html#ga9cb9e3658a32a63b88f0575c32bfc104">tr::flushBinary</a></div><div class="ttdeci">void flushBinary(std::istream &amp;is, It out)</div><div class="ttdoc">Flushes the rest of the stream into an output iterator.</div></div>
+<div class="ttc" id="agroup__file_html_gab409e56d6da2e1919ad0a7dd46cecdc2"><div class="ttname"><a href="group__file.html#gab409e56d6da2e1919ad0a7dd46cecdc2">tr::writeBinary</a></div><div class="ttdeci">void writeBinary(std::ostream &amp;os, const T &amp;in)</div><div class="ttdoc">Writes an object's binary data to stream.</div></div>
+<div class="ttc" id="agroup__file_html_gabb3f546b6b97aac72c8518f521338f56"><div class="ttname"><a href="group__file.html#gabb3f546b6b97aac72c8518f521338f56">tr::readBinary</a></div><div class="ttdeci">void readBinary(std::istream &amp;is, T &amp;out)</div><div class="ttdoc">Reads binary data into an existing object.</div></div>
+<div class="ttc" id="agroup__file_html_gad0830420d60ccc61b523706fcf496ebe"><div class="ttname"><a href="group__file.html#gad0830420d60ccc61b523706fcf496ebe">tr::openFileR</a></div><div class="ttdeci">std::ifstream openFileR(const std::filesystem::path &amp;path, std::ios::openmode openmode=std::ios::out)</div><div class="ttdoc">Opens a file for reading with extra checks.</div></div>
+<div class="ttc" id="anamespacetr_html"><div class="ttname"><a href="namespacetr.html">tr</a></div><div class="ttdoc">Namespace containing all libtr functionality.</div><div class="ttdef"><b>Definition</b> angle.hpp:5</div></div>
+<div class="ttc" id="astructtr_1_1FileNotFound_html"><div class="ttname"><a href="structtr_1_1FileNotFound.html">tr::FileNotFound</a></div><div class="ttdoc">File not found exception.</div><div class="ttdef"><b>Definition</b> iostream.hpp:64</div></div>
 <div class="ttc" id="astructtr_1_1FileNotFound_html_a04b95a1cd6067f64248a241447cb2350"><div class="ttname"><a href="structtr_1_1FileNotFound.html#a04b95a1cd6067f64248a241447cb2350">tr::FileNotFound::what</a></div><div class="ttdeci">virtual const char * what() const noexcept</div><div class="ttdoc">Gets an error message.</div></div>
-<div class="ttc" id="astructtr_1_1FileOpenError_html"><div class="ttname"><a href="structtr_1_1FileOpenError.html">tr::FileOpenError</a></div><div class="ttdoc">File opening error exception.</div><div class="ttdef"><b>Definition</b> iostream.hpp:79</div></div>
+<div class="ttc" id="astructtr_1_1FileOpenError_html"><div class="ttname"><a href="structtr_1_1FileOpenError.html">tr::FileOpenError</a></div><div class="ttdoc">File opening error exception.</div><div class="ttdef"><b>Definition</b> iostream.hpp:78</div></div>
 <div class="ttc" id="astructtr_1_1FileOpenError_html_a154a619d8790490a78ed04dea19458dc"><div class="ttname"><a href="structtr_1_1FileOpenError.html#a154a619d8790490a78ed04dea19458dc">tr::FileOpenError::what</a></div><div class="ttdeci">virtual const char * what() const noexcept</div><div class="ttdoc">Gets an error message.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

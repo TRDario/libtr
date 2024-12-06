@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['nanoseconds_0',['Nanoseconds',['../chrono_8hpp.html#a0adbe6e0bd1b47a6874dd4309068193d',1,'tr']]],
-  ['nanosecondsd_1',['NanosecondsD',['../chrono_8hpp.html#a05ce035db2dad9af5ee07188e52df74a',1,'tr']]],
-  ['nanosecondsf_2',['NanosecondsF',['../chrono_8hpp.html#a970d3e474975fe29957d56bf15a351c2',1,'tr']]]
+  ['microseconds_0',['Microseconds',['../namespacetr.html#a91d603e20b5eeb530bf6499da8ac33bf',1,'tr']]],
+  ['microsecondsd_1',['MicrosecondsD',['../namespacetr.html#a025d3b7c79511d804f430bc048465164',1,'tr']]],
+  ['microsecondsf_2',['MicrosecondsF',['../namespacetr.html#afedb8d63ec587e4aad7ab00258341f1e',1,'tr']]],
+  ['milliseconds_3',['Milliseconds',['../namespacetr.html#a26339a62ab4ebc1408b2c872248b1a76',1,'tr']]],
+  ['millisecondsd_4',['MillisecondsD',['../namespacetr.html#a44bf9d31042d53b7fb627b6f371e365d',1,'tr']]],
+  ['millisecondsf_5',['MillisecondsF',['../namespacetr.html#a1f545d018d539fd0e947e4c299aaf075',1,'tr']]]
 ];

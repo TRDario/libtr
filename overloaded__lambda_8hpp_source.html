@@ -93,21 +93,22 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">overloaded_lambda.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="overloaded__lambda_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span>tr {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structtr_1_1overloaded.html">   14</a></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span>... Fs&gt; <span class="keyword">struct </span><a class="code hl_struct" href="structtr_1_1overloaded.html">overloaded</a> : Fs... {</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="keyword">using </span>Fs::operator()...;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    };</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetr.html">tr</a> {</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structtr_1_1Overloaded.html">    9</a></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span>... Fs&gt; <span class="keyword">struct </span><a class="code hl_struct" href="structtr_1_1Overloaded.html">Overloaded</a> : Fs... {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        <span class="keyword">using </span>Fs::operator()...;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    };</div>
 </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="overloaded__lambda_8hpp.html#a1e304485b29cfe4922baad9beb7d221e">   21</a></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span>... Fs&gt; <a class="code hl_struct" href="structtr_1_1overloaded.html">overloaded</a>(Fs...) -&gt; <a class="code hl_struct" href="structtr_1_1overloaded.html">overloaded</a>&lt;Fs...&gt;;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>} <span class="comment">// namespace tr</span></div>
-<div class="ttc" id="astructtr_1_1overloaded_html"><div class="ttname"><a href="structtr_1_1overloaded.html">tr::overloaded</a></div><div class="ttdoc">Overloaded lambda helper class.</div><div class="ttdef"><b>Definition</b> overloaded_lambda.hpp:14</div></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespacetr.html#ae6ddebe24b7598ce36cbb95c634637ae">   16</a></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span>... Fs&gt; <a class="code hl_function" href="namespacetr.html#ae6ddebe24b7598ce36cbb95c634637ae">Overloaded</a>(Fs...) -&gt; <a class="code hl_struct" href="structtr_1_1Overloaded.html">Overloaded</a>&lt;Fs...&gt;;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>} <span class="comment">// namespace tr</span></div>
+<div class="ttc" id="anamespacetr_html"><div class="ttname"><a href="namespacetr.html">tr</a></div><div class="ttdoc">Namespace containing all libtr functionality.</div><div class="ttdef"><b>Definition</b> angle.hpp:5</div></div>
+<div class="ttc" id="anamespacetr_html_ae6ddebe24b7598ce36cbb95c634637ae"><div class="ttname"><a href="namespacetr.html#ae6ddebe24b7598ce36cbb95c634637ae">tr::Overloaded</a></div><div class="ttdeci">Overloaded(Fs...) -&gt; Overloaded&lt; Fs... &gt;</div><div class="ttdoc">Deduction guide.</div></div>
+<div class="ttc" id="astructtr_1_1Overloaded_html"><div class="ttname"><a href="structtr_1_1Overloaded.html">tr::Overloaded</a></div><div class="ttdoc">Overloaded lambda helper class.</div><div class="ttdef"><b>Definition</b> overloaded_lambda.hpp:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

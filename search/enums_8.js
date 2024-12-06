@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['layout_0',['Layout',['../classtr_1_1BitmapFormat.html#a079a4959fd2fefb871a55b43c888c054',1,'tr::BitmapFormat']]]
+  ['magfilter_0',['MagFilter',['../group__graphics.html#gac346a03e941c8ea2519c19086c4ce299',1,'tr']]],
+  ['minfilter_1',['MinFilter',['../group__graphics.html#gad1e4cc9bea7f1b176409b1e42ea21d68',1,'tr']]],
+  ['mousebutton_2',['MouseButton',['../group__input.html#ga8c4a44871ba907dcd4225b2617b40f77',1,'tr']]],
+  ['mousebuttonmask_3',['MouseButtonMask',['../group__input.html#ga7a6ba61b3e90ed6064cd4a1b4ef92536',1,'tr']]]
 ];

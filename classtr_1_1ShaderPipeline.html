@@ -85,7 +85,7 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>tr</b></li><li class="navelem"><a class="el" href="classtr_1_1ShaderPipeline.html">ShaderPipeline</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1ShaderPipeline.html">ShaderPipeline</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -93,18 +93,16 @@ $(function(){ initResizable(false); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1ShaderPipeline-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::ShaderPipeline Class Reference</div></div>
+  <div class="headertitle"><div class="title">tr::ShaderPipeline Class Reference<div class="ingroups"><a class="el" href="group__graphics.html">Graphics</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>A shader program pipeline.  
+<p><a class="el" href="classtr_1_1Shader.html" title="GPU shader program.">Shader</a> program pipeline.  
  <a href="#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="shader__pipeline_8hpp_source.html">shader_pipeline.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a97b39dd85970525568b659b17f5029a4" id="r_a97b39dd85970525568b659b17f5029a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97b39dd85970525568b659b17f5029a4">ShaderPipeline</a> (const Shader &amp;vertexShader, const Shader &amp;fragmentShader) noexcept</td></tr>
+<tr class="memitem:a97b39dd85970525568b659b17f5029a4" id="r_a97b39dd85970525568b659b17f5029a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97b39dd85970525568b659b17f5029a4">ShaderPipeline</a> (const <a class="el" href="classtr_1_1Shader.html">Shader</a> &amp;vertexShader, const <a class="el" href="classtr_1_1Shader.html">Shader</a> &amp;fragmentShader) noexcept</td></tr>
 <tr class="memdesc:a97b39dd85970525568b659b17f5029a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a shader pipeline.  <br /></td></tr>
 <tr class="separator:a97b39dd85970525568b659b17f5029a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc22c081966d36d420b4a42d95ab0f51" id="r_acc22c081966d36d420b4a42d95ab0f51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc22c081966d36d420b4a42d95ab0f51">setLabel</a> (std::string_view label) noexcept</td></tr>
@@ -112,8 +110,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acc22c081966d36d420b4a42d95ab0f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A shader program pipeline. </p>
-<p>An OpenGL context must be open to instantiate and use objects of this type. </p>
+<div class="textblock"><p><a class="el" href="classtr_1_1Shader.html" title="GPU shader program.">Shader</a> program pipeline. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a97b39dd85970525568b659b17f5029a4" name="a97b39dd85970525568b659b17f5029a4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a97b39dd85970525568b659b17f5029a4">&#9670;&#160;</a></span>ShaderPipeline()</h2>
@@ -127,12 +124,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">tr::ShaderPipeline::ShaderPipeline </td>
           <td>(</td>
-          <td class="paramtype">const Shader &amp;</td>          <td class="paramname"><span class="paramname"><em>vertexShader</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="classtr_1_1Shader.html">Shader</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vertexShader</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const Shader &amp;</td>          <td class="paramname"><span class="paramname"><em>fragmentShader</em></span>&#160;)</td>
+          <td class="paramtype">const <a class="el" href="classtr_1_1Shader.html">Shader</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>fragmentShader</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -143,11 +140,11 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates a shader pipeline. </p>
-<p>All shaders must actually be of the type they're passed as, otherwise a failed assertion may be triggered.</p>
+<p>All shaders must actually be of the type they're passed as.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">vertexShader</td><td>The vertex shader. </td></tr>
-    <tr><td class="paramname">fragmentShader</td><td>The fragment shader. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vertexShader</td><td>The vertex shader. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fragmentShader</td><td>The fragment shader. </td></tr>
   </table>
   </dd>
 </dl>
@@ -181,16 +178,13 @@ Public Member Functions</h2></td></tr>
 <p>Sets the debug label of the pipeline. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">label</td><td>The new label of the pipeline. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">label</td><td>The new label of the pipeline. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="shader__pipeline_8hpp_source.html">shader_pipeline.hpp</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

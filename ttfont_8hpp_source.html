@@ -93,280 +93,245 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">ttfont.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="ttfont_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="bitmap_8hpp.html">bitmap.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">struct </span>_TTF_Font;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span>tr {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structtr_1_1TTFontLoadError.html">   15</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtr_1_1TTFontLoadError.html">TTFontLoadError</a> : <a class="code hl_class" href="classtr_1_1FileError.html">FileError</a> {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="keyword">using </span><a class="code hl_function" href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">FileError::FileError</a>;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;bitmap.hpp&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;sdl.hpp&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">struct </span>_TTF_Font;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetr.html">tr</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structtr_1_1TTFontLoadError.html">   16</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtr_1_1TTFontLoadError.html">TTFontLoadError</a> : <a class="code hl_class" href="classtr_1_1FileError.html">FileError</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keyword">using </span><a class="code hl_function" href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">FileError::FileError</a>;</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structtr_1_1TTFontLoadError.html#a7c5e56e23cb250f8c0525f9096603737">   23</a></span>        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1TTFontLoadError.html#a7c5e56e23cb250f8c0525f9096603737">what</a>() const noexcept;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    };</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structtr_1_1TTFontLoadError.html#a7c5e56e23cb250f8c0525f9096603737">   24</a></span>        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1TTFontLoadError.html#a7c5e56e23cb250f8c0525f9096603737">what</a>() const noexcept;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    };</div>
 </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="structtr_1_1TTFontResizeError.html">   29</a></span>    struct <a class="code hl_struct" href="structtr_1_1TTFontResizeError.html">TTFontResizeError</a> : <a class="code hl_struct" href="structtr_1_1SDLError.html">SDLError</a> {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structtr_1_1TTFontResizeError.html#abdc38a5e041e5658689fc5f903a59baa">   33</a></span>        <a class="code hl_function" href="structtr_1_1TTFontResizeError.html#abdc38a5e041e5658689fc5f903a59baa">TTFontResizeError</a>();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    };</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structtr_1_1TTFontError.html">   30</a></span>    struct <a class="code hl_struct" href="structtr_1_1TTFontError.html">TTFontError</a> : <a class="code hl_struct" href="structtr_1_1SDLError.html">SDLError</a> {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keyword">using </span><a class="code hl_function" href="structtr_1_1SDLError.html#a78397e28638efd10cac278a160395583">SDLError::SDLError</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    };</div>
 </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structtr_1_1TTFontRenderError.html">   39</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtr_1_1TTFontRenderError.html">TTFontRenderError</a> : <a class="code hl_struct" href="structtr_1_1SDLError.html">SDLError</a> {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structtr_1_1TTFontRenderError.html#a0cf8a38d7384822eb1d26d5ad04ef172">   43</a></span>        <a class="code hl_function" href="structtr_1_1TTFontRenderError.html#a0cf8a38d7384822eb1d26d5ad04ef172">TTFontRenderError</a>();</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    };</div>
-</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classtr_1_1SDL__TTF.html">   49</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1SDL__TTF.html">SDL_TTF</a> {</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>      <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classtr_1_1SDL__TTF.html#a83be03aba916cd313cdcd5bc1bd47166">   56</a></span>        <a class="code hl_function" href="classtr_1_1SDL__TTF.html#a83be03aba916cd313cdcd5bc1bd47166">SDL_TTF</a>();</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html">   37</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1TTFont.html">TTFont</a> {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2">   42</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2">Hint</a> {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            NORMAL,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            LIGHT,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            MONO,</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classtr_1_1SDL__TTF.html#ac3c659bad5b8833dc53d10e64894e41c">   63</a></span>        <a class="code hl_struct" href="structtr_1_1Version.html">Version</a> <a class="code hl_function" href="classtr_1_1SDL__TTF.html#ac3c659bad5b8833dc53d10e64894e41c">version</a>() const noexcept;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classtr_1_1SDL__TTF.html#ab1bbd700ed3ccbee089ed717a39975fa">   70</a></span>        <a class="code hl_struct" href="structtr_1_1Version.html">Version</a> freetypeVersion() const noexcept;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>      private:</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        struct Deleter {</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="keywordtype">void</span> operator()(<span class="keywordtype">bool</span>) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        };</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <a class="code hl_enumvalue" href="group__input.html#gga1e5a857eb2f40e2b55bfb43225cbc658ab50339a10e1de285ac99d4c3990b8693">NONE</a>,</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            LIGHT_SUBPIXEL</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        };</div>
+</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="foldopen" id="foldopen00072" data-start="{" data-end="};">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06">   72</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06">Style</a> {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            NORMAL = 0,</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <a class="code hl_class" href="classtr_1_1Handle.html">Handle&lt;bool, false, Deleter&gt;</a> _handle{<span class="keyword">true</span>};</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    };</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            BOLD = 1,</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            ITALIC = 2,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            UNDERLINE = 4,</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            STRIKETHROUGH = 8</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        };</div>
 </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="foldopen" id="foldopen00084" data-start="{" data-end="};">
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html">   84</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1TTFont.html">TTFont</a> {</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="foldopen" id="foldopen00089" data-start="{" data-end="};">
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2">   89</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2">Hint</a> {</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <a class="code hl_enumvalue" href="window_8hpp.html#af09e8a848420f5464858f667b96bdab4a1e23852820b9154316c7c06e2b7ba051">NORMAL</a>,</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            LIGHT,</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            MONO,</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            NONE,</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            LIGHT_SUBPIXEL</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        };</div>
+<div class="foldopen" id="foldopen00102" data-start="{" data-end="};">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#afd715019ff947708ce95f3670331b0fe">  102</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classtr_1_1TTFont.html#afd715019ff947708ce95f3670331b0fe">WrapAlignment</a> {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <a class="code hl_enumvalue" href="group__input.html#gga8c4a44871ba907dcd4225b2617b40f77a684d325a7303f52e64011467ff5c5758">LEFT</a>,</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            CENTER,</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            <a class="code hl_enumvalue" href="group__input.html#gga8c4a44871ba907dcd4225b2617b40f77a21507b40c80068eda19865706fdc2403">RIGHT</a></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        };</div>
 </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="foldopen" id="foldopen00119" data-start="{" data-end="};">
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06">  119</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06">Style</a> {</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            <a class="code hl_enumvalue" href="window_8hpp.html#af09e8a848420f5464858f667b96bdab4a1e23852820b9154316c7c06e2b7ba051">NORMAL</a> = 0,</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            BOLD = 1,</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            ITALIC = 2,</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            UNDERLINE = 4,</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="foldopen" id="foldopen00122" data-start="{" data-end="};">
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="structtr_1_1TTFont_1_1Glyph.html">  122</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtr_1_1TTFont_1_1Glyph.html">Glyph</a> {</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="structtr_1_1TTFont_1_1Glyph.html#af91151b22bc767691d84bae60c43b859">  126</a></span>            glm::ivec2 <a class="code hl_variable" href="structtr_1_1TTFont_1_1Glyph.html#af91151b22bc767691d84bae60c43b859">min</a>;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="structtr_1_1TTFont_1_1Glyph.html#a5663c4aa63dab500b4939f8671b45a12">  131</a></span>            glm::ivec2 <a class="code hl_variable" href="structtr_1_1TTFont_1_1Glyph.html#a5663c4aa63dab500b4939f8671b45a12">max</a>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="structtr_1_1TTFont_1_1Glyph.html#a0c8b3f98fefd6ec15f332e7a94b61c5b">  136</a></span>            std::int32_t <a class="code hl_variable" href="structtr_1_1TTFont_1_1Glyph.html#a0c8b3f98fefd6ec15f332e7a94b61c5b">adv</a>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        };</div>
+</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            STRIKETHROUGH = 8</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        };</div>
+<div class="foldopen" id="foldopen00142" data-start="{" data-end="};">
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="structtr_1_1TTFont_1_1MeasureResult.html">  142</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtr_1_1TTFont_1_1MeasureResult.html">MeasureResult</a> {</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="structtr_1_1TTFont_1_1MeasureResult.html#a898d90240c53e341fdb0a8efb83109bc">  146</a></span>            std::string_view <a class="code hl_variable" href="structtr_1_1TTFont_1_1MeasureResult.html#a898d90240c53e341fdb0a8efb83109bc">text</a>;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="structtr_1_1TTFont_1_1MeasureResult.html#a3998914f9b390409553199e1ff4d86a4">  151</a></span>            <span class="keywordtype">int</span> <a class="code hl_variable" href="structtr_1_1TTFont_1_1MeasureResult.html#a3998914f9b390409553199e1ff4d86a4">width</a>;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        };</div>
 </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="foldopen" id="foldopen00149" data-start="{" data-end="};">
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#afd715019ff947708ce95f3670331b0fe">  149</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classtr_1_1TTFont.html#afd715019ff947708ce95f3670331b0fe">WrapAlignment</a> {</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            LEFT,</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            CENTER,</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            RIGHT</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        };</div>
-</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#aebe51e4647bf92e3d2d97d7275db3a1d">  164</a></span>        <a class="code hl_function" href="classtr_1_1TTFont.html#aebe51e4647bf92e3d2d97d7275db3a1d">TTFont</a>(<span class="keyword">const</span> std::filesystem::path&amp; path, <span class="keywordtype">int</span> size, glm::uvec2 dpi = {72, 72});</div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="foldopen" id="foldopen00169" data-start="{" data-end="};">
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="structtr_1_1TTFont_1_1Glyph.html">  169</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtr_1_1TTFont_1_1Glyph.html">Glyph</a> {</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="structtr_1_1TTFont_1_1Glyph.html#af91151b22bc767691d84bae60c43b859">  173</a></span>            glm::ivec2 <a class="code hl_variable" href="structtr_1_1TTFont_1_1Glyph.html#af91151b22bc767691d84bae60c43b859">min</a>;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a1da5fe93056dce70da1b06061de7d2c5">  173</a></span>        <a class="code hl_function" href="classtr_1_1TTFont.html#a1da5fe93056dce70da1b06061de7d2c5">TTFont</a>(std::span&lt;const std::byte&gt; embeddedFile, <span class="keywordtype">int</span> size, glm::uvec2 dpi = {72, 72}) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="structtr_1_1TTFont_1_1Glyph.html#a5663c4aa63dab500b4939f8671b45a12">  178</a></span>            glm::ivec2 <a class="code hl_variable" href="structtr_1_1TTFont_1_1Glyph.html#a5663c4aa63dab500b4939f8671b45a12">max</a>;</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="structtr_1_1TTFont_1_1Glyph.html#a0c8b3f98fefd6ec15f332e7a94b61c5b">  183</a></span>            std::int32_t <a class="code hl_variable" href="structtr_1_1TTFont_1_1Glyph.html#a0c8b3f98fefd6ec15f332e7a94b61c5b">adv</a>;</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        };</div>
-</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="foldopen" id="foldopen00189" data-start="{" data-end="};">
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="structtr_1_1TTFont_1_1MeasureResult.html">  189</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structtr_1_1TTFont_1_1MeasureResult.html">MeasureResult</a> {</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="structtr_1_1TTFont_1_1MeasureResult.html#a898d90240c53e341fdb0a8efb83109bc">  193</a></span>            std::string_view <a class="code hl_variable" href="structtr_1_1TTFont_1_1MeasureResult.html#a898d90240c53e341fdb0a8efb83109bc">text</a>;</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a22207d2fc5fe00875b6d4e3855501f4a">  180</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="classtr_1_1TTFont.html#a22207d2fc5fe00875b6d4e3855501f4a">ascent</a>() const noexcept;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a623c591b19256f3e1da47b28382539bf">  187</a></span>        <span class="keywordtype">int</span> descent() const noexcept;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#aaccd358d4c7a82fb9b483bb51e3d4b25">  194</a></span>        <span class="keywordtype">int</span> height() const noexcept;</div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="structtr_1_1TTFont_1_1MeasureResult.html#a3998914f9b390409553199e1ff4d86a4">  198</a></span>            <span class="keywordtype">int</span> <a class="code hl_variable" href="structtr_1_1TTFont_1_1MeasureResult.html#a3998914f9b390409553199e1ff4d86a4">width</a>;</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        };</div>
-</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#aebe51e4647bf92e3d2d97d7275db3a1d">  211</a></span>        <a class="code hl_function" href="classtr_1_1TTFont.html#aebe51e4647bf92e3d2d97d7275db3a1d">TTFont</a>(<span class="keyword">const</span> std::filesystem::path&amp; path, <span class="keywordtype">int</span> size, glm::uvec2 dpi = {72, 72});</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a1da5fe93056dce70da1b06061de7d2c5">  222</a></span>        <a class="code hl_function" href="classtr_1_1TTFont.html#a1da5fe93056dce70da1b06061de7d2c5">TTFont</a>(std::span&lt;const std::byte&gt; embeddedFile, <span class="keywordtype">int</span> size, glm::uvec2 dpi = {72, 72}) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a913c3a86dad914fda985821712e621b6">  201</a></span>        <span class="keywordtype">int</span> lineSkip() const noexcept;</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a753086a9abab68e360a2ea96ca9ac5a4">  208</a></span>        <span class="keywordtype">bool</span> fixedWidth() const noexcept;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a1bb2cca054c37053ff369fb9d5b53171">  215</a></span>        const <span class="keywordtype">char</span>* familyName() const noexcept;</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#ad419d8b57a4ff45cccd8530593b05c03">  222</a></span>        const <span class="keywordtype">char</span>* styleName() const noexcept;</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a22207d2fc5fe00875b6d4e3855501f4a">  229</a></span>        <span class="keywordtype">int</span> <a class="code hl_function" href="classtr_1_1TTFont.html#a22207d2fc5fe00875b6d4e3855501f4a">ascent</a>() const noexcept;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a6a44477a4b4349b4d37d7d89d355ea6e">  229</a></span>        <span class="keywordtype">int</span> faceCount() const noexcept;</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a623c591b19256f3e1da47b28382539bf">  236</a></span>        <span class="keywordtype">int</span> descent() const noexcept;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#ace8154ed7bc4cc26a813ba85fe431c19">  236</a></span>        <a class="code hl_enumeration" href="classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2">Hint</a> hinting() const noexcept;</div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#aaccd358d4c7a82fb9b483bb51e3d4b25">  243</a></span>        <span class="keywordtype">int</span> height() const noexcept;</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a913c3a86dad914fda985821712e621b6">  250</a></span>        <span class="keywordtype">int</span> lineSkip() const noexcept;</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a753086a9abab68e360a2ea96ca9ac5a4">  257</a></span>        <span class="keywordtype">bool</span> fixedWidth() const noexcept;</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a1bb2cca054c37053ff369fb9d5b53171">  264</a></span>        const <span class="keywordtype">char</span>* familyName() const noexcept;</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#ad419d8b57a4ff45cccd8530593b05c03">  271</a></span>        const <span class="keywordtype">char</span>* styleName() const noexcept;</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a6a44477a4b4349b4d37d7d89d355ea6e">  278</a></span>        <span class="keywordtype">int</span> faceCount() const noexcept;</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#ace8154ed7bc4cc26a813ba85fe431c19">  285</a></span>        <a class="code hl_enumeration" href="classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2">Hint</a> hinting() const noexcept;</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a8e45afe5475563dc0df92f3f63c76bdf">  294</a></span>        <span class="keywordtype">void</span> setHinting(<a class="code hl_enumeration" href="classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2">Hint</a> hinting) noexcept;</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#add213bf99611173a461eca16fad1d3d6">  301</a></span>        <span class="keywordtype">bool</span> kerning() const noexcept;</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#ac9afaf58b13ffc668eab214df256ea4f">  308</a></span>        <span class="keywordtype">void</span> setKerning(<span class="keywordtype">bool</span> kerning) noexcept;</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a2178bccff19c91c003fd3a206b75f0fa">  315</a></span>        <a class="code hl_enumeration" href="classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06">Style</a> style() const noexcept;</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a8e45afe5475563dc0df92f3f63c76bdf">  245</a></span>        <span class="keywordtype">void</span> setHinting(<a class="code hl_enumeration" href="classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2">Hint</a> hinting) noexcept;</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#add213bf99611173a461eca16fad1d3d6">  252</a></span>        <span class="keywordtype">bool</span> kerning() const noexcept;</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#ac9afaf58b13ffc668eab214df256ea4f">  259</a></span>        <span class="keywordtype">void</span> setKerning(<span class="keywordtype">bool</span> kerning) noexcept;</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a2178bccff19c91c003fd3a206b75f0fa">  266</a></span>        <a class="code hl_enumeration" href="classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06">Style</a> style() const noexcept;</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a1729048b25700f4de642a0bda36b21f7">  275</a></span>        <span class="keywordtype">void</span> setStyle(<a class="code hl_enumeration" href="classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06">Style</a> style) noexcept;</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a56b375df888a79c4e871d315e0b244d7">  282</a></span>        <span class="keywordtype">int</span> outline() const noexcept;</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a267e8929c68ba9df72bee7dd05d4000c">  291</a></span>        <span class="keywordtype">void</span> setOutline(<span class="keywordtype">int</span> thickness) noexcept;</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#abe04ec82e8c597363e58d04d11744112">  298</a></span>        <a class="code hl_enumeration" href="classtr_1_1TTFont.html#afd715019ff947708ce95f3670331b0fe">WrapAlignment</a> wrapAlignment() const noexcept;</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span> </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#abe4758b34874e67bbc19caaaf6888db1">  305</a></span>        <span class="keywordtype">void</span> setWrapAlignment(<a class="code hl_enumeration" href="classtr_1_1TTFont.html#afd715019ff947708ce95f3670331b0fe">WrapAlignment</a> alignment) noexcept;</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#ae51fb887e628f7d0b90b16cf88293f47">  314</a></span>        <span class="keywordtype">bool</span> contains(std::uint32_t glyph) const noexcept;</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
 <div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a1729048b25700f4de642a0bda36b21f7">  324</a></span>        <span class="keywordtype">void</span> setStyle(<a class="code hl_enumeration" href="classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06">Style</a> style) noexcept;</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a0a02854ee3cba554d89fd123135ba96c">  323</a></span>        <a class="code hl_struct" href="structtr_1_1TTFont_1_1Glyph.html">Glyph</a> glyph(std::uint32_t glyph) const noexcept;</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
 <div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a56b375df888a79c4e871d315e0b244d7">  331</a></span>        <span class="keywordtype">int</span> outline() const noexcept;</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a267e8929c68ba9df72bee7dd05d4000c">  340</a></span>        <span class="keywordtype">void</span> setOutline(<span class="keywordtype">int</span> thickness) noexcept;</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span> </div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#abe04ec82e8c597363e58d04d11744112">  347</a></span>        <a class="code hl_enumeration" href="classtr_1_1TTFont.html#afd715019ff947708ce95f3670331b0fe">WrapAlignment</a> wrapAlignment() const noexcept;</div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#abe4758b34874e67bbc19caaaf6888db1">  354</a></span>        <span class="keywordtype">void</span> setWrapAlignment(<a class="code hl_enumeration" href="classtr_1_1TTFont.html#afd715019ff947708ce95f3670331b0fe">WrapAlignment</a> alignment) noexcept;</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a960cae718ef3978c9dd5de0ae174768d">  335</a></span>        <span class="keywordtype">void</span> resize(<span class="keywordtype">int</span> size, glm::uvec2 dpi = {72, 72});</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span> </div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a5f338f4368e3abfa52ea5bcb34ba730b">  344</a></span>        glm::ivec2 <a class="code hl_function" href="classtr_1_1TTFont.html#a5f338f4368e3abfa52ea5bcb34ba730b">textSize</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* text) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a04fbc42376729904292f7e5eae19f32b">  354</a></span>        <a class="code hl_struct" href="structtr_1_1TTFont_1_1MeasureResult.html">MeasureResult</a> <a class="code hl_function" href="classtr_1_1TTFont.html#a04fbc42376729904292f7e5eae19f32b">measure</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* text, <span class="keywordtype">int</span> maxWidth) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span> </div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#ae51fb887e628f7d0b90b16cf88293f47">  363</a></span>        <span class="keywordtype">bool</span> contains(std::uint32_t glyph) const noexcept;</div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span> </div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a0a02854ee3cba554d89fd123135ba96c">  373</a></span>        <a class="code hl_struct" href="structtr_1_1TTFont_1_1Glyph.html">Glyph</a> glyph(std::uint32_t glyph) const noexcept;</div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span> </div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span> </div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a960cae718ef3978c9dd5de0ae174768d">  385</a></span>        <span class="keywordtype">void</span> resize(<span class="keywordtype">int</span> size, glm::uvec2 dpi = {72, 72});</div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span> </div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span> </div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a5f338f4368e3abfa52ea5bcb34ba730b">  394</a></span>        glm::ivec2 <a class="code hl_function" href="classtr_1_1TTFont.html#a5f338f4368e3abfa52ea5bcb34ba730b">textSize</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* text) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span> </div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span> </div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a04fbc42376729904292f7e5eae19f32b">  404</a></span>        <a class="code hl_struct" href="structtr_1_1TTFont_1_1MeasureResult.html">MeasureResult</a> <a class="code hl_function" href="classtr_1_1TTFont.html#a04fbc42376729904292f7e5eae19f32b">measure</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* text, <span class="keywordtype">int</span> maxWidth) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span> </div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>        <span class="comment">// Renders an alpha-blended glyph to a 32-bit bitmap.</span></div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span> </div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span> </div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#abe28f80837b1793585d04f6455b4f89f">  418</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a> <a class="code hl_function" href="classtr_1_1TTFont.html#abe28f80837b1793585d04f6455b4f89f">render</a>(std::uint32_t cp, <a class="code hl_class" href="structtr_1_1RGBA.html">RGBA8</a> color) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span> </div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span> </div>
-<div class="line"><a id="l00430" name="l00430"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a383f2fb68eb5481acdc5786f3cf42293">  430</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a> <a class="code hl_function" href="classtr_1_1TTFont.html#a383f2fb68eb5481acdc5786f3cf42293">render</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* text, <a class="code hl_class" href="structtr_1_1RGBA.html">RGBA8</a> color) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span> </div>
-<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span> </div>
-<div class="line"><a id="l00443" name="l00443"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a06cf520a8ecae2fbd957604f348e81b8">  443</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a> <a class="code hl_function" href="classtr_1_1TTFont.html#a06cf520a8ecae2fbd957604f348e81b8">renderWrapped</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* text, <a class="code hl_class" href="structtr_1_1RGBA.html">RGBA8</a> color, std::uint32_t width) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span> </div>
-<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>      <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>        <span class="keyword">struct </span>Deleter {</div>
-<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>            <span class="keywordtype">void</span> operator()(_TTF_Font* ptr) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>        };</div>
-<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span> </div>
-<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>        std::unique_ptr&lt;_TTF_Font, Deleter&gt; _impl;</div>
-<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>        <span class="keywordtype">int</span>                                 _size;</div>
-<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>        glm::uvec2                          _dpi;</div>
-<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>    };</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>        <span class="comment">// Renders an alpha-blended glyph to a 32-bit bitmap.</span></div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span> </div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span> </div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#abe28f80837b1793585d04f6455b4f89f">  368</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a> <a class="code hl_function" href="classtr_1_1TTFont.html#abe28f80837b1793585d04f6455b4f89f">render</a>(std::uint32_t cp, <a class="code hl_class" href="structtr_1_1RGBA.html">RGBA8</a> color) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span> </div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span> </div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a383f2fb68eb5481acdc5786f3cf42293">  380</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a> <a class="code hl_function" href="classtr_1_1TTFont.html#a383f2fb68eb5481acdc5786f3cf42293">render</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* text, <a class="code hl_class" href="structtr_1_1RGBA.html">RGBA8</a> color) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span> </div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span> </div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno"><a class="line" href="classtr_1_1TTFont.html#a06cf520a8ecae2fbd957604f348e81b8">  393</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a> <a class="code hl_function" href="classtr_1_1TTFont.html#a06cf520a8ecae2fbd957604f348e81b8">renderWrapped</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* text, <a class="code hl_class" href="structtr_1_1RGBA.html">RGBA8</a> color, std::uint32_t width) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span> </div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>      <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>        <span class="keyword">struct </span>Deleter {</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>            <span class="keywordtype">void</span> operator()(_TTF_Font* ptr) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>        };</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span> </div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>        std::unique_ptr&lt;_TTF_Font, Deleter&gt; _impl;</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>        <span class="keywordtype">int</span>                                 _size;</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>        glm::uvec2                          _dpi;</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>    };</div>
 </div>
-<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span> </div>
-<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>    DEFINE_BITMASK_OPERATORS(<a class="code hl_enumeration" href="classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06">TTFont::Style</a>);</div>
-<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>} <span class="comment">// namespace tr</span></div>
-<div class="ttc" id="abitmap_8hpp_html"><div class="ttname"><a href="bitmap_8hpp.html">bitmap.hpp</a></div><div class="ttdoc">Provides a bitmap class and related functionality.</div></div>
-<div class="ttc" id="aclasstr_1_1Bitmap_html"><div class="ttname"><a href="classtr_1_1Bitmap.html">tr::Bitmap</a></div><div class="ttdoc">Class representing a bitmap stored in memory.</div><div class="ttdef"><b>Definition</b> bitmap.hpp:638</div></div>
-<div class="ttc" id="aclasstr_1_1FileError_html"><div class="ttname"><a href="classtr_1_1FileError.html">tr::FileError</a></div><div class="ttdoc">Generic file error base exception type.</div><div class="ttdef"><b>Definition</b> iostream.hpp:28</div></div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span> </div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>    DEFINE_BITMASK_OPERATORS(<a class="code hl_enumeration" href="classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06">TTFont::Style</a>);</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span> </div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>} <span class="comment">// namespace tr</span></div>
+<div class="ttc" id="aclasstr_1_1Bitmap_html"><div class="ttname"><a href="classtr_1_1Bitmap.html">tr::Bitmap</a></div><div class="ttdoc">Class containing owned bitmap data.</div><div class="ttdef"><b>Definition</b> bitmap.hpp:328</div></div>
+<div class="ttc" id="aclasstr_1_1FileError_html"><div class="ttname"><a href="classtr_1_1FileError.html">tr::FileError</a></div><div class="ttdoc">Generic file error base exception type.</div><div class="ttdef"><b>Definition</b> iostream.hpp:27</div></div>
 <div class="ttc" id="aclasstr_1_1FileError_html_a40619fbc37d069161d0d1215061ca56c"><div class="ttname"><a href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">tr::FileError::FileError</a></div><div class="ttdeci">FileError(std::string path) noexcept</div><div class="ttdoc">Constructs a file error with a path string.</div></div>
-<div class="ttc" id="aclasstr_1_1Handle_html"><div class="ttname"><a href="classtr_1_1Handle.html">tr::Handle</a></div><div class="ttdoc">RAII wrapper over non-pointer handles.</div><div class="ttdef"><b>Definition</b> handle.hpp:59</div></div>
-<div class="ttc" id="aclasstr_1_1SDL__TTF_html"><div class="ttname"><a href="classtr_1_1SDL__TTF.html">tr::SDL_TTF</a></div><div class="ttdoc">SDL_TTF library RAII wrapper.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:49</div></div>
-<div class="ttc" id="aclasstr_1_1SDL__TTF_html_a83be03aba916cd313cdcd5bc1bd47166"><div class="ttname"><a href="classtr_1_1SDL__TTF.html#a83be03aba916cd313cdcd5bc1bd47166">tr::SDL_TTF::SDL_TTF</a></div><div class="ttdeci">SDL_TTF()</div><div class="ttdoc">Initializes the SDL_TTF library.</div></div>
-<div class="ttc" id="aclasstr_1_1SDL__TTF_html_ac3c659bad5b8833dc53d10e64894e41c"><div class="ttname"><a href="classtr_1_1SDL__TTF.html#ac3c659bad5b8833dc53d10e64894e41c">tr::SDL_TTF::version</a></div><div class="ttdeci">Version version() const noexcept</div><div class="ttdoc">Gets the version of the SDL_TTF library.</div></div>
-<div class="ttc" id="aclasstr_1_1TTFont_html"><div class="ttname"><a href="classtr_1_1TTFont.html">tr::TTFont</a></div><div class="ttdoc">TrueType font.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:84</div></div>
+<div class="ttc" id="aclasstr_1_1TTFont_html"><div class="ttname"><a href="classtr_1_1TTFont.html">tr::TTFont</a></div><div class="ttdoc">TrueType font.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:37</div></div>
 <div class="ttc" id="aclasstr_1_1TTFont_html_a04fbc42376729904292f7e5eae19f32b"><div class="ttname"><a href="classtr_1_1TTFont.html#a04fbc42376729904292f7e5eae19f32b">tr::TTFont::measure</a></div><div class="ttdeci">MeasureResult measure(const char *text, int maxWidth) const noexcept</div><div class="ttdoc">Measures how much of a line of text can fit within a certain width.</div></div>
 <div class="ttc" id="aclasstr_1_1TTFont_html_a06cf520a8ecae2fbd957604f348e81b8"><div class="ttname"><a href="classtr_1_1TTFont.html#a06cf520a8ecae2fbd957604f348e81b8">tr::TTFont::renderWrapped</a></div><div class="ttdeci">Bitmap renderWrapped(const char *text, RGBA8 color, std::uint32_t width) const</div><div class="ttdoc">Renders wrapped text.</div></div>
 <div class="ttc" id="aclasstr_1_1TTFont_html_a1da5fe93056dce70da1b06061de7d2c5"><div class="ttname"><a href="classtr_1_1TTFont.html#a1da5fe93056dce70da1b06061de7d2c5">tr::TTFont::TTFont</a></div><div class="ttdeci">TTFont(std::span&lt; const std::byte &gt; embeddedFile, int size, glm::uvec2 dpi={72, 72}) noexcept</div><div class="ttdoc">Loads an embedded font file.</div></div>
 <div class="ttc" id="aclasstr_1_1TTFont_html_a22207d2fc5fe00875b6d4e3855501f4a"><div class="ttname"><a href="classtr_1_1TTFont.html#a22207d2fc5fe00875b6d4e3855501f4a">tr::TTFont::ascent</a></div><div class="ttdeci">int ascent() const noexcept</div><div class="ttdoc">Gets the ascent of the font.</div></div>
 <div class="ttc" id="aclasstr_1_1TTFont_html_a383f2fb68eb5481acdc5786f3cf42293"><div class="ttname"><a href="classtr_1_1TTFont.html#a383f2fb68eb5481acdc5786f3cf42293">tr::TTFont::render</a></div><div class="ttdeci">Bitmap render(const char *text, RGBA8 color) const</div><div class="ttdoc">Renders a line of text.</div></div>
 <div class="ttc" id="aclasstr_1_1TTFont_html_a5f338f4368e3abfa52ea5bcb34ba730b"><div class="ttname"><a href="classtr_1_1TTFont.html#a5f338f4368e3abfa52ea5bcb34ba730b">tr::TTFont::textSize</a></div><div class="ttdeci">glm::ivec2 textSize(const char *text) const noexcept</div><div class="ttdoc">Gets the size of a line of text.</div></div>
-<div class="ttc" id="aclasstr_1_1TTFont_html_aad356ceae9d21b8b20f98de5b47e45b2"><div class="ttname"><a href="classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2">tr::TTFont::Hint</a></div><div class="ttdeci">Hint</div><div class="ttdoc">Font hinting types.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:89</div></div>
+<div class="ttc" id="aclasstr_1_1TTFont_html_aad356ceae9d21b8b20f98de5b47e45b2"><div class="ttname"><a href="classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2">tr::TTFont::Hint</a></div><div class="ttdeci">Hint</div><div class="ttdoc">Font hinting types.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:42</div></div>
 <div class="ttc" id="aclasstr_1_1TTFont_html_abe28f80837b1793585d04f6455b4f89f"><div class="ttname"><a href="classtr_1_1TTFont.html#abe28f80837b1793585d04f6455b4f89f">tr::TTFont::render</a></div><div class="ttdeci">Bitmap render(std::uint32_t cp, RGBA8 color) const</div><div class="ttdoc">Renders a glyph.</div></div>
-<div class="ttc" id="aclasstr_1_1TTFont_html_ae9e3791321570e21b34dc1578608df06"><div class="ttname"><a href="classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06">tr::TTFont::Style</a></div><div class="ttdeci">Style</div><div class="ttdoc">Font style types.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:119</div></div>
+<div class="ttc" id="aclasstr_1_1TTFont_html_ae9e3791321570e21b34dc1578608df06"><div class="ttname"><a href="classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06">tr::TTFont::Style</a></div><div class="ttdeci">Style</div><div class="ttdoc">Font style types.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:72</div></div>
 <div class="ttc" id="aclasstr_1_1TTFont_html_aebe51e4647bf92e3d2d97d7275db3a1d"><div class="ttname"><a href="classtr_1_1TTFont.html#aebe51e4647bf92e3d2d97d7275db3a1d">tr::TTFont::TTFont</a></div><div class="ttdeci">TTFont(const std::filesystem::path &amp;path, int size, glm::uvec2 dpi={72, 72})</div><div class="ttdoc">Loads a font from file.</div></div>
-<div class="ttc" id="aclasstr_1_1TTFont_html_afd715019ff947708ce95f3670331b0fe"><div class="ttname"><a href="classtr_1_1TTFont.html#afd715019ff947708ce95f3670331b0fe">tr::TTFont::WrapAlignment</a></div><div class="ttdeci">WrapAlignment</div><div class="ttdoc">Wrapped text alignment.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:149</div></div>
+<div class="ttc" id="aclasstr_1_1TTFont_html_afd715019ff947708ce95f3670331b0fe"><div class="ttname"><a href="classtr_1_1TTFont.html#afd715019ff947708ce95f3670331b0fe">tr::TTFont::WrapAlignment</a></div><div class="ttdeci">WrapAlignment</div><div class="ttdoc">Wrapped text alignment.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:102</div></div>
+<div class="ttc" id="agroup__input_html_gga1e5a857eb2f40e2b55bfb43225cbc658ab50339a10e1de285ac99d4c3990b8693"><div class="ttname"><a href="group__input.html#gga1e5a857eb2f40e2b55bfb43225cbc658ab50339a10e1de285ac99d4c3990b8693">tr::Keymods::NONE</a></div><div class="ttdeci">@ NONE</div></div>
+<div class="ttc" id="agroup__input_html_gga8c4a44871ba907dcd4225b2617b40f77a21507b40c80068eda19865706fdc2403"><div class="ttname"><a href="group__input.html#gga8c4a44871ba907dcd4225b2617b40f77a21507b40c80068eda19865706fdc2403">tr::MouseButton::RIGHT</a></div><div class="ttdeci">@ RIGHT</div></div>
+<div class="ttc" id="agroup__input_html_gga8c4a44871ba907dcd4225b2617b40f77a684d325a7303f52e64011467ff5c5758"><div class="ttname"><a href="group__input.html#gga8c4a44871ba907dcd4225b2617b40f77a684d325a7303f52e64011467ff5c5758">tr::MouseButton::LEFT</a></div><div class="ttdeci">@ LEFT</div></div>
+<div class="ttc" id="anamespacetr_html"><div class="ttname"><a href="namespacetr.html">tr</a></div><div class="ttdoc">Namespace containing all libtr functionality.</div><div class="ttdef"><b>Definition</b> angle.hpp:5</div></div>
 <div class="ttc" id="astructtr_1_1RGBA_html"><div class="ttname"><a href="structtr_1_1RGBA.html">tr::RGBA&lt; std::uint8_t &gt;</a></div></div>
-<div class="ttc" id="astructtr_1_1SDLError_html"><div class="ttname"><a href="structtr_1_1SDLError.html">tr::SDLError</a></div><div class="ttdoc">Error thrown by an SDL function failing.</div><div class="ttdef"><b>Definition</b> sdl.hpp:63</div></div>
-<div class="ttc" id="astructtr_1_1TTFontLoadError_html"><div class="ttname"><a href="structtr_1_1TTFontLoadError.html">tr::TTFontLoadError</a></div><div class="ttdoc">Error thrown when TrueType font loading failed.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:15</div></div>
+<div class="ttc" id="astructtr_1_1SDLError_html"><div class="ttname"><a href="structtr_1_1SDLError.html">tr::SDLError</a></div><div class="ttdoc">Base error type for all SDL operation errors.</div><div class="ttdef"><b>Definition</b> sdl.hpp:8</div></div>
+<div class="ttc" id="astructtr_1_1SDLError_html_a78397e28638efd10cac278a160395583"><div class="ttname"><a href="structtr_1_1SDLError.html#a78397e28638efd10cac278a160395583">tr::SDLError::SDLError</a></div><div class="ttdeci">SDLError(std::string_view message)</div><div class="ttdoc">Constructs an SDL error.</div></div>
+<div class="ttc" id="astructtr_1_1TTFontError_html"><div class="ttname"><a href="structtr_1_1TTFontError.html">tr::TTFontError</a></div><div class="ttdoc">Error thrown when a TrueType font operation fails.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:30</div></div>
+<div class="ttc" id="astructtr_1_1TTFontLoadError_html"><div class="ttname"><a href="structtr_1_1TTFontLoadError.html">tr::TTFontLoadError</a></div><div class="ttdoc">Error thrown when TrueType font loading fails.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:16</div></div>
 <div class="ttc" id="astructtr_1_1TTFontLoadError_html_a7c5e56e23cb250f8c0525f9096603737"><div class="ttname"><a href="structtr_1_1TTFontLoadError.html#a7c5e56e23cb250f8c0525f9096603737">tr::TTFontLoadError::what</a></div><div class="ttdeci">virtual const char * what() const noexcept</div><div class="ttdoc">Gets an error message.</div></div>
-<div class="ttc" id="astructtr_1_1TTFontRenderError_html"><div class="ttname"><a href="structtr_1_1TTFontRenderError.html">tr::TTFontRenderError</a></div><div class="ttdoc">Error thrown when rendering from a TrueType font failed.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:39</div></div>
-<div class="ttc" id="astructtr_1_1TTFontRenderError_html_a0cf8a38d7384822eb1d26d5ad04ef172"><div class="ttname"><a href="structtr_1_1TTFontRenderError.html#a0cf8a38d7384822eb1d26d5ad04ef172">tr::TTFontRenderError::TTFontRenderError</a></div><div class="ttdeci">TTFontRenderError()</div><div class="ttdoc">Constructs the error.</div></div>
-<div class="ttc" id="astructtr_1_1TTFontResizeError_html"><div class="ttname"><a href="structtr_1_1TTFontResizeError.html">tr::TTFontResizeError</a></div><div class="ttdoc">Error thrown when TrueType font resizing failed.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:29</div></div>
-<div class="ttc" id="astructtr_1_1TTFontResizeError_html_abdc38a5e041e5658689fc5f903a59baa"><div class="ttname"><a href="structtr_1_1TTFontResizeError.html#abdc38a5e041e5658689fc5f903a59baa">tr::TTFontResizeError::TTFontResizeError</a></div><div class="ttdeci">TTFontResizeError()</div><div class="ttdoc">Constructs the error.</div></div>
-<div class="ttc" id="astructtr_1_1TTFont_1_1Glyph_html"><div class="ttname"><a href="structtr_1_1TTFont_1_1Glyph.html">tr::TTFont::Glyph</a></div><div class="ttdoc">Font glyph metrics.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:169</div></div>
-<div class="ttc" id="astructtr_1_1TTFont_1_1Glyph_html_a0c8b3f98fefd6ec15f332e7a94b61c5b"><div class="ttname"><a href="structtr_1_1TTFont_1_1Glyph.html#a0c8b3f98fefd6ec15f332e7a94b61c5b">tr::TTFont::Glyph::adv</a></div><div class="ttdeci">std::int32_t adv</div><div class="ttdoc">The advance of the glyph in pixels.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:183</div></div>
-<div class="ttc" id="astructtr_1_1TTFont_1_1Glyph_html_a5663c4aa63dab500b4939f8671b45a12"><div class="ttname"><a href="structtr_1_1TTFont_1_1Glyph.html#a5663c4aa63dab500b4939f8671b45a12">tr::TTFont::Glyph::max</a></div><div class="ttdeci">glm::ivec2 max</div><div class="ttdoc">Max x/y of the glyph.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:178</div></div>
-<div class="ttc" id="astructtr_1_1TTFont_1_1Glyph_html_af91151b22bc767691d84bae60c43b859"><div class="ttname"><a href="structtr_1_1TTFont_1_1Glyph.html#af91151b22bc767691d84bae60c43b859">tr::TTFont::Glyph::min</a></div><div class="ttdeci">glm::ivec2 min</div><div class="ttdoc">Min x/y of the glyph.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:173</div></div>
-<div class="ttc" id="astructtr_1_1TTFont_1_1MeasureResult_html"><div class="ttname"><a href="structtr_1_1TTFont_1_1MeasureResult.html">tr::TTFont::MeasureResult</a></div><div class="ttdoc">Font text measurement result.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:189</div></div>
-<div class="ttc" id="astructtr_1_1TTFont_1_1MeasureResult_html_a3998914f9b390409553199e1ff4d86a4"><div class="ttname"><a href="structtr_1_1TTFont_1_1MeasureResult.html#a3998914f9b390409553199e1ff4d86a4">tr::TTFont::MeasureResult::width</a></div><div class="ttdeci">int width</div><div class="ttdoc">The width of the fit string in pixels.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:198</div></div>
-<div class="ttc" id="astructtr_1_1TTFont_1_1MeasureResult_html_a898d90240c53e341fdb0a8efb83109bc"><div class="ttname"><a href="structtr_1_1TTFont_1_1MeasureResult.html#a898d90240c53e341fdb0a8efb83109bc">tr::TTFont::MeasureResult::text</a></div><div class="ttdeci">std::string_view text</div><div class="ttdoc">The text that fit in the width.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:193</div></div>
-<div class="ttc" id="astructtr_1_1Version_html"><div class="ttname"><a href="structtr_1_1Version.html">tr::Version</a></div><div class="ttdoc">Library version information.</div><div class="ttdef"><b>Definition</b> sdl.hpp:43</div></div>
-<div class="ttc" id="awindow_8hpp_html_af09e8a848420f5464858f667b96bdab4a1e23852820b9154316c7c06e2b7ba051"><div class="ttname"><a href="window_8hpp.html#af09e8a848420f5464858f667b96bdab4a1e23852820b9154316c7c06e2b7ba051">tr::HitTestResult::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Region is normal and has no special properties.</div></div>
+<div class="ttc" id="astructtr_1_1TTFont_1_1Glyph_html"><div class="ttname"><a href="structtr_1_1TTFont_1_1Glyph.html">tr::TTFont::Glyph</a></div><div class="ttdoc">Font glyph metrics.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:122</div></div>
+<div class="ttc" id="astructtr_1_1TTFont_1_1Glyph_html_a0c8b3f98fefd6ec15f332e7a94b61c5b"><div class="ttname"><a href="structtr_1_1TTFont_1_1Glyph.html#a0c8b3f98fefd6ec15f332e7a94b61c5b">tr::TTFont::Glyph::adv</a></div><div class="ttdeci">std::int32_t adv</div><div class="ttdoc">The advance of the glyph in pixels.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:136</div></div>
+<div class="ttc" id="astructtr_1_1TTFont_1_1Glyph_html_a5663c4aa63dab500b4939f8671b45a12"><div class="ttname"><a href="structtr_1_1TTFont_1_1Glyph.html#a5663c4aa63dab500b4939f8671b45a12">tr::TTFont::Glyph::max</a></div><div class="ttdeci">glm::ivec2 max</div><div class="ttdoc">Max x/y of the glyph.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:131</div></div>
+<div class="ttc" id="astructtr_1_1TTFont_1_1Glyph_html_af91151b22bc767691d84bae60c43b859"><div class="ttname"><a href="structtr_1_1TTFont_1_1Glyph.html#af91151b22bc767691d84bae60c43b859">tr::TTFont::Glyph::min</a></div><div class="ttdeci">glm::ivec2 min</div><div class="ttdoc">Min x/y of the glyph.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:126</div></div>
+<div class="ttc" id="astructtr_1_1TTFont_1_1MeasureResult_html"><div class="ttname"><a href="structtr_1_1TTFont_1_1MeasureResult.html">tr::TTFont::MeasureResult</a></div><div class="ttdoc">Font text measurement result.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:142</div></div>
+<div class="ttc" id="astructtr_1_1TTFont_1_1MeasureResult_html_a3998914f9b390409553199e1ff4d86a4"><div class="ttname"><a href="structtr_1_1TTFont_1_1MeasureResult.html#a3998914f9b390409553199e1ff4d86a4">tr::TTFont::MeasureResult::width</a></div><div class="ttdeci">int width</div><div class="ttdoc">The width of the fit string in pixels.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:151</div></div>
+<div class="ttc" id="astructtr_1_1TTFont_1_1MeasureResult_html_a898d90240c53e341fdb0a8efb83109bc"><div class="ttname"><a href="structtr_1_1TTFont_1_1MeasureResult.html#a898d90240c53e341fdb0a8efb83109bc">tr::TTFont::MeasureResult::text</a></div><div class="ttdeci">std::string_view text</div><div class="ttdoc">The text that fit in the width.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:146</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

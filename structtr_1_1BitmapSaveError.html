@@ -85,7 +85,7 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>tr</b></li><li class="navelem"><a class="el" href="structtr_1_1BitmapSaveError.html">BitmapSaveError</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="structtr_1_1BitmapSaveError.html">BitmapSaveError</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -93,14 +93,12 @@ $(function(){ initResizable(false); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="structtr_1_1BitmapSaveError-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::BitmapSaveError Struct Reference</div></div>
+  <div class="headertitle"><div class="title">tr::BitmapSaveError Struct Reference<div class="ingroups"><a class="el" href="group__bitmap.html">Bitmaps</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Error thrown when bitmap saving failed.  
+<p>Error thrown when bitmap saving fails.  
  <a href="#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="bitmap_8hpp_source.html">bitmap.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for tr::BitmapSaveError:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -136,7 +134,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac1cf35f6d24c69fe3b3c642c78db506c inherit pub_methods_classtr_1_1FileError"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Error thrown when bitmap saving failed. </p>
+<div class="textblock"><p>Error thrown when bitmap saving fails. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a2721806b29b337df88b1872d26c235a9" name="a2721806b29b337df88b1872d26c235a9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2721806b29b337df88b1872d26c235a9">&#9670;&#160;</a></span>FileError() <span class="overload">[1/2]</span></h2>
@@ -156,13 +154,13 @@ Public Member Functions</h2></td></tr>
 <p>Constructs a file error with a path. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>A filesystem path.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>A filesystem path.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::bad_alloc</td><td>If copying the string failed. </td></tr>
+    <tr><td class="paramname">std::bad_alloc</td><td>If copying the string fails. </td></tr>
   </table>
   </dd>
 </dl>
@@ -195,7 +193,7 @@ Public Member Functions</h2></td></tr>
 <p>Constructs a file error with a path string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>A path string. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>A path string. </td></tr>
   </table>
   </dd>
 </dl>
@@ -232,9 +230,6 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="bitmap_8hpp_source.html">bitmap.hpp</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

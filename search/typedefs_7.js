@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['pixelcref_0',['PixelCref',['../classtr_1_1Bitmap.html#ad9d5e3489943ea1b66b814aa49085c73',1,'tr::Bitmap']]],
-  ['pointer_1',['pointer',['../classtr_1_1SubBitmap_1_1Iterator.html#a46ce82948c087901176452565fe634d0',1,'tr::SubBitmap::Iterator::pointer'],['../classtr_1_1Bitmap_1_1MutIt.html#a3208bbfbca9121dccd804aa6b1b957b7',1,'tr::Bitmap::MutIt::pointer']]]
+  ['nanoseconds_0',['Nanoseconds',['../namespacetr.html#a0adbe6e0bd1b47a6874dd4309068193d',1,'tr']]],
+  ['nanosecondsd_1',['NanosecondsD',['../namespacetr.html#a05ce035db2dad9af5ee07188e52df74a',1,'tr']]],
+  ['nanosecondsf_2',['NanosecondsF',['../namespacetr.html#a970d3e474975fe29957d56bf15a351c2',1,'tr']]]
 ];

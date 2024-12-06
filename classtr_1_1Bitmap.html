@@ -85,7 +85,7 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>tr</b></li><li class="navelem"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -95,14 +95,12 @@ $(function(){ initResizable(false); });
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1Bitmap-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::Bitmap Class Reference</div></div>
+  <div class="headertitle"><div class="title">tr::Bitmap Class Reference<div class="ingroups"><a class="el" href="group__bitmap.html">Bitmaps</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Class representing a bitmap stored in memory.  
+<p>Class containing owned bitmap data.  
  <a href="#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="bitmap_8hpp_source.html">bitmap.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -110,18 +108,16 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable pixel iterator.  <a href="classtr_1_1Bitmap_1_1MutIt.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstracted mutable reference to a bitmap pixel.  <a href="classtr_1_1Bitmap_1_1PixelRef.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutable reference to a bitmap pixel.  <a href="classtr_1_1Bitmap_1_1PixelRef.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a4bfadd9d521de8c9c298e9360121885a" id="r_a4bfadd9d521de8c9c298e9360121885a"><td class="memItemLeft" align="right" valign="top"><a id="a4bfadd9d521de8c9c298e9360121885a" name="a4bfadd9d521de8c9c298e9360121885a"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>ConstIt</b> = <a class="el" href="classtr_1_1SubBitmap_1_1Iterator.html">tr::SubBitmap::Iterator</a></td></tr>
-<tr class="memdesc:a4bfadd9d521de8c9c298e9360121885a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Immutable iterator. <br /></td></tr>
+<tr class="memitem:a4bfadd9d521de8c9c298e9360121885a" id="r_a4bfadd9d521de8c9c298e9360121885a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bfadd9d521de8c9c298e9360121885a">ConstIt</a> = <a class="el" href="classtr_1_1SubBitmap_1_1Iterator.html">tr::SubBitmap::Iterator</a></td></tr>
+<tr class="memdesc:a4bfadd9d521de8c9c298e9360121885a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Immutable iterator.  <br /></td></tr>
 <tr class="separator:a4bfadd9d521de8c9c298e9360121885a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9d5e3489943ea1b66b814aa49085c73" id="r_ad9d5e3489943ea1b66b814aa49085c73"><td class="memItemLeft" align="right" valign="top"><a id="ad9d5e3489943ea1b66b814aa49085c73" name="ad9d5e3489943ea1b66b814aa49085c73"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>PixelCref</b> = <a class="el" href="classtr_1_1SubBitmap_1_1PixelRef.html">tr::SubBitmap::PixelRef</a></td></tr>
-<tr class="memdesc:ad9d5e3489943ea1b66b814aa49085c73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Immutable pixel reference. <br /></td></tr>
+<tr class="memitem:ad9d5e3489943ea1b66b814aa49085c73" id="r_ad9d5e3489943ea1b66b814aa49085c73"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9d5e3489943ea1b66b814aa49085c73">PixelCref</a> = <a class="el" href="classtr_1_1SubBitmap_1_1PixelRef.html">tr::SubBitmap::PixelRef</a></td></tr>
+<tr class="memdesc:ad9d5e3489943ea1b66b814aa49085c73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Immutable pixel reference.  <br /></td></tr>
 <tr class="separator:ad9d5e3489943ea1b66b814aa49085c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -133,7 +129,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a136336485b66edf12a438892c5e20978"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clones a bitmap view.  <br /></td></tr>
 <tr class="separator:a136336485b66edf12a438892c5e20978"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1b4499ce75fb2a294967c48099e3969" id="r_aa1b4499ce75fb2a294967c48099e3969"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1b4499ce75fb2a294967c48099e3969">Bitmap</a> (const std::filesystem::path &amp;path)</td></tr>
-<tr class="memdesc:aa1b4499ce75fb2a294967c48099e3969"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a bitmap from file.  <br /></td></tr>
+<tr class="memdesc:aa1b4499ce75fb2a294967c48099e3969"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a bitmap from file (BMP/QOI).  <br /></td></tr>
 <tr class="separator:aa1b4499ce75fb2a294967c48099e3969"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30b01788ff43d878b16891b60fad4291" id="r_a30b01788ff43d878b16891b60fad4291"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30b01788ff43d878b16891b60fad4291">Bitmap</a> (glm::ivec2 <a class="el" href="#a45c89c6b9f996dbd99799370de244b45">size</a>, <a class="el" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> <a class="el" href="#a10ed1ee277822c5aafa78d5413916024">format</a>)</td></tr>
 <tr class="memdesc:a30b01788ff43d878b16891b60fad4291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a blank bitmap.  <br /></td></tr>
@@ -171,15 +167,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a475aa60ee49636d05a4cbde3f337e37c" id="r_a475aa60ee49636d05a4cbde3f337e37c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a475aa60ee49636d05a4cbde3f337e37c">end</a> () noexcept</td></tr>
 <tr class="memdesc:a475aa60ee49636d05a4cbde3f337e37c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a mutable iterator to one past the end of the bitmap.  <br /></td></tr>
 <tr class="separator:a475aa60ee49636d05a4cbde3f337e37c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6fb93d26662e3de552444d3c9163d53" id="r_ab6fb93d26662e3de552444d3c9163d53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6fb93d26662e3de552444d3c9163d53">fill</a> (<a class="el" href="geometry_8hpp.html#a386ecd8029d58f09791896b6421218d9">RectI2</a> rect, <a class="el" href="color_8hpp.html#a1713cee25653ace2c701e2811e86386c">RGBA8</a> color) noexcept</td></tr>
+<tr class="memitem:ab6fb93d26662e3de552444d3c9163d53" id="r_ab6fb93d26662e3de552444d3c9163d53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6fb93d26662e3de552444d3c9163d53">fill</a> (<a class="el" href="namespacetr.html#a386ecd8029d58f09791896b6421218d9">RectI2</a> rect, <a class="el" href="group__color.html#ga1713cee25653ace2c701e2811e86386c">RGBA8</a> color) noexcept</td></tr>
 <tr class="memdesc:ab6fb93d26662e3de552444d3c9163d53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills a region of the bitmap with a solid color.  <br /></td></tr>
 <tr class="separator:ab6fb93d26662e3de552444d3c9163d53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10ed1ee277822c5aafa78d5413916024" id="r_a10ed1ee277822c5aafa78d5413916024"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1BitmapFormat.html">BitmapFormat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10ed1ee277822c5aafa78d5413916024">format</a> () const noexcept</td></tr>
 <tr class="memdesc:a10ed1ee277822c5aafa78d5413916024"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the format of the bitmap.  <br /></td></tr>
 <tr class="separator:a10ed1ee277822c5aafa78d5413916024"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace45d21639cd13f3f72a39859ba44e24" id="r_ace45d21639cd13f3f72a39859ba44e24"><td class="memItemLeft" align="right" valign="top"><a id="ace45d21639cd13f3f72a39859ba44e24" name="ace45d21639cd13f3f72a39859ba44e24"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>operator SubBitmap</b> () const noexcept</td></tr>
-<tr class="memdesc:ace45d21639cd13f3f72a39859ba44e24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a sub-bitmap spanning the entire bitmap. <br /></td></tr>
+<tr class="memitem:ace45d21639cd13f3f72a39859ba44e24" id="r_ace45d21639cd13f3f72a39859ba44e24"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace45d21639cd13f3f72a39859ba44e24">operator SubBitmap</a> () const noexcept</td></tr>
+<tr class="memdesc:ace45d21639cd13f3f72a39859ba44e24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a sub-bitmap spanning the entire bitmap.  <br /></td></tr>
 <tr class="separator:ace45d21639cd13f3f72a39859ba44e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8716efe94ce8e18275b088bd04a11d7d" id="r_a8716efe94ce8e18275b088bd04a11d7d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#ad9d5e3489943ea1b66b814aa49085c73">PixelCref</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8716efe94ce8e18275b088bd04a11d7d">operator[]</a> (glm::ivec2 pos) const noexcept</td></tr>
 <tr class="memdesc:a8716efe94ce8e18275b088bd04a11d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets immutable access to a pixel of the bitmap.  <br /></td></tr>
@@ -190,20 +185,53 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a448a8bcae98fa547db2a087eab2b6f38" id="r_a448a8bcae98fa547db2a087eab2b6f38"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a448a8bcae98fa547db2a087eab2b6f38">pitch</a> () const noexcept</td></tr>
 <tr class="memdesc:a448a8bcae98fa547db2a087eab2b6f38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the pitch of the bitmap.  <br /></td></tr>
 <tr class="separator:a448a8bcae98fa547db2a087eab2b6f38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3d93613cda4e3ade7813fd4bfc4763d" id="r_af3d93613cda4e3ade7813fd4bfc4763d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3d93613cda4e3ade7813fd4bfc4763d">save</a> (const std::filesystem::path &amp;path, <a class="el" href="bitmap_8hpp.html#acdde480f01d536a3cf2b72e83515586e">ImageFormat</a> <a class="el" href="#a10ed1ee277822c5aafa78d5413916024">format</a>) const</td></tr>
-<tr class="memdesc:af3d93613cda4e3ade7813fd4bfc4763d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the bitmap to file.  <br /></td></tr>
-<tr class="separator:af3d93613cda4e3ade7813fd4bfc4763d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a5c851bea186f86c60b21e73aa8e302" id="r_a8a5c851bea186f86c60b21e73aa8e302"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a5c851bea186f86c60b21e73aa8e302">save</a> (const std::filesystem::path &amp;path) const</td></tr>
+<tr class="memdesc:a8a5c851bea186f86c60b21e73aa8e302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the bitmap to a .png file.  <br /></td></tr>
+<tr class="separator:a8a5c851bea186f86c60b21e73aa8e302"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45c89c6b9f996dbd99799370de244b45" id="r_a45c89c6b9f996dbd99799370de244b45"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45c89c6b9f996dbd99799370de244b45">size</a> () const noexcept</td></tr>
 <tr class="memdesc:a45c89c6b9f996dbd99799370de244b45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the bitmap.  <br /></td></tr>
 <tr class="separator:a45c89c6b9f996dbd99799370de244b45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8abe5917960686b1b1edd0f1c9721988" id="r_a8abe5917960686b1b1edd0f1c9721988"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1SubBitmap.html">SubBitmap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8abe5917960686b1b1edd0f1c9721988">sub</a> (<a class="el" href="geometry_8hpp.html#a386ecd8029d58f09791896b6421218d9">RectI2</a> rect) const noexcept</td></tr>
+<tr class="memitem:a8abe5917960686b1b1edd0f1c9721988" id="r_a8abe5917960686b1b1edd0f1c9721988"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1SubBitmap.html">SubBitmap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8abe5917960686b1b1edd0f1c9721988">sub</a> (<a class="el" href="namespacetr.html#a386ecd8029d58f09791896b6421218d9">RectI2</a> rect) const noexcept</td></tr>
 <tr class="memdesc:a8abe5917960686b1b1edd0f1c9721988"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a sub-bitmap of the bitmap.  <br /></td></tr>
 <tr class="separator:a8abe5917960686b1b1edd0f1c9721988"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Class representing a bitmap stored in memory. </p>
-<p>No instances of this class can be created before initializing <a class="el" href="classtr_1_1SDL.html" title="SDL library RAII wrapper.">SDL</a>. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="textblock"><p>Class containing owned bitmap data. </p>
+<p>This class cannot be instantiated before the window is opened. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a4bfadd9d521de8c9c298e9360121885a" name="a4bfadd9d521de8c9c298e9360121885a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bfadd9d521de8c9c298e9360121885a">&#9670;&#160;</a></span>ConstIt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a4bfadd9d521de8c9c298e9360121885a">tr::Bitmap::ConstIt</a> = <a class="el" href="classtr_1_1SubBitmap_1_1Iterator.html">tr::SubBitmap::Iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Immutable iterator. </p>
+
+</div>
+</div>
+<a id="ad9d5e3489943ea1b66b814aa49085c73" name="ad9d5e3489943ea1b66b814aa49085c73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9d5e3489943ea1b66b814aa49085c73">&#9670;&#160;</a></span>PixelCref</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ad9d5e3489943ea1b66b814aa49085c73">tr::Bitmap::PixelCref</a> = <a class="el" href="classtr_1_1SubBitmap_1_1PixelRef.html">tr::SubBitmap::PixelRef</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Immutable pixel reference. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a30b01788ff43d878b16891b60fad4291" name="a30b01788ff43d878b16891b60fad4291"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a30b01788ff43d878b16891b60fad4291">&#9670;&#160;</a></span>Bitmap() <span class="overload">[1/6]</span></h2>
 
@@ -226,14 +254,14 @@ Public Member Functions</h2></td></tr>
 <p>Creates a blank bitmap. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapBadAlloc.html" title="Error thrown when bitmap allocation failed.">BitmapBadAlloc</a></td><td>If allocating the bitmap failed.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapBadAlloc.html" title="Error thrown when bitmap allocation fails.">BitmapBadAlloc</a></td><td>If allocating the bitmap fails.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">size</td><td>The size of the bitmap. </td></tr>
-    <tr><td class="paramname">format</td><td>The format of the bitmap. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The size of the bitmap. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>The format of the bitmap. </td></tr>
   </table>
   </dd>
 </dl>
@@ -266,13 +294,13 @@ Public Member Functions</h2></td></tr>
 <p>Loads an embedded bitmap file. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapBadAlloc.html" title="Error thrown when bitmap allocation failed.">BitmapBadAlloc</a></td><td>If allocating the bitmap failed.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapBadAlloc.html" title="Error thrown when bitmap allocation fails.">BitmapBadAlloc</a></td><td>If allocating the bitmap fails.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">embeddedFile</td><td>The embedded file data. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">embeddedFile</td><td>The embedded file data. </td></tr>
   </table>
   </dd>
 </dl>
@@ -302,18 +330,17 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Loads a bitmap from file. </p>
-<p>Make sure to initialize support for any file formats you plan to use.</p>
+<p>Loads a bitmap from file (BMP/QOI). </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1FileNotFound.html" title="File not found exception.">FileNotFound</a></td><td>If the file could not be found. </td></tr>
-    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapLoadError.html" title="Error thrown when bitmap loading failed.">BitmapLoadError</a></td><td>If loading the bitmap failed.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1FileNotFound.html" title="File not found exception.">FileNotFound</a></td><td>If the file isn't found. </td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapLoadError.html" title="Error thrown when bitmap loading fails.">BitmapLoadError</a></td><td>If loading the bitmap fails.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>The path to the bitmap file. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>The path to the bitmap file. </td></tr>
   </table>
   </dd>
 </dl>
@@ -342,14 +369,14 @@ Public Member Functions</h2></td></tr>
 <p>Clones a bitmap. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapBadAlloc.html" title="Error thrown when bitmap allocation failed.">BitmapBadAlloc</a></td><td>If allocating the bitmap failed.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapBadAlloc.html" title="Error thrown when bitmap allocation fails.">BitmapBadAlloc</a></td><td>If allocating the bitmap fails.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bitmap</td><td>The bitmap to clone. </td></tr>
-    <tr><td class="paramname">format</td><td>The format of the new bitmap. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bitmap</td><td>The bitmap to clone. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>The format of the new bitmap. </td></tr>
   </table>
   </dd>
 </dl>
@@ -378,14 +405,14 @@ Public Member Functions</h2></td></tr>
 <p>Clones a bitmap view. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapBadAlloc.html" title="Error thrown when bitmap allocation failed.">BitmapBadAlloc</a></td><td>If allocating the bitmap failed.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapBadAlloc.html" title="Error thrown when bitmap allocation fails.">BitmapBadAlloc</a></td><td>If allocating the bitmap fails.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">view</td><td>The bitmap view to clone. </td></tr>
-    <tr><td class="paramname">format</td><td>The format of the new bitmap. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">view</td><td>The bitmap view to clone. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>The format of the new bitmap. </td></tr>
   </table>
   </dd>
 </dl>
@@ -414,14 +441,14 @@ Public Member Functions</h2></td></tr>
 <p>Clones a sub-bitmap. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapBadAlloc.html" title="Error thrown when bitmap allocation failed.">BitmapBadAlloc</a></td><td>If allocating the bitmap failed.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapBadAlloc.html" title="Error thrown when bitmap allocation fails.">BitmapBadAlloc</a></td><td>If allocating the bitmap fails.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">source</td><td>The sub-bitmap to clone. </td></tr>
-    <tr><td class="paramname">format</td><td>The format of the new bitmap. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">source</td><td>The sub-bitmap to clone. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>The format of the new bitmap. </td></tr>
   </table>
   </dd>
 </dl>
@@ -515,8 +542,8 @@ Public Member Functions</h2></td></tr>
 <p>Blits a sub-bitmap to the bitmap. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tl</td><td>The top-left corner of the region to blit to. If the region stretches outside of the sub-bitmap bounds, a failed assertion may be triggered. </td></tr>
-    <tr><td class="paramname">source</td><td>The source sub-bitmap. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tl</td><td>The top-left corner of the region to blit to. The region is not allowed to stretch outside the bitmap bounds. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">source</td><td>The source sub-bitmap. </td></tr>
   </table>
   </dd>
 </dl>
@@ -703,12 +730,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void tr::Bitmap::fill </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="geometry_8hpp.html#a386ecd8029d58f09791896b6421218d9">RectI2</a></td>          <td class="paramname"><span class="paramname"><em>rect</em></span>, </td>
+          <td class="paramtype"><a class="el" href="namespacetr.html#a386ecd8029d58f09791896b6421218d9">RectI2</a></td>          <td class="paramname"><span class="paramname"><em>rect</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="color_8hpp.html#a1713cee25653ace2c701e2811e86386c">RGBA8</a></td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="group__color.html#ga1713cee25653ace2c701e2811e86386c">RGBA8</a></td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -721,8 +748,8 @@ Public Member Functions</h2></td></tr>
 <p>Fills a region of the bitmap with a solid color. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rect</td><td>The rect to fill. If the region stretches outside of the sub-bitmap bounds, a failed assertion may be triggered. </td></tr>
-    <tr><td class="paramname">color</td><td>The fill color. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rect</td><td>The region to fill. The region is not allowed to stretch outside the bitmap bounds. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>The fill color. </td></tr>
   </table>
   </dd>
 </dl>
@@ -757,6 +784,33 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ace45d21639cd13f3f72a39859ba44e24" name="ace45d21639cd13f3f72a39859ba44e24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace45d21639cd13f3f72a39859ba44e24">&#9670;&#160;</a></span>operator SubBitmap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tr::Bitmap::operator <a class="el" href="classtr_1_1SubBitmap.html">SubBitmap</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a sub-bitmap spanning the entire bitmap. </p>
+
+</div>
+</div>
 <a id="a8716efe94ce8e18275b088bd04a11d7d" name="a8716efe94ce8e18275b088bd04a11d7d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8716efe94ce8e18275b088bd04a11d7d">&#9670;&#160;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
 
@@ -783,7 +837,7 @@ Public Member Functions</h2></td></tr>
 <p>Gets immutable access to a pixel of the bitmap. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pos</td><td>The position of the pixel within the sub-bitmap. Accessing an out-of-bounds pixel may trigger a failed assertion.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>The position of the pixel within the bitmap. Accessing an out-of-bounds pixel is not allowed.</td></tr>
   </table>
   </dd>
 </dl>
@@ -817,11 +871,11 @@ Public Member Functions</h2></td></tr>
 <p>Gets mutable access to a pixel of the bitmap. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pos</td><td>The position of the pixel within the bitmap. Accessing an out-of-bounds pixel may trigger a failed assertion.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>The position of the pixel within the bitmap. Accessing an out-of-bounds pixel is not allowed.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>An immutable reference to a pixel of the bitmap. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A mutable reference to a pixel of the bitmap. </dd></dl>
 
 </div>
 </div>
@@ -854,8 +908,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af3d93613cda4e3ade7813fd4bfc4763d" name="af3d93613cda4e3ade7813fd4bfc4763d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3d93613cda4e3ade7813fd4bfc4763d">&#9670;&#160;</a></span>save()</h2>
+<a id="a8a5c851bea186f86c60b21e73aa8e302" name="a8a5c851bea186f86c60b21e73aa8e302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a5c851bea186f86c60b21e73aa8e302">&#9670;&#160;</a></span>save()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -863,27 +917,22 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void tr::Bitmap::save </td>
           <td>(</td>
-          <td class="paramtype">const std::filesystem::path &amp;</td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="bitmap_8hpp.html#acdde480f01d536a3cf2b72e83515586e">ImageFormat</a></td>          <td class="paramname"><span class="paramname"><em>format</em></span>&#160;) const</td>
+          <td class="paramtype">const std::filesystem::path &amp;</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Saves the bitmap to file. </p>
+<p>Saves the bitmap to a .png file. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapSaveError.html" title="Error thrown when bitmap saving failed.">BitmapSaveError</a></td><td>If saving the bitmap failed.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapSaveError.html" title="Error thrown when bitmap saving fails.">BitmapSaveError</a></td><td>If saving the bitmap fails.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>The path to the file. </td></tr>
-    <tr><td class="paramname">format</td><td>The image format. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>The path to the file. </td></tr>
   </table>
   </dd>
 </dl>
@@ -930,7 +979,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classtr_1_1SubBitmap.html">SubBitmap</a> tr::Bitmap::sub </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="geometry_8hpp.html#a386ecd8029d58f09791896b6421218d9">RectI2</a></td>          <td class="paramname"><span class="paramname"><em>rect</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="namespacetr.html#a386ecd8029d58f09791896b6421218d9">RectI2</a></td>          <td class="paramname"><span class="paramname"><em>rect</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -944,7 +993,7 @@ Public Member Functions</h2></td></tr>
 <p>Creates a sub-bitmap of the bitmap. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rect</td><td>The region of the sub-bitmap. If the region stretches outside of the bitmap bounds, a failed assertion may be triggered.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rect</td><td>The region of the sub-bitmap. The region is not allowed to stretch outside the bitmap bounds.</td></tr>
   </table>
   </dd>
 </dl>
@@ -952,9 +1001,6 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="bitmap_8hpp_source.html">bitmap.hpp</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

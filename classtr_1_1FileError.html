@@ -85,7 +85,7 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>tr</b></li><li class="navelem"><a class="el" href="classtr_1_1FileError.html">FileError</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1FileError.html">FileError</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -93,14 +93,12 @@ $(function(){ initResizable(false); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1FileError-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::FileError Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+  <div class="headertitle"><div class="title">tr::FileError Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="group__file.html">Files</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Generic file error base exception type.  
  <a href="#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="iostream_8hpp_source.html">iostream.hpp</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for tr::FileError:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -109,12 +107,12 @@ $(function(){ initResizable(false); });
  <div class="center">
   <img src="classtr_1_1FileError.png" usemap="#tr::FileError_map" alt=""/>
   <map id="tr::FileError_map" name="tr::FileError_map">
-<area href="structtr_1_1BitmapLoadError.html" title="Error thrown when bitmap loading failed." alt="tr::BitmapLoadError" shape="rect" coords="0,112,151,136"/>
-<area href="structtr_1_1BitmapSaveError.html" title="Error thrown when bitmap saving failed." alt="tr::BitmapSaveError" shape="rect" coords="161,112,312,136"/>
+<area href="structtr_1_1BitmapLoadError.html" title="Error thrown when bitmap loading fails." alt="tr::BitmapLoadError" shape="rect" coords="0,112,151,136"/>
+<area href="structtr_1_1BitmapSaveError.html" title="Error thrown when bitmap saving fails." alt="tr::BitmapSaveError" shape="rect" coords="161,112,312,136"/>
 <area href="structtr_1_1FileNotFound.html" title="File not found exception." alt="tr::FileNotFound" shape="rect" coords="322,112,473,136"/>
 <area href="structtr_1_1FileOpenError.html" title="File opening error exception." alt="tr::FileOpenError" shape="rect" coords="483,112,634,136"/>
-<area href="structtr_1_1ShaderLoadError.html" title="Error thrown when loading a shader failed." alt="tr::ShaderLoadError" shape="rect" coords="644,112,795,136"/>
-<area href="structtr_1_1TTFontLoadError.html" title="Error thrown when TrueType font loading failed." alt="tr::TTFontLoadError" shape="rect" coords="805,112,956,136"/>
+<area href="structtr_1_1ShaderLoadError.html" title="Error thrown when loading a shader fails." alt="tr::ShaderLoadError" shape="rect" coords="644,112,795,136"/>
+<area href="structtr_1_1TTFontLoadError.html" title="Error thrown when TrueType font loading fails." alt="tr::TTFontLoadError" shape="rect" coords="805,112,956,136"/>
 <area href="structtr_1_1UnsupportedAudioFile.html" title="Error thrown when an trying to load an unsupported audio file." alt="tr::UnsupportedAudioFile" shape="rect" coords="966,112,1117,136"/>
   </map>
 </div></div>
@@ -164,7 +162,7 @@ Public Member Functions</h2></td></tr>
 <p>Constructs a file error with a path string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>A path string. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>A path string. </td></tr>
   </table>
   </dd>
 </dl>
@@ -189,13 +187,13 @@ Public Member Functions</h2></td></tr>
 <p>Constructs a file error with a path. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>A filesystem path.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>A filesystem path.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::bad_alloc</td><td>If copying the string failed. </td></tr>
+    <tr><td class="paramname">std::bad_alloc</td><td>If copying the string fails. </td></tr>
   </table>
   </dd>
 </dl>
@@ -260,9 +258,6 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="iostream_8hpp_source.html">iostream.hpp</a></li>
-</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
