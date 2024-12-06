@@ -110,27 +110,28 @@ namespace tr {
 	 *
 	 * Nothing in this namespace can be used before SDL is initialized.
 	 ******************************************************************************************************************/
-	namespace mouse {
+	class Mouse {
+	  public:
 		/**************************************************************************************************************
 		 * Gets the position of the mouse.
 		 *
 		 * @return The position of the mouse relative to the top left corner of the window.
 		 **************************************************************************************************************/
-		glm::ivec2 pos() noexcept;
+		glm::ivec2 position() const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the delta of the mouse position.
 		 *
 		 * @return The mouse position delta between the last call to this function and now.
 		 **************************************************************************************************************/
-		glm::ivec2 delta() noexcept;
+		glm::ivec2 delta() const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the held mouse buttons.
 		 *
 		 * @return The mouse button state in the form of a button mask.
 		 **************************************************************************************************************/
-		MouseButtonMask buttons() noexcept;
+		MouseButtonMask buttons() const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets whether a specific mouse button is held.
@@ -139,7 +140,7 @@ namespace tr {
 		 *
 		 * @return True if the button is held, and false otherwise.
 		 **************************************************************************************************************/
-		bool held(MouseButton button) noexcept;
+		bool held(MouseButton button) const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets whether a specific mouse button is held for a given mask.
@@ -149,7 +150,7 @@ namespace tr {
 		 *
 		 * @return True if the button is held, and false otherwise.
 		 **************************************************************************************************************/
-		bool held(MouseButton button, MouseButtonMask mask) noexcept;
+		bool held(MouseButton button, MouseButtonMask mask) const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets whether relative mouse mode is enabled.
@@ -158,7 +159,7 @@ namespace tr {
 		 *
 		 * @return True if relative mode is enabled, false otherwise.
 		 **************************************************************************************************************/
-		bool inRelativeMode() noexcept;
+		bool inRelativeMode() const noexcept;
 
 		/**************************************************************************************************************
 		 * Sets whether relative mouse mode is enabled.
@@ -184,7 +185,7 @@ namespace tr {
 		 *
 		 * @return True if the cursor is shown, and false otherwise.
 		 **************************************************************************************************************/
-		bool cursorShown() noexcept;
+		bool cursorShown() const noexcept;
 
 		/**************************************************************************************************************
 		 * Sets whether the mouse cursor is visible.
@@ -199,7 +200,12 @@ namespace tr {
 		 * @param cursor A reference to a mouse cursor.
 		 **************************************************************************************************************/
 		void setCursor(const Cursor& cursor) noexcept;
-	} // namespace mouse
+
+	  private:
+		Mouse() noexcept = default;
+
+		friend class Window;
+	};
 
 	/******************************************************************************************************************
 	 * Mouse cursor graphic.
@@ -264,6 +270,6 @@ namespace tr {
 
 		std::unique_ptr<SDL_Cursor, Deleter> _impl;
 
-		friend void mouse::setCursor(const Cursor& cursor) noexcept;
+		friend class Mouse;
 	};
 } // namespace tr

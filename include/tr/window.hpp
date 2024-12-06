@@ -4,6 +4,7 @@
 #include "event.hpp"
 #include "framebuffer.hpp"
 #include "gl_context.hpp"
+#include "mouse.hpp"
 #include "sdl.hpp"
 #include <magic_enum/magic_enum.hpp>
 
@@ -439,44 +440,65 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Gets the window's OpenGL context.
 		 *
-		 * @return A reference to the window's OpenGL context.
+		 * @return A mutable reference to the window's OpenGL context.
 		 **************************************************************************************************************/
 		GLContext& glContext() noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the window's OpenGL context.
 		 *
-		 * @return A reference to the window's OpenGL context.
+		 * @return An immutable reference to the window's OpenGL context.
 		 **************************************************************************************************************/
 		const GLContext& glContext() const noexcept;
 
 		/**************************************************************************************************************
-		 * Gets the window's event queue.
-		 *
-		 * @return A reference to the window's event queue.
-		 **************************************************************************************************************/
-		EventQueue& eventQueue() noexcept;
-
-		/**************************************************************************************************************
-		 * Gets the window's event queue.
-		 *
-		 * @return A reference to the window's event queue.
-		 **************************************************************************************************************/
-		const EventQueue& eventQueue() const noexcept;
-
-		/**************************************************************************************************************
 		 * Gets the window's backbuffer.
 		 *
-		 * @return A reference to the window's backbuffer.
+		 * @return A mutable reference to the window's backbuffer.
 		 **************************************************************************************************************/
 		Backbuffer& backbuffer() noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the window's backbuffer.
 		 *
-		 * @return A reference to the window's backbuffer.
+		 * @return An immutable reference to the window's backbuffer.
 		 **************************************************************************************************************/
 		const Backbuffer& backbuffer() const noexcept;
+
+		/**************************************************************************************************************
+		 * Gets the window's event queue.
+		 *
+		 * @return A mutable reference to the window's event queue.
+		 **************************************************************************************************************/
+		EventQueue& eventQueue() noexcept;
+
+		/**************************************************************************************************************
+		 * Gets the window's event queue.
+		 *
+		 * @return An immutable reference to the window's event queue.
+		 **************************************************************************************************************/
+		const EventQueue& eventQueue() const noexcept;
+
+		/**************************************************************************************************************
+		 * Gets access to the keyboard.
+		 *
+		 * @return An immutable reference to the keyboard.
+		 **************************************************************************************************************/
+		const Keyboard& keyboard() const noexcept;
+
+		/**************************************************************************************************************
+		 * Gets access to the mouse.
+		 *
+		 * @return A mutable reference to the mouse.
+		 **************************************************************************************************************/
+		Mouse& mouse() noexcept;
+
+		/**************************************************************************************************************
+		 * Gets access to the mouse.
+		 *
+		 * @return An immutable reference to the mouse.
+		 **************************************************************************************************************/
+		const Mouse& mouse() const noexcept;
 
 	  private:
 		/// @cond IMPLEMENTATION
@@ -490,9 +512,11 @@ namespace tr {
 
 		Handle<bool, false, SDLDeleter>            _sdl{true};
 		std::unique_ptr<SDL_Window, WindowDeleter> _impl;
-		EventQueue                                 _eventQueue;
 		GLContext                                  _glContext;
 		Backbuffer                                 _backbuffer;
+		EventQueue                                 _eventQueue;
+		[[no_unique_address]] Keyboard             _keyboard;
+		[[no_unique_address]] Mouse                _mouse;
 	};
 
 	/******************************************************************************************************************

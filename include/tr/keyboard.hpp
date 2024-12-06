@@ -4,38 +4,12 @@
  */
 
 #pragma once
-#include "dependencies/EnumBitmask.hpp"
-
+#include <EnumBitmask.hpp>
 #include <cstdint>
 #include <string>
 
 namespace tr {
-	class Scancode;
 	class Keycode;
-	enum class Keymods : std::uint16_t;
-
-	/******************************************************************************************************************
-	 * Keyboard-related functionality.
-	 *
-	 * Nothing in this namespace can be used before SDL is initialized.
-	 ******************************************************************************************************************/
-	namespace keyboard {
-		/**************************************************************************************************************
-		 * Gets whether a physical keyboard key is held.
-		 *
-		 * @param key A physical scancode.
-		 *
-		 * @return True if the key is held, and false otherwise.
-		 **************************************************************************************************************/
-		bool held(Scancode key) noexcept;
-
-		/**************************************************************************************************************
-		 * Gets a bitmask of the held keyboard modifiers.
-		 *
-		 * @return A bitmask of the held keyboard modifiers.
-		 **************************************************************************************************************/
-		Keymods heldMods() noexcept;
-	} // namespace keyboard
 
 	/******************************************************************************************************************
 	 * Physical keycode.
@@ -406,4 +380,29 @@ namespace tr {
 		 **************************************************************************************************************/
 		Keymods mods;
 	};
+
+	class Keyboard {
+	  public:
+		/**************************************************************************************************************
+		 * Gets whether a physical keyboard key is held.
+		 *
+		 * @param key A physical scancode.
+		 *
+		 * @return True if the key is held, and false otherwise.
+		 **************************************************************************************************************/
+		bool held(Scancode key) const noexcept;
+
+		/**************************************************************************************************************
+		 * Gets a bitmask of the held keyboard modifiers.
+		 *
+		 * @return A bitmask of the held keyboard modifiers.
+		 **************************************************************************************************************/
+		Keymods heldMods() const noexcept;
+
+	  private:
+		Keyboard() noexcept = default;
+
+		friend class Window;
+	};
+
 } // namespace tr

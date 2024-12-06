@@ -53,13 +53,13 @@ std::string tr::Keycode::name() const noexcept
 	return SDL_GetKeyName(SDL_Keycode(_enum));
 }
 
-bool tr::keyboard::held(Scancode key) noexcept
+bool tr::Keyboard::held(Scancode key) const noexcept
 {
 	assert(int(Scancode::Enum(key)) <= int(Scancode::RWIN));
 	return SDL_GetKeyboardState(nullptr)[SDL_Scancode(Scancode::Enum(key))];
 }
 
-tr::Keymods tr::keyboard::heldMods() noexcept
+tr::Keymods tr::Keyboard::heldMods() const noexcept
 {
 	return Keymods(SDL_GetModState());
 }

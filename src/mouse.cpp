@@ -20,46 +20,46 @@ const char* tr::CursorBadAlloc::what() const noexcept
 	return "failed cursor allocation";
 }
 
-glm::ivec2 tr::mouse::pos() noexcept
+glm::ivec2 tr::Mouse::position() const noexcept
 {
 	glm::ivec2 pos;
 	SDL_GetMouseState(&pos.x, &pos.y);
 	return pos;
 }
 
-glm::ivec2 tr::mouse::delta() noexcept
+glm::ivec2 tr::Mouse::delta() const noexcept
 {
 	glm::ivec2 delta;
 	SDL_GetRelativeMouseState(&delta.x, &delta.y);
 	return delta;
 }
 
-tr::MouseButtonMask tr::mouse::buttons() noexcept
+tr::MouseButtonMask tr::Mouse::buttons() const noexcept
 {
 	return MouseButtonMask(SDL_GetMouseState(nullptr, nullptr));
 }
 
-bool tr::mouse::held(MouseButton button) noexcept
+bool tr::Mouse::held(MouseButton button) const noexcept
 {
 	return held(button, buttons());
 }
 
-bool tr::mouse::held(MouseButton button, MouseButtonMask mask) noexcept
+bool tr::Mouse::held(MouseButton button, MouseButtonMask mask) const noexcept
 {
 	return std::uint32_t(mask) & SDL_BUTTON(std::uint32_t(button));
 }
 
-bool tr::mouse::inRelativeMode() noexcept
+bool tr::Mouse::inRelativeMode() const noexcept
 {
 	return SDL_GetRelativeMouseMode();
 }
 
-bool tr::mouse::setRelativeMode(bool relative) noexcept
+bool tr::Mouse::setRelativeMode(bool relative) noexcept
 {
 	return !SDL_SetRelativeMouseMode(SDL_bool(relative));
 }
 
-bool tr::mouse::setCaptured(bool captured) noexcept
+bool tr::Mouse::setCaptured(bool captured) noexcept
 {
 	return !SDL_CaptureMouse(SDL_bool(captured));
 }
@@ -96,17 +96,17 @@ void tr::Cursor::Deleter::operator()(SDL_Cursor* ptr) const noexcept
 	SDL_FreeCursor(ptr);
 }
 
-void tr::mouse::setCursor(const Cursor& cursor) noexcept
+void tr::Mouse::setCursor(const Cursor& cursor) noexcept
 {
 	SDL_SetCursor(cursor._impl.get());
 }
 
-bool tr::mouse::cursorShown() noexcept
+bool tr::Mouse::cursorShown() const noexcept
 {
 	return SDL_ShowCursor(SDL_QUERY);
 }
 
-void tr::mouse::showCursor(bool show) noexcept
+void tr::Mouse::showCursor(bool show) noexcept
 {
 	SDL_ShowCursor(show);
 }
