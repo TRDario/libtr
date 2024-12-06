@@ -14,11 +14,11 @@ Documentation can be built with Doxygen, or can be viewed [here](https://trdario
 ## Dependencies ##
 libtr depends on the following external libraries:
 - [Boost](https://www.boost.org/)
-- [EnumBitmask](https://github.com/Reputeless/EnumBitmask) (vendored)
+- [EnumBitmask](https://github.com/Reputeless/EnumBitmask)
 - [GLM](https://github.com/g-truc/glm)
 - [GLEW](https://glew.sourceforge.net/)
-- [half](https://sourceforge.net/projects/half/files/half/) (vendored)
-- [magic_enum](https://github.com/Neargye/magic_enum) (vendored)
+- [half](https://sourceforge.net/projects/half/files/half/)
+- [magic_enum](https://github.com/Neargye/magic_enum)
 - [OpenALSoft](https://github.com/kcat/openal-soft)
 - [SDL2](https://github.com/libsdl-org/SDL) (including [SDL2_image](https://github.com/libsdl-org/SDL_image) and [SDL2_ttf](https://github.com/libsdl-org/SDL_ttf))
 - [libsndfile](https://github.com/libsndfile/libsndfile)

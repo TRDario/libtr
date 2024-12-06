@@ -3,6 +3,7 @@ if(POLICY CMP0167)
   cmake_policy(SET CMP0167 NEW)
 endif()
 
+include(FetchContent)
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
@@ -16,8 +17,23 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     target_compile_options(tr PRIVATE -march=x86-64-v2)
 endif()
 
+FetchContent_Declare(enum_bitmask GIT_REPOSITORY https://github.com/Reputeless/EnumBitmask.git GIT_TAG v1.0 FIND_PACKAGE_ARGS NAMES enum_bitmask)
+FetchContent_MakeAvailable(enum_bitmask)
+target_link_libraries(tr PUBLIC enum_bitmask)
+target_include_directories(tr PRIVATE ${enum_bitmask_SOURCE_DIR})
+
+FetchContent_Declare(half URL https://sourceforge.net/projects/half/files/half/2.2.0/half-2.2.0.zip FIND_PACKAGE_ARGS NAMES half DOWNLOAD_EXTRACT_TIMESTAMP TRUE)
+FetchContent_MakeAvailable(half)
+target_link_libraries(tr PUBLIC half)
+target_include_directories(tr PRIVATE ${half_SOURCE_DIR}/include)
+
+set(MAGIC_ENUM_OPT_INSTALL ON)
+FetchContent_Declare(magic_enum GIT_REPOSITORY https://github.com/Neargye/magic_enum.git GIT_TAG v0.9.7 FIND_PACKAGE_ARGS NAMES magic_enum)
+FetchContent_MakeAvailable(magic_enum)
+target_link_libraries(tr PUBLIC magic_enum)
+
 target_sources(tr PRIVATE
-    src/audio_buffer.cpp src/audio_context.cpp src/audio_source.cpp
+    src/audio_buffer.cpp src/audio_source.cpp src/audio_system.cpp
     src/benchmark.cpp src/bitmap_format.cpp src/bitmap.cpp src/display.cpp src/event.cpp src/framebuffer.cpp
     src/gl_buffer.cpp src/gl_context.cpp src/index_buffer.cpp src/iostream.cpp src/keyboard.cpp src/listener.cpp
     src/mouse.cpp src/path.cpp src/renderbuffer.cpp src/sampler.cpp src/sdl.cpp src/shader_buffer.cpp src/shader_pipeline.cpp
@@ -28,8 +44,7 @@ target_sources(tr PUBLIC
     FILE_SET HEADERS
     BASE_DIRS include
     FILES
-        include/tr/dependencies/half.hpp include/tr/dependencies/EnumBitmask.hpp include/tr/dependencies/magic_enum.hpp
-        include/tr/angle.hpp include/tr/audio_buffer.hpp include/tr/audio_context.hpp include/tr/audio_source.hpp
+        include/tr/angle.hpp include/tr/audio_buffer.hpp include/tr/audio_source.hpp include/tr/audio_system.hpp
         include/tr/benchmark.hpp include/tr/bitmap_format.hpp include/tr/bitmap.hpp include/tr/chrono.hpp
         include/tr/color_cast.hpp include/tr/color.hpp include/tr/concepts.hpp include/tr/display.hpp
         include/tr/draw_geometry.hpp include/tr/event.hpp include/tr/framebuffer.hpp include/tr/geometry.hpp
