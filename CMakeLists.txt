@@ -20,7 +20,7 @@ endif()
 set(MAGIC_ENUM_OPT_INSTALL ON)
 FetchContent_Declare(magic_enum GIT_REPOSITORY https://github.com/Neargye/magic_enum.git GIT_TAG v0.9.7 FIND_PACKAGE_ARGS NAMES magic_enum)
 FetchContent_MakeAvailable(magic_enum)
-target_link_libraries(tr PUBLIC magic_enum)
+target_link_libraries(tr PUBLIC magic_enum::magic_enum)
 
 target_sources(tr PRIVATE
     src/audio_buffer.cpp src/audio_source.cpp src/audio_system.cpp
