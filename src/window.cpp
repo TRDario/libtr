@@ -116,14 +116,20 @@ SDL_Window* tr::openFullscreenWindow(const char* title, const DisplayMode& dmode
 
 tr::Window::Window(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFlag flags,
 				   const GLContextProperties& glProperties)
-	: _sdl{initSDL(glProperties)}, _impl{openWindowedWindow(title, size, pos, flags)}, _glContext{_impl.get()}
+	: _sdl{initSDL(glProperties)}
+	, _impl{openWindowedWindow(title, size, pos, flags)}
+	, _glContext{_impl.get()}
+	, _backbuffer{*this}
 {
 	assert(!windowOpened());
 	_window = this;
 }
 
 tr::Window::Window(const char* title, DisplayInfo display, WindowFlag flags, const GLContextProperties& glProperties)
-	: _sdl{initSDL(glProperties)}, _impl{openBorderlessWindow(title, display, flags)}, _glContext{_impl.get()}
+	: _sdl{initSDL(glProperties)}
+	, _impl{openBorderlessWindow(title, display, flags)}
+	, _glContext{_impl.get()}
+	, _backbuffer{*this}
 {
 	assert(!windowOpened());
 	_window = this;
@@ -131,7 +137,10 @@ tr::Window::Window(const char* title, DisplayInfo display, WindowFlag flags, con
 
 tr::Window::Window(const char* title, const DisplayMode& dmode, DisplayInfo display, WindowFlag flags,
 				   const GLContextProperties& glProperties)
-	: _sdl{initSDL(glProperties)}, _impl{openFullscreenWindow(title, dmode, display, flags)}, _glContext{_impl.get()}
+	: _sdl{initSDL(glProperties)}
+	, _impl{openFullscreenWindow(title, dmode, display, flags)}
+	, _glContext{_impl.get()}
+	, _backbuffer{*this}
 {
 	assert(!windowOpened());
 	_window = this;
