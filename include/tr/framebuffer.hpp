@@ -301,7 +301,7 @@ namespace tr {
 		virtual glm::ivec2 size() const noexcept;
 
 	  private:
-		Backbuffer() noexcept;
+		Backbuffer(Window& window) noexcept;
 
 		friend class Window;
 	};

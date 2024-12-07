@@ -219,8 +219,8 @@ void tr::Framebuffer::clampViewport() noexcept
 	}
 }
 
-tr::Backbuffer::Backbuffer() noexcept
-	: BasicFramebuffer{0, {{}, window().size()}, {0.0, 1.0}}
+tr::Backbuffer::Backbuffer(Window& window) noexcept
+	: BasicFramebuffer{0, {{}, window.size()}, {0.0, 1.0}}
 {
 }
 
