@@ -177,6 +177,11 @@ tr::Ticker::Ticker(std::int32_t id, MillisecondsD interval, std::uint32_t ticks,
 	}
 }
 
+tr::Ticker::~Ticker() noexcept
+{
+	SDL_RemoveTimer(_id);
+}
+
 void tr::Ticker::resetInterval(MillisecondsD interval) noexcept
 {
 	_interval = interval;
@@ -199,10 +204,10 @@ std::uint32_t tr::Ticker::callback(std::uint32_t interval, void* ptr) noexcept
 		self._accumulatedTimerError += self._interval.load() - std::chrono::milliseconds{interval};
 		if (self._accumulatedTimerError >= 1ms) {
 			self._accumulatedTimerError -= 1ms;
-			return std::ceil(self._accumulatedTimerError.count());
+			return interval + std::ceil(self._accumulatedTimerError.count());
 		}
 		else {
-			return std::floor(self._accumulatedTimerError.count());
+			return interval + std::floor(self._accumulatedTimerError.count());
 		}
 	}
 }

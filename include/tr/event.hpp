@@ -349,6 +349,8 @@ namespace tr {
 		 **************************************************************************************************************/
 		Ticker(std::int32_t id, MillisecondsD interval, std::uint32_t nticks);
 
+		~Ticker() noexcept;
+
 		/// @private
 		explicit Ticker(std::int32_t id, MillisecondsD interval, std::uint32_t nticks, bool sendDrawEvents);
 
