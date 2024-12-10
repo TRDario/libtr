@@ -13,6 +13,14 @@ tr::AudioBufferView::AudioBufferView(ALuint id) noexcept
 {
 }
 
+tr::SecondsF tr::AudioBufferView::length() const noexcept
+{
+	ALint sampleRate, size;
+	alGetBufferi(_id, AL_FREQUENCY, &sampleRate);
+	alGetBufferi(_id, AL_SIZE, &size);
+	return sampleRate == 0 ? tr::SecondsF::zero() : tr::SecondsF{double(size) / double(sampleRate)};
+}
+
 void tr::AudioBufferView::set(std::span<const std::byte> data, AudioFormat format, int frequency)
 {
 	alBufferData(_id, ALenum(format), data.data(), data.size(), frequency);
@@ -80,6 +88,11 @@ const char* tr::UnsupportedAudioFile::what() const noexcept
 tr::AudioBuffer::operator AudioBufferView() const noexcept
 {
 	return _id.get();
+}
+
+tr::SecondsF tr::AudioBuffer::length() const noexcept
+{
+	return AudioBufferView(*this).length();
 }
 
 void tr::AudioBuffer::set(std::span<const std::byte> data, AudioFormat format, int frequency)

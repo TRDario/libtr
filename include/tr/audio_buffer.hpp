@@ -1,4 +1,5 @@
 #pragma once
+#include "chrono.hpp"
 #include "handle.hpp"
 #include "iostream.hpp"
 #include <span>
@@ -67,6 +68,13 @@ namespace tr {
 		friend bool operator==(const AudioBufferView&, const AudioBufferView&) noexcept = default;
 
 		/**************************************************************************************************************
+		 * Gets the length of the buffer.
+		 *
+		 * @return The length of the buffer in seconds.
+		 **************************************************************************************************************/
+		tr::SecondsF length() const noexcept;
+
+		/**************************************************************************************************************
 		 * Sets the data of the buffer.
 		 *
 		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
@@ -133,6 +141,13 @@ namespace tr {
 		 * Casts the audio buffer to an audio buffer view.
 		 **************************************************************************************************************/
 		operator AudioBufferView() const noexcept;
+
+		/**************************************************************************************************************
+		 * Gets the length of the buffer.
+		 *
+		 * @return The length of the buffer in seconds.
+		 **************************************************************************************************************/
+		tr::SecondsF length() const noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the data of the buffer.
