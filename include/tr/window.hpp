@@ -165,11 +165,6 @@ namespace tr {
 			   WindowFlag flags = WindowFlag::DEFAULT, const GLContextProperties& glProperties = {});
 
 		/**************************************************************************************************************
-		 * Closes the window.
-		 **************************************************************************************************************/
-		~Window() noexcept;
-
-		/**************************************************************************************************************
 		 * Gets the title of the window.
 		 *
 		 * @return A C-string containing the title of the window.

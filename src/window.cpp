@@ -146,11 +146,6 @@ tr::Window::Window(const char* title, const DisplayMode& dmode, DisplayInfo disp
 	_window = this;
 }
 
-tr::Window::~Window() noexcept
-{
-	_window = nullptr;
-}
-
 void tr::Window::SDLDeleter::operator()(bool) const noexcept
 {
 	if (TTF_WasInit()) {
@@ -167,6 +162,7 @@ void tr::Window::SDLDeleter::operator()(bool) const noexcept
 void tr::Window::WindowDeleter::operator()(SDL_Window* ptr) const noexcept
 {
 	SDL_DestroyWindow(ptr);
+	_window = nullptr; // Must be placed this late to make sure some other components get destroyed.
 }
 
 const char* tr::Window::title() const noexcept
