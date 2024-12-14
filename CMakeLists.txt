@@ -57,7 +57,6 @@ target_sources(tr PUBLIC
         include/tr/window.hpp
 )
 
-option(TR_ENABLE_INSTALL "whether to enable the install rule" ON)
 if(TR_ENABLE_INSTALL)
     include(GNUInstallDirs)
     include(CMakePackageConfigHelpers)
