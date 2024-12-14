@@ -10,7 +10,7 @@ var searchData=
   ['backspace_7',['BACKSPACE',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204da6f5d8e41084b4d3d47fa621c459eede1',1,'tr::Scancode::BACKSPACE'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a6f5d8e41084b4d3d47fa621c459eede1',1,'tr::Keycode::BACKSPACE']]],
   ['basicframebuffer_8',['BasicFramebuffer',['../classtr_1_1BasicFramebuffer.html',1,'tr::BasicFramebuffer'],['../classtr_1_1BasicFramebuffer.html#a33cfacdf48f8a37b10e86b37ac525e63',1,'tr::BasicFramebuffer::BasicFramebuffer()']]],
   ['begin_9',['begin',['../classtr_1_1SubBitmap.html#a5fb76832f6bba9631e5f6158fdc8adce',1,'tr::SubBitmap::begin()'],['../classtr_1_1BitmapView.html#a9522a32cd88794dce997d9ff873b36f8',1,'tr::BitmapView::begin()'],['../classtr_1_1Bitmap.html#a3402c18edf559bfe08ded3e808cfdb7d',1,'tr::Bitmap::begin() noexcept'],['../classtr_1_1Bitmap.html#ad474f5477c28894c3b09d8503bc4f020',1,'tr::Bitmap::begin() const noexcept']]],
-  ['benchmark_10',['Benchmark',['../classtr_1_1Benchmark.html',1,'tr::Benchmark'],['../classtr_1_1Benchmark.html#ae3ae0211b9084db4463cd71db808ea01',1,'tr::Benchmark::Benchmark()']]],
+  ['benchmark_10',['Benchmark',['../classtr_1_1Benchmark.html',1,'tr::Benchmark'],['../classtr_1_1Benchmark.html#a6311f5cc1a340fae160745694f02e946',1,'tr::Benchmark::Benchmark()']]],
   ['bgr_11',['BGR',['../structtr_1_1BGR.html',1,'tr']]],
   ['bgr_5f24_12',['BGR_24',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464a5addd177a41ebadab5733e4ecbc7b45b',1,'tr::BitmapFormat']]],
   ['bgr_5f565_13',['BGR_565',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464a96cd784cc8c5026fd7441f450d3df1f2',1,'tr::BitmapFormat']]],
