@@ -7,8 +7,6 @@
 
 using namespace std::chrono_literals;
 
-tr::Benchmark::Benchmark() noexcept {}
-
 void tr::Benchmark::start() noexcept
 {
 	assert(_startPoint == TimePoint{});
