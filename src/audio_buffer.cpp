@@ -40,11 +40,13 @@ tr::AudioBuffer::AudioBuffer()
 }
 
 tr::AudioBuffer::AudioBuffer(std::span<const std::byte> data, AudioFormat format, int frequency)
+	: AudioBuffer{}
 {
 	set(data, format, frequency);
 }
 
 tr::AudioBuffer::AudioBuffer(const std::filesystem::path& path)
+	: AudioBuffer{}
 {
 	if (!is_regular_file(path)) {
 		throw FileNotFound{path};

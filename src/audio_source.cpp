@@ -14,6 +14,7 @@ tr::AudioSource::AudioSource()
 }
 
 tr::AudioSource::AudioSource(AudioBufferView buffer)
+	: AudioSource{}
 {
 	setBuffer(buffer);
 }
