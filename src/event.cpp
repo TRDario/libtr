@@ -201,13 +201,14 @@ std::uint32_t tr::Ticker::callback(std::uint32_t interval, void* ptr) noexcept
 		return 0;
 	}
 	else {
-		self._accumulatedTimerError += self._interval.load() - std::chrono::milliseconds{interval};
+		const auto accurateInterval{self._interval.load()};
+		self._accumulatedTimerError += accurateInterval - std::chrono::milliseconds{interval};
 		if (self._accumulatedTimerError >= 1ms) {
 			self._accumulatedTimerError -= 1ms;
-			return interval + std::ceil(self._accumulatedTimerError.count());
+			return std::floor(accurateInterval.count());
 		}
 		else {
-			return interval + std::floor(self._accumulatedTimerError.count());
+			return std::ceil(accurateInterval.count());
 		}
 	}
 }
