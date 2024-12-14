@@ -399,8 +399,6 @@ FodyWeavers.xsd
 
 # Build directory
 build/*
-!build/tr-config.cmake
-!build/tr.pc.in
 
 # doxygen files except Doxyfile
 doxygen/*

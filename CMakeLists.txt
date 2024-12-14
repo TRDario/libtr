@@ -4,24 +4,31 @@ if(POLICY CMP0167)
 endif()
 
 project(tr LANGUAGES C CXX VERSION 0.1.0)
-add_library(tr STATIC)
+
+option(TR_ENABLE_INSTALL "whether to enable the install rule" ON)
 
 include(FetchContent)
-include(GNUInstallDirs)
-include(CMakePackageConfigHelpers)
 
+find_package(OpenAL REQUIRED)
+find_package(Boost REQUIRED)
+find_package(glm REQUIRED)
+find_package(OpenGL REQUIRED)
+find_package(GLEW REQUIRED)
+find_package(magic_enum REQUIRED)
+find_package(OpenAL REQUIRED)
+find_package(SDL2 REQUIRED)
+find_package(SDL2_image REQUIRED)
+find_package(SDL2_ttf REQUIRED)
+find_package(SndFile REQUIRED)
+
+add_library(tr STATIC)
 target_compile_features(tr PRIVATE cxx_std_20)
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     target_compile_options(tr PRIVATE -Wall -Wpedantic)
     target_compile_options(tr PRIVATE -fno-trapping-math -fno-math-errno -fno-signed-zeros -fassociative-math -ffp-contract=fast)
     target_compile_options(tr PRIVATE -march=x86-64-v2)
 endif()
-
-set(MAGIC_ENUM_OPT_INSTALL ON)
-FetchContent_Declare(magic_enum GIT_REPOSITORY https://github.com/Neargye/magic_enum.git GIT_TAG v0.9.7 FIND_PACKAGE_ARGS NAMES magic_enum)
-FetchContent_MakeAvailable(magic_enum)
-target_link_libraries(tr PUBLIC magic_enum)
-
+target_link_libraries(tr PUBLIC SDL2_image SDL2_ttf SDL2 GLEW OpenGL openal sndfile)
 
 target_sources(tr PRIVATE
     src/audio_buffer.cpp src/audio_source.cpp src/audio_system.cpp
@@ -50,9 +57,38 @@ target_sources(tr PUBLIC
         include/tr/window.hpp
 )
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/build/tr.pc.in ${CMAKE_CURRENT_BINARY_DIR}/tr.pc @ONLY)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/tr.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
-write_basic_package_version_file(${CMAKE_CURRENT_BINARY_DIR}/tr-config-version.cmake COMPATIBILITY AnyNewerVersion)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/tr-config-version.cmake ${CMAKE_CURRENT_SOURCE_DIR}/build/tr-config.cmake DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/tr)
-install(TARGETS tr EXPORT trTargets FILE_SET HEADERS)
-install(EXPORT trTargets NAMESPACE tr:: DESTINATION ${CMAKE_INSTALL_DATADIR}/tr)
+option(TR_ENABLE_INSTALL "whether to enable the install rule" ON)
+if(TR_ENABLE_INSTALL)
+    include(GNUInstallDirs)
+    include(CMakePackageConfigHelpers)
+
+    install(TARGETS tr
+        EXPORT trTargets
+        FILE_SET HEADERS
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
+    install(
+        EXPORT trTargets
+        NAMESPACE tr::
+        DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/tr"
+    )
+
+    configure_package_config_file(
+        cmake/trConfig.cmake.in
+        "${PROJECT_BINARY_DIR}/trConfig.cmake"
+        INSTALL_DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/tr"
+    )
+    install(
+        FILES "${PROJECT_BINARY_DIR}/trConfig.cmake"
+        DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/tr"
+    )
+
+    write_basic_package_version_file(
+        "${PROJECT_BINARY_DIR}/trConfigVersion.cmake"
+        COMPATIBILITY SameMinorVersion)
+    install(
+        FILES "${PROJECT_BINARY_DIR}/trConfigVersion.cmake"
+        DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/tr"
+    )
+endif()
