@@ -45,7 +45,7 @@ float tr::AudioSource::gain() const noexcept
 
 void tr::AudioSource::setGain(float gain) noexcept
 {
-	alSourcef(_id.get(), AL_GAIN, std::min(gain, 0.0f));
+	alSourcef(_id.get(), AL_GAIN, std::max(gain, 0.0f));
 }
 
 float tr::AudioSource::maxDistance() const noexcept
@@ -57,7 +57,7 @@ float tr::AudioSource::maxDistance() const noexcept
 
 void tr::AudioSource::setMaxDistance(float maxDistance) noexcept
 {
-	alSourcef(_id.get(), AL_MAX_DISTANCE, std::min(maxDistance, 0.0f));
+	alSourcef(_id.get(), AL_MAX_DISTANCE, std::max(maxDistance, 0.0f));
 }
 
 float tr::AudioSource::rolloff() const noexcept
@@ -69,7 +69,7 @@ float tr::AudioSource::rolloff() const noexcept
 
 void tr::AudioSource::setRolloff(float rolloff) noexcept
 {
-	alSourcef(_id.get(), AL_ROLLOFF_FACTOR, std::min(rolloff, 0.0f));
+	alSourcef(_id.get(), AL_ROLLOFF_FACTOR, std::max(rolloff, 0.0f));
 }
 
 float tr::AudioSource::referenceDistance() const noexcept
@@ -81,7 +81,7 @@ float tr::AudioSource::referenceDistance() const noexcept
 
 void tr::AudioSource::setReferenceDistance(float referenceDistance) noexcept
 {
-	alSourcef(_id.get(), AL_REFERENCE_DISTANCE, std::min(referenceDistance, 0.0f));
+	alSourcef(_id.get(), AL_REFERENCE_DISTANCE, std::max(referenceDistance, 0.0f));
 }
 
 float tr::AudioSource::minGain() const noexcept
