@@ -21,7 +21,7 @@ ALCdevice* tr::openALCDeviceChecked()
 ALCcontext* tr::createALCContextChecked(ALCdevice* device)
 {
 	auto ptr{alcCreateContext(device, nullptr)};
-	if (ptr == nullptr) {
+	if (ptr == nullptr || !alcMakeContextCurrent(ptr)) {
 		throw AudioSystemInitializationError{std::format("Failed to create audio context ({})", alcGetError(device))};
 	}
 	return ptr;
