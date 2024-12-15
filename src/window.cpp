@@ -483,6 +483,21 @@ const tr::Backbuffer& tr::Window::backbuffer() const noexcept
 	return _backbuffer;
 }
 
+const tr::Keyboard& tr::Window::keyboard() const noexcept
+{
+	return _keyboard;
+}
+
+tr::Mouse& tr::Window::mouse() noexcept
+{
+	return _mouse;
+}
+
+const tr::Mouse& tr::Window::mouse() const noexcept
+{
+	return _mouse;
+}
+
 bool tr::windowOpened() noexcept
 {
 	return _window != nullptr;
