@@ -50,7 +50,7 @@ std::size_t tr::IndexBuffer::size() const noexcept
 
 std::size_t tr::IndexBuffer::capacity() const noexcept
 {
-	return _buffer.has_value() ? _buffer->size() : 0;
+	return _buffer.has_value() ? _buffer->size() / sizeof(std::uint16_t) : 0;
 }
 
 void tr::IndexBuffer::clear() noexcept
