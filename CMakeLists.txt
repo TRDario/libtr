@@ -29,6 +29,7 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     target_compile_options(tr PRIVATE -march=x86-64-v2)
 endif()
 target_link_libraries(tr PUBLIC SDL2_image SDL2_ttf SDL2 GLEW OpenGL openal sndfile)
+set_target_properties(tr PROPERTIES DEBUG_POSTFIX "d")
 
 target_sources(tr PRIVATE
     src/audio_buffer.cpp src/audio_source.cpp src/audio_system.cpp
