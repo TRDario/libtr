@@ -34,9 +34,11 @@ namespace tr {
 	 * @param[out] out The output iterator. There has to be space for `(vertices - 2) * 3` indices.
 	 * @param[in] vertices The number of vertices in the polygon. Must be greater than 2.
 	 * @param[in] base The "base" index offset added to every index value.
+	 *
+	 * @return An iterator to the end of the outputted sequence.
 	 ******************************************************************************************************************/
 	template <std::output_iterator<std::uint16_t> It>
-	constexpr void fillPolygonIndices(It out, std::uint16_t vertices, std::uint16_t base);
+	constexpr It fillPolygonIndices(It out, std::uint16_t vertices, std::uint16_t base);
 
 	/******************************************************************************************************************
 	 * Outputs indices for a convex polygon outline.
@@ -46,9 +48,11 @@ namespace tr {
 	 * @param[out] out The output iterator. There has to be space for `(vertices - 2) * 6` indices.
 	 * @param[in] vertices The number of vertices in the polygon. Must be greater than 2.
 	 * @param[in] base The "base" index offset added to every index value.
+	 *
+	 * @return An iterator to the end of the outputted sequence.
 	 ******************************************************************************************************************/
 	template <std::output_iterator<std::uint16_t> It>
-	constexpr void fillPolygonOutlineIndices(It out, std::uint16_t vertices, std::uint16_t base);
+	constexpr It fillPolygonOutlineIndices(It out, std::uint16_t vertices, std::uint16_t base);
 
 	/******************************************************************************************************************
 	 * Outputs unrotated rectangle vertices.
@@ -57,9 +61,58 @@ namespace tr {
 	 *
 	 * @param[out] out The output iterator. There has to be space for 4 vertices.
 	 * @param[in] tl The position of the top-left corner of the rectangle.
-	 * @param[in] size The size of the rectangle
+	 * @param[in] size The size of the rectangle.
+	 *
+	 * @return An iterator to the end of the outputted sequence.
 	 ******************************************************************************************************************/
-	template <std::output_iterator<glm::vec2> It> constexpr void fillRectVertices(It out, glm::vec2 tl, glm::vec2 size);
+	template <std::output_iterator<glm::vec2> It> constexpr It fillRectVertices(It out, glm::vec2 tl, glm::vec2 size);
+
+	/******************************************************************************************************************
+	 * Outputs rectangle vertices.
+	 *
+	 * @tparam It A position vector output iterator type.
+	 *
+	 * @param[out] out The output iterator. There has to be space for 4 vertices.
+	 * @param[in] tl The position of the top-left corner of the rectangle.
+	 * @param[in] size The size of the rectangle.
+	 * @param[in] transform A transformation matrix to apply to the vertices.
+	 *
+	 * @return An iterator to the end of the outputted sequence.
+	 ******************************************************************************************************************/
+	template <std::output_iterator<glm::vec2> It>
+	constexpr It fillRectVertices(It out, glm::vec2 tl, glm::vec2 size, const glm::mat4& transform);
+
+	/******************************************************************************************************************
+	 * Outputs unrotated rectangle outline vertices.
+	 *
+	 * @tparam It A position vector output iterator type.
+	 *
+	 * @param[out] out The output iterator. There has to be space for 8 vertices.
+	 * @param[in] tl The position of the top-left corner of the rectangle.
+	 * @param[in] size The size of the rectangle.
+	 * @param[in] thickness The thickness of the outline.
+	 *
+	 * @return An iterator to the end of the outputted sequence.
+	 ******************************************************************************************************************/
+	template <std::output_iterator<glm::vec2> It>
+	constexpr It fillRectOutlineVertices(It out, glm::vec2 tl, glm::vec2 size, float thickness);
+
+	/******************************************************************************************************************
+	 * Outputs rectangle outline vertices.
+	 *
+	 * @tparam It A position vector output iterator type.
+	 *
+	 * @param[out] out The output iterator. There has to be space for 8 vertices.
+	 * @param[in] tl The position of the top-left corner of the rectangle.
+	 * @param[in] size The size of the rectangle.
+	 * @param[in] thickness The thickness of the outline.
+	 * @param[in] transform A transformation matrix to apply to the vertices.
+	 *
+	 * @return An iterator to the end of the outputted sequence.
+	 ******************************************************************************************************************/
+	template <std::output_iterator<glm::vec2> It>
+	constexpr It fillRectOutlineVertices(It out, glm::vec2 tl, glm::vec2 size, float thickness,
+										 const glm::mat4& transform);
 
 	/******************************************************************************************************************
 	 * Outputs vertex positions along an arc.
@@ -71,9 +124,11 @@ namespace tr {
 	 * @param[in] circ The arc circle.
 	 * @param[in] startth The starting angle on the arc circle of the arc.
 	 * @param[in] sizeth The angular size of the arc.
+	 *
+	 * @return An iterator to the end of the outputted sequence.
 	 ******************************************************************************************************************/
 	template <std::output_iterator<glm::vec2> It>
-	void fillArcVertices(It out, std::size_t vertices, CircleF circ, AngleF startth, AngleF sizeth);
+	It fillArcVertices(It out, std::size_t vertices, CircleF circ, AngleF startth, AngleF sizeth);
 
 	/******************************************************************************************************************
 	 * Outputs vertex positions for a regular polygon.
@@ -84,9 +139,11 @@ namespace tr {
 	 * @param[in] vertices The number of polygon vertices.
 	 * @param[in] circ The tangent circle of the polygon.
 	 * @param[in] rotation The rotation of the polygon.
+	 *
+	 * @return An iterator to the end of the outputted sequence.
 	 ******************************************************************************************************************/
 	template <std::output_iterator<glm::vec2> It>
-	void fillPolygonVertices(It out, std::size_t vertices, CircleF circ, AngleF rotation = 0_degf);
+	It fillPolygonVertices(It out, std::size_t vertices, CircleF circ, AngleF rotation = 0_degf);
 
 	/******************************************************************************************************************
 	 * Outputs vertex positions for a regular polygon's outline.
@@ -98,9 +155,11 @@ namespace tr {
 	 * @param[in] circ The tangent circle of the polygon.
 	 * @param[in] rotation The rotation of the polygon.
 	 * @param[in] thickness The thickness of the polygon.
+	 *
+	 * @return An iterator to the end of the outputted sequence.
 	 ******************************************************************************************************************/
 	template <std::output_iterator<glm::vec2> It>
-	void fillPolygonOutlineVertices(It out, std::size_t vertices, CircleF circ, AngleF rotation, float thickness);
+	It fillPolygonOutlineVertices(It out, std::size_t vertices, CircleF circ, AngleF rotation, float thickness);
 
 	/// @}
 } // namespace tr
