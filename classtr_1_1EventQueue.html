@@ -102,6 +102,10 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ac58b12a9c2bc3e03ccab05572d52e12d" id="r_ac58b12a9c2bc3e03ccab05572d52e12d"><td class="memTemplParams" colspan="2">template&lt;std::invocable&lt; <a class="el" href="classtr_1_1Event.html">Event</a> &gt; Fn&gt; </td></tr>
+<tr class="memitem:ac58b12a9c2bc3e03ccab05572d52e12d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac58b12a9c2bc3e03ccab05572d52e12d">handle</a> (const Fn &amp;fn) noexcept(noexcept(std::declval&lt; Fn &gt;()(std::declval&lt; <a class="el" href="classtr_1_1Event.html">Event</a> &gt;())))</td></tr>
+<tr class="memdesc:ac58b12a9c2bc3e03ccab05572d52e12d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles all available events in a loop.  <br /></td></tr>
+<tr class="separator:ac58b12a9c2bc3e03ccab05572d52e12d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43f2dc1d0a3a7e3dc55bc8fb9889b626" id="r_a43f2dc1d0a3a7e3dc55bc8fb9889b626"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="classtr_1_1Event.html">Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43f2dc1d0a3a7e3dc55bc8fb9889b626">poll</a> () noexcept</td></tr>
 <tr class="memdesc:a43f2dc1d0a3a7e3dc55bc8fb9889b626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polls for an event, returning it from the event queue if it exists.  <br /></td></tr>
 <tr class="separator:a43f2dc1d0a3a7e3dc55bc8fb9889b626"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,6 +129,47 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Global event queue. </p>
 <p>This type cannot be directly instantiated. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac58b12a9c2bc3e03ccab05572d52e12d" name="ac58b12a9c2bc3e03ccab05572d52e12d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac58b12a9c2bc3e03ccab05572d52e12d">&#9670;&#160;</a></span>handle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::invocable&lt; <a class="el" href="classtr_1_1Event.html">Event</a> &gt; Fn&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tr::EventQueue::handle </td>
+          <td>(</td>
+          <td class="paramtype">const Fn &amp;</td>          <td class="paramname"><span class="paramname"><em>fn</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handles all available events in a loop. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Fn</td><td>A type invocable with an <a class="el" href="classtr_1_1Event.html" title="Unified event type.">Event</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">fn</td><td>The event handler to call. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a43f2dc1d0a3a7e3dc55bc8fb9889b626" name="a43f2dc1d0a3a7e3dc55bc8fb9889b626"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a43f2dc1d0a3a7e3dc55bc8fb9889b626">&#9670;&#160;</a></span>poll()</h2>
 

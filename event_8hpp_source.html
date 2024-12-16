@@ -450,33 +450,47 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00560" name="l00560"></a><span class="lineno"><a class="line" href="classtr_1_1EventQueue.html#a08e6f6e19b8342532f06d50a7c9f171b">  560</a></span>        std::optional&lt;<a class="code hl_class" href="classtr_1_1Event.html">Event</a>&gt; wait(std::chrono::milliseconds timeout) noexcept;</div>
 <div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span> </div>
 <div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span> </div>
-<div class="line"><a id="l00569" name="l00569"></a><span class="lineno"><a class="line" href="classtr_1_1EventQueue.html#ae02776d13cd5266a903368dfcbdbc398">  569</a></span>        <span class="keywordtype">void</span> sendDrawEvents(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> frequency);</div>
-<div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span> </div>
-<div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span> </div>
-<div class="line"><a id="l00576" name="l00576"></a><span class="lineno"><a class="line" href="classtr_1_1EventQueue.html#af050af9fbae1de71da2e5fa14ef5e22d">  576</a></span>        <span class="keywordtype">void</span> sendTextInputEvents(<span class="keywordtype">bool</span> arg) noexcept;</div>
-<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span> </div>
-<div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span> </div>
-<div class="line"><a id="l00585" name="l00585"></a><span class="lineno"><a class="line" href="classtr_1_1EventQueue.html#a4f139be8c3a88dab3f7b63cef1ec6ef9">  585</a></span>        <span class="keywordtype">void</span> push(const <a class="code hl_class" href="classtr_1_1Event.html">Event</a>&amp; event);</div>
-<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span> </div>
-<div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span>      private:</div>
-<div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span>        std::optional&lt;<a class="code hl_class" href="classtr_1_1Ticker.html">Ticker</a>&gt; _drawTicker;</div>
-<div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span> </div>
-<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span>        <a class="code hl_class" href="classtr_1_1EventQueue.html">EventQueue</a>() noexcept = default;</div>
-<div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span> </div>
-<div class="line"><a id="l00592" name="l00592"></a><span class="lineno"><a class="line" href="classtr_1_1EventQueue.html#a553f958a25683445088050a69d3de8e9">  592</a></span>        friend class <a class="code hl_class" href="classtr_1_1Window.html">Window</a>;</div>
-<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span>    };</div>
+<div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span>        template &lt;std::invocable&lt;<a class="code hl_class" href="classtr_1_1Event.html">Event</a>&gt; Fn&gt;</div>
+<div class="foldopen" id="foldopen00570" data-start="{" data-end="}">
+<div class="line"><a id="l00570" name="l00570"></a><span class="lineno"><a class="line" href="classtr_1_1EventQueue.html#ac58b12a9c2bc3e03ccab05572d52e12d">  570</a></span>        <span class="keywordtype">void</span> handle(const Fn&amp; fn) noexcept(noexcept(std::declval&lt;Fn&gt;()(std::declval&lt;<a class="code hl_class" href="classtr_1_1Event.html">Event</a>&gt;())))</div>
+<div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span>        {</div>
+<div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span>            <span class="keywordflow">for</span> (std::optional&lt;Event&gt; event = wait(); <span class="keyword">event</span>.has_value(); <span class="keyword">event</span> = poll()) {</div>
+<div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span>                fn(*event);</div>
+<div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span>            }</div>
+<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span>        }</div>
 </div>
-<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span> </div>
-<div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span>} <span class="comment">// namespace tr</span></div>
-<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span> </div>
-<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span> </div>
-<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span>template &lt;std::constructible_from&lt;<a class="code hl_namespace" href="namespacetr.html">tr</a>::<a class="code hl_struct" href="structtr_1_1CustomEventBase.html">CustomEventBase</a>&gt; T&gt; <a class="code hl_namespace" href="namespacetr.html">tr</a>::<a class="code hl_class" href="classtr_1_1Event.html">Event</a>::operator T() const noexcept</div>
-<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span>{</div>
-<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>    <span class="keywordflow">return</span> T(getCustomEventBase());</div>
-<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>}</div>
+<div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span> </div>
+<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span> </div>
+<div class="line"><a id="l00584" name="l00584"></a><span class="lineno"><a class="line" href="classtr_1_1EventQueue.html#ae02776d13cd5266a903368dfcbdbc398">  584</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1EventQueue.html#ae02776d13cd5266a903368dfcbdbc398">sendDrawEvents</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> frequency);</div>
+<div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span> </div>
+<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span> </div>
+<div class="line"><a id="l00591" name="l00591"></a><span class="lineno"><a class="line" href="classtr_1_1EventQueue.html#af050af9fbae1de71da2e5fa14ef5e22d">  591</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1EventQueue.html#af050af9fbae1de71da2e5fa14ef5e22d">sendTextInputEvents</a>(<span class="keywordtype">bool</span> arg) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span> </div>
+<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span> </div>
+<div class="line"><a id="l00600" name="l00600"></a><span class="lineno"><a class="line" href="classtr_1_1EventQueue.html#a4f139be8c3a88dab3f7b63cef1ec6ef9">  600</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1EventQueue.html#a4f139be8c3a88dab3f7b63cef1ec6ef9">push</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Event.html">Event</a>&amp; event);</div>
+<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span> </div>
+<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>      <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>        std::optional&lt;Ticker&gt; _drawTicker;</div>
 <div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span> </div>
+<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>        <a class="code hl_class" href="classtr_1_1EventQueue.html">EventQueue</a>() noexcept = default;</div>
+<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span> </div>
+<div class="line"><a id="l00607" name="l00607"></a><span class="lineno"><a class="line" href="classtr_1_1EventQueue.html#a553f958a25683445088050a69d3de8e9">  607</a></span>        friend class <a class="code hl_class" href="classtr_1_1Window.html">Window</a>;</div>
+<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>    };</div>
+</div>
+<div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span> </div>
+<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>} <span class="comment">// namespace tr</span></div>
+<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span> </div>
+<div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span> </div>
+<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>template &lt;std::constructible_from&lt;<a class="code hl_namespace" href="namespacetr.html">tr</a>::<a class="code hl_struct" href="structtr_1_1CustomEventBase.html">CustomEventBase</a>&gt; T&gt; <a class="code hl_namespace" href="namespacetr.html">tr</a>::<a class="code hl_class" href="classtr_1_1Event.html">Event</a>::operator T() const noexcept</div>
+<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span>{</div>
+<div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>    <span class="keywordflow">return</span> T(getCustomEventBase());</div>
+<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>}</div>
+<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span> </div>
 <div class="ttc" id="aclasstr_1_1EventQueue_html"><div class="ttname"><a href="classtr_1_1EventQueue.html">tr::EventQueue</a></div><div class="ttdoc">Global event queue.</div><div class="ttdef"><b>Definition</b> event.hpp:537</div></div>
 <div class="ttc" id="aclasstr_1_1EventQueue_html_a43f2dc1d0a3a7e3dc55bc8fb9889b626"><div class="ttname"><a href="classtr_1_1EventQueue.html#a43f2dc1d0a3a7e3dc55bc8fb9889b626">tr::EventQueue::poll</a></div><div class="ttdeci">std::optional&lt; Event &gt; poll() noexcept</div><div class="ttdoc">Polls for an event, returning it from the event queue if it exists.</div></div>
+<div class="ttc" id="aclasstr_1_1EventQueue_html_a4f139be8c3a88dab3f7b63cef1ec6ef9"><div class="ttname"><a href="classtr_1_1EventQueue.html#a4f139be8c3a88dab3f7b63cef1ec6ef9">tr::EventQueue::push</a></div><div class="ttdeci">void push(const Event &amp;event)</div><div class="ttdoc">Pushes an event to the queue.</div></div>
+<div class="ttc" id="aclasstr_1_1EventQueue_html_ae02776d13cd5266a903368dfcbdbc398"><div class="ttname"><a href="classtr_1_1EventQueue.html#ae02776d13cd5266a903368dfcbdbc398">tr::EventQueue::sendDrawEvents</a></div><div class="ttdeci">void sendDrawEvents(unsigned int frequency)</div><div class="ttdoc">Sets the frequency at which draw events are sent at.</div></div>
+<div class="ttc" id="aclasstr_1_1EventQueue_html_af050af9fbae1de71da2e5fa14ef5e22d"><div class="ttname"><a href="classtr_1_1EventQueue.html#af050af9fbae1de71da2e5fa14ef5e22d">tr::EventQueue::sendTextInputEvents</a></div><div class="ttdeci">void sendTextInputEvents(bool arg) noexcept</div><div class="ttdoc">Sets whether text input events should be sent to the event queue.</div></div>
 <div class="ttc" id="aclasstr_1_1Event_html"><div class="ttname"><a href="classtr_1_1Event.html">tr::Event</a></div><div class="ttdoc">Unified event type.</div><div class="ttdef"><b>Definition</b> event.hpp:422</div></div>
 <div class="ttc" id="aclasstr_1_1Event_html_ae65941cf1b4cc2976294f391877fb3c1"><div class="ttname"><a href="classtr_1_1Event.html#ae65941cf1b4cc2976294f391877fb3c1">tr::Event::type</a></div><div class="ttdeci">std::uint32_t type() const noexcept</div><div class="ttdoc">Gets the type ID of the event.</div></div>
 <div class="ttc" id="aclasstr_1_1Event_html_af08ed776d287a0d411ab1218786dcb8e"><div class="ttname"><a href="classtr_1_1Event.html#af08ed776d287a0d411ab1218786dcb8e">tr::Event::Event</a></div><div class="ttdeci">Event(const CustomEventBase &amp;custom)</div><div class="ttdoc">Constructs an event from a custom event base.</div></div>
