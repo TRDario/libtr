@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>libtr: tr::GLBufferMap Class Reference</title>
+<title>libtr: tr::GraphicsBufferMapBadAlloc Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,47 +85,40 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1GLBufferMap.html">GLBufferMap</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="structtr_1_1GraphicsBufferMapBadAlloc.html">GraphicsBufferMapBadAlloc</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classtr_1_1GLBufferMap-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::GLBufferMap Class Reference<div class="ingroups"><a class="el" href="group__graphics.html">Graphics</a></div></div></div>
+<a href="structtr_1_1GraphicsBufferMapBadAlloc-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">tr::GraphicsBufferMapBadAlloc Struct Reference<div class="ingroups"><a class="el" href="group__graphics.html">Graphics</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>RAII wrapper over an OpenGL buffer map.  
+<p>Error thrown when mapping a graphics buffer fails.  
  <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for tr::GLBufferMap:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for tr::GraphicsBufferMapBadAlloc:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
  <div class="center">
-  <img src="classtr_1_1GLBufferMap.png" usemap="#tr::GLBufferMap_map" alt=""/>
-  <map id="tr::GLBufferMap_map" name="tr::GLBufferMap_map">
-<area href="classtr_1_1IndexBufferMap.html" title="RAII wrapper over an index buffer map." alt="tr::IndexBufferMap" shape="rect" coords="0,56,116,80"/>
-  </map>
-</div></div>
+  <img src="structtr_1_1GraphicsBufferMapBadAlloc.png" alt=""/>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7177e91ac3293bd9e2cfd9ea3ac12da3" id="r_a7177e91ac3293bd9e2cfd9ea3ac12da3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7177e91ac3293bd9e2cfd9ea3ac12da3">operator std::span&lt; std::byte &gt;</a> () const noexcept</td></tr>
-<tr class="memdesc:a7177e91ac3293bd9e2cfd9ea3ac12da3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Casts the map into a regular byte span.  <br /></td></tr>
-<tr class="separator:a7177e91ac3293bd9e2cfd9ea3ac12da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14b96c40d9bbc1459f93f62ca6dc1d67" id="r_a14b96c40d9bbc1459f93f62ca6dc1d67"><td class="memItemLeft" align="right" valign="top">std::span&lt; std::byte &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14b96c40d9bbc1459f93f62ca6dc1d67">span</a> () const noexcept</td></tr>
-<tr class="memdesc:a14b96c40d9bbc1459f93f62ca6dc1d67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Casts the map into a regular byte span.  <br /></td></tr>
-<tr class="separator:a14b96c40d9bbc1459f93f62ca6dc1d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c8b908bd89be070df4c2eeec648858e" id="r_a1c8b908bd89be070df4c2eeec648858e"><td class="memItemLeft" align="right" valign="top">virtual constexpr const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c8b908bd89be070df4c2eeec648858e">what</a> () const noexcept</td></tr>
+<tr class="memdesc:a1c8b908bd89be070df4c2eeec648858e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets an error message.  <br /></td></tr>
+<tr class="separator:a1c8b908bd89be070df4c2eeec648858e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>RAII wrapper over an OpenGL buffer map. </p>
-<p>The buffer is automatically unmapped once the map goes out of scope. </p>
+<div class="textblock"><p>Error thrown when mapping a graphics buffer fails. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7177e91ac3293bd9e2cfd9ea3ac12da3" name="a7177e91ac3293bd9e2cfd9ea3ac12da3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7177e91ac3293bd9e2cfd9ea3ac12da3">&#9670;&#160;</a></span>operator std::span&lt; std::byte &gt;()</h2>
+<a id="a1c8b908bd89be070df4c2eeec648858e" name="a1c8b908bd89be070df4c2eeec648858e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c8b908bd89be070df4c2eeec648858e">&#9670;&#160;</a></span>what()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -134,7 +127,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">tr::GLBufferMap::operator std::span&lt; std::byte &gt; </td>
+          <td class="memname">virtual constexpr const char * tr::GraphicsBufferMapBadAlloc::what </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -142,40 +135,13 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Casts the map into a regular byte span. </p>
-
-</div>
-</div>
-<a id="a14b96c40d9bbc1459f93f62ca6dc1d67" name="a14b96c40d9bbc1459f93f62ca6dc1d67"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14b96c40d9bbc1459f93f62ca6dc1d67">&#9670;&#160;</a></span>span()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::span&lt; std::byte &gt; tr::GLBufferMap::span </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Casts the map into a regular byte span. </p>
-<dl class="section return"><dt>Returns</dt><dd>A span of bytes. Despite not being const-qualified, they may be read-only dpeending on buffer access. </dd></dl>
+<p>Gets an error message. </p>
+<dl class="section return"><dt>Returns</dt><dd>An explanatory error message. </dd></dl>
 
 </div>
 </div>

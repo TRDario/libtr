@@ -6,7 +6,7 @@ var searchData=
   ['abgr_5f4444_3',['ABGR_4444',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464aa3ef3e13aa87648ab355e8ca72ba13ec',1,'tr::BitmapFormat']]],
   ['abgr_5f8888_4',['ABGR_8888',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464a0940fba6eea913c7d46c54daa6a94bcc',1,'tr::BitmapFormat']]],
   ['absolute_5',['ABSOLUTE',['../group__audio.html#ggac94c6d9def358bc33348c409be0a151aa3a0bc063b6db8cae0361657958be836f',1,'tr']]],
-  ['adaptive_6',['ADAPTIVE',['../group__graphics.html#ggac6c470285a932bb2ce74499f1ff07ac5a90cff4f81e21a20801df4abe9cbf0cbe',1,'tr']]],
+  ['adaptive_6',['ADAPTIVE',['../group__input.html#ggac6c470285a932bb2ce74499f1ff07ac5a90cff4f81e21a20801df4abe9cbf0cbe',1,'tr']]],
   ['add_7',['ADD',['../group__graphics.html#ggab02487840c576fc68a93203882127279a9eeb52badb613229884838847294b90d',1,'tr']]],
   ['all_8',['ALL',['../group__graphics.html#ggaeaf2735d38842f598e12fe0e884992eda5fb1f955b45e38e31789286a1790398d',1,'tr']]],
   ['always_9',['ALWAYS',['../group__graphics.html#gga88338da155e2e92486d80fb0650a07d5af3fc827ade4b968e50406496907ef962',1,'tr']]],

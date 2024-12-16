@@ -13,7 +13,7 @@ var searchData=
   ['tr_3a_3adefaultconstructiblehandledeleter_10',['DefaultConstructibleHandleDeleter',['../concepttr_1_1DefaultConstructibleHandleDeleter.html',1,'tr']]],
   ['tr_3a_3aenumerator_11',['Enumerator',['../concepttr_1_1Enumerator.html',1,'tr']]],
   ['tr_3a_3afloatingpoint_12',['FloatingPoint',['../concepttr_1_1FloatingPoint.html',1,'tr']]],
-  ['tr_3a_3aglcopyoutputiterator_13',['GLCopyOutputIterator',['../concepttr_1_1GLCopyOutputIterator.html',1,'tr']]],
+  ['tr_3a_3agraphicsbuffercopyoutputiterator_13',['GraphicsBufferCopyOutputIterator',['../concepttr_1_1GraphicsBufferCopyOutputIterator.html',1,'tr']]],
   ['tr_3a_3ahandledeleter_14',['HandleDeleter',['../concepttr_1_1HandleDeleter.html',1,'tr']]],
   ['tr_3a_3ahandletype_15',['HandleType',['../concepttr_1_1HandleType.html',1,'tr']]],
   ['tr_3a_3anonconstreference_16',['NonConstReference',['../concepttr_1_1NonConstReference.html',1,'tr']]],

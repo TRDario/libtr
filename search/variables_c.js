@@ -8,5 +8,5 @@ var searchData=
   ['mouse_5fup_5',['MOUSE_UP',['../namespacetr_1_1event__type.html#a30719b0dbdf48e5eeed7cf6f39eed188',1,'tr::event_type']]],
   ['mouse_5fwheel_6',['MOUSE_WHEEL',['../namespacetr_1_1event__type.html#ab8fd22e557bd9c13a35353c1be49fa93',1,'tr::event_type']]],
   ['mousepos_7',['mousePos',['../structtr_1_1MouseWheelEvent.html#a9a0b5106a0447cb0323cfbefbd6366e8',1,'tr::MouseWheelEvent']]],
-  ['multisamples_8',['multisamples',['../structtr_1_1GLContextProperties.html#aed29a80729459f9dfb9d7316b9def117',1,'tr::GLContextProperties']]]
+  ['multisamples_8',['multisamples',['../structtr_1_1GraphicsProperties.html#ab6f4e228eff5d51e97e4a99931aa832f',1,'tr::GraphicsProperties']]]
 ];

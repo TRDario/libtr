@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>libtr: tr::GLCopyOutputIterator Concept Reference</title>
+<title>libtr: tr::GraphicsBufferCopyOutputIterator Concept Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,26 +85,26 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="concepttr_1_1GLCopyOutputIterator.html">GLCopyOutputIterator</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="concepttr_1_1GraphicsBufferCopyOutputIterator.html">GraphicsBufferCopyOutputIterator</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">tr::GLCopyOutputIterator Concept Reference<div class="ingroups"><a class="el" href="group__graphics.html">Graphics</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::GraphicsBufferCopyOutputIterator Concept Reference<div class="ingroups"><a class="el" href="group__graphics.html">Graphics</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Concept denoting an iterator suitable for GLBuffer::copyRegionTo.  
+<p>Concept denoting an iterator suitable for GraphicsBuffer::copyRegionTo.  
 <a href="#details">More...</a></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> It&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="concepttr_1_1GLCopyOutputIterator.html">tr::GLCopyOutputIterator</a> = </div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="concepttr_1_1GraphicsBufferCopyOutputIterator.html">tr::GraphicsBufferCopyOutputIterator</a> = </div>
 <div class="line">        std::contiguous_iterator&lt;It&gt; &amp;&amp; (std::same_as&lt;typename std::iterator_traits&lt;It&gt;::value_type, std::byte&gt; ||</div>
 <div class="line">                                         std::same_as&lt;typename std::iterator_traits&lt;It&gt;::value_type, <span class="keywordtype">char</span>&gt; ||</div>
 <div class="line">                                         std::same_as&lt;typename std::iterator_traits&lt;It&gt;::value_type, std::uint8_t&gt;)</div>
-<div class="ttc" id="aconcepttr_1_1GLCopyOutputIterator_html"><div class="ttname"><a href="concepttr_1_1GLCopyOutputIterator.html">tr::GLCopyOutputIterator</a></div><div class="ttdoc">Concept denoting an iterator suitable for GLBuffer::copyRegionTo.</div><div class="ttdef"><b>Definition</b> gl_buffer.hpp:19</div></div>
+<div class="ttc" id="aconcepttr_1_1GraphicsBufferCopyOutputIterator_html"><div class="ttname"><a href="concepttr_1_1GraphicsBufferCopyOutputIterator.html">tr::GraphicsBufferCopyOutputIterator</a></div><div class="ttdoc">Concept denoting an iterator suitable for GraphicsBuffer::copyRegionTo.</div><div class="ttdef"><b>Definition</b> graphics_buffer.hpp:19</div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Concept denoting an iterator suitable for GLBuffer::copyRegionTo. </p>
+<div class="textblock"><p>Concept denoting an iterator suitable for GraphicsBuffer::copyRegionTo. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

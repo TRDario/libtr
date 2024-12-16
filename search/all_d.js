@@ -2,12 +2,12 @@ var searchData=
 [
   ['m_0',['M',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204da69691c7bdcc3ce6d5d8a1361f22d04ac',1,'tr::Scancode::M'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a69691c7bdcc3ce6d5d8a1361f22d04ac',1,'tr::Keycode::M']]],
   ['magfilter_1',['MagFilter',['../group__graphics.html#gac346a03e941c8ea2519c19086c4ce299',1,'tr']]],
-  ['map_2',['map',['../classtr_1_1ShaderBuffer.html#a9064f3ca2a6c19051fcec8dce237cb56',1,'tr::ShaderBuffer']]],
-  ['maparray_3',['mapArray',['../classtr_1_1ShaderBuffer.html#ab52886b93d39a50f4f83e8bb954ff2ac',1,'tr::ShaderBuffer']]],
-  ['mapheader_4',['mapHeader',['../classtr_1_1ShaderBuffer.html#a81bdf8b5ae6a37563b339bee001841ed',1,'tr::ShaderBuffer']]],
-  ['mapnew_5',['mapNew',['../classtr_1_1IndexBuffer.html#ad8fb9575c69c1fbe3927b2ef43e63660',1,'tr::IndexBuffer::mapNew()'],['../classtr_1_1VertexBuffer.html#a7cb3bcb83ec4c173a220853d3e08a4c2',1,'tr::VertexBuffer::mapNew()']]],
+  ['map_2',['map',['../classtr_1_1ShaderBuffer.html#a1fa7814554bdffb60930a1fc252624f3',1,'tr::ShaderBuffer']]],
+  ['maparray_3',['mapArray',['../classtr_1_1ShaderBuffer.html#a8fe113773f66f0d6bf14f35a9dfb8293',1,'tr::ShaderBuffer']]],
+  ['mapheader_4',['mapHeader',['../classtr_1_1ShaderBuffer.html#a40663ebf5abe86fdcc458fc4b026da10',1,'tr::ShaderBuffer']]],
+  ['mapnew_5',['mapNew',['../classtr_1_1IndexBuffer.html#ad8fb9575c69c1fbe3927b2ef43e63660',1,'tr::IndexBuffer::mapNew()'],['../classtr_1_1VertexBuffer.html#a02ec636ce92098d37a34033623850c2c',1,'tr::VertexBuffer::mapNew()']]],
   ['mapped_6',['mapped',['../classtr_1_1IndexBuffer.html#a0d4d32c9d0e9d2c7671078ef019dd5d9',1,'tr::IndexBuffer::mapped()'],['../classtr_1_1VertexBuffer.html#a606135f69635cf1e335d146e72d67797',1,'tr::VertexBuffer::mapped()']]],
-  ['mapregion_7',['mapRegion',['../classtr_1_1IndexBuffer.html#a1cf5a9fa6050b9186f3efba99048cecc',1,'tr::IndexBuffer::mapRegion()'],['../classtr_1_1VertexBuffer.html#aea4acb45c609d769559dc18f23cb6994',1,'tr::VertexBuffer::mapRegion()']]],
+  ['mapregion_7',['mapRegion',['../classtr_1_1IndexBuffer.html#a1cf5a9fa6050b9186f3efba99048cecc',1,'tr::IndexBuffer::mapRegion()'],['../classtr_1_1VertexBuffer.html#ae686a0a63fc36d421d58a94a9960ba48',1,'tr::VertexBuffer::mapRegion()']]],
   ['max_8',['MAX',['../group__graphics.html#ggab02487840c576fc68a93203882127279a26a4b44a837bf97b972628509912b4a5',1,'tr']]],
   ['max_9',['max',['../structtr_1_1DepthRange.html#ac77dfde5561fbbc3a1db619be07df379',1,'tr::DepthRange::max'],['../structtr_1_1TTFont_1_1Glyph.html#a5663c4aa63dab500b4939f8671b45a12',1,'tr::TTFont::Glyph::max'],['../classtr_1_1Benchmark.html#a65f621eca966efb1aae07002bce7669b',1,'tr::Benchmark::max()']]],
   ['maxdistance_10',['maxDistance',['../classtr_1_1AudioSource.html#a73c6adc8aabed673f4c09be36e71311d',1,'tr::AudioSource']]],
@@ -58,6 +58,6 @@ var searchData=
   ['mousepos_55',['mousePos',['../structtr_1_1MouseWheelEvent.html#a9a0b5106a0447cb0323cfbefbd6366e8',1,'tr::MouseWheelEvent']]],
   ['mouseupevent_56',['MouseUpEvent',['../structtr_1_1MouseUpEvent.html',1,'tr']]],
   ['mousewheelevent_57',['MouseWheelEvent',['../structtr_1_1MouseWheelEvent.html',1,'tr']]],
-  ['multisamples_58',['multisamples',['../structtr_1_1GLContextProperties.html#aed29a80729459f9dfb9d7316b9def117',1,'tr::GLContextProperties']]],
+  ['multisamples_58',['multisamples',['../structtr_1_1GraphicsProperties.html#ab6f4e228eff5d51e97e4a99931aa832f',1,'tr::GraphicsProperties']]],
   ['mutit_59',['MutIt',['../classtr_1_1Bitmap_1_1MutIt.html',1,'tr::Bitmap::MutIt'],['../classtr_1_1Bitmap_1_1MutIt.html#a0a9bb00ae0e03eee7be7a21842000d02',1,'tr::Bitmap::MutIt::MutIt() noexcept=default'],['../classtr_1_1Bitmap_1_1MutIt.html#a0029ac75b34acdecbe061d49ddf6de4f',1,'tr::Bitmap::MutIt::MutIt(Bitmap &amp;bitmap, glm::ivec2 pos) noexcept']]]
 ];

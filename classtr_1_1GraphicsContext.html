@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>libtr: tr::GLContext Class Reference</title>
+<title>libtr: tr::GraphicsContext Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,123 +85,120 @@ $(function(){ initResizable(false); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1GLContext.html">GLContext</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1GraphicsContext.html">GraphicsContext</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classtr_1_1GLContext-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::GLContext Class Reference<div class="ingroups"><a class="el" href="group__graphics.html">Graphics</a></div></div></div>
+<a href="classtr_1_1GraphicsContext-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">tr::GraphicsContext Class Reference<div class="ingroups"><a class="el" href="group__graphics.html">Graphics</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>OpenGL context.  
+<p>Graphics context.  
  <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0786404b6da75df2a06cb40d0f334a9b" id="r_a0786404b6da75df2a06cb40d0f334a9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0786404b6da75df2a06cb40d0f334a9b">clear</a> (<a class="el" href="group__graphics.html#gaeaf2735d38842f598e12fe0e884992ed">Clear</a> components) noexcept</td></tr>
-<tr class="memdesc:a0786404b6da75df2a06cb40d0f334a9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the current render target.  <br /></td></tr>
-<tr class="separator:a0786404b6da75df2a06cb40d0f334a9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a231ef63311f9cc5d5a0868f84a187536" id="r_a231ef63311f9cc5d5a0868f84a187536"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a231ef63311f9cc5d5a0868f84a187536">draw</a> (<a class="el" href="group__graphics.html#ga836d6a68316285fa5bde27908d9d9184">Primitive</a> type, std::size_t offset, std::size_t vertices) noexcept</td></tr>
-<tr class="memdesc:a231ef63311f9cc5d5a0868f84a187536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a mesh from a vertex buffer.  <br /></td></tr>
-<tr class="separator:a231ef63311f9cc5d5a0868f84a187536"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa36ac515b7c30e284f9261da56d98b4" id="r_aaa36ac515b7c30e284f9261da56d98b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa36ac515b7c30e284f9261da56d98b4">drawIndexed</a> (<a class="el" href="group__graphics.html#ga836d6a68316285fa5bde27908d9d9184">Primitive</a> type, std::size_t offset, std::size_t indices) noexcept</td></tr>
-<tr class="memdesc:aaa36ac515b7c30e284f9261da56d98b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws an indexed mesh.  <br /></td></tr>
-<tr class="separator:aaa36ac515b7c30e284f9261da56d98b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4a07f9e9df7b4d12f720434a5aebb8e" id="r_ae4a07f9e9df7b4d12f720434a5aebb8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4a07f9e9df7b4d12f720434a5aebb8e">drawIndexedInstances</a> (<a class="el" href="group__graphics.html#ga836d6a68316285fa5bde27908d9d9184">Primitive</a> type, std::size_t offset, std::size_t indices, int instances) noexcept</td></tr>
-<tr class="memdesc:ae4a07f9e9df7b4d12f720434a5aebb8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws an instanced indexed mesh.  <br /></td></tr>
-<tr class="separator:ae4a07f9e9df7b4d12f720434a5aebb8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3e48c3d15a6bc070969bb065da49d1a" id="r_ac3e48c3d15a6bc070969bb065da49d1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3e48c3d15a6bc070969bb065da49d1a">drawInstances</a> (<a class="el" href="group__graphics.html#ga836d6a68316285fa5bde27908d9d9184">Primitive</a> type, std::size_t offset, std::size_t vertices, int instances) noexcept</td></tr>
-<tr class="memdesc:ac3e48c3d15a6bc070969bb065da49d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws an instanced mesh from a vertex buffer.  <br /></td></tr>
-<tr class="separator:ac3e48c3d15a6bc070969bb065da49d1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade1cf0170b1f0790a389512c40b7328a" id="r_ade1cf0170b1f0790a389512c40b7328a"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade1cf0170b1f0790a389512c40b7328a">rendererInfo</a> () const noexcept</td></tr>
-<tr class="memdesc:ade1cf0170b1f0790a389512c40b7328a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the context's renderer string.  <br /></td></tr>
-<tr class="separator:ade1cf0170b1f0790a389512c40b7328a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22cfd6cd137024f2248dc55842be4de0" id="r_a22cfd6cd137024f2248dc55842be4de0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22cfd6cd137024f2248dc55842be4de0">setBlendingColor</a> (<a class="el" href="group__color.html#gaaede9b1d58e8ca2c89f538b907a9c688">RGBAF</a> color)</td></tr>
-<tr class="memdesc:a22cfd6cd137024f2248dc55842be4de0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the constant blending color.  <br /></td></tr>
-<tr class="separator:a22cfd6cd137024f2248dc55842be4de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4aae1755f714fda1fea01aab3c237d5e" id="r_a4aae1755f714fda1fea01aab3c237d5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4aae1755f714fda1fea01aab3c237d5e">setBlendingMode</a> (<a class="el" href="structtr_1_1BlendMode.html">BlendMode</a> blendMode) noexcept</td></tr>
-<tr class="memdesc:a4aae1755f714fda1fea01aab3c237d5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the active blending mode.  <br /></td></tr>
-<tr class="separator:a4aae1755f714fda1fea01aab3c237d5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4dfbda113377d275cb67b7de9a8ea62" id="r_aa4dfbda113377d275cb67b7de9a8ea62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4dfbda113377d275cb67b7de9a8ea62">setClearColor</a> (<a class="el" href="group__color.html#gaaede9b1d58e8ca2c89f538b907a9c688">RGBAF</a> color) noexcept</td></tr>
-<tr class="memdesc:aa4dfbda113377d275cb67b7de9a8ea62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the clear color value.  <br /></td></tr>
-<tr class="separator:aa4dfbda113377d275cb67b7de9a8ea62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad68202cd84cfbaf9996093d52ed27fec" id="r_ad68202cd84cfbaf9996093d52ed27fec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad68202cd84cfbaf9996093d52ed27fec">setClearDepth</a> (float depth) noexcept</td></tr>
-<tr class="memdesc:ad68202cd84cfbaf9996093d52ed27fec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the clear depth value.  <br /></td></tr>
-<tr class="separator:ad68202cd84cfbaf9996093d52ed27fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6a7456f4b0cc3bbb3894f565d52953c" id="r_ad6a7456f4b0cc3bbb3894f565d52953c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6a7456f4b0cc3bbb3894f565d52953c">setClearStencil</a> (int stencil) noexcept</td></tr>
-<tr class="memdesc:ad6a7456f4b0cc3bbb3894f565d52953c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the clear stencil value.  <br /></td></tr>
-<tr class="separator:ad6a7456f4b0cc3bbb3894f565d52953c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50f235f9981e6fc87a233214b742b72a" id="r_a50f235f9981e6fc87a233214b742b72a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50f235f9981e6fc87a233214b742b72a">setColorMask</a> (bool red, bool green, bool blue, bool alpha) noexcept</td></tr>
-<tr class="memdesc:a50f235f9981e6fc87a233214b742b72a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the color mask that determines the writing of frame buffer color components.  <br /></td></tr>
-<tr class="separator:a50f235f9981e6fc87a233214b742b72a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedc24a36fbeb338e6a977ec0654cf6a3" id="r_aedc24a36fbeb338e6a977ec0654cf6a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aedc24a36fbeb338e6a977ec0654cf6a3">setDepthTest</a> (<a class="el" href="group__graphics.html#ga88338da155e2e92486d80fb0650a07d5">Compare</a> func) noexcept</td></tr>
-<tr class="memdesc:aedc24a36fbeb338e6a977ec0654cf6a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the function used for the depth test.  <br /></td></tr>
-<tr class="separator:aedc24a36fbeb338e6a977ec0654cf6a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3b6b2b5ee5cc16cf4d6debe7312efcd" id="r_aa3b6b2b5ee5cc16cf4d6debe7312efcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3b6b2b5ee5cc16cf4d6debe7312efcd">setFramebuffer</a> (<a class="el" href="classtr_1_1BasicFramebuffer.html">BasicFramebuffer</a> &amp;framebuffer) noexcept</td></tr>
-<tr class="memdesc:aa3b6b2b5ee5cc16cf4d6debe7312efcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the target framebuffer.  <br /></td></tr>
-<tr class="separator:aa3b6b2b5ee5cc16cf4d6debe7312efcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f50c500d2c748b519d2660056113350" id="r_a2f50c500d2c748b519d2660056113350"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f50c500d2c748b519d2660056113350">setIndexBuffer</a> (const <a class="el" href="classtr_1_1IndexBuffer.html">IndexBuffer</a> &amp;buffer) noexcept</td></tr>
-<tr class="memdesc:a2f50c500d2c748b519d2660056113350"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the active index buffer.  <br /></td></tr>
-<tr class="separator:a2f50c500d2c748b519d2660056113350"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaad54b2d5419621d8303d9d2f217690b" id="r_aaad54b2d5419621d8303d9d2f217690b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaad54b2d5419621d8303d9d2f217690b">setScissorBox</a> (<a class="el" href="namespacetr.html#a386ecd8029d58f09791896b6421218d9">RectI2</a> rect) noexcept</td></tr>
-<tr class="memdesc:aaad54b2d5419621d8303d9d2f217690b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the box used in the scissor test.  <br /></td></tr>
-<tr class="separator:aaad54b2d5419621d8303d9d2f217690b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38751a39adbf1544ba499513e5553a8e" id="r_a38751a39adbf1544ba499513e5553a8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38751a39adbf1544ba499513e5553a8e">setShaderPipeline</a> (const <a class="el" href="classtr_1_1ShaderPipeline.html">ShaderPipeline</a> &amp;pipeline) noexcept</td></tr>
-<tr class="memdesc:a38751a39adbf1544ba499513e5553a8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the active shader pipeline.  <br /></td></tr>
-<tr class="separator:a38751a39adbf1544ba499513e5553a8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab53ef59193e8f3d8a2dc5879f2e25341" id="r_ab53ef59193e8f3d8a2dc5879f2e25341"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab53ef59193e8f3d8a2dc5879f2e25341">setStencilMask</a> (<a class="el" href="group__graphics.html#gae1a255c2dd97c61884a0c90d6e7aae8f">StencilFace</a> face, std::uint32_t mask) noexcept</td></tr>
-<tr class="memdesc:ab53ef59193e8f3d8a2dc5879f2e25341"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the stencil mask that enables and disables writing of individual bits in stencil buffers.  <br /></td></tr>
-<tr class="separator:ab53ef59193e8f3d8a2dc5879f2e25341"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bf77cc2770e138bd5a89523d008b025" id="r_a6bf77cc2770e138bd5a89523d008b025"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bf77cc2770e138bd5a89523d008b025">setStencilOperation</a> (<a class="el" href="group__graphics.html#gae1a255c2dd97c61884a0c90d6e7aae8f">StencilFace</a> face, <a class="el" href="group__graphics.html#ga8c440fc4a94422129e86a69114e35b50">StencilOperation</a> sfail, <a class="el" href="group__graphics.html#ga8c440fc4a94422129e86a69114e35b50">StencilOperation</a> dfail, <a class="el" href="group__graphics.html#ga8c440fc4a94422129e86a69114e35b50">StencilOperation</a> dpass) noexcept</td></tr>
-<tr class="memdesc:a6bf77cc2770e138bd5a89523d008b025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the operation performed on the stencil buffer in various circumstances.  <br /></td></tr>
-<tr class="separator:a6bf77cc2770e138bd5a89523d008b025"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa65bb21178b10de50664ec619062292a" id="r_aa65bb21178b10de50664ec619062292a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa65bb21178b10de50664ec619062292a">setStencilTest</a> (<a class="el" href="group__graphics.html#gae1a255c2dd97c61884a0c90d6e7aae8f">StencilFace</a> face, <a class="el" href="group__graphics.html#ga88338da155e2e92486d80fb0650a07d5">Compare</a> func, int comp, std::uint32_t mask) noexcept</td></tr>
-<tr class="memdesc:aa65bb21178b10de50664ec619062292a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the function used for the stencil test.  <br /></td></tr>
-<tr class="separator:aa65bb21178b10de50664ec619062292a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24e251bd5e4de7e56807e9b9d76320ff" id="r_a24e251bd5e4de7e56807e9b9d76320ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24e251bd5e4de7e56807e9b9d76320ff">setVertexBuffer</a> (const <a class="el" href="classtr_1_1VertexBuffer.html">VertexBuffer</a> &amp;buffer, std::size_t offset, std::size_t vertexStride) noexcept</td></tr>
-<tr class="memdesc:a24e251bd5e4de7e56807e9b9d76320ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the active vertex buffer.  <br /></td></tr>
-<tr class="separator:a24e251bd5e4de7e56807e9b9d76320ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30bf2f963fc34a4ec45ea74ad5a43ae9" id="r_a30bf2f963fc34a4ec45ea74ad5a43ae9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30bf2f963fc34a4ec45ea74ad5a43ae9">setVertexFormat</a> (const <a class="el" href="classtr_1_1VertexFormat.html">VertexFormat</a> &amp;format) noexcept</td></tr>
-<tr class="memdesc:a30bf2f963fc34a4ec45ea74ad5a43ae9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the active vertex format.  <br /></td></tr>
-<tr class="separator:a30bf2f963fc34a4ec45ea74ad5a43ae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40a9b745ae932d8776f9ae7c500c88da" id="r_a40a9b745ae932d8776f9ae7c500c88da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40a9b745ae932d8776f9ae7c500c88da">setVSync</a> (<a class="el" href="group__graphics.html#gac6c470285a932bb2ce74499f1ff07ac5">VSync</a> <a class="el" href="#a17104b880ed940987b1e07cc40aba5d0">vsync</a>)</td></tr>
-<tr class="memdesc:a40a9b745ae932d8776f9ae7c500c88da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the context's V-sync mode.  <br /></td></tr>
-<tr class="separator:a40a9b745ae932d8776f9ae7c500c88da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee054afe1a5609cb713b44a436fa71ca" id="r_aee054afe1a5609cb713b44a436fa71ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee054afe1a5609cb713b44a436fa71ca">useBlending</a> (bool use) noexcept</td></tr>
-<tr class="memdesc:aee054afe1a5609cb713b44a436fa71ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether blending is performed.  <br /></td></tr>
-<tr class="separator:aee054afe1a5609cb713b44a436fa71ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaedb3737d550a8a7a9a077867a020e96" id="r_aaedb3737d550a8a7a9a077867a020e96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaedb3737d550a8a7a9a077867a020e96">useDepthTest</a> (bool use) noexcept</td></tr>
-<tr class="memdesc:aaedb3737d550a8a7a9a077867a020e96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the depth test is performed.  <br /></td></tr>
-<tr class="separator:aaedb3737d550a8a7a9a077867a020e96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af07f479f126c6588410a387a3127b467" id="r_af07f479f126c6588410a387a3127b467"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af07f479f126c6588410a387a3127b467">useFaceCulling</a> (bool use) noexcept</td></tr>
-<tr class="memdesc:af07f479f126c6588410a387a3127b467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether face culling is performed.  <br /></td></tr>
-<tr class="separator:af07f479f126c6588410a387a3127b467"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08673030148a305c26a67a976499173d" id="r_a08673030148a305c26a67a976499173d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08673030148a305c26a67a976499173d">useScissorTest</a> (bool use) noexcept</td></tr>
-<tr class="memdesc:a08673030148a305c26a67a976499173d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the scissor test is performed.  <br /></td></tr>
-<tr class="separator:a08673030148a305c26a67a976499173d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad209ceefbee8351880043a5ddcd5990a" id="r_ad209ceefbee8351880043a5ddcd5990a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad209ceefbee8351880043a5ddcd5990a">useStencilTest</a> (bool use) noexcept</td></tr>
-<tr class="memdesc:ad209ceefbee8351880043a5ddcd5990a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the stencil test is performed.  <br /></td></tr>
-<tr class="separator:ad209ceefbee8351880043a5ddcd5990a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ed24d688c563f4e393b8d99237d6fc6" id="r_a6ed24d688c563f4e393b8d99237d6fc6"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ed24d688c563f4e393b8d99237d6fc6">vendorInfo</a> () const noexcept</td></tr>
-<tr class="memdesc:a6ed24d688c563f4e393b8d99237d6fc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the context's vendor string.  <br /></td></tr>
-<tr class="separator:a6ed24d688c563f4e393b8d99237d6fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1c3ca04bfcaa05a03ddae2227cee4f6" id="r_ab1c3ca04bfcaa05a03ddae2227cee4f6"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1c3ca04bfcaa05a03ddae2227cee4f6">versionInfo</a> () const noexcept</td></tr>
-<tr class="memdesc:ab1c3ca04bfcaa05a03ddae2227cee4f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the context's version string.  <br /></td></tr>
-<tr class="separator:ab1c3ca04bfcaa05a03ddae2227cee4f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17104b880ed940987b1e07cc40aba5d0" id="r_a17104b880ed940987b1e07cc40aba5d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__graphics.html#gac6c470285a932bb2ce74499f1ff07ac5">VSync</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17104b880ed940987b1e07cc40aba5d0">vsync</a> () const noexcept</td></tr>
-<tr class="memdesc:a17104b880ed940987b1e07cc40aba5d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the context's V-sync mode.  <br /></td></tr>
-<tr class="separator:a17104b880ed940987b1e07cc40aba5d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1be924289f1dd1a3a4313a09d40cf8b" id="r_af1be924289f1dd1a3a4313a09d40cf8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1be924289f1dd1a3a4313a09d40cf8b">clear</a> (<a class="el" href="group__graphics.html#gaeaf2735d38842f598e12fe0e884992ed">Clear</a> components=<a class="el" href="group__graphics.html#ggaeaf2735d38842f598e12fe0e884992eda5fb1f955b45e38e31789286a1790398d">Clear::ALL</a>) noexcept</td></tr>
+<tr class="memdesc:af1be924289f1dd1a3a4313a09d40cf8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the current render target.  <br /></td></tr>
+<tr class="separator:af1be924289f1dd1a3a4313a09d40cf8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5970005bd6ddce59d45e997605e7b4b9" id="r_a5970005bd6ddce59d45e997605e7b4b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5970005bd6ddce59d45e997605e7b4b9">draw</a> (<a class="el" href="group__graphics.html#ga836d6a68316285fa5bde27908d9d9184">Primitive</a> type, std::size_t offset, std::size_t vertices) noexcept</td></tr>
+<tr class="memdesc:a5970005bd6ddce59d45e997605e7b4b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a mesh from a vertex buffer.  <br /></td></tr>
+<tr class="separator:a5970005bd6ddce59d45e997605e7b4b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa1468174c1e4ad836bc8fda094783ea" id="r_afa1468174c1e4ad836bc8fda094783ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa1468174c1e4ad836bc8fda094783ea">drawIndexed</a> (<a class="el" href="group__graphics.html#ga836d6a68316285fa5bde27908d9d9184">Primitive</a> type, std::size_t offset, std::size_t indices) noexcept</td></tr>
+<tr class="memdesc:afa1468174c1e4ad836bc8fda094783ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws an indexed mesh.  <br /></td></tr>
+<tr class="separator:afa1468174c1e4ad836bc8fda094783ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a609e8e26979d1b15443229da132e0a67" id="r_a609e8e26979d1b15443229da132e0a67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a609e8e26979d1b15443229da132e0a67">drawIndexedInstances</a> (<a class="el" href="group__graphics.html#ga836d6a68316285fa5bde27908d9d9184">Primitive</a> type, std::size_t offset, std::size_t indices, int instances) noexcept</td></tr>
+<tr class="memdesc:a609e8e26979d1b15443229da132e0a67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws an instanced indexed mesh.  <br /></td></tr>
+<tr class="separator:a609e8e26979d1b15443229da132e0a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c29c83e3771c767391b9bbb2f5c284b" id="r_a0c29c83e3771c767391b9bbb2f5c284b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c29c83e3771c767391b9bbb2f5c284b">drawInstances</a> (<a class="el" href="group__graphics.html#ga836d6a68316285fa5bde27908d9d9184">Primitive</a> type, std::size_t offset, std::size_t vertices, int instances) noexcept</td></tr>
+<tr class="memdesc:a0c29c83e3771c767391b9bbb2f5c284b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws an instanced mesh from a vertex buffer.  <br /></td></tr>
+<tr class="separator:a0c29c83e3771c767391b9bbb2f5c284b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2d7ec7caca7d7c119a90fe9e4a2e34d" id="r_ac2d7ec7caca7d7c119a90fe9e4a2e34d"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2d7ec7caca7d7c119a90fe9e4a2e34d">rendererInfo</a> () const noexcept</td></tr>
+<tr class="memdesc:ac2d7ec7caca7d7c119a90fe9e4a2e34d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the context's renderer string.  <br /></td></tr>
+<tr class="separator:ac2d7ec7caca7d7c119a90fe9e4a2e34d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45c9a53c834e3fcebcced696b966a644" id="r_a45c9a53c834e3fcebcced696b966a644"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45c9a53c834e3fcebcced696b966a644">setBlendingColor</a> (<a class="el" href="group__color.html#gaaede9b1d58e8ca2c89f538b907a9c688">RGBAF</a> color)</td></tr>
+<tr class="memdesc:a45c9a53c834e3fcebcced696b966a644"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the constant blending color.  <br /></td></tr>
+<tr class="separator:a45c9a53c834e3fcebcced696b966a644"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdf8b12d3a7ae5be7dbffe8edd6b1ffe" id="r_abdf8b12d3a7ae5be7dbffe8edd6b1ffe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abdf8b12d3a7ae5be7dbffe8edd6b1ffe">setBlendingMode</a> (<a class="el" href="structtr_1_1BlendMode.html">BlendMode</a> blendMode) noexcept</td></tr>
+<tr class="memdesc:abdf8b12d3a7ae5be7dbffe8edd6b1ffe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the active blending mode.  <br /></td></tr>
+<tr class="separator:abdf8b12d3a7ae5be7dbffe8edd6b1ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c12258377974758917a484da9f97b27" id="r_a3c12258377974758917a484da9f97b27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c12258377974758917a484da9f97b27">setClearColor</a> (<a class="el" href="group__color.html#gaaede9b1d58e8ca2c89f538b907a9c688">RGBAF</a> color) noexcept</td></tr>
+<tr class="memdesc:a3c12258377974758917a484da9f97b27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the clear color value.  <br /></td></tr>
+<tr class="separator:a3c12258377974758917a484da9f97b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75d9c23b3cf7748c538c1c70189e5763" id="r_a75d9c23b3cf7748c538c1c70189e5763"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75d9c23b3cf7748c538c1c70189e5763">setClearDepth</a> (float depth) noexcept</td></tr>
+<tr class="memdesc:a75d9c23b3cf7748c538c1c70189e5763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the clear depth value.  <br /></td></tr>
+<tr class="separator:a75d9c23b3cf7748c538c1c70189e5763"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66abea830f22940ff2705fb96b763319" id="r_a66abea830f22940ff2705fb96b763319"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66abea830f22940ff2705fb96b763319">setClearStencil</a> (int stencil) noexcept</td></tr>
+<tr class="memdesc:a66abea830f22940ff2705fb96b763319"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the clear stencil value.  <br /></td></tr>
+<tr class="separator:a66abea830f22940ff2705fb96b763319"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a501b8280011b400f3dcf8e1ab10e5fa5" id="r_a501b8280011b400f3dcf8e1ab10e5fa5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a501b8280011b400f3dcf8e1ab10e5fa5">setColorMask</a> (bool red, bool green, bool blue, bool alpha) noexcept</td></tr>
+<tr class="memdesc:a501b8280011b400f3dcf8e1ab10e5fa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the color mask that determines the writing of frame buffer color components.  <br /></td></tr>
+<tr class="separator:a501b8280011b400f3dcf8e1ab10e5fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b71f3778d80d23e28d14d12e8bfdd21" id="r_a3b71f3778d80d23e28d14d12e8bfdd21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b71f3778d80d23e28d14d12e8bfdd21">setDepthTest</a> (<a class="el" href="group__graphics.html#ga88338da155e2e92486d80fb0650a07d5">Compare</a> func) noexcept</td></tr>
+<tr class="memdesc:a3b71f3778d80d23e28d14d12e8bfdd21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the function used for the depth test.  <br /></td></tr>
+<tr class="separator:a3b71f3778d80d23e28d14d12e8bfdd21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a997ea3c65de59aa2e808a62856b86875" id="r_a997ea3c65de59aa2e808a62856b86875"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a997ea3c65de59aa2e808a62856b86875">setFramebuffer</a> (<a class="el" href="classtr_1_1BasicFramebuffer.html">BasicFramebuffer</a> &amp;framebuffer) noexcept</td></tr>
+<tr class="memdesc:a997ea3c65de59aa2e808a62856b86875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the target framebuffer.  <br /></td></tr>
+<tr class="separator:a997ea3c65de59aa2e808a62856b86875"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eb95e7c24bb845ffe19d849017867d5" id="r_a9eb95e7c24bb845ffe19d849017867d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9eb95e7c24bb845ffe19d849017867d5">setIndexBuffer</a> (const <a class="el" href="classtr_1_1IndexBuffer.html">IndexBuffer</a> &amp;buffer) noexcept</td></tr>
+<tr class="memdesc:a9eb95e7c24bb845ffe19d849017867d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the active index buffer.  <br /></td></tr>
+<tr class="separator:a9eb95e7c24bb845ffe19d849017867d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee1a5c9b05d6dbc7671af87445fbec9e" id="r_aee1a5c9b05d6dbc7671af87445fbec9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee1a5c9b05d6dbc7671af87445fbec9e">setScissorBox</a> (<a class="el" href="namespacetr.html#a386ecd8029d58f09791896b6421218d9">RectI2</a> rect) noexcept</td></tr>
+<tr class="memdesc:aee1a5c9b05d6dbc7671af87445fbec9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the box used in the scissor test.  <br /></td></tr>
+<tr class="separator:aee1a5c9b05d6dbc7671af87445fbec9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6eba53d9124a18d5201e4aa8a16711b5" id="r_a6eba53d9124a18d5201e4aa8a16711b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6eba53d9124a18d5201e4aa8a16711b5">setShaderPipeline</a> (const <a class="el" href="classtr_1_1ShaderPipeline.html">ShaderPipeline</a> &amp;pipeline) noexcept</td></tr>
+<tr class="memdesc:a6eba53d9124a18d5201e4aa8a16711b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the active shader pipeline.  <br /></td></tr>
+<tr class="separator:a6eba53d9124a18d5201e4aa8a16711b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9c7c6e17436a3d4588aeba4976d65fb" id="r_ad9c7c6e17436a3d4588aeba4976d65fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9c7c6e17436a3d4588aeba4976d65fb">setStencilMask</a> (<a class="el" href="group__graphics.html#gae1a255c2dd97c61884a0c90d6e7aae8f">StencilFace</a> face, std::uint32_t mask) noexcept</td></tr>
+<tr class="memdesc:ad9c7c6e17436a3d4588aeba4976d65fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the stencil mask that enables and disables writing of individual bits in stencil buffers.  <br /></td></tr>
+<tr class="separator:ad9c7c6e17436a3d4588aeba4976d65fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ab93fa5ec156d6045305d155254ea1a" id="r_a5ab93fa5ec156d6045305d155254ea1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ab93fa5ec156d6045305d155254ea1a">setStencilOperation</a> (<a class="el" href="group__graphics.html#gae1a255c2dd97c61884a0c90d6e7aae8f">StencilFace</a> face, <a class="el" href="group__graphics.html#ga8c440fc4a94422129e86a69114e35b50">StencilOperation</a> sfail, <a class="el" href="group__graphics.html#ga8c440fc4a94422129e86a69114e35b50">StencilOperation</a> dfail, <a class="el" href="group__graphics.html#ga8c440fc4a94422129e86a69114e35b50">StencilOperation</a> dpass) noexcept</td></tr>
+<tr class="memdesc:a5ab93fa5ec156d6045305d155254ea1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the operation performed on the stencil buffer in various circumstances.  <br /></td></tr>
+<tr class="separator:a5ab93fa5ec156d6045305d155254ea1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31e83da1f1ec031f6c30e72469a2087c" id="r_a31e83da1f1ec031f6c30e72469a2087c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31e83da1f1ec031f6c30e72469a2087c">setStencilTest</a> (<a class="el" href="group__graphics.html#gae1a255c2dd97c61884a0c90d6e7aae8f">StencilFace</a> face, <a class="el" href="group__graphics.html#ga88338da155e2e92486d80fb0650a07d5">Compare</a> func, int comp, std::uint32_t mask) noexcept</td></tr>
+<tr class="memdesc:a31e83da1f1ec031f6c30e72469a2087c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the function used for the stencil test.  <br /></td></tr>
+<tr class="separator:a31e83da1f1ec031f6c30e72469a2087c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af983541ddbe0eeada6dc19fa65eacf47" id="r_af983541ddbe0eeada6dc19fa65eacf47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af983541ddbe0eeada6dc19fa65eacf47">setVertexBuffer</a> (const <a class="el" href="classtr_1_1VertexBuffer.html">VertexBuffer</a> &amp;buffer, std::size_t offset, std::size_t vertexStride) noexcept</td></tr>
+<tr class="memdesc:af983541ddbe0eeada6dc19fa65eacf47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the active vertex buffer.  <br /></td></tr>
+<tr class="separator:af983541ddbe0eeada6dc19fa65eacf47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aad5366df16192006a4c416d5a2fb6d" id="r_a7aad5366df16192006a4c416d5a2fb6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7aad5366df16192006a4c416d5a2fb6d">setVertexFormat</a> (const <a class="el" href="classtr_1_1VertexFormat.html">VertexFormat</a> &amp;format) noexcept</td></tr>
+<tr class="memdesc:a7aad5366df16192006a4c416d5a2fb6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the active vertex format.  <br /></td></tr>
+<tr class="separator:a7aad5366df16192006a4c416d5a2fb6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b8b5cce30a4b0b614a0140d2234b26a" id="r_a9b8b5cce30a4b0b614a0140d2234b26a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b8b5cce30a4b0b614a0140d2234b26a">swap</a> () noexcept</td></tr>
+<tr class="memdesc:a9b8b5cce30a4b0b614a0140d2234b26a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps the display's front and back buffers.  <br /></td></tr>
+<tr class="separator:a9b8b5cce30a4b0b614a0140d2234b26a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a150b2542253f0a8e409faa920193cd5e" id="r_a150b2542253f0a8e409faa920193cd5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a150b2542253f0a8e409faa920193cd5e">useBlending</a> (bool use) noexcept</td></tr>
+<tr class="memdesc:a150b2542253f0a8e409faa920193cd5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether blending is performed.  <br /></td></tr>
+<tr class="separator:a150b2542253f0a8e409faa920193cd5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5bf1560f8e2b47c017aea842e5b1e3f" id="r_ad5bf1560f8e2b47c017aea842e5b1e3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5bf1560f8e2b47c017aea842e5b1e3f">useDepthTest</a> (bool use) noexcept</td></tr>
+<tr class="memdesc:ad5bf1560f8e2b47c017aea842e5b1e3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the depth test is performed.  <br /></td></tr>
+<tr class="separator:ad5bf1560f8e2b47c017aea842e5b1e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23abfd33eb174d0d569f566acb98a7c4" id="r_a23abfd33eb174d0d569f566acb98a7c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23abfd33eb174d0d569f566acb98a7c4">useFaceCulling</a> (bool use) noexcept</td></tr>
+<tr class="memdesc:a23abfd33eb174d0d569f566acb98a7c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether face culling is performed.  <br /></td></tr>
+<tr class="separator:a23abfd33eb174d0d569f566acb98a7c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeee96e71b6807342b46361cdc6c78376" id="r_aeee96e71b6807342b46361cdc6c78376"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeee96e71b6807342b46361cdc6c78376">useScissorTest</a> (bool use) noexcept</td></tr>
+<tr class="memdesc:aeee96e71b6807342b46361cdc6c78376"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the scissor test is performed.  <br /></td></tr>
+<tr class="separator:aeee96e71b6807342b46361cdc6c78376"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aace7b358607fe5364d8bae5e2bb05d96" id="r_aace7b358607fe5364d8bae5e2bb05d96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aace7b358607fe5364d8bae5e2bb05d96">useStencilTest</a> (bool use) noexcept</td></tr>
+<tr class="memdesc:aace7b358607fe5364d8bae5e2bb05d96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether the stencil test is performed.  <br /></td></tr>
+<tr class="separator:aace7b358607fe5364d8bae5e2bb05d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c7b1ac4384721aa1f47e48293665ebb" id="r_a7c7b1ac4384721aa1f47e48293665ebb"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c7b1ac4384721aa1f47e48293665ebb">vendorInfo</a> () const noexcept</td></tr>
+<tr class="memdesc:a7c7b1ac4384721aa1f47e48293665ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the context's vendor string.  <br /></td></tr>
+<tr class="separator:a7c7b1ac4384721aa1f47e48293665ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11296fb413c08e2a2ee28e02e85164d7" id="r_a11296fb413c08e2a2ee28e02e85164d7"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11296fb413c08e2a2ee28e02e85164d7">versionInfo</a> () const noexcept</td></tr>
+<tr class="memdesc:a11296fb413c08e2a2ee28e02e85164d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the context's version string.  <br /></td></tr>
+<tr class="separator:a11296fb413c08e2a2ee28e02e85164d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>OpenGL context. </p>
+<div class="textblock"><p>Graphics context. </p>
 <p>This class cannot be directly instantiated. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0786404b6da75df2a06cb40d0f334a9b" name="a0786404b6da75df2a06cb40d0f334a9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0786404b6da75df2a06cb40d0f334a9b">&#9670;&#160;</a></span>clear()</h2>
+<a id="af1be924289f1dd1a3a4313a09d40cf8b" name="af1be924289f1dd1a3a4313a09d40cf8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1be924289f1dd1a3a4313a09d40cf8b">&#9670;&#160;</a></span>clear()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,9 +207,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::clear </td>
+          <td class="memname">void tr::GraphicsContext::clear </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__graphics.html#gaeaf2735d38842f598e12fe0e884992ed">Clear</a></td>          <td class="paramname"><span class="paramname"><em>components</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="group__graphics.html#gaeaf2735d38842f598e12fe0e884992ed">Clear</a></td>          <td class="paramname"><span class="paramname"><em>components</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="group__graphics.html#ggaeaf2735d38842f598e12fe0e884992eda5fb1f955b45e38e31789286a1790398d">Clear::ALL</a></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -226,15 +223,15 @@ Public Member Functions</h2></td></tr>
 <p>Clears the current render target. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">components</td><td>The drawing components to clear. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">components</td><td>The drawing components to clear (by default ALL). </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a231ef63311f9cc5d5a0868f84a187536" name="a231ef63311f9cc5d5a0868f84a187536"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a231ef63311f9cc5d5a0868f84a187536">&#9670;&#160;</a></span>draw()</h2>
+<a id="a5970005bd6ddce59d45e997605e7b4b9" name="a5970005bd6ddce59d45e997605e7b4b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5970005bd6ddce59d45e997605e7b4b9">&#9670;&#160;</a></span>draw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -243,7 +240,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::draw </td>
+          <td class="memname">void tr::GraphicsContext::draw </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group__graphics.html#ga836d6a68316285fa5bde27908d9d9184">Primitive</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
         </tr>
@@ -277,8 +274,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aaa36ac515b7c30e284f9261da56d98b4" name="aaa36ac515b7c30e284f9261da56d98b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa36ac515b7c30e284f9261da56d98b4">&#9670;&#160;</a></span>drawIndexed()</h2>
+<a id="afa1468174c1e4ad836bc8fda094783ea" name="afa1468174c1e4ad836bc8fda094783ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa1468174c1e4ad836bc8fda094783ea">&#9670;&#160;</a></span>drawIndexed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -287,7 +284,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::drawIndexed </td>
+          <td class="memname">void tr::GraphicsContext::drawIndexed </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group__graphics.html#ga836d6a68316285fa5bde27908d9d9184">Primitive</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
         </tr>
@@ -321,8 +318,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae4a07f9e9df7b4d12f720434a5aebb8e" name="ae4a07f9e9df7b4d12f720434a5aebb8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4a07f9e9df7b4d12f720434a5aebb8e">&#9670;&#160;</a></span>drawIndexedInstances()</h2>
+<a id="a609e8e26979d1b15443229da132e0a67" name="a609e8e26979d1b15443229da132e0a67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a609e8e26979d1b15443229da132e0a67">&#9670;&#160;</a></span>drawIndexedInstances()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -331,7 +328,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::drawIndexedInstances </td>
+          <td class="memname">void tr::GraphicsContext::drawIndexedInstances </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group__graphics.html#ga836d6a68316285fa5bde27908d9d9184">Primitive</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
         </tr>
@@ -371,8 +368,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac3e48c3d15a6bc070969bb065da49d1a" name="ac3e48c3d15a6bc070969bb065da49d1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3e48c3d15a6bc070969bb065da49d1a">&#9670;&#160;</a></span>drawInstances()</h2>
+<a id="a0c29c83e3771c767391b9bbb2f5c284b" name="a0c29c83e3771c767391b9bbb2f5c284b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c29c83e3771c767391b9bbb2f5c284b">&#9670;&#160;</a></span>drawInstances()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -381,7 +378,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::drawInstances </td>
+          <td class="memname">void tr::GraphicsContext::drawInstances </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group__graphics.html#ga836d6a68316285fa5bde27908d9d9184">Primitive</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
         </tr>
@@ -421,8 +418,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ade1cf0170b1f0790a389512c40b7328a" name="ade1cf0170b1f0790a389512c40b7328a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade1cf0170b1f0790a389512c40b7328a">&#9670;&#160;</a></span>rendererInfo()</h2>
+<a id="ac2d7ec7caca7d7c119a90fe9e4a2e34d" name="ac2d7ec7caca7d7c119a90fe9e4a2e34d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2d7ec7caca7d7c119a90fe9e4a2e34d">&#9670;&#160;</a></span>rendererInfo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -431,7 +428,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const char * tr::GLContext::rendererInfo </td>
+          <td class="memname">const char * tr::GraphicsContext::rendererInfo </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -449,14 +446,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a22cfd6cd137024f2248dc55842be4de0" name="a22cfd6cd137024f2248dc55842be4de0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22cfd6cd137024f2248dc55842be4de0">&#9670;&#160;</a></span>setBlendingColor()</h2>
+<a id="a45c9a53c834e3fcebcced696b966a644" name="a45c9a53c834e3fcebcced696b966a644"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45c9a53c834e3fcebcced696b966a644">&#9670;&#160;</a></span>setBlendingColor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::setBlendingColor </td>
+          <td class="memname">void tr::GraphicsContext::setBlendingColor </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group__color.html#gaaede9b1d58e8ca2c89f538b907a9c688">RGBAF</a></td>          <td class="paramname"><span class="paramname"><em>color</em></span></td><td>)</td>
           <td></td>
@@ -474,8 +471,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4aae1755f714fda1fea01aab3c237d5e" name="a4aae1755f714fda1fea01aab3c237d5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4aae1755f714fda1fea01aab3c237d5e">&#9670;&#160;</a></span>setBlendingMode()</h2>
+<a id="abdf8b12d3a7ae5be7dbffe8edd6b1ffe" name="abdf8b12d3a7ae5be7dbffe8edd6b1ffe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdf8b12d3a7ae5be7dbffe8edd6b1ffe">&#9670;&#160;</a></span>setBlendingMode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -484,7 +481,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::setBlendingMode </td>
+          <td class="memname">void tr::GraphicsContext::setBlendingMode </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structtr_1_1BlendMode.html">BlendMode</a></td>          <td class="paramname"><span class="paramname"><em>blendMode</em></span></td><td>)</td>
           <td></td>
@@ -507,8 +504,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa4dfbda113377d275cb67b7de9a8ea62" name="aa4dfbda113377d275cb67b7de9a8ea62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4dfbda113377d275cb67b7de9a8ea62">&#9670;&#160;</a></span>setClearColor()</h2>
+<a id="a3c12258377974758917a484da9f97b27" name="a3c12258377974758917a484da9f97b27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c12258377974758917a484da9f97b27">&#9670;&#160;</a></span>setClearColor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -517,7 +514,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::setClearColor </td>
+          <td class="memname">void tr::GraphicsContext::setClearColor </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group__color.html#gaaede9b1d58e8ca2c89f538b907a9c688">RGBAF</a></td>          <td class="paramname"><span class="paramname"><em>color</em></span></td><td>)</td>
           <td></td>
@@ -540,8 +537,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad68202cd84cfbaf9996093d52ed27fec" name="ad68202cd84cfbaf9996093d52ed27fec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad68202cd84cfbaf9996093d52ed27fec">&#9670;&#160;</a></span>setClearDepth()</h2>
+<a id="a75d9c23b3cf7748c538c1c70189e5763" name="a75d9c23b3cf7748c538c1c70189e5763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75d9c23b3cf7748c538c1c70189e5763">&#9670;&#160;</a></span>setClearDepth()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -550,7 +547,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::setClearDepth </td>
+          <td class="memname">void tr::GraphicsContext::setClearDepth </td>
           <td>(</td>
           <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>depth</em></span></td><td>)</td>
           <td></td>
@@ -573,8 +570,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad6a7456f4b0cc3bbb3894f565d52953c" name="ad6a7456f4b0cc3bbb3894f565d52953c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6a7456f4b0cc3bbb3894f565d52953c">&#9670;&#160;</a></span>setClearStencil()</h2>
+<a id="a66abea830f22940ff2705fb96b763319" name="a66abea830f22940ff2705fb96b763319"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66abea830f22940ff2705fb96b763319">&#9670;&#160;</a></span>setClearStencil()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -583,7 +580,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::setClearStencil </td>
+          <td class="memname">void tr::GraphicsContext::setClearStencil </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>stencil</em></span></td><td>)</td>
           <td></td>
@@ -606,8 +603,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a50f235f9981e6fc87a233214b742b72a" name="a50f235f9981e6fc87a233214b742b72a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50f235f9981e6fc87a233214b742b72a">&#9670;&#160;</a></span>setColorMask()</h2>
+<a id="a501b8280011b400f3dcf8e1ab10e5fa5" name="a501b8280011b400f3dcf8e1ab10e5fa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a501b8280011b400f3dcf8e1ab10e5fa5">&#9670;&#160;</a></span>setColorMask()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -616,7 +613,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::setColorMask </td>
+          <td class="memname">void tr::GraphicsContext::setColorMask </td>
           <td>(</td>
           <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>red</em></span>, </td>
         </tr>
@@ -653,8 +650,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aedc24a36fbeb338e6a977ec0654cf6a3" name="aedc24a36fbeb338e6a977ec0654cf6a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedc24a36fbeb338e6a977ec0654cf6a3">&#9670;&#160;</a></span>setDepthTest()</h2>
+<a id="a3b71f3778d80d23e28d14d12e8bfdd21" name="a3b71f3778d80d23e28d14d12e8bfdd21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b71f3778d80d23e28d14d12e8bfdd21">&#9670;&#160;</a></span>setDepthTest()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -663,7 +660,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::setDepthTest </td>
+          <td class="memname">void tr::GraphicsContext::setDepthTest </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group__graphics.html#ga88338da155e2e92486d80fb0650a07d5">Compare</a></td>          <td class="paramname"><span class="paramname"><em>func</em></span></td><td>)</td>
           <td></td>
@@ -686,8 +683,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa3b6b2b5ee5cc16cf4d6debe7312efcd" name="aa3b6b2b5ee5cc16cf4d6debe7312efcd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3b6b2b5ee5cc16cf4d6debe7312efcd">&#9670;&#160;</a></span>setFramebuffer()</h2>
+<a id="a997ea3c65de59aa2e808a62856b86875" name="a997ea3c65de59aa2e808a62856b86875"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a997ea3c65de59aa2e808a62856b86875">&#9670;&#160;</a></span>setFramebuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -696,7 +693,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::setFramebuffer </td>
+          <td class="memname">void tr::GraphicsContext::setFramebuffer </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classtr_1_1BasicFramebuffer.html">BasicFramebuffer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>framebuffer</em></span></td><td>)</td>
           <td></td>
@@ -719,8 +716,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2f50c500d2c748b519d2660056113350" name="a2f50c500d2c748b519d2660056113350"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f50c500d2c748b519d2660056113350">&#9670;&#160;</a></span>setIndexBuffer()</h2>
+<a id="a9eb95e7c24bb845ffe19d849017867d5" name="a9eb95e7c24bb845ffe19d849017867d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eb95e7c24bb845ffe19d849017867d5">&#9670;&#160;</a></span>setIndexBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -729,7 +726,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::setIndexBuffer </td>
+          <td class="memname">void tr::GraphicsContext::setIndexBuffer </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classtr_1_1IndexBuffer.html">IndexBuffer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span></td><td>)</td>
           <td></td>
@@ -752,8 +749,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aaad54b2d5419621d8303d9d2f217690b" name="aaad54b2d5419621d8303d9d2f217690b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaad54b2d5419621d8303d9d2f217690b">&#9670;&#160;</a></span>setScissorBox()</h2>
+<a id="aee1a5c9b05d6dbc7671af87445fbec9e" name="aee1a5c9b05d6dbc7671af87445fbec9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee1a5c9b05d6dbc7671af87445fbec9e">&#9670;&#160;</a></span>setScissorBox()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -762,7 +759,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::setScissorBox </td>
+          <td class="memname">void tr::GraphicsContext::setScissorBox </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacetr.html#a386ecd8029d58f09791896b6421218d9">RectI2</a></td>          <td class="paramname"><span class="paramname"><em>rect</em></span></td><td>)</td>
           <td></td>
@@ -785,8 +782,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a38751a39adbf1544ba499513e5553a8e" name="a38751a39adbf1544ba499513e5553a8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38751a39adbf1544ba499513e5553a8e">&#9670;&#160;</a></span>setShaderPipeline()</h2>
+<a id="a6eba53d9124a18d5201e4aa8a16711b5" name="a6eba53d9124a18d5201e4aa8a16711b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eba53d9124a18d5201e4aa8a16711b5">&#9670;&#160;</a></span>setShaderPipeline()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -795,7 +792,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::setShaderPipeline </td>
+          <td class="memname">void tr::GraphicsContext::setShaderPipeline </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classtr_1_1ShaderPipeline.html">ShaderPipeline</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>pipeline</em></span></td><td>)</td>
           <td></td>
@@ -818,8 +815,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab53ef59193e8f3d8a2dc5879f2e25341" name="ab53ef59193e8f3d8a2dc5879f2e25341"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab53ef59193e8f3d8a2dc5879f2e25341">&#9670;&#160;</a></span>setStencilMask()</h2>
+<a id="ad9c7c6e17436a3d4588aeba4976d65fb" name="ad9c7c6e17436a3d4588aeba4976d65fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9c7c6e17436a3d4588aeba4976d65fb">&#9670;&#160;</a></span>setStencilMask()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -828,7 +825,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::setStencilMask </td>
+          <td class="memname">void tr::GraphicsContext::setStencilMask </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group__graphics.html#gae1a255c2dd97c61884a0c90d6e7aae8f">StencilFace</a></td>          <td class="paramname"><span class="paramname"><em>face</em></span>, </td>
         </tr>
@@ -856,8 +853,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6bf77cc2770e138bd5a89523d008b025" name="a6bf77cc2770e138bd5a89523d008b025"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bf77cc2770e138bd5a89523d008b025">&#9670;&#160;</a></span>setStencilOperation()</h2>
+<a id="a5ab93fa5ec156d6045305d155254ea1a" name="a5ab93fa5ec156d6045305d155254ea1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ab93fa5ec156d6045305d155254ea1a">&#9670;&#160;</a></span>setStencilOperation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -866,7 +863,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::setStencilOperation </td>
+          <td class="memname">void tr::GraphicsContext::setStencilOperation </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group__graphics.html#gae1a255c2dd97c61884a0c90d6e7aae8f">StencilFace</a></td>          <td class="paramname"><span class="paramname"><em>face</em></span>, </td>
         </tr>
@@ -906,8 +903,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa65bb21178b10de50664ec619062292a" name="aa65bb21178b10de50664ec619062292a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa65bb21178b10de50664ec619062292a">&#9670;&#160;</a></span>setStencilTest()</h2>
+<a id="a31e83da1f1ec031f6c30e72469a2087c" name="a31e83da1f1ec031f6c30e72469a2087c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31e83da1f1ec031f6c30e72469a2087c">&#9670;&#160;</a></span>setStencilTest()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -916,7 +913,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::setStencilTest </td>
+          <td class="memname">void tr::GraphicsContext::setStencilTest </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="group__graphics.html#gae1a255c2dd97c61884a0c90d6e7aae8f">StencilFace</a></td>          <td class="paramname"><span class="paramname"><em>face</em></span>, </td>
         </tr>
@@ -956,8 +953,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a24e251bd5e4de7e56807e9b9d76320ff" name="a24e251bd5e4de7e56807e9b9d76320ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24e251bd5e4de7e56807e9b9d76320ff">&#9670;&#160;</a></span>setVertexBuffer()</h2>
+<a id="af983541ddbe0eeada6dc19fa65eacf47" name="af983541ddbe0eeada6dc19fa65eacf47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af983541ddbe0eeada6dc19fa65eacf47">&#9670;&#160;</a></span>setVertexBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -966,7 +963,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::setVertexBuffer </td>
+          <td class="memname">void tr::GraphicsContext::setVertexBuffer </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classtr_1_1VertexBuffer.html">VertexBuffer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
         </tr>
@@ -1000,8 +997,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a30bf2f963fc34a4ec45ea74ad5a43ae9" name="a30bf2f963fc34a4ec45ea74ad5a43ae9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30bf2f963fc34a4ec45ea74ad5a43ae9">&#9670;&#160;</a></span>setVertexFormat()</h2>
+<a id="a7aad5366df16192006a4c416d5a2fb6d" name="a7aad5366df16192006a4c416d5a2fb6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aad5366df16192006a4c416d5a2fb6d">&#9670;&#160;</a></span>setVertexFormat()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1010,7 +1007,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::setVertexFormat </td>
+          <td class="memname">void tr::GraphicsContext::setVertexFormat </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classtr_1_1VertexFormat.html">VertexFormat</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>format</em></span></td><td>)</td>
           <td></td>
@@ -1033,41 +1030,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a40a9b745ae932d8776f9ae7c500c88da" name="a40a9b745ae932d8776f9ae7c500c88da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40a9b745ae932d8776f9ae7c500c88da">&#9670;&#160;</a></span>setVSync()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void tr::GLContext::setVSync </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="group__graphics.html#gac6c470285a932bb2ce74499f1ff07ac5">VSync</a></td>          <td class="paramname"><span class="paramname"><em>vsync</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sets the context's V-sync mode. </p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1WindowError.html" title="Error thrown when a window operation fails.">WindowError</a></td><td><p class="starttd">If setting the V-sync mode failed.</p>
-<p class="endtd">The context's V-sync mode will stay unchanged if this exception was thrown (strong exception guarantee). </p>
-</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">vsync</td><td>The new V-sync mode. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aee054afe1a5609cb713b44a436fa71ca" name="aee054afe1a5609cb713b44a436fa71ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee054afe1a5609cb713b44a436fa71ca">&#9670;&#160;</a></span>useBlending()</h2>
+<a id="a9b8b5cce30a4b0b614a0140d2234b26a" name="a9b8b5cce30a4b0b614a0140d2234b26a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b8b5cce30a4b0b614a0140d2234b26a">&#9670;&#160;</a></span>swap()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1076,7 +1040,34 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::useBlending </td>
+          <td class="memname">void tr::GraphicsContext::swap </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Swaps the display's front and back buffers. </p>
+
+</div>
+</div>
+<a id="a150b2542253f0a8e409faa920193cd5e" name="a150b2542253f0a8e409faa920193cd5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a150b2542253f0a8e409faa920193cd5e">&#9670;&#160;</a></span>useBlending()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tr::GraphicsContext::useBlending </td>
           <td>(</td>
           <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>use</em></span></td><td>)</td>
           <td></td>
@@ -1099,8 +1090,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aaedb3737d550a8a7a9a077867a020e96" name="aaedb3737d550a8a7a9a077867a020e96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaedb3737d550a8a7a9a077867a020e96">&#9670;&#160;</a></span>useDepthTest()</h2>
+<a id="ad5bf1560f8e2b47c017aea842e5b1e3f" name="ad5bf1560f8e2b47c017aea842e5b1e3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5bf1560f8e2b47c017aea842e5b1e3f">&#9670;&#160;</a></span>useDepthTest()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1109,7 +1100,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::useDepthTest </td>
+          <td class="memname">void tr::GraphicsContext::useDepthTest </td>
           <td>(</td>
           <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>use</em></span></td><td>)</td>
           <td></td>
@@ -1132,8 +1123,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af07f479f126c6588410a387a3127b467" name="af07f479f126c6588410a387a3127b467"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af07f479f126c6588410a387a3127b467">&#9670;&#160;</a></span>useFaceCulling()</h2>
+<a id="a23abfd33eb174d0d569f566acb98a7c4" name="a23abfd33eb174d0d569f566acb98a7c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23abfd33eb174d0d569f566acb98a7c4">&#9670;&#160;</a></span>useFaceCulling()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1142,7 +1133,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::useFaceCulling </td>
+          <td class="memname">void tr::GraphicsContext::useFaceCulling </td>
           <td>(</td>
           <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>use</em></span></td><td>)</td>
           <td></td>
@@ -1165,8 +1156,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a08673030148a305c26a67a976499173d" name="a08673030148a305c26a67a976499173d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08673030148a305c26a67a976499173d">&#9670;&#160;</a></span>useScissorTest()</h2>
+<a id="aeee96e71b6807342b46361cdc6c78376" name="aeee96e71b6807342b46361cdc6c78376"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeee96e71b6807342b46361cdc6c78376">&#9670;&#160;</a></span>useScissorTest()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1175,7 +1166,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::useScissorTest </td>
+          <td class="memname">void tr::GraphicsContext::useScissorTest </td>
           <td>(</td>
           <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>use</em></span></td><td>)</td>
           <td></td>
@@ -1198,8 +1189,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad209ceefbee8351880043a5ddcd5990a" name="ad209ceefbee8351880043a5ddcd5990a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad209ceefbee8351880043a5ddcd5990a">&#9670;&#160;</a></span>useStencilTest()</h2>
+<a id="aace7b358607fe5364d8bae5e2bb05d96" name="aace7b358607fe5364d8bae5e2bb05d96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aace7b358607fe5364d8bae5e2bb05d96">&#9670;&#160;</a></span>useStencilTest()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1208,7 +1199,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tr::GLContext::useStencilTest </td>
+          <td class="memname">void tr::GraphicsContext::useStencilTest </td>
           <td>(</td>
           <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>use</em></span></td><td>)</td>
           <td></td>
@@ -1231,8 +1222,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6ed24d688c563f4e393b8d99237d6fc6" name="a6ed24d688c563f4e393b8d99237d6fc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ed24d688c563f4e393b8d99237d6fc6">&#9670;&#160;</a></span>vendorInfo()</h2>
+<a id="a7c7b1ac4384721aa1f47e48293665ebb" name="a7c7b1ac4384721aa1f47e48293665ebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c7b1ac4384721aa1f47e48293665ebb">&#9670;&#160;</a></span>vendorInfo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1241,7 +1232,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const char * tr::GLContext::vendorInfo </td>
+          <td class="memname">const char * tr::GraphicsContext::vendorInfo </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -1259,8 +1250,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab1c3ca04bfcaa05a03ddae2227cee4f6" name="ab1c3ca04bfcaa05a03ddae2227cee4f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1c3ca04bfcaa05a03ddae2227cee4f6">&#9670;&#160;</a></span>versionInfo()</h2>
+<a id="a11296fb413c08e2a2ee28e02e85164d7" name="a11296fb413c08e2a2ee28e02e85164d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11296fb413c08e2a2ee28e02e85164d7">&#9670;&#160;</a></span>versionInfo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1269,7 +1260,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const char * tr::GLContext::versionInfo </td>
+          <td class="memname">const char * tr::GraphicsContext::versionInfo </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -1284,34 +1275,6 @@ Public Member Functions</h2></td></tr>
 
 <p>Gets the context's version string. </p>
 <dl class="section return"><dt>Returns</dt><dd>A version information C-string. </dd></dl>
-
-</div>
-</div>
-<a id="a17104b880ed940987b1e07cc40aba5d0" name="a17104b880ed940987b1e07cc40aba5d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17104b880ed940987b1e07cc40aba5d0">&#9670;&#160;</a></span>vsync()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="group__graphics.html#gac6c470285a932bb2ce74499f1ff07ac5">VSync</a> tr::GLContext::vsync </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the context's V-sync mode. </p>
-<dl class="section return"><dt>Returns</dt><dd>The context's V-sync mode. </dd></dl>
 
 </div>
 </div>

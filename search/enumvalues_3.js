@@ -8,7 +8,7 @@ var searchData=
   ['depth16_5',['DEPTH16',['../group__graphics.html#gga2e9ae2f935462a45286798ae6fd5def9a552b95de83e557ad11a9330164831ffb',1,'tr']]],
   ['depth24_6',['DEPTH24',['../group__graphics.html#gga2e9ae2f935462a45286798ae6fd5def9a25fda16aa10a025ab21b9019b094ef27',1,'tr']]],
   ['depth_5ffp32_7',['DEPTH_FP32',['../group__graphics.html#gga2e9ae2f935462a45286798ae6fd5def9a5def214b76446802949c0509d71ce463',1,'tr']]],
-  ['disabled_8',['DISABLED',['../group__graphics.html#ggac6c470285a932bb2ce74499f1ff07ac5a055c1a591abb0e8cd86dc969727bcc0b',1,'tr']]],
+  ['disabled_8',['DISABLED',['../group__input.html#ggac6c470285a932bb2ce74499f1ff07ac5a055c1a591abb0e8cd86dc969727bcc0b',1,'tr']]],
   ['dollar_9',['DOLLAR',['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a85f2a6cf62f04038213a310660925b9c',1,'tr::Keycode']]],
   ['double_5fquote_10',['DOUBLE_QUOTE',['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88ae1a1532270bcf7e9a5661f1ea9520807',1,'tr::Keycode']]],
   ['down_11',['DOWN',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204dac4e0e4e3118472beeb2ae75827450f1f',1,'tr::Scancode::DOWN'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88ac4e0e4e3118472beeb2ae75827450f1f',1,'tr::Keycode::DOWN']]],

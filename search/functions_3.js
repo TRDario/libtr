@@ -11,8 +11,8 @@ var searchData=
   ['displayinfo_8',['DisplayInfo',['../classtr_1_1DisplayInfo.html#aba5f12d97f3d077c43d3cf1ebce8ef69',1,'tr::DisplayInfo::DisplayInfo() noexcept'],['../classtr_1_1DisplayInfo.html#a84de8989ee8d57502efba161706acf80',1,'tr::DisplayInfo::DisplayInfo(int id) noexcept']]],
   ['displaymode_9',['displayMode',['../classtr_1_1DisplayInfo.html#aeea84569590550c077a8985e1647eece',1,'tr::DisplayInfo']]],
   ['displaymodecount_10',['displayModeCount',['../classtr_1_1DisplayInfo.html#abf825c4dfb82beafd4d3638d31aa3f16',1,'tr::DisplayInfo']]],
-  ['draw_11',['draw',['../classtr_1_1GLContext.html#a231ef63311f9cc5d5a0868f84a187536',1,'tr::GLContext']]],
-  ['drawindexed_12',['drawIndexed',['../classtr_1_1GLContext.html#aaa36ac515b7c30e284f9261da56d98b4',1,'tr::GLContext']]],
-  ['drawindexedinstances_13',['drawIndexedInstances',['../classtr_1_1GLContext.html#ae4a07f9e9df7b4d12f720434a5aebb8e',1,'tr::GLContext']]],
-  ['drawinstances_14',['drawInstances',['../classtr_1_1GLContext.html#ac3e48c3d15a6bc070969bb065da49d1a',1,'tr::GLContext']]]
+  ['draw_11',['draw',['../classtr_1_1GraphicsContext.html#a5970005bd6ddce59d45e997605e7b4b9',1,'tr::GraphicsContext']]],
+  ['drawindexed_12',['drawIndexed',['../classtr_1_1GraphicsContext.html#afa1468174c1e4ad836bc8fda094783ea',1,'tr::GraphicsContext']]],
+  ['drawindexedinstances_13',['drawIndexedInstances',['../classtr_1_1GraphicsContext.html#a609e8e26979d1b15443229da132e0a67',1,'tr::GraphicsContext']]],
+  ['drawinstances_14',['drawInstances',['../classtr_1_1GraphicsContext.html#a0c29c83e3771c767391b9bbb2f5c284b',1,'tr::GraphicsContext']]]
 ];

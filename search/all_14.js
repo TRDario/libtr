@@ -53,7 +53,7 @@ var searchData=
   ['tr_3a_3aenumerator_50',['Enumerator',['../concepttr_1_1Enumerator.html',1,'tr']]],
   ['tr_3a_3aevent_5ftype_51',['event_type',['../namespacetr_1_1event__type.html',1,'tr']]],
   ['tr_3a_3afloatingpoint_52',['FloatingPoint',['../concepttr_1_1FloatingPoint.html',1,'tr']]],
-  ['tr_3a_3aglcopyoutputiterator_53',['GLCopyOutputIterator',['../concepttr_1_1GLCopyOutputIterator.html',1,'tr']]],
+  ['tr_3a_3agraphicsbuffercopyoutputiterator_53',['GraphicsBufferCopyOutputIterator',['../concepttr_1_1GraphicsBufferCopyOutputIterator.html',1,'tr']]],
   ['tr_3a_3ahandledeleter_54',['HandleDeleter',['../concepttr_1_1HandleDeleter.html',1,'tr']]],
   ['tr_3a_3ahandletype_55',['HandleType',['../concepttr_1_1HandleType.html',1,'tr']]],
   ['tr_3a_3amatrix_5foperators_56',['matrix_operators',['../namespacetr_1_1matrix__operators.html',1,'tr']]],

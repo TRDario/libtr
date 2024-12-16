@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>libtr: gl_buffer.hpp Source File</title>
+<title>libtr: graphics_buffer.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -90,7 +90,7 @@ $(function(){ initResizable(false); });
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">gl_buffer.hpp</div></div>
+  <div class="headertitle"><div class="title">graphics_buffer.hpp</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
@@ -101,37 +101,37 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;string_view&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetr.html">tr</a> {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keyword">class </span>GLBufferMap;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keyword">class </span>GraphicsBufferMap;</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> It&gt;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="concepttr_1_1GLCopyOutputIterator.html">   19</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="concepttr_1_1GLCopyOutputIterator.html">GLCopyOutputIterator</a> =</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="concepttr_1_1GraphicsBufferCopyOutputIterator.html">   19</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="concepttr_1_1GraphicsBufferCopyOutputIterator.html">GraphicsBufferCopyOutputIterator</a> =</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        std::contiguous_iterator&lt;It&gt; &amp;&amp; (std::same_as&lt;typename std::iterator_traits&lt;It&gt;::value_type, std::byte&gt; ||</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>                                         std::same_as&lt;typename std::iterator_traits&lt;It&gt;::value_type, <span class="keywordtype">char</span>&gt; ||</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>                                         std::same_as&lt;typename std::iterator_traits&lt;It&gt;::value_type, std::uint8_t&gt;);</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structtr_1_1GLBufferBadAlloc.html">   27</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtr_1_1GLBufferBadAlloc.html">GLBufferBadAlloc</a> : std::bad_alloc {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structtr_1_1GraphicsBufferBadAlloc.html">   27</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtr_1_1GraphicsBufferBadAlloc.html">GraphicsBufferBadAlloc</a> : std::bad_alloc {</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structtr_1_1GLBufferBadAlloc.html#a0d6eb832cac4d89fd2fc9abe012c9cf9">   33</a></span>        <span class="keyword">constexpr</span> <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1GLBufferBadAlloc.html#a0d6eb832cac4d89fd2fc9abe012c9cf9">what</a>() const noexcept;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structtr_1_1GraphicsBufferBadAlloc.html#a96ef77cd330ad4f2c61c736fe71399b2">   33</a></span>        <span class="keyword">constexpr</span> <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1GraphicsBufferBadAlloc.html#a96ef77cd330ad4f2c61c736fe71399b2">what</a>() const noexcept;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    };</div>
 </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structtr_1_1GLMapBadAlloc.html">   39</a></span>    struct <a class="code hl_struct" href="structtr_1_1GLMapBadAlloc.html">GLMapBadAlloc</a> : std::bad_alloc {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structtr_1_1GraphicsBufferMapBadAlloc.html">   39</a></span>    struct <a class="code hl_struct" href="structtr_1_1GraphicsBufferMapBadAlloc.html">GraphicsBufferMapBadAlloc</a> : std::bad_alloc {</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structtr_1_1GLMapBadAlloc.html#afd7a05bbe8de0015cf6eeba9dbb964fb">   45</a></span>        <span class="keyword">constexpr</span> <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1GLMapBadAlloc.html#afd7a05bbe8de0015cf6eeba9dbb964fb">what</a>() const noexcept;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structtr_1_1GraphicsBufferMapBadAlloc.html#a1c8b908bd89be070df4c2eeec648858e">   45</a></span>        <span class="keyword">constexpr</span> <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1GraphicsBufferMapBadAlloc.html#a1c8b908bd89be070df4c2eeec648858e">what</a>() const noexcept;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    };</div>
 </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classtr_1_1GLBuffer.html">   53</a></span>    class <a class="code hl_class" href="classtr_1_1GLBuffer.html">GLBuffer</a> {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classtr_1_1GraphicsBuffer.html">   53</a></span>    class <a class="code hl_class" href="classtr_1_1GraphicsBuffer.html">GraphicsBuffer</a> {</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>      <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classtr_1_1GLBuffer.html#a24944e9714ffd0f4e687fb450a5c08e8">   58</a></span>        <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code hl_friend" href="classtr_1_1GLBuffer.html#a24944e9714ffd0f4e687fb450a5c08e8">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1GLBuffer.html">GLBuffer</a>&amp;, <span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1GLBuffer.html">GLBuffer</a>&amp;) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classtr_1_1GraphicsBuffer.html#a1f132fbad699d6a408c22dcf7ef6aba0">   58</a></span>        <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code hl_friend" href="classtr_1_1GraphicsBuffer.html#a1f132fbad699d6a408c22dcf7ef6aba0">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1GraphicsBuffer.html">GraphicsBuffer</a>&amp;, <span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1GraphicsBuffer.html">GraphicsBuffer</a>&amp;) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>      <span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="comment">// Enum representing an OpenGL buffer target.</span></div>
@@ -219,13 +219,13 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        std::size_t                      _size;</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="comment">// Creates an uninitialized buffer.</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        GLBuffer(Target target, std::size_t size, Flag flags);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        GraphicsBuffer(Target target, std::size_t size, Flag flags);</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="comment">// Creates an initialized buffer.</span></div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        GLBuffer(Target target, std::span&lt;const std::byte&gt; data, Flag flags);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        GraphicsBuffer(Target target, std::span&lt;const std::byte&gt; data, Flag flags);</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        std::size_t size() const noexcept;</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        template &lt;GLCopyOutputIterator It&gt;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        template &lt;GraphicsBufferCopyOutputIterator It&gt;</div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        <span class="keywordtype">void</span> copyRegionTo(It out, std::<span class="keywordtype">size_t</span> offset, std::<span class="keywordtype">size_t</span> size) const noexcept</div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        {</div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            copyRegionBase(std::to_address(out), offset, size);</div>
@@ -233,8 +233,8 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="keywordtype">void</span> setRegion(std::size_t offset, std::span&lt;const std::byte&gt; data) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordtype">bool</span>        mapped() const noexcept;</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        GLBufferMap mapRegion(std::<span class="keywordtype">size_t</span> offset, std::<span class="keywordtype">size_t</span> size, MapFlag flags);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordtype">bool</span>              mapped() const noexcept;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        GraphicsBufferMap mapRegion(std::<span class="keywordtype">size_t</span> offset, std::<span class="keywordtype">size_t</span> size, MapFlag flags);</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <span class="comment">// Resets the buffer&#39;s target binding point.</span></div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keywordtype">void</span> resetTarget(Target newTarget) noexcept;</div>
@@ -250,22 +250,22 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>      private:</div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="keywordtype">void</span> copyRegionToBase(<span class="keywordtype">void</span>* ptr, std::<span class="keywordtype">size_t</span> offset, std::<span class="keywordtype">size_t</span> size) const noexcept;</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="classtr_1_1GLBuffer.html#a03c2d524ace9ade9c3f55b43c99bcea1">  179</a></span>        friend class <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>;</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="classtr_1_1GLBuffer.html#aca7481eff0efc52f50d3a64561a9f693">  180</a></span>        friend class <a class="code hl_class" href="classtr_1_1GLContext.html">GLContext</a>;</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="classtr_1_1GLBuffer.html#a9ef9a3db41cb54690169922706e1d3c5">  181</a></span>        friend class <a class="code hl_class" href="classtr_1_1VertexBuffer.html">VertexBuffer</a>;</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="classtr_1_1GLBuffer.html#a95054ec4e847742ba17d0350fc1fa8fa">  182</a></span>        friend class <a class="code hl_class" href="classtr_1_1IndexBuffer.html">IndexBuffer</a>;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="classtr_1_1GraphicsBuffer.html#a03c2d524ace9ade9c3f55b43c99bcea1">  179</a></span>        friend class <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="classtr_1_1GraphicsBuffer.html#a8fffd8ec74983da6e71d9f81690cea11">  180</a></span>        friend class <a class="code hl_class" href="classtr_1_1GraphicsContext.html">GraphicsContext</a>;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="classtr_1_1GraphicsBuffer.html#a9ef9a3db41cb54690169922706e1d3c5">  181</a></span>        friend class <a class="code hl_class" href="classtr_1_1VertexBuffer.html">VertexBuffer</a>;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="classtr_1_1GraphicsBuffer.html#a95054ec4e847742ba17d0350fc1fa8fa">  182</a></span>        friend class <a class="code hl_class" href="classtr_1_1IndexBuffer.html">IndexBuffer</a>;</div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    };</div>
 </div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
 <div class="foldopen" id="foldopen00190" data-start="{" data-end="};">
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="classtr_1_1GLBufferMap.html">  190</a></span>    class <a class="code hl_class" href="classtr_1_1GLBufferMap.html">GLBufferMap</a> {</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="classtr_1_1GraphicsBufferMap.html">  190</a></span>    class <a class="code hl_class" href="classtr_1_1GraphicsBufferMap.html">GraphicsBufferMap</a> {</div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>      <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="classtr_1_1GLBufferMap.html#a7177e91ac3293bd9e2cfd9ea3ac12da3">  195</a></span>        <span class="keyword">operator</span> std::span&lt;std::byte&gt;() const noexcept;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="classtr_1_1GraphicsBufferMap.html#aaf01a395df7d8c3b2ab2b12bdab8f272">  195</a></span>        <span class="keyword">operator</span> std::span&lt;std::byte&gt;() const noexcept;</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="classtr_1_1GLBufferMap.html#a14b96c40d9bbc1459f93f62ca6dc1d67">  202</a></span>        std::span&lt;std::<span class="keywordtype">byte</span>&gt; span() const noexcept;</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="classtr_1_1GraphicsBufferMap.html#adbbc78300a38d05294c34a7200746be6">  202</a></span>        std::span&lt;std::<span class="keywordtype">byte</span>&gt; span() const noexcept;</div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>      private:</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        struct Deleter {</div>
@@ -275,34 +275,34 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <a class="code hl_class" href="classtr_1_1Handle.html">Handle&lt;unsigned int, 0, Deleter&gt;</a> _buffer;</div>
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        std::span&lt;std::byte&gt;             _span;</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        <a class="code hl_class" href="classtr_1_1GLBufferMap.html">GLBufferMap</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> buffer, std::span&lt;std::byte&gt; span) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        <a class="code hl_class" href="classtr_1_1GraphicsBufferMap.html">GraphicsBufferMap</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> buffer, std::span&lt;std::byte&gt; span) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="classtr_1_1GLBufferMap.html#a5515dd045bc12bb676732950e219f924">  214</a></span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1GLBuffer.html">GLBuffer</a>;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="classtr_1_1GraphicsBufferMap.html#a906ae178d6962625a5b4334d8d40c2fa">  214</a></span>        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1GraphicsBuffer.html">GraphicsBuffer</a>;</div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    };</div>
 </div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
 <div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>} <span class="comment">// namespace tr</span></div>
 <div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
 <div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1GLBufferBadAlloc.html#a0d6eb832cac4d89fd2fc9abe012c9cf9">tr::GLBufferBadAlloc::what</a>() const noexcept</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1GraphicsBufferBadAlloc.html#a96ef77cd330ad4f2c61c736fe71399b2">tr::GraphicsBufferBadAlloc::what</a>() const noexcept</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>{</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;OpenGL buffer allocation error&quot;</span>;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Graphics buffer allocation error&quot;</span>;</div>
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>}</div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1GLMapBadAlloc.html#afd7a05bbe8de0015cf6eeba9dbb964fb">tr::GLMapBadAlloc::what</a>() const noexcept</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1GraphicsBufferMapBadAlloc.html#a1c8b908bd89be070df4c2eeec648858e">tr::GraphicsBufferMapBadAlloc::what</a>() const noexcept</div>
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>{</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;OpenGL buffer map allocation error&quot;</span>;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Graphics buffer map allocation error&quot;</span>;</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>}</div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
-<div class="ttc" id="aclasstr_1_1GLBufferMap_html"><div class="ttname"><a href="classtr_1_1GLBufferMap.html">tr::GLBufferMap</a></div><div class="ttdoc">RAII wrapper over an OpenGL buffer map.</div><div class="ttdef"><b>Definition</b> gl_buffer.hpp:190</div></div>
-<div class="ttc" id="aclasstr_1_1GLBuffer_html"><div class="ttname"><a href="classtr_1_1GLBuffer.html">tr::GLBuffer</a></div><div class="ttdoc">Base OpenGL buffer class.</div><div class="ttdef"><b>Definition</b> gl_buffer.hpp:53</div></div>
-<div class="ttc" id="aclasstr_1_1GLBuffer_html_a24944e9714ffd0f4e687fb450a5c08e8"><div class="ttname"><a href="classtr_1_1GLBuffer.html#a24944e9714ffd0f4e687fb450a5c08e8">tr::GLBuffer::operator==</a></div><div class="ttdeci">friend bool operator==(const GLBuffer &amp;, const GLBuffer &amp;) noexcept</div><div class="ttdoc">Equality comparison operator.</div></div>
-<div class="ttc" id="aclasstr_1_1GLContext_html"><div class="ttname"><a href="classtr_1_1GLContext.html">tr::GLContext</a></div><div class="ttdoc">OpenGL context.</div><div class="ttdef"><b>Definition</b> gl_context.hpp:359</div></div>
+<div class="ttc" id="aclasstr_1_1GraphicsBufferMap_html"><div class="ttname"><a href="classtr_1_1GraphicsBufferMap.html">tr::GraphicsBufferMap</a></div><div class="ttdoc">RAII wrapper over a graphics buffer map.</div><div class="ttdef"><b>Definition</b> graphics_buffer.hpp:190</div></div>
+<div class="ttc" id="aclasstr_1_1GraphicsBuffer_html"><div class="ttname"><a href="classtr_1_1GraphicsBuffer.html">tr::GraphicsBuffer</a></div><div class="ttdoc">Base graphics buffer class.</div><div class="ttdef"><b>Definition</b> graphics_buffer.hpp:53</div></div>
+<div class="ttc" id="aclasstr_1_1GraphicsBuffer_html_a1f132fbad699d6a408c22dcf7ef6aba0"><div class="ttname"><a href="classtr_1_1GraphicsBuffer.html#a1f132fbad699d6a408c22dcf7ef6aba0">tr::GraphicsBuffer::operator==</a></div><div class="ttdeci">friend bool operator==(const GraphicsBuffer &amp;, const GraphicsBuffer &amp;) noexcept</div><div class="ttdoc">Equality comparison operator.</div></div>
+<div class="ttc" id="aclasstr_1_1GraphicsContext_html"><div class="ttname"><a href="classtr_1_1GraphicsContext.html">tr::GraphicsContext</a></div><div class="ttdoc">Graphics context.</div><div class="ttdef"><b>Definition</b> graphics_context.hpp:339</div></div>
 <div class="ttc" id="aclasstr_1_1Handle_html"><div class="ttname"><a href="classtr_1_1Handle.html">tr::Handle</a></div><div class="ttdoc">RAII wrapper over non-pointer handles.</div><div class="ttdef"><b>Definition</b> handle.hpp:54</div></div>
 <div class="ttc" id="aclasstr_1_1IndexBuffer_html"><div class="ttname"><a href="classtr_1_1IndexBuffer.html">tr::IndexBuffer</a></div><div class="ttdoc">GPU index buffer class.</div><div class="ttdef"><b>Definition</b> index_buffer.hpp:38</div></div>
 <div class="ttc" id="aclasstr_1_1Shader_html"><div class="ttname"><a href="classtr_1_1Shader.html">tr::Shader</a></div><div class="ttdoc">GPU shader program.</div><div class="ttdef"><b>Definition</b> shader.hpp:35</div></div>
 <div class="ttc" id="aclasstr_1_1VertexBuffer_html"><div class="ttname"><a href="classtr_1_1VertexBuffer.html">tr::VertexBuffer</a></div><div class="ttdoc">GPU vertex buffer class.</div><div class="ttdef"><b>Definition</b> vertex_buffer.hpp:13</div></div>
-<div class="ttc" id="aconcepttr_1_1GLCopyOutputIterator_html"><div class="ttname"><a href="concepttr_1_1GLCopyOutputIterator.html">tr::GLCopyOutputIterator</a></div><div class="ttdoc">Concept denoting an iterator suitable for GLBuffer::copyRegionTo.</div><div class="ttdef"><b>Definition</b> gl_buffer.hpp:19</div></div>
+<div class="ttc" id="aconcepttr_1_1GraphicsBufferCopyOutputIterator_html"><div class="ttname"><a href="concepttr_1_1GraphicsBufferCopyOutputIterator.html">tr::GraphicsBufferCopyOutputIterator</a></div><div class="ttdoc">Concept denoting an iterator suitable for GraphicsBuffer::copyRegionTo.</div><div class="ttdef"><b>Definition</b> graphics_buffer.hpp:19</div></div>
 <div class="ttc" id="agroup__color_html_ga1713cee25653ace2c701e2811e86386c"><div class="ttname"><a href="group__color.html#ga1713cee25653ace2c701e2811e86386c">tr::RGBA8</a></div><div class="ttdeci">RGBA&lt; std::uint8_t &gt; RGBA8</div><div class="ttdoc">Shorthand for the common 8-bit RGBA color.</div><div class="ttdef"><b>Definition</b> color.hpp:184</div></div>
 <div class="ttc" id="agroup__graphics_html_gga2e9ae2f935462a45286798ae6fd5def9a0003dfc96b0367e7c5a9faa0da15e6da"><div class="ttname"><a href="group__graphics.html#gga2e9ae2f935462a45286798ae6fd5def9a0003dfc96b0367e7c5a9faa0da15e6da">tr::TextureFormat::RGB_UI32</a></div><div class="ttdeci">@ RGB_UI32</div></div>
 <div class="ttc" id="agroup__graphics_html_gga2e9ae2f935462a45286798ae6fd5def9a0367a93b9e3e7aa2fbe9802d80298e46"><div class="ttname"><a href="group__graphics.html#gga2e9ae2f935462a45286798ae6fd5def9a0367a93b9e3e7aa2fbe9802d80298e46">tr::TextureFormat::RG8</a></div><div class="ttdeci">@ RG8</div></div>
@@ -332,10 +332,10 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="agroup__graphics_html_gga2e9ae2f935462a45286798ae6fd5def9afe422a166a2007d8d12b64c11e4d4a06"><div class="ttname"><a href="group__graphics.html#gga2e9ae2f935462a45286798ae6fd5def9afe422a166a2007d8d12b64c11e4d4a06">tr::TextureFormat::R_SI16</a></div><div class="ttdeci">@ R_SI16</div></div>
 <div class="ttc" id="agroup__input_html_gga1e5a857eb2f40e2b55bfb43225cbc658ab50339a10e1de285ac99d4c3990b8693"><div class="ttname"><a href="group__input.html#gga1e5a857eb2f40e2b55bfb43225cbc658ab50339a10e1de285ac99d4c3990b8693">tr::Keymods::NONE</a></div><div class="ttdeci">@ NONE</div></div>
 <div class="ttc" id="anamespacetr_html"><div class="ttname"><a href="namespacetr.html">tr</a></div><div class="ttdoc">Namespace containing all libtr functionality.</div><div class="ttdef"><b>Definition</b> angle.hpp:5</div></div>
-<div class="ttc" id="astructtr_1_1GLBufferBadAlloc_html"><div class="ttname"><a href="structtr_1_1GLBufferBadAlloc.html">tr::GLBufferBadAlloc</a></div><div class="ttdoc">Error thrown when allocating a GPU buffer fails.</div><div class="ttdef"><b>Definition</b> gl_buffer.hpp:27</div></div>
-<div class="ttc" id="astructtr_1_1GLBufferBadAlloc_html_a0d6eb832cac4d89fd2fc9abe012c9cf9"><div class="ttname"><a href="structtr_1_1GLBufferBadAlloc.html#a0d6eb832cac4d89fd2fc9abe012c9cf9">tr::GLBufferBadAlloc::what</a></div><div class="ttdeci">virtual constexpr const char * what() const noexcept</div><div class="ttdoc">Gets an error message.</div></div>
-<div class="ttc" id="astructtr_1_1GLMapBadAlloc_html"><div class="ttname"><a href="structtr_1_1GLMapBadAlloc.html">tr::GLMapBadAlloc</a></div><div class="ttdoc">Error thrown when mapping a GPU buffer fails.</div><div class="ttdef"><b>Definition</b> gl_buffer.hpp:39</div></div>
-<div class="ttc" id="astructtr_1_1GLMapBadAlloc_html_afd7a05bbe8de0015cf6eeba9dbb964fb"><div class="ttname"><a href="structtr_1_1GLMapBadAlloc.html#afd7a05bbe8de0015cf6eeba9dbb964fb">tr::GLMapBadAlloc::what</a></div><div class="ttdeci">virtual constexpr const char * what() const noexcept</div><div class="ttdoc">Gets an error message.</div></div>
+<div class="ttc" id="astructtr_1_1GraphicsBufferBadAlloc_html"><div class="ttname"><a href="structtr_1_1GraphicsBufferBadAlloc.html">tr::GraphicsBufferBadAlloc</a></div><div class="ttdoc">Error thrown when allocating a graphics buffer fails.</div><div class="ttdef"><b>Definition</b> graphics_buffer.hpp:27</div></div>
+<div class="ttc" id="astructtr_1_1GraphicsBufferBadAlloc_html_a96ef77cd330ad4f2c61c736fe71399b2"><div class="ttname"><a href="structtr_1_1GraphicsBufferBadAlloc.html#a96ef77cd330ad4f2c61c736fe71399b2">tr::GraphicsBufferBadAlloc::what</a></div><div class="ttdeci">virtual constexpr const char * what() const noexcept</div><div class="ttdoc">Gets an error message.</div></div>
+<div class="ttc" id="astructtr_1_1GraphicsBufferMapBadAlloc_html"><div class="ttname"><a href="structtr_1_1GraphicsBufferMapBadAlloc.html">tr::GraphicsBufferMapBadAlloc</a></div><div class="ttdoc">Error thrown when mapping a graphics buffer fails.</div><div class="ttdef"><b>Definition</b> graphics_buffer.hpp:39</div></div>
+<div class="ttc" id="astructtr_1_1GraphicsBufferMapBadAlloc_html_a1c8b908bd89be070df4c2eeec648858e"><div class="ttname"><a href="structtr_1_1GraphicsBufferMapBadAlloc.html#a1c8b908bd89be070df4c2eeec648858e">tr::GraphicsBufferMapBadAlloc::what</a></div><div class="ttdeci">virtual constexpr const char * what() const noexcept</div><div class="ttdoc">Gets an error message.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

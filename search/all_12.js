@@ -42,7 +42,7 @@ var searchData=
   ['render_39',['render',['../classtr_1_1TTFont.html#abe28f80837b1793585d04f6455b4f89f',1,'tr::TTFont::render(std::uint32_t cp, RGBA8 color) const'],['../classtr_1_1TTFont.html#a383f2fb68eb5481acdc5786f3cf42293',1,'tr::TTFont::render(const char *text, RGBA8 color) const']]],
   ['renderbuffer_40',['Renderbuffer',['../classtr_1_1Renderbuffer.html',1,'tr::Renderbuffer'],['../classtr_1_1Renderbuffer.html#a6ec7ef71711f5b1ee2e14091cafb25d5',1,'tr::Renderbuffer::Renderbuffer()']]],
   ['renderbufferbadalloc_41',['RenderbufferBadAlloc',['../structtr_1_1RenderbufferBadAlloc.html',1,'tr']]],
-  ['rendererinfo_42',['rendererInfo',['../classtr_1_1GLContext.html#ade1cf0170b1f0790a389512c40b7328a',1,'tr::GLContext']]],
+  ['rendererinfo_42',['rendererInfo',['../classtr_1_1GraphicsContext.html#ac2d7ec7caca7d7c119a90fe9e4a2e34d',1,'tr::GraphicsContext']]],
   ['renderwrapped_43',['renderWrapped',['../classtr_1_1TTFont.html#a06cf520a8ecae2fbd957604f348e81b8',1,'tr::TTFont']]],
   ['repeat_44',['REPEAT',['../group__graphics.html#gga68fa0648b9a72034f88944a16cadaea8a5be68175be14dfaa080165456c2e9555',1,'tr']]],
   ['repeat_45',['repeat',['../structtr_1_1KeyDownEvent.html#a22a441ced1ad417b81fbe7c9b021125c',1,'tr::KeyDownEvent']]],

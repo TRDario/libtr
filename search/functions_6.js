@@ -5,6 +5,6 @@ var searchData=
   ['get_5fdeleter_2',['get_deleter',['../classtr_1_1Handle.html#a97721eb9ea8980f6ec4deb62211149f1',1,'tr::Handle::get_deleter() noexcept'],['../classtr_1_1Handle.html#a57afae313361ff209068f8239d7c4af9',1,'tr::Handle::get_deleter() const noexcept']]],
   ['getexedir_3',['getExeDir',['../group__path.html#ga499a4fb44878eb1a868aeb1445464629',1,'tr']]],
   ['getuserdir_4',['getUserDir',['../group__path.html#ga9ea47d809fe5d1a36d42f8f98e5bbda8',1,'tr']]],
-  ['glcontext_5',['glContext',['../classtr_1_1Window.html#a1415af5b153cce67d846d4934cd3c640',1,'tr::Window::glContext() noexcept'],['../classtr_1_1Window.html#a1bbdc51407f352ff844dd0b0a87f18b4',1,'tr::Window::glContext() const noexcept']]],
-  ['glyph_6',['glyph',['../classtr_1_1TTFont.html#a0a02854ee3cba554d89fd123135ba96c',1,'tr::TTFont']]]
+  ['glyph_5',['glyph',['../classtr_1_1TTFont.html#a0a02854ee3cba554d89fd123135ba96c',1,'tr::TTFont']]],
+  ['graphics_6',['graphics',['../classtr_1_1Window.html#abf531119c1de7741db58db75ef30b36c',1,'tr::Window::graphics() noexcept'],['../classtr_1_1Window.html#a6c3d8b9e7f94d9b6af82ddbfc0e49230',1,'tr::Window::graphics() const noexcept']]]
 ];

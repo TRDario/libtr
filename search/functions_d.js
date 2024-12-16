@@ -18,7 +18,7 @@ var searchData=
   ['operator_20mousewheelevent_15',['operator MouseWheelEvent',['../classtr_1_1Event.html#a0b0edf87806c94c09750e61166540fe7',1,'tr::Event']]],
   ['operator_20rgba8_16',['operator RGBA8',['../classtr_1_1SubBitmap_1_1PixelRef.html#a4685d1df931fcd8cad70db539b968111',1,'tr::SubBitmap::PixelRef::operator RGBA8()'],['../classtr_1_1Bitmap_1_1PixelRef.html#a01b4622178937f279fb24664b3d375d0',1,'tr::Bitmap::PixelRef::operator RGBA8()']]],
   ['operator_20scancode_17',['operator Scancode',['../classtr_1_1Keycode.html#a7d52cc7dc4abd1454074f03488af3c6f',1,'tr::Keycode']]],
-  ['operator_20std_3a_3aspan_3c_20std_3a_3abyte_20_3e_18',['span&lt; std::byte &gt;',['../classtr_1_1GLBufferMap.html#a7177e91ac3293bd9e2cfd9ea3ac12da3',1,'tr::GLBufferMap']]],
+  ['operator_20std_3a_3aspan_3c_20std_3a_3abyte_20_3e_18',['span&lt; std::byte &gt;',['../classtr_1_1GraphicsBufferMap.html#aaf01a395df7d8c3b2ab2b12bdab8f272',1,'tr::GraphicsBufferMap']]],
   ['operator_20std_3a_3aspan_3c_20std_3a_3auint16_5ft_20_3e_19',['span&lt; std::uint16_t &gt;',['../classtr_1_1IndexBufferMap.html#ac53b63506f27641ba8dc66ee31efa8cd',1,'tr::IndexBufferMap']]],
   ['operator_20subbitmap_20',['operator SubBitmap',['../classtr_1_1BitmapView.html#af705cbc0d7565149ffa84ae19eae42fe',1,'tr::BitmapView::operator SubBitmap()'],['../classtr_1_1Bitmap.html#ace45d21639cd13f3f72a39859ba44e24',1,'tr::Bitmap::operator SubBitmap()']]],
   ['operator_20t_21',['operator T',['../classtr_1_1Event.html#aecd4344a8de9c53e023b3b2fc24801bd',1,'tr::Event']]],

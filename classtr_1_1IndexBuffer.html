@@ -192,7 +192,7 @@ Public Member Functions</h2></td></tr>
 <p>The buffer will be of size 0 and capacity <em>capacity</em> after construction.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1GLBufferBadAlloc.html" title="Error thrown when allocating a GPU buffer fails.">GLBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
   </table>
   </dd>
 </dl>
@@ -224,7 +224,7 @@ Public Member Functions</h2></td></tr>
 <p>The buffer will be of size and capacity <em>data.size()</em> after construction.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1GLBufferBadAlloc.html" title="Error thrown when allocating a GPU buffer fails.">GLBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
   </table>
   </dd>
 </dl>
@@ -343,8 +343,8 @@ Public Member Functions</h2></td></tr>
 <p>If <em>size</em> is greater than the capacity of the buffer, a reallocation will be done. This voids any previous bindings of the buffer to the context, and so it must be rebound. <a class="el" href="#a1cf5a9fa6050b9186f3efba99048cecc" title="Maps a region of the buffer, invalidating the previous contents in the process.">mapRegion()</a> will never cause a reallocation, so may be used in cases where that's a requirement.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1GLBufferBadAlloc.html" title="Error thrown when allocating a GPU buffer fails.">GLBufferBadAlloc</a></td><td>If a reallocation was triggered and reallocating the buffer fails. </td></tr>
-    <tr><td class="paramname"><a class="el" href="structtr_1_1GLMapBadAlloc.html" title="Error thrown when mapping a GPU buffer fails.">GLMapBadAlloc</a></td><td>If mapping the buffer fails.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If a reallocation was triggered and reallocating the buffer fails. </td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferMapBadAlloc.html" title="Error thrown when mapping a graphics buffer fails.">GraphicsBufferMapBadAlloc</a></td><td>If mapping the buffer fails.</td></tr>
   </table>
   </dd>
 </dl>
@@ -409,7 +409,7 @@ Public Member Functions</h2></td></tr>
 <p>Unlike <a class="el" href="#ad8fb9575c69c1fbe3927b2ef43e63660" title="Maps the buffer, invalidating the previous contents in the process and resetting its size.">mapNew()</a>, a call to this function will never cause a reallocation, but an assertion may fail if an out-of-bounds map is requested.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1GLMapBadAlloc.html" title="Error thrown when mapping a GPU buffer fails.">GLMapBadAlloc</a></td><td>If mapping the buffer failed.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferMapBadAlloc.html" title="Error thrown when mapping a graphics buffer fails.">GraphicsBufferMapBadAlloc</a></td><td>If mapping the buffer failed.</td></tr>
   </table>
   </dd>
 </dl>
@@ -444,7 +444,7 @@ Public Member Functions</h2></td></tr>
 <p>The buffer cannot be mapped when this function is called.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1GLBufferBadAlloc.html" title="Error thrown when allocating a GPU buffer fails.">GLBufferBadAlloc</a></td><td>If a reallocation is triggered and reallocating the buffer fails.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If a reallocation is triggered and reallocating the buffer fails.</td></tr>
   </table>
   </dd>
 </dl>
