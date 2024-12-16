@@ -52,18 +52,6 @@ const char* tr::GraphicsContext::versionInfo() const noexcept
 	return (const char*)(glGetString(GL_VERSION));
 }
 
-tr::VSync tr::GraphicsContext::vsync() const noexcept
-{
-	return VSync(SDL_GL_GetSwapInterval());
-}
-
-void tr::GraphicsContext::setVSync(VSync vsync)
-{
-	if (SDL_GL_SetSwapInterval(int(vsync)) < 0) {
-		throw WindowError{"Failed to set V-sync mode"};
-	}
-}
-
 void tr::GraphicsContext::setFramebuffer(BasicFramebuffer& framebuffer) noexcept
 {
 	framebuffer.bindWrite();

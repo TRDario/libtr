@@ -425,12 +425,10 @@ void tr::Window::setAlwaysOnTop(bool alwaysOnTop) noexcept
 	SDL_SetWindowAlwaysOnTop(_impl.get(), SDL_bool(alwaysOnTop));
 }
 
-void tr::Window::flash(FlashOperation operation)
+void tr::Window::flash(FlashOperation operation) noexcept
 {
 	assert(_impl.get() != nullptr);
-	if (SDL_FlashWindow(_impl.get(), SDL_FlashOperation(operation)) < 0) {
-		throw WindowError{"Failed to flash window"};
-	}
+	SDL_FlashWindow(_impl.get(), SDL_FlashOperation(operation));
 }
 
 float tr::Window::opacity() const noexcept
@@ -445,6 +443,18 @@ void tr::Window::setOpacity(float opacity) noexcept
 {
 	assert(_impl.get() != nullptr);
 	SDL_SetWindowOpacity(_impl.get(), opacity);
+}
+
+tr::VSync tr::Window::vsync() const noexcept
+{
+	return VSync(SDL_GL_GetSwapInterval());
+}
+
+void tr::Window::setVSync(VSync vsync) noexcept
+{
+	if (SDL_GL_SetSwapInterval(int(vsync)) < 0 && vsync == VSync::ADAPTIVE) {
+		setVSync(VSync::ENABLED);
+	}
 }
 
 tr::GraphicsContext& tr::Window::graphics() noexcept
