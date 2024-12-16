@@ -560,9 +560,9 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Clears the current render target.
 		 *
-		 * @param[in] components The drawing components to clear.
+		 * @param[in] components The drawing components to clear (by default ALL).
 		 **************************************************************************************************************/
-		void clear(Clear components) noexcept;
+		void clear(Clear components = Clear::ALL) noexcept;
 
 		/**************************************************************************************************************
 		 * Draws a mesh from a vertex buffer.
@@ -601,6 +601,11 @@ namespace tr {
 		 * @param[in] instances The number of instances to draw.
 		 **************************************************************************************************************/
 		void drawIndexedInstances(Primitive type, std::size_t offset, std::size_t indices, int instances) noexcept;
+
+		/**************************************************************************************************************
+		 * Swaps the display's front and back buffers.
+		 **************************************************************************************************************/
+		void swap() noexcept;
 
 	  private:
 		struct Deleter {

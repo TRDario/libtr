@@ -446,11 +446,6 @@ namespace tr {
 		void setOpacity(float opacity) noexcept;
 
 		/**************************************************************************************************************
-		 * Swaps the display's front and back buffers.
-		 **************************************************************************************************************/
-		void swap() noexcept;
-
-		/**************************************************************************************************************
 		 * Gets the window's graphics context.
 		 *
 		 * @return A mutable reference to the window's graphics context.
@@ -528,8 +523,15 @@ namespace tr {
 		GraphicsContext                            _glContext;
 		Backbuffer                                 _backbuffer;
 		EventQueue                                 _eventQueue;
-		[[no_unique_address]] Keyboard             _keyboard;
-		[[no_unique_address]] Mouse                _mouse;
+#ifdef _MSC_VER
+		[[msvc::no_unique_address]] Keyboard _keyboard;
+		[[msvc::no_unique_address]] Mouse    _mouse;
+#else
+		[[no_unique_address]] Keyboard _keyboard;
+		[[no_unique_address]] Mouse    _mouse;
+#endif
+
+		friend class GraphicsContext;
 	};
 
 	/******************************************************************************************************************

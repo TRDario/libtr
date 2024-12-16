@@ -202,3 +202,9 @@ void tr::GraphicsContext::drawIndexedInstances(Primitive type, std::size_t offse
 {
 	glDrawElementsInstanced(GLenum(type), indices, GL_UNSIGNED_SHORT, (const void*)(offset), instances);
 }
+
+void tr::GraphicsContext::swap() noexcept
+{
+	assert(_impl.get() != nullptr);
+	SDL_GL_SwapWindow(window()._impl.get());
+}

@@ -447,12 +447,6 @@ void tr::Window::setOpacity(float opacity) noexcept
 	SDL_SetWindowOpacity(_impl.get(), opacity);
 }
 
-void tr::Window::swap() noexcept
-{
-	assert(_impl.get() != nullptr);
-	SDL_GL_SwapWindow(_impl.get());
-}
-
 tr::GraphicsContext& tr::Window::graphics() noexcept
 {
 	return _glContext;
