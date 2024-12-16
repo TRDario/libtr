@@ -64,9 +64,7 @@ tr::Duration tr::Benchmark::average() const noexcept
 
 double tr::Benchmark::fps() const noexcept
 {
-	return !_durations.empty()
-			   ? _durations.size() / duration_cast<SecondsD>(_startPoint - _durations.front().first).count()
-			   : 0;
+	return !_durations.empty() ? _durations.size() / 5.0 : 0;
 }
 
 const tr::Benchmark::Deque& tr::Benchmark::measurements() const noexcept
