@@ -108,7 +108,7 @@ namespace tr {
 		// Binds the framebuffer for writing.
 		void bindWrite() const noexcept;
 
-		friend class GLContext;
+		friend class GraphicsContext;
 	};
 
 	/******************************************************************************************************************
@@ -288,7 +288,7 @@ namespace tr {
 		// Clamps the viewport to a valid rect of the framebuffer.
 		void clampViewport() noexcept;
 
-		friend class GLContext;
+		friend class GraphicsContext;
 	};
 
 	/******************************************************************************************************************

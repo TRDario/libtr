@@ -221,7 +221,7 @@ namespace tr {
 		// Binds the vertex format.
 		void bind() const noexcept;
 
-		friend class GLContext;
+		friend class GraphicsContext;
 	};
 
 	/// @}

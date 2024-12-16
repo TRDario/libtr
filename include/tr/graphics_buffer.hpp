@@ -6,25 +6,25 @@
 #include <string_view>
 
 namespace tr {
-	class GLBufferMap;
+	class GraphicsBufferMap;
 
 	/** @addtogroup graphics
 	 *  @{
 	 */
 
 	/******************************************************************************************************************
-	 * Concept denoting an iterator suitable for GLBuffer::copyRegionTo.
+	 * Concept denoting an iterator suitable for GraphicsBuffer::copyRegionTo.
 	 ******************************************************************************************************************/
 	template <class It>
-	concept GLCopyOutputIterator =
+	concept GraphicsBufferCopyOutputIterator =
 		std::contiguous_iterator<It> && (std::same_as<typename std::iterator_traits<It>::value_type, std::byte> ||
 										 std::same_as<typename std::iterator_traits<It>::value_type, char> ||
 										 std::same_as<typename std::iterator_traits<It>::value_type, std::uint8_t>);
 
 	/******************************************************************************************************************
-	 * Error thrown when allocating a GPU buffer fails.
+	 * Error thrown when allocating a graphics buffer fails.
 	 ******************************************************************************************************************/
-	struct GLBufferBadAlloc : std::bad_alloc {
+	struct GraphicsBufferBadAlloc : std::bad_alloc {
 		/**************************************************************************************************************
 		 * Gets an error message.
 		 *
@@ -34,9 +34,9 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Error thrown when mapping a GPU buffer fails.
+	 * Error thrown when mapping a graphics buffer fails.
 	 ******************************************************************************************************************/
-	struct GLMapBadAlloc : std::bad_alloc {
+	struct GraphicsBufferMapBadAlloc : std::bad_alloc {
 		/**************************************************************************************************************
 		 * Gets an error message.
 		 *
@@ -46,16 +46,16 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Base OpenGL buffer class.
+	 * Base graphics buffer class.
 	 *
 	 * This class cannot be constructed directly.
 	 ******************************************************************************************************************/
-	class GLBuffer {
+	class GraphicsBuffer {
 	  public:
 		/**************************************************************************************************************
 		 * Equality comparison operator.
 		 **************************************************************************************************************/
-		friend bool operator==(const GLBuffer&, const GLBuffer&) noexcept;
+		friend bool operator==(const GraphicsBuffer&, const GraphicsBuffer&) noexcept;
 
 	  protected:
 		/// @cond IMPLEMENTATION
@@ -144,13 +144,13 @@ namespace tr {
 		std::size_t                      _size;
 
 		// Creates an uninitialized buffer.
-		GLBuffer(Target target, std::size_t size, Flag flags);
+		GraphicsBuffer(Target target, std::size_t size, Flag flags);
 		// Creates an initialized buffer.
-		GLBuffer(Target target, std::span<const std::byte> data, Flag flags);
+		GraphicsBuffer(Target target, std::span<const std::byte> data, Flag flags);
 
 		std::size_t size() const noexcept;
 
-		template <GLCopyOutputIterator It>
+		template <GraphicsBufferCopyOutputIterator It>
 		void copyRegionTo(It out, std::size_t offset, std::size_t size) const noexcept
 		{
 			copyRegionBase(std::to_address(out), offset, size);
@@ -158,8 +158,8 @@ namespace tr {
 
 		void setRegion(std::size_t offset, std::span<const std::byte> data) noexcept;
 
-		bool        mapped() const noexcept;
-		GLBufferMap mapRegion(std::size_t offset, std::size_t size, MapFlag flags);
+		bool              mapped() const noexcept;
+		GraphicsBufferMap mapRegion(std::size_t offset, std::size_t size, MapFlag flags);
 
 		// Resets the buffer's target binding point.
 		void resetTarget(Target newTarget) noexcept;
@@ -177,17 +177,17 @@ namespace tr {
 		void copyRegionToBase(void* ptr, std::size_t offset, std::size_t size) const noexcept;
 
 		friend class Shader;
-		friend class GLContext;
+		friend class GraphicsContext;
 		friend class VertexBuffer;
 		friend class IndexBuffer;
 	};
 
 	/******************************************************************************************************************
-	 * RAII wrapper over an OpenGL buffer map.
+	 * RAII wrapper over a graphics buffer map.
 	 *
 	 * The buffer is automatically unmapped once the map goes out of scope.
 	 ******************************************************************************************************************/
-	class GLBufferMap {
+	class GraphicsBufferMap {
 	  public:
 		/**************************************************************************************************************
 		 * Casts the map into a regular byte span.
@@ -209,9 +209,9 @@ namespace tr {
 		Handle<unsigned int, 0, Deleter> _buffer;
 		std::span<std::byte>             _span;
 
-		GLBufferMap(unsigned int buffer, std::span<std::byte> span) noexcept;
+		GraphicsBufferMap(unsigned int buffer, std::span<std::byte> span) noexcept;
 
-		friend class GLBuffer;
+		friend class GraphicsBuffer;
 	};
 
 	/// @}
@@ -219,14 +219,14 @@ namespace tr {
 
 /// @cond IMPLEMENTATION
 
-constexpr const char* tr::GLBufferBadAlloc::what() const noexcept
+constexpr const char* tr::GraphicsBufferBadAlloc::what() const noexcept
 {
-	return "OpenGL buffer allocation error";
+	return "Graphics buffer allocation error";
 }
 
-constexpr const char* tr::GLMapBadAlloc::what() const noexcept
+constexpr const char* tr::GraphicsBufferMapBadAlloc::what() const noexcept
 {
-	return "OpenGL buffer map allocation error";
+	return "Graphics buffer map allocation error";
 }
 
 /// @endcond

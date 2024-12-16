@@ -14,9 +14,9 @@ namespace tr {
 	 */
 
 	/******************************************************************************************************************
-	 * OpenGL context properties.
+	 * Graphics context properties.
 	 ******************************************************************************************************************/
-	struct GLContextProperties {
+	struct GraphicsProperties {
 		/**************************************************************************************************************
 		 * Whether a debug context should be used.
 		 **************************************************************************************************************/
@@ -352,11 +352,11 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * OpenGL context.
+	 * Graphics context.
 	 *
 	 * This class cannot be directly instantiated.
 	 ******************************************************************************************************************/
-	class GLContext {
+	class GraphicsContext {
 	  public:
 		/**************************************************************************************************************
 		 * Gets the context's vendor string.
@@ -609,7 +609,7 @@ namespace tr {
 
 		std::unique_ptr<void, Deleter> _impl;
 
-		GLContext(SDL_Window* window);
+		GraphicsContext(SDL_Window* window);
 
 		friend class Window;
 	};

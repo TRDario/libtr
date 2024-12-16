@@ -34,7 +34,7 @@ set_target_properties(tr PROPERTIES DEBUG_POSTFIX "d")
 target_sources(tr PRIVATE
     src/audio_buffer.cpp src/audio_source.cpp src/audio_system.cpp
     src/benchmark.cpp src/bitmap_format.cpp src/bitmap_iterators.cpp src/bitmap.cpp src/display.cpp src/event.cpp
-    src/framebuffer.cpp src/gl_buffer.cpp src/gl_context.cpp src/index_buffer.cpp src/iostream.cpp src/keyboard.cpp
+    src/framebuffer.cpp src/graphics_buffer.cpp src/graphics_context.cpp src/index_buffer.cpp src/iostream.cpp src/keyboard.cpp
     src/listener.cpp src/mouse.cpp src/path.cpp src/renderbuffer.cpp src/sampler.cpp src/sdl.cpp src/shader_buffer.cpp
     src/shader_pipeline.cpp src/shader.cpp src/texture_unit.cpp src/texture.cpp src/ttfont.cpp src/vertex_buffer.cpp
     src/vertex_format.cpp src/vertex.cpp src/window.cpp
@@ -49,7 +49,7 @@ target_sources(tr PUBLIC
         include/tr/bitmap.hpp include/tr/chrono.hpp include/tr/color_cast.hpp include/tr/chrono.hpp include/tr/color_cast_impl.hpp
         include/tr/color.hpp include/tr/concepts.hpp include/tr/display.hpp include/tr/draw_geometry_impl.hpp
         include/tr/draw_geometry.hpp include/tr/event.hpp include/tr/framebuffer.hpp include/tr/geometry_impl.hpp
-        include/tr/geometry.hpp include/tr/gl_buffer.hpp include/tr/gl_context.hpp include/tr/handle.hpp include/tr/hashmap.hpp
+        include/tr/geometry.hpp include/tr/graphics_buffer.hpp include/tr/graphics_context.hpp include/tr/handle.hpp include/tr/hashmap.hpp
         include/tr/index_buffer.hpp include/tr/iostream.hpp include/tr/keyboard.hpp include/tr/listener.hpp include/tr/mouse.hpp
         include/tr/norm_cast.hpp include/tr/overloaded_lambda.hpp include/tr/path.hpp include/tr/ranges.hpp
         include/tr/renderbuffer.hpp include/tr/sampler.hpp include/tr/sdl.hpp include/tr/shader_buffer.hpp

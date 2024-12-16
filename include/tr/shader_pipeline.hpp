@@ -38,7 +38,7 @@ namespace tr {
 
 		void bind() const noexcept;
 
-		friend class GLContext;
+		friend class GraphicsContext;
 	};
 
 	/******************************************************************************************************************

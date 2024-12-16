@@ -1,4 +1,4 @@
-#include "../include/tr/gl_context.hpp"
+#include "../include/tr/graphics_context.hpp"
 #include "../include/tr/window.hpp"
 #include <GL/glew.h>
 #include <SDL2/SDL.h>
@@ -27,176 +27,178 @@ SDL_GLContext tr::createContext(SDL_Window* window)
 	return context;
 }
 
-tr::GLContext::GLContext(SDL_Window* window)
+tr::GraphicsContext::GraphicsContext(SDL_Window* window)
 	: _impl{createContext(window)}
 {
 }
 
-void tr::GLContext::Deleter::operator()(SDL_GLContext ptr) const noexcept
+void tr::GraphicsContext::Deleter::operator()(SDL_GLContext ptr) const noexcept
 {
 	SDL_GL_DeleteContext(ptr);
 }
 
-const char* tr::GLContext::vendorInfo() const noexcept
+const char* tr::GraphicsContext::vendorInfo() const noexcept
 {
 	return (const char*)(glGetString(GL_VENDOR));
 }
 
-const char* tr::GLContext::rendererInfo() const noexcept
+const char* tr::GraphicsContext::rendererInfo() const noexcept
 {
 	return (const char*)(glGetString(GL_RENDERER));
 }
 
-const char* tr::GLContext::versionInfo() const noexcept
+const char* tr::GraphicsContext::versionInfo() const noexcept
 {
 	return (const char*)(glGetString(GL_VERSION));
 }
 
-tr::VSync tr::GLContext::vsync() const noexcept
+tr::VSync tr::GraphicsContext::vsync() const noexcept
 {
 	return VSync(SDL_GL_GetSwapInterval());
 }
 
-void tr::GLContext::setVSync(VSync vsync)
+void tr::GraphicsContext::setVSync(VSync vsync)
 {
 	if (SDL_GL_SetSwapInterval(int(vsync)) < 0) {
 		throw WindowError{"Failed to set V-sync mode"};
 	}
 }
 
-void tr::GLContext::setFramebuffer(BasicFramebuffer& framebuffer) noexcept
+void tr::GraphicsContext::setFramebuffer(BasicFramebuffer& framebuffer) noexcept
 {
 	framebuffer.bindWrite();
 }
 
-void tr::GLContext::setShaderPipeline(const ShaderPipeline& pipeline) noexcept
+void tr::GraphicsContext::setShaderPipeline(const ShaderPipeline& pipeline) noexcept
 {
 	pipeline.bind();
 }
 
-void tr::GLContext::useFaceCulling(bool use) noexcept
+void tr::GraphicsContext::useFaceCulling(bool use) noexcept
 {
 	use ? glEnable(GL_CULL_FACE) : glDisable(GL_CULL_FACE);
 }
 
-void tr::GLContext::useScissorTest(bool use) noexcept
+void tr::GraphicsContext::useScissorTest(bool use) noexcept
 {
 	use ? glEnable(GL_SCISSOR_TEST) : glDisable(GL_SCISSOR_TEST);
 }
 
-void tr::GLContext::setScissorBox(RectI2 rect) noexcept
+void tr::GraphicsContext::setScissorBox(RectI2 rect) noexcept
 {
 	glScissor(rect.tl.x, rect.tl.y, rect.size.x, rect.size.y);
 }
 
-void tr::GLContext::useStencilTest(bool use) noexcept
+void tr::GraphicsContext::useStencilTest(bool use) noexcept
 {
 	use ? glEnable(GL_STENCIL_TEST) : glDisable(GL_STENCIL_TEST);
 }
 
-void tr::GLContext::setStencilTest(StencilFace face, Compare func, int comp, std::uint32_t mask) noexcept
+void tr::GraphicsContext::setStencilTest(StencilFace face, Compare func, int comp, std::uint32_t mask) noexcept
 {
 	glStencilFuncSeparate(GLenum(face), GLenum(func), comp, mask);
 }
 
-void tr::GLContext::setStencilOperation(StencilFace face, StencilOperation sfail, StencilOperation dfail,
-										StencilOperation dpass) noexcept
+void tr::GraphicsContext::setStencilOperation(StencilFace face, StencilOperation sfail, StencilOperation dfail,
+											  StencilOperation dpass) noexcept
 {
 	glStencilOpSeparate(GLenum(face), GLenum(sfail), GLenum(dfail), GLenum(dpass));
 }
 
-void tr::GLContext::setStencilMask(StencilFace face, std::uint32_t mask) noexcept
+void tr::GraphicsContext::setStencilMask(StencilFace face, std::uint32_t mask) noexcept
 {
 	glStencilMaskSeparate(GLenum(face), mask);
 }
 
-void tr::GLContext::useDepthTest(bool use) noexcept
+void tr::GraphicsContext::useDepthTest(bool use) noexcept
 {
 	use ? glEnable(GL_DEPTH_TEST) : glDisable(GL_DEPTH_TEST);
 }
 
-void tr::GLContext::setDepthTest(Compare func) noexcept
+void tr::GraphicsContext::setDepthTest(Compare func) noexcept
 {
 	glDepthFunc(GLenum(func));
 }
 
-void tr::GLContext::useBlending(bool use) noexcept
+void tr::GraphicsContext::useBlending(bool use) noexcept
 {
 	use ? glEnable(GL_BLEND) : glDisable(GL_BLEND);
 }
 
-void tr::GLContext::setBlendingMode(BlendMode blendMode) noexcept
+void tr::GraphicsContext::setBlendingMode(BlendMode blendMode) noexcept
 {
 	glBlendEquationSeparate(GLenum(blendMode.rgbFn), GLenum(blendMode.alphaFn));
 	glBlendFuncSeparate(GLenum(blendMode.rgbSrc), GLenum(blendMode.rgbDst), GLenum(blendMode.alphaSrc),
 						GLenum(blendMode.alphaDst));
 }
 
-void tr::GLContext::setBlendingColor(RGBAF clr)
+void tr::GraphicsContext::setBlendingColor(RGBAF clr)
 {
 	glBlendColor(clr.r, clr.g, clr.b, clr.a);
 }
 
-void tr::GLContext::setColorMask(bool red, bool green, bool blue, bool alpha) noexcept
+void tr::GraphicsContext::setColorMask(bool red, bool green, bool blue, bool alpha) noexcept
 {
 	glColorMask(red, green, blue, alpha);
 }
 
-void tr::GLContext::setClearColor(RGBAF clr) noexcept
+void tr::GraphicsContext::setClearColor(RGBAF clr) noexcept
 {
 	glClearColor(clr.r, clr.g, clr.b, clr.a);
 }
 
-void tr::GLContext::setClearDepth(float depth) noexcept
+void tr::GraphicsContext::setClearDepth(float depth) noexcept
 {
 	glClearDepth(depth);
 }
 
-void tr::GLContext::setClearStencil(int stencil) noexcept
+void tr::GraphicsContext::setClearStencil(int stencil) noexcept
 {
 	glClearStencil(stencil);
 }
 
-void tr::GLContext::clear(Clear components) noexcept
+void tr::GraphicsContext::clear(Clear components) noexcept
 {
 	glClear(GLbitfield(components));
 }
 
-void tr::GLContext::setVertexFormat(const VertexFormat& format) noexcept
+void tr::GraphicsContext::setVertexFormat(const VertexFormat& format) noexcept
 {
 	format.bind();
 }
 
-void tr::GLContext::setVertexBuffer(const VertexBuffer& buffer, std::size_t offset, std::size_t vertexStride) noexcept
+void tr::GraphicsContext::setVertexBuffer(const VertexBuffer& buffer, std::size_t offset,
+										  std::size_t vertexStride) noexcept
 {
 	assert(buffer._buffer.has_value());
 	assert(offset < buffer.size());
 	glBindVertexBuffer(0, buffer._buffer->_id.get(), offset, vertexStride);
 }
 
-void tr::GLContext::setIndexBuffer(const IndexBuffer& buffer) noexcept
+void tr::GraphicsContext::setIndexBuffer(const IndexBuffer& buffer) noexcept
 {
 	assert(buffer._buffer.has_value());
 	buffer._buffer->bind();
 }
 
-void tr::GLContext::draw(Primitive type, std::size_t offset, std::size_t vertices) noexcept
+void tr::GraphicsContext::draw(Primitive type, std::size_t offset, std::size_t vertices) noexcept
 {
 	glDrawArrays(GLenum(type), offset, vertices);
 }
 
-void tr::GLContext::drawInstances(Primitive type, std::size_t offset, std::size_t vertices, int instances) noexcept
+void tr::GraphicsContext::drawInstances(Primitive type, std::size_t offset, std::size_t vertices,
+										int instances) noexcept
 {
 	glDrawArraysInstanced(GLenum(type), offset, vertices, instances);
 }
 
-void tr::GLContext::drawIndexed(Primitive type, std::size_t offset, std::size_t indices) noexcept
+void tr::GraphicsContext::drawIndexed(Primitive type, std::size_t offset, std::size_t indices) noexcept
 {
 	glDrawElements(GLenum(type), indices, GL_UNSIGNED_SHORT, (const void*)(offset));
 }
 
-void tr::GLContext::drawIndexedInstances(Primitive type, std::size_t offset, std::size_t indices,
-										 int instances) noexcept
+void tr::GraphicsContext::drawIndexedInstances(Primitive type, std::size_t offset, std::size_t indices,
+											   int instances) noexcept
 {
 	glDrawElementsInstanced(GLenum(type), indices, GL_UNSIGNED_SHORT, (const void*)(offset), instances);
 }

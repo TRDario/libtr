@@ -7,8 +7,8 @@
 namespace tr {
 	Window* _window{nullptr};
 
-	bool        initSDL(const GLContextProperties& glProperties);
-	void        setSDLGLAttributes(const GLContextProperties& glProperties) noexcept;
+	bool        initSDL(const GraphicsProperties& gfxProperties);
+	void        setSDLGLAttributes(const GraphicsProperties& gfxProperties) noexcept;
 	void        suppressUnsupportedEvents() noexcept;
 	SDL_Window* openWindowedWindow(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFlag flags);
 	SDL_Window* openBorderlessWindow(const char* title, DisplayInfo display, WindowFlag flags);
@@ -16,22 +16,22 @@ namespace tr {
 									 WindowFlag flags);
 } // namespace tr
 
-void tr::setSDLGLAttributes(const GLContextProperties& glProperties) noexcept
+void tr::setSDLGLAttributes(const GraphicsProperties& gfxProperties) noexcept
 {
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 6);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG |
-												  (glProperties.debugContext ? SDL_GL_CONTEXT_DEBUG_FLAG : 0));
+												  (gfxProperties.debugContext ? SDL_GL_CONTEXT_DEBUG_FLAG : 0));
 	SDL_GL_SetAttribute(SDL_GL_ACCELERATED_VISUAL, true);
 	SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
 	SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
 	SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
 	SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
-	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, glProperties.depthBits);
-	SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, glProperties.stencilBits);
-	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, bool(glProperties.multisamples));
-	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, glProperties.multisamples);
+	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, gfxProperties.depthBits);
+	SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, gfxProperties.stencilBits);
+	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, bool(gfxProperties.multisamples));
+	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, gfxProperties.multisamples);
 }
 
 void tr::suppressUnsupportedEvents() noexcept
@@ -66,13 +66,13 @@ void tr::suppressUnsupportedEvents() noexcept
 	SDL_StopTextInput();
 }
 
-bool tr::initSDL(const GLContextProperties& glProperties)
+bool tr::initSDL(const GraphicsProperties& gfxProperties)
 {
 	if (SDL_InitSubSystem(SDL_INIT_VIDEO) < 0) {
 		SDL_Quit();
 		throw WindowOpenError{"Failed to initialize SDL"};
 	}
-	setSDLGLAttributes(glProperties);
+	setSDLGLAttributes(gfxProperties);
 	suppressUnsupportedEvents();
 	return true;
 }
@@ -115,8 +115,8 @@ SDL_Window* tr::openFullscreenWindow(const char* title, const DisplayMode& dmode
 }
 
 tr::Window::Window(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFlag flags,
-				   const GLContextProperties& glProperties)
-	: _sdl{initSDL(glProperties)}
+				   const GraphicsProperties& gfxProperties)
+	: _sdl{initSDL(gfxProperties)}
 	, _impl{openWindowedWindow(title, size, pos, flags)}
 	, _glContext{_impl.get()}
 	, _backbuffer{*this}
@@ -125,8 +125,8 @@ tr::Window::Window(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFla
 	_window = this;
 }
 
-tr::Window::Window(const char* title, DisplayInfo display, WindowFlag flags, const GLContextProperties& glProperties)
-	: _sdl{initSDL(glProperties)}
+tr::Window::Window(const char* title, DisplayInfo display, WindowFlag flags, const GraphicsProperties& gfxProperties)
+	: _sdl{initSDL(gfxProperties)}
 	, _impl{openBorderlessWindow(title, display, flags)}
 	, _glContext{_impl.get()}
 	, _backbuffer{*this}
@@ -136,8 +136,8 @@ tr::Window::Window(const char* title, DisplayInfo display, WindowFlag flags, con
 }
 
 tr::Window::Window(const char* title, const DisplayMode& dmode, DisplayInfo display, WindowFlag flags,
-				   const GLContextProperties& glProperties)
-	: _sdl{initSDL(glProperties)}
+				   const GraphicsProperties& gfxProperties)
+	: _sdl{initSDL(gfxProperties)}
 	, _impl{openFullscreenWindow(title, dmode, display, flags)}
 	, _glContext{_impl.get()}
 	, _backbuffer{*this}
@@ -453,12 +453,12 @@ void tr::Window::swap() noexcept
 	SDL_GL_SwapWindow(_impl.get());
 }
 
-tr::GLContext& tr::Window::glContext() noexcept
+tr::GraphicsContext& tr::Window::gfx() noexcept
 {
 	return _glContext;
 }
 
-const tr::GLContext& tr::Window::glContext() const noexcept
+const tr::GraphicsContext& tr::Window::gfx() const noexcept
 {
 	return _glContext;
 }

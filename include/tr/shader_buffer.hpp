@@ -1,5 +1,5 @@
 #pragma once
-#include "gl_buffer.hpp"
+#include "graphics_buffer.hpp"
 
 namespace tr {
 	/** @addtogroup graphics
@@ -12,7 +12,7 @@ namespace tr {
 	 * The API is designed as a dynamic-length array with a fixed-length header in front.
 	 * Passing 0 to the size/capacity of either component disables them, and they cannot be accessed.
 	 ******************************************************************************************************************/
-	class ShaderBuffer : public GLBuffer {
+	class ShaderBuffer : public GraphicsBuffer {
 	  public:
 		/**************************************************************************************************************
 		 * Shader buffer map access type.
@@ -37,7 +37,7 @@ namespace tr {
 		/******************************************************************************************************************
 		 * Allocates an uninitialized shader buffer.
 		 *
-		 * @exception GLBufferBadAlloc If allocating the buffer fails.
+		 * @exception GraphicsBufferBadAlloc If allocating the buffer fails.
 		 *
 		 * @param[in] headerSize The size of the fixed header block in bytes (may be 0).
 		 * @param[in] capacity The maximum capacity of the dynamic array in bytes (may be 0).
@@ -71,7 +71,7 @@ namespace tr {
 		 *
 		 * @param[out] out An iterator to the beginning of the range to copy the header to.
 		 ******************************************************************************************************************/
-		template <GLCopyOutputIterator It> void copyHeaderTo(It out) const noexcept
+		template <GraphicsBufferCopyOutputIterator It> void copyHeaderTo(It out) const noexcept
 		{
 			copyRegionTo(out, 0, _headerSize);
 		}
@@ -81,7 +81,7 @@ namespace tr {
 		 *
 		 * @param[out] out An iterator to the beginning of the range to copy the header to.
 		 ******************************************************************************************************************/
-		template <GLCopyOutputIterator It> void copyArrayTo(It out) const noexcept
+		template <GraphicsBufferCopyOutputIterator It> void copyArrayTo(It out) const noexcept
 		{
 			copyRegionTo(out, _headerSize, _size);
 		}
@@ -108,7 +108,7 @@ namespace tr {
 		 ******************************************************************************************************************/
 		void resizeArray(std::size_t size) noexcept;
 
-		using GLBuffer::mapped;
+		using GraphicsBuffer::mapped;
 
 		/******************************************************************************************************************
 		 * Maps the fixed header.
@@ -117,7 +117,7 @@ namespace tr {
 		 *
 		 * @return The mapped fixed header.
 		 ******************************************************************************************************************/
-		GLBufferMap mapHeader() noexcept;
+		GraphicsBufferMap mapHeader() noexcept;
 
 		/******************************************************************************************************************
 		 * Maps the dynamic array.
@@ -126,16 +126,16 @@ namespace tr {
 		 *
 		 * @return The mapped dynamic array.
 		 ******************************************************************************************************************/
-		GLBufferMap mapArray() noexcept;
+		GraphicsBufferMap mapArray() noexcept;
 
 		/******************************************************************************************************************
 		 * Maps the entire buffer.
 		 *
 		 * @return The mapped buffer.
 		 ******************************************************************************************************************/
-		GLBufferMap map() noexcept;
+		GraphicsBufferMap map() noexcept;
 
-		using GLBuffer::setLabel;
+		using GraphicsBuffer::setLabel;
 
 	  private:
 		Access      _access;

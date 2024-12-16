@@ -16,7 +16,7 @@
 #include "event.hpp"
 #include "framebuffer.hpp"
 #include "geometry.hpp"
-#include "gl_context.hpp"
+#include "graphics_context.hpp"
 #include "handle.hpp"
 #include "hashmap.hpp"
 #include "index_buffer.hpp"

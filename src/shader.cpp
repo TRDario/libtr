@@ -403,7 +403,7 @@ void tr::Shader::setUniform(int index, const TextureUnit& value) noexcept
 
 void tr::Shader::setStorageBuffer(unsigned int index, ShaderBuffer& buffer) noexcept
 {
-	buffer.bindIndexedRange(GLBuffer::Target::SHADER_STORAGE_BUFFER, index, 0, buffer._headerSize + buffer._size);
+	buffer.bindIndexedRange(GraphicsBuffer::Target::SHADER_STORAGE_BUFFER, index, 0, buffer._headerSize + buffer._size);
 	assert(glGetError() == GL_NO_ERROR);
 }
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "gl_buffer.hpp"
+#include "graphics_buffer.hpp"
 #include <string>
 
 namespace tr {
@@ -12,7 +12,7 @@ namespace tr {
 	 *
 	 * The buffer is automatically unmapped once the map goes out of scope.
 	 ******************************************************************************************************************/
-	class IndexBufferMap : private GLBufferMap {
+	class IndexBufferMap : private GraphicsBufferMap {
 	  public:
 		/**************************************************************************************************************
 		 * Casts the map into a regular index span.
@@ -27,7 +27,7 @@ namespace tr {
 		std::span<std::uint16_t> span() const noexcept;
 
 	  private:
-		IndexBufferMap(GLBufferMap base) noexcept;
+		IndexBufferMap(GraphicsBufferMap base) noexcept;
 
 		friend class IndexBuffer;
 	};
@@ -49,7 +49,7 @@ namespace tr {
 		 *
 		 * The buffer will be of size 0 and capacity @em capacity after construction.
 		 *
-		 * @exception GLBufferBadAlloc If allocating the buffer fails.
+		 * @exception GraphicsBufferBadAlloc If allocating the buffer fails.
 		 *
 		 * @param[in] capacity The capacity of the buffer in indices. Must be greater than 0, otherwise a failed
 		 *                     assertion may be triggered.
@@ -61,7 +61,7 @@ namespace tr {
 		 *
 		 * The buffer will be of size and capacity @em data.size() after construction.
 		 *
-		 * @exception GLBufferBadAlloc If allocating the buffer fails.
+		 * @exception GraphicsBufferBadAlloc If allocating the buffer fails.
 		 *
 		 * @param[in] data The data to be uploaded to be buffer. Must not be empty, otherwise a failed assertion
 		 *                 may be triggered.
@@ -109,7 +109,7 @@ namespace tr {
 		 *
 		 * The buffer cannot be mapped when this function is called.
 		 *
-		 * @exception GLBufferBadAlloc If a reallocation is triggered and reallocating the buffer fails.
+		 * @exception GraphicsBufferBadAlloc If a reallocation is triggered and reallocating the buffer fails.
 		 *
 		 * @param[in] data The new data of the buffer.
 		 **************************************************************************************************************/
@@ -143,8 +143,8 @@ namespace tr {
 		 * bindings of the buffer to the context, and so it must be rebound. mapRegion() will never cause a
 		 * reallocation, so may be used in cases where that's a requirement.
 		 *
-		 * @exception GLBufferBadAlloc If a reallocation was triggered and reallocating the buffer fails.
-		 * @exception GLMapBadAlloc If mapping the buffer fails.
+		 * @exception GraphicsBufferBadAlloc If a reallocation was triggered and reallocating the buffer fails.
+		 * @exception GraphicsBufferMapBadAlloc If mapping the buffer fails.
 		 *
 		 * @param[in] size The new size of the buffer in indices. Must be greater than 0, otherwise a failed assertion
 		 *                 may be triggered.
@@ -159,7 +159,7 @@ namespace tr {
 		 * Unlike mapNew(), a call to this function will never cause a reallocation, but an assertion may fail if an
 		 * out-of-bounds map is requested.
 		 *
-		 * @exception GLMapBadAlloc If mapping the buffer failed.
+		 * @exception GraphicsBufferMapBadAlloc If mapping the buffer failed.
 		 *
 		 * @param[in] offset The starting offset within the buffer in indices.
 		 * @param[in] size The size of the mapped region in indices. Must be greater than 0, and `offset + data.size()
@@ -177,14 +177,14 @@ namespace tr {
 		void setLabel(std::string label) noexcept;
 
 	  private:
-		std::optional<GLBuffer> _buffer;
-		std::size_t             _size; // Size of the allocated portion of the buffer.
-		std::string             _label;
+		std::optional<GraphicsBuffer> _buffer;
+		std::size_t                   _size; // Size of the allocated portion of the buffer.
+		std::string                   _label;
 
 		// Resizes the buffer, reallocating if needed.
 		void resize(std::size_t newSize);
 
-		friend class GLContext;
+		friend class GraphicsContext;
 	};
 
 	/// @}

@@ -3,7 +3,7 @@
 #include "display.hpp"
 #include "event.hpp"
 #include "framebuffer.hpp"
-#include "gl_context.hpp"
+#include "graphics_context.hpp"
 #include "mouse.hpp"
 #include "sdl.hpp"
 #include <magic_enum/magic_enum.hpp>
@@ -128,10 +128,10 @@ namespace tr {
 		 * @param[in] pos The position of the window, offset to the top-left corner of the window in pixels.
 		 *                Several special sentinels exist, such as CENTERED_POS, as well as DisplayInfo::centeredPos().
 		 * @param[in] flags The flags of the window.
-		 * @param[in] glProperties The properties of the window's OpenGL context.
+		 * @param[in] gfxProperties The properties of the window's graphics context.
 		 **************************************************************************************************************/
 		Window(const char* title, glm::ivec2 size, glm::ivec2 pos = CENTERED_POS,
-			   WindowFlag flags = WindowFlag::DEFAULT, const GLContextProperties& glProperties = {});
+			   WindowFlag flags = WindowFlag::DEFAULT, const GraphicsProperties& gfxProperties = {});
 
 		/**************************************************************************************************************
 		 * Opens a borderless fullscreen window.
@@ -143,10 +143,10 @@ namespace tr {
 		 * @param[in] title The title of the window.
 		 * @param[in] display The display to put the window on.
 		 * @param[in] flags The flags of the window.
-		 * @param[in] glProperties The properties of the window's OpenGL context.
+		 * @param[in] gfxProperties The properties of the window's graphics context.
 		 **************************************************************************************************************/
 		Window(const char* title, DisplayInfo display = DEFAULT_DISPLAY, WindowFlag flags = WindowFlag::DEFAULT,
-			   const GLContextProperties& glProperties = {});
+			   const GraphicsProperties& gfxProperties = {});
 
 		/**************************************************************************************************************
 		 * Opens a fullscreen window.
@@ -159,10 +159,10 @@ namespace tr {
 		 * @param[in] dmode The display mode to use.
 		 * @param[in] display The display to put the window on.
 		 * @param[in] flags The flags of the window.
-		 * @param[in] glProperties The properties of the window's OpenGL context.
+		 * @param[in] gfxProperties The properties of the window's graphics context.
 		 **************************************************************************************************************/
 		Window(const char* title, const DisplayMode& dmode, DisplayInfo display = DEFAULT_DISPLAY,
-			   WindowFlag flags = WindowFlag::DEFAULT, const GLContextProperties& glProperties = {});
+			   WindowFlag flags = WindowFlag::DEFAULT, const GraphicsProperties& gfxProperties = {});
 
 		/**************************************************************************************************************
 		 * Gets the title of the window.
@@ -451,18 +451,18 @@ namespace tr {
 		void swap() noexcept;
 
 		/**************************************************************************************************************
-		 * Gets the window's OpenGL context.
+		 * Gets the window's graphics context.
 		 *
-		 * @return A mutable reference to the window's OpenGL context.
+		 * @return A mutable reference to the window's graphics context.
 		 **************************************************************************************************************/
-		GLContext& glContext() noexcept;
+		GraphicsContext& gfx() noexcept;
 
 		/**************************************************************************************************************
-		 * Gets the window's OpenGL context.
+		 * Gets the window's graphics context.
 		 *
-		 * @return An immutable reference to the window's OpenGL context.
+		 * @return An immutable reference to the window's graphics context.
 		 **************************************************************************************************************/
-		const GLContext& glContext() const noexcept;
+		const GraphicsContext& gfx() const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the window's backbuffer.
@@ -525,7 +525,7 @@ namespace tr {
 
 		Handle<bool, false, SDLDeleter>            _sdl{true};
 		std::unique_ptr<SDL_Window, WindowDeleter> _impl;
-		GLContext                                  _glContext;
+		GraphicsContext                            _glContext;
 		Backbuffer                                 _backbuffer;
 		EventQueue                                 _eventQueue;
 		[[no_unique_address]] Keyboard             _keyboard;
