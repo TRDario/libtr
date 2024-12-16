@@ -541,14 +541,14 @@ namespace tr {
 		 *
 		 * @return The polled event, if one was found.
 		 **************************************************************************************************************/
-		std::optional<Event> pollEvent() noexcept;
+		std::optional<Event> poll() noexcept;
 
 		/**************************************************************************************************************
 		 * Gets an event from the event queue, or waits until one appears.
 		 *
 		 * @return The polled event.
 		 **************************************************************************************************************/
-		Event waitForEvent() noexcept;
+		Event wait() noexcept;
 
 		/**************************************************************************************************************
 		 * Gets an event from the event queue, waiting until one appears or until a certain amount of time has passed.
@@ -557,7 +557,7 @@ namespace tr {
 		 *
 		 * @return The polled event, if one was found.
 		 **************************************************************************************************************/
-		std::optional<Event> waitForEventTimeout(std::chrono::milliseconds timeout) noexcept;
+		std::optional<Event> wait(std::chrono::milliseconds timeout) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the frequency at which draw events are sent at.
@@ -582,7 +582,7 @@ namespace tr {
 		 *
 		 * @param[in] event The event to push.
 		 **************************************************************************************************************/
-		void pushEvent(const Event& event);
+		void push(const Event& event);
 
 	  private:
 		std::optional<Ticker> _drawTicker;

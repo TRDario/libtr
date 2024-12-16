@@ -191,11 +191,10 @@ std::uint32_t tr::Ticker::callback(std::uint32_t interval, void* ptr) noexcept
 {
 	auto& self = *(Ticker*)(ptr);
 	if (self._sendDrawEvents) {
-		window().eventQueue().pushEvent(CustomEventBase{.type = event_type::DRAW});
+		window().events().push(CustomEventBase{.type = event_type::DRAW});
 	}
 	else {
-		window().eventQueue().pushEvent(
-			CustomEventBase{.type = event_type::TICK, .uint = std::uint32_t(self._eventID)});
+		window().events().push(CustomEventBase{.type = event_type::TICK, .uint = std::uint32_t(self._eventID)});
 	}
 	if (self._ticksLeft != TICK_FOREVER && --self._ticksLeft == 0) {
 		return 0;
@@ -213,20 +212,20 @@ std::uint32_t tr::Ticker::callback(std::uint32_t interval, void* ptr) noexcept
 	}
 }
 
-std::optional<tr::Event> tr::EventQueue::pollEvent() noexcept
+std::optional<tr::Event> tr::EventQueue::poll() noexcept
 {
 	Event event;
 	return SDL_PollEvent((SDL_Event*)(&event._impl)) ? std::optional<Event>{event} : std::nullopt;
 }
 
-tr::Event tr::EventQueue::waitForEvent() noexcept
+tr::Event tr::EventQueue::wait() noexcept
 {
 	Event event;
 	SDL_WaitEvent((SDL_Event*)(&event._impl));
 	return event;
 }
 
-std::optional<tr::Event> tr::EventQueue::waitForEventTimeout(std::chrono::milliseconds timeout) noexcept
+std::optional<tr::Event> tr::EventQueue::wait(std::chrono::milliseconds timeout) noexcept
 {
 	Event event{};
 	if (SDL_WaitEventTimeout((SDL_Event*)(&event._impl), timeout.count())) {
@@ -257,7 +256,7 @@ void tr::EventQueue::sendTextInputEvents(bool arg) noexcept
 	arg ? SDL_StartTextInput() : SDL_StopTextInput();
 }
 
-void tr::EventQueue::pushEvent(const Event& event)
+void tr::EventQueue::push(const Event& event)
 {
 	if (SDL_PushEvent((SDL_Event*)(&event)) < 0) {
 		throw EventError{"Failed to push event to event queue"};

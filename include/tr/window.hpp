@@ -455,14 +455,14 @@ namespace tr {
 		 *
 		 * @return A mutable reference to the window's graphics context.
 		 **************************************************************************************************************/
-		GraphicsContext& gfx() noexcept;
+		GraphicsContext& graphics() noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the window's graphics context.
 		 *
 		 * @return An immutable reference to the window's graphics context.
 		 **************************************************************************************************************/
-		const GraphicsContext& gfx() const noexcept;
+		const GraphicsContext& graphics() const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the window's backbuffer.
@@ -483,14 +483,14 @@ namespace tr {
 		 *
 		 * @return A mutable reference to the window's event queue.
 		 **************************************************************************************************************/
-		EventQueue& eventQueue() noexcept;
+		EventQueue& events() noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the window's event queue.
 		 *
 		 * @return An immutable reference to the window's event queue.
 		 **************************************************************************************************************/
-		const EventQueue& eventQueue() const noexcept;
+		const EventQueue& events() const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets access to the keyboard.

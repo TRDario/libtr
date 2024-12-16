@@ -453,22 +453,22 @@ void tr::Window::swap() noexcept
 	SDL_GL_SwapWindow(_impl.get());
 }
 
-tr::GraphicsContext& tr::Window::gfx() noexcept
+tr::GraphicsContext& tr::Window::graphics() noexcept
 {
 	return _glContext;
 }
 
-const tr::GraphicsContext& tr::Window::gfx() const noexcept
+const tr::GraphicsContext& tr::Window::graphics() const noexcept
 {
 	return _glContext;
 }
 
-tr::EventQueue& tr::Window::eventQueue() noexcept
+tr::EventQueue& tr::Window::events() noexcept
 {
 	return _eventQueue;
 }
 
-const tr::EventQueue& tr::Window::eventQueue() const noexcept
+const tr::EventQueue& tr::Window::events() const noexcept
 {
 	return _eventQueue;
 }
