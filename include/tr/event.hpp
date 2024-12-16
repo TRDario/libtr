@@ -560,6 +560,21 @@ namespace tr {
 		std::optional<Event> wait(std::chrono::milliseconds timeout) noexcept;
 
 		/**************************************************************************************************************
+		 * Handles all available events in a loop.
+		 *
+		 * @tparam Fn A type invocable with an Event.
+		 *
+		 * @param[in] fn The event handler to call.
+		 **************************************************************************************************************/
+		template <std::invocable<Event> Fn>
+		void handle(const Fn& fn) noexcept(noexcept(std::declval<Fn>()(std::declval<Event>())))
+		{
+			for (std::optional<Event> event = wait(); event.has_value(); event = poll()) {
+				fn(*event);
+			}
+		}
+
+		/**************************************************************************************************************
 		 * Sets the frequency at which draw events are sent at.
 		 *
 		 * @exception EventError If creating the draw ticker fails.
