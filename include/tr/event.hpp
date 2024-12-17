@@ -567,12 +567,7 @@ namespace tr {
 		 * @param[in] fn The event handler to call.
 		 **************************************************************************************************************/
 		template <std::invocable<Event> Fn>
-		void handle(const Fn& fn) noexcept(noexcept(std::declval<Fn>()(std::declval<Event>())))
-		{
-			for (std::optional<Event> event = wait(); event.has_value(); event = poll()) {
-				fn(*event);
-			}
-		}
+		void handle(const Fn& fn) noexcept(noexcept(std::declval<Fn>()(std::declval<Event>())));
 
 		/**************************************************************************************************************
 		 * Sets the frequency at which draw events are sent at.
@@ -615,6 +610,14 @@ namespace tr {
 template <std::constructible_from<tr::CustomEventBase> T> tr::Event::operator T() const noexcept
 {
 	return T(getCustomEventBase());
+}
+
+template <std::invocable<tr::Event> Fn>
+void tr::EventQueue::handle(const Fn& fn) noexcept(noexcept(std::declval<Fn>()(std::declval<Event>())))
+{
+	for (std::optional<Event> event = wait(std::chrono::milliseconds{1}); event.has_value(); event = poll()) {
+		fn(*event);
+	}
 }
 
 /// @endcond
