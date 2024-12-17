@@ -8,7 +8,9 @@
 namespace tr {
 	class GraphicsBufferMap;
 
-	/** @addtogroup graphics
+	/** @ingroup graphics
+	 *  @defgroup graphics_buffer Graphics Buffer
+	 *  Graphics buffer class and related functionality.
 	 *  @{
 	 */
 

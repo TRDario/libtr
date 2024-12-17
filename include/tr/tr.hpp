@@ -34,6 +34,7 @@
 #include "shader.hpp"
 #include "shader_buffer.hpp"
 #include "shader_pipeline.hpp"
+#include "stopwatch.hpp"
 #include "texture.hpp"
 #include "texture_unit.hpp"
 #include "ttfont.hpp"

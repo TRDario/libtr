@@ -2,7 +2,9 @@
 #include "graphics_buffer.hpp"
 
 namespace tr {
-	/** @addtogroup graphics
+	/** @ingroup graphics
+	 *  @defgroup shader_buffer Shader Buffer
+	 *  Graphics shader buffer class.
 	 *  @{
 	 */
 

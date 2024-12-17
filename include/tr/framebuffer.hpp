@@ -5,7 +5,9 @@
 namespace tr {
 	class Window;
 
-	/** @addtogroup graphics
+	/** @ingroup graphics
+	 *  @defgroup framebuffer Framebuffers
+	 *  Framebuffer classes and related functionality.
 	 *  @{
 	 */
 

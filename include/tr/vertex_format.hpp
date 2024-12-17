@@ -6,7 +6,9 @@
 #include <variant>
 
 namespace tr {
-	/** @addtogroup graphics
+	/** @ingroup graphics
+	 *  @defgroup vertex_format Vertex Format
+	 *  Vertex format class and related functionality.
 	 *  @{
 	 */
 

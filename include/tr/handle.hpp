@@ -7,6 +7,12 @@
 #include <utility>
 
 namespace tr {
+	/** @ingroup misc
+	 *  @defgroup handle Handle
+	 *  Non-pointer handle RAII wrapper.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Concept that denotes a valid handle base type.
 	 *
@@ -383,6 +389,8 @@ namespace tr {
 	  private:
 		T _base;
 	};
+
+	/// @}
 } // namespace tr
 
 /// @cond IMPLEMENTATION

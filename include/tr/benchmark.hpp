@@ -3,10 +3,17 @@
 #include <deque>
 
 namespace tr {
+	/** @ingroup misc
+	 *  @defgroup benchmark Benchmark
+	 *  Minimal benchmarking class.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
-	 * Simple benchmarking class.
+	 * Minimal benchmarking class.
 	 *
-	 * The benchmark stores timestamps going up to 2.5s back for calculations like average/min/max.
+	 * The benchmark stores intervals between calls to start() and stop() going up to 2.5s back for calculations like
+	 * average/min/max.
 	 *******************************************************************************************************************/
 	class Benchmark {
 	  public:
@@ -86,4 +93,6 @@ namespace tr {
 		Deque     _durations;  // The measurement deque.
 		TimePoint _startPoint; // The start point of the latest started (but not ended) measurement.
 	};
+
+	/// @}
 } // namespace tr

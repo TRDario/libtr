@@ -5,7 +5,9 @@
 #include <glm/glm.hpp>
 
 namespace tr {
-	/** @addtogroup audio
+	/** @ingroup audio
+	 *  @defgroup audio_source Audio Source
+	 *  Audio source class and related functionality.
 	 *  @{
 	 */
 

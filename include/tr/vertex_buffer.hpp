@@ -3,7 +3,9 @@
 #include <string>
 
 namespace tr {
-	/** @addtogroup graphics
+	/** @ingroup graphics
+	 *  @defgroup vertex_buffer Vertex Buffer
+	 *  Graphics vertex buffer class.
 	 *  @{
 	 */
 

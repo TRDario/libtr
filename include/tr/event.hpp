@@ -11,10 +11,9 @@
 namespace tr {
 	class EventQueue;
 
-	/** @defgroup event Events
+	/** @ingroup system
+	 *  @defgroup event Events
 	 *  Event handling functionality.
-	 *
-	 *  An instance of Window must be created before any other functionality from this section can be used.
 	 *  @{
 	 */
 

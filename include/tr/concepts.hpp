@@ -1,8 +1,14 @@
 #pragma once
-#include <concepts>
 #include "dependencies/half.hpp"
+#include <concepts>
 
 namespace tr {
+	/** @ingroup misc
+	 *  @defgroup concepts Concepts
+	 *  Miscellaneous concepts.
+	 *  @{
+	 */
+
 	/// @private
 	// Circumvents static_assert(false) not being a valid expression.
 	template <class...> inline constexpr bool ALWAYS_FALSE = false;
@@ -81,4 +87,6 @@ namespace tr {
 	 ******************************************************************************************************************/
 	template <class T>
 	concept StandardLayoutRange = std::ranges::contiguous_range<T> && StandardLayout<std::ranges::range_value_t<T>>;
+
+	/// @}
 } // namespace tr

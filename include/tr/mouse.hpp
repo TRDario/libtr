@@ -6,7 +6,9 @@ struct SDL_Cursor;
 namespace tr {
 	class Cursor;
 
-	/** @addtogroup input
+	/** @ingroup system
+	 *  @defgroup mouse Mouse
+	 *  Mouse functionality.
 	 *  @{
 	 */
 

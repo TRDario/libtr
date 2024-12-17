@@ -3,7 +3,9 @@
 #include <string_view>
 
 namespace tr {
-	/** @addtogroup graphics
+	/** @ingroup graphics
+	 *  @defgroup shader_pipeline Shader Pipelines
+	 *  Shader pipeline classes.
 	 *  @{
 	 */
 

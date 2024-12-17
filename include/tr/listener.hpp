@@ -2,6 +2,12 @@
 #include <glm/glm.hpp>
 
 namespace tr {
+	/** @ingroup audio
+	 *  @defgroup listener Listener
+	 *  Global audio listener.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Listener orientation.
 	 ******************************************************************************************************************/
@@ -83,4 +89,6 @@ namespace tr {
 
 		friend class AudioSystem;
 	};
+
+	/// @}
 } // namespace tr

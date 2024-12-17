@@ -4,7 +4,8 @@
 #include <limits>
 
 namespace tr {
-	/** @defgroup norm_cast Normalized Casts
+	/** @ingroup misc
+	 *  @defgroup norm_cast Normalized Cast
 	 *  Functions for casting between normalized forms.
 	 *  @{
 	 */

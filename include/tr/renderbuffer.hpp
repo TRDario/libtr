@@ -2,7 +2,9 @@
 #include "texture.hpp"
 
 namespace tr {
-	/** @addtogroup graphics
+	/** @ingroup graphics
+	 *  @defgroup renderbuffer Renderbuffer
+	 *  Renderbuffer class and related functionality.
 	 *  @{
 	 */
 

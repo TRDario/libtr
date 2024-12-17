@@ -2,8 +2,9 @@
 #include "concepts.hpp"
 
 namespace tr {
-	/** @defgroup color Colors
-	 *  Structures and functions for color manipulation.
+	/** @ingroup misc
+	 *  @defgroup color Colors
+	 *  Color datatypes and related functionality.
 	 *  @{
 	 */
 

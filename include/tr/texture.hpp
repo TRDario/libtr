@@ -3,7 +3,9 @@
 #include "handle.hpp"
 
 namespace tr {
-	/** @addtogroup graphics
+	/** @ingroup graphics
+	 *  @defgroup texture Textures
+	 *  Texture classes and related functionality.
 	 *  @{
 	 */
 

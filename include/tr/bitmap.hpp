@@ -12,10 +12,9 @@ namespace tr {
 	class Bitmap;
 	class BitmapView;
 
-	/** @defgroup bitmap Bitmaps
-	 * Functionality for manipulating bitmaps.
-	 *
-	 *  An instance of Window must be created before any functionality from this section can be used.
+	/** @ingroup system
+	 *  @defgroup bitmap Bitmaps
+	 *  Bitmap classes and related functionality.
 	 *  @{
 	 */
 

@@ -11,10 +11,18 @@
 struct SDL_Window;
 
 namespace tr {
-	/** @defgroup input Input
-	 *  Input and display functionality.
+	/** @defgroup system System
+	 *  The primary window system.
 	 *
-	 *  An instance of Window must be created before any other functionality from this section can be used.
+	 *  An instance of Window must be created before any other functionality from this section can be used, with the
+	 *  exception of @ref path.
+	 *  @{
+	 *  @}
+	 */
+
+	/** @ingroup system
+	 *  @defgroup window Window
+	 *  Main application window class and related functionality.
 	 *  @{
 	 */
 
@@ -130,9 +138,17 @@ namespace tr {
 	inline constexpr glm::ivec2 CENTERED_POS{0x2F'FF'00'00, 0x2F'FF'00'00};
 
 	/******************************************************************************************************************
-	 * Application window.
+	 * The main application window.
 	 *
-	 * Only one instance of the audio system is allowed to exist at a time.
+	 * This class handles most of the basic functionality of the application, not just the window itself. Single
+	 * instances of the EventQueue, Keyboard, Mouse and GraphicsContext classes belong to the window object.
+	 *
+	 * The Window class uses something akin to the singleton pattern. It is still your job to instantiate the window
+	 * once (and only once!), after which it will stay active until its destructor is called, but this instance will be
+	 * globally available through window(). Reopening the window after it has been closed is a valid action.
+	 *
+	 * Window is movable, but not copyable. A moved window is left in a state where another window can be moved into it,
+	 * but is otherwise unusable.
 	 ******************************************************************************************************************/
 	class Window {
 	  public:

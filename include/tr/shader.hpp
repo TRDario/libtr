@@ -3,7 +3,9 @@
 #include "texture_unit.hpp"
 
 namespace tr {
-	/** @addtogroup graphics
+	/** @ingroup graphics
+	 *  @defgroup shader Shader
+	 *  Shader class and related functionality.
 	 *  @{
 	 */
 

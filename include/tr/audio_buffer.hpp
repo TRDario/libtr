@@ -5,7 +5,9 @@
 #include <span>
 
 namespace tr {
-	/** @addtogroup audio
+	/** @ingroup audio
+	 *  @defgroup audio_buffer Audio Buffer
+	 *  Audio buffer class and related functionality
 	 *  @{
 	 */
 

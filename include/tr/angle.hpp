@@ -3,8 +3,15 @@
 #include <concepts>
 
 namespace tr {
-	/** @defgroup angle Angles
-	 *  Types and functions for angle manipulation.
+	/** @defgroup misc Miscellaneous
+	 *  Functionality not directly associated with the primary systems.
+	 *  @{
+	 *  @}
+	 */
+
+	/** @ingroup misc
+	 *  @defgroup angle Angles
+	 *  Angle datatype and related functionality.
 	 *  @{
 	 */
 

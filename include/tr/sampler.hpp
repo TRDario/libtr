@@ -4,7 +4,9 @@
 #include <string_view>
 
 namespace tr {
-	/** @addtogroup graphics
+	/** @ingroup graphics
+	 *  @defgroup sampler Sampler
+	 *  Sampler class and related functionality.
 	 *  @{
 	 */
 

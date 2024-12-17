@@ -8,9 +8,16 @@ struct ALCcontext;
 
 namespace tr {
 	/** @defgroup audio Audio
-	 *  Audio subsystem.
+	 *  The audio subsystem.
 	 *
 	 *  An instance of AudioSystem must be created before any other functionality from this section can be used.
+	 *  @{
+	 *  @}
+	 */
+
+	/** @ingroup audio
+	 *  @defgroup audio_system Audio System
+	 *  Audio device/context manager and related functionality.
 	 *  @{
 	 */
 
@@ -22,7 +29,7 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Audio system manager required for using audio classes.
+	 * Audio device and context manager required for using audio classes.
 	 *
 	 * Only one instance of the audio system is allowed to exist at a time.
 	 ******************************************************************************************************************/

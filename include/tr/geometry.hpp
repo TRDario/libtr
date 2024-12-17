@@ -5,8 +5,10 @@
 #include <optional>
 
 namespace tr {
-	/** @defgroup geometry
-	 *  Geometry-related structs and functions.
+	/** @ingroup misc
+	 *  @defgroup geometry Geometry
+	 *  Geometry-related datatypes and functions.
+	 *  @{
 	 */
 
 	/******************************************************************************************************************

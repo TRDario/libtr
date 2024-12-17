@@ -4,7 +4,9 @@
 #include <glm/glm.hpp>
 
 namespace tr {
-	/** @addtogroup drawing
+	/** @ingroup misc
+	 *  @defgroup vertex Vertices
+	 *  Common vertex datatypes and related functionality.
 	 *  @{
 	 */
 

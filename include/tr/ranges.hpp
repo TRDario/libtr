@@ -5,8 +5,9 @@
 #include <span>
 
 namespace tr {
-	/** @defgroup ranges Ranges
-	 *  Ranges functionality.
+	/** @ingroup misc
+	 *  @defgroup ranges Ranges
+	 *  Custom range functionality.
 	 *  @{
 	 */
 

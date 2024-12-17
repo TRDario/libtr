@@ -8,8 +8,16 @@
 struct SDL_Window;
 
 namespace tr {
-	/** @defgroup graphics Graphics
-	 *  Graphics functionality.
+	/** @ingroup system
+	 *  @defgroup graphics Graphics
+	 *  Graphics context manipulation and drawing functionality.
+	 *  @{
+	 *  @}
+	 */
+
+	/** @ingroup graphics
+	 *  @defgroup graphics_context Graphics Context
+	 *  Graphics context manager and related functionality.
 	 *  @{
 	 */
 

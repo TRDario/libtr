@@ -2,6 +2,12 @@
 #include <chrono>
 
 namespace tr {
+	/** @ingroup misc
+	 *  @defgroup chrono Chrono
+	 *  Common chrono typedefs.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Shorthand for the standard steady clock.
 	 ******************************************************************************************************************/
@@ -96,4 +102,6 @@ namespace tr {
 	 * Shorthand for an integer nanosecond.
 	 ******************************************************************************************************************/
 	using NanosecondsI = std::chrono::nanoseconds;
+
+	/// @}
 } // namespace tr

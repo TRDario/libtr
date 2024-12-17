@@ -1,6 +1,12 @@
 #pragma once
 
 namespace tr {
+	/** @ingroup misc
+	 *  @defgroup overloaded_lambda Overloaded
+	 *  Overloaded lambda helper class.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Overloaded lambda helper class.
 	 *
@@ -14,4 +20,6 @@ namespace tr {
 	 * Deduction guide.
 	 ******************************************************************************************************************/
 	template <class... Fs> Overloaded(Fs...) -> Overloaded<Fs...>;
+
+	/// @}
 } // namespace tr

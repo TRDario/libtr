@@ -5,8 +5,9 @@
 #include <ranges>
 
 namespace tr {
-	/** @defgroup file Files
-	 *  Helper file functionality.
+	/** @ingroup misc
+	 *  @defgroup stream Streams
+	 *  Custom I/O stream functionality.
 	 *  @{
 	 */
 

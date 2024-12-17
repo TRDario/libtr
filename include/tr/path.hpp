@@ -3,8 +3,9 @@
 #include <filesystem>
 
 namespace tr {
-	/** @defgroup path Paths
-	 *  Path getters.
+	/** @ingroup system
+	 *  @defgroup path Paths
+	 *  Base path querying functionality.
 	 *  @{
 	 */
 

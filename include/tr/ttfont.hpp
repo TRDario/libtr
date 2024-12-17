@@ -5,8 +5,9 @@
 struct _TTF_Font;
 
 namespace tr {
-	/** @defgroup ttfont TrueType Fonts
-	 *  TrueType font functionality.
+	/** @ingroup system
+	 *  @defgroup ttfont TrueType Font
+	 *  TrueType font class and related functionality.
 	 *  @{
 	 */
 

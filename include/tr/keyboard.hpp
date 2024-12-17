@@ -6,7 +6,9 @@
 namespace tr {
 	class Keycode;
 
-	/** @addtogroup input
+	/** @ingroup system
+	 *  @defgroup keyboard Keyboard
+	 *  Keyboard functionality.
 	 *  @{
 	 */
 

@@ -7,6 +7,12 @@
 #include <string_view>
 
 namespace tr {
+	/** @ingroup misc
+	 *  @defgroup utf8 UTF-8
+	 *  UTF-8 view iterators.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Unicode codepoint const iterator for UTF-8 string views.
 	 *
@@ -124,6 +130,8 @@ namespace tr {
 	 * @return The length as if produced by @code std::distance(utf8Begin(str), utf8End(str)) @endcode
 	 ******************************************************************************************************************/
 	constexpr std::size_t utf8Length(std::string_view str) noexcept;
+
+	/// @}
 } // namespace tr
 
 /// @cond IMPLEMENTATION

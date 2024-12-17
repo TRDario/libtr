@@ -29,6 +29,12 @@ namespace tr {
 	};
 	/// @endcond
 
+	/** @ingroup misc
+	 *  @defgroup hash_map Hash Maps
+	 *  Custom unordered_map functionality.
+	 *  @{
+	 */
+
 	/******************************************************************************************************************
 	 * Typedef for a enumerator-key hash map.
 	 ******************************************************************************************************************/
@@ -44,6 +50,8 @@ namespace tr {
 	 ******************************************************************************************************************/
 	template <std::size_t Cap, class Value>
 	using StaticStringHashMap = std::unordered_map<boost::static_string<Cap>, Value, StaticStringHash, StringEquals>;
+
+	/// @}
 } // namespace tr
 
 /// @cond IMPLEMENTATION

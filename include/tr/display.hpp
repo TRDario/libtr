@@ -4,7 +4,9 @@
 #include <optional>
 
 namespace tr {
-	/** @addtogroup input
+	/** @ingroup system
+	 *  @defgroup display Display
+	 *  Display querying functionality.
 	 *  @{
 	 */
 
