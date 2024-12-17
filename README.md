@@ -1,7 +1,8 @@
 # libtr
-libtr is a personal C++ base library for gamedev projects.
 
-libtr includes C++ wrappers for OpenAL, OpenGL 4.6, and SDL2 objects, as well as a number of miscellaneous helper functions, classes, and templates.
+libtr is a base library for C++20 gamedev projects.
+
+libtr includes object-oriented wrappers for OpenAL, OpenGL 4.6, and SDL2 objects, as well as a number of miscellaneous helper functions, classes, and templates.
 
 Its intended use is as a backbone and lower-level "escape hatch" alongside [libtre](https://github.com/TRDario/libtre), and so its API is designed primarily in service of that use-case. It should be servicable as a general-purpose OOP low-level API wrapper for most 2D and basic 3D, however.
 
@@ -19,12 +20,17 @@ Since this is primarily a personal project right now, I intend to do version fre
 
 Documentation for libtr can be built with Doxygen, or can be viewed [here](https://trdario.github.io/libtr/).
 
+The HTML theme uses [Doxygen Awesome](https://github.com/jothepro/doxygen-awesome-css).
+
 ## Building
+
 The following is required to build libtre:
+
 - A C++20 compiler.
 - CMake 3.23.0 or higher.
 
 libtr depends on the following external libraries:
+
 - [Boost](https://www.boost.org/)
 - [EnumBitmask](https://github.com/Reputeless/EnumBitmask) (vendored)
 - [GLM](https://github.com/g-truc/glm)
