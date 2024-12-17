@@ -6,7 +6,7 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Simple benchmarking class.
 	 *
-	 * The benchmark stores timestamps going up to 5s back for calculations like average/min/max.
+	 * The benchmark stores timestamps going up to 2.5s back for calculations like average/min/max.
 	 *******************************************************************************************************************/
 	class Benchmark {
 	  public:
