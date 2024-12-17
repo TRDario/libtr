@@ -225,7 +225,7 @@ tr::Event tr::EventQueue::wait() noexcept
 	return event;
 }
 
-std::optional<tr::Event> tr::EventQueue::wait(std::chrono::milliseconds timeout) noexcept
+std::optional<tr::Event> tr::EventQueue::wait(MillisecondsI timeout) noexcept
 {
 	Event event{};
 	if (SDL_WaitEventTimeout((SDL_Event*)(&event._impl), timeout.count())) {

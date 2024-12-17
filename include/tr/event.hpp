@@ -557,7 +557,7 @@ namespace tr {
 		 *
 		 * @return The polled event, if one was found.
 		 **************************************************************************************************************/
-		std::optional<Event> wait(std::chrono::milliseconds timeout) noexcept;
+		std::optional<Event> wait(MillisecondsI timeout) noexcept;
 
 		/**************************************************************************************************************
 		 * Handles all available events in a loop.
