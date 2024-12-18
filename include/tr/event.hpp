@@ -844,7 +844,7 @@ namespace tr {
 		friend class Window;
 	};
 
-	// 	/// @}
+	/// @}
 } // namespace tr
 
 /// @cond
