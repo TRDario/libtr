@@ -203,6 +203,22 @@ namespace tr {
 		BitmapView(std::span<const std::byte> rawData, glm::ivec2 size, BitmapFormat format);
 
 		/**************************************************************************************************************
+		 * Creates a bitmap view over a range of pixel data.
+		 *
+		 * @exception BitmapBadAlloc If allocating the bitmap view's internals fails.
+		 *
+		 * @param[in] rawData A contiguous range of pixel data. The size of the range must match size.x * size.y *
+		 * [pixel bytes].
+		 * @param[in] size The size of the bitmap.
+		 * @param[in] format The format of the bitmap.
+		 **************************************************************************************************************/
+		template <std::ranges::contiguous_range T>
+		BitmapView(T&& range, glm::ivec2 size, BitmapFormat format)
+			: BitmapView{rangeBytes(range), size, format}
+		{
+		}
+
+		/**************************************************************************************************************
 		 * Creates a bitmap view over pixel data.
 		 *
 		 * @exception BitmapBadAlloc If allocating the bitmap view's internals fails.

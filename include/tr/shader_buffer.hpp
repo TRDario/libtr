@@ -96,12 +96,43 @@ namespace tr {
 		void setHeader(std::span<const std::byte> data) noexcept;
 
 		/******************************************************************************************************************
+		 * Sets the data of the header.
+		 *
+		 * @param[in] range The new data of the header. The range must be the same size as the header.
+		 ******************************************************************************************************************/
+		template <std::ranges::contiguous_range Range> void setHeader(Range&& range) noexcept
+		{
+			setHeader(rangeBytes(range));
+		}
+
+		/******************************************************************************************************************
+		 * Sets the data of the header.
+		 *
+		 * @param[in] value The new data of the header. The value must be the same size as the header.
+		 ******************************************************************************************************************/
+		template <class T> void setHeader(const T& value) noexcept
+		{
+			setHeader(asBytes(value));
+		}
+
+		/******************************************************************************************************************
 		 * Sets the data of the dynamic array.
 		 *
 		 * @param[in] data The new data of the array. The span must be smaller or have the same size as the array
 		 *                 capacity.
 		 ******************************************************************************************************************/
 		void setArray(std::span<const std::byte> data) noexcept;
+
+		/******************************************************************************************************************
+		 * Sets the data of the dynamic array.
+		 *
+		 * @param[in] range The new data of the array. The range must be smaller or have the same size as the array
+		 *                  capacity.
+		 ******************************************************************************************************************/
+		template <std::ranges::contiguous_range Range> void setArray(Range&& range) noexcept
+		{
+			setArray(rangeBytes(range));
+		}
 
 		/******************************************************************************************************************
 		 * Resizes the dynamic array.

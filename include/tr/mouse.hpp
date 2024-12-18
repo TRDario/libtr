@@ -263,6 +263,24 @@ namespace tr {
 		 **************************************************************************************************************/
 		Cursor(std::span<const std::byte> color, std::span<const std::byte> mask, glm::ivec2 size, glm::ivec2 focus);
 
+		/**************************************************************************************************************
+		 * Creates a simple black-and-white cursor from color and mask bitfields.
+		 *
+		 * @exception CursorBadAlloc If allocating the cursor fails.
+		 *
+		 * @param[in] colorRange A range of bits where 0 is white and 1 black.
+		 * @param[in] maskRange A range of bits determining the mask: 1 is opaque, 0 + white = transparent,
+		 *             	        0 + black = inverted color.
+		 * @param[in] size The size of the cursor graphic, both coordinates must be multiples of 8 and match the sizes
+		 *                 of the bitfields.
+		 * @param[in] focus The focus point of the cursor (where the actual mouse position is relative to the graphic).
+		 **************************************************************************************************************/
+		template <std::ranges::contiguous_range R1, std::ranges::contiguous_range R2>
+		Cursor(R1&& colorRange, R2&& maskRange, glm::ivec2 size, glm::ivec2 focus)
+			: Cursor{rangeBytes(colorRange), rangeBytes(maskRange), size, focus}
+		{
+		}
+
 	  private:
 		struct Deleter {
 			void operator()(SDL_Cursor* ptr) const noexcept;

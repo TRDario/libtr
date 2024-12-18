@@ -48,6 +48,23 @@ namespace tr {
 		VertexBuffer(std::span<const std::byte> data);
 
 		/**************************************************************************************************************
+		 * Allocates a vertex buffer and fills it with data.
+		 *
+		 * The buffer will be of size and capacity @em range.size() after construction.
+		 *
+		 * This function can't be called before creating a GraphicsContext.
+		 *
+		 * @exception GraphicsBufferBadAlloc If allocating the buffer fails.
+		 *
+		 * @param[in] range The data range to be uploaded to be buffer. Must not be empty.
+		 **************************************************************************************************************/
+		template <std::ranges::contiguous_range T>
+		VertexBuffer(T&& range)
+			: VertexBuffer{rangeBytes(range)}
+		{
+		}
+
+		/**************************************************************************************************************
 		 * Gets whether the vertex buffer is empty.
 		 *
 		 * @return True if the buffer has size 0.
@@ -83,7 +100,7 @@ namespace tr {
 		 * Sets the contents of the buffer.
 		 *
 		 * If data.size() is greater than the capacity of the buffer, a reallocation will be done. This voids any
-		 *previous bindings of the buffer to the context, and so it must be rebound. setRegion() will never cause a
+		 * previous bindings of the buffer to the context, and so it must be rebound. setRegion() will never cause a
 		 * reallocation, so may be used in cases where that's a requirement.
 		 *
 		 * The buffer cannot be mapped when this function is called.
@@ -93,6 +110,24 @@ namespace tr {
 		 * @param[in] data The new data of the buffer.
 		 **************************************************************************************************************/
 		void set(std::span<const std::byte> data);
+
+		/**************************************************************************************************************
+		 * Sets the contents of the buffer.
+		 *
+		 * If range.size() is greater than the capacity of the buffer, a reallocation will be done. This voids any
+		 * previous bindings of the buffer to the context, and so it must be rebound. setRegion() will never cause a
+		 * reallocation, so may be used in cases where that's a requirement.
+		 *
+		 * The buffer cannot be mapped when this function is called.
+		 *
+		 * @exception GraphicsBufferBadAlloc If a reallocation is triggered and reallocating the buffer fails.
+		 *
+		 * @param[in] range The new data of the buffer.
+		 **************************************************************************************************************/
+		template <std::ranges::contiguous_range T> void set(T&& range)
+		{
+			set(rangeBytes(range));
+		}
 
 		/**************************************************************************************************************
 		 * Sets a region of the buffer.
@@ -106,6 +141,22 @@ namespace tr {
 		 * @param[in] data The new data of the buffer. `offset + data.size() <= capacity()` must hold true.
 		 **************************************************************************************************************/
 		void setRegion(std::size_t offset, std::span<const std::byte> data) noexcept;
+
+		/**************************************************************************************************************
+		 * Sets a region of the buffer.
+		 *
+		 * Unlike set(), a call to this function will never cause a reallocation, but an assertion may fail if a range
+		 * too large is passed to it.
+		 *
+		 * The buffer cannot be mapped when this function is called.
+		 *
+		 * @param[in] offset The starting offset within the buffer in bytes.
+		 * @param[in] range The new data of the buffer. `offset + range.size() <= capacity()` must hold true.
+		 **************************************************************************************************************/
+		template <std::ranges::contiguous_range T> void setRegion(std::size_t offset, T&& range) noexcept
+		{
+			setRegion(offset, rangeBytes(range));
+		}
 
 		/**************************************************************************************************************
 		 * Gets whether the buffer is mapped.

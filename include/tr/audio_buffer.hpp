@@ -87,6 +87,20 @@ namespace tr {
 		 **************************************************************************************************************/
 		void set(std::span<const std::byte> data, AudioFormat format, int frequency);
 
+		/**************************************************************************************************************
+		 * Sets the data of the buffer.
+		 *
+		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
+		 *
+		 * @param[in] data A contiguous range of audio data.
+		 * @param[in] format The format of the audio data.
+		 * @param[in] frequency The frequency of the audio data.
+		 **************************************************************************************************************/
+		template <std::ranges::contiguous_range T> void set(T&& range, AudioFormat format, int frequency)
+		{
+			set(rangeBytes(range), format, frequency);
+		}
+
 	  protected:
 		/// @cond IMPLEMENTATION
 		unsigned int _id; // The OpenAL ID of the buffer.
