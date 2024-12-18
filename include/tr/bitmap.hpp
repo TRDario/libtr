@@ -1,7 +1,6 @@
 #pragma once
 #include "bitmap_format.hpp"
 #include "color.hpp"
-#include "dependencies/EnumBitmask.hpp"
 #include "geometry.hpp"
 #include "iostream.hpp"
 

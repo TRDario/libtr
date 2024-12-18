@@ -1,5 +1,6 @@
 #pragma once
 #include "bitmap.hpp"
+#include "dependencies/EnumBitmask.hpp"
 #include "sdl.hpp"
 
 struct _TTF_Font;

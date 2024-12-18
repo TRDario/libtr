@@ -1,4 +1,5 @@
 #pragma once
+#include "dependencies/EnumBitmask.hpp"
 #include "framebuffer.hpp"
 #include "index_buffer.hpp"
 #include "shader_pipeline.hpp"
