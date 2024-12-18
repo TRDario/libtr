@@ -37,6 +37,7 @@
 #include "stopwatch.hpp"
 #include "texture.hpp"
 #include "texture_unit.hpp"
+#include "timer.hpp"
 #include "ttfont.hpp"
 #include "utf8.hpp"
 #include "vertex.hpp"
