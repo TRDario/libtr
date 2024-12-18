@@ -1,5 +1,6 @@
 #pragma once
 #include "handle.hpp"
+#include "ranges.hpp"
 #include <cstdint>
 #include <optional>
 #include <span>

@@ -214,7 +214,7 @@ namespace tr {
 		 **************************************************************************************************************/
 		template <std::ranges::contiguous_range T>
 		BitmapView(T&& range, glm::ivec2 size, BitmapFormat format)
-			: BitmapView{rangeBytes(range), size, format}
+			: BitmapView{std::span<const std::byte>{rangeBytes(range)}, size, format}
 		{
 		}
 

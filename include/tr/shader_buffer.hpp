@@ -102,7 +102,7 @@ namespace tr {
 		 ******************************************************************************************************************/
 		template <std::ranges::contiguous_range Range> void setHeader(Range&& range) noexcept
 		{
-			setHeader(rangeBytes(range));
+			setHeader(std::span<const std::byte>{rangeBytes(range)});
 		}
 
 		/******************************************************************************************************************
@@ -112,7 +112,7 @@ namespace tr {
 		 ******************************************************************************************************************/
 		template <class T> void setHeader(const T& value) noexcept
 		{
-			setHeader(asBytes(value));
+			setHeader(std::span<const std::byte>{asBytes(value)});
 		}
 
 		/******************************************************************************************************************
@@ -131,7 +131,7 @@ namespace tr {
 		 ******************************************************************************************************************/
 		template <std::ranges::contiguous_range Range> void setArray(Range&& range) noexcept
 		{
-			setArray(rangeBytes(range));
+			setArray(std::span<const std::byte>{rangeBytes(range)});
 		}
 
 		/******************************************************************************************************************

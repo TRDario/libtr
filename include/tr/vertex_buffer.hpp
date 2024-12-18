@@ -60,7 +60,7 @@ namespace tr {
 		 **************************************************************************************************************/
 		template <std::ranges::contiguous_range T>
 		VertexBuffer(T&& range)
-			: VertexBuffer{rangeBytes(range)}
+			: VertexBuffer{std::span<const std::byte>(rangeBytes(range))}
 		{
 		}
 
@@ -126,7 +126,7 @@ namespace tr {
 		 **************************************************************************************************************/
 		template <std::ranges::contiguous_range T> void set(T&& range)
 		{
-			set(rangeBytes(range));
+			set(std::span<const std::byte>{rangeBytes(range)});
 		}
 
 		/**************************************************************************************************************
@@ -155,7 +155,7 @@ namespace tr {
 		 **************************************************************************************************************/
 		template <std::ranges::contiguous_range T> void setRegion(std::size_t offset, T&& range) noexcept
 		{
-			setRegion(offset, rangeBytes(range));
+			setRegion(offset, std::span<const std::byte>{rangeBytes(range)});
 		}
 
 		/**************************************************************************************************************

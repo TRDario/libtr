@@ -98,7 +98,7 @@ namespace tr {
 		 **************************************************************************************************************/
 		template <std::ranges::contiguous_range T> void set(T&& range, AudioFormat format, int frequency)
 		{
-			set(rangeBytes(range), format, frequency);
+			set(std::span<const std::byte>{rangeBytes(range)}, format, frequency);
 		}
 
 	  protected:
