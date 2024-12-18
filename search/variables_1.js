@@ -6,5 +6,7 @@ var searchData=
   ['alpha_5fblending_3',['ALPHA_BLENDING',['../group__graphics__context.html#gae3976b7bd434a18e18849f04b0f4fc1c',1,'tr']]],
   ['alphadst_4',['alphaDst',['../structtr_1_1BlendMode.html#a9f7f7d4df0775ad7d3fbfa173e7f57d6',1,'tr::BlendMode']]],
   ['alphafn_5',['alphaFn',['../structtr_1_1BlendMode.html#a77a2fae0c517e164f3f83997e6659533',1,'tr::BlendMode']]],
-  ['alphasrc_6',['alphaSrc',['../structtr_1_1BlendMode.html#a7509e716191946fa7fac575eac077bea',1,'tr::BlendMode']]]
+  ['alphasrc_6',['alphaSrc',['../structtr_1_1BlendMode.html#a7509e716191946fa7fac575eac077bea',1,'tr::BlendMode']]],
+  ['any1_7',['any1',['../structtr_1_1CustomEventBase.html#a8cc0e66c4b1630bf184da0e037280595',1,'tr::CustomEventBase']]],
+  ['any2_8',['any2',['../structtr_1_1CustomEventBase.html#a7e7f7f76ddffe9d59b49c970dd6228dc',1,'tr::CustomEventBase']]]
 ];

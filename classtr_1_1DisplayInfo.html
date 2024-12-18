@@ -102,25 +102,18 @@ $(function(){initNavTree('classtr_1_1DisplayInfo.html',''); initResizable(true);
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classtr_1_1DisplayInfo-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tr::DisplayInfo Class Reference<div class="ingroups"><a class="el" href="group__system.html">System</a> &raquo; <a class="el" href="group__display.html">Display</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Display information.  
+<p>Display information querying object.  
  <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aba5f12d97f3d077c43d3cf1ebce8ef69" id="r_aba5f12d97f3d077c43d3cf1ebce8ef69"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba5f12d97f3d077c43d3cf1ebce8ef69">DisplayInfo</a> () noexcept</td></tr>
-<tr class="memdesc:aba5f12d97f3d077c43d3cf1ebce8ef69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an information object for the default display (see: DEFAULT_DISPLAY).  <br /></td></tr>
-<tr class="separator:aba5f12d97f3d077c43d3cf1ebce8ef69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84de8989ee8d57502efba161706acf80" id="r_a84de8989ee8d57502efba161706acf80"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84de8989ee8d57502efba161706acf80">DisplayInfo</a> (int id) noexcept</td></tr>
-<tr class="memdesc:a84de8989ee8d57502efba161706acf80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an information object for a display.  <br /></td></tr>
-<tr class="separator:a84de8989ee8d57502efba161706acf80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62c2fe3448dd63da8df36571ffebe4ef" id="r_a62c2fe3448dd63da8df36571ffebe4ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__geometry.html#ga386ecd8029d58f09791896b6421218d9">RectI2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62c2fe3448dd63da8df36571ffebe4ef">bounds</a> () const noexcept</td></tr>
-<tr class="memdesc:a62c2fe3448dd63da8df36571ffebe4ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the bounds of the display.  <br /></td></tr>
+<tr class="memdesc:a62c2fe3448dd63da8df36571ffebe4ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the bounds of the display.  <br /></td></tr>
 <tr class="separator:a62c2fe3448dd63da8df36571ffebe4ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50fb050f427a47e451aa98353b335d17" id="r_a50fb050f427a47e451aa98353b335d17"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50fb050f427a47e451aa98353b335d17">centeredPos</a> () const noexcept</td></tr>
 <tr class="memdesc:a50fb050f427a47e451aa98353b335d17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a value usable by a <a class="el" href="classtr_1_1Window.html" title="The main application window.">Window</a> constructor for centering a window on the display.  <br /></td></tr>
@@ -128,9 +121,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a340d2190c4e7cabc5c573ddf9d5673c6" id="r_a340d2190c4e7cabc5c573ddf9d5673c6"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a340d2190c4e7cabc5c573ddf9d5673c6">closestModeTo</a> (const <a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> &amp;mode) const noexcept</td></tr>
 <tr class="memdesc:a340d2190c4e7cabc5c573ddf9d5673c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to get the closest compatible display mode to the desired one.  <br /></td></tr>
 <tr class="separator:a340d2190c4e7cabc5c573ddf9d5673c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeea84569590550c077a8985e1647eece" id="r_aeea84569590550c077a8985e1647eece"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeea84569590550c077a8985e1647eece">displayMode</a> (int index) const noexcept</td></tr>
-<tr class="memdesc:aeea84569590550c077a8985e1647eece"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets one of the display's display modes.  <br /></td></tr>
-<tr class="separator:aeea84569590550c077a8985e1647eece"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeefb31fc56c2ad8790dfcb680d74fbc5" id="r_aeefb31fc56c2ad8790dfcb680d74fbc5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeefb31fc56c2ad8790dfcb680d74fbc5">displayMode</a> (int mode) const noexcept</td></tr>
+<tr class="memdesc:aeefb31fc56c2ad8790dfcb680d74fbc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets one of the display's display modes.  <br /></td></tr>
+<tr class="separator:aeefb31fc56c2ad8790dfcb680d74fbc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf825c4dfb82beafd4d3638d31aa3f16" id="r_abf825c4dfb82beafd4d3638d31aa3f16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf825c4dfb82beafd4d3638d31aa3f16">displayModeCount</a> () const noexcept</td></tr>
 <tr class="memdesc:abf825c4dfb82beafd4d3638d31aa3f16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of display modes available on the display.  <br /></td></tr>
 <tr class="separator:abf825c4dfb82beafd4d3638d31aa3f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,77 +133,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1dc04e7ad92a84adc7e7e168b06261a0" id="r_a1dc04e7ad92a84adc7e7e168b06261a0"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1dc04e7ad92a84adc7e7e168b06261a0">toLocalCoords</a> (glm::ivec2 globalCoords) const noexcept</td></tr>
 <tr class="memdesc:a1dc04e7ad92a84adc7e7e168b06261a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts global coordinates to local coordinates on the display.  <br /></td></tr>
 <tr class="separator:a1dc04e7ad92a84adc7e7e168b06261a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ae7f53d33eb3c2efe7a71308d724c752c" id="r_ae7f53d33eb3c2efe7a71308d724c752c"><td class="memItemLeft" align="right" valign="top">static std::optional&lt; <a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7f53d33eb3c2efe7a71308d724c752c">fromCoords</a> (glm::ivec2 globalCoords) noexcept</td></tr>
-<tr class="memdesc:ae7f53d33eb3c2efe7a71308d724c752c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to return a display information object from global coordinates.  <br /></td></tr>
-<tr class="separator:ae7f53d33eb3c2efe7a71308d724c752c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Display information. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aba5f12d97f3d077c43d3cf1ebce8ef69" name="aba5f12d97f3d077c43d3cf1ebce8ef69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba5f12d97f3d077c43d3cf1ebce8ef69">&#9670;&#160;</a></span>DisplayInfo() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tr::DisplayInfo::DisplayInfo </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates an information object for the default display (see: DEFAULT_DISPLAY). </p>
-
-</div>
-</div>
-<a id="a84de8989ee8d57502efba161706acf80" name="a84de8989ee8d57502efba161706acf80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84de8989ee8d57502efba161706acf80">&#9670;&#160;</a></span>DisplayInfo() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tr::DisplayInfo::DisplayInfo </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates an information object for a display. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>The ID of the display. Must be in the range (0, <a class="el" href="group__display.html#ga9a6f207d79a36e6b83c9c709b13af14b" title="Gets the number of available displays.">displayCount()</a>). </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p>Display information querying object. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a62c2fe3448dd63da8df36571ffebe4ef" name="a62c2fe3448dd63da8df36571ffebe4ef"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a62c2fe3448dd63da8df36571ffebe4ef">&#9670;&#160;</a></span>bounds()</h2>
 
@@ -234,7 +160,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the bounds of the display. </p>
+<p>Queries the bounds of the display. </p>
 <dl class="section return"><dt>Returns</dt><dd>The bounds of the display. </dd></dl>
 
 </div>
@@ -301,8 +227,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aeea84569590550c077a8985e1647eece" name="aeea84569590550c077a8985e1647eece"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeea84569590550c077a8985e1647eece">&#9670;&#160;</a></span>displayMode()</h2>
+<a id="aeefb31fc56c2ad8790dfcb680d74fbc5" name="aeefb31fc56c2ad8790dfcb680d74fbc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeefb31fc56c2ad8790dfcb680d74fbc5">&#9670;&#160;</a></span>displayMode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,7 +239,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> tr::DisplayInfo::displayMode </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>mode</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -327,11 +253,14 @@ Static Public Member Functions</h2></td></tr>
 <p>Gets one of the display's display modes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the display mode, HIGHEST_MODE, or DESKTOP_MODE. If an index, it must be in the range [0, displayModeCount).</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td><p class="starttd">The index of the display mode, HIGHEST_MODE, or DESKTOP_MODE.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The display at the requested index. </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>If an index, <em>mode</em> must be in the range [0, <a class="el" href="#abf825c4dfb82beafd4d3638d31aa3f16" title="Gets the number of display modes available on the display.">displayModeCount()</a>). </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The requested display modes. </dd></dl>
 
 </div>
 </div>
@@ -360,40 +289,6 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Gets the number of display modes available on the display. </p>
 <dl class="section return"><dt>Returns</dt><dd>The number of display modes available on the display. </dd></dl>
-
-</div>
-</div>
-<a id="ae7f53d33eb3c2efe7a71308d724c752c" name="ae7f53d33eb3c2efe7a71308d724c752c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7f53d33eb3c2efe7a71308d724c752c">&#9670;&#160;</a></span>fromCoords()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static std::optional&lt; <a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a> &gt; tr::DisplayInfo::fromCoords </td>
-          <td>(</td>
-          <td class="paramtype">glm::ivec2</td>          <td class="paramname"><span class="paramname"><em>globalCoords</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Tries to return a display information object from global coordinates. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">globalCoords</td><td>The global coordinates.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::nullopt if the coordinates are not in the bounds of any display, or display information of the display the coordinates are in otherwise. </dd></dl>
 
 </div>
 </div>

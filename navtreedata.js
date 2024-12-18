@@ -57,12 +57,13 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "classtr_1_1BitmapView.html#a9522a32cd88794dce997d9ff873b36f8",
-"classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a7a839798acc3929f5de2caf19905af09",
-"classtr_1_1Shader.html#a4ffc7fb17bd858729da1b1cca1adacd6",
-"classtr_1_1Window.html#a7f3efb08023630f46846d534d155e661",
-"group__graphics__context.html#gga8c440fc4a94422129e86a69114e35b50a07296a95713959b948879267498a4420",
-"group__window.html#gga41769bf3df85aadb5d910148498e9585ab1a77c57539b9a5abd20aeecedec8b5e",
-"structtr_1_1GraphicsBufferMapBadAlloc.html"
+"classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a47489eb597b7db34caa24b1fc78fc839",
+"classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204daff44570aca8241914870afbc310cdb85",
+"classtr_1_1VertexFormat.html#a30f5068df7eccd20485687126cb821ff",
+"group__geometry.html#ga3cef1602b3bb2dba9d4df7e58dab1fe3",
+"group__texture__unit.html",
+"structtr_1_1BlendMode.html#a44066af0e0296b1637f82e7aeaea8f7d",
+"structtr_1_1UnsupportedAudioFile.html#afdc352e7cd537ad610e937393246c310"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

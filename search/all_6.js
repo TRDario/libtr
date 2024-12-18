@@ -14,7 +14,11 @@ var searchData=
   ['equal_11',['EQUAL',['../group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a969f331a87d8c958473c32b4d0e61a44',1,'tr']]],
   ['equals_12',['EQUALS',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204da6837aeca94b8f55801166eb031e26a5a',1,'tr::Scancode::EQUALS'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a6837aeca94b8f55801166eb031e26a5a',1,'tr::Keycode::EQUALS']]],
   ['escape_13',['ESCAPE',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204dadaaedac409335b869929ea43fa44be5d',1,'tr::Scancode::ESCAPE'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88adaaedac409335b869929ea43fa44be5d',1,'tr::Keycode::ESCAPE']]],
-  ['events_14',['events',['../classtr_1_1Window.html#a5b0b9043d517ad482bf0f72d71130f6f',1,'tr::Window::events() noexcept'],['../classtr_1_1Window.html#a52dc12ff34df567ea5323451dc99cc8b',1,'tr::Window::events() const noexcept']]],
-  ['exclamation_5fmark_15',['EXCLAMATION_MARK',['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a7a839798acc3929f5de2caf19905af09',1,'tr::Keycode']]],
-  ['exediriniterror_16',['ExeDirInitError',['../structtr_1_1ExeDirInitError.html',1,'tr']]]
+  ['event_14',['Event',['../classtr_1_1Event.html',1,'tr::Event'],['../classtr_1_1Event.html#aab0e9de90b4789a11d463e24fa58c5d9',1,'tr::Event::Event(const Event &amp;r)'],['../classtr_1_1Event.html#a3c0268ea0e8a051a7f4ee4154960aece',1,'tr::Event::Event(Event &amp;&amp;r) noexcept']]],
+  ['eventpusherror_15',['EventPushError',['../structtr_1_1EventPushError.html',1,'tr']]],
+  ['eventqueue_16',['EventQueue',['../classtr_1_1EventQueue.html',1,'tr']]],
+  ['events_17',['Events',['../group__event.html',1,'']]],
+  ['events_18',['events',['../classtr_1_1Window.html#a5b0b9043d517ad482bf0f72d71130f6f',1,'tr::Window::events() noexcept'],['../classtr_1_1Window.html#a52dc12ff34df567ea5323451dc99cc8b',1,'tr::Window::events() const noexcept']]],
+  ['exclamation_5fmark_19',['EXCLAMATION_MARK',['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a7a839798acc3929f5de2caf19905af09',1,'tr::Keycode']]],
+  ['exediriniterror_20',['ExeDirInitError',['../structtr_1_1ExeDirInitError.html',1,'tr']]]
 ];

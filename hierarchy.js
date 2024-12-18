@@ -34,6 +34,7 @@ var hierarchy =
     [ "tr::ColorCaster< HSV >", "structtr_1_1ColorCaster_3_01HSV_01_4.html", null ],
     [ "tr::Colors", "structtr_1_1Colors.html", null ],
     [ "tr::Cursor", "classtr_1_1Cursor.html", null ],
+    [ "tr::CustomEventBase", "structtr_1_1CustomEventBase.html", null ],
     [ "Deleter", null, [
       [ "tr::Handle< unsigned int, 0, Deleter >", "classtr_1_1Handle.html", null ],
       [ "tr::Handle< unsigned int, -1U, Deleter >", "classtr_1_1Handle.html", null ],
@@ -43,6 +44,8 @@ var hierarchy =
     [ "tr::DepthRange", "structtr_1_1DepthRange.html", null ],
     [ "tr::DisplayInfo", "classtr_1_1DisplayInfo.html", null ],
     [ "tr::DisplayMode", "structtr_1_1DisplayMode.html", null ],
+    [ "tr::Event", "classtr_1_1Event.html", null ],
+    [ "tr::EventQueue", "classtr_1_1EventQueue.html", null ],
     [ "std::exception", null, [
       [ "std::bad_alloc", null, [
         [ "tr::AudioBufferBadAlloc", "structtr_1_1AudioBufferBadAlloc.html", null ],
@@ -57,6 +60,7 @@ var hierarchy =
       [ "std::runtime_error", null, [
         [ "tr::AudioSystemInitializationError", "structtr_1_1AudioSystemInitializationError.html", null ],
         [ "tr::SDLError", "structtr_1_1SDLError.html", [
+          [ "tr::EventPushError", "structtr_1_1EventPushError.html", null ],
           [ "tr::TTFontError", "structtr_1_1TTFontError.html", null ],
           [ "tr::WindowError", "structtr_1_1WindowError.html", null ]
         ] ],
@@ -92,10 +96,16 @@ var hierarchy =
     [ "tr::SubBitmap::Iterator", "classtr_1_1SubBitmap_1_1Iterator.html", null ],
     [ "tr::Keyboard", "classtr_1_1Keyboard.html", null ],
     [ "tr::Keycode", "classtr_1_1Keycode.html", null ],
+    [ "tr::KeyDownEvent", "structtr_1_1KeyDownEvent.html", null ],
     [ "tr::KeyInfo", "structtr_1_1KeyInfo.html", null ],
+    [ "tr::KeyUpEvent", "structtr_1_1KeyUpEvent.html", null ],
     [ "tr::Listener", "classtr_1_1Listener.html", null ],
     [ "tr::TTFont::MeasureResult", "structtr_1_1TTFont_1_1MeasureResult.html", null ],
     [ "tr::Mouse", "classtr_1_1Mouse.html", null ],
+    [ "tr::MouseDownEvent", "structtr_1_1MouseDownEvent.html", null ],
+    [ "tr::MouseMotionEvent", "structtr_1_1MouseMotionEvent.html", null ],
+    [ "tr::MouseUpEvent", "structtr_1_1MouseUpEvent.html", null ],
+    [ "tr::MouseWheelEvent", "structtr_1_1MouseWheelEvent.html", null ],
     [ "tr::Bitmap::MutIt", "classtr_1_1Bitmap_1_1MutIt.html", null ],
     [ "tr::NoEmptyHandleCheck", "structtr_1_1NoEmptyHandleCheck.html", null ],
     [ "tr::Orientation", "structtr_1_1Orientation.html", null ],
@@ -122,6 +132,8 @@ var hierarchy =
     [ "tr::ShaderPipeline", "classtr_1_1ShaderPipeline.html", null ],
     [ "tr::Stopwatch", "classtr_1_1Stopwatch.html", null ],
     [ "tr::SubBitmap", "classtr_1_1SubBitmap.html", null ],
+    [ "tr::TextEditEvent", "structtr_1_1TextEditEvent.html", null ],
+    [ "tr::TextInputEvent", "structtr_1_1TextInputEvent.html", null ],
     [ "tr::Texture", "classtr_1_1Texture.html", [
       [ "tr::ArrayTexture1D", "structtr_1_1ArrayTexture1D.html", null ],
       [ "tr::ArrayTexture2D", "structtr_1_1ArrayTexture2D.html", null ],
@@ -131,15 +143,33 @@ var hierarchy =
     ] ],
     [ "tr::TextureUnit", "classtr_1_1TextureUnit.html", null ],
     [ "tr::TexVtx2", "structtr_1_1TexVtx2.html", null ],
+    [ "tr::TickEvent", "structtr_1_1TickEvent.html", null ],
     [ "tr::Timer", "classtr_1_1Timer.html", null ],
     [ "tr::TintVtx2", "structtr_1_1TintVtx2.html", null ],
     [ "tr::TTFont", "classtr_1_1TTFont.html", null ],
     [ "tr::Utf8ConstIt", "classtr_1_1Utf8ConstIt.html", null ],
     [ "tr::UVs", "structtr_1_1UVs.html", null ],
+    [ "std::variant", null, [
+      [ "tr::WindowEvent", "structtr_1_1WindowEvent.html", null ]
+    ] ],
     [ "tr::VertexAttributeD", "structtr_1_1VertexAttributeD.html", null ],
     [ "tr::VertexAttributeF", "structtr_1_1VertexAttributeF.html", null ],
     [ "tr::VertexAttributeI", "structtr_1_1VertexAttributeI.html", null ],
     [ "tr::VertexBuffer", "classtr_1_1VertexBuffer.html", null ],
     [ "tr::VertexFormat", "classtr_1_1VertexFormat.html", null ],
-    [ "tr::Window", "classtr_1_1Window.html", null ]
+    [ "tr::Window", "classtr_1_1Window.html", null ],
+    [ "tr::WindowCloseEvent", "structtr_1_1WindowCloseEvent.html", null ],
+    [ "tr::WindowEnterEvent", "structtr_1_1WindowEnterEvent.html", null ],
+    [ "tr::WindowExposeEvent", "structtr_1_1WindowExposeEvent.html", null ],
+    [ "tr::WindowGainFocusEvent", "structtr_1_1WindowGainFocusEvent.html", null ],
+    [ "tr::WindowHideEvent", "structtr_1_1WindowHideEvent.html", null ],
+    [ "tr::WindowLeaveEvent", "structtr_1_1WindowLeaveEvent.html", null ],
+    [ "tr::WindowLoseFocusEvent", "structtr_1_1WindowLoseFocusEvent.html", null ],
+    [ "tr::WindowMaximizeEvent", "structtr_1_1WindowMaximizeEvent.html", null ],
+    [ "tr::WindowMinimizeEvent", "structtr_1_1WindowMinimizeEvent.html", null ],
+    [ "tr::WindowMotionEvent", "structtr_1_1WindowMotionEvent.html", null ],
+    [ "tr::WindowResizeEvent", "structtr_1_1WindowResizeEvent.html", null ],
+    [ "tr::WindowRestoreEvent", "structtr_1_1WindowRestoreEvent.html", null ],
+    [ "tr::WindowShowEvent", "structtr_1_1WindowShowEvent.html", null ],
+    [ "tr::WindowSizeChangeEvent", "structtr_1_1WindowSizeChangeEvent.html", null ]
 ];

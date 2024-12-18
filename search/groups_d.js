@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['overloaded_0',['Overloaded',['../group__overloaded__lambda.html',1,'']]]
+  ['normalized_20cast_0',['Normalized Cast',['../group__norm__cast.html',1,'']]]
 ];

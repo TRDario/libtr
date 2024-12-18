@@ -50,5 +50,6 @@ var searchData=
   ['brief_47',['BRIEF',['../group__window.html#gga41769bf3df85aadb5d910148498e9585ab1a77c57539b9a5abd20aeecedec8b5e',1,'tr']]],
   ['buffer_48',['Buffer',['../group__audio__buffer.html',1,'Audio Buffer'],['../group__graphics__buffer.html',1,'Graphics Buffer'],['../group__index__buffer.html',1,'Index Buffer'],['../group__shader__buffer.html',1,'Shader Buffer'],['../group__vertex__buffer.html',1,'Vertex Buffer']]],
   ['buffer_49',['buffer',['../classtr_1_1AudioSource.html#a41a710111a005a13c3a8101d22232be9',1,'tr::AudioSource']]],
-  ['buttons_50',['buttons',['../classtr_1_1Mouse.html#a80d63409950a746ff6768f0153d5ba6c',1,'tr::Mouse']]]
+  ['button_50',['button',['../structtr_1_1MouseDownEvent.html#af218454d2882136136da2903b0ffa677',1,'tr::MouseDownEvent::button'],['../structtr_1_1MouseUpEvent.html#ab01169253ee75c3aaee18564511ab802',1,'tr::MouseUpEvent::button']]],
+  ['buttons_51',['buttons',['../structtr_1_1MouseMotionEvent.html#a5e5930cb46f490967bda04fe55ffcf2c',1,'tr::MouseMotionEvent::buttons'],['../classtr_1_1Mouse.html#a80d63409950a746ff6768f0153d5ba6c',1,'tr::Mouse::buttons()']]]
 ];

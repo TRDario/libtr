@@ -2,6 +2,7 @@ var group__system =
 [
     [ "Bitmaps", "group__bitmap.html", "group__bitmap" ],
     [ "Display", "group__display.html", "group__display" ],
+    [ "Events", "group__event.html", "group__event" ],
     [ "Graphics", "group__graphics.html", "group__graphics" ],
     [ "Keyboard", "group__keyboard.html", "group__keyboard" ],
     [ "Mouse", "group__mouse.html", "group__mouse" ],

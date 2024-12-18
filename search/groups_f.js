@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['ranges_0',['Ranges',['../group__ranges.html',1,'']]],
-  ['renderbuffer_1',['Renderbuffer',['../group__renderbuffer.html',1,'']]]
+  ['paths_0',['Paths',['../group__path.html',1,'']]],
+  ['pipelines_1',['Shader Pipelines',['../group__shader__pipeline.html',1,'']]]
 ];

@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['handle_0',['Handle',['../group__handle.html',1,'']]],
-  ['hash_20maps_1',['Hash Maps',['../group__hash__map.html',1,'']]]
+  ['geometry_0',['Geometry',['../group__geometry.html',1,'']]],
+  ['graphics_1',['Graphics',['../group__graphics.html',1,'']]],
+  ['graphics_20buffer_2',['Graphics Buffer',['../group__graphics__buffer.html',1,'']]],
+  ['graphics_20context_3',['Graphics Context',['../group__graphics__context.html',1,'']]]
 ];

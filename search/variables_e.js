@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['pos_0',['pos',['../structtr_1_1ClrVtx2.html#ac9ec71cebbde2ae0cd683ee8a13ad2d8',1,'tr::ClrVtx2::pos'],['../structtr_1_1TexVtx2.html#a5c99ac957fa72ce1ed1c6264607e9d3e',1,'tr::TexVtx2::pos'],['../structtr_1_1TintVtx2.html#a9463cac5076f5e7dc9d80ae0d401b1b8',1,'tr::TintVtx2::pos']]],
-  ['positions_1',['positions',['../group__vertex.html#ga31a7b1cca56e3c10e4478f5b45ceb5bb',1,'tr']]],
-  ['premul_5falpha_5fblending_2',['PREMUL_ALPHA_BLENDING',['../group__graphics__context.html#gaedf4dc5efc833855ae8e7305afe8a958',1,'tr']]]
+  ['offset_0',['offset',['../structtr_1_1VertexAttributeF.html#a4e53e7a57f43db22a8353cbbfa505225',1,'tr::VertexAttributeF::offset'],['../structtr_1_1VertexAttributeD.html#aa85565eecb676feda2ca17415dcd47f8',1,'tr::VertexAttributeD::offset'],['../structtr_1_1VertexAttributeI.html#a4dc1a29d4d6ecf74ee01abb62cb3cbbe',1,'tr::VertexAttributeI::offset']]],
+  ['omnidirectional_1',['OMNIDIRECTIONAL',['../group__audio__source.html#gae9d633f69281a1e21914af48238b4e8d',1,'tr']]]
 ];

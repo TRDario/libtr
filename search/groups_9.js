@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['keyboard_0',['Keyboard',['../group__keyboard.html',1,'']]]
+  ['index_20buffer_0',['Index Buffer',['../group__index__buffer.html',1,'']]]
 ];

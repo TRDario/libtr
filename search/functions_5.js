@@ -19,6 +19,5 @@ var searchData=
   ['fragmentshader_16',['fragmentShader',['../classtr_1_1OwningShaderPipeline.html#a374853ed741e37a95a104c26bffe39bf',1,'tr::OwningShaderPipeline::fragmentShader() noexcept'],['../classtr_1_1OwningShaderPipeline.html#a5231a2cde9ae0b69683e0f2a07dbd28b',1,'tr::OwningShaderPipeline::fragmentShader() const noexcept']]],
   ['framebuffer_17',['Framebuffer',['../classtr_1_1Framebuffer.html#a6bc919f939e4d0a899cf379acd16ebac',1,'tr::Framebuffer::Framebuffer() noexcept'],['../classtr_1_1Framebuffer.html#a8e2a07fae9ed3f1f8c5d7fbd3f4bb45f',1,'tr::Framebuffer::Framebuffer(Framebuffer &amp;&amp;move) noexcept']]],
   ['frombuiltin_18',['fromBuiltin',['../structtr_1_1ColorCaster_3_01HSV_01_4.html#a38f84621ecf947aa45d0e6e19e955f86',1,'tr::ColorCaster&lt; HSV &gt;']]],
-  ['fromcoords_19',['fromCoords',['../classtr_1_1DisplayInfo.html#ae7f53d33eb3c2efe7a71308d724c752c',1,'tr::DisplayInfo']]],
-  ['fullscreenmode_20',['fullscreenMode',['../classtr_1_1Window.html#a16c255f64116b5f7da41d2a35b9dfa3a',1,'tr::Window']]]
+  ['fullscreenmode_19',['fullscreenMode',['../classtr_1_1Window.html#a16c255f64116b5f7da41d2a35b9dfa3a',1,'tr::Window']]]
 ];

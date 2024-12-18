@@ -2,8 +2,8 @@ var group__window =
 [
     [ "tr::Window", "classtr_1_1Window.html", [
       [ "Window", "classtr_1_1Window.html#ada54ab84d957e835581c52f0c7eb57f4", null ],
-      [ "Window", "classtr_1_1Window.html#aecff956e3e12e3a8012b9eafddcdb9f8", null ],
-      [ "Window", "classtr_1_1Window.html#a8ba073278aad4f0ff50ac5e5e2d069e1", null ],
+      [ "Window", "classtr_1_1Window.html#aa285262c59db8ccb8b42606656715e18", null ],
+      [ "Window", "classtr_1_1Window.html#a7d8e106a8287c3f38a81316be70ad137", null ],
       [ "alwaysOnTop", "classtr_1_1Window.html#a5a68e745bd98c6ae6e3375aa20554152", null ],
       [ "backbuffer", "classtr_1_1Window.html#a883088e657a4f0e113358b7a2bbd193c", null ],
       [ "backbuffer", "classtr_1_1Window.html#a5db9ba67d8907d3ba068f1f25d3446cb", null ],

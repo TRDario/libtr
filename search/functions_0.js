@@ -1,7 +1,7 @@
 var searchData=
 [
   ['acos_0',['acos',['../group__angle.html#gab0f2a37f3f8a1dcb8b2a4088aafeb955',1,'tr']]],
-  ['active_1',['active',['../group__timer.html#ga2dbaa6c795c069cbd4394e0fb6bb4a98',1,'tr::Timer']]],
+  ['active_1',['active',['../classtr_1_1Timer.html#a2dbaa6c795c069cbd4394e0fb6bb4a98',1,'tr::Timer']]],
   ['alwaysontop_2',['alwaysOnTop',['../classtr_1_1Window.html#a5a68e745bd98c6ae6e3375aa20554152',1,'tr::Window']]],
   ['angle_3',['Angle',['../classtr_1_1Angle.html#ab72d7214201c570328eba1f56bb80ec3',1,'tr::Angle::Angle() noexcept=default'],['../classtr_1_1Angle.html#ad03a253b05af641d29cafca15dff0791',1,'tr::Angle::Angle(T rads) noexcept'],['../classtr_1_1Angle.html#a01eb118f0b9b6c2d8dd0ab0ab66f8d9c',1,'tr::Angle::Angle(Angle&lt; U &gt; th) noexcept']]],
   ['arraycapacity_4',['arrayCapacity',['../classtr_1_1ShaderBuffer.html#a35eba8a813bb7a781c3e4ef043cef37f',1,'tr::ShaderBuffer']]],
