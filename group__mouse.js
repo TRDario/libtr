@@ -1,5 +1,22 @@
 var group__mouse =
 [
+    [ "tr::CursorBadAlloc", "structtr_1_1CursorBadAlloc.html", [
+      [ "what", "structtr_1_1CursorBadAlloc.html#aebaad8a6df772a38dba5f4ea7862e418", null ]
+    ] ],
+    [ "tr::Mouse", "classtr_1_1Mouse.html", [
+      [ "position", "classtr_1_1Mouse.html#a6cc3731b955789ed3963fc9b8919b329", null ],
+      [ "delta", "classtr_1_1Mouse.html#a2e581ff4a8c7b77b8e478e863ed7b9cc", null ],
+      [ "buttons", "classtr_1_1Mouse.html#a80d63409950a746ff6768f0153d5ba6c", null ],
+      [ "held", "classtr_1_1Mouse.html#a9c73c157a458ce22a0b392bb7c2a4115", null ],
+      [ "held", "classtr_1_1Mouse.html#aace08d10e184d01e2a6fab9f0843fb01", null ],
+      [ "inRelativeMode", "classtr_1_1Mouse.html#a2cb2e0c0eee080a8e777767819da3758", null ],
+      [ "setRelativeMode", "classtr_1_1Mouse.html#a422f5224e9ec5ddb796941b5ced1bbd0", null ],
+      [ "setCaptured", "classtr_1_1Mouse.html#ab8a2335c5f6a2c2fd629c548852834f8", null ],
+      [ "cursorShown", "classtr_1_1Mouse.html#a008758a406741fcc0625e0ea6226623c", null ],
+      [ "showCursor", "classtr_1_1Mouse.html#acd325930b4529494eeb6e0073be8a28c", null ],
+      [ "setCursor", "classtr_1_1Mouse.html#a5dbf2ce14c6942448f1b6fad37dc51b7", null ],
+      [ "Window", "classtr_1_1Mouse.html#a553f958a25683445088050a69d3de8e9", null ]
+    ] ],
     [ "tr::Cursor", "classtr_1_1Cursor.html", [
       [ "Cursor", "classtr_1_1Cursor.html#a17a604a4562a2fd5f79326e597ad7c92", null ],
       [ "Cursor", "classtr_1_1Cursor.html#a6562091426c7c405290eb55de08ea0d3", null ],
@@ -9,31 +26,6 @@ var group__mouse =
       [ "Cursor", "classtr_1_1Cursor.html#af7879d838f893fa10bddbc6ee8cef685", null ],
       [ "Mouse", "classtr_1_1Cursor.html#a07eafe2eb7248be18a8531cb12734113", null ]
     ] ],
-    [ "tr::CursorBadAlloc", "structtr_1_1CursorBadAlloc.html", [
-      [ "what", "structtr_1_1CursorBadAlloc.html#aebaad8a6df772a38dba5f4ea7862e418", null ]
-    ] ],
-    [ "tr::Mouse", "classtr_1_1Mouse.html", [
-      [ "buttons", "classtr_1_1Mouse.html#a80d63409950a746ff6768f0153d5ba6c", null ],
-      [ "cursorShown", "classtr_1_1Mouse.html#a008758a406741fcc0625e0ea6226623c", null ],
-      [ "delta", "classtr_1_1Mouse.html#a2e581ff4a8c7b77b8e478e863ed7b9cc", null ],
-      [ "held", "classtr_1_1Mouse.html#a9c73c157a458ce22a0b392bb7c2a4115", null ],
-      [ "held", "classtr_1_1Mouse.html#aace08d10e184d01e2a6fab9f0843fb01", null ],
-      [ "inRelativeMode", "classtr_1_1Mouse.html#a2cb2e0c0eee080a8e777767819da3758", null ],
-      [ "position", "classtr_1_1Mouse.html#a6cc3731b955789ed3963fc9b8919b329", null ],
-      [ "setCaptured", "classtr_1_1Mouse.html#ab8a2335c5f6a2c2fd629c548852834f8", null ],
-      [ "setCursor", "classtr_1_1Mouse.html#a5dbf2ce14c6942448f1b6fad37dc51b7", null ],
-      [ "setRelativeMode", "classtr_1_1Mouse.html#a422f5224e9ec5ddb796941b5ced1bbd0", null ],
-      [ "showCursor", "classtr_1_1Mouse.html#acd325930b4529494eeb6e0073be8a28c", null ],
-      [ "Window", "classtr_1_1Mouse.html#a553f958a25683445088050a69d3de8e9", null ]
-    ] ],
-    [ "tr::MouseButton", "group__mouse.html#ga8c4a44871ba907dcd4225b2617b40f77", [
-      [ "tr::MouseButton::LEFT", "group__mouse.html#gga8c4a44871ba907dcd4225b2617b40f77a684d325a7303f52e64011467ff5c5758", null ],
-      [ "tr::MouseButton::MIDDLE", "group__mouse.html#gga8c4a44871ba907dcd4225b2617b40f77a43eedd8685eb86592022f8da962e3474", null ],
-      [ "tr::MouseButton::RIGHT", "group__mouse.html#gga8c4a44871ba907dcd4225b2617b40f77a21507b40c80068eda19865706fdc2403", null ],
-      [ "tr::MouseButton::X1", "group__mouse.html#gga8c4a44871ba907dcd4225b2617b40f77abb7f5ae6220c9828e5ec91faf054197c", null ],
-      [ "tr::MouseButton::X2", "group__mouse.html#gga8c4a44871ba907dcd4225b2617b40f77a54105bddbfe3f639d49cbe8f5182c958", null ]
-    ] ],
-    [ "tr::MouseButtonMask", "group__mouse.html#ga7a6ba61b3e90ed6064cd4a1b4ef92536", null ],
     [ "tr::SysCursor", "group__mouse.html#gafb288c9c0ebc6c9d4b511786aadb5d8e", [
       [ "tr::SysCursor::ARROW", "group__mouse.html#ggafb288c9c0ebc6c9d4b511786aadb5d8eaca2dc0c55b6e8d70bafcb4d84f5a9544", null ],
       [ "tr::SysCursor::IBEAM", "group__mouse.html#ggafb288c9c0ebc6c9d4b511786aadb5d8eab1f1fadc084a79020f4bf64cf8817ca9", null ],
@@ -47,5 +39,13 @@ var group__mouse =
       [ "tr::SysCursor::SIZE_ALL", "group__mouse.html#ggafb288c9c0ebc6c9d4b511786aadb5d8eace67a952e83dd23ffed3eee55a034a43", null ],
       [ "tr::SysCursor::NO", "group__mouse.html#ggafb288c9c0ebc6c9d4b511786aadb5d8eac2f3f489a00553e7a01d369c103c7251", null ],
       [ "tr::SysCursor::HAND", "group__mouse.html#ggafb288c9c0ebc6c9d4b511786aadb5d8ea41b00f79ae19301abe87bd8bc19120d9", null ]
-    ] ]
+    ] ],
+    [ "tr::MouseButton", "group__mouse.html#ga8c4a44871ba907dcd4225b2617b40f77", [
+      [ "tr::MouseButton::LEFT", "group__mouse.html#gga8c4a44871ba907dcd4225b2617b40f77a684d325a7303f52e64011467ff5c5758", null ],
+      [ "tr::MouseButton::MIDDLE", "group__mouse.html#gga8c4a44871ba907dcd4225b2617b40f77a43eedd8685eb86592022f8da962e3474", null ],
+      [ "tr::MouseButton::RIGHT", "group__mouse.html#gga8c4a44871ba907dcd4225b2617b40f77a21507b40c80068eda19865706fdc2403", null ],
+      [ "tr::MouseButton::X1", "group__mouse.html#gga8c4a44871ba907dcd4225b2617b40f77abb7f5ae6220c9828e5ec91faf054197c", null ],
+      [ "tr::MouseButton::X2", "group__mouse.html#gga8c4a44871ba907dcd4225b2617b40f77a54105bddbfe3f639d49cbe8f5182c958", null ]
+    ] ],
+    [ "tr::MouseButtonMask", "group__mouse.html#ga7a6ba61b3e90ed6064cd4a1b4ef92536", null ]
 ];

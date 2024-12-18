@@ -111,7 +111,7 @@ var classtr_1_1Scancode =
     [ "Scancode", "classtr_1_1Scancode.html#ad4b655789f05b1438c02777bd6a8c02b", null ],
     [ "Scancode", "classtr_1_1Scancode.html#a602f249e00841760011a1992b8e74abf", null ],
     [ "Scancode", "classtr_1_1Scancode.html#a6845cd8c20aaee79c2df00a669543adb", null ],
-    [ "name", "classtr_1_1Scancode.html#ad5aa2cd1b73536f5177cf294f8ebd808", null ],
     [ "operator Enum", "classtr_1_1Scancode.html#a39e9b33e38e36299f4cf63bef62b3bc3", null ],
-    [ "operator Keycode", "classtr_1_1Scancode.html#ad93fe351084622309b575ab5fedd9f93", null ]
+    [ "operator Keycode", "classtr_1_1Scancode.html#ad93fe351084622309b575ab5fedd9f93", null ],
+    [ "name", "classtr_1_1Scancode.html#ad5aa2cd1b73536f5177cf294f8ebd808", null ]
 ];

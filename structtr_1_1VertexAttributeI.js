@@ -10,7 +10,7 @@ var structtr_1_1VertexAttributeI =
       [ "SI2_10_10_10", "structtr_1_1VertexAttributeI.html#ae3635e5e0113f63d27fa64da516d8310aadd8361288f579525bddc131b37220a1", null ],
       [ "UI2_10_10_10", "structtr_1_1VertexAttributeI.html#ae3635e5e0113f63d27fa64da516d8310a7761587a0c6489602ab6f746a9d0f954", null ]
     ] ],
+    [ "type", "structtr_1_1VertexAttributeI.html#a7aad82ba9b57060d9e3bf77de573d610", null ],
     [ "elements", "structtr_1_1VertexAttributeI.html#a8610f928ad3245436853fe984198383a", null ],
-    [ "offset", "structtr_1_1VertexAttributeI.html#a4dc1a29d4d6ecf74ee01abb62cb3cbbe", null ],
-    [ "type", "structtr_1_1VertexAttributeI.html#a7aad82ba9b57060d9e3bf77de573d610", null ]
+    [ "offset", "structtr_1_1VertexAttributeI.html#a4dc1a29d4d6ecf74ee01abb62cb3cbbe", null ]
 ];

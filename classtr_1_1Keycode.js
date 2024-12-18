@@ -127,7 +127,7 @@ var classtr_1_1Keycode =
     [ "Keycode", "classtr_1_1Keycode.html#a29c7a83c5ceb0f6b86f57edd8ac2c522", null ],
     [ "Keycode", "classtr_1_1Keycode.html#acf49407d0d1bdf8d1b4cdb77b138db6e", null ],
     [ "Keycode", "classtr_1_1Keycode.html#a36404376fa5caaf15b2165e4cd587a29", null ],
-    [ "name", "classtr_1_1Keycode.html#aae87328ae357f060910fe5ff50a60a3b", null ],
     [ "operator Enum", "classtr_1_1Keycode.html#abeaefea7b9fb83da92d172ee61893bf9", null ],
-    [ "operator Scancode", "classtr_1_1Keycode.html#a7d52cc7dc4abd1454074f03488af3c6f", null ]
+    [ "operator Scancode", "classtr_1_1Keycode.html#a7d52cc7dc4abd1454074f03488af3c6f", null ],
+    [ "name", "classtr_1_1Keycode.html#aae87328ae357f060910fe5ff50a60a3b", null ]
 ];

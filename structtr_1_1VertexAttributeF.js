@@ -15,8 +15,8 @@ var structtr_1_1VertexAttributeF =
       [ "UI2_10_10_10", "structtr_1_1VertexAttributeF.html#a7b487c740a8828ab7bfc927e1c2383a2a7761587a0c6489602ab6f746a9d0f954", null ],
       [ "FP10_11_11", "structtr_1_1VertexAttributeF.html#a7b487c740a8828ab7bfc927e1c2383a2a34076d573c7eb667b8bd91eb86dc4571", null ]
     ] ],
+    [ "type", "structtr_1_1VertexAttributeF.html#aad404c0f520773c010404844a54b2ff1", null ],
     [ "elements", "structtr_1_1VertexAttributeF.html#ae55c5e70c9c83cf2fa136a61c505bd00", null ],
     [ "normalized", "structtr_1_1VertexAttributeF.html#abac8ba89dff1166c43f52b3ca5a90eed", null ],
-    [ "offset", "structtr_1_1VertexAttributeF.html#a4e53e7a57f43db22a8353cbbfa505225", null ],
-    [ "type", "structtr_1_1VertexAttributeF.html#aad404c0f520773c010404844a54b2ff1", null ]
+    [ "offset", "structtr_1_1VertexAttributeF.html#a4e53e7a57f43db22a8353cbbfa505225", null ]
 ];
