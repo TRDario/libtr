@@ -71,7 +71,7 @@ tr::AudioBuffer::AudioBuffer(const std::filesystem::path& path)
 
 	std::vector<std::int16_t> data(info.frames * info.channels);
 	sf_readf_short(file.get(), data.data(), info.frames);
-	set(rangeBytes(data), info.channels == 2 ? AudioFormat::STEREO16 : AudioFormat::MONO16, info.samplerate);
+	set(data, info.channels == 2 ? AudioFormat::STEREO16 : AudioFormat::MONO16, info.samplerate);
 }
 
 void tr::AudioBuffer::Deleter::operator()(unsigned int id) const noexcept
