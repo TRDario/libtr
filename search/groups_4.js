@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['events_0',['Events',['../group__event.html',1,'']]]
+  ['display_0',['Display',['../group__display.html',1,'']]],
+  ['drawing_1',['Drawing',['../group__drawing.html',1,'']]]
 ];

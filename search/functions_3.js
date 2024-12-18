@@ -7,7 +7,7 @@ var searchData=
   ['descent_4',['descent',['../classtr_1_1TTFont.html#a623c591b19256f3e1da47b28382539bf',1,'tr::TTFont']]],
   ['direction_5',['direction',['../classtr_1_1AudioSource.html#ad48369f04e17c736c5cf8ce4340fe279',1,'tr::AudioSource']]],
   ['disablecomparison_6',['disableComparison',['../classtr_1_1Sampler.html#af3d828ddcb780539acb1e91abd88dbb7',1,'tr::Sampler']]],
-  ['displaycount_7',['displayCount',['../group__input.html#ga9a6f207d79a36e6b83c9c709b13af14b',1,'tr']]],
+  ['displaycount_7',['displayCount',['../group__display.html#ga9a6f207d79a36e6b83c9c709b13af14b',1,'tr']]],
   ['displayinfo_8',['DisplayInfo',['../classtr_1_1DisplayInfo.html#aba5f12d97f3d077c43d3cf1ebce8ef69',1,'tr::DisplayInfo::DisplayInfo() noexcept'],['../classtr_1_1DisplayInfo.html#a84de8989ee8d57502efba161706acf80',1,'tr::DisplayInfo::DisplayInfo(int id) noexcept']]],
   ['displaymode_9',['displayMode',['../classtr_1_1DisplayInfo.html#aeea84569590550c077a8985e1647eece',1,'tr::DisplayInfo']]],
   ['displaymodecount_10',['displayModeCount',['../classtr_1_1DisplayInfo.html#abf825c4dfb82beafd4d3638d31aa3f16',1,'tr::DisplayInfo']]],

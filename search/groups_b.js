@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['ranges_0',['Ranges',['../group__ranges.html',1,'']]]
+  ['maps_0',['Hash Maps',['../group__hash__map.html',1,'']]],
+  ['miscellaneous_1',['Miscellaneous',['../group__misc.html',1,'']]],
+  ['mouse_2',['Mouse',['../group__mouse.html',1,'']]]
 ];

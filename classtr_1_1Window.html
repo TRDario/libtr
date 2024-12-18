@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -18,6 +20,8 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,9 +30,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libtr
+   <div id="projectname">libtr<span id="projectnumber">&#160;0.1.0</span>
    </div>
-   <div id="projectbrief">Personal C++ base library for gamedev projects</div>
+   <div id="projectbrief">Base library for gamedev projects</div>
   </td>
  </tr>
  </tbody>
@@ -51,17 +55,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('classtr_1_1Window.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -83,32 +99,26 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1Window.html">Window</a></li>  </ul>
-</div>
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1Window-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::Window Class Reference<div class="ingroups"><a class="el" href="group__input.html">Input</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::Window Class Reference<div class="ingroups"><a class="el" href="group__system.html">System</a> &raquo; <a class="el" href="group__window.html">Window</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Application window.  
+<p>The main application window.  
  <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8ba073278aad4f0ff50ac5e5e2d069e1" id="r_a8ba073278aad4f0ff50ac5e5e2d069e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ba073278aad4f0ff50ac5e5e2d069e1">Window</a> (const char *<a class="el" href="#a3645839730d3b741dcc0b0c7eb2ed96e">title</a>, const <a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> &amp;dmode, <a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a> display=<a class="el" href="group__input.html#ga88146faba98c2818257ab7b3d06f5392">DEFAULT_DISPLAY</a>, <a class="el" href="group__input.html#gad463b226a0cad7ea3e64dd5b07ecf12f">WindowFlag</a> flags=<a class="el" href="group__input.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee">WindowFlag::DEFAULT</a>, const <a class="el" href="structtr_1_1GraphicsProperties.html">GraphicsProperties</a> &amp;gfxProperties={})</td></tr>
+<tr class="memitem:a8ba073278aad4f0ff50ac5e5e2d069e1" id="r_a8ba073278aad4f0ff50ac5e5e2d069e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ba073278aad4f0ff50ac5e5e2d069e1">Window</a> (const char *<a class="el" href="#a3645839730d3b741dcc0b0c7eb2ed96e">title</a>, const <a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> &amp;dmode, <a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a> display=<a class="el" href="group__display.html#ga88146faba98c2818257ab7b3d06f5392">DEFAULT_DISPLAY</a>, <a class="el" href="group__window.html#gad463b226a0cad7ea3e64dd5b07ecf12f">WindowFlag</a> flags=<a class="el" href="group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee">WindowFlag::DEFAULT</a>, const <a class="el" href="structtr_1_1GraphicsProperties.html">GraphicsProperties</a> &amp;gfxProperties={})</td></tr>
 <tr class="memdesc:a8ba073278aad4f0ff50ac5e5e2d069e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a fullscreen window.  <br /></td></tr>
 <tr class="separator:a8ba073278aad4f0ff50ac5e5e2d069e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecff956e3e12e3a8012b9eafddcdb9f8" id="r_aecff956e3e12e3a8012b9eafddcdb9f8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecff956e3e12e3a8012b9eafddcdb9f8">Window</a> (const char *<a class="el" href="#a3645839730d3b741dcc0b0c7eb2ed96e">title</a>, <a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a> display=<a class="el" href="group__input.html#ga88146faba98c2818257ab7b3d06f5392">DEFAULT_DISPLAY</a>, <a class="el" href="group__input.html#gad463b226a0cad7ea3e64dd5b07ecf12f">WindowFlag</a> flags=<a class="el" href="group__input.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee">WindowFlag::DEFAULT</a>, const <a class="el" href="structtr_1_1GraphicsProperties.html">GraphicsProperties</a> &amp;gfxProperties={})</td></tr>
+<tr class="memitem:aecff956e3e12e3a8012b9eafddcdb9f8" id="r_aecff956e3e12e3a8012b9eafddcdb9f8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecff956e3e12e3a8012b9eafddcdb9f8">Window</a> (const char *<a class="el" href="#a3645839730d3b741dcc0b0c7eb2ed96e">title</a>, <a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a> display=<a class="el" href="group__display.html#ga88146faba98c2818257ab7b3d06f5392">DEFAULT_DISPLAY</a>, <a class="el" href="group__window.html#gad463b226a0cad7ea3e64dd5b07ecf12f">WindowFlag</a> flags=<a class="el" href="group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee">WindowFlag::DEFAULT</a>, const <a class="el" href="structtr_1_1GraphicsProperties.html">GraphicsProperties</a> &amp;gfxProperties={})</td></tr>
 <tr class="memdesc:aecff956e3e12e3a8012b9eafddcdb9f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a borderless fullscreen window.  <br /></td></tr>
 <tr class="separator:aecff956e3e12e3a8012b9eafddcdb9f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada54ab84d957e835581c52f0c7eb57f4" id="r_ada54ab84d957e835581c52f0c7eb57f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada54ab84d957e835581c52f0c7eb57f4">Window</a> (const char *<a class="el" href="#a3645839730d3b741dcc0b0c7eb2ed96e">title</a>, glm::ivec2 <a class="el" href="#a42ac3eed9253802bb8234558685ebce0">size</a>, glm::ivec2 pos=<a class="el" href="group__input.html#ga3d79ab32d9b1afaebc7c4f45002ae5b6">CENTERED_POS</a>, <a class="el" href="group__input.html#gad463b226a0cad7ea3e64dd5b07ecf12f">WindowFlag</a> flags=<a class="el" href="group__input.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee">WindowFlag::DEFAULT</a>, const <a class="el" href="structtr_1_1GraphicsProperties.html">GraphicsProperties</a> &amp;gfxProperties={})</td></tr>
+<tr class="memitem:ada54ab84d957e835581c52f0c7eb57f4" id="r_ada54ab84d957e835581c52f0c7eb57f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada54ab84d957e835581c52f0c7eb57f4">Window</a> (const char *<a class="el" href="#a3645839730d3b741dcc0b0c7eb2ed96e">title</a>, glm::ivec2 <a class="el" href="#a42ac3eed9253802bb8234558685ebce0">size</a>, glm::ivec2 pos=<a class="el" href="group__window.html#ga3d79ab32d9b1afaebc7c4f45002ae5b6">CENTERED_POS</a>, <a class="el" href="group__window.html#gad463b226a0cad7ea3e64dd5b07ecf12f">WindowFlag</a> flags=<a class="el" href="group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee">WindowFlag::DEFAULT</a>, const <a class="el" href="structtr_1_1GraphicsProperties.html">GraphicsProperties</a> &amp;gfxProperties={})</td></tr>
 <tr class="memdesc:ada54ab84d957e835581c52f0c7eb57f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a windowed window.  <br /></td></tr>
 <tr class="separator:ada54ab84d957e835581c52f0c7eb57f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a68e745bd98c6ae6e3375aa20554152" id="r_a5a68e745bd98c6ae6e3375aa20554152"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a68e745bd98c6ae6e3375aa20554152">alwaysOnTop</a> () const noexcept</td></tr>
@@ -123,13 +133,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aff0d28a97ee51ec3a7bc37a9142d5561" id="r_aff0d28a97ee51ec3a7bc37a9142d5561"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff0d28a97ee51ec3a7bc37a9142d5561">bordered</a> () const noexcept</td></tr>
 <tr class="memdesc:aff0d28a97ee51ec3a7bc37a9142d5561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the window is bordered.  <br /></td></tr>
 <tr class="separator:aff0d28a97ee51ec3a7bc37a9142d5561"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52dc12ff34df567ea5323451dc99cc8b" id="r_a52dc12ff34df567ea5323451dc99cc8b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classtr_1_1EventQueue.html">EventQueue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52dc12ff34df567ea5323451dc99cc8b">events</a> () const noexcept</td></tr>
+<tr class="memitem:a52dc12ff34df567ea5323451dc99cc8b" id="r_a52dc12ff34df567ea5323451dc99cc8b"><td class="memItemLeft" align="right" valign="top">const EventQueue &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52dc12ff34df567ea5323451dc99cc8b">events</a> () const noexcept</td></tr>
 <tr class="memdesc:a52dc12ff34df567ea5323451dc99cc8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the window's event queue.  <br /></td></tr>
 <tr class="separator:a52dc12ff34df567ea5323451dc99cc8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b0b9043d517ad482bf0f72d71130f6f" id="r_a5b0b9043d517ad482bf0f72d71130f6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1EventQueue.html">EventQueue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b0b9043d517ad482bf0f72d71130f6f">events</a> () noexcept</td></tr>
+<tr class="memitem:a5b0b9043d517ad482bf0f72d71130f6f" id="r_a5b0b9043d517ad482bf0f72d71130f6f"><td class="memItemLeft" align="right" valign="top">EventQueue &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b0b9043d517ad482bf0f72d71130f6f">events</a> () noexcept</td></tr>
 <tr class="memdesc:a5b0b9043d517ad482bf0f72d71130f6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the window's event queue.  <br /></td></tr>
 <tr class="separator:a5b0b9043d517ad482bf0f72d71130f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec0cff489adce095bf131094f0144197" id="r_aec0cff489adce095bf131094f0144197"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec0cff489adce095bf131094f0144197">flash</a> (<a class="el" href="group__input.html#ga41769bf3df85aadb5d910148498e9585">FlashOperation</a> operation) noexcept</td></tr>
+<tr class="memitem:aec0cff489adce095bf131094f0144197" id="r_aec0cff489adce095bf131094f0144197"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec0cff489adce095bf131094f0144197">flash</a> (<a class="el" href="group__window.html#ga41769bf3df85aadb5d910148498e9585">FlashOperation</a> operation) noexcept</td></tr>
 <tr class="memdesc:aec0cff489adce095bf131094f0144197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flashes the window to get the user's attention.  <br /></td></tr>
 <tr class="separator:aec0cff489adce095bf131094f0144197"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16c255f64116b5f7da41d2a35b9dfa3a" id="r_a16c255f64116b5f7da41d2a35b9dfa3a"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16c255f64116b5f7da41d2a35b9dfa3a">fullscreenMode</a> () const noexcept</td></tr>
@@ -174,7 +184,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a05ae3b82cd5842bf99c52189c472b0dd" id="r_a05ae3b82cd5842bf99c52189c472b0dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1Mouse.html">Mouse</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05ae3b82cd5842bf99c52189c472b0dd">mouse</a> () noexcept</td></tr>
 <tr class="memdesc:a05ae3b82cd5842bf99c52189c472b0dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets access to the mouse.  <br /></td></tr>
 <tr class="separator:a05ae3b82cd5842bf99c52189c472b0dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36eb8420af38309c5db89a6987a8018b" id="r_a36eb8420af38309c5db89a6987a8018b"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespacetr.html#a386ecd8029d58f09791896b6421218d9">RectI2</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36eb8420af38309c5db89a6987a8018b">mouseConfines</a> () const noexcept</td></tr>
+<tr class="memitem:a36eb8420af38309c5db89a6987a8018b" id="r_a36eb8420af38309c5db89a6987a8018b"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="group__geometry.html#ga386ecd8029d58f09791896b6421218d9">RectI2</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36eb8420af38309c5db89a6987a8018b">mouseConfines</a> () const noexcept</td></tr>
 <tr class="memdesc:a36eb8420af38309c5db89a6987a8018b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the area the mouse is confined to when this window has focus.  <br /></td></tr>
 <tr class="separator:a36eb8420af38309c5db89a6987a8018b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affa5c23cb7d4154b7cbe864c9f546476" id="r_affa5c23cb7d4154b7cbe864c9f546476"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affa5c23cb7d4154b7cbe864c9f546476">mouseGrabbed</a> () const noexcept</td></tr>
@@ -219,7 +229,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a766ab41bc0b661762b63d457e36d8232" id="r_a766ab41bc0b661762b63d457e36d8232"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a766ab41bc0b661762b63d457e36d8232">setMinSize</a> (glm::ivec2 <a class="el" href="#a45d0b99d4482f754caf61511a94610e3">minSize</a>) noexcept</td></tr>
 <tr class="memdesc:a766ab41bc0b661762b63d457e36d8232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the minimum resizable size of the window.  <br /></td></tr>
 <tr class="separator:a766ab41bc0b661762b63d457e36d8232"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fd5f3dd179cb3296f107b4ba1886a6a" id="r_a7fd5f3dd179cb3296f107b4ba1886a6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7fd5f3dd179cb3296f107b4ba1886a6a">setMouseConfines</a> (const <a class="el" href="namespacetr.html#a386ecd8029d58f09791896b6421218d9">RectI2</a> &amp;rect) noexcept</td></tr>
+<tr class="memitem:a7fd5f3dd179cb3296f107b4ba1886a6a" id="r_a7fd5f3dd179cb3296f107b4ba1886a6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7fd5f3dd179cb3296f107b4ba1886a6a">setMouseConfines</a> (const <a class="el" href="group__geometry.html#ga386ecd8029d58f09791896b6421218d9">RectI2</a> &amp;rect) noexcept</td></tr>
 <tr class="memdesc:a7fd5f3dd179cb3296f107b4ba1886a6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the area the mouse is confined to when this window has focus.  <br /></td></tr>
 <tr class="separator:a7fd5f3dd179cb3296f107b4ba1886a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a917198b60ad3c86690454db85454735e" id="r_a917198b60ad3c86690454db85454735e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a917198b60ad3c86690454db85454735e">setMouseGrab</a> (bool grab) noexcept</td></tr>
@@ -243,10 +253,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af3e348ca7897f4380bcaecadc13e9598" id="r_af3e348ca7897f4380bcaecadc13e9598"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3e348ca7897f4380bcaecadc13e9598">setTitle</a> (const std::string &amp;<a class="el" href="#a3645839730d3b741dcc0b0c7eb2ed96e">title</a>) noexcept</td></tr>
 <tr class="memdesc:af3e348ca7897f4380bcaecadc13e9598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the title of the window.  <br /></td></tr>
 <tr class="separator:af3e348ca7897f4380bcaecadc13e9598"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58f4acf4f41da7ce044f8e876034a8b3" id="r_a58f4acf4f41da7ce044f8e876034a8b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58f4acf4f41da7ce044f8e876034a8b3">setVSync</a> (<a class="el" href="group__input.html#gac6c470285a932bb2ce74499f1ff07ac5">VSync</a> <a class="el" href="#a1422c778d29929247a8e596cc8b127be">vsync</a>) noexcept</td></tr>
+<tr class="memitem:a58f4acf4f41da7ce044f8e876034a8b3" id="r_a58f4acf4f41da7ce044f8e876034a8b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58f4acf4f41da7ce044f8e876034a8b3">setVSync</a> (<a class="el" href="group__window.html#gac6c470285a932bb2ce74499f1ff07ac5">VSync</a> <a class="el" href="#a1422c778d29929247a8e596cc8b127be">vsync</a>) noexcept</td></tr>
 <tr class="memdesc:a58f4acf4f41da7ce044f8e876034a8b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the window's V-sync mode.  <br /></td></tr>
 <tr class="separator:a58f4acf4f41da7ce044f8e876034a8b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a4d349ff73159313d28b0e3c7d9eb69" id="r_a6a4d349ff73159313d28b0e3c7d9eb69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a4d349ff73159313d28b0e3c7d9eb69">setWindowMode</a> (<a class="el" href="group__input.html#ga0caa27a38e3d8b688a5abab875ed28f7">WindowMode</a> mode)</td></tr>
+<tr class="memitem:a6a4d349ff73159313d28b0e3c7d9eb69" id="r_a6a4d349ff73159313d28b0e3c7d9eb69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a4d349ff73159313d28b0e3c7d9eb69">setWindowMode</a> (<a class="el" href="group__window.html#ga0caa27a38e3d8b688a5abab875ed28f7">WindowMode</a> mode)</td></tr>
 <tr class="memdesc:a6a4d349ff73159313d28b0e3c7d9eb69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the window's window mode.  <br /></td></tr>
 <tr class="separator:a6a4d349ff73159313d28b0e3c7d9eb69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a213a3dddf9e5db863aa8132680b521b0" id="r_a213a3dddf9e5db863aa8132680b521b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a213a3dddf9e5db863aa8132680b521b0">show</a> () noexcept</td></tr>
@@ -261,16 +271,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3645839730d3b741dcc0b0c7eb2ed96e" id="r_a3645839730d3b741dcc0b0c7eb2ed96e"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3645839730d3b741dcc0b0c7eb2ed96e">title</a> () const noexcept</td></tr>
 <tr class="memdesc:a3645839730d3b741dcc0b0c7eb2ed96e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the title of the window.  <br /></td></tr>
 <tr class="separator:a3645839730d3b741dcc0b0c7eb2ed96e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1422c778d29929247a8e596cc8b127be" id="r_a1422c778d29929247a8e596cc8b127be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__input.html#gac6c470285a932bb2ce74499f1ff07ac5">VSync</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1422c778d29929247a8e596cc8b127be">vsync</a> () const noexcept</td></tr>
+<tr class="memitem:a1422c778d29929247a8e596cc8b127be" id="r_a1422c778d29929247a8e596cc8b127be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__window.html#gac6c470285a932bb2ce74499f1ff07ac5">VSync</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1422c778d29929247a8e596cc8b127be">vsync</a> () const noexcept</td></tr>
 <tr class="memdesc:a1422c778d29929247a8e596cc8b127be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the window's V-sync mode.  <br /></td></tr>
 <tr class="separator:a1422c778d29929247a8e596cc8b127be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a404633860ec939e811ff40781107a870" id="r_a404633860ec939e811ff40781107a870"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__input.html#ga0caa27a38e3d8b688a5abab875ed28f7">WindowMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a404633860ec939e811ff40781107a870">windowMode</a> () const noexcept</td></tr>
+<tr class="memitem:a404633860ec939e811ff40781107a870" id="r_a404633860ec939e811ff40781107a870"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__window.html#ga0caa27a38e3d8b688a5abab875ed28f7">WindowMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a404633860ec939e811ff40781107a870">windowMode</a> () const noexcept</td></tr>
 <tr class="memdesc:a404633860ec939e811ff40781107a870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the window's window mode.  <br /></td></tr>
 <tr class="separator:a404633860ec939e811ff40781107a870"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Application window. </p>
-<p>Only one instance of the audio system is allowed to exist at a time. </p>
+<div class="textblock"><p>The main application window. </p>
+<p>This class handles most of the basic functionality of the application, not just the window itself. Single instances of the EventQueue, <a class="el" href="classtr_1_1Keyboard.html" title="Keyboard functionality.">Keyboard</a>, <a class="el" href="classtr_1_1Mouse.html" title="Mouse functionality.">Mouse</a> and <a class="el" href="classtr_1_1GraphicsContext.html" title="Graphics context.">GraphicsContext</a> classes belong to the window object.</p>
+<p>The <a class="el" href="classtr_1_1Window.html" title="The main application window.">Window</a> class uses something akin to the singleton pattern. It is still your job to instantiate the window once (and only once!), after which it will stay active until its destructor is called, but this instance will be globally available through <a class="el" href="group__window.html#ga1b5287dbdc177a5306c50acbda2573c8" title="Gets a reference to the window.">window()</a>. Reopening the window after it has been closed is a valid action.</p>
+<p><a class="el" href="classtr_1_1Window.html" title="The main application window.">Window</a> is movable, but not copyable. A moved window is left in a state where another window can be moved into it, but is otherwise unusable. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ada54ab84d957e835581c52f0c7eb57f4" name="ada54ab84d957e835581c52f0c7eb57f4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ada54ab84d957e835581c52f0c7eb57f4">&#9670;&#160;</a></span>Window() <span class="overload">[1/3]</span></h2>
@@ -291,12 +303,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">glm::ivec2</td>          <td class="paramname"><span class="paramname"><em>pos</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="group__input.html#ga3d79ab32d9b1afaebc7c4f45002ae5b6">CENTERED_POS</a></span>, </td>
+          <td class="paramtype">glm::ivec2</td>          <td class="paramname"><span class="paramname"><em>pos</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="group__window.html#ga3d79ab32d9b1afaebc7c4f45002ae5b6">CENTERED_POS</a></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__input.html#gad463b226a0cad7ea3e64dd5b07ecf12f">WindowFlag</a></td>          <td class="paramname"><span class="paramname"><em>flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="group__input.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee">WindowFlag::DEFAULT</a></span>, </td>
+          <td class="paramtype"><a class="el" href="group__window.html#gad463b226a0cad7ea3e64dd5b07ecf12f">WindowFlag</a></td>          <td class="paramname"><span class="paramname"><em>flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee">WindowFlag::DEFAULT</a></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -341,12 +353,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a></td>          <td class="paramname"><span class="paramname"><em>display</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="group__input.html#ga88146faba98c2818257ab7b3d06f5392">DEFAULT_DISPLAY</a></span>, </td>
+          <td class="paramtype"><a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a></td>          <td class="paramname"><span class="paramname"><em>display</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="group__display.html#ga88146faba98c2818257ab7b3d06f5392">DEFAULT_DISPLAY</a></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__input.html#gad463b226a0cad7ea3e64dd5b07ecf12f">WindowFlag</a></td>          <td class="paramname"><span class="paramname"><em>flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="group__input.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee">WindowFlag::DEFAULT</a></span>, </td>
+          <td class="paramtype"><a class="el" href="group__window.html#gad463b226a0cad7ea3e64dd5b07ecf12f">WindowFlag</a></td>          <td class="paramname"><span class="paramname"><em>flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee">WindowFlag::DEFAULT</a></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -395,12 +407,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a></td>          <td class="paramname"><span class="paramname"><em>display</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="group__input.html#ga88146faba98c2818257ab7b3d06f5392">DEFAULT_DISPLAY</a></span>, </td>
+          <td class="paramtype"><a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a></td>          <td class="paramname"><span class="paramname"><em>display</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="group__display.html#ga88146faba98c2818257ab7b3d06f5392">DEFAULT_DISPLAY</a></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__input.html#gad463b226a0cad7ea3e64dd5b07ecf12f">WindowFlag</a></td>          <td class="paramname"><span class="paramname"><em>flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="group__input.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee">WindowFlag::DEFAULT</a></span>, </td>
+          <td class="paramtype"><a class="el" href="group__window.html#gad463b226a0cad7ea3e64dd5b07ecf12f">WindowFlag</a></td>          <td class="paramname"><span class="paramname"><em>flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee">WindowFlag::DEFAULT</a></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -554,7 +566,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classtr_1_1EventQueue.html">EventQueue</a> &amp; tr::Window::events </td>
+          <td class="memname">const EventQueue &amp; tr::Window::events </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -582,7 +594,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classtr_1_1EventQueue.html">EventQueue</a> &amp; tr::Window::events </td>
+          <td class="memname">EventQueue &amp; tr::Window::events </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -612,7 +624,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void tr::Window::flash </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__input.html#ga41769bf3df85aadb5d910148498e9585">FlashOperation</a></td>          <td class="paramname"><span class="paramname"><em>operation</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="group__window.html#ga41769bf3df85aadb5d910148498e9585">FlashOperation</a></td>          <td class="paramname"><span class="paramname"><em>operation</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1032,7 +1044,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; <a class="el" href="namespacetr.html#a386ecd8029d58f09791896b6421218d9">RectI2</a> &gt; tr::Window::mouseConfines </td>
+          <td class="memname">std::optional&lt; <a class="el" href="group__geometry.html#ga386ecd8029d58f09791896b6421218d9">RectI2</a> &gt; tr::Window::mouseConfines </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -1485,7 +1497,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void tr::Window::setMouseConfines </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacetr.html#a386ecd8029d58f09791896b6421218d9">RectI2</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rect</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="group__geometry.html#ga386ecd8029d58f09791896b6421218d9">RectI2</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rect</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1749,7 +1761,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void tr::Window::setVSync </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__input.html#gac6c470285a932bb2ce74499f1ff07ac5">VSync</a></td>          <td class="paramname"><span class="paramname"><em>vsync</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="group__window.html#gac6c470285a932bb2ce74499f1ff07ac5">VSync</a></td>          <td class="paramname"><span class="paramname"><em>vsync</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1780,7 +1792,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void tr::Window::setWindowMode </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__input.html#ga0caa27a38e3d8b688a5abab875ed28f7">WindowMode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="group__window.html#ga0caa27a38e3d8b688a5abab875ed28f7">WindowMode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1923,7 +1935,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__input.html#gac6c470285a932bb2ce74499f1ff07ac5">VSync</a> tr::Window::vsync </td>
+          <td class="memname"><a class="el" href="group__window.html#gac6c470285a932bb2ce74499f1ff07ac5">VSync</a> tr::Window::vsync </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -1951,7 +1963,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group__input.html#ga0caa27a38e3d8b688a5abab875ed28f7">WindowMode</a> tr::Window::windowMode </td>
+          <td class="memname"><a class="el" href="group__window.html#ga0caa27a38e3d8b688a5abab875ed28f7">WindowMode</a> tr::Window::windowMode </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -1970,10 +1982,13 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1Window.html">Window</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

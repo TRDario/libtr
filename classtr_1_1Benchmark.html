@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -18,6 +20,8 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,9 +30,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libtr
+   <div id="projectname">libtr<span id="projectnumber">&#160;0.1.0</span>
    </div>
-   <div id="projectbrief">Personal C++ base library for gamedev projects</div>
+   <div id="projectbrief">Base library for gamedev projects</div>
   </td>
  </tr>
  </tbody>
@@ -51,17 +55,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('classtr_1_1Benchmark.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -83,27 +99,21 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1Benchmark.html">Benchmark</a></li>  </ul>
-</div>
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1Benchmark-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::Benchmark Class Reference</div></div>
+  <div class="headertitle"><div class="title">tr::Benchmark Class Reference<div class="ingroups"><a class="el" href="group__misc.html">Miscellaneous</a> &raquo; <a class="el" href="group__benchmark.html">Benchmark</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Simple benchmarking class.  
+<p>Minimal benchmarking class.  
  <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:adccbba52aa9a36beebf884c6daa1cece" id="r_adccbba52aa9a36beebf884c6daa1cece"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adccbba52aa9a36beebf884c6daa1cece">Deque</a> = std::deque&lt;std::pair&lt;<a class="el" href="namespacetr.html#a406e1cc6456f37b7be0eb57f4c63c91b">TimePoint</a>, <a class="el" href="namespacetr.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&gt;&gt;</td></tr>
+<tr class="memitem:adccbba52aa9a36beebf884c6daa1cece" id="r_adccbba52aa9a36beebf884c6daa1cece"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adccbba52aa9a36beebf884c6daa1cece">Deque</a> = std::deque&lt;std::pair&lt;<a class="el" href="group__chrono.html#ga406e1cc6456f37b7be0eb57f4c63c91b">TimePoint</a>, <a class="el" href="group__chrono.html#ga7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&gt;&gt;</td></tr>
 <tr class="memdesc:adccbba52aa9a36beebf884c6daa1cece"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for the deque type used by the benchmark.  <br /></td></tr>
 <tr class="separator:adccbba52aa9a36beebf884c6daa1cece"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -111,7 +121,7 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6311f5cc1a340fae160745694f02e946" id="r_a6311f5cc1a340fae160745694f02e946"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6311f5cc1a340fae160745694f02e946">Benchmark</a> () noexcept=default</td></tr>
 <tr class="separator:a6311f5cc1a340fae160745694f02e946"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a672c6dffc1bea90d7bafb4a768c9ab4c" id="r_a672c6dffc1bea90d7bafb4a768c9ab4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetr.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a672c6dffc1bea90d7bafb4a768c9ab4c">average</a> () const noexcept</td></tr>
+<tr class="memitem:a672c6dffc1bea90d7bafb4a768c9ab4c" id="r_a672c6dffc1bea90d7bafb4a768c9ab4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__chrono.html#ga7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a672c6dffc1bea90d7bafb4a768c9ab4c">average</a> () const noexcept</td></tr>
 <tr class="memdesc:a672c6dffc1bea90d7bafb4a768c9ab4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the average duration of the available measurements.  <br /></td></tr>
 <tr class="separator:a672c6dffc1bea90d7bafb4a768c9ab4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb0371cefbfe28a49179a4b8eceedbff" id="r_afb0371cefbfe28a49179a4b8eceedbff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb0371cefbfe28a49179a4b8eceedbff">clear</a> () noexcept</td></tr>
@@ -120,16 +130,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aff03b65130ddc137a192f4e362b6d872" id="r_aff03b65130ddc137a192f4e362b6d872"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff03b65130ddc137a192f4e362b6d872">fps</a> () const noexcept</td></tr>
 <tr class="memdesc:aff03b65130ddc137a192f4e362b6d872"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the average number of measurements per second.  <br /></td></tr>
 <tr class="separator:aff03b65130ddc137a192f4e362b6d872"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7422b7ea19e5b9d8b8bef5329cad0b9" id="r_af7422b7ea19e5b9d8b8bef5329cad0b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetr.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7422b7ea19e5b9d8b8bef5329cad0b9">latest</a> () const noexcept</td></tr>
+<tr class="memitem:af7422b7ea19e5b9d8b8bef5329cad0b9" id="r_af7422b7ea19e5b9d8b8bef5329cad0b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__chrono.html#ga7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7422b7ea19e5b9d8b8bef5329cad0b9">latest</a> () const noexcept</td></tr>
 <tr class="memdesc:af7422b7ea19e5b9d8b8bef5329cad0b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the duration of the latest measurement.  <br /></td></tr>
 <tr class="separator:af7422b7ea19e5b9d8b8bef5329cad0b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65f621eca966efb1aae07002bce7669b" id="r_a65f621eca966efb1aae07002bce7669b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetr.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65f621eca966efb1aae07002bce7669b">max</a> () const noexcept</td></tr>
+<tr class="memitem:a65f621eca966efb1aae07002bce7669b" id="r_a65f621eca966efb1aae07002bce7669b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__chrono.html#ga7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65f621eca966efb1aae07002bce7669b">max</a> () const noexcept</td></tr>
 <tr class="memdesc:a65f621eca966efb1aae07002bce7669b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the duration of the longest available measurement.  <br /></td></tr>
 <tr class="separator:a65f621eca966efb1aae07002bce7669b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a635ef2ea9fac493c8629268431184a8c" id="r_a635ef2ea9fac493c8629268431184a8c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="#adccbba52aa9a36beebf884c6daa1cece">Deque</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a635ef2ea9fac493c8629268431184a8c">measurements</a> () const noexcept</td></tr>
 <tr class="memdesc:a635ef2ea9fac493c8629268431184a8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the available measurements.  <br /></td></tr>
 <tr class="separator:a635ef2ea9fac493c8629268431184a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a504426fb6b9017e7d7bce75b8462d7bc" id="r_a504426fb6b9017e7d7bce75b8462d7bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetr.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a504426fb6b9017e7d7bce75b8462d7bc">min</a> () const noexcept</td></tr>
+<tr class="memitem:a504426fb6b9017e7d7bce75b8462d7bc" id="r_a504426fb6b9017e7d7bce75b8462d7bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__chrono.html#ga7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a504426fb6b9017e7d7bce75b8462d7bc">min</a> () const noexcept</td></tr>
 <tr class="memdesc:a504426fb6b9017e7d7bce75b8462d7bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the duration of the shortest available measurement.  <br /></td></tr>
 <tr class="separator:a504426fb6b9017e7d7bce75b8462d7bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47f16c4aef56b79143f2d6f23bf49880" id="r_a47f16c4aef56b79143f2d6f23bf49880"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47f16c4aef56b79143f2d6f23bf49880">start</a> () noexcept</td></tr>
@@ -140,8 +150,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aefa60e52927aea85c14c74c3e6cd0c4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Simple benchmarking class. </p>
-<p>The benchmark stores timestamps going up to 5s back for calculations like average/min/max. </p>
+<div class="textblock"><p>Minimal benchmarking class. </p>
+<p>The benchmark stores intervals between calls to <a class="el" href="#a47f16c4aef56b79143f2d6f23bf49880" title="Starts a new measurement.">start()</a> and <a class="el" href="#aefa60e52927aea85c14c74c3e6cd0c4e" title="Stops a measurement.">stop()</a> going up to 2.5s back for calculations like average/min/max. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="adccbba52aa9a36beebf884c6daa1cece" name="adccbba52aa9a36beebf884c6daa1cece"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adccbba52aa9a36beebf884c6daa1cece">&#9670;&#160;</a></span>Deque</h2>
@@ -150,7 +160,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#adccbba52aa9a36beebf884c6daa1cece">tr::Benchmark::Deque</a> = std::deque&lt;std::pair&lt;<a class="el" href="namespacetr.html#a406e1cc6456f37b7be0eb57f4c63c91b">TimePoint</a>, <a class="el" href="namespacetr.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&gt;&gt;</td>
+          <td class="memname">using <a class="el" href="#adccbba52aa9a36beebf884c6daa1cece">tr::Benchmark::Deque</a> = std::deque&lt;std::pair&lt;<a class="el" href="group__chrono.html#ga406e1cc6456f37b7be0eb57f4c63c91b">TimePoint</a>, <a class="el" href="group__chrono.html#ga7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&gt;&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -196,7 +206,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetr.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a> tr::Benchmark::average </td>
+          <td class="memname"><a class="el" href="group__chrono.html#ga7ddef69a056dbb28ab75697bd1abe75e">Duration</a> tr::Benchmark::average </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -280,7 +290,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetr.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a> tr::Benchmark::latest </td>
+          <td class="memname"><a class="el" href="group__chrono.html#ga7ddef69a056dbb28ab75697bd1abe75e">Duration</a> tr::Benchmark::latest </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -308,7 +318,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetr.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a> tr::Benchmark::max </td>
+          <td class="memname"><a class="el" href="group__chrono.html#ga7ddef69a056dbb28ab75697bd1abe75e">Duration</a> tr::Benchmark::max </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -364,7 +374,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetr.html#a7ddef69a056dbb28ab75697bd1abe75e">Duration</a> tr::Benchmark::min </td>
+          <td class="memname"><a class="el" href="group__chrono.html#ga7ddef69a056dbb28ab75697bd1abe75e">Duration</a> tr::Benchmark::min </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -437,10 +447,13 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1Benchmark.html">Benchmark</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

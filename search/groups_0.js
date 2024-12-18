@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['angles_0',['Angles',['../group__angle.html',1,'']]],
-  ['audio_1',['Audio',['../group__audio.html',1,'']]]
+  ['8_0',['UTF-8',['../group__utf8.html',1,'']]]
 ];

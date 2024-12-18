@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['files_0',['Files',['../group__file.html',1,'']]],
-  ['fonts_1',['TrueType Fonts',['../group__ttfont.html',1,'']]]
+  ['font_0',['TrueType Font',['../group__ttfont.html',1,'']]],
+  ['format_1',['Vertex Format',['../group__vertex__format.html',1,'']]],
+  ['framebuffers_2',['Framebuffers',['../group__framebuffer.html',1,'']]]
 ];

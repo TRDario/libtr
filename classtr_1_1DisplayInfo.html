@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -18,6 +20,8 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,9 +30,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libtr
+   <div id="projectname">libtr<span id="projectnumber">&#160;0.1.0</span>
    </div>
-   <div id="projectbrief">Personal C++ base library for gamedev projects</div>
+   <div id="projectbrief">Base library for gamedev projects</div>
   </td>
  </tr>
  </tbody>
@@ -51,17 +55,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('classtr_1_1DisplayInfo.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -83,18 +99,12 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a></li>  </ul>
-</div>
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classtr_1_1DisplayInfo-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::DisplayInfo Class Reference<div class="ingroups"><a class="el" href="group__input.html">Input</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::DisplayInfo Class Reference<div class="ingroups"><a class="el" href="group__system.html">System</a> &raquo; <a class="el" href="group__display.html">Display</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -109,11 +119,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a84de8989ee8d57502efba161706acf80" id="r_a84de8989ee8d57502efba161706acf80"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84de8989ee8d57502efba161706acf80">DisplayInfo</a> (int id) noexcept</td></tr>
 <tr class="memdesc:a84de8989ee8d57502efba161706acf80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an information object for a display.  <br /></td></tr>
 <tr class="separator:a84de8989ee8d57502efba161706acf80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62c2fe3448dd63da8df36571ffebe4ef" id="r_a62c2fe3448dd63da8df36571ffebe4ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetr.html#a386ecd8029d58f09791896b6421218d9">RectI2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62c2fe3448dd63da8df36571ffebe4ef">bounds</a> () const noexcept</td></tr>
+<tr class="memitem:a62c2fe3448dd63da8df36571ffebe4ef" id="r_a62c2fe3448dd63da8df36571ffebe4ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__geometry.html#ga386ecd8029d58f09791896b6421218d9">RectI2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62c2fe3448dd63da8df36571ffebe4ef">bounds</a> () const noexcept</td></tr>
 <tr class="memdesc:a62c2fe3448dd63da8df36571ffebe4ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the bounds of the display.  <br /></td></tr>
 <tr class="separator:a62c2fe3448dd63da8df36571ffebe4ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50fb050f427a47e451aa98353b335d17" id="r_a50fb050f427a47e451aa98353b335d17"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50fb050f427a47e451aa98353b335d17">centeredPos</a> () const noexcept</td></tr>
-<tr class="memdesc:a50fb050f427a47e451aa98353b335d17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a value usable by a <a class="el" href="classtr_1_1Window.html" title="Application window.">Window</a> constructor for centering a window on the display.  <br /></td></tr>
+<tr class="memdesc:a50fb050f427a47e451aa98353b335d17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a value usable by a <a class="el" href="classtr_1_1Window.html" title="The main application window.">Window</a> constructor for centering a window on the display.  <br /></td></tr>
 <tr class="separator:a50fb050f427a47e451aa98353b335d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a340d2190c4e7cabc5c573ddf9d5673c6" id="r_a340d2190c4e7cabc5c573ddf9d5673c6"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a340d2190c4e7cabc5c573ddf9d5673c6">closestModeTo</a> (const <a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> &amp;mode) const noexcept</td></tr>
 <tr class="memdesc:a340d2190c4e7cabc5c573ddf9d5673c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to get the closest compatible display mode to the desired one.  <br /></td></tr>
@@ -193,7 +203,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Creates an information object for a display. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>The ID of the display. Must be in the range (0, <a class="el" href="group__input.html#ga9a6f207d79a36e6b83c9c709b13af14b" title="Gets the number of available displays.">displayCount()</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>The ID of the display. Must be in the range (0, <a class="el" href="group__display.html#ga9a6f207d79a36e6b83c9c709b13af14b" title="Gets the number of available displays.">displayCount()</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -211,7 +221,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetr.html#a386ecd8029d58f09791896b6421218d9">RectI2</a> tr::DisplayInfo::bounds </td>
+          <td class="memname"><a class="el" href="group__geometry.html#ga386ecd8029d58f09791896b6421218d9">RectI2</a> tr::DisplayInfo::bounds </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -252,7 +262,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates a value usable by a <a class="el" href="classtr_1_1Window.html" title="Application window.">Window</a> constructor for centering a window on the display. </p>
+<p>Creates a value usable by a <a class="el" href="classtr_1_1Window.html" title="The main application window.">Window</a> constructor for centering a window on the display. </p>
 <dl class="section return"><dt>Returns</dt><dd>A sentinel value used by the window's positioning function to center itself on the display. </dd></dl>
 
 </div>
@@ -456,10 +466,13 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

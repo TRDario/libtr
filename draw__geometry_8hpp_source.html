@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -18,6 +20,8 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,9 +30,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libtr
+   <div id="projectname">libtr<span id="projectnumber">&#160;0.1.0</span>
    </div>
-   <div id="projectbrief">Personal C++ base library for gamedev projects</div>
+   <div id="projectbrief">Base library for gamedev projects</div>
   </td>
  </tr>
  </tbody>
@@ -51,17 +55,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('draw__geometry_8hpp_source.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -83,12 +99,6 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_48c35ed6b28060506e9df53e28b74a05.html">tr</a></li>  </ul>
-</div>
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="headertitle"><div class="title">draw_geometry.hpp</div></div>
 </div><!--header-->
@@ -97,52 +107,52 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;geometry.hpp&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetr.html">tr</a> {</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="group__drawing.html#ga02087bdad548abf300201ad4733afffa">   17</a></span>    <span class="keyword">inline</span> std::size_t <a class="code hl_function" href="group__drawing.html#ga02087bdad548abf300201ad4733afffa">smoothPolygonVerticesCount</a>(<span class="keywordtype">float</span> r) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="group__drawing.html#ga02087bdad548abf300201ad4733afffa">   18</a></span>    <span class="keyword">inline</span> std::size_t <a class="code hl_function" href="group__drawing.html#ga02087bdad548abf300201ad4733afffa">smoothPolygonVerticesCount</a>(<span class="keywordtype">float</span> r) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="group__drawing.html#gac24a040a181fa6027de10abac6f1fe63">   27</a></span>    <span class="keyword">inline</span> std::size_t <a class="code hl_function" href="group__drawing.html#gac24a040a181fa6027de10abac6f1fe63">smoothArcVerticesCount</a>(<span class="keywordtype">float</span> r, <a class="code hl_class" href="classtr_1_1Angle.html">AngleF</a> sizeth) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="group__drawing.html#gac24a040a181fa6027de10abac6f1fe63">   28</a></span>    <span class="keyword">inline</span> std::size_t <a class="code hl_function" href="group__drawing.html#gac24a040a181fa6027de10abac6f1fe63">smoothArcVerticesCount</a>(<span class="keywordtype">float</span> r, <a class="code hl_class" href="classtr_1_1Angle.html">AngleF</a> sizeth) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;std::u<span class="keywordtype">int</span>16_t&gt; It&gt;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="group__drawing.html#gabf7893749b4f25b9d2efe92af6ab2fef">   41</a></span>    <span class="keyword">constexpr</span> It <a class="code hl_function" href="group__drawing.html#gabf7893749b4f25b9d2efe92af6ab2fef">fillPolygonIndices</a>(It out, std::uint16_t vertices, std::uint16_t base);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;std::u<span class="keywordtype">int</span>16_t&gt; It&gt;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="group__drawing.html#gabf7893749b4f25b9d2efe92af6ab2fef">   42</a></span>    <span class="keyword">constexpr</span> It <a class="code hl_function" href="group__drawing.html#gabf7893749b4f25b9d2efe92af6ab2fef">fillPolygonIndices</a>(It out, std::uint16_t vertices, std::uint16_t base);</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;std::u<span class="keywordtype">int</span>16_t&gt; It&gt;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="group__drawing.html#ga179a6a186950e65824a0ac0e4466fcad">   55</a></span>    <span class="keyword">constexpr</span> It <a class="code hl_function" href="group__drawing.html#ga179a6a186950e65824a0ac0e4466fcad">fillPolygonOutlineIndices</a>(It out, std::uint16_t vertices, std::uint16_t base);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;std::u<span class="keywordtype">int</span>16_t&gt; It&gt;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="group__drawing.html#ga179a6a186950e65824a0ac0e4466fcad">   56</a></span>    <span class="keyword">constexpr</span> It <a class="code hl_function" href="group__drawing.html#ga179a6a186950e65824a0ac0e4466fcad">fillPolygonOutlineIndices</a>(It out, std::uint16_t vertices, std::uint16_t base);</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="group__drawing.html#gaca2135b4ee1bf2b83ee2b6e1012d57bf">   68</a></span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;glm::vec2&gt; It&gt; <span class="keyword">constexpr</span> It <a class="code hl_function" href="group__drawing.html#gaca2135b4ee1bf2b83ee2b6e1012d57bf">fillRectVertices</a>(It out, glm::vec2 tl, glm::vec2 size);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="group__drawing.html#gaca2135b4ee1bf2b83ee2b6e1012d57bf">   69</a></span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;glm::vec2&gt; It&gt; <span class="keyword">constexpr</span> It <a class="code hl_function" href="group__drawing.html#gaca2135b4ee1bf2b83ee2b6e1012d57bf">fillRectVertices</a>(It out, glm::vec2 tl, glm::vec2 size);</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;glm::vec2&gt; It&gt;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="group__drawing.html#gaadb71e6fce205903028cde24fc1330af">   83</a></span>    <span class="keyword">constexpr</span> It <a class="code hl_function" href="group__drawing.html#gaca2135b4ee1bf2b83ee2b6e1012d57bf">fillRectVertices</a>(It out, glm::vec2 tl, glm::vec2 size, <span class="keyword">const</span> glm::mat4&amp; transform);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;glm::vec2&gt; It&gt;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="group__drawing.html#gaadb71e6fce205903028cde24fc1330af">   84</a></span>    <span class="keyword">constexpr</span> It <a class="code hl_function" href="group__drawing.html#gaca2135b4ee1bf2b83ee2b6e1012d57bf">fillRectVertices</a>(It out, glm::vec2 tl, glm::vec2 size, <span class="keyword">const</span> glm::mat4&amp; transform);</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;glm::vec2&gt; It&gt;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="group__drawing.html#ga5675ece9e42d04045256493ec874273d">   98</a></span>    <span class="keyword">constexpr</span> It <a class="code hl_function" href="group__drawing.html#ga5675ece9e42d04045256493ec874273d">fillRectOutlineVertices</a>(It out, glm::vec2 tl, glm::vec2 size, <span class="keywordtype">float</span> thickness);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;glm::vec2&gt; It&gt;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="group__drawing.html#ga5675ece9e42d04045256493ec874273d">   99</a></span>    <span class="keyword">constexpr</span> It <a class="code hl_function" href="group__drawing.html#ga5675ece9e42d04045256493ec874273d">fillRectOutlineVertices</a>(It out, glm::vec2 tl, glm::vec2 size, <span class="keywordtype">float</span> thickness);</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;glm::vec2&gt; It&gt;</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="group__drawing.html#gabf71fdba47cb0560983da3287a591010">  114</a></span>    <span class="keyword">constexpr</span> It <a class="code hl_function" href="group__drawing.html#ga5675ece9e42d04045256493ec874273d">fillRectOutlineVertices</a>(It out, glm::vec2 tl, glm::vec2 size, <span class="keywordtype">float</span> thickness,</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                                         <span class="keyword">const</span> glm::mat4&amp; transform);</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;glm::vec2&gt; It&gt;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="group__drawing.html#gabf71fdba47cb0560983da3287a591010">  115</a></span>    <span class="keyword">constexpr</span> It <a class="code hl_function" href="group__drawing.html#ga5675ece9e42d04045256493ec874273d">fillRectOutlineVertices</a>(It out, glm::vec2 tl, glm::vec2 size, <span class="keywordtype">float</span> thickness,</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                                         <span class="keyword">const</span> glm::mat4&amp; transform);</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;glm::vec2&gt; It&gt;</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="group__drawing.html#gaa9703a67fe8a407c1cd131af21aa6340">  131</a></span>    It <a class="code hl_function" href="group__drawing.html#gaa9703a67fe8a407c1cd131af21aa6340">fillArcVertices</a>(It out, std::size_t vertices, <a class="code hl_struct" href="structtr_1_1Circle.html">CircleF</a> circ, <a class="code hl_class" href="classtr_1_1Angle.html">AngleF</a> startth, <a class="code hl_class" href="classtr_1_1Angle.html">AngleF</a> sizeth);</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;glm::vec2&gt; It&gt;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="group__drawing.html#gaa9703a67fe8a407c1cd131af21aa6340">  132</a></span>    It <a class="code hl_function" href="group__drawing.html#gaa9703a67fe8a407c1cd131af21aa6340">fillArcVertices</a>(It out, std::size_t vertices, <a class="code hl_struct" href="structtr_1_1Circle.html">CircleF</a> circ, <a class="code hl_class" href="classtr_1_1Angle.html">AngleF</a> startth, <a class="code hl_class" href="classtr_1_1Angle.html">AngleF</a> sizeth);</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;glm::vec2&gt; It&gt;</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="group__drawing.html#gaa0359bffc10f0f8585a1d905896c4700">  146</a></span>    It <a class="code hl_function" href="group__drawing.html#gaa0359bffc10f0f8585a1d905896c4700">fillPolygonVertices</a>(It out, std::size_t vertices, <a class="code hl_struct" href="structtr_1_1Circle.html">CircleF</a> circ, <a class="code hl_class" href="classtr_1_1Angle.html">AngleF</a> rotation = 0_degf);</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;glm::vec2&gt; It&gt;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="group__drawing.html#gaa0359bffc10f0f8585a1d905896c4700">  147</a></span>    It <a class="code hl_function" href="group__drawing.html#gaa0359bffc10f0f8585a1d905896c4700">fillPolygonVertices</a>(It out, std::size_t vertices, <a class="code hl_struct" href="structtr_1_1Circle.html">CircleF</a> circ, <a class="code hl_class" href="classtr_1_1Angle.html">AngleF</a> rotation = 0_degf);</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;glm::vec2&gt; It&gt;</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="group__drawing.html#ga939c187251bd195bcfc3a3deac3f0679">  162</a></span>    It <a class="code hl_function" href="group__drawing.html#ga939c187251bd195bcfc3a3deac3f0679">fillPolygonOutlineVertices</a>(It out, std::size_t vertices, <a class="code hl_struct" href="structtr_1_1Circle.html">CircleF</a> circ, <a class="code hl_class" href="classtr_1_1Angle.html">AngleF</a> rotation, <span class="keywordtype">float</span> thickness);</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>} <span class="comment">// namespace tr</span></div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="preprocessor">#include &quot;draw_geometry_impl.hpp&quot;</span></div>
-<div class="ttc" id="aclasstr_1_1Angle_html"><div class="ttname"><a href="classtr_1_1Angle.html">tr::Angle</a></div><div class="ttdoc">Angular value type.</div><div class="ttdef"><b>Definition</b> angle.hpp:24</div></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keyword">template</span> &lt;std::output_iterator&lt;glm::vec2&gt; It&gt;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="group__drawing.html#ga939c187251bd195bcfc3a3deac3f0679">  163</a></span>    It <a class="code hl_function" href="group__drawing.html#ga939c187251bd195bcfc3a3deac3f0679">fillPolygonOutlineVertices</a>(It out, std::size_t vertices, <a class="code hl_struct" href="structtr_1_1Circle.html">CircleF</a> circ, <a class="code hl_class" href="classtr_1_1Angle.html">AngleF</a> rotation, <span class="keywordtype">float</span> thickness);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>} <span class="comment">// namespace tr</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">#include &quot;draw_geometry_impl.hpp&quot;</span></div>
+<div class="ttc" id="aclasstr_1_1Angle_html"><div class="ttname"><a href="classtr_1_1Angle.html">tr::Angle</a></div><div class="ttdoc">Angular value type.</div><div class="ttdef"><b>Definition</b> angle.hpp:31</div></div>
 <div class="ttc" id="agroup__drawing_html_ga02087bdad548abf300201ad4733afffa"><div class="ttname"><a href="group__drawing.html#ga02087bdad548abf300201ad4733afffa">tr::smoothPolygonVerticesCount</a></div><div class="ttdeci">std::size_t smoothPolygonVerticesCount(float r) noexcept</div><div class="ttdoc">Calculates the number of segments needed to draw a smooth circle with pixel radius r.</div></div>
 <div class="ttc" id="agroup__drawing_html_ga179a6a186950e65824a0ac0e4466fcad"><div class="ttname"><a href="group__drawing.html#ga179a6a186950e65824a0ac0e4466fcad">tr::fillPolygonOutlineIndices</a></div><div class="ttdeci">constexpr It fillPolygonOutlineIndices(It out, std::uint16_t vertices, std::uint16_t base)</div><div class="ttdoc">Outputs indices for a convex polygon outline.</div></div>
 <div class="ttc" id="agroup__drawing_html_ga5675ece9e42d04045256493ec874273d"><div class="ttname"><a href="group__drawing.html#ga5675ece9e42d04045256493ec874273d">tr::fillRectOutlineVertices</a></div><div class="ttdeci">constexpr It fillRectOutlineVertices(It out, glm::vec2 tl, glm::vec2 size, float thickness)</div><div class="ttdoc">Outputs unrotated rectangle outline vertices.</div></div>
@@ -152,13 +162,16 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="agroup__drawing_html_gabf7893749b4f25b9d2efe92af6ab2fef"><div class="ttname"><a href="group__drawing.html#gabf7893749b4f25b9d2efe92af6ab2fef">tr::fillPolygonIndices</a></div><div class="ttdeci">constexpr It fillPolygonIndices(It out, std::uint16_t vertices, std::uint16_t base)</div><div class="ttdoc">Outputs indices for a convex polygon.</div></div>
 <div class="ttc" id="agroup__drawing_html_gac24a040a181fa6027de10abac6f1fe63"><div class="ttname"><a href="group__drawing.html#gac24a040a181fa6027de10abac6f1fe63">tr::smoothArcVerticesCount</a></div><div class="ttdeci">std::size_t smoothArcVerticesCount(float r, AngleF sizeth) noexcept</div><div class="ttdoc">Calculates the number of segments needed to draw a smooth arc.</div></div>
 <div class="ttc" id="agroup__drawing_html_gaca2135b4ee1bf2b83ee2b6e1012d57bf"><div class="ttname"><a href="group__drawing.html#gaca2135b4ee1bf2b83ee2b6e1012d57bf">tr::fillRectVertices</a></div><div class="ttdeci">constexpr It fillRectVertices(It out, glm::vec2 tl, glm::vec2 size)</div><div class="ttdoc">Outputs unrotated rectangle vertices.</div></div>
-<div class="ttc" id="anamespacetr_html"><div class="ttname"><a href="namespacetr.html">tr</a></div><div class="ttdoc">Namespace containing all libtr functionality.</div><div class="ttdef"><b>Definition</b> angle.hpp:5</div></div>
-<div class="ttc" id="astructtr_1_1Circle_html"><div class="ttname"><a href="structtr_1_1Circle.html">tr::Circle</a></div><div class="ttdoc">2D circle.</div><div class="ttdef"><b>Definition</b> geometry.hpp:101</div></div>
+<div class="ttc" id="anamespacetr_html"><div class="ttname"><a href="namespacetr.html">tr</a></div><div class="ttdef"><b>Definition</b> angle.hpp:5</div></div>
+<div class="ttc" id="astructtr_1_1Circle_html"><div class="ttname"><a href="structtr_1_1Circle.html">tr::Circle</a></div><div class="ttdoc">2D circle.</div><div class="ttdef"><b>Definition</b> geometry.hpp:103</div></div>
 </div><!-- fragment --></div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_48c35ed6b28060506e9df53e28b74a05.html">tr</a></li><li class="navelem"><b>draw_geometry.hpp</b></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

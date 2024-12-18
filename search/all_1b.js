@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['_7eaudiosystem_0',['~AudioSystem',['../classtr_1_1AudioSystem.html#ad8ccad8ca1bf17dbe59be2ddb1cea9e9',1,'tr::AudioSystem']]],
-  ['_7eframebuffer_1',['~Framebuffer',['../classtr_1_1Framebuffer.html#a2bbb8f8143b9583d94d2b368a7a3c457',1,'tr::Framebuffer']]],
-  ['_7ehandle_2',['~Handle',['../classtr_1_1Handle.html#ad4241f53911907ee3ff79f13302c5896',1,'tr::Handle']]],
-  ['_7eticker_3',['~Ticker',['../classtr_1_1Ticker.html#a062f8fe0c7d9487086f17c2291ddd338',1,'tr::Ticker']]]
+  ['z_0',['Z',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204da21c2e59531c8710156d34a3c30ac81d5',1,'tr::Scancode::Z'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a21c2e59531c8710156d34a3c30ac81d5',1,'tr::Keycode::Z']]],
+  ['z_5faxis_1',['Z_AXIS',['../group__geometry.html#ga2d0d5446131cb16ef6b056526b144b3b',1,'tr']]],
+  ['zero_2',['ZERO',['../group__graphics__context.html#gga8c440fc4a94422129e86a69114e35b50a529e9e0beb5f85d1f132917c1a09860c',1,'tr::ZERO'],['../group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767a529e9e0beb5f85d1f132917c1a09860c',1,'tr::ZERO'],['../group__texture.html#gga228d86137368dd348340097c8a515439a529e9e0beb5f85d1f132917c1a09860c',1,'tr::ZERO']]]
 ];

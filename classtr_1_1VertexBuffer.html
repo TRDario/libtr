@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -18,6 +20,8 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,9 +30,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libtr
+   <div id="projectname">libtr<span id="projectnumber">&#160;0.1.0</span>
    </div>
-   <div id="projectbrief">Personal C++ base library for gamedev projects</div>
+   <div id="projectbrief">Base library for gamedev projects</div>
   </td>
  </tr>
  </tbody>
@@ -51,17 +55,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('classtr_1_1VertexBuffer.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -83,17 +99,11 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1VertexBuffer.html">VertexBuffer</a></li>  </ul>
-</div>
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1VertexBuffer-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::VertexBuffer Class Reference<div class="ingroups"><a class="el" href="group__graphics.html">Graphics</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::VertexBuffer Class Reference<div class="ingroups"><a class="el" href="group__system.html">System</a> &raquo; <a class="el" href="group__graphics.html">Graphics</a> &raquo; <a class="el" href="group__vertex__buffer.html">Vertex Buffer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -111,6 +121,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad77bdca8a9cba9788e210d6850de5c5a" id="r_ad77bdca8a9cba9788e210d6850de5c5a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad77bdca8a9cba9788e210d6850de5c5a">VertexBuffer</a> (std::span&lt; const std::byte &gt; data)</td></tr>
 <tr class="memdesc:ad77bdca8a9cba9788e210d6850de5c5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates a vertex buffer and fills it with data.  <br /></td></tr>
 <tr class="separator:ad77bdca8a9cba9788e210d6850de5c5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cfe2922eaac1e8bb9a8c312f29e1c5d" id="r_a6cfe2922eaac1e8bb9a8c312f29e1c5d"><td class="memTemplParams" colspan="2">template&lt;std::ranges::contiguous_range T&gt; </td></tr>
+<tr class="memitem:a6cfe2922eaac1e8bb9a8c312f29e1c5d"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a6cfe2922eaac1e8bb9a8c312f29e1c5d">VertexBuffer</a> (T &amp;&amp;range)</td></tr>
+<tr class="memdesc:a6cfe2922eaac1e8bb9a8c312f29e1c5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates a vertex buffer and fills it with data.  <br /></td></tr>
+<tr class="separator:a6cfe2922eaac1e8bb9a8c312f29e1c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f80acdd1710f2af851efbe70e97b373" id="r_a5f80acdd1710f2af851efbe70e97b373"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f80acdd1710f2af851efbe70e97b373">capacity</a> () const noexcept</td></tr>
 <tr class="memdesc:a5f80acdd1710f2af851efbe70e97b373"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the capacity of the vertex buffer.  <br /></td></tr>
 <tr class="separator:a5f80acdd1710f2af851efbe70e97b373"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,12 +146,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afd47c575cd53f7c6cae0f8d93d4d2ac0" id="r_afd47c575cd53f7c6cae0f8d93d4d2ac0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd47c575cd53f7c6cae0f8d93d4d2ac0">set</a> (std::span&lt; const std::byte &gt; data)</td></tr>
 <tr class="memdesc:afd47c575cd53f7c6cae0f8d93d4d2ac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the contents of the buffer.  <br /></td></tr>
 <tr class="separator:afd47c575cd53f7c6cae0f8d93d4d2ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80b83f0fd295e5a413c53938d0858cd8" id="r_a80b83f0fd295e5a413c53938d0858cd8"><td class="memTemplParams" colspan="2">template&lt;std::ranges::contiguous_range T&gt; </td></tr>
+<tr class="memitem:a80b83f0fd295e5a413c53938d0858cd8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a80b83f0fd295e5a413c53938d0858cd8">set</a> (T &amp;&amp;range)</td></tr>
+<tr class="memdesc:a80b83f0fd295e5a413c53938d0858cd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the contents of the buffer.  <br /></td></tr>
+<tr class="separator:a80b83f0fd295e5a413c53938d0858cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5754ac2dea2a9ed3adad9052277d56cf" id="r_a5754ac2dea2a9ed3adad9052277d56cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5754ac2dea2a9ed3adad9052277d56cf">setLabel</a> (std::string label) noexcept</td></tr>
 <tr class="memdesc:a5754ac2dea2a9ed3adad9052277d56cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug label of the vertex buffer.  <br /></td></tr>
 <tr class="separator:a5754ac2dea2a9ed3adad9052277d56cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8c1e5f8a478ef1a7b04b46884ed9a95" id="r_af8c1e5f8a478ef1a7b04b46884ed9a95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8c1e5f8a478ef1a7b04b46884ed9a95">setRegion</a> (std::size_t offset, std::span&lt; const std::byte &gt; data) noexcept</td></tr>
 <tr class="memdesc:af8c1e5f8a478ef1a7b04b46884ed9a95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a region of the buffer.  <br /></td></tr>
 <tr class="separator:af8c1e5f8a478ef1a7b04b46884ed9a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f1b7efd8c9a1a2c37e51c467939cac5" id="r_a5f1b7efd8c9a1a2c37e51c467939cac5"><td class="memTemplParams" colspan="2">template&lt;std::ranges::contiguous_range T&gt; </td></tr>
+<tr class="memitem:a5f1b7efd8c9a1a2c37e51c467939cac5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5f1b7efd8c9a1a2c37e51c467939cac5">setRegion</a> (std::size_t offset, T &amp;&amp;range) noexcept</td></tr>
+<tr class="memdesc:a5f1b7efd8c9a1a2c37e51c467939cac5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a region of the buffer.  <br /></td></tr>
+<tr class="separator:a5f1b7efd8c9a1a2c37e51c467939cac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1182e5b8b56abc8a6501c57a73d30b5" id="r_ab1182e5b8b56abc8a6501c57a73d30b5"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1182e5b8b56abc8a6501c57a73d30b5">size</a> () const noexcept</td></tr>
 <tr class="memdesc:ab1182e5b8b56abc8a6501c57a73d30b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the vertex buffer contents.  <br /></td></tr>
 <tr class="separator:ab1182e5b8b56abc8a6501c57a73d30b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,7 +168,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>GPU vertex buffer class. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af2497bbea6b53bc876abfea82376ca44" name="af2497bbea6b53bc876abfea82376ca44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2497bbea6b53bc876abfea82376ca44">&#9670;&#160;</a></span>VertexBuffer() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af2497bbea6b53bc876abfea82376ca44">&#9670;&#160;</a></span>VertexBuffer() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -174,7 +196,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a7ed5bc742a2130b749e2774c704fe864" name="a7ed5bc742a2130b749e2774c704fe864"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ed5bc742a2130b749e2774c704fe864">&#9670;&#160;</a></span>VertexBuffer() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ed5bc742a2130b749e2774c704fe864">&#9670;&#160;</a></span>VertexBuffer() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -207,7 +229,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="ad77bdca8a9cba9788e210d6850de5c5a" name="ad77bdca8a9cba9788e210d6850de5c5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad77bdca8a9cba9788e210d6850de5c5a">&#9670;&#160;</a></span>VertexBuffer() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad77bdca8a9cba9788e210d6850de5c5a">&#9670;&#160;</a></span>VertexBuffer() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -233,6 +255,49 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The data to be uploaded to be buffer. Must not be empty. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6cfe2922eaac1e8bb9a8c312f29e1c5d" name="a6cfe2922eaac1e8bb9a8c312f29e1c5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cfe2922eaac1e8bb9a8c312f29e1c5d">&#9670;&#160;</a></span>VertexBuffer() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::ranges::contiguous_range T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tr::VertexBuffer::VertexBuffer </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Allocates a vertex buffer and fills it with data. </p>
+<p>The buffer will be of size and capacity <em>range.size()</em> after construction.</p>
+<p>This function can't be called before creating a <a class="el" href="classtr_1_1GraphicsContext.html" title="Graphics context.">GraphicsContext</a>.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">range</td><td>The data range to be uploaded to be buffer. Must not be empty. </td></tr>
   </table>
   </dd>
 </dl>
@@ -427,7 +492,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="afd47c575cd53f7c6cae0f8d93d4d2ac0" name="afd47c575cd53f7c6cae0f8d93d4d2ac0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd47c575cd53f7c6cae0f8d93d4d2ac0">&#9670;&#160;</a></span>set()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afd47c575cd53f7c6cae0f8d93d4d2ac0">&#9670;&#160;</a></span>set() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -453,6 +518,51 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The new data of the buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">Referenced by <a class="el" href="#a80b83f0fd295e5a413c53938d0858cd8">set()</a>.</p>
+
+</div>
+</div>
+<a id="a80b83f0fd295e5a413c53938d0858cd8" name="a80b83f0fd295e5a413c53938d0858cd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80b83f0fd295e5a413c53938d0858cd8">&#9670;&#160;</a></span>set() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::ranges::contiguous_range T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tr::VertexBuffer::set </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the contents of the buffer. </p>
+<p>If range.size() is greater than the capacity of the buffer, a reallocation will be done. This voids any previous bindings of the buffer to the context, and so it must be rebound. <a class="el" href="#af8c1e5f8a478ef1a7b04b46884ed9a95" title="Sets a region of the buffer.">setRegion()</a> will never cause a reallocation, so may be used in cases where that's a requirement.</p>
+<p>The buffer cannot be mapped when this function is called.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If a reallocation is triggered and reallocating the buffer fails.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">range</td><td>The new data of the buffer. </td></tr>
   </table>
   </dd>
 </dl>
@@ -493,7 +603,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="af8c1e5f8a478ef1a7b04b46884ed9a95" name="af8c1e5f8a478ef1a7b04b46884ed9a95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8c1e5f8a478ef1a7b04b46884ed9a95">&#9670;&#160;</a></span>setRegion()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af8c1e5f8a478ef1a7b04b46884ed9a95">&#9670;&#160;</a></span>setRegion() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -530,6 +640,50 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="reference">Referenced by <a class="el" href="#a5f1b7efd8c9a1a2c37e51c467939cac5">setRegion()</a>.</p>
+
+</div>
+</div>
+<a id="a5f1b7efd8c9a1a2c37e51c467939cac5" name="a5f1b7efd8c9a1a2c37e51c467939cac5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f1b7efd8c9a1a2c37e51c467939cac5">&#9670;&#160;</a></span>setRegion() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::ranges::contiguous_range T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tr::VertexBuffer::setRegion </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t</td>          <td class="paramname"><span class="paramname"><em>offset</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets a region of the buffer. </p>
+<p>Unlike <a class="el" href="#afd47c575cd53f7c6cae0f8d93d4d2ac0" title="Sets the contents of the buffer.">set()</a>, a call to this function will never cause a reallocation, but an assertion may fail if a range too large is passed to it.</p>
+<p>The buffer cannot be mapped when this function is called.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">offset</td><td>The starting offset within the buffer in bytes. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">range</td><td>The new data of the buffer. <code>offset + range.size() &lt;= <a class="el" href="#a5f80acdd1710f2af851efbe70e97b373" title="Gets the capacity of the vertex buffer.">capacity()</a></code> must hold true. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ab1182e5b8b56abc8a6501c57a73d30b5" name="ab1182e5b8b56abc8a6501c57a73d30b5"></a>
@@ -561,10 +715,13 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacetr.html">tr</a></li><li class="navelem"><a class="el" href="classtr_1_1VertexBuffer.html">VertexBuffer</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

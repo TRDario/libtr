@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -18,6 +20,8 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,9 +30,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libtr
+   <div id="projectname">libtr<span id="projectnumber">&#160;0.1.0</span>
    </div>
-   <div id="projectbrief">Personal C++ base library for gamedev projects</div>
+   <div id="projectbrief">Base library for gamedev projects</div>
   </td>
  </tr>
  </tbody>
@@ -51,19 +55,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="doc-content">
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('namespacemembers_c.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -89,24 +103,25 @@ $(function(){ initResizable(false); });
 <div class="textblock">Here is a list of all namespace members with links to the namespace documentation for each member:</div>
 
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
-<li>CENTERED_POS&#160;:&#160;<a class="el" href="group__input.html#ga3d79ab32d9b1afaebc7c4f45002ae5b6">tr</a></li>
-<li>CircleF&#160;:&#160;<a class="el" href="namespacetr.html#a1d2cc5a6dbb44e5016299c518415f2fd">tr</a></li>
-<li>Clear&#160;:&#160;<a class="el" href="group__graphics.html#gaeaf2735d38842f598e12fe0e884992ed">tr</a></li>
-<li>CLIPBOARD_UPDATE&#160;:&#160;<a class="el" href="namespacetr_1_1event__type.html#ab486d7d37fcc94d319914397eb05ceab">tr::event_type</a></li>
-<li>Clock&#160;:&#160;<a class="el" href="namespacetr.html#af4fd3ec324fda698be311d9444e4bbe6">tr</a></li>
-<li>closestPoint()&#160;:&#160;<a class="el" href="namespacetr.html#a3cef1602b3bb2dba9d4df7e58dab1fe3">tr</a></li>
-<li>collinear()&#160;:&#160;<a class="el" href="namespacetr.html#a739b0c376af3ce29f16b8c3f825ac599">tr</a></li>
+<li>CENTERED_POS&#160;:&#160;<a class="el" href="group__window.html#ga3d79ab32d9b1afaebc7c4f45002ae5b6">tr</a></li>
+<li>CircleF&#160;:&#160;<a class="el" href="group__geometry.html#ga1d2cc5a6dbb44e5016299c518415f2fd">tr</a></li>
+<li>Clear&#160;:&#160;<a class="el" href="group__graphics__context.html#gaeaf2735d38842f598e12fe0e884992ed">tr</a></li>
+<li>Clock&#160;:&#160;<a class="el" href="group__chrono.html#gaf4fd3ec324fda698be311d9444e4bbe6">tr</a></li>
+<li>closestPoint()&#160;:&#160;<a class="el" href="group__geometry.html#ga3cef1602b3bb2dba9d4df7e58dab1fe3">tr</a></li>
+<li>collinear()&#160;:&#160;<a class="el" href="group__geometry.html#ga739b0c376af3ce29f16b8c3f825ac599">tr</a></li>
 <li>color_cast()&#160;:&#160;<a class="el" href="group__color.html#ga06aeaa45377e5bfdce392f3dfb7e6bc3">tr</a></li>
-<li>colors&#160;:&#160;<a class="el" href="group__drawing.html#gae217c35009c80b033d79c54b66c6329b">tr</a></li>
-<li>Compare&#160;:&#160;<a class="el" href="group__graphics.html#ga88338da155e2e92486d80fb0650a07d5">tr</a></li>
+<li>colors&#160;:&#160;<a class="el" href="group__vertex.html#gae217c35009c80b033d79c54b66c6329b">tr</a></li>
+<li>Compare&#160;:&#160;<a class="el" href="group__sampler.html#ga88338da155e2e92486d80fb0650a07d5">tr</a></li>
 <li>createCheckerboard()&#160;:&#160;<a class="el" href="group__bitmap.html#gaf8beb3d49b6411407cbf541c75e9576a">tr</a></li>
-<li>cross2()&#160;:&#160;<a class="el" href="namespacetr.html#aee714b85d5c784cc52d35e4e6109ee7a">tr</a></li>
+<li>cross2()&#160;:&#160;<a class="el" href="group__geometry.html#gaee714b85d5c784cc52d35e4e6109ee7a">tr</a></li>
 </ul>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['truetype_20fonts_0',['TrueType Fonts',['../group__ttfont.html',1,'']]]
+  ['normalized_20cast_0',['Normalized Cast',['../group__norm__cast.html',1,'']]]
 ];

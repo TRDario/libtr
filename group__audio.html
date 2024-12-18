@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -18,6 +20,8 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,9 +30,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libtr
+   <div id="projectname">libtr<span id="projectnumber">&#160;0.1.0</span>
    </div>
-   <div id="projectbrief">Personal C++ base library for gamedev projects</div>
+   <div id="projectbrief">Base library for gamedev projects</div>
   </td>
  </tr>
  </tbody>
@@ -51,19 +55,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="doc-content">
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('group__audio.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -87,298 +101,39 @@ $(function(){ initResizable(false); });
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#groups">Topics</a>  </div>
   <div class="headertitle"><div class="title">Audio</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Audio subsystem.  
+<p>The audio subsystem.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1AudioBuffer.html">tr::AudioBuffer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Owning audio buffer.  <a href="classtr_1_1AudioBuffer.html#details">More...</a><br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
+Topics</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__audio__buffer.html">Audio Buffer</a></td></tr>
+<tr class="memdesc:group__audio__buffer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio buffer class and related functionality <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1AudioBufferBadAlloc.html">tr::AudioBufferBadAlloc</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error thrown when allocating an audio buffer fails.  <a href="structtr_1_1AudioBufferBadAlloc.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__audio__source.html">Audio Source</a></td></tr>
+<tr class="memdesc:group__audio__source"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio source class and related functionality. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1AudioBufferView.html">tr::AudioBufferView</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-owning audio buffer view.  <a href="classtr_1_1AudioBufferView.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__audio__system.html">Audio System</a></td></tr>
+<tr class="memdesc:group__audio__system"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio device/context manager and related functionality. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1AudioSource.html">tr::AudioSource</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio source.  <a href="classtr_1_1AudioSource.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__listener.html">Listener</a></td></tr>
+<tr class="memdesc:group__listener"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global audio listener. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1AudioSourceBadAlloc.html">tr::AudioSourceBadAlloc</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error thrown when allocating an audio source fails.  <a href="structtr_1_1AudioSourceBadAlloc.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1AudioSystem.html">tr::AudioSystem</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio system manager required for using audio classes.  <a href="classtr_1_1AudioSystem.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1AudioSystemInitializationError.html">tr::AudioSystemInitializationError</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error thrown when creating the audio system fails.  <a href="structtr_1_1AudioSystemInitializationError.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1UnsupportedAudioFile.html">tr::UnsupportedAudioFile</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error thrown when an trying to load an unsupported audio file.  <a href="structtr_1_1UnsupportedAudioFile.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:ga0cd93ec18a3882266f1c6cd2657e7cfe" id="r_ga0cd93ec18a3882266f1c6cd2657e7cfe"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga0cd93ec18a3882266f1c6cd2657e7cfe">tr::AudioFormat</a> { <a class="el" href="#gga0cd93ec18a3882266f1c6cd2657e7cfea6bb6d6a0741f2a5afd00611ed1ef5f8b">tr::AudioFormat::MONO8</a> = 0x11'00
-, <a class="el" href="#gga0cd93ec18a3882266f1c6cd2657e7cfeae155ffb380a7c880b0f0365cdaa2d9c3">tr::AudioFormat::STEREO8</a> = 0x11'02
-, <a class="el" href="#gga0cd93ec18a3882266f1c6cd2657e7cfea59e5ab3f0c1c59504cf28fc887787eab">tr::AudioFormat::MONO16</a> = 0x11'01
-, <a class="el" href="#gga0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7">tr::AudioFormat::STEREO16</a> = 0x11'03
- }</td></tr>
-<tr class="memdesc:ga0cd93ec18a3882266f1c6cd2657e7cfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio data format.  <a href="#ga0cd93ec18a3882266f1c6cd2657e7cfe">More...</a><br /></td></tr>
-<tr class="separator:ga0cd93ec18a3882266f1c6cd2657e7cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac94c6d9def358bc33348c409be0a151a" id="r_gac94c6d9def358bc33348c409be0a151a"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac94c6d9def358bc33348c409be0a151a">tr::AudioOrigin</a> : bool { <a class="el" href="#ggac94c6d9def358bc33348c409be0a151aa3a0bc063b6db8cae0361657958be836f">tr::AudioOrigin::ABSOLUTE</a>
-, <a class="el" href="#ggac94c6d9def358bc33348c409be0a151aa2a00683857d97bace1f195120c3eb4fb">tr::AudioOrigin::LISTENER</a>
- }</td></tr>
-<tr class="memdesc:gac94c6d9def358bc33348c409be0a151a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio source position origin types.  <a href="#gac94c6d9def358bc33348c409be0a151a">More...</a><br /></td></tr>
-<tr class="separator:gac94c6d9def358bc33348c409be0a151a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6c94829f0dfe0e9696cc57a3c7aff830" id="r_ga6c94829f0dfe0e9696cc57a3c7aff830"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6c94829f0dfe0e9696cc57a3c7aff830">tr::AudioState</a> : std::uint8_t { <a class="el" href="#gga6c94829f0dfe0e9696cc57a3c7aff830a91d26e4b2b105c74655093c9becd30b7">tr::AudioState::INITIAL</a>
-, <a class="el" href="#gga6c94829f0dfe0e9696cc57a3c7aff830a50366a49630a416ab3ccaa004196027e">tr::AudioState::PLAYING</a>
-, <a class="el" href="#gga6c94829f0dfe0e9696cc57a3c7aff830a99b2439e63f73ad515f7ab2447a80673">tr::AudioState::PAUSED</a>
-, <a class="el" href="#gga6c94829f0dfe0e9696cc57a3c7aff830a09d4d696b4e935115b9313e3c412509a">tr::AudioState::STOPPED</a>
- }</td></tr>
-<tr class="memdesc:ga6c94829f0dfe0e9696cc57a3c7aff830"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio source states.  <a href="#ga6c94829f0dfe0e9696cc57a3c7aff830">More...</a><br /></td></tr>
-<tr class="separator:ga6c94829f0dfe0e9696cc57a3c7aff830"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:gaaca0122512499c4bd265f7357ccaaa04" id="r_gaaca0122512499c4bd265f7357ccaaa04"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1AudioSystem.html">AudioSystem</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaaca0122512499c4bd265f7357ccaaa04">tr::audio</a> () noexcept</td></tr>
-<tr class="memdesc:gaaca0122512499c4bd265f7357ccaaa04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a reference to the active audio system.  <br /></td></tr>
-<tr class="separator:gaaca0122512499c4bd265f7357ccaaa04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa5f35c8a137531fb28267c6da7f9b0bd" id="r_gaa5f35c8a137531fb28267c6da7f9b0bd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa5f35c8a137531fb28267c6da7f9b0bd">tr::audioActive</a> () noexcept</td></tr>
-<tr class="memdesc:gaa5f35c8a137531fb28267c6da7f9b0bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the audio system is active.  <br /></td></tr>
-<tr class="separator:gaa5f35c8a137531fb28267c6da7f9b0bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:gae9d633f69281a1e21914af48238b4e8d" id="r_gae9d633f69281a1e21914af48238b4e8d"><td class="memItemLeft" align="right" valign="top">constexpr glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae9d633f69281a1e21914af48238b4e8d">tr::OMNIDIRECTIONAL</a> {0, 0, 0}</td></tr>
-<tr class="memdesc:gae9d633f69281a1e21914af48238b4e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">0-length direction vector representing an omnidirectional audio source.  <br /></td></tr>
-<tr class="separator:gae9d633f69281a1e21914af48238b4e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6340a356507e099bafcf3cdfe72dcc52" id="r_ga6340a356507e099bafcf3cdfe72dcc52"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6340a356507e099bafcf3cdfe72dcc52">tr::UNQUEUE_PROCESSED</a> {std::numeric_limits&lt;std::size_t&gt;().max()}</td></tr>
-<tr class="memdesc:ga6340a356507e099bafcf3cdfe72dcc52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sentinel value that tells the unqueueBuffers function to unqueue all processed buffers.  <br /></td></tr>
-<tr class="separator:ga6340a356507e099bafcf3cdfe72dcc52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Audio subsystem. </p>
-<p>An instance of <a class="el" href="classtr_1_1AudioSystem.html" title="Audio system manager required for using audio classes.">AudioSystem</a> must be created before any other functionality from this section can be used. </p>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="ga0cd93ec18a3882266f1c6cd2657e7cfe" name="ga0cd93ec18a3882266f1c6cd2657e7cfe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga0cd93ec18a3882266f1c6cd2657e7cfe">&#9670;&#160;</a></span>AudioFormat</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#ga0cd93ec18a3882266f1c6cd2657e7cfe">tr::AudioFormat</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Audio data format. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga0cd93ec18a3882266f1c6cd2657e7cfea6bb6d6a0741f2a5afd00611ed1ef5f8b" name="gga0cd93ec18a3882266f1c6cd2657e7cfea6bb6d6a0741f2a5afd00611ed1ef5f8b"></a>MONO8&#160;</td><td class="fielddoc"><p>1-channel, 8-bit audio. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="gga0cd93ec18a3882266f1c6cd2657e7cfeae155ffb380a7c880b0f0365cdaa2d9c3" name="gga0cd93ec18a3882266f1c6cd2657e7cfeae155ffb380a7c880b0f0365cdaa2d9c3"></a>STEREO8&#160;</td><td class="fielddoc"><p>2-channel, 8-bit audio. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="gga0cd93ec18a3882266f1c6cd2657e7cfea59e5ab3f0c1c59504cf28fc887787eab" name="gga0cd93ec18a3882266f1c6cd2657e7cfea59e5ab3f0c1c59504cf28fc887787eab"></a>MONO16&#160;</td><td class="fielddoc"><p>1-channel, 16-bit audio. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="gga0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7" name="gga0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7"></a>STEREO16&#160;</td><td class="fielddoc"><p>2-channel, 16-bit audio. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<a id="gac94c6d9def358bc33348c409be0a151a" name="gac94c6d9def358bc33348c409be0a151a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac94c6d9def358bc33348c409be0a151a">&#9670;&#160;</a></span>AudioOrigin</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#gac94c6d9def358bc33348c409be0a151a">tr::AudioOrigin</a> : bool</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Audio source position origin types. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggac94c6d9def358bc33348c409be0a151aa3a0bc063b6db8cae0361657958be836f" name="ggac94c6d9def358bc33348c409be0a151aa3a0bc063b6db8cae0361657958be836f"></a>ABSOLUTE&#160;</td><td class="fielddoc"><p>Absolute coordinates. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ggac94c6d9def358bc33348c409be0a151aa2a00683857d97bace1f195120c3eb4fb" name="ggac94c6d9def358bc33348c409be0a151aa2a00683857d97bace1f195120c3eb4fb"></a>LISTENER&#160;</td><td class="fielddoc"><p>Coordinates relative to the listener's position. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<a id="ga6c94829f0dfe0e9696cc57a3c7aff830" name="ga6c94829f0dfe0e9696cc57a3c7aff830"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6c94829f0dfe0e9696cc57a3c7aff830">&#9670;&#160;</a></span>AudioState</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#ga6c94829f0dfe0e9696cc57a3c7aff830">tr::AudioState</a> : std::uint8_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Audio source states. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga6c94829f0dfe0e9696cc57a3c7aff830a91d26e4b2b105c74655093c9becd30b7" name="gga6c94829f0dfe0e9696cc57a3c7aff830a91d26e4b2b105c74655093c9becd30b7"></a>INITIAL&#160;</td><td class="fielddoc"><p>The source has not been played yet. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="gga6c94829f0dfe0e9696cc57a3c7aff830a50366a49630a416ab3ccaa004196027e" name="gga6c94829f0dfe0e9696cc57a3c7aff830a50366a49630a416ab3ccaa004196027e"></a>PLAYING&#160;</td><td class="fielddoc"><p>The source is playing. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="gga6c94829f0dfe0e9696cc57a3c7aff830a99b2439e63f73ad515f7ab2447a80673" name="gga6c94829f0dfe0e9696cc57a3c7aff830a99b2439e63f73ad515f7ab2447a80673"></a>PAUSED&#160;</td><td class="fielddoc"><p>The source is paused. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="gga6c94829f0dfe0e9696cc57a3c7aff830a09d4d696b4e935115b9313e3c412509a" name="gga6c94829f0dfe0e9696cc57a3c7aff830a09d4d696b4e935115b9313e3c412509a"></a>STOPPED&#160;</td><td class="fielddoc"><p>The source stopped playing. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="gaaca0122512499c4bd265f7357ccaaa04" name="gaaca0122512499c4bd265f7357ccaaa04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaaca0122512499c4bd265f7357ccaaa04">&#9670;&#160;</a></span>audio()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classtr_1_1AudioSystem.html">AudioSystem</a> &amp; tr::audio </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets a reference to the active audio system. </p>
-<p>This function cannot be called if the audio system isn't active.</p>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the audio system. </dd></dl>
-
-</div>
-</div>
-<a id="gaa5f35c8a137531fb28267c6da7f9b0bd" name="gaa5f35c8a137531fb28267c6da7f9b0bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa5f35c8a137531fb28267c6da7f9b0bd">&#9670;&#160;</a></span>audioActive()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool tr::audioActive </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets whether the audio system is active. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the audio system is active, and false otherwise. </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="gae9d633f69281a1e21914af48238b4e8d" name="gae9d633f69281a1e21914af48238b4e8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae9d633f69281a1e21914af48238b4e8d">&#9670;&#160;</a></span>OMNIDIRECTIONAL</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">glm::vec3 tr::OMNIDIRECTIONAL {0, 0, 0}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>0-length direction vector representing an omnidirectional audio source. </p>
-
-</div>
-</div>
-<a id="ga6340a356507e099bafcf3cdfe72dcc52" name="ga6340a356507e099bafcf3cdfe72dcc52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6340a356507e099bafcf3cdfe72dcc52">&#9670;&#160;</a></span>UNQUEUE_PROCESSED</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t tr::UNQUEUE_PROCESSED {std::numeric_limits&lt;std::size_t&gt;().max()}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sentinel value that tells the unqueueBuffers function to unqueue all processed buffers. </p>
-
-</div>
-</div>
+<p>The audio subsystem. </p>
+<p>An instance of <a class="el" href="classtr_1_1AudioSystem.html" title="Audio device and context manager required for using audio classes.">AudioSystem</a> must be created before any other functionality from this section can be used. </p>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

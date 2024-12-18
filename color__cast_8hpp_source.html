@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -18,6 +20,8 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,9 +30,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libtr
+   <div id="projectname">libtr<span id="projectnumber">&#160;0.1.0</span>
    </div>
-   <div id="projectbrief">Personal C++ base library for gamedev projects</div>
+   <div id="projectbrief">Base library for gamedev projects</div>
   </td>
  </tr>
  </tbody>
@@ -51,17 +55,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('color__cast_8hpp_source.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -83,12 +99,6 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_48c35ed6b28060506e9df53e28b74a05.html">tr</a></li>  </ul>
-</div>
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="headertitle"><div class="title">color_cast.hpp</div></div>
 </div><!--header-->
@@ -114,9 +124,9 @@ $(function(){ initResizable(false); });
 <div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="concepttr_1_1ColorCastableTo.html">   42</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="concepttr_1_1ColorCastableTo.html">ColorCastableTo</a> =</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <a class="code hl_concept" href="concepttr_1_1BuiltinColor.html">BuiltinColor</a>&lt;std::remove_cvref_t&lt;<span class="keyword">typename</span> boost::function_traits&lt;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <a class="code hl_typedef" href="namespacetr.html#a7d27da0979dd5dcecf290bb304d95aa5">remove_noexcept_t</a>&lt;<span class="keyword">decltype</span>(ColorCaster&lt;T&gt;::fromBuiltin)&gt;&gt;::argument_type&gt;&gt; &amp;&amp;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <a class="code hl_typedef" href="group__concepts.html#ga7d27da0979dd5dcecf290bb304d95aa5">remove_noexcept_t</a>&lt;<span class="keyword">decltype</span>(ColorCaster&lt;T&gt;::fromBuiltin)&gt;&gt;::argument_type&gt;&gt; &amp;&amp;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keyword">requires</span>(</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keyword">typename</span> boost::function_traits&lt;<a class="code hl_typedef" href="namespacetr.html#a7d27da0979dd5dcecf290bb304d95aa5">remove_noexcept_t</a>&lt;<span class="keyword">decltype</span>(ColorCaster&lt;T&gt;::fromBuiltin)&gt;&gt;::argument_type</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keyword">typename</span> boost::function_traits&lt;<a class="code hl_typedef" href="group__concepts.html#ga7d27da0979dd5dcecf290bb304d95aa5">remove_noexcept_t</a>&lt;<span class="keyword">decltype</span>(ColorCaster&lt;T&gt;::fromBuiltin)&gt;&gt;::argument_type</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                val) {</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            { ColorCaster&lt;T&gt;::fromBuiltin(val) } -&gt; std::same_as&lt;T&gt;;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        };</div>
@@ -215,39 +225,42 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>} <span class="comment">// namespace tr</span></div>
 <div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
 <div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span><span class="preprocessor">#include &quot;color_cast_impl.hpp&quot;</span></div>
-<div class="ttc" id="aconcepttr_1_1BuiltinColor_html"><div class="ttname"><a href="concepttr_1_1BuiltinColor.html">tr::BuiltinColor</a></div><div class="ttdoc">Concept denoting a built-in color type (as opposed to custom castable color types).</div><div class="ttdef"><b>Definition</b> color.hpp:657</div></div>
+<div class="ttc" id="aconcepttr_1_1BuiltinColor_html"><div class="ttname"><a href="concepttr_1_1BuiltinColor.html">tr::BuiltinColor</a></div><div class="ttdoc">Concept denoting a built-in color type (as opposed to custom castable color types).</div><div class="ttdef"><b>Definition</b> color.hpp:658</div></div>
 <div class="ttc" id="aconcepttr_1_1ColorCastableFrom_html"><div class="ttname"><a href="concepttr_1_1ColorCastableFrom.html">tr::ColorCastableFrom</a></div><div class="ttdoc">Concept that denotes a type able to be color casted from.</div><div class="ttdef"><b>Definition</b> color_cast.hpp:31</div></div>
 <div class="ttc" id="aconcepttr_1_1ColorCastableTo_html"><div class="ttname"><a href="concepttr_1_1ColorCastableTo.html">tr::ColorCastableTo</a></div><div class="ttdoc">Concept that denotes a type able to be color casted to.</div><div class="ttdef"><b>Definition</b> color_cast.hpp:42</div></div>
-<div class="ttc" id="aconcepttr_1_1SpecializationOf_html"><div class="ttname"><a href="concepttr_1_1SpecializationOf.html">tr::SpecializationOf</a></div><div class="ttdoc">Concept that denotes a type is a specialization of a certain template.</div><div class="ttdef"><b>Definition</b> concepts.hpp:61</div></div>
+<div class="ttc" id="aconcepttr_1_1SpecializationOf_html"><div class="ttname"><a href="concepttr_1_1SpecializationOf.html">tr::SpecializationOf</a></div><div class="ttdoc">Concept that denotes a type is a specialization of a certain template.</div><div class="ttdef"><b>Definition</b> concepts.hpp:67</div></div>
 <div class="ttc" id="agroup__color_html_ga06aeaa45377e5bfdce392f3dfb7e6bc3"><div class="ttname"><a href="group__color.html#ga06aeaa45377e5bfdce392f3dfb7e6bc3">tr::color_cast</a></div><div class="ttdeci">constexpr To color_cast(const From &amp;from) noexcept</div><div class="ttdoc">Converts a red channel color to a built-in color.</div></div>
-<div class="ttc" id="anamespacetr_html"><div class="ttname"><a href="namespacetr.html">tr</a></div><div class="ttdoc">Namespace containing all libtr functionality.</div><div class="ttdef"><b>Definition</b> angle.hpp:5</div></div>
-<div class="ttc" id="anamespacetr_html_a7d27da0979dd5dcecf290bb304d95aa5"><div class="ttname"><a href="namespacetr.html#a7d27da0979dd5dcecf290bb304d95aa5">tr::remove_noexcept_t</a></div><div class="ttdeci">remove_noexcept&lt; T &gt;::type remove_noexcept_t</div><div class="ttdoc">Removes noexcept qualification from a function type.</div><div class="ttdef"><b>Definition</b> concepts.hpp:77</div></div>
-<div class="ttc" id="astructtr_1_1ABGR__Ui16__1__5__5__5_html"><div class="ttname"><a href="structtr_1_1ABGR__Ui16__1__5__5__5.html">tr::ABGR_Ui16_1_5_5_5</a></div><div class="ttdoc">Special packed ABGR color format.</div><div class="ttdef"><b>Definition</b> color.hpp:441</div></div>
-<div class="ttc" id="astructtr_1_1ABGR__Ui16__4__4__4__4_html"><div class="ttname"><a href="structtr_1_1ABGR__Ui16__4__4__4__4.html">tr::ABGR_Ui16_4_4_4_4</a></div><div class="ttdoc">Special packed ABGR color format.</div><div class="ttdef"><b>Definition</b> color.hpp:414</div></div>
-<div class="ttc" id="astructtr_1_1ABGR__Ui32__2__10__10__10_html"><div class="ttname"><a href="structtr_1_1ABGR__Ui32__2__10__10__10.html">tr::ABGR_Ui32_2_10_10_10</a></div><div class="ttdoc">Special packed ABGR color format.</div><div class="ttdef"><b>Definition</b> color.hpp:468</div></div>
-<div class="ttc" id="astructtr_1_1ARGB__Ui16__1__5__5__5_html"><div class="ttname"><a href="structtr_1_1ARGB__Ui16__1__5__5__5.html">tr::ARGB_Ui16_1_5_5_5</a></div><div class="ttdoc">Special packed ARGB color format.</div><div class="ttdef"><b>Definition</b> color.hpp:602</div></div>
-<div class="ttc" id="astructtr_1_1ARGB__Ui16__4__4__4__4_html"><div class="ttname"><a href="structtr_1_1ARGB__Ui16__4__4__4__4.html">tr::ARGB_Ui16_4_4_4_4</a></div><div class="ttdoc">Special packed ARGB color format.</div><div class="ttdef"><b>Definition</b> color.hpp:575</div></div>
-<div class="ttc" id="astructtr_1_1ARGB__Ui32__2__10__10__10_html"><div class="ttname"><a href="structtr_1_1ARGB__Ui32__2__10__10__10.html">tr::ARGB_Ui32_2_10_10_10</a></div><div class="ttdoc">Special packed ARGB color format.</div><div class="ttdef"><b>Definition</b> color.hpp:629</div></div>
-<div class="ttc" id="astructtr_1_1BGRA__Ui16__4__4__4__4_html"><div class="ttname"><a href="structtr_1_1BGRA__Ui16__4__4__4__4.html">tr::BGRA_Ui16_4_4_4_4</a></div><div class="ttdoc">Special packed BGRA color format.</div><div class="ttdef"><b>Definition</b> color.hpp:495</div></div>
-<div class="ttc" id="astructtr_1_1BGRA__Ui16__5__5__5__1_html"><div class="ttname"><a href="structtr_1_1BGRA__Ui16__5__5__5__1.html">tr::BGRA_Ui16_5_5_5_1</a></div><div class="ttdoc">Special packed BGRA color format.</div><div class="ttdef"><b>Definition</b> color.hpp:521</div></div>
-<div class="ttc" id="astructtr_1_1BGRA__Ui32__10__10__10__2_html"><div class="ttname"><a href="structtr_1_1BGRA__Ui32__10__10__10__2.html">tr::BGRA_Ui32_10_10_10_2</a></div><div class="ttdoc">Special packed BGRA color format.</div><div class="ttdef"><b>Definition</b> color.hpp:548</div></div>
-<div class="ttc" id="astructtr_1_1BGR__Ui16__5__6__5_html"><div class="ttname"><a href="structtr_1_1BGR__Ui16__5__6__5.html">tr::BGR_Ui16_5_6_5</a></div><div class="ttdoc">Special packed BGR color format.</div><div class="ttdef"><b>Definition</b> color.hpp:311</div></div>
-<div class="ttc" id="astructtr_1_1BGR__Ui8__3__3__2_html"><div class="ttname"><a href="structtr_1_1BGR__Ui8__3__3__2.html">tr::BGR_Ui8_3_3_2</a></div><div class="ttdoc">Special packed BGR color format.</div><div class="ttdef"><b>Definition</b> color.hpp:289</div></div>
+<div class="ttc" id="agroup__concepts_html_ga7d27da0979dd5dcecf290bb304d95aa5"><div class="ttname"><a href="group__concepts.html#ga7d27da0979dd5dcecf290bb304d95aa5">tr::remove_noexcept_t</a></div><div class="ttdeci">remove_noexcept&lt; T &gt;::type remove_noexcept_t</div><div class="ttdoc">Removes noexcept qualification from a function type.</div><div class="ttdef"><b>Definition</b> concepts.hpp:83</div></div>
+<div class="ttc" id="anamespacetr_html"><div class="ttname"><a href="namespacetr.html">tr</a></div><div class="ttdef"><b>Definition</b> angle.hpp:5</div></div>
+<div class="ttc" id="astructtr_1_1ABGR__Ui16__1__5__5__5_html"><div class="ttname"><a href="structtr_1_1ABGR__Ui16__1__5__5__5.html">tr::ABGR_Ui16_1_5_5_5</a></div><div class="ttdoc">Special packed ABGR color format.</div><div class="ttdef"><b>Definition</b> color.hpp:442</div></div>
+<div class="ttc" id="astructtr_1_1ABGR__Ui16__4__4__4__4_html"><div class="ttname"><a href="structtr_1_1ABGR__Ui16__4__4__4__4.html">tr::ABGR_Ui16_4_4_4_4</a></div><div class="ttdoc">Special packed ABGR color format.</div><div class="ttdef"><b>Definition</b> color.hpp:415</div></div>
+<div class="ttc" id="astructtr_1_1ABGR__Ui32__2__10__10__10_html"><div class="ttname"><a href="structtr_1_1ABGR__Ui32__2__10__10__10.html">tr::ABGR_Ui32_2_10_10_10</a></div><div class="ttdoc">Special packed ABGR color format.</div><div class="ttdef"><b>Definition</b> color.hpp:469</div></div>
+<div class="ttc" id="astructtr_1_1ARGB__Ui16__1__5__5__5_html"><div class="ttname"><a href="structtr_1_1ARGB__Ui16__1__5__5__5.html">tr::ARGB_Ui16_1_5_5_5</a></div><div class="ttdoc">Special packed ARGB color format.</div><div class="ttdef"><b>Definition</b> color.hpp:603</div></div>
+<div class="ttc" id="astructtr_1_1ARGB__Ui16__4__4__4__4_html"><div class="ttname"><a href="structtr_1_1ARGB__Ui16__4__4__4__4.html">tr::ARGB_Ui16_4_4_4_4</a></div><div class="ttdoc">Special packed ARGB color format.</div><div class="ttdef"><b>Definition</b> color.hpp:576</div></div>
+<div class="ttc" id="astructtr_1_1ARGB__Ui32__2__10__10__10_html"><div class="ttname"><a href="structtr_1_1ARGB__Ui32__2__10__10__10.html">tr::ARGB_Ui32_2_10_10_10</a></div><div class="ttdoc">Special packed ARGB color format.</div><div class="ttdef"><b>Definition</b> color.hpp:630</div></div>
+<div class="ttc" id="astructtr_1_1BGRA__Ui16__4__4__4__4_html"><div class="ttname"><a href="structtr_1_1BGRA__Ui16__4__4__4__4.html">tr::BGRA_Ui16_4_4_4_4</a></div><div class="ttdoc">Special packed BGRA color format.</div><div class="ttdef"><b>Definition</b> color.hpp:496</div></div>
+<div class="ttc" id="astructtr_1_1BGRA__Ui16__5__5__5__1_html"><div class="ttname"><a href="structtr_1_1BGRA__Ui16__5__5__5__1.html">tr::BGRA_Ui16_5_5_5_1</a></div><div class="ttdoc">Special packed BGRA color format.</div><div class="ttdef"><b>Definition</b> color.hpp:522</div></div>
+<div class="ttc" id="astructtr_1_1BGRA__Ui32__10__10__10__2_html"><div class="ttname"><a href="structtr_1_1BGRA__Ui32__10__10__10__2.html">tr::BGRA_Ui32_10_10_10_2</a></div><div class="ttdoc">Special packed BGRA color format.</div><div class="ttdef"><b>Definition</b> color.hpp:549</div></div>
+<div class="ttc" id="astructtr_1_1BGR__Ui16__5__6__5_html"><div class="ttname"><a href="structtr_1_1BGR__Ui16__5__6__5.html">tr::BGR_Ui16_5_6_5</a></div><div class="ttdoc">Special packed BGR color format.</div><div class="ttdef"><b>Definition</b> color.hpp:312</div></div>
+<div class="ttc" id="astructtr_1_1BGR__Ui8__3__3__2_html"><div class="ttname"><a href="structtr_1_1BGR__Ui8__3__3__2.html">tr::BGR_Ui8_3_3_2</a></div><div class="ttdoc">Special packed BGR color format.</div><div class="ttdef"><b>Definition</b> color.hpp:290</div></div>
 <div class="ttc" id="astructtr_1_1ColorCaster_3_01HSV_01_4_html_a38f84621ecf947aa45d0e6e19e955f86"><div class="ttname"><a href="structtr_1_1ColorCaster_3_01HSV_01_4.html#a38f84621ecf947aa45d0e6e19e955f86">tr::ColorCaster&lt; HSV &gt;::fromBuiltin</a></div><div class="ttdeci">static constexpr HSV fromBuiltin(const RGBAF &amp;from) noexcept</div><div class="ttdoc">Casts an RGBAF value to an HSV value.</div></div>
 <div class="ttc" id="astructtr_1_1ColorCaster_3_01HSV_01_4_html_ad15ff2d24c8432cf5d8b63c31a22f595"><div class="ttname"><a href="structtr_1_1ColorCaster_3_01HSV_01_4.html#ad15ff2d24c8432cf5d8b63c31a22f595">tr::ColorCaster&lt; HSV &gt;::toBuiltin</a></div><div class="ttdeci">static constexpr RGBAF toBuiltin(const HSV &amp;from) noexcept</div><div class="ttdoc">Casts an HSV value to a floating point RGBA value.</div></div>
 <div class="ttc" id="astructtr_1_1ColorCaster_html"><div class="ttname"><a href="structtr_1_1ColorCaster.html">tr::ColorCaster</a></div><div class="ttdoc">Interface for custom casters for use in color_cast.</div><div class="ttdef"><b>Definition</b> color_cast.hpp:22</div></div>
-<div class="ttc" id="astructtr_1_1HSV_html"><div class="ttname"><a href="structtr_1_1HSV.html">tr::HSV</a></div><div class="ttdoc">Three-channel HSV color.</div><div class="ttdef"><b>Definition</b> color.hpp:223</div></div>
-<div class="ttc" id="astructtr_1_1RGBA__Ui16__4__4__4__4_html"><div class="ttname"><a href="structtr_1_1RGBA__Ui16__4__4__4__4.html">tr::RGBA_Ui16_4_4_4_4</a></div><div class="ttdoc">Special packed RGBA color format.</div><div class="ttdef"><b>Definition</b> color.hpp:333</div></div>
-<div class="ttc" id="astructtr_1_1RGBA__Ui16__5__5__5__1_html"><div class="ttname"><a href="structtr_1_1RGBA__Ui16__5__5__5__1.html">tr::RGBA_Ui16_5_5_5_1</a></div><div class="ttdoc">Special packed RGBA color format.</div><div class="ttdef"><b>Definition</b> color.hpp:360</div></div>
-<div class="ttc" id="astructtr_1_1RGBA__Ui32__10__10__10__2_html"><div class="ttname"><a href="structtr_1_1RGBA__Ui32__10__10__10__2.html">tr::RGBA_Ui32_10_10_10_2</a></div><div class="ttdoc">Special packed RGBA color format.</div><div class="ttdef"><b>Definition</b> color.hpp:387</div></div>
-<div class="ttc" id="astructtr_1_1RGBA_html"><div class="ttname"><a href="structtr_1_1RGBA.html">tr::RGBA</a></div><div class="ttdoc">Four-channel RGBA color.</div><div class="ttdef"><b>Definition</b> color.hpp:137</div></div>
-<div class="ttc" id="astructtr_1_1RGB__Ui16__5__6__5_html"><div class="ttname"><a href="structtr_1_1RGB__Ui16__5__6__5.html">tr::RGB_Ui16_5_6_5</a></div><div class="ttdoc">Special packed RGB color format.</div><div class="ttdef"><b>Definition</b> color.hpp:267</div></div>
-<div class="ttc" id="astructtr_1_1RGB__Ui8__2__3__3_html"><div class="ttname"><a href="structtr_1_1RGB__Ui8__2__3__3.html">tr::RGB_Ui8_2_3_3</a></div><div class="ttdoc">Special packed RGB color format.</div><div class="ttdef"><b>Definition</b> color.hpp:245</div></div>
+<div class="ttc" id="astructtr_1_1HSV_html"><div class="ttname"><a href="structtr_1_1HSV.html">tr::HSV</a></div><div class="ttdoc">Three-channel HSV color.</div><div class="ttdef"><b>Definition</b> color.hpp:224</div></div>
+<div class="ttc" id="astructtr_1_1RGBA__Ui16__4__4__4__4_html"><div class="ttname"><a href="structtr_1_1RGBA__Ui16__4__4__4__4.html">tr::RGBA_Ui16_4_4_4_4</a></div><div class="ttdoc">Special packed RGBA color format.</div><div class="ttdef"><b>Definition</b> color.hpp:334</div></div>
+<div class="ttc" id="astructtr_1_1RGBA__Ui16__5__5__5__1_html"><div class="ttname"><a href="structtr_1_1RGBA__Ui16__5__5__5__1.html">tr::RGBA_Ui16_5_5_5_1</a></div><div class="ttdoc">Special packed RGBA color format.</div><div class="ttdef"><b>Definition</b> color.hpp:361</div></div>
+<div class="ttc" id="astructtr_1_1RGBA__Ui32__10__10__10__2_html"><div class="ttname"><a href="structtr_1_1RGBA__Ui32__10__10__10__2.html">tr::RGBA_Ui32_10_10_10_2</a></div><div class="ttdoc">Special packed RGBA color format.</div><div class="ttdef"><b>Definition</b> color.hpp:388</div></div>
+<div class="ttc" id="astructtr_1_1RGBA_html"><div class="ttname"><a href="structtr_1_1RGBA.html">tr::RGBA</a></div><div class="ttdoc">Four-channel RGBA color.</div><div class="ttdef"><b>Definition</b> color.hpp:138</div></div>
+<div class="ttc" id="astructtr_1_1RGB__Ui16__5__6__5_html"><div class="ttname"><a href="structtr_1_1RGB__Ui16__5__6__5.html">tr::RGB_Ui16_5_6_5</a></div><div class="ttdoc">Special packed RGB color format.</div><div class="ttdef"><b>Definition</b> color.hpp:268</div></div>
+<div class="ttc" id="astructtr_1_1RGB__Ui8__2__3__3_html"><div class="ttname"><a href="structtr_1_1RGB__Ui8__2__3__3.html">tr::RGB_Ui8_2_3_3</a></div><div class="ttdoc">Special packed RGB color format.</div><div class="ttdef"><b>Definition</b> color.hpp:246</div></div>
 </div><!-- fragment --></div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_48c35ed6b28060506e9df53e28b74a05.html">tr</a></li><li class="navelem"><b>color_cast.hpp</b></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

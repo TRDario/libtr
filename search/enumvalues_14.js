@@ -8,6 +8,6 @@ var searchData=
   ['underline_5',['UNDERLINE',['../classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06a0086c73c90c261db630b4dc8aea09bcf',1,'tr::TTFont']]],
   ['underscore_6',['UNDERSCORE',['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88aa058c5dc734e54ff3d93b96acac339f4',1,'tr::Keycode']]],
   ['unknown_7',['UNKNOWN',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464a696b031073e74bf2cb98e5ef201d4aa3',1,'tr::BitmapFormat::UNKNOWN'],['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204da696b031073e74bf2cb98e5ef201d4aa3',1,'tr::Scancode::UNKNOWN'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a696b031073e74bf2cb98e5ef201d4aa3',1,'tr::Keycode::UNKNOWN']]],
-  ['until_5ffocused_8',['UNTIL_FOCUSED',['../group__input.html#gga41769bf3df85aadb5d910148498e9585a37ee9d0a11de019f916518dc5f79c2b3',1,'tr']]],
+  ['until_5ffocused_8',['UNTIL_FOCUSED',['../group__window.html#gga41769bf3df85aadb5d910148498e9585a37ee9d0a11de019f916518dc5f79c2b3',1,'tr']]],
   ['up_9',['UP',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204dafbaedde498cdead4f2780217646e9ba1',1,'tr::Scancode::UP'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88afbaedde498cdead4f2780217646e9ba1',1,'tr::Keycode::UP']]]
 ];

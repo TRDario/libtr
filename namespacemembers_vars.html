@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -18,6 +20,8 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,9 +30,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libtr
+   <div id="projectname">libtr<span id="projectnumber">&#160;0.1.0</span>
    </div>
-   <div id="projectbrief">Personal C++ base library for gamedev projects</div>
+   <div id="projectbrief">Base library for gamedev projects</div>
   </td>
  </tr>
  </tbody>
@@ -51,19 +55,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="doc-content">
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('namespacemembers_vars.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -86,109 +100,32 @@ $(function(){ initResizable(false); });
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all namespace variables with links to the namespace documentation for each variable:</div>
-
-<h3><a id="index_a" name="index_a"></a>- a -</h3><ul>
-<li>ALL_MIPMAPS&#160;:&#160;<a class="el" href="group__graphics.html#ga5f6d61b2b5572a6723926bd8251ed289">tr</a></li>
-<li>ALPHA_BLENDING&#160;:&#160;<a class="el" href="group__graphics.html#gae3976b7bd434a18e18849f04b0f4fc1c">tr</a></li>
-</ul>
-
-
-<h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
-<li>CENTERED_POS&#160;:&#160;<a class="el" href="group__input.html#ga3d79ab32d9b1afaebc7c4f45002ae5b6">tr</a></li>
-<li>CLIPBOARD_UPDATE&#160;:&#160;<a class="el" href="namespacetr_1_1event__type.html#ab486d7d37fcc94d319914397eb05ceab">tr::event_type</a></li>
-<li>colors&#160;:&#160;<a class="el" href="group__drawing.html#gae217c35009c80b033d79c54b66c6329b">tr</a></li>
-</ul>
-
-
-<h3><a id="index_d" name="index_d"></a>- d -</h3><ul>
-<li>DEFAULT_DISPLAY&#160;:&#160;<a class="el" href="group__input.html#ga88146faba98c2818257ab7b3d06f5392">tr</a></li>
-<li>DESKTOP_MODE&#160;:&#160;<a class="el" href="group__input.html#ga5f87abb661ca3280aa64f73b1395589b">tr</a></li>
-<li>DRAW&#160;:&#160;<a class="el" href="namespacetr_1_1event__type.html#aa1a474410716f80d2fba39c8927473f5">tr::event_type</a></li>
-</ul>
-
-
-<h3><a id="index_h" name="index_h"></a>- h -</h3><ul>
-<li>HIGHEST_MODE&#160;:&#160;<a class="el" href="group__input.html#ga358e16e96eb853ad393b10bbc9b9a7b7">tr</a></li>
-</ul>
-
-
-<h3><a id="index_k" name="index_k"></a>- k -</h3><ul>
-<li>KEY_DOWN&#160;:&#160;<a class="el" href="namespacetr_1_1event__type.html#a51961224cded7ae6f47ae6c8dcba3b47">tr::event_type</a></li>
-<li>KEY_UP&#160;:&#160;<a class="el" href="namespacetr_1_1event__type.html#aaf2071fa91de0561a7b56c4cfdbb9a5b">tr::event_type</a></li>
-<li>KEYMAP_CHANGE&#160;:&#160;<a class="el" href="namespacetr_1_1event__type.html#aa45cba70e16fc1d51ccdd47dd4bb308d">tr::event_type</a></li>
-</ul>
-
-
-<h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
-<li>MOUSE_DOWN&#160;:&#160;<a class="el" href="namespacetr_1_1event__type.html#ac164dea774074dfea709b1360324c56b">tr::event_type</a></li>
-<li>MOUSE_MOTION&#160;:&#160;<a class="el" href="namespacetr_1_1event__type.html#a1fd25ba53cdf2def4d1bb0cfd77a305f">tr::event_type</a></li>
-<li>MOUSE_UP&#160;:&#160;<a class="el" href="namespacetr_1_1event__type.html#a30719b0dbdf48e5eeed7cf6f39eed188">tr::event_type</a></li>
-<li>MOUSE_WHEEL&#160;:&#160;<a class="el" href="namespacetr_1_1event__type.html#ab8fd22e557bd9c13a35353c1be49fa93">tr::event_type</a></li>
-</ul>
-
-
-<h3><a id="index_n" name="index_n"></a>- n -</h3><ul>
-<li>NO_DRAW_EVENTS&#160;:&#160;<a class="el" href="group__event.html#gaac3af45cd8fea144826907bb50e23931">tr</a></li>
-<li>NO_EMPTY_HANDLE_CHECK&#160;:&#160;<a class="el" href="namespacetr.html#a1e7ac718fa682f5f24962b1ff9394da7">tr</a></li>
-<li>NO_MIPMAPS&#160;:&#160;<a class="el" href="group__graphics.html#ga02fff69ed521e43c379d217660940615">tr</a></li>
-</ul>
-
-
-<h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
-<li>OMNIDIRECTIONAL&#160;:&#160;<a class="el" href="group__audio.html#gae9d633f69281a1e21914af48238b4e8d">tr</a></li>
-</ul>
-
-
-<h3><a id="index_p" name="index_p"></a>- p -</h3><ul>
-<li>positions&#160;:&#160;<a class="el" href="group__drawing.html#ga31a7b1cca56e3c10e4478f5b45ceb5bb">tr</a></li>
-<li>PREMUL_ALPHA_BLENDING&#160;:&#160;<a class="el" href="group__graphics.html#gaedf4dc5efc833855ae8e7305afe8a958">tr</a></li>
-</ul>
-
-
-<h3><a id="index_q" name="index_q"></a>- q -</h3><ul>
-<li>QUIT&#160;:&#160;<a class="el" href="namespacetr_1_1event__type.html#a5c75642c58601c4ed13c028c2e2f198e">tr::event_type</a></li>
-</ul>
-
-
-<h3><a id="index_t" name="index_t"></a>- t -</h3><ul>
-<li>TEXT_EDIT&#160;:&#160;<a class="el" href="namespacetr_1_1event__type.html#a4203ce47b8d3493da95c3de9a5eb3c7d">tr::event_type</a></li>
-<li>TEXT_INPUT&#160;:&#160;<a class="el" href="namespacetr_1_1event__type.html#aff7b615c3a2467c8e6252fc1c50174b8">tr::event_type</a></li>
-<li>TICK&#160;:&#160;<a class="el" href="namespacetr_1_1event__type.html#a5a4d013362f2fdb73faeabf8af069bc9">tr::event_type</a></li>
-<li>TICK_FOREVER&#160;:&#160;<a class="el" href="group__event.html#ga48b9aa5c3a496d0b7e622af0f3e7b0c5">tr</a></li>
-</ul>
-
-
-<h3><a id="index_u" name="index_u"></a>- u -</h3><ul>
-<li>UNQUEUE_PROCESSED&#160;:&#160;<a class="el" href="group__audio.html#ga6340a356507e099bafcf3cdfe72dcc52">tr</a></li>
-<li>USER_EVENT_START&#160;:&#160;<a class="el" href="group__event.html#gad6f655f03f325a9e44c1d39e1a25728e">tr</a></li>
-<li>uvs&#160;:&#160;<a class="el" href="group__drawing.html#ga5b6d376f9261a7e0ce800c9292ae43ec">tr</a></li>
-</ul>
-
-
-<h3><a id="index_w" name="index_w"></a>- w -</h3><ul>
-<li>WINDOW&#160;:&#160;<a class="el" href="namespacetr_1_1event__type.html#a39b734a4c85067c0867fc998443c1dc2">tr::event_type</a></li>
-</ul>
-
-
-<h3><a id="index_x" name="index_x"></a>- x -</h3><ul>
-<li>X_AXIS&#160;:&#160;<a class="el" href="namespacetr.html#ad9cf1feaffaf287bb81e633aeb5fa58f">tr</a></li>
-</ul>
-
-
-<h3><a id="index_y" name="index_y"></a>- y -</h3><ul>
-<li>Y_AXIS&#160;:&#160;<a class="el" href="namespacetr.html#a14a1d007443269c085460bdbdd7099f7">tr</a></li>
-</ul>
-
-
-<h3><a id="index_z" name="index_z"></a>- z -</h3><ul>
-<li>Z_AXIS&#160;:&#160;<a class="el" href="namespacetr.html#a2d0d5446131cb16ef6b056526b144b3b">tr</a></li>
+<div class="textblock">Here is a list of all namespace variables with links to the namespace documentation for each variable:</div><ul>
+<li>ALL_MIPMAPS&#160;:&#160;<a class="el" href="group__texture.html#ga5f6d61b2b5572a6723926bd8251ed289">tr</a></li>
+<li>ALPHA_BLENDING&#160;:&#160;<a class="el" href="group__graphics__context.html#gae3976b7bd434a18e18849f04b0f4fc1c">tr</a></li>
+<li>CENTERED_POS&#160;:&#160;<a class="el" href="group__window.html#ga3d79ab32d9b1afaebc7c4f45002ae5b6">tr</a></li>
+<li>colors&#160;:&#160;<a class="el" href="group__vertex.html#gae217c35009c80b033d79c54b66c6329b">tr</a></li>
+<li>DEFAULT_DISPLAY&#160;:&#160;<a class="el" href="group__display.html#ga88146faba98c2818257ab7b3d06f5392">tr</a></li>
+<li>DESKTOP_MODE&#160;:&#160;<a class="el" href="group__display.html#ga5f87abb661ca3280aa64f73b1395589b">tr</a></li>
+<li>HIGHEST_MODE&#160;:&#160;<a class="el" href="group__display.html#ga358e16e96eb853ad393b10bbc9b9a7b7">tr</a></li>
+<li>NO_EMPTY_HANDLE_CHECK&#160;:&#160;<a class="el" href="group__handle.html#ga1e7ac718fa682f5f24962b1ff9394da7">tr</a></li>
+<li>NO_MIPMAPS&#160;:&#160;<a class="el" href="group__texture.html#ga02fff69ed521e43c379d217660940615">tr</a></li>
+<li>OMNIDIRECTIONAL&#160;:&#160;<a class="el" href="group__audio__source.html#gae9d633f69281a1e21914af48238b4e8d">tr</a></li>
+<li>positions&#160;:&#160;<a class="el" href="group__vertex.html#ga31a7b1cca56e3c10e4478f5b45ceb5bb">tr</a></li>
+<li>PREMUL_ALPHA_BLENDING&#160;:&#160;<a class="el" href="group__graphics__context.html#gaedf4dc5efc833855ae8e7305afe8a958">tr</a></li>
+<li>UNQUEUE_PROCESSED&#160;:&#160;<a class="el" href="group__audio__source.html#ga6340a356507e099bafcf3cdfe72dcc52">tr</a></li>
+<li>uvs&#160;:&#160;<a class="el" href="group__vertex.html#ga5b6d376f9261a7e0ce800c9292ae43ec">tr</a></li>
+<li>X_AXIS&#160;:&#160;<a class="el" href="group__geometry.html#gad9cf1feaffaf287bb81e633aeb5fa58f">tr</a></li>
+<li>Y_AXIS&#160;:&#160;<a class="el" href="group__geometry.html#ga14a1d007443269c085460bdbdd7099f7">tr</a></li>
+<li>Z_AXIS&#160;:&#160;<a class="el" href="group__geometry.html#ga2d0d5446131cb16ef6b056526b144b3b">tr</a></li>
 </ul>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

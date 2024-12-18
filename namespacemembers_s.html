@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -18,6 +20,8 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,9 +30,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libtr
+   <div id="projectname">libtr<span id="projectnumber">&#160;0.1.0</span>
    </div>
-   <div id="projectbrief">Personal C++ base library for gamedev projects</div>
+   <div id="projectbrief">Base library for gamedev projects</div>
   </td>
  </tr>
  </tbody>
@@ -51,19 +55,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="doc-content">
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('namespacemembers_s.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -89,27 +103,30 @@ $(function(){ initResizable(false); });
 <div class="textblock">Here is a list of all namespace members with links to the namespace documentation for each member:</div>
 
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
-<li>scaleAroundPoint2()&#160;:&#160;<a class="el" href="namespacetr.html#ad85ea7ecfb905237e9cf69c1429a926a">tr</a></li>
-<li>scaleAroundPoint3()&#160;:&#160;<a class="el" href="namespacetr.html#a470c9e1a07c8a88a56986c2ad9909323">tr</a></li>
-<li>Seconds&#160;:&#160;<a class="el" href="namespacetr.html#a6cd06b846212534f302ec0a180a4c0d0">tr</a></li>
-<li>SecondsD&#160;:&#160;<a class="el" href="namespacetr.html#a0f92e87943507c498db866578bf86b58">tr</a></li>
-<li>SecondsF&#160;:&#160;<a class="el" href="namespacetr.html#a8bf48222a318f44cc048821df3489576">tr</a></li>
-<li>segmentIntersect()&#160;:&#160;<a class="el" href="namespacetr.html#a5cd1fa20c4094ba1e7f59b51e2fdd6da">tr</a></li>
-<li>ShaderType&#160;:&#160;<a class="el" href="group__graphics.html#gafcfa3e5f9682128a25a9ac5eb1de2579">tr</a></li>
+<li>scaleAroundPoint2()&#160;:&#160;<a class="el" href="group__geometry.html#gad85ea7ecfb905237e9cf69c1429a926a">tr</a></li>
+<li>scaleAroundPoint3()&#160;:&#160;<a class="el" href="group__geometry.html#ga470c9e1a07c8a88a56986c2ad9909323">tr</a></li>
+<li>Seconds&#160;:&#160;<a class="el" href="group__chrono.html#ga6cd06b846212534f302ec0a180a4c0d0">tr</a></li>
+<li>SecondsD&#160;:&#160;<a class="el" href="group__chrono.html#ga0f92e87943507c498db866578bf86b58">tr</a></li>
+<li>SecondsF&#160;:&#160;<a class="el" href="group__chrono.html#ga8bf48222a318f44cc048821df3489576">tr</a></li>
+<li>SecondsI&#160;:&#160;<a class="el" href="group__chrono.html#gac3b0f92332e2487ba38ba305d8e3c09e">tr</a></li>
+<li>segmentIntersect()&#160;:&#160;<a class="el" href="group__geometry.html#ga5cd1fa20c4094ba1e7f59b51e2fdd6da">tr</a></li>
+<li>ShaderType&#160;:&#160;<a class="el" href="group__shader.html#gafcfa3e5f9682128a25a9ac5eb1de2579">tr</a></li>
 <li>smoothArcVerticesCount()&#160;:&#160;<a class="el" href="group__drawing.html#gac24a040a181fa6027de10abac6f1fe63">tr</a></li>
 <li>smoothPolygonVerticesCount()&#160;:&#160;<a class="el" href="group__drawing.html#ga02087bdad548abf300201ad4733afffa">tr</a></li>
-<li>StaticStringHashMap&#160;:&#160;<a class="el" href="namespacetr.html#a8014c86bab19adcb28b1ba1b58119ce9">tr</a></li>
-<li>StencilFace&#160;:&#160;<a class="el" href="group__graphics.html#gae1a255c2dd97c61884a0c90d6e7aae8f">tr</a></li>
-<li>StencilOperation&#160;:&#160;<a class="el" href="group__graphics.html#ga8c440fc4a94422129e86a69114e35b50">tr</a></li>
-<li>StringHashMap&#160;:&#160;<a class="el" href="namespacetr.html#a75ea6209bc089aebbd5821b3028643d9">tr</a></li>
-<li>Swizzle&#160;:&#160;<a class="el" href="group__graphics.html#ga228d86137368dd348340097c8a515439">tr</a></li>
-<li>SysCursor&#160;:&#160;<a class="el" href="group__input.html#gafb288c9c0ebc6c9d4b511786aadb5d8e">tr</a></li>
+<li>StaticStringHashMap&#160;:&#160;<a class="el" href="group__hash__map.html#ga8014c86bab19adcb28b1ba1b58119ce9">tr</a></li>
+<li>StencilFace&#160;:&#160;<a class="el" href="group__graphics__context.html#gae1a255c2dd97c61884a0c90d6e7aae8f">tr</a></li>
+<li>StencilOperation&#160;:&#160;<a class="el" href="group__graphics__context.html#ga8c440fc4a94422129e86a69114e35b50">tr</a></li>
+<li>StringHashMap&#160;:&#160;<a class="el" href="group__hash__map.html#ga75ea6209bc089aebbd5821b3028643d9">tr</a></li>
+<li>Swizzle&#160;:&#160;<a class="el" href="group__texture.html#ga228d86137368dd348340097c8a515439">tr</a></li>
+<li>SysCursor&#160;:&#160;<a class="el" href="group__mouse.html#gafb288c9c0ebc6c9d4b511786aadb5d8e">tr</a></li>
 </ul>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -18,6 +20,8 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,9 +30,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libtr
+   <div id="projectname">libtr<span id="projectnumber">&#160;0.1.0</span>
    </div>
-   <div id="projectbrief">Personal C++ base library for gamedev projects</div>
+   <div id="projectbrief">Base library for gamedev projects</div>
   </td>
  </tr>
  </tbody>
@@ -51,19 +55,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="doc-content">
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('namespacemembers.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -90,8 +104,8 @@ $(function(){ initResizable(false); });
 
 <h3><a id="index_a" name="index_a"></a>- a -</h3><ul>
 <li>acos()&#160;:&#160;<a class="el" href="group__angle.html#gab0f2a37f3f8a1dcb8b2a4088aafeb955">tr</a></li>
-<li>ALL_MIPMAPS&#160;:&#160;<a class="el" href="group__graphics.html#ga5f6d61b2b5572a6723926bd8251ed289">tr</a></li>
-<li>ALPHA_BLENDING&#160;:&#160;<a class="el" href="group__graphics.html#gae3976b7bd434a18e18849f04b0f4fc1c">tr</a></li>
+<li>ALL_MIPMAPS&#160;:&#160;<a class="el" href="group__texture.html#ga5f6d61b2b5572a6723926bd8251ed289">tr</a></li>
+<li>ALPHA_BLENDING&#160;:&#160;<a class="el" href="group__graphics__context.html#gae3976b7bd434a18e18849f04b0f4fc1c">tr</a></li>
 <li>AngleD&#160;:&#160;<a class="el" href="group__angle.html#ga1ccc50541673bb13acaf00d5a6b7f3e7">tr</a></li>
 <li>AngleF&#160;:&#160;<a class="el" href="group__angle.html#ga0ecdb2258fd1b27015d801b1799cfe5f">tr</a></li>
 <li>AngleL&#160;:&#160;<a class="el" href="group__angle.html#gabb121b60d33c61731852c3bab4fcaa2d">tr</a></li>
@@ -102,17 +116,19 @@ $(function(){ initResizable(false); });
 <li>asObjects()&#160;:&#160;<a class="el" href="group__ranges.html#ga286fd4c28169488c0599037e3591a6a2">tr</a></li>
 <li>atan()&#160;:&#160;<a class="el" href="group__angle.html#ga1553c81dce95c7a8218b9c86cd756fe6">tr</a></li>
 <li>atan2()&#160;:&#160;<a class="el" href="group__angle.html#ga59e5d3af38aeea74fd6b3e4f2a84d54c">tr</a></li>
-<li>audio()&#160;:&#160;<a class="el" href="group__audio.html#gaaca0122512499c4bd265f7357ccaaa04">tr</a></li>
-<li>audioActive()&#160;:&#160;<a class="el" href="group__audio.html#gaa5f35c8a137531fb28267c6da7f9b0bd">tr</a></li>
-<li>AudioFormat&#160;:&#160;<a class="el" href="group__audio.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">tr</a></li>
-<li>AudioOrigin&#160;:&#160;<a class="el" href="group__audio.html#gac94c6d9def358bc33348c409be0a151a">tr</a></li>
-<li>AudioState&#160;:&#160;<a class="el" href="group__audio.html#ga6c94829f0dfe0e9696cc57a3c7aff830">tr</a></li>
+<li>audio()&#160;:&#160;<a class="el" href="group__audio__system.html#gaaca0122512499c4bd265f7357ccaaa04">tr</a></li>
+<li>audioActive()&#160;:&#160;<a class="el" href="group__audio__system.html#gaa5f35c8a137531fb28267c6da7f9b0bd">tr</a></li>
+<li>AudioFormat&#160;:&#160;<a class="el" href="group__audio__buffer.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">tr</a></li>
+<li>AudioOrigin&#160;:&#160;<a class="el" href="group__audio__source.html#gac94c6d9def358bc33348c409be0a151a">tr</a></li>
+<li>AudioState&#160;:&#160;<a class="el" href="group__audio__source.html#ga6c94829f0dfe0e9696cc57a3c7aff830">tr</a></li>
 </ul>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

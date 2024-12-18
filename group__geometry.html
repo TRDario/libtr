@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -18,6 +20,8 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,9 +30,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libtr
+   <div id="projectname">libtr<span id="projectnumber">&#160;0.1.0</span>
    </div>
-   <div id="projectbrief">Personal C++ base library for gamedev projects</div>
+   <div id="projectbrief">Base library for gamedev projects</div>
   </td>
  </tr>
  </tbody>
@@ -51,19 +55,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="doc-content">
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('group__geometry.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -86,18 +100,1331 @@ $(function(){ initResizable(false); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Geometry</div></div>
+  <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Geometry<div class="ingroups"><a class="el" href="group__misc.html">Miscellaneous</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Geometry-related structs and functions.  
-</p>
-<p>Geometry-related structs and functions. </p>
+<p>Geometry-related datatypes and functions.  
+<a href="#details">More...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetr_1_1matrix__operators.html">tr::matrix_operators</a></td></tr>
+<tr class="memdesc:namespacetr_1_1matrix__operators"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix multiplication operators. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1Circle.html">tr::Circle&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D circle.  <a href="structtr_1_1Circle.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1Rect.html">tr::Rect&lt; S, T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rectangle object.  <a href="structtr_1_1Rect.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga1d2cc5a6dbb44e5016299c518415f2fd" id="r_ga1d2cc5a6dbb44e5016299c518415f2fd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1d2cc5a6dbb44e5016299c518415f2fd">tr::CircleF</a> = <a class="el" href="structtr_1_1Circle.html">Circle</a>&lt;float&gt;</td></tr>
+<tr class="memdesc:ga1d2cc5a6dbb44e5016299c518415f2fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for a float circle.  <br /></td></tr>
+<tr class="separator:ga1d2cc5a6dbb44e5016299c518415f2fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6e31feda1c62eb3fbfa243766f0fe3d4" id="r_ga6e31feda1c62eb3fbfa243766f0fe3d4"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:ga6e31feda1c62eb3fbfa243766f0fe3d4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga6e31feda1c62eb3fbfa243766f0fe3d4">tr::Rect2</a> = <a class="el" href="structtr_1_1Rect.html">Rect</a>&lt;2, T&gt;</td></tr>
+<tr class="memdesc:ga6e31feda1c62eb3fbfa243766f0fe3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D rectangle.  <br /></td></tr>
+<tr class="separator:ga6e31feda1c62eb3fbfa243766f0fe3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab1850cd63ebd391cea147ab721dbfbdc" id="r_gab1850cd63ebd391cea147ab721dbfbdc"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:gab1850cd63ebd391cea147ab721dbfbdc"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gab1850cd63ebd391cea147ab721dbfbdc">tr::Rect3</a> = <a class="el" href="structtr_1_1Rect.html">Rect</a>&lt;3, T&gt;</td></tr>
+<tr class="memdesc:gab1850cd63ebd391cea147ab721dbfbdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D rectangle.  <br /></td></tr>
+<tr class="separator:gab1850cd63ebd391cea147ab721dbfbdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7aeb24c702d132772be7de37fa94c0a2" id="r_ga7aeb24c702d132772be7de37fa94c0a2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga7aeb24c702d132772be7de37fa94c0a2">tr::RectF2</a> = <a class="el" href="#ga6e31feda1c62eb3fbfa243766f0fe3d4">Rect2</a>&lt;float&gt;</td></tr>
+<tr class="memdesc:ga7aeb24c702d132772be7de37fa94c0a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for a float 2D rect.  <br /></td></tr>
+<tr class="separator:ga7aeb24c702d132772be7de37fa94c0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2365f401a0c3c72f48fa4b636573ad77" id="r_ga2365f401a0c3c72f48fa4b636573ad77"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2365f401a0c3c72f48fa4b636573ad77">tr::RectF3</a> = <a class="el" href="#gab1850cd63ebd391cea147ab721dbfbdc">Rect3</a>&lt;float&gt;</td></tr>
+<tr class="memdesc:ga2365f401a0c3c72f48fa4b636573ad77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for a float 3D rect.  <br /></td></tr>
+<tr class="separator:ga2365f401a0c3c72f48fa4b636573ad77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga386ecd8029d58f09791896b6421218d9" id="r_ga386ecd8029d58f09791896b6421218d9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga386ecd8029d58f09791896b6421218d9">tr::RectI2</a> = <a class="el" href="#ga6e31feda1c62eb3fbfa243766f0fe3d4">Rect2</a>&lt;int&gt;</td></tr>
+<tr class="memdesc:ga386ecd8029d58f09791896b6421218d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for an int 2D rect.  <br /></td></tr>
+<tr class="separator:ga386ecd8029d58f09791896b6421218d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga390b094b8bc7eb8fb107168f2ce8a6c0" id="r_ga390b094b8bc7eb8fb107168f2ce8a6c0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga390b094b8bc7eb8fb107168f2ce8a6c0">tr::RectI3</a> = <a class="el" href="#gab1850cd63ebd391cea147ab721dbfbdc">Rect3</a>&lt;int&gt;</td></tr>
+<tr class="memdesc:ga390b094b8bc7eb8fb107168f2ce8a6c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shorthand for an int 3D rect.  <br /></td></tr>
+<tr class="separator:ga390b094b8bc7eb8fb107168f2ce8a6c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga3cef1602b3bb2dba9d4df7e58dab1fe3" id="r_ga3cef1602b3bb2dba9d4df7e58dab1fe3"><td class="memTemplParams" colspan="2">template&lt;std::floating_point T&gt; </td></tr>
+<tr class="memitem:ga3cef1602b3bb2dba9d4df7e58dab1fe3"><td class="memTemplItemLeft" align="right" valign="top">constexpr glm::tvec2&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga3cef1602b3bb2dba9d4df7e58dab1fe3">tr::closestPoint</a> (glm::tvec2&lt; T &gt; p, glm::tvec2&lt; T &gt; a, glm::tvec2&lt; T &gt; b) noexcept</td></tr>
+<tr class="memdesc:ga3cef1602b3bb2dba9d4df7e58dab1fe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the closest point to p on the line ab.  <br /></td></tr>
+<tr class="separator:ga3cef1602b3bb2dba9d4df7e58dab1fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga739b0c376af3ce29f16b8c3f825ac599" id="r_ga739b0c376af3ce29f16b8c3f825ac599"><td class="memTemplParams" colspan="2">template&lt;class T1 , class T2 , class T3 &gt; </td></tr>
+<tr class="memitem:ga739b0c376af3ce29f16b8c3f825ac599"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga739b0c376af3ce29f16b8c3f825ac599">tr::collinear</a> (glm::tvec2&lt; T1 &gt; a, glm::tvec2&lt; T2 &gt; b, glm::tvec2&lt; T3 &gt; c) noexcept</td></tr>
+<tr class="memdesc:ga739b0c376af3ce29f16b8c3f825ac599"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether 3 points are collinear.  <br /></td></tr>
+<tr class="separator:ga739b0c376af3ce29f16b8c3f825ac599"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee714b85d5c784cc52d35e4e6109ee7a" id="r_gaee714b85d5c784cc52d35e4e6109ee7a"><td class="memTemplParams" colspan="2">template&lt;class T1 , class T2 &gt; </td></tr>
+<tr class="memitem:gaee714b85d5c784cc52d35e4e6109ee7a"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::common_type_t&lt; T1, T2 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gaee714b85d5c784cc52d35e4e6109ee7a">tr::cross2</a> (glm::tvec2&lt; T1 &gt; a, glm::tvec2&lt; T2 &gt; b) noexcept</td></tr>
+<tr class="memdesc:gaee714b85d5c784cc52d35e4e6109ee7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the 2D cross product of two vectors.  <br /></td></tr>
+<tr class="separator:gaee714b85d5c784cc52d35e4e6109ee7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafabe760ad59e0947002383b68242ecf3" id="r_gafabe760ad59e0947002383b68242ecf3"><td class="memTemplParams" colspan="2">template&lt;std::floating_point T&gt; </td></tr>
+<tr class="memitem:gafabe760ad59e0947002383b68242ecf3"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; glm::tvec2&lt; T &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gafabe760ad59e0947002383b68242ecf3">tr::intersect</a> (glm::tvec2&lt; T &gt; a1, <a class="el" href="classtr_1_1Angle.html">Angle</a>&lt; T &gt; th1, glm::tvec2&lt; T &gt; a2, <a class="el" href="classtr_1_1Angle.html">Angle</a>&lt; T &gt; th2) noexcept</td></tr>
+<tr class="memdesc:gafabe760ad59e0947002383b68242ecf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the intersection point of two lines.  <br /></td></tr>
+<tr class="separator:gafabe760ad59e0947002383b68242ecf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga84ae5194d3edeffb9543117423003baf" id="r_ga84ae5194d3edeffb9543117423003baf"><td class="memTemplParams" colspan="2">template&lt;std::floating_point T&gt; </td></tr>
+<tr class="memitem:ga84ae5194d3edeffb9543117423003baf"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; glm::tvec2&lt; T &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga84ae5194d3edeffb9543117423003baf">tr::intersect</a> (glm::tvec2&lt; T &gt; a1, <a class="el" href="classtr_1_1Angle.html">Angle</a>&lt; T &gt; th1, glm::tvec2&lt; T &gt; a2, glm::tvec2&lt; T &gt; b2) noexcept</td></tr>
+<tr class="memdesc:ga84ae5194d3edeffb9543117423003baf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the intersection point of two lines.  <br /></td></tr>
+<tr class="separator:ga84ae5194d3edeffb9543117423003baf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga94d796c51a54aa5b95261ff84ab8fe4c" id="r_ga94d796c51a54aa5b95261ff84ab8fe4c"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
+<tr class="memitem:ga94d796c51a54aa5b95261ff84ab8fe4c"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; glm::dvec2 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga94d796c51a54aa5b95261ff84ab8fe4c">tr::intersect</a> (glm::tvec2&lt; T &gt; a1, <a class="el" href="group__angle.html#ga1ccc50541673bb13acaf00d5a6b7f3e7">AngleD</a> th1, glm::tvec2&lt; T &gt; a2, <a class="el" href="group__angle.html#ga1ccc50541673bb13acaf00d5a6b7f3e7">AngleD</a> th2) noexcept</td></tr>
+<tr class="memdesc:ga94d796c51a54aa5b95261ff84ab8fe4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the intersection point of two lines.  <br /></td></tr>
+<tr class="separator:ga94d796c51a54aa5b95261ff84ab8fe4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga171474b56ec97498b36771e8db7f99f8" id="r_ga171474b56ec97498b36771e8db7f99f8"><td class="memTemplParams" colspan="2">template&lt;std::floating_point T&gt; </td></tr>
+<tr class="memitem:ga171474b56ec97498b36771e8db7f99f8"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::optional&lt; glm::tvec2&lt; T &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga171474b56ec97498b36771e8db7f99f8">tr::intersect</a> (glm::tvec2&lt; T &gt; a1, glm::tvec2&lt; T &gt; b1, glm::tvec2&lt; T &gt; a2, glm::tvec2&lt; T &gt; b2) noexcept</td></tr>
+<tr class="memdesc:ga171474b56ec97498b36771e8db7f99f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the intersection point of two lines.  <br /></td></tr>
+<tr class="separator:ga171474b56ec97498b36771e8db7f99f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga12aaf84446780fd2865784a14a72736c" id="r_ga12aaf84446780fd2865784a14a72736c"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:ga12aaf84446780fd2865784a14a72736c"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga12aaf84446780fd2865784a14a72736c">tr::intersecting</a> (const <a class="el" href="structtr_1_1Circle.html">Circle</a>&lt; T &gt; &amp;c1, const <a class="el" href="structtr_1_1Circle.html">Circle</a>&lt; T &gt; &amp;c2) noexcept</td></tr>
+<tr class="memdesc:ga12aaf84446780fd2865784a14a72736c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if two circles intersect.  <br /></td></tr>
+<tr class="separator:ga12aaf84446780fd2865784a14a72736c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c949dcf0ebc1f2d07a33619e9b7996a" id="r_ga0c949dcf0ebc1f2d07a33619e9b7996a"><td class="memTemplParams" colspan="2">template&lt;class T1 , class T2 &gt; </td></tr>
+<tr class="memitem:ga0c949dcf0ebc1f2d07a33619e9b7996a"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga0c949dcf0ebc1f2d07a33619e9b7996a">tr::intersecting</a> (const <a class="el" href="#ga6e31feda1c62eb3fbfa243766f0fe3d4">Rect2</a>&lt; T1 &gt; &amp;r1, const <a class="el" href="#ga6e31feda1c62eb3fbfa243766f0fe3d4">Rect2</a>&lt; T2 &gt; &amp;r2) noexcept</td></tr>
+<tr class="memdesc:ga0c949dcf0ebc1f2d07a33619e9b7996a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if two rects intersect.  <br /></td></tr>
+<tr class="separator:ga0c949dcf0ebc1f2d07a33619e9b7996a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8a827623b51153bdb19d62d1ec2a317f" id="r_ga8a827623b51153bdb19d62d1ec2a317f"><td class="memTemplParams" colspan="2">template&lt;std::size_t S, std::floating_point T&gt; </td></tr>
+<tr class="memitem:ga8a827623b51153bdb19d62d1ec2a317f"><td class="memTemplItemLeft" align="right" valign="top">constexpr glm::vec&lt; S, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga8a827623b51153bdb19d62d1ec2a317f">tr::inverse</a> (const glm::vec&lt; S, T &gt; &amp;vec) noexcept</td></tr>
+<tr class="memdesc:ga8a827623b51153bdb19d62d1ec2a317f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the inverse of a vector.  <br /></td></tr>
+<tr class="separator:ga8a827623b51153bdb19d62d1ec2a317f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6a346a2541612d57ab91e3614771a6c6" id="r_ga6a346a2541612d57ab91e3614771a6c6"><td class="memTemplParams" colspan="2">template&lt;int S, class T &gt; </td></tr>
+<tr class="memitem:ga6a346a2541612d57ab91e3614771a6c6"><td class="memTemplItemLeft" align="right" valign="top">glm::vec&lt; S, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga6a346a2541612d57ab91e3614771a6c6">tr::mirrorRepeat</a> (const glm::vec&lt; S, T &gt; &amp;v, const glm::vec&lt; S, T &gt; &amp;min, const glm::vec&lt; S, T &gt; &amp;max) noexcept</td></tr>
+<tr class="memdesc:ga6a346a2541612d57ab91e3614771a6c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a mirror repeat mapping.  <br /></td></tr>
+<tr class="separator:ga6a346a2541612d57ab91e3614771a6c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga402dde5dfbd3d6aa4a64a0d9f65c3090" id="r_ga402dde5dfbd3d6aa4a64a0d9f65c3090"><td class="memTemplParams" colspan="2">template&lt;std::size_t S, class T &gt; </td></tr>
+<tr class="memitem:ga402dde5dfbd3d6aa4a64a0d9f65c3090"><td class="memTemplItemLeft" align="right" valign="top">glm::vec&lt; S, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga402dde5dfbd3d6aa4a64a0d9f65c3090">tr::mirrorRepeat</a> (const glm::vec&lt; S, T &gt; &amp;v, const <a class="el" href="structtr_1_1Rect.html">Rect</a>&lt; S, T &gt; &amp;rect) noexcept</td></tr>
+<tr class="memdesc:ga402dde5dfbd3d6aa4a64a0d9f65c3090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a mirror repeat mapping of a vector on a rect.  <br /></td></tr>
+<tr class="separator:ga402dde5dfbd3d6aa4a64a0d9f65c3090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga966677acc6d33fb6426f9cdb14810c7a" id="r_ga966677acc6d33fb6426f9cdb14810c7a"><td class="memTemplParams" colspan="2">template&lt;Arithmetic T&gt; </td></tr>
+<tr class="memitem:ga966677acc6d33fb6426f9cdb14810c7a"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga966677acc6d33fb6426f9cdb14810c7a">tr::mirrorRepeat</a> (T v, T min, T max) noexcept</td></tr>
+<tr class="memdesc:ga966677acc6d33fb6426f9cdb14810c7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a mirror repeat mapping.  <br /></td></tr>
+<tr class="separator:ga966677acc6d33fb6426f9cdb14810c7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaffe84581e25067026831b1a61bcb1186" id="r_gaffe84581e25067026831b1a61bcb1186"><td class="memTemplParams" colspan="2">template&lt;Arithmetic T1, Arithmetic T2&gt; </td></tr>
+<tr class="memitem:gaffe84581e25067026831b1a61bcb1186"><td class="memTemplItemLeft" align="right" valign="top">std::common_type_t&lt; T1, T2 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gaffe84581e25067026831b1a61bcb1186">tr::mod</a> (T1 v, T2 mod) noexcept</td></tr>
+<tr class="memdesc:gaffe84581e25067026831b1a61bcb1186"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic modulo operation.  <br /></td></tr>
+<tr class="separator:gaffe84581e25067026831b1a61bcb1186"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga24619c6cf354c12058a51733736459ce" id="r_ga24619c6cf354c12058a51733736459ce"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:ga24619c6cf354c12058a51733736459ce"><td class="memTemplItemLeft" align="right" valign="top">glm::tmat4x4&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga24619c6cf354c12058a51733736459ce">tr::rotateAroundPoint2</a> (const glm::tmat4x4&lt; T &gt; &amp;matrix, const glm::tvec2&lt; T &gt; &amp;center, const <a class="el" href="classtr_1_1Angle.html">Angle</a>&lt; T &gt; &amp;angle) noexcept</td></tr>
+<tr class="memdesc:ga24619c6cf354c12058a51733736459ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a 2D rotation around a point to a matrix.  <br /></td></tr>
+<tr class="separator:ga24619c6cf354c12058a51733736459ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab3ae26e166308ba24edd77e345da07d9" id="r_gab3ae26e166308ba24edd77e345da07d9"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:gab3ae26e166308ba24edd77e345da07d9"><td class="memTemplItemLeft" align="right" valign="top">glm::tmat4x4&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gab3ae26e166308ba24edd77e345da07d9">tr::rotateAroundPoint3</a> (const glm::tmat4x4&lt; T &gt; &amp;matrix, const glm::tvec3&lt; T &gt; &amp;center, const <a class="el" href="classtr_1_1Angle.html">Angle</a>&lt; T &gt; &amp;angle, const glm::tvec3&lt; T &gt; &amp;axis) noexcept</td></tr>
+<tr class="memdesc:gab3ae26e166308ba24edd77e345da07d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a 3D rotation around a point to a matrix.  <br /></td></tr>
+<tr class="separator:gab3ae26e166308ba24edd77e345da07d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad85ea7ecfb905237e9cf69c1429a926a" id="r_gad85ea7ecfb905237e9cf69c1429a926a"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:gad85ea7ecfb905237e9cf69c1429a926a"><td class="memTemplItemLeft" align="right" valign="top">glm::tmat4x4&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gad85ea7ecfb905237e9cf69c1429a926a">tr::scaleAroundPoint2</a> (const glm::tmat4x4&lt; T &gt; &amp;matrix, const glm::tvec2&lt; T &gt; &amp;center, const glm::tvec2&lt; T &gt; &amp;scale) noexcept</td></tr>
+<tr class="memdesc:gad85ea7ecfb905237e9cf69c1429a926a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a 2D scaling around a point to a matrix.  <br /></td></tr>
+<tr class="separator:gad85ea7ecfb905237e9cf69c1429a926a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga470c9e1a07c8a88a56986c2ad9909323" id="r_ga470c9e1a07c8a88a56986c2ad9909323"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:ga470c9e1a07c8a88a56986c2ad9909323"><td class="memTemplItemLeft" align="right" valign="top">glm::tmat4x4&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga470c9e1a07c8a88a56986c2ad9909323">tr::scaleAroundPoint3</a> (const glm::tmat4x4&lt; T &gt; &amp;matrix, const glm::tvec3&lt; T &gt; &amp;center, const glm::tvec3&lt; T &gt; &amp;scale) noexcept</td></tr>
+<tr class="memdesc:ga470c9e1a07c8a88a56986c2ad9909323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a 3D scaling around a point to a matrix.  <br /></td></tr>
+<tr class="separator:ga470c9e1a07c8a88a56986c2ad9909323"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2a39e10258146d405d798390713dd20a" id="r_ga2a39e10258146d405d798390713dd20a"><td class="memTemplParams" colspan="2">template&lt;std::floating_point T&gt; </td></tr>
+<tr class="memitem:ga2a39e10258146d405d798390713dd20a"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; glm::tvec2&lt; T &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga2a39e10258146d405d798390713dd20a">tr::segmentIntersect</a> (glm::tvec2&lt; T &gt; a1, <a class="el" href="classtr_1_1Angle.html">Angle</a>&lt; T &gt; th1, glm::tvec2&lt; T &gt; a2, glm::tvec2&lt; T &gt; b2) noexcept</td></tr>
+<tr class="memdesc:ga2a39e10258146d405d798390713dd20a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the intersection point of a line with a line segment.  <br /></td></tr>
+<tr class="separator:ga2a39e10258146d405d798390713dd20a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9edf6492c65d3c29ca45a8dd94be8ec" id="r_gac9edf6492c65d3c29ca45a8dd94be8ec"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
+<tr class="memitem:gac9edf6492c65d3c29ca45a8dd94be8ec"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; glm::dvec2 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gac9edf6492c65d3c29ca45a8dd94be8ec">tr::segmentIntersect</a> (glm::tvec2&lt; T &gt; a1, <a class="el" href="group__angle.html#ga1ccc50541673bb13acaf00d5a6b7f3e7">AngleD</a> th1, glm::tvec2&lt; T &gt; a2, glm::tvec2&lt; T &gt; b2) noexcept</td></tr>
+<tr class="memdesc:gac9edf6492c65d3c29ca45a8dd94be8ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the intersection point of a line with a line segment.  <br /></td></tr>
+<tr class="separator:gac9edf6492c65d3c29ca45a8dd94be8ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5cd1fa20c4094ba1e7f59b51e2fdd6da" id="r_ga5cd1fa20c4094ba1e7f59b51e2fdd6da"><td class="memTemplParams" colspan="2">template&lt;std::floating_point T&gt; </td></tr>
+<tr class="memitem:ga5cd1fa20c4094ba1e7f59b51e2fdd6da"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::optional&lt; glm::tvec2&lt; T &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga5cd1fa20c4094ba1e7f59b51e2fdd6da">tr::segmentIntersect</a> (glm::tvec2&lt; T &gt; a1, glm::tvec2&lt; T &gt; b1, glm::tvec2&lt; T &gt; a2, glm::tvec2&lt; T &gt; b2) noexcept</td></tr>
+<tr class="memdesc:ga5cd1fa20c4094ba1e7f59b51e2fdd6da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the intersection point of two line segments.  <br /></td></tr>
+<tr class="separator:ga5cd1fa20c4094ba1e7f59b51e2fdd6da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:gad9cf1feaffaf287bb81e633aeb5fa58f" id="r_gad9cf1feaffaf287bb81e633aeb5fa58f"><td class="memItemLeft" align="right" valign="top">constexpr glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad9cf1feaffaf287bb81e633aeb5fa58f">tr::X_AXIS</a> {1.0f, 0.0f, 0.0f}</td></tr>
+<tr class="memdesc:gad9cf1feaffaf287bb81e633aeb5fa58f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalized X-axis vector.  <br /></td></tr>
+<tr class="separator:gad9cf1feaffaf287bb81e633aeb5fa58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga14a1d007443269c085460bdbdd7099f7" id="r_ga14a1d007443269c085460bdbdd7099f7"><td class="memItemLeft" align="right" valign="top">constexpr glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga14a1d007443269c085460bdbdd7099f7">tr::Y_AXIS</a> {0.0f, 1.0f, 0.0f}</td></tr>
+<tr class="memdesc:ga14a1d007443269c085460bdbdd7099f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalized Y-axis vector.  <br /></td></tr>
+<tr class="separator:ga14a1d007443269c085460bdbdd7099f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d0d5446131cb16ef6b056526b144b3b" id="r_ga2d0d5446131cb16ef6b056526b144b3b"><td class="memItemLeft" align="right" valign="top">constexpr glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga2d0d5446131cb16ef6b056526b144b3b">tr::Z_AXIS</a> {0.0f, 0.0f, 1.0f}</td></tr>
+<tr class="memdesc:ga2d0d5446131cb16ef6b056526b144b3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalized Z-axis vector.  <br /></td></tr>
+<tr class="separator:ga2d0d5446131cb16ef6b056526b144b3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Geometry-related datatypes and functions. </p>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ga1d2cc5a6dbb44e5016299c518415f2fd" name="ga1d2cc5a6dbb44e5016299c518415f2fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1d2cc5a6dbb44e5016299c518415f2fd">&#9670;&#160;</a></span>CircleF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ga1d2cc5a6dbb44e5016299c518415f2fd">tr::CircleF</a> = <a class="el" href="structtr_1_1Circle.html">Circle</a>&lt;float&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shorthand for a float circle. </p>
+
+</div>
+</div>
+<a id="ga6e31feda1c62eb3fbfa243766f0fe3d4" name="ga6e31feda1c62eb3fbfa243766f0fe3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6e31feda1c62eb3fbfa243766f0fe3d4">&#9670;&#160;</a></span>Rect2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ga6e31feda1c62eb3fbfa243766f0fe3d4">tr::Rect2</a> = <a class="el" href="structtr_1_1Rect.html">Rect</a>&lt;2, T&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>2D rectangle. </p>
+
+</div>
+</div>
+<a id="gab1850cd63ebd391cea147ab721dbfbdc" name="gab1850cd63ebd391cea147ab721dbfbdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab1850cd63ebd391cea147ab721dbfbdc">&#9670;&#160;</a></span>Rect3</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#gab1850cd63ebd391cea147ab721dbfbdc">tr::Rect3</a> = <a class="el" href="structtr_1_1Rect.html">Rect</a>&lt;3, T&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>3D rectangle. </p>
+
+</div>
+</div>
+<a id="ga7aeb24c702d132772be7de37fa94c0a2" name="ga7aeb24c702d132772be7de37fa94c0a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7aeb24c702d132772be7de37fa94c0a2">&#9670;&#160;</a></span>RectF2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ga7aeb24c702d132772be7de37fa94c0a2">tr::RectF2</a> = <a class="el" href="#ga6e31feda1c62eb3fbfa243766f0fe3d4">Rect2</a>&lt;float&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shorthand for a float 2D rect. </p>
+
+</div>
+</div>
+<a id="ga2365f401a0c3c72f48fa4b636573ad77" name="ga2365f401a0c3c72f48fa4b636573ad77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2365f401a0c3c72f48fa4b636573ad77">&#9670;&#160;</a></span>RectF3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ga2365f401a0c3c72f48fa4b636573ad77">tr::RectF3</a> = <a class="el" href="#gab1850cd63ebd391cea147ab721dbfbdc">Rect3</a>&lt;float&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shorthand for a float 3D rect. </p>
+
+</div>
+</div>
+<a id="ga386ecd8029d58f09791896b6421218d9" name="ga386ecd8029d58f09791896b6421218d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga386ecd8029d58f09791896b6421218d9">&#9670;&#160;</a></span>RectI2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ga386ecd8029d58f09791896b6421218d9">tr::RectI2</a> = <a class="el" href="#ga6e31feda1c62eb3fbfa243766f0fe3d4">Rect2</a>&lt;int&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shorthand for an int 2D rect. </p>
+
+</div>
+</div>
+<a id="ga390b094b8bc7eb8fb107168f2ce8a6c0" name="ga390b094b8bc7eb8fb107168f2ce8a6c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga390b094b8bc7eb8fb107168f2ce8a6c0">&#9670;&#160;</a></span>RectI3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ga390b094b8bc7eb8fb107168f2ce8a6c0">tr::RectI3</a> = <a class="el" href="#gab1850cd63ebd391cea147ab721dbfbdc">Rect3</a>&lt;int&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shorthand for an int 3D rect. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga3cef1602b3bb2dba9d4df7e58dab1fe3" name="ga3cef1602b3bb2dba9d4df7e58dab1fe3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3cef1602b3bb2dba9d4df7e58dab1fe3">&#9670;&#160;</a></span>closestPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::floating_point T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::tvec2&lt; T &gt; tr::closestPoint </td>
+          <td>(</td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the closest point to p on the line ab. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">p</td><td>A point. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a,b</td><td>The start and end point of the line segment.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The closest point to p located on the line ab. </dd></dl>
+
+</div>
+</div>
+<a id="ga739b0c376af3ce29f16b8c3f825ac599" name="ga739b0c376af3ce29f16b8c3f825ac599"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga739b0c376af3ce29f16b8c3f825ac599">&#9670;&#160;</a></span>collinear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T1 , class T2 , class T3 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tr::collinear </td>
+          <td>(</td>
+          <td class="paramtype">glm::tvec2&lt; T1 &gt;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T2 &gt;</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T3 &gt;</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determines whether 3 points are collinear. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a,b,c</td><td>The points to check for collinearity.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the points are collinear, and false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="gaee714b85d5c784cc52d35e4e6109ee7a" name="gaee714b85d5c784cc52d35e4e6109ee7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaee714b85d5c784cc52d35e4e6109ee7a">&#9670;&#160;</a></span>cross2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T1 , class T2 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::common_type_t&lt; T1, T2 &gt; tr::cross2 </td>
+          <td>(</td>
+          <td class="paramtype">glm::tvec2&lt; T1 &gt;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T2 &gt;</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the 2D cross product of two vectors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a,b</td><td>The two vectors.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The 2D cross product of the vectors, standard promotion rules apply. </dd></dl>
+
+</div>
+</div>
+<a id="gafabe760ad59e0947002383b68242ecf3" name="gafabe760ad59e0947002383b68242ecf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafabe760ad59e0947002383b68242ecf3">&#9670;&#160;</a></span>intersect() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::floating_point T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; glm::tvec2&lt; T &gt; &gt; tr::intersect </td>
+          <td>(</td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>a1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classtr_1_1Angle.html">Angle</a>&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>th1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>a2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classtr_1_1Angle.html">Angle</a>&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>th2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the intersection point of two lines. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a1,th1</td><td>Point and angle of the first line. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a2,th2</td><td>Point and angle of the second line.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The intersection point, if one exists. </dd></dl>
+
+</div>
+</div>
+<a id="ga84ae5194d3edeffb9543117423003baf" name="ga84ae5194d3edeffb9543117423003baf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga84ae5194d3edeffb9543117423003baf">&#9670;&#160;</a></span>intersect() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::floating_point T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; glm::tvec2&lt; T &gt; &gt; tr::intersect </td>
+          <td>(</td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>a1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classtr_1_1Angle.html">Angle</a>&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>th1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>a2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>b2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the intersection point of two lines. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a1,th1</td><td>Point and angle of the first line. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a2,b2</td><td>Two points on the second line.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The intersection point, if one exists. </dd></dl>
+
+</div>
+</div>
+<a id="ga94d796c51a54aa5b95261ff84ab8fe4c" name="ga94d796c51a54aa5b95261ff84ab8fe4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga94d796c51a54aa5b95261ff84ab8fe4c">&#9670;&#160;</a></span>intersect() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::integral T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; glm::dvec2 &gt; tr::intersect </td>
+          <td>(</td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>a1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__angle.html#ga1ccc50541673bb13acaf00d5a6b7f3e7">AngleD</a></td>          <td class="paramname"><span class="paramname"><em>th1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>a2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__angle.html#ga1ccc50541673bb13acaf00d5a6b7f3e7">AngleD</a></td>          <td class="paramname"><span class="paramname"><em>th2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the intersection point of two lines. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a1,th1</td><td>Point and angle of the first line. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a2,th2</td><td>Point and angle of the second line.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The intersection point, if one exists. </dd></dl>
+
+</div>
+</div>
+<a id="ga171474b56ec97498b36771e8db7f99f8" name="ga171474b56ec97498b36771e8db7f99f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga171474b56ec97498b36771e8db7f99f8">&#9670;&#160;</a></span>intersect() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::floating_point T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; glm::tvec2&lt; T &gt; &gt; tr::intersect </td>
+          <td>(</td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>a1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>b1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>a2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>b2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the intersection point of two lines. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a1,b1</td><td>Two points on the first line. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a2,b2</td><td>Two points on the second line.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The intersection point, if one exists. </dd></dl>
+
+</div>
+</div>
+<a id="ga12aaf84446780fd2865784a14a72736c" name="ga12aaf84446780fd2865784a14a72736c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga12aaf84446780fd2865784a14a72736c">&#9670;&#160;</a></span>intersecting() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tr::intersecting </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtr_1_1Circle.html">Circle</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>c1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structtr_1_1Circle.html">Circle</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>c2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determines if two circles intersect. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">c1,c2</td><td>The circles to check for intersection.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the circles intersect, and false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="ga0c949dcf0ebc1f2d07a33619e9b7996a" name="ga0c949dcf0ebc1f2d07a33619e9b7996a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0c949dcf0ebc1f2d07a33619e9b7996a">&#9670;&#160;</a></span>intersecting() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T1 , class T2 &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tr::intersecting </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ga6e31feda1c62eb3fbfa243766f0fe3d4">Rect2</a>&lt; T1 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="#ga6e31feda1c62eb3fbfa243766f0fe3d4">Rect2</a>&lt; T2 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determines if two rects intersect. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">r1,r2</td><td>The rects to check for intersection.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the rects intersect, and false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="ga8a827623b51153bdb19d62d1ec2a317f" name="ga8a827623b51153bdb19d62d1ec2a317f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8a827623b51153bdb19d62d1ec2a317f">&#9670;&#160;</a></span>inverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t S, std::floating_point T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec&lt; S, T &gt; tr::inverse </td>
+          <td>(</td>
+          <td class="paramtype">const glm::vec&lt; S, T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vec</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the inverse of a vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vec</td><td>The vector to invert.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The inverse vector. </dd></dl>
+
+</div>
+</div>
+<a id="ga6a346a2541612d57ab91e3614771a6c6" name="ga6a346a2541612d57ab91e3614771a6c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6a346a2541612d57ab91e3614771a6c6">&#9670;&#160;</a></span>mirrorRepeat() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int S, class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec&lt; S, T &gt; tr::mirrorRepeat </td>
+          <td>(</td>
+          <td class="paramtype">const glm::vec&lt; S, T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::vec&lt; S, T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>min</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::vec&lt; S, T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>max</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Performs a mirror repeat mapping. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td>The value to map. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">min,max</td><td>The bounds of the range.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>v mirror mapped to [min, max). </dd></dl>
+
+</div>
+</div>
+<a id="ga402dde5dfbd3d6aa4a64a0d9f65c3090" name="ga402dde5dfbd3d6aa4a64a0d9f65c3090"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga402dde5dfbd3d6aa4a64a0d9f65c3090">&#9670;&#160;</a></span>mirrorRepeat() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t S, class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec&lt; S, T &gt; tr::mirrorRepeat </td>
+          <td>(</td>
+          <td class="paramtype">const glm::vec&lt; S, T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structtr_1_1Rect.html">Rect</a>&lt; S, T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>rect</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Performs a mirror repeat mapping of a vector on a rect. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td>The value to map. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rect</td><td>The bounds of the range.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>v mirror mapped to rect. </dd></dl>
+
+</div>
+</div>
+<a id="ga966677acc6d33fb6426f9cdb14810c7a" name="ga966677acc6d33fb6426f9cdb14810c7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga966677acc6d33fb6426f9cdb14810c7a">&#9670;&#160;</a></span>mirrorRepeat() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Arithmetic T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T tr::mirrorRepeat </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>min</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>max</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Performs a mirror repeat mapping. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td>The value to map. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">min,max</td><td>The bounds of the range.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>v mirror mapped to [min, max). </dd></dl>
+
+</div>
+</div>
+<a id="gaffe84581e25067026831b1a61bcb1186" name="gaffe84581e25067026831b1a61bcb1186"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaffe84581e25067026831b1a61bcb1186">&#9670;&#160;</a></span>mod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;Arithmetic T1, Arithmetic T2&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::common_type_t&lt; T1, T2 &gt; tr::mod </td>
+          <td>(</td>
+          <td class="paramtype">T1</td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T2</td>          <td class="paramname"><span class="paramname"><em>mod</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generic modulo operation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">v</td><td>The value to modulo. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mod</td><td>The modulus.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The modulo of v by mod, standard promotion rules apply. </dd></dl>
+
+</div>
+</div>
+<a id="ga24619c6cf354c12058a51733736459ce" name="ga24619c6cf354c12058a51733736459ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga24619c6cf354c12058a51733736459ce">&#9670;&#160;</a></span>rotateAroundPoint2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::tmat4x4&lt; T &gt; tr::rotateAroundPoint2 </td>
+          <td>(</td>
+          <td class="paramtype">const glm::tmat4x4&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::tvec2&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>center</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classtr_1_1Angle.html">Angle</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>angle</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applies a 2D rotation around a point to a matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">matrix</td><td>The matrix to apply the rotation to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">center</td><td>The point to rotation around. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">angle</td><td>The rotation angle.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A matrix with the applied rotation. </dd></dl>
+
+</div>
+</div>
+<a id="gab3ae26e166308ba24edd77e345da07d9" name="gab3ae26e166308ba24edd77e345da07d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab3ae26e166308ba24edd77e345da07d9">&#9670;&#160;</a></span>rotateAroundPoint3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::tmat4x4&lt; T &gt; tr::rotateAroundPoint3 </td>
+          <td>(</td>
+          <td class="paramtype">const glm::tmat4x4&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::tvec3&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>center</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classtr_1_1Angle.html">Angle</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>angle</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::tvec3&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>axis</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applies a 3D rotation around a point to a matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">matrix</td><td>The matrix to apply the rotation to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">center</td><td>The point to rotation around. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">angle</td><td>The rotation angle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">axis</td><td>The axis to rotate around.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A matrix with the applied rotation. </dd></dl>
+
+</div>
+</div>
+<a id="gad85ea7ecfb905237e9cf69c1429a926a" name="gad85ea7ecfb905237e9cf69c1429a926a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad85ea7ecfb905237e9cf69c1429a926a">&#9670;&#160;</a></span>scaleAroundPoint2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::tmat4x4&lt; T &gt; tr::scaleAroundPoint2 </td>
+          <td>(</td>
+          <td class="paramtype">const glm::tmat4x4&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::tvec2&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>center</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::tvec2&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>scale</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applies a 2D scaling around a point to a matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">matrix</td><td>The matrix to apply the scaling to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">center</td><td>The point to scale around. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>The scale factor.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A matrix with the applied scaling. </dd></dl>
+
+</div>
+</div>
+<a id="ga470c9e1a07c8a88a56986c2ad9909323" name="ga470c9e1a07c8a88a56986c2ad9909323"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga470c9e1a07c8a88a56986c2ad9909323">&#9670;&#160;</a></span>scaleAroundPoint3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::tmat4x4&lt; T &gt; tr::scaleAroundPoint3 </td>
+          <td>(</td>
+          <td class="paramtype">const glm::tmat4x4&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::tvec3&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>center</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::tvec3&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>scale</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applies a 3D scaling around a point to a matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">matrix</td><td>The matrix to apply the scaling to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">center</td><td>The point to scale around. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>The scale factor.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A matrix with the applied scaling. </dd></dl>
+
+</div>
+</div>
+<a id="ga2a39e10258146d405d798390713dd20a" name="ga2a39e10258146d405d798390713dd20a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2a39e10258146d405d798390713dd20a">&#9670;&#160;</a></span>segmentIntersect() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::floating_point T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; glm::tvec2&lt; T &gt; &gt; tr::segmentIntersect </td>
+          <td>(</td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>a1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classtr_1_1Angle.html">Angle</a>&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>th1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>a2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>b2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the intersection point of a line with a line segment. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a1,th1</td><td>Point and angle of the first line. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a2,b2</td><td>Delimiting points of the second line segment.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The intersection point, if one exists. </dd></dl>
+
+</div>
+</div>
+<a id="gac9edf6492c65d3c29ca45a8dd94be8ec" name="gac9edf6492c65d3c29ca45a8dd94be8ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac9edf6492c65d3c29ca45a8dd94be8ec">&#9670;&#160;</a></span>segmentIntersect() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::integral T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; glm::dvec2 &gt; tr::segmentIntersect </td>
+          <td>(</td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>a1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__angle.html#ga1ccc50541673bb13acaf00d5a6b7f3e7">AngleD</a></td>          <td class="paramname"><span class="paramname"><em>th1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>a2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>b2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the intersection point of a line with a line segment. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a1,th1</td><td>Point and angle of the first line. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a2,b2</td><td>Delimiting points of the second line segment.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The intersection point, if one exists. </dd></dl>
+
+</div>
+</div>
+<a id="ga5cd1fa20c4094ba1e7f59b51e2fdd6da" name="ga5cd1fa20c4094ba1e7f59b51e2fdd6da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5cd1fa20c4094ba1e7f59b51e2fdd6da">&#9670;&#160;</a></span>segmentIntersect() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::floating_point T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; glm::tvec2&lt; T &gt; &gt; tr::segmentIntersect </td>
+          <td>(</td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>a1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>b1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>a2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::tvec2&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>b2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the intersection point of two line segments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a1,b1</td><td>Delimiting points of the first line segment. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a2,b2</td><td>Delimiting points of the second line segment.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The intersection point, if one exists. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="gad9cf1feaffaf287bb81e633aeb5fa58f" name="gad9cf1feaffaf287bb81e633aeb5fa58f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad9cf1feaffaf287bb81e633aeb5fa58f">&#9670;&#160;</a></span>X_AXIS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 tr::X_AXIS {1.0f, 0.0f, 0.0f}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Normalized X-axis vector. </p>
+
+</div>
+</div>
+<a id="ga14a1d007443269c085460bdbdd7099f7" name="ga14a1d007443269c085460bdbdd7099f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga14a1d007443269c085460bdbdd7099f7">&#9670;&#160;</a></span>Y_AXIS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 tr::Y_AXIS {0.0f, 1.0f, 0.0f}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Normalized Y-axis vector. </p>
+
+</div>
+</div>
+<a id="ga2d0d5446131cb16ef6b056526b144b3b" name="ga2d0d5446131cb16ef6b056526b144b3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2d0d5446131cb16ef6b056526b144b3b">&#9670;&#160;</a></span>Z_AXIS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec3 tr::Z_AXIS {0.0f, 0.0f, 1.0f}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Normalized Z-axis vector. </p>
+
+</div>
+</div>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

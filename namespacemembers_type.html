@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -18,6 +20,8 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,9 +30,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libtr
+   <div id="projectname">libtr<span id="projectnumber">&#160;0.1.0</span>
    </div>
-   <div id="projectbrief">Personal C++ base library for gamedev projects</div>
+   <div id="projectbrief">Base library for gamedev projects</div>
   </td>
  </tr>
  </tbody>
@@ -51,19 +55,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="doc-content">
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('namespacemembers_type.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -96,51 +110,54 @@ $(function(){ initResizable(false); });
 
 
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
-<li>CircleF&#160;:&#160;<a class="el" href="namespacetr.html#a1d2cc5a6dbb44e5016299c518415f2fd">tr</a></li>
-<li>Clock&#160;:&#160;<a class="el" href="namespacetr.html#af4fd3ec324fda698be311d9444e4bbe6">tr</a></li>
+<li>CircleF&#160;:&#160;<a class="el" href="group__geometry.html#ga1d2cc5a6dbb44e5016299c518415f2fd">tr</a></li>
+<li>Clock&#160;:&#160;<a class="el" href="group__chrono.html#gaf4fd3ec324fda698be311d9444e4bbe6">tr</a></li>
 </ul>
 
 
 <h3><a id="index_d" name="index_d"></a>- d -</h3><ul>
-<li>Duration&#160;:&#160;<a class="el" href="namespacetr.html#a7ddef69a056dbb28ab75697bd1abe75e">tr</a></li>
+<li>Duration&#160;:&#160;<a class="el" href="group__chrono.html#ga7ddef69a056dbb28ab75697bd1abe75e">tr</a></li>
 </ul>
 
 
 <h3><a id="index_e" name="index_e"></a>- e -</h3><ul>
-<li>EnumHashMap&#160;:&#160;<a class="el" href="namespacetr.html#a797dd87a0405a155ce82350b5e3be205">tr</a></li>
+<li>EnumHashMap&#160;:&#160;<a class="el" href="group__hash__map.html#ga797dd87a0405a155ce82350b5e3be205">tr</a></li>
 </ul>
 
 
 <h3><a id="index_h" name="index_h"></a>- h -</h3><ul>
-<li>Half&#160;:&#160;<a class="el" href="namespacetr.html#aa9fb5ed6efb7979279398a2ed8ab41cc">tr</a></li>
+<li>Half&#160;:&#160;<a class="el" href="group__concepts.html#gaa9fb5ed6efb7979279398a2ed8ab41cc">tr</a></li>
 </ul>
 
 
 <h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
-<li>Microseconds&#160;:&#160;<a class="el" href="namespacetr.html#a91d603e20b5eeb530bf6499da8ac33bf">tr</a></li>
-<li>MicrosecondsD&#160;:&#160;<a class="el" href="namespacetr.html#a025d3b7c79511d804f430bc048465164">tr</a></li>
-<li>MicrosecondsF&#160;:&#160;<a class="el" href="namespacetr.html#afedb8d63ec587e4aad7ab00258341f1e">tr</a></li>
-<li>Milliseconds&#160;:&#160;<a class="el" href="namespacetr.html#a26339a62ab4ebc1408b2c872248b1a76">tr</a></li>
-<li>MillisecondsD&#160;:&#160;<a class="el" href="namespacetr.html#a44bf9d31042d53b7fb627b6f371e365d">tr</a></li>
-<li>MillisecondsF&#160;:&#160;<a class="el" href="namespacetr.html#a1f545d018d539fd0e947e4c299aaf075">tr</a></li>
+<li>Microseconds&#160;:&#160;<a class="el" href="group__chrono.html#ga91d603e20b5eeb530bf6499da8ac33bf">tr</a></li>
+<li>MicrosecondsD&#160;:&#160;<a class="el" href="group__chrono.html#ga025d3b7c79511d804f430bc048465164">tr</a></li>
+<li>MicrosecondsF&#160;:&#160;<a class="el" href="group__chrono.html#gafedb8d63ec587e4aad7ab00258341f1e">tr</a></li>
+<li>MicrosecondsI&#160;:&#160;<a class="el" href="group__chrono.html#gafb5c6be86d6c24d790951716e82f541a">tr</a></li>
+<li>Milliseconds&#160;:&#160;<a class="el" href="group__chrono.html#ga26339a62ab4ebc1408b2c872248b1a76">tr</a></li>
+<li>MillisecondsD&#160;:&#160;<a class="el" href="group__chrono.html#ga44bf9d31042d53b7fb627b6f371e365d">tr</a></li>
+<li>MillisecondsF&#160;:&#160;<a class="el" href="group__chrono.html#ga1f545d018d539fd0e947e4c299aaf075">tr</a></li>
+<li>MillisecondsI&#160;:&#160;<a class="el" href="group__chrono.html#gabb6cdda3e974ed35716e5f60a86e484e">tr</a></li>
 </ul>
 
 
 <h3><a id="index_n" name="index_n"></a>- n -</h3><ul>
-<li>Nanoseconds&#160;:&#160;<a class="el" href="namespacetr.html#a0adbe6e0bd1b47a6874dd4309068193d">tr</a></li>
-<li>NanosecondsD&#160;:&#160;<a class="el" href="namespacetr.html#a05ce035db2dad9af5ee07188e52df74a">tr</a></li>
-<li>NanosecondsF&#160;:&#160;<a class="el" href="namespacetr.html#a970d3e474975fe29957d56bf15a351c2">tr</a></li>
+<li>Nanoseconds&#160;:&#160;<a class="el" href="group__chrono.html#ga0adbe6e0bd1b47a6874dd4309068193d">tr</a></li>
+<li>NanosecondsD&#160;:&#160;<a class="el" href="group__chrono.html#ga05ce035db2dad9af5ee07188e52df74a">tr</a></li>
+<li>NanosecondsF&#160;:&#160;<a class="el" href="group__chrono.html#ga970d3e474975fe29957d56bf15a351c2">tr</a></li>
+<li>NanosecondsI&#160;:&#160;<a class="el" href="group__chrono.html#ga68852ea3e99f52f63dc37ea5abbc56f9">tr</a></li>
 </ul>
 
 
 <h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
-<li>Rect2&#160;:&#160;<a class="el" href="namespacetr.html#a6e31feda1c62eb3fbfa243766f0fe3d4">tr</a></li>
-<li>Rect3&#160;:&#160;<a class="el" href="namespacetr.html#ab1850cd63ebd391cea147ab721dbfbdc">tr</a></li>
-<li>RectF2&#160;:&#160;<a class="el" href="namespacetr.html#a7aeb24c702d132772be7de37fa94c0a2">tr</a></li>
-<li>RectF3&#160;:&#160;<a class="el" href="namespacetr.html#a2365f401a0c3c72f48fa4b636573ad77">tr</a></li>
-<li>RectI2&#160;:&#160;<a class="el" href="namespacetr.html#a386ecd8029d58f09791896b6421218d9">tr</a></li>
-<li>RectI3&#160;:&#160;<a class="el" href="namespacetr.html#a390b094b8bc7eb8fb107168f2ce8a6c0">tr</a></li>
-<li>remove_noexcept_t&#160;:&#160;<a class="el" href="namespacetr.html#a7d27da0979dd5dcecf290bb304d95aa5">tr</a></li>
+<li>Rect2&#160;:&#160;<a class="el" href="group__geometry.html#ga6e31feda1c62eb3fbfa243766f0fe3d4">tr</a></li>
+<li>Rect3&#160;:&#160;<a class="el" href="group__geometry.html#gab1850cd63ebd391cea147ab721dbfbdc">tr</a></li>
+<li>RectF2&#160;:&#160;<a class="el" href="group__geometry.html#ga7aeb24c702d132772be7de37fa94c0a2">tr</a></li>
+<li>RectF3&#160;:&#160;<a class="el" href="group__geometry.html#ga2365f401a0c3c72f48fa4b636573ad77">tr</a></li>
+<li>RectI2&#160;:&#160;<a class="el" href="group__geometry.html#ga386ecd8029d58f09791896b6421218d9">tr</a></li>
+<li>RectI3&#160;:&#160;<a class="el" href="group__geometry.html#ga390b094b8bc7eb8fb107168f2ce8a6c0">tr</a></li>
+<li>remove_noexcept_t&#160;:&#160;<a class="el" href="group__concepts.html#ga7d27da0979dd5dcecf290bb304d95aa5">tr</a></li>
 <li>RGB8&#160;:&#160;<a class="el" href="group__color.html#ga9168e2ec57685569404fd7bb3b77dc70">tr</a></li>
 <li>RGBA8&#160;:&#160;<a class="el" href="group__color.html#ga1713cee25653ace2c701e2811e86386c">tr</a></li>
 <li>RGBAF&#160;:&#160;<a class="el" href="group__color.html#gaaede9b1d58e8ca2c89f538b907a9c688">tr</a></li>
@@ -148,32 +165,30 @@ $(function(){ initResizable(false); });
 
 
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
-<li>Seconds&#160;:&#160;<a class="el" href="namespacetr.html#a6cd06b846212534f302ec0a180a4c0d0">tr</a></li>
-<li>SecondsD&#160;:&#160;<a class="el" href="namespacetr.html#a0f92e87943507c498db866578bf86b58">tr</a></li>
-<li>SecondsF&#160;:&#160;<a class="el" href="namespacetr.html#a8bf48222a318f44cc048821df3489576">tr</a></li>
-<li>StaticStringHashMap&#160;:&#160;<a class="el" href="namespacetr.html#a8014c86bab19adcb28b1ba1b58119ce9">tr</a></li>
-<li>StringHashMap&#160;:&#160;<a class="el" href="namespacetr.html#a75ea6209bc089aebbd5821b3028643d9">tr</a></li>
+<li>Seconds&#160;:&#160;<a class="el" href="group__chrono.html#ga6cd06b846212534f302ec0a180a4c0d0">tr</a></li>
+<li>SecondsD&#160;:&#160;<a class="el" href="group__chrono.html#ga0f92e87943507c498db866578bf86b58">tr</a></li>
+<li>SecondsF&#160;:&#160;<a class="el" href="group__chrono.html#ga8bf48222a318f44cc048821df3489576">tr</a></li>
+<li>SecondsI&#160;:&#160;<a class="el" href="group__chrono.html#gac3b0f92332e2487ba38ba305d8e3c09e">tr</a></li>
+<li>StaticStringHashMap&#160;:&#160;<a class="el" href="group__hash__map.html#ga8014c86bab19adcb28b1ba1b58119ce9">tr</a></li>
+<li>StringHashMap&#160;:&#160;<a class="el" href="group__hash__map.html#ga75ea6209bc089aebbd5821b3028643d9">tr</a></li>
 </ul>
 
 
 <h3><a id="index_t" name="index_t"></a>- t -</h3><ul>
-<li>TimePoint&#160;:&#160;<a class="el" href="namespacetr.html#a406e1cc6456f37b7be0eb57f4c63c91b">tr</a></li>
+<li>TimePoint&#160;:&#160;<a class="el" href="group__chrono.html#ga406e1cc6456f37b7be0eb57f4c63c91b">tr</a></li>
 </ul>
 
 
 <h3><a id="index_v" name="index_v"></a>- v -</h3><ul>
-<li>VertexAttribute&#160;:&#160;<a class="el" href="group__graphics.html#gaa4f8c01282cc53dfbd3c489a8aceabb7">tr</a></li>
-</ul>
-
-
-<h3><a id="index_w" name="index_w"></a>- w -</h3><ul>
-<li>WindowEvent&#160;:&#160;<a class="el" href="group__event.html#gaf8866fa48b4ceeda181aa2196b19a355">tr</a></li>
+<li>VertexAttribute&#160;:&#160;<a class="el" href="group__vertex__format.html#gaa4f8c01282cc53dfbd3c489a8aceabb7">tr</a></li>
 </ul>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

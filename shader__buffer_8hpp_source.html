@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -18,6 +20,8 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,9 +30,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libtr
+   <div id="projectname">libtr<span id="projectnumber">&#160;0.1.0</span>
    </div>
-   <div id="projectbrief">Personal C++ base library for gamedev projects</div>
+   <div id="projectbrief">Base library for gamedev projects</div>
   </td>
  </tr>
  </tbody>
@@ -51,17 +55,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('shader__buffer_8hpp_source.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -83,12 +99,6 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_48c35ed6b28060506e9df53e28b74a05.html">tr</a></li>  </ul>
-</div>
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="headertitle"><div class="title">shader_buffer.hpp</div></div>
 </div><!--header-->
@@ -97,111 +107,143 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;graphics_buffer.hpp&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetr.html">tr</a> {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html">   15</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1ShaderBuffer.html">ShaderBuffer</a> : <span class="keyword">public</span> <a class="code hl_class" href="classtr_1_1GraphicsBuffer.html">GraphicsBuffer</a> {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>      <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8da">   20</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8da">Access</a> : std::uint32_t {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <a class="code hl_enumvalue" href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8daa47c7e7cb36a953a8c47e02000036bb44">READ_ONLY</a> = std::uint32_t(Flag::READABLE),</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <a class="code hl_enumvalue" href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8daad8fddf06187e680ab5a6355f76a17357">WRITE_ONLY</a> = std::uint32_t(Flag::WRITABLE),</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <a class="code hl_enumvalue" href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8daaa7b843fb734e3b3fea8e5f902d3f4144">READ_WRITE</a> = std::uint32_t(Flag::READABLE) | std::uint32_t(Flag::WRITABLE)</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        };</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html">   17</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classtr_1_1ShaderBuffer.html">ShaderBuffer</a> : <span class="keyword">public</span> <a class="code hl_class" href="classtr_1_1GraphicsBuffer.html">GraphicsBuffer</a> {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8da">   22</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8da">Access</a> : std::uint32_t {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            <a class="code hl_enumvalue" href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8daa47c7e7cb36a953a8c47e02000036bb44">READ_ONLY</a> = std::uint32_t(Flag::READABLE),</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            <a class="code hl_enumvalue" href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8daad8fddf06187e680ab5a6355f76a17357">WRITE_ONLY</a> = std::uint32_t(Flag::WRITABLE),</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <a class="code hl_enumvalue" href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8daaa7b843fb734e3b3fea8e5f902d3f4144">READ_WRITE</a> = std::uint32_t(Flag::READABLE) | std::uint32_t(Flag::WRITABLE)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        };</div>
 </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a0d942541dd07451c1705063b976f9f04">   46</a></span>        <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a0d942541dd07451c1705063b976f9f04">ShaderBuffer</a>(std::size_t <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#aa82d11a61eb3723000004471d4530715">headerSize</a>, std::size_t capacity, <a class="code hl_enumeration" href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8da">Access</a> access);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#aa82d11a61eb3723000004471d4530715">   53</a></span>        std::size_t <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#aa82d11a61eb3723000004471d4530715">headerSize</a>() const noexcept;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#aad12e5aebf82068f07f7b4b138a88639">   60</a></span>        std::<span class="keywordtype">size_t</span> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#aad12e5aebf82068f07f7b4b138a88639">arraySize</a>() const noexcept;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a35eba8a813bb7a781c3e4ef043cef37f">   67</a></span>        std::<span class="keywordtype">size_t</span> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a35eba8a813bb7a781c3e4ef043cef37f">arrayCapacity</a>() const noexcept;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#aeba551416241803f1298dec493add27c">   74</a></span>        template &lt;<a class="code hl_concept" href="concepttr_1_1GraphicsBufferCopyOutputIterator.html">GraphicsBufferCopyOutputIterator</a> It&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#aeba551416241803f1298dec493add27c">copyHeaderTo</a>(It out) const noexcept</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        {</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            copyRegionTo(out, 0, _headerSize);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a0d942541dd07451c1705063b976f9f04">   48</a></span>        <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a0d942541dd07451c1705063b976f9f04">ShaderBuffer</a>(std::size_t <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#aa82d11a61eb3723000004471d4530715">headerSize</a>, std::size_t capacity, <a class="code hl_enumeration" href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8da">Access</a> access);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#aa82d11a61eb3723000004471d4530715">   55</a></span>        std::size_t <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#aa82d11a61eb3723000004471d4530715">headerSize</a>() const noexcept;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#aad12e5aebf82068f07f7b4b138a88639">   62</a></span>        std::<span class="keywordtype">size_t</span> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#aad12e5aebf82068f07f7b4b138a88639">arraySize</a>() const noexcept;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a35eba8a813bb7a781c3e4ef043cef37f">   69</a></span>        std::<span class="keywordtype">size_t</span> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a35eba8a813bb7a781c3e4ef043cef37f">arrayCapacity</a>() const noexcept;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="foldopen" id="foldopen00076" data-start="{" data-end="}">
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#aeba551416241803f1298dec493add27c">   76</a></span>        template &lt;<a class="code hl_concept" href="concepttr_1_1GraphicsBufferCopyOutputIterator.html">GraphicsBufferCopyOutputIterator</a> It&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#aeba551416241803f1298dec493add27c">copyHeaderTo</a>(It out) const noexcept</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            copyRegionTo(out, 0, _headerSize);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        }</div>
 </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="foldopen" id="foldopen00084" data-start="{" data-end="}">
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#af279fd9d5e86f974247f2ab631671868">   84</a></span>        <span class="keyword">template</span> &lt;GraphicsBufferCopyOutputIterator It&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#af279fd9d5e86f974247f2ab631671868">copyArrayTo</a>(It out) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            copyRegionTo(out, _headerSize, _size);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="foldopen" id="foldopen00086" data-start="{" data-end="}">
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#af279fd9d5e86f974247f2ab631671868">   86</a></span>        <span class="keyword">template</span> &lt;GraphicsBufferCopyOutputIterator It&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#af279fd9d5e86f974247f2ab631671868">copyArrayTo</a>(It out) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            copyRegionTo(out, _headerSize, _size);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        }</div>
 </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a7a23342efa125caa2a3c3beec359c229">   94</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a7a23342efa125caa2a3c3beec359c229">setHeader</a>(std::span&lt;const std::byte&gt; data) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a0e3a9d8e2b23f469dd0e193fc4553da2">  102</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a0e3a9d8e2b23f469dd0e193fc4553da2">setArray</a>(std::span&lt;const std::byte&gt; data) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#add08a7229be920b2d349165593a7c107">  109</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#add08a7229be920b2d349165593a7c107">resizeArray</a>(std::size_t size) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keyword">using </span>GraphicsBuffer::mapped;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a40663ebf5abe86fdcc458fc4b026da10">  120</a></span>        <a class="code hl_class" href="classtr_1_1GraphicsBufferMap.html">GraphicsBufferMap</a> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a40663ebf5abe86fdcc458fc4b026da10">mapHeader</a>() noexcept;</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a8fe113773f66f0d6bf14f35a9dfb8293">  129</a></span>        <a class="code hl_class" href="classtr_1_1GraphicsBufferMap.html">GraphicsBufferMap</a> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a8fe113773f66f0d6bf14f35a9dfb8293">mapArray</a>() noexcept;</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a1fa7814554bdffb60930a1fc252624f3">  136</a></span>        <a class="code hl_class" href="classtr_1_1GraphicsBufferMap.html">GraphicsBufferMap</a> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a1fa7814554bdffb60930a1fc252624f3">map</a>() noexcept;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a7a23342efa125caa2a3c3beec359c229">   96</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a7a23342efa125caa2a3c3beec359c229">setHeader</a>(std::span&lt;const std::byte&gt; data) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#ac3fba07ebe89285ba7e5adc7b6fb9d30">  103</a></span>        <span class="keyword">template</span> &lt;std::ranges::contiguous_range Range&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#ac3fba07ebe89285ba7e5adc7b6fb9d30">setHeader</a>(Range&amp;&amp; range) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a7a23342efa125caa2a3c3beec359c229">setHeader</a>(std::span&lt;const std::byte&gt;{<a class="code hl_function" href="group__ranges.html#ga1257a17328760a08c322c3cf7e1abcf5">rangeBytes</a>(range)});</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        }</div>
+</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a8ac83bc7dc3bc9531d8a785275cbc310">  113</a></span>        <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a8ac83bc7dc3bc9531d8a785275cbc310">setHeader</a>(<span class="keyword">const</span> T&amp; value) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a7a23342efa125caa2a3c3beec359c229">setHeader</a>(std::span&lt;const std::byte&gt;{<a class="code hl_function" href="group__ranges.html#ga4ba33147a328d3e30640eefe93013d45">asBytes</a>(value)});</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        }</div>
+</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a0e3a9d8e2b23f469dd0e193fc4553da2">  124</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a0e3a9d8e2b23f469dd0e193fc4553da2">setArray</a>(std::span&lt;const std::byte&gt; data) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="foldopen" id="foldopen00132" data-start="{" data-end="}">
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a7d2c1f56dbe0ffab0750e4c066b67688">  132</a></span>        <span class="keyword">template</span> &lt;std::ranges::contiguous_range Range&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a7d2c1f56dbe0ffab0750e4c066b67688">setArray</a>(Range&amp;&amp; range) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a0e3a9d8e2b23f469dd0e193fc4553da2">setArray</a>(std::span&lt;const std::byte&gt;{<a class="code hl_function" href="group__ranges.html#ga1257a17328760a08c322c3cf7e1abcf5">rangeBytes</a>(range)});</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        }</div>
+</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        using <a class="code hl_class" href="classtr_1_1GraphicsBuffer.html">GraphicsBuffer</a>::setLabel;</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>      private:</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <a class="code hl_enumeration" href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8da">Access</a>      _access;</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        std::<span class="keywordtype">size_t</span> _headerSize;</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        std::<span class="keywordtype">size_t</span> _size;</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a03c2d524ace9ade9c3f55b43c99bcea1">  145</a></span>        friend class <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>;</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    };</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#add08a7229be920b2d349165593a7c107">  142</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#add08a7229be920b2d349165593a7c107">resizeArray</a>(std::size_t size) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keyword">using </span>GraphicsBuffer::mapped;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a40663ebf5abe86fdcc458fc4b026da10">  153</a></span>        <a class="code hl_class" href="classtr_1_1GraphicsBufferMap.html">GraphicsBufferMap</a> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a40663ebf5abe86fdcc458fc4b026da10">mapHeader</a>() noexcept;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a8fe113773f66f0d6bf14f35a9dfb8293">  162</a></span>        <a class="code hl_class" href="classtr_1_1GraphicsBufferMap.html">GraphicsBufferMap</a> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a8fe113773f66f0d6bf14f35a9dfb8293">mapArray</a>() noexcept;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a1fa7814554bdffb60930a1fc252624f3">  169</a></span>        <a class="code hl_class" href="classtr_1_1GraphicsBufferMap.html">GraphicsBufferMap</a> <a class="code hl_function" href="classtr_1_1ShaderBuffer.html#a1fa7814554bdffb60930a1fc252624f3">map</a>() noexcept;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        using <a class="code hl_class" href="classtr_1_1GraphicsBuffer.html">GraphicsBuffer</a>::setLabel;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>      private:</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <a class="code hl_enumeration" href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8da">Access</a>      _access;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        std::<span class="keywordtype">size_t</span> _headerSize;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        std::<span class="keywordtype">size_t</span> _size;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderBuffer.html#a03c2d524ace9ade9c3f55b43c99bcea1">  178</a></span>        friend class <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    };</div>
 </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>} <span class="comment">// namespace tr</span></div>
-<div class="ttc" id="aclasstr_1_1GraphicsBufferMap_html"><div class="ttname"><a href="classtr_1_1GraphicsBufferMap.html">tr::GraphicsBufferMap</a></div><div class="ttdoc">RAII wrapper over a graphics buffer map.</div><div class="ttdef"><b>Definition</b> graphics_buffer.hpp:190</div></div>
-<div class="ttc" id="aclasstr_1_1GraphicsBuffer_html"><div class="ttname"><a href="classtr_1_1GraphicsBuffer.html">tr::GraphicsBuffer</a></div><div class="ttdoc">Base graphics buffer class.</div><div class="ttdef"><b>Definition</b> graphics_buffer.hpp:53</div></div>
-<div class="ttc" id="aclasstr_1_1ShaderBuffer_html"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html">tr::ShaderBuffer</a></div><div class="ttdoc">GPU buffer accessable by a shader.</div><div class="ttdef"><b>Definition</b> shader_buffer.hpp:15</div></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>} <span class="comment">// namespace tr</span></div>
+<div class="ttc" id="aclasstr_1_1GraphicsBufferMap_html"><div class="ttname"><a href="classtr_1_1GraphicsBufferMap.html">tr::GraphicsBufferMap</a></div><div class="ttdoc">RAII wrapper over a graphics buffer map.</div><div class="ttdef"><b>Definition</b> graphics_buffer.hpp:193</div></div>
+<div class="ttc" id="aclasstr_1_1GraphicsBuffer_html"><div class="ttname"><a href="classtr_1_1GraphicsBuffer.html">tr::GraphicsBuffer</a></div><div class="ttdoc">Base graphics buffer class.</div><div class="ttdef"><b>Definition</b> graphics_buffer.hpp:56</div></div>
+<div class="ttc" id="aclasstr_1_1ShaderBuffer_html"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html">tr::ShaderBuffer</a></div><div class="ttdoc">GPU buffer accessable by a shader.</div><div class="ttdef"><b>Definition</b> shader_buffer.hpp:17</div></div>
 <div class="ttc" id="aclasstr_1_1ShaderBuffer_html_a0d942541dd07451c1705063b976f9f04"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#a0d942541dd07451c1705063b976f9f04">tr::ShaderBuffer::ShaderBuffer</a></div><div class="ttdeci">ShaderBuffer(std::size_t headerSize, std::size_t capacity, Access access)</div><div class="ttdoc">Allocates an uninitialized shader buffer.</div></div>
 <div class="ttc" id="aclasstr_1_1ShaderBuffer_html_a0e3a9d8e2b23f469dd0e193fc4553da2"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#a0e3a9d8e2b23f469dd0e193fc4553da2">tr::ShaderBuffer::setArray</a></div><div class="ttdeci">void setArray(std::span&lt; const std::byte &gt; data) noexcept</div><div class="ttdoc">Sets the data of the dynamic array.</div></div>
 <div class="ttc" id="aclasstr_1_1ShaderBuffer_html_a1fa7814554bdffb60930a1fc252624f3"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#a1fa7814554bdffb60930a1fc252624f3">tr::ShaderBuffer::map</a></div><div class="ttdeci">GraphicsBufferMap map() noexcept</div><div class="ttdoc">Maps the entire buffer.</div></div>
 <div class="ttc" id="aclasstr_1_1ShaderBuffer_html_a35eba8a813bb7a781c3e4ef043cef37f"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#a35eba8a813bb7a781c3e4ef043cef37f">tr::ShaderBuffer::arrayCapacity</a></div><div class="ttdeci">std::size_t arrayCapacity() const noexcept</div><div class="ttdoc">Gets the maximum capacity of the dynamic array.</div></div>
 <div class="ttc" id="aclasstr_1_1ShaderBuffer_html_a40663ebf5abe86fdcc458fc4b026da10"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#a40663ebf5abe86fdcc458fc4b026da10">tr::ShaderBuffer::mapHeader</a></div><div class="ttdeci">GraphicsBufferMap mapHeader() noexcept</div><div class="ttdoc">Maps the fixed header.</div></div>
-<div class="ttc" id="aclasstr_1_1ShaderBuffer_html_a5e4be997fde54af6dc7ca12d4a76a8da"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8da">tr::ShaderBuffer::Access</a></div><div class="ttdeci">Access</div><div class="ttdoc">Shader buffer map access type.</div><div class="ttdef"><b>Definition</b> shader_buffer.hpp:20</div></div>
+<div class="ttc" id="aclasstr_1_1ShaderBuffer_html_a5e4be997fde54af6dc7ca12d4a76a8da"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8da">tr::ShaderBuffer::Access</a></div><div class="ttdeci">Access</div><div class="ttdoc">Shader buffer map access type.</div><div class="ttdef"><b>Definition</b> shader_buffer.hpp:22</div></div>
 <div class="ttc" id="aclasstr_1_1ShaderBuffer_html_a5e4be997fde54af6dc7ca12d4a76a8daa47c7e7cb36a953a8c47e02000036bb44"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8daa47c7e7cb36a953a8c47e02000036bb44">tr::ShaderBuffer::Access::READ_ONLY</a></div><div class="ttdeci">@ READ_ONLY</div><div class="ttdoc">Buffer maps are read-only.</div></div>
 <div class="ttc" id="aclasstr_1_1ShaderBuffer_html_a5e4be997fde54af6dc7ca12d4a76a8daaa7b843fb734e3b3fea8e5f902d3f4144"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8daaa7b843fb734e3b3fea8e5f902d3f4144">tr::ShaderBuffer::Access::READ_WRITE</a></div><div class="ttdeci">@ READ_WRITE</div><div class="ttdoc">Buffer maps are readable and writable.</div></div>
 <div class="ttc" id="aclasstr_1_1ShaderBuffer_html_a5e4be997fde54af6dc7ca12d4a76a8daad8fddf06187e680ab5a6355f76a17357"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#a5e4be997fde54af6dc7ca12d4a76a8daad8fddf06187e680ab5a6355f76a17357">tr::ShaderBuffer::Access::WRITE_ONLY</a></div><div class="ttdeci">@ WRITE_ONLY</div><div class="ttdoc">Buffer maps are write-only.</div></div>
 <div class="ttc" id="aclasstr_1_1ShaderBuffer_html_a7a23342efa125caa2a3c3beec359c229"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#a7a23342efa125caa2a3c3beec359c229">tr::ShaderBuffer::setHeader</a></div><div class="ttdeci">void setHeader(std::span&lt; const std::byte &gt; data) noexcept</div><div class="ttdoc">Sets the data of the header.</div></div>
+<div class="ttc" id="aclasstr_1_1ShaderBuffer_html_a7d2c1f56dbe0ffab0750e4c066b67688"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#a7d2c1f56dbe0ffab0750e4c066b67688">tr::ShaderBuffer::setArray</a></div><div class="ttdeci">void setArray(Range &amp;&amp;range) noexcept</div><div class="ttdoc">Sets the data of the dynamic array.</div><div class="ttdef"><b>Definition</b> shader_buffer.hpp:132</div></div>
+<div class="ttc" id="aclasstr_1_1ShaderBuffer_html_a8ac83bc7dc3bc9531d8a785275cbc310"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#a8ac83bc7dc3bc9531d8a785275cbc310">tr::ShaderBuffer::setHeader</a></div><div class="ttdeci">void setHeader(const T &amp;value) noexcept</div><div class="ttdoc">Sets the data of the header.</div><div class="ttdef"><b>Definition</b> shader_buffer.hpp:113</div></div>
 <div class="ttc" id="aclasstr_1_1ShaderBuffer_html_a8fe113773f66f0d6bf14f35a9dfb8293"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#a8fe113773f66f0d6bf14f35a9dfb8293">tr::ShaderBuffer::mapArray</a></div><div class="ttdeci">GraphicsBufferMap mapArray() noexcept</div><div class="ttdoc">Maps the dynamic array.</div></div>
 <div class="ttc" id="aclasstr_1_1ShaderBuffer_html_aa82d11a61eb3723000004471d4530715"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#aa82d11a61eb3723000004471d4530715">tr::ShaderBuffer::headerSize</a></div><div class="ttdeci">std::size_t headerSize() const noexcept</div><div class="ttdoc">Gets the size of the fixed header block.</div></div>
 <div class="ttc" id="aclasstr_1_1ShaderBuffer_html_aad12e5aebf82068f07f7b4b138a88639"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#aad12e5aebf82068f07f7b4b138a88639">tr::ShaderBuffer::arraySize</a></div><div class="ttdeci">std::size_t arraySize() const noexcept</div><div class="ttdoc">Gets the size of the dynamic array.</div></div>
+<div class="ttc" id="aclasstr_1_1ShaderBuffer_html_ac3fba07ebe89285ba7e5adc7b6fb9d30"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#ac3fba07ebe89285ba7e5adc7b6fb9d30">tr::ShaderBuffer::setHeader</a></div><div class="ttdeci">void setHeader(Range &amp;&amp;range) noexcept</div><div class="ttdoc">Sets the data of the header.</div><div class="ttdef"><b>Definition</b> shader_buffer.hpp:103</div></div>
 <div class="ttc" id="aclasstr_1_1ShaderBuffer_html_add08a7229be920b2d349165593a7c107"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#add08a7229be920b2d349165593a7c107">tr::ShaderBuffer::resizeArray</a></div><div class="ttdeci">void resizeArray(std::size_t size) noexcept</div><div class="ttdoc">Resizes the dynamic array.</div></div>
-<div class="ttc" id="aclasstr_1_1ShaderBuffer_html_aeba551416241803f1298dec493add27c"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#aeba551416241803f1298dec493add27c">tr::ShaderBuffer::copyHeaderTo</a></div><div class="ttdeci">void copyHeaderTo(It out) const noexcept</div><div class="ttdoc">Copies the data of the fixed header to an output iterator.</div><div class="ttdef"><b>Definition</b> shader_buffer.hpp:74</div></div>
-<div class="ttc" id="aclasstr_1_1ShaderBuffer_html_af279fd9d5e86f974247f2ab631671868"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#af279fd9d5e86f974247f2ab631671868">tr::ShaderBuffer::copyArrayTo</a></div><div class="ttdeci">void copyArrayTo(It out) const noexcept</div><div class="ttdoc">Copies the data of the dynamic array to an output iterator.</div><div class="ttdef"><b>Definition</b> shader_buffer.hpp:84</div></div>
-<div class="ttc" id="aclasstr_1_1Shader_html"><div class="ttname"><a href="classtr_1_1Shader.html">tr::Shader</a></div><div class="ttdoc">GPU shader program.</div><div class="ttdef"><b>Definition</b> shader.hpp:35</div></div>
-<div class="ttc" id="aconcepttr_1_1GraphicsBufferCopyOutputIterator_html"><div class="ttname"><a href="concepttr_1_1GraphicsBufferCopyOutputIterator.html">tr::GraphicsBufferCopyOutputIterator</a></div><div class="ttdoc">Concept denoting an iterator suitable for GraphicsBuffer::copyRegionTo.</div><div class="ttdef"><b>Definition</b> graphics_buffer.hpp:19</div></div>
-<div class="ttc" id="anamespacetr_html"><div class="ttname"><a href="namespacetr.html">tr</a></div><div class="ttdoc">Namespace containing all libtr functionality.</div><div class="ttdef"><b>Definition</b> angle.hpp:5</div></div>
+<div class="ttc" id="aclasstr_1_1ShaderBuffer_html_aeba551416241803f1298dec493add27c"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#aeba551416241803f1298dec493add27c">tr::ShaderBuffer::copyHeaderTo</a></div><div class="ttdeci">void copyHeaderTo(It out) const noexcept</div><div class="ttdoc">Copies the data of the fixed header to an output iterator.</div><div class="ttdef"><b>Definition</b> shader_buffer.hpp:76</div></div>
+<div class="ttc" id="aclasstr_1_1ShaderBuffer_html_af279fd9d5e86f974247f2ab631671868"><div class="ttname"><a href="classtr_1_1ShaderBuffer.html#af279fd9d5e86f974247f2ab631671868">tr::ShaderBuffer::copyArrayTo</a></div><div class="ttdeci">void copyArrayTo(It out) const noexcept</div><div class="ttdoc">Copies the data of the dynamic array to an output iterator.</div><div class="ttdef"><b>Definition</b> shader_buffer.hpp:86</div></div>
+<div class="ttc" id="aclasstr_1_1Shader_html"><div class="ttname"><a href="classtr_1_1Shader.html">tr::Shader</a></div><div class="ttdoc">GPU shader program.</div><div class="ttdef"><b>Definition</b> shader.hpp:37</div></div>
+<div class="ttc" id="aconcepttr_1_1GraphicsBufferCopyOutputIterator_html"><div class="ttname"><a href="concepttr_1_1GraphicsBufferCopyOutputIterator.html">tr::GraphicsBufferCopyOutputIterator</a></div><div class="ttdoc">Concept denoting an iterator suitable for GraphicsBuffer::copyRegionTo.</div><div class="ttdef"><b>Definition</b> graphics_buffer.hpp:22</div></div>
+<div class="ttc" id="agroup__ranges_html_ga1257a17328760a08c322c3cf7e1abcf5"><div class="ttname"><a href="group__ranges.html#ga1257a17328760a08c322c3cf7e1abcf5">tr::rangeBytes</a></div><div class="ttdeci">auto rangeBytes(const T &amp;range) noexcept</div><div class="ttdoc">Gets a view of a contiguous range as a span of immutable bytes.</div></div>
+<div class="ttc" id="agroup__ranges_html_ga4ba33147a328d3e30640eefe93013d45"><div class="ttname"><a href="group__ranges.html#ga4ba33147a328d3e30640eefe93013d45">tr::asBytes</a></div><div class="ttdeci">std::span&lt; const std::byte, sizeof(T)&gt; asBytes(const T &amp;object) noexcept</div><div class="ttdoc">Gets a view of an object as a span of immutable bytes.</div></div>
+<div class="ttc" id="anamespacetr_html"><div class="ttname"><a href="namespacetr.html">tr</a></div><div class="ttdef"><b>Definition</b> angle.hpp:5</div></div>
 </div><!-- fragment --></div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_48c35ed6b28060506e9df53e28b74a05.html">tr</a></li><li class="navelem"><b>shader_buffer.hpp</b></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

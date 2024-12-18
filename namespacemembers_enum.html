@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -18,6 +20,8 @@
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,9 +30,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">libtr
+   <div id="projectname">libtr<span id="projectnumber">&#160;0.1.0</span>
    </div>
-   <div id="projectbrief">Personal C++ base library for gamedev projects</div>
+   <div id="projectbrief">Base library for gamedev projects</div>
   </td>
  </tr>
  </tbody>
@@ -51,19 +55,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="doc-content">
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('namespacemembers_enum.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -87,36 +101,38 @@ $(function(){ initResizable(false); });
 
 <div class="contents">
 <div class="textblock">Here is a list of all namespace enums with links to the namespace documentation for each enum:</div><ul>
-<li>AudioFormat&#160;:&#160;<a class="el" href="group__audio.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">tr</a></li>
-<li>AudioOrigin&#160;:&#160;<a class="el" href="group__audio.html#gac94c6d9def358bc33348c409be0a151a">tr</a></li>
-<li>AudioState&#160;:&#160;<a class="el" href="group__audio.html#ga6c94829f0dfe0e9696cc57a3c7aff830">tr</a></li>
-<li>BlendFunction&#160;:&#160;<a class="el" href="group__graphics.html#gab02487840c576fc68a93203882127279">tr</a></li>
-<li>BlendMultiplier&#160;:&#160;<a class="el" href="group__graphics.html#gab7083cc1749480ee24db1b5ef93d4767">tr</a></li>
-<li>Clear&#160;:&#160;<a class="el" href="group__graphics.html#gaeaf2735d38842f598e12fe0e884992ed">tr</a></li>
-<li>Compare&#160;:&#160;<a class="el" href="group__graphics.html#ga88338da155e2e92486d80fb0650a07d5">tr</a></li>
-<li>FlashOperation&#160;:&#160;<a class="el" href="group__input.html#ga41769bf3df85aadb5d910148498e9585">tr</a></li>
-<li>Keymods&#160;:&#160;<a class="el" href="group__input.html#ga1e5a857eb2f40e2b55bfb43225cbc658">tr</a></li>
-<li>MagFilter&#160;:&#160;<a class="el" href="group__graphics.html#gac346a03e941c8ea2519c19086c4ce299">tr</a></li>
-<li>MinFilter&#160;:&#160;<a class="el" href="group__graphics.html#gad1e4cc9bea7f1b176409b1e42ea21d68">tr</a></li>
-<li>MouseButton&#160;:&#160;<a class="el" href="group__input.html#ga8c4a44871ba907dcd4225b2617b40f77">tr</a></li>
-<li>MouseButtonMask&#160;:&#160;<a class="el" href="group__input.html#ga7a6ba61b3e90ed6064cd4a1b4ef92536">tr</a></li>
-<li>Primitive&#160;:&#160;<a class="el" href="group__graphics.html#ga836d6a68316285fa5bde27908d9d9184">tr</a></li>
-<li>ShaderType&#160;:&#160;<a class="el" href="group__graphics.html#gafcfa3e5f9682128a25a9ac5eb1de2579">tr</a></li>
-<li>StencilFace&#160;:&#160;<a class="el" href="group__graphics.html#gae1a255c2dd97c61884a0c90d6e7aae8f">tr</a></li>
-<li>StencilOperation&#160;:&#160;<a class="el" href="group__graphics.html#ga8c440fc4a94422129e86a69114e35b50">tr</a></li>
-<li>Swizzle&#160;:&#160;<a class="el" href="group__graphics.html#ga228d86137368dd348340097c8a515439">tr</a></li>
-<li>SysCursor&#160;:&#160;<a class="el" href="group__input.html#gafb288c9c0ebc6c9d4b511786aadb5d8e">tr</a></li>
-<li>TextureFormat&#160;:&#160;<a class="el" href="group__graphics.html#ga2e9ae2f935462a45286798ae6fd5def9">tr</a></li>
-<li>VSync&#160;:&#160;<a class="el" href="group__input.html#gac6c470285a932bb2ce74499f1ff07ac5">tr</a></li>
-<li>WindowFlag&#160;:&#160;<a class="el" href="group__input.html#gad463b226a0cad7ea3e64dd5b07ecf12f">tr</a></li>
-<li>WindowMode&#160;:&#160;<a class="el" href="group__input.html#ga0caa27a38e3d8b688a5abab875ed28f7">tr</a></li>
-<li>Wrap&#160;:&#160;<a class="el" href="group__graphics.html#ga68fa0648b9a72034f88944a16cadaea8">tr</a></li>
+<li>AudioFormat&#160;:&#160;<a class="el" href="group__audio__buffer.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">tr</a></li>
+<li>AudioOrigin&#160;:&#160;<a class="el" href="group__audio__source.html#gac94c6d9def358bc33348c409be0a151a">tr</a></li>
+<li>AudioState&#160;:&#160;<a class="el" href="group__audio__source.html#ga6c94829f0dfe0e9696cc57a3c7aff830">tr</a></li>
+<li>BlendFunction&#160;:&#160;<a class="el" href="group__graphics__context.html#gab02487840c576fc68a93203882127279">tr</a></li>
+<li>BlendMultiplier&#160;:&#160;<a class="el" href="group__graphics__context.html#gab7083cc1749480ee24db1b5ef93d4767">tr</a></li>
+<li>Clear&#160;:&#160;<a class="el" href="group__graphics__context.html#gaeaf2735d38842f598e12fe0e884992ed">tr</a></li>
+<li>Compare&#160;:&#160;<a class="el" href="group__sampler.html#ga88338da155e2e92486d80fb0650a07d5">tr</a></li>
+<li>FlashOperation&#160;:&#160;<a class="el" href="group__window.html#ga41769bf3df85aadb5d910148498e9585">tr</a></li>
+<li>Keymods&#160;:&#160;<a class="el" href="group__keyboard.html#ga1e5a857eb2f40e2b55bfb43225cbc658">tr</a></li>
+<li>MagFilter&#160;:&#160;<a class="el" href="group__sampler.html#gac346a03e941c8ea2519c19086c4ce299">tr</a></li>
+<li>MinFilter&#160;:&#160;<a class="el" href="group__sampler.html#gad1e4cc9bea7f1b176409b1e42ea21d68">tr</a></li>
+<li>MouseButton&#160;:&#160;<a class="el" href="group__mouse.html#ga8c4a44871ba907dcd4225b2617b40f77">tr</a></li>
+<li>MouseButtonMask&#160;:&#160;<a class="el" href="group__mouse.html#ga7a6ba61b3e90ed6064cd4a1b4ef92536">tr</a></li>
+<li>Primitive&#160;:&#160;<a class="el" href="group__graphics__context.html#ga836d6a68316285fa5bde27908d9d9184">tr</a></li>
+<li>ShaderType&#160;:&#160;<a class="el" href="group__shader.html#gafcfa3e5f9682128a25a9ac5eb1de2579">tr</a></li>
+<li>StencilFace&#160;:&#160;<a class="el" href="group__graphics__context.html#gae1a255c2dd97c61884a0c90d6e7aae8f">tr</a></li>
+<li>StencilOperation&#160;:&#160;<a class="el" href="group__graphics__context.html#ga8c440fc4a94422129e86a69114e35b50">tr</a></li>
+<li>Swizzle&#160;:&#160;<a class="el" href="group__texture.html#ga228d86137368dd348340097c8a515439">tr</a></li>
+<li>SysCursor&#160;:&#160;<a class="el" href="group__mouse.html#gafb288c9c0ebc6c9d4b511786aadb5d8e">tr</a></li>
+<li>TextureFormat&#160;:&#160;<a class="el" href="group__texture.html#ga2e9ae2f935462a45286798ae6fd5def9">tr</a></li>
+<li>VSync&#160;:&#160;<a class="el" href="group__window.html#gac6c470285a932bb2ce74499f1ff07ac5">tr</a></li>
+<li>WindowFlag&#160;:&#160;<a class="el" href="group__window.html#gad463b226a0cad7ea3e64dd5b07ecf12f">tr</a></li>
+<li>WindowMode&#160;:&#160;<a class="el" href="group__window.html#ga0caa27a38e3d8b688a5abab875ed28f7">tr</a></li>
+<li>Wrap&#160;:&#160;<a class="el" href="group__sampler.html#ga68fa0648b9a72034f88944a16cadaea8">tr</a></li>
 </ul>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['helpers_0',['Drawing Helpers',['../group__drawing.html',1,'']]]
+  ['handle_0',['Handle',['../group__handle.html',1,'']]],
+  ['hash_20maps_1',['Hash Maps',['../group__hash__map.html',1,'']]]
 ];
