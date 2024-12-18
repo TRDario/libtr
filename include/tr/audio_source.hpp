@@ -74,14 +74,16 @@ namespace tr {
 	inline constexpr std::size_t UNQUEUE_PROCESSED{std::numeric_limits<std::size_t>().max()};
 
 	/******************************************************************************************************************
-	 * Audio source.
-	 *
-	 * This class cannot be instantiated before the audio system is initialized.
+	 * 3D Audio source.
 	 ******************************************************************************************************************/
 	class AudioSource {
 	  public:
 		/**************************************************************************************************************
 		 * Constructs an audio source.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception AudioSourceBadAlloc If allocating the audio source fails.
 		 **************************************************************************************************************/
@@ -90,16 +92,15 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs an audio source with a pre-set buffer.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception AudioSourceBadAlloc If allocating the audio source fails.
 		 *
 		 * @param[in] buffer The buffer to attach to the source.
 		 **************************************************************************************************************/
 		AudioSource(AudioBufferView buffer);
-
-		/**************************************************************************************************************
-		 * Equality comparison operator.
-		 **************************************************************************************************************/
-		friend bool operator==(const AudioSource&, const AudioSource&) noexcept = default;
 
 		/**************************************************************************************************************
 		 * Gets the pitch of the source.
@@ -336,16 +337,16 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Gets the buffer the source is currently using for playback.
 		 *
-		 * @return A view over the playback buffer, or nullopt if the source is empty/streamed.
+		 * @return A view over the playback buffer, or std::nullopt if the source is empty/streamed.
 		 **************************************************************************************************************/
 		std::optional<AudioBufferView> buffer() const noexcept;
 
 		/**************************************************************************************************************
 		 * Sets a buffer for the source to use.
 		 *
-		 * Calling this function is not allowed while the source is playing/paused.
+		 * @pre Calling this function is not allowed while the source is playing/paused.
 		 *
-		 * @param[in] buffer The buffer to use, or nullopt to unset any set/queued buffers.
+		 * @param[in] buffer The buffer to use, or std::nullopt to unset any set/queued buffers.
 		 **************************************************************************************************************/
 		void setBuffer(std::optional<AudioBufferView> buffer) noexcept;
 
@@ -366,21 +367,31 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Queues a buffer for streaming.
 		 *
-		 * @param[in] buffer The buffer to attach. It must be of the same audio format as any other queued buffers.
+		 * @param[in] buffer
+		 * @parblock
+		 * The buffer to attach.
+		 *
+		 * @pre The buffer must be of the same audio format as any other queued buffers.
+		 * @endparblock
 		 **************************************************************************************************************/
 		void queueBuffer(AudioBufferView buffer) noexcept;
 
 		/**************************************************************************************************************
 		 * Queues buffers for streaming.
 		 *
-		 * @param[in] buffers The buffers to attach. They must be of the same audio format as any other queued buffers.
+		 * @param[in] buffers
+		 * @parblock
+		 * The buffers to attach.
+		 *
+		 * @pre The buffers must be of the same audio format as any other queued buffers.
+		 * @endparblock
 		 **************************************************************************************************************/
 		void queueBuffers(std::span<AudioBufferView> buffers) noexcept;
 
 		/**************************************************************************************************************
 		 * Removes a buffer from the source's queue.
 		 *
-		 * This function cannot be called if no buffers are able to be unqueued.
+		 * @pre This function cannot be called if no buffers are able to be unqueued.
 		 *
 		 * @return A view over the unqueued buffer.
 		 **************************************************************************************************************/

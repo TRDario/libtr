@@ -66,11 +66,6 @@ void tr::Shader::Deleter::operator()(unsigned int id) const noexcept
 	glDeleteProgram(id);
 }
 
-bool tr::operator==(const Shader& l, const Shader& r) noexcept
-{
-	return l._id == r._id;
-}
-
 tr::ShaderType tr::Shader::type() const noexcept
 {
 	return _type;

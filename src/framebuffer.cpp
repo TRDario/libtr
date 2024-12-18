@@ -35,17 +35,12 @@ GLenum tr::getGLAttachment(Framebuffer::Slot slot) noexcept
 	}
 }
 
-tr::BasicFramebuffer::BasicFramebuffer(GLuint id, RectI2 viewport, DepthRange depthRange) noexcept
+tr::BasicFramebuffer::BasicFramebuffer(GLuint id, const RectI2& viewport, DepthRange depthRange) noexcept
 	: _id{id}, _viewport{viewport}, _depthRange{depthRange}
 {
 }
 
-bool tr::BasicFramebuffer::operator==(const BasicFramebuffer& r) const noexcept
-{
-	return _id == r._id;
-}
-
-tr::Bitmap tr::BasicFramebuffer::readRegion(RectI2 rect, BitmapFormat format) const
+tr::Bitmap tr::BasicFramebuffer::readRegion(const RectI2& rect, BitmapFormat format) const
 {
 	auto [glFormat, glType]{bitmapToGLFormat(format)};
 	Bitmap bitmap{rect.size, format};
@@ -54,19 +49,19 @@ tr::Bitmap tr::BasicFramebuffer::readRegion(RectI2 rect, BitmapFormat format) co
 	return bitmap;
 }
 
-void tr::BasicFramebuffer::copyRegion(RectI2 rect, Texture2D& texture, glm::ivec2 textureTL) const noexcept
+void tr::BasicFramebuffer::copyRegion(const RectI2& rect, Texture2D& texture, glm::ivec2 textureTL) const noexcept
 {
 	bindRead();
 	glCopyTextureSubImage2D(((Texture&)(texture))._id.get(), 0, textureTL.x, textureTL.y, rect.tl.x, rect.tl.y,
 							rect.size.x, rect.size.y);
 }
 
-tr::RectI2 tr::BasicFramebuffer::viewport() const noexcept
+const tr::RectI2& tr::BasicFramebuffer::viewport() const noexcept
 {
 	return _viewport;
 }
 
-void tr::BasicFramebuffer::setViewport(RectI2 viewport) noexcept
+void tr::BasicFramebuffer::setViewport(const RectI2& viewport) noexcept
 {
 	_viewport = viewport;
 	if (findBoundWriteFramebuffer() == _id) {

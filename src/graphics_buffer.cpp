@@ -36,11 +36,6 @@ void tr::GraphicsBuffer::Deleter::operator()(unsigned int id) const noexcept
 	glDeleteBuffers(1, &id);
 }
 
-bool tr::operator==(const GraphicsBuffer& l, const GraphicsBuffer& r) noexcept
-{
-	return l._id == r._id;
-}
-
 void tr::GraphicsBuffer::setLabel(std::string_view label) noexcept
 {
 	glObjectLabel(GL_BUFFER, _id.get(), label.size(), label.data());

@@ -500,13 +500,13 @@ void tr::EventQueue::push(Event&& event)
 {
 	SDL_Event sdl;
 	std::ranges::copy(event._impl, asMutBytes(sdl).begin());
+	if (SDL_PushEvent(&sdl) < 0) {
+		throw EventPushError{"Failed to push event to event queue"};
+	}
+
 	if (event.type() >= SDL_USEREVENT) {
 		auto& rsdl{((SDL_Event*)(event._impl))->user};
 		rsdl.data1 = nullptr;
 		rsdl.data2 = nullptr;
-	}
-
-	if (SDL_PushEvent(&sdl) < 0) {
-		throw EventPushError{"Failed to push event to event queue"};
 	}
 }

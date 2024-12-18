@@ -22,28 +22,35 @@ namespace tr {
 		 **************************************************************************************************************/
 		using Deque = std::deque<std::pair<TimePoint, Duration>>;
 
+		/**************************************************************************************************************
+		 * Constructs an empty benchmark.
+		 **************************************************************************************************************/
 		Benchmark() noexcept = default;
 
 		/**************************************************************************************************************
 		 * Starts a new measurement.
 		 *
-		 * This function cannot be called if a previous measurement was started but not ended.
+		 * @pre This function cannot be called if a previous measurement was started but not ended.
 		 **************************************************************************************************************/
 		void start() noexcept;
 
 		/**************************************************************************************************************
 		 * Stops a measurement.
 		 *
-		 * @exception std::bad_alloc If an internal allocation fails.
+		 * @pre This function cannot be called if a measurement was not started.
 		 *
-		 * This function cannot be called if a measurement was not started.
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
+		 * @exception std::bad_alloc If an internal allocation fails.
 		 **************************************************************************************************************/
 		void stop();
 
 		/**************************************************************************************************************
 		 * Clears all previous measurements from the queue.
 		 *
-		 * If a measurement was started but not stopped, it is cancelled.
+		 * @remark If a measurement was started but not stopped, it is cancelled.
 		 **************************************************************************************************************/
 		void clear() noexcept;
 

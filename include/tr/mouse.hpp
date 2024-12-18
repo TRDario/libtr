@@ -109,7 +109,7 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Mouse functionality.
 	 *
-	 * This class cannot be directly instantiated.
+	 * @note This class cannot be directly instantiated.
 	 ******************************************************************************************************************/
 	class Mouse {
 	  public:
@@ -156,7 +156,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Gets whether relative mouse mode is enabled.
 		 *
-		 * In relative mouse mode, only deltas are reported, mouse position isn't changed.
+		 * @note In relative mouse mode, only deltas are reported, mouse position isn't changed.
 		 *
 		 * @return True if relative mode is enabled, false otherwise.
 		 **************************************************************************************************************/
@@ -165,7 +165,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets whether relative mouse mode is enabled.
 		 *
-		 * In relative mouse mode, only deltas are reported, mouse position isn't changed.
+		 * @note In relative mouse mode, only deltas are reported, mouse position isn't changed.
 		 *
 		 * @param[in] relative Whether relative mouse mode should be enabled.
 		 **************************************************************************************************************/
@@ -174,7 +174,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets whether the mouse is captured.
 		 *
-		 * When captured, this application's window gets all the mouse events, good for dragging and such but not
+		 * @note When captured, this application's window gets all the mouse events, good for dragging and such but not
 		 * for long periods of time.
 		 *
 		 * @param captured Whether the mouse should be captured.
@@ -216,12 +216,20 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates the default mouse cursor.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception CursorBadAlloc If allocating the cursor fails.
 		 **************************************************************************************************************/
 		Cursor();
 
 		/**************************************************************************************************************
 		 * Creates a system cursor.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception CursorBadAlloc If allocating the cursor fails.
 		 *
@@ -231,6 +239,10 @@ namespace tr {
 
 		/**************************************************************************************************************
 		 * Creates a cursor from a bitmap.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception CursorBadAlloc If allocating the cursor fails.
 		 *
@@ -242,6 +254,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates a cursor from a bitmap view.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception CursorBadAlloc If allocating the cursor failed.
 		 *
 		 * @param[in] view The cursor bitmap.
@@ -252,13 +268,21 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates a simple black-and-white cursor from color and mask bitfields.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception CursorBadAlloc If allocating the cursor fails.
 		 *
 		 * @param[in] color A span of bits where 0 is white and 1 black.
 		 * @param[in] mask A span of bits determining the mask: 1 is opaque, 0 + white = transparent,
 		 *             	   0 + black = inverted color.
-		 * @param[in] size The size of the cursor graphic, both coordinates must be multiples of 8 and match the sizes
-		 *                 of the bitfields.
+		 * @param[in] size
+		 * @parblock
+		 * The size of the cursor graphic.
+		 *
+		 * @pre Both coordinates must be multiples of 8 and match the sizes of the bitfields.
+		 * @endparblock
 		 * @param[in] focus The focus point of the cursor (where the actual mouse position is relative to the graphic).
 		 **************************************************************************************************************/
 		Cursor(std::span<const std::byte> color, std::span<const std::byte> mask, glm::ivec2 size, glm::ivec2 focus);
@@ -266,13 +290,21 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates a simple black-and-white cursor from color and mask bitfields.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception CursorBadAlloc If allocating the cursor fails.
 		 *
 		 * @param[in] colorRange A range of bits where 0 is white and 1 black.
 		 * @param[in] maskRange A range of bits determining the mask: 1 is opaque, 0 + white = transparent,
 		 *             	        0 + black = inverted color.
-		 * @param[in] size The size of the cursor graphic, both coordinates must be multiples of 8 and match the sizes
-		 *                 of the bitfields.
+		 * @param[in] size
+		 * @parblock
+		 * The size of the cursor graphic.
+		 *
+		 * @pre Both coordinates must be multiples of 8 and match the sizes of the bitfields.
+		 * @endparblock
 		 * @param[in] focus The focus point of the cursor (where the actual mouse position is relative to the graphic).
 		 **************************************************************************************************************/
 		template <std::ranges::contiguous_range R1, std::ranges::contiguous_range R2>

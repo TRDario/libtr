@@ -38,7 +38,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs an angle from a numeric value.
 		 *
-		 * Equivalent to tr::rads(), that function should be preferred for readibility.
+		 * @note While this constructor is equivalent to tr::rads(), that function should be preferred for readibility.
 		 *
 		 * @param[in] rads The numeric value of the angle in radians.
 		 **************************************************************************************************************/

@@ -1,14 +1,14 @@
 #pragma once
 #include "draw_geometry.hpp"
 
-inline std::size_t tr::smoothPolygonVerticesCount(float r) noexcept
+inline std::size_t tr::smoothPolygonVerticesCount(float r, float scale) noexcept
 {
-	return std::max(std::size_t(6 * std::sqrt(r)), std::size_t(3));
+	return std::max(std::size_t(6 * scale * std::sqrt(std::abs(r))), std::size_t(3));
 }
 
-inline std::size_t tr::smoothArcVerticesCount(float r, AngleF sizeth) noexcept
+inline std::size_t tr::smoothArcVerticesCount(float r, AngleF sizeth, float scale) noexcept
 {
-	return std::max(std::size_t(6 * (std::sqrt(r)) / (360_degf / (sizeth % 360_degf))), std::size_t(3));
+	return std::max(std::size_t(6 * scale * std::sqrt(std::abs(r)) / (360_degf / (sizeth % 360_degf))), std::size_t(3));
 }
 
 template <std::output_iterator<std::uint16_t> It>

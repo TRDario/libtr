@@ -19,11 +19,6 @@ void tr::Renderbuffer::Deleter::operator()(unsigned int id) const noexcept
 	glDeleteRenderbuffers(1, &id);
 }
 
-bool tr::Renderbuffer::operator==(const Renderbuffer& r) const noexcept
-{
-	return _id == r._id;
-}
-
 glm::ivec2 tr::Renderbuffer::size() const noexcept
 {
 	return _size;

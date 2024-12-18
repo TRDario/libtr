@@ -69,17 +69,27 @@ namespace tr {
 		 * Constructs a sub-bitmap.
 		 *
 		 * @param[in] bitmap The parent bitmap.
-		 * @param[in] rect The region of the sub-bitmap. The region is not allowed to strech outside the bitmap bounds.
+		 * @param[in] rect
+		 * @parblock
+		 * The region of the sub-bitmap.
+		 *
+		 * @pre @em rect is not allowed to strech outside the bitmap bounds.
+		 * @endparblock
 		 **************************************************************************************************************/
-		SubBitmap(const Bitmap& bitmap, RectI2 rect) noexcept;
+		SubBitmap(const Bitmap& bitmap, const RectI2& rect) noexcept;
 
 		/**************************************************************************************************************
 		 * Constructs a sub-bitmap.
 		 *
 		 * @param[in] view The parent bitmap view.
-		 * @param[in] rect The region of the sub-bitmap. The region is not allowed to strech outside the bitmap bounds.
+		 * @param[in] rect
+		 * @parblock
+		 * The region of the sub-bitmap.
+		 *
+		 * @pre @em rect is not allowed to strech outside the bitmap bounds.
+		 * @endparblock
 		 **************************************************************************************************************/
-		SubBitmap(const BitmapView& view, RectI2 rect) noexcept;
+		SubBitmap(const BitmapView& view, const RectI2& rect) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the size of the sub-bitmap.
@@ -91,18 +101,26 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates a sub-bitmap of the sub-bitmap.
 		 *
-		 * @param[in] rect The region of the sub-bitmap. The region is not allowed to strech outside the sub-bitmap
-		 *                 bounds.
+		 * @param[in] rect
+		 * @parblock
+		 * The region of the sub-bitmap.
+		 *
+		 * @pre @em rect is not allowed to strech outside the parent sub-bitmap bounds.
+		 * @endparblock
 		 *
 		 * @return The new sub-bitmap.
 		 **************************************************************************************************************/
-		SubBitmap sub(RectI2 rect) noexcept;
+		SubBitmap sub(const RectI2& rect) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets immutable access to a pixel of the bitmap.
 		 *
-		 * @param[in] pos The position of the pixel within the sub-bitmap. Accessing an out-of-bounds pixel is not
-		 *                allowed.
+		 * @param[in] pos
+		 * @parblock
+		 * The position of the pixel within the sub-bitmap.
+		 *
+		 * @pre @em pos must be within the bounds of the sub-bitmap.
+		 * @endparblock
 		 *
 		 * @return An immutable reference to a pixel of the bitmap.
 		 **************************************************************************************************************/
@@ -139,8 +157,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Gets the raw data of the sub-bitmap.
 		 *
-		 * @return A pointer to the data of the sub-bitmap. This data is not necessarily contiguous,
-		 *         the distance between rows is pitch() bytes and may differ from `size().x * format().pixelBytes()`.
+		 * @return
+		 * A pointer to the data of the sub-bitmap.
+		 * @remark This data is not necessarily contiguous, the distance between rows is pitch() bytes and may differ
+		 *         from `size().x * format().pixelBytes()`.
 		 **************************************************************************************************************/
 		const std::byte* data() const noexcept;
 
@@ -176,8 +196,6 @@ namespace tr {
 
 	/******************************************************************************************************************
 	 * Non-owning view over bitmap data.
-	 *
-	 * This class cannot be instantiated before the window is opened.
 	 ******************************************************************************************************************/
 	class BitmapView {
 	  public:
@@ -194,9 +212,18 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates a bitmap view over contiguous pixel data.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception BitmapBadAlloc If allocating the bitmap view's internals fails.
 		 *
-		 * @param[in] rawData The pixel data span. The size of the span must match size.x * size.y * [pixel bytes].
+		 * @param[in] rawData
+		 * @parblock
+		 * The pixel data span.
+		 *
+		 * @pre The size of the span must match `size.x * size.y * [pixel bytes]`.
+		 * @endparblock
 		 * @param[in] size The size of the bitmap.
 		 * @param[in] format The format of the bitmap.
 		 **************************************************************************************************************/
@@ -205,10 +232,18 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates a bitmap view over a range of pixel data.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception BitmapBadAlloc If allocating the bitmap view's internals fails.
 		 *
-		 * @param[in] range A contiguous range of pixel data. The size of the range must match size.x * size.y *
-		 * [pixel bytes].
+		 * @param[in] range
+		 * @parblock
+		 * A contiguous range of pixel data.
+		 *
+		 * @pre The size of the range must match `size.x * size.y * [pixel bytes]`.
+		 * @endparblock
 		 * @param[in] size The size of the bitmap.
 		 * @param[in] format The format of the bitmap.
 		 **************************************************************************************************************/
@@ -220,6 +255,10 @@ namespace tr {
 
 		/**************************************************************************************************************
 		 * Creates a bitmap view over pixel data.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception BitmapBadAlloc If allocating the bitmap view's internals fails.
 		 *
@@ -240,7 +279,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Gets immutable access to a pixel of the bitmap.
 		 *
-		 * @param[in] pos The position of the pixel within the bitmap. Accessing an out-of-bounds pixel is not allowed.
+		 * @param[in] pos
+		 * @parblock
+		 * The position of the pixel within the view.
+		 *
+		 * @pre @em pos must be within the bounds of the view.
+		 * @endparblock
 		 *
 		 * @return An immutable reference to a pixel of the bitmap.
 		 **************************************************************************************************************/
@@ -282,17 +326,24 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates a sub-bitmap of the bitmap.
 		 *
-		 * @param[in] rect The region of the sub-bitmap. The region is not allowed to strech outside the view bounds.
+		 * @param[in] rect
+		 * @parblock
+		 * The region of the sub-bitmap.
+		 *
+		 * @pre @em rect is not allowed to strech outside the view bounds.
+		 * @endparblock
 		 *
 		 * @return The sub-bitmap.
 		 **************************************************************************************************************/
-		SubBitmap sub(RectI2 rect) const noexcept;
+		SubBitmap sub(const RectI2& rect) const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the raw data of the bitmap.
 		 *
-		 * @return A pointer to the data of the bitmap. This data is not necessarily contiguous,
-		 *         the distance between rows is pitch() bytes and may differ from `size().x * format().pixelBytes()`.
+		 * @return
+		 * A pointer to the data of the sub-bitmap.
+		 * @remark This data is not necessarily contiguous, the distance between rows is pitch() bytes and may differ
+		 *         from `size().x * format().pixelBytes()`.
 		 **************************************************************************************************************/
 		const std::byte* data() const noexcept;
 
@@ -315,6 +366,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Saves the bitmap to a .png file.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception BitmapSaveError If saving the bitmap fails.
 		 *
 		 * @param[in] path The path to the file.
@@ -336,8 +391,6 @@ namespace tr {
 
 	/******************************************************************************************************************
 	 * Class containing owned bitmap data.
-	 *
-	 * This class cannot be instantiated before the window is opened.
 	 ******************************************************************************************************************/
 	class Bitmap {
 	  public:
@@ -357,6 +410,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates a blank bitmap.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception BitmapBadAlloc If allocating the bitmap fails.
 		 *
 		 * @param[in] size The size of the bitmap.
@@ -367,6 +424,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Loads an embedded bitmap file.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception BitmapBadAlloc If allocating the bitmap fails.
 		 *
 		 * @param[in] embeddedFile The embedded file data.
@@ -375,6 +436,10 @@ namespace tr {
 
 		/**************************************************************************************************************
 		 * Loads a bitmap from file (BMP/QOI).
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception FileNotFound If the file isn't found.
 		 * @exception BitmapLoadError If loading the bitmap fails.
@@ -386,6 +451,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Clones a bitmap.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception BitmapBadAlloc If allocating the bitmap fails.
 		 *
 		 * @param[in] bitmap The bitmap to clone.
@@ -395,6 +464,10 @@ namespace tr {
 
 		/**************************************************************************************************************
 		 * Clones a bitmap view.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception BitmapBadAlloc If allocating the bitmap fails.
 		 *
@@ -406,14 +479,16 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Clones a sub-bitmap.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception BitmapBadAlloc If allocating the bitmap fails.
 		 *
 		 * @param[in] source The sub-bitmap to clone.
 		 * @param[in] format The format of the new bitmap.
 		 **************************************************************************************************************/
-		Bitmap(SubBitmap source, BitmapFormat format);
-
-		friend bool operator==(const Bitmap&, const Bitmap&) noexcept = default;
+		Bitmap(const SubBitmap& source, BitmapFormat format);
 
 		/**************************************************************************************************************
 		 * Gets the size of the bitmap.
@@ -425,7 +500,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Gets mutable access to a pixel of the bitmap.
 		 *
-		 * @param[in] pos The position of the pixel within the bitmap. Accessing an out-of-bounds pixel is not allowed.
+		 * @param[in] pos
+		 * @parblock
+		 * The position of the pixel within the bitmap.
+		 *
+		 * @pre @em pos must be within the bounds of the bitmap.
+		 * @endparblock
 		 *
 		 * @return A mutable reference to a pixel of the bitmap.
 		 **************************************************************************************************************/
@@ -434,7 +514,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Gets immutable access to a pixel of the bitmap.
 		 *
-		 * @param[in] pos The position of the pixel within the bitmap. Accessing an out-of-bounds pixel is not allowed.
+		 * @param[in] pos
+		 * @parblock
+		 * The position of the pixel within the bitmap.
+		 *
+		 * @pre @em pos must be within the bounds of the bitmap.
+		 * @endparblock
 		 *
 		 * @return An immutable reference to a pixel of the bitmap.
 		 **************************************************************************************************************/
@@ -485,19 +570,28 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Blits a sub-bitmap to the bitmap.
 		 *
-		 * @param[in] tl The top-left corner of the region to blit to.
-		 *               The region is not allowed to stretch outside the bitmap bounds.
+		 * @param[in] tl
+		 * @parblock
+		 * The top-left corner of the region to blit to.
+		 *
+		 * @pre @em tl is not allowed to stretch outside the bitmap bounds.
+		 * @endparblock
 		 * @param[in] source The source sub-bitmap.
 		 **************************************************************************************************************/
-		void blit(glm::ivec2 tl, SubBitmap source) noexcept;
+		void blit(glm::ivec2 tl, const SubBitmap& source) noexcept;
 
 		/**************************************************************************************************************
 		 * Fills a region of the bitmap with a solid color.
 		 *
-		 * @param[in] rect The region to fill. The region is not allowed to stretch outside the bitmap bounds.
+		 * @param[in] rect
+		 * @parblock
+		 * The region to fill.
+		 *
+		 * @pre @em rect is not allowed to stretch outside the bitmap bounds.
+		 * @endparblock
 		 * @param[in] color The fill color.
 		 **************************************************************************************************************/
-		void fill(RectI2 rect, RGBA8 color) noexcept;
+		void fill(const RectI2& rect, RGBA8 color) noexcept;
 
 		/**************************************************************************************************************
 		 * Creates a sub-bitmap spanning the entire bitmap.
@@ -507,25 +601,34 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates a sub-bitmap of the bitmap.
 		 *
-		 * @param[in] rect The region of the sub-bitmap. The region is not allowed to stretch outside the bitmap bounds.
+		 * @param[in] rect
+		 * @parblock
+		 * The region of the sub-bitmap.
+		 *
+		 * @pre @em rect is not allowed to strech outside the bitmap bounds.
+		 * @endparblock
 		 *
 		 * @return The sub-bitmap.
 		 **************************************************************************************************************/
-		SubBitmap sub(RectI2 rect) const noexcept;
+		SubBitmap sub(const RectI2& rect) const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the raw data of the bitmap.
 		 *
-		 * @return A pointer to the data of the bitmap. This data is not necessarily contiguous,
-		 *         the distance between rows is pitch() bytes and may differ from `size().x * format().pixelBytes()`.
+		 * @return
+		 * A pointer to the data of the sub-bitmap.
+		 * @remark This data is not necessarily contiguous, the distance between rows is pitch() bytes and may differ
+		 *         from `size().x * format().pixelBytes()`.
 		 **************************************************************************************************************/
 		std::byte* data() noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the raw data of the bitmap.
 		 *
-		 * @return A pointer to the data of the bitmap. This data is not necessarily contiguous,
-		 *         the distance between rows is pitch() bytes and may differ from `size().x * format().pixelBytes()`.
+		 * @return
+		 * A pointer to the data of the sub-bitmap.
+		 * @remark This data is not necessarily contiguous, the distance between rows is pitch() bytes and may differ
+		 *         from `size().x * format().pixelBytes()`.
 		 **************************************************************************************************************/
 		const std::byte* data() const noexcept;
 
@@ -547,6 +650,10 @@ namespace tr {
 
 		/**************************************************************************************************************
 		 * Saves the bitmap to a .png file.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception BitmapSaveError If saving the bitmap fails.
 		 *

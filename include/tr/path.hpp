@@ -38,6 +38,10 @@ namespace tr {
 	 *
 	 * @note This function should only be called once at the beginning of the program as it may be relatively expensive.
 	 *
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
+	 *
 	 * @exception ExeDirInitError If getting the path fails.
 	 * @exception std::bad_alloc If allocating the path fails.
 	 *
@@ -49,6 +53,10 @@ namespace tr {
 	 * Gets a path to a safe user directory where data can be stored.
 	 *
 	 * @note This function should only be called once at the beginning of the program as it may be relatively expensive.
+	 *
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
 	 *
 	 * @exception UserDirInitError If getting the path fails.
 	 * @exception std::bad_alloc If allocating the path fails.

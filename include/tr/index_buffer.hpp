@@ -41,8 +41,6 @@ namespace tr {
 	  public:
 		/**************************************************************************************************************
 		 * Constructs an empty index buffer.
-		 *
-		 * This function can be called before opening the window.
 		 **************************************************************************************************************/
 		IndexBuffer() noexcept;
 
@@ -51,10 +49,18 @@ namespace tr {
 		 *
 		 * The buffer will be of size 0 and capacity @em capacity after construction.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception GraphicsBufferBadAlloc If allocating the buffer fails.
 		 *
-		 * @param[in] capacity The capacity of the buffer in indices. Must be greater than 0, otherwise a failed
-		 *                     assertion may be triggered.
+		 * @param[in] capacity
+		 * @parblock
+		 * The capacity of the buffer in indices.
+		 *
+		 * @pre @em capacity must be greater than 0.
+		 * @endparblock
 		 **************************************************************************************************************/
 		IndexBuffer(std::size_t capacity);
 
@@ -63,53 +69,65 @@ namespace tr {
 		 *
 		 * The buffer will be of size and capacity @em data.size() after construction.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception GraphicsBufferBadAlloc If allocating the buffer fails.
 		 *
-		 * @param[in] data The data to be uploaded to be buffer. Must not be empty, otherwise a failed assertion
-		 *                 may be triggered.
+		 * @param[in] data
+		 * @parblock
+		 * The data to be uploaded to be buffer.
+		 *
+		 * @pre @em data cannot be empty.
+		 * @endparblock
 		 **************************************************************************************************************/
 		IndexBuffer(std::span<const std::uint16_t> data);
 
 		/**************************************************************************************************************
-		 * Gets whether the vertex buffer is empty.
+		 * Gets whether the index buffer is empty.
 		 *
 		 * @return True if the buffer has size 0.
 		 **************************************************************************************************************/
 		bool empty() const noexcept;
 
 		/**************************************************************************************************************
-		 * Gets the size of the vertex buffer contents.
+		 * Gets the size of the index buffer contents.
 		 *
-		 * @return The size of the vertex buffer contents in indices.
+		 * @return The size of the index buffer contents in indices.
 		 **************************************************************************************************************/
 		std::size_t size() const noexcept;
 
 		/**************************************************************************************************************
-		 * Gets the capacity of the vertex buffer.
+		 * Gets the capacity of the index buffer.
 		 *
-		 * The buffer can be resized past this capacity, but it will trigger a reallocation.
+		 * @note The buffer can be resized past this capacity, but it will trigger a reallocation.
 		 *
-		 * @return The capacity of the vertex buffer in indices.
+		 * @return The capacity of the index buffer in indices.
 		 **************************************************************************************************************/
 		std::size_t capacity() const noexcept;
 
 		/**************************************************************************************************************
-		 * Sets the size of the vertex buffer to 0.
-		 *
-		 * The buffer cannot be mapped when this function is called.
+		 * Sets the size of the index buffer to 0.
 		 *
 		 * This does not affect the capacity of the buffer.
+		 *
+		 * @pre The buffer cannot be mapped when this function is called.
 		 **************************************************************************************************************/
 		void clear() noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the contents of the buffer.
 		 *
-		 * If data.size() is greater than the capacity of the buffer, a reallocation will be done. This voids any
+		 * @note If data.size() is greater than the capacity of the buffer, a reallocation will be done. This voids any
 		 * previous bindings of the buffer to the context, and so it must be rebound. setRegion() will never cause a
 		 * reallocation, so may be used in cases where that's a requirement.
 		 *
-		 * The buffer cannot be mapped when this function is called.
+		 * @pre The buffer cannot be mapped when this function is called.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception GraphicsBufferBadAlloc If a reallocation is triggered and reallocating the buffer fails.
 		 *
@@ -120,14 +138,17 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets a region of the buffer.
 		 *
-		 * Unlike set(), a call to this function will never cause a reallocation, but an assertion may fail if a span
-		 * too large is passed to it.
+		 * @remark Unlike set(), a call to this function will never cause a reallocation.
 		 *
-		 * The buffer cannot be mapped when this function is called.
+		 * @pre The buffer cannot be mapped when this function is called.
 		 *
-		 * @param[in] offset The starting offset within the buffer in indices.
-		 * @param[in] data The new data of the buffer. `offset + data.size() <= capacity()` must hold true, otherwise a
-		 *                 failed assertion may be triggered.
+		 * @param[in] offset The starting offset within the buffer in elements.
+		 * @param[in] data
+		 * @parblock
+		 * The new data of the buffer.
+		 *
+		 * @pre `offset + data.size() <= capacity()` must hold true.
+		 * @endparblock
 		 **************************************************************************************************************/
 		void setRegion(std::size_t offset, std::span<const std::uint16_t> data) noexcept;
 
@@ -141,15 +162,23 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Maps the buffer, invalidating the previous contents in the process and resetting its size.
 		 *
-		 * If @em size is greater than the capacity of the buffer, a reallocation will be done. This voids any previous
-		 * bindings of the buffer to the context, and so it must be rebound. mapRegion() will never cause a
+		 * @note If @em size is greater than the capacity of the buffer, a reallocation will be done. This voids any
+		 * previous bindings of the buffer to the context, and so it must be rebound. mapRegion() will never cause a
 		 * reallocation, so may be used in cases where that's a requirement.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Weak exception guarantee, if mapping the buffer after reallocation fails, the reallocation is not reverted.
 		 *
 		 * @exception GraphicsBufferBadAlloc If a reallocation was triggered and reallocating the buffer fails.
 		 * @exception GraphicsBufferMapBadAlloc If mapping the buffer fails.
 		 *
-		 * @param[in] size The new size of the buffer in indices. Must be greater than 0, otherwise a failed assertion
-		 *                 may be triggered.
+		 * @param[in] size
+		 * @parblock
+		 * The new size of the buffer in elements.
+		 *
+		 * @pre @em size must be greater than 0.
+		 * @endparblock
 		 *
 		 * @return A map object.
 		 **************************************************************************************************************/
@@ -158,14 +187,21 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Maps a region of the buffer, invalidating the previous contents in the process.
 		 *
-		 * Unlike mapNew(), a call to this function will never cause a reallocation, but an assertion may fail if an
-		 * out-of-bounds map is requested.
+		 * @remark Unlike mapNew(), a call to this function will never cause a reallocation.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception GraphicsBufferMapBadAlloc If mapping the buffer failed.
 		 *
-		 * @param[in] offset The starting offset within the buffer in indices.
-		 * @param[in] size The size of the mapped region in indices. Must be greater than 0, and `offset + data.size()
-		 *                 <= capacity()` must hold true, otherwise a failed assertion may be triggered.
+		 * @param[in] offset The starting offset within the buffer in elements.
+		 * @param[in] size
+		 * @parblock
+		 * The size of the mapped region in elements.
+		 *
+		 * @pre @em size must be greater than 0, and `offset + data.size() <= capacity()` must hold true.
+		 * @endparblock
 		 *
 		 * @return A map object.
 		 **************************************************************************************************************/

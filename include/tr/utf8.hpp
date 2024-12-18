@@ -63,8 +63,8 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Dereferences the iterator.
 		 *
-		 * The iterator must be in a dereferencable state (i.e., not in a default-constructed state or an iterator
-		 * created by utf8End()) for a call to this function to be valid.
+		 * @pre The iterator must be in a dereferencable state (i.e., not in a default-constructed state or an iterator
+		 * created by utf8End()).
 		 *
 		 * @return A Unicode codepoint.
 		 **************************************************************************************************************/
@@ -73,8 +73,8 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Pre-increments the iterator.
 		 *
-		 * The iterator must be in a dereferencable state (i.e., not in a default-constructed state or an iterator
-		 * created by utf8End()) for a call to this function to be valid.
+		 * @pre The iterator must be in a dereferencable state (i.e., not in a default-constructed state or an iterator
+		 * created by utf8End()).
 		 *
 		 * @return A reference to the incremented iterator.
 		 **************************************************************************************************************/
@@ -83,8 +83,8 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Post-increments the iterator.
 		 *
-		 * The iterator must be in a dereferencable state (i.e., not in a default-constructed state or an iterator
-		 * created by utf8End()) for a call to this function to be valid.
+		 * @pre The iterator must be in a dereferencable state (i.e., not in a default-constructed state or an iterator
+		 * created by utf8End()).
 		 *
 		 * @return An iterator with the prior state of the incremented iterator.
 		 **************************************************************************************************************/
@@ -100,7 +100,7 @@ namespace tr {
 	 * @param[in] str A string view that either contains valid UTF-8 data or is empty.
 	 *
 	 * @return An iterator to the first Unicode character of the string if @em str is non-empty,
-	 * or utf8End() if @em str is empty.
+	 *         or utf8End() if @em str is empty.
 	 ******************************************************************************************************************/
 	constexpr Utf8ConstIt utf8Begin(std::string_view str) noexcept;
 
@@ -118,7 +118,7 @@ namespace tr {
 	 *
 	 * @param[in] str A string view that either contains valid UTF-8 data or is empty.
 	 *
-	 * @return A range as if produced by @code { utf8Begin(str), utf8End(str) } @endcode
+	 * @return A range as if produced by `{ utf8Begin(str), utf8End(str) }`.
 	 ******************************************************************************************************************/
 	constexpr std::ranges::subrange<Utf8ConstIt> utf8Range(std::string_view str) noexcept;
 
@@ -127,7 +127,7 @@ namespace tr {
 	 *
 	 * @param[in] str A string view that either contains valid UTF-8 data or is empty.
 	 *
-	 * @return The length as if produced by @code std::distance(utf8Begin(str), utf8End(str)) @endcode
+	 * @return The length as if produced by `std::distance(utf8Begin(str), utf8End(str))`.
 	 ******************************************************************************************************************/
 	constexpr std::size_t utf8Length(std::string_view str) noexcept;
 

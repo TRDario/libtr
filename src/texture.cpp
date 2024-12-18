@@ -27,11 +27,6 @@ void tr::Texture::Deleter::operator()(unsigned int id) const noexcept
 	glDeleteTextures(1, &id);
 }
 
-bool tr::operator==(const Texture& l, const Texture& r) noexcept
-{
-	return l._id == r._id;
-}
-
 tr::TextureFormat tr::Texture::format() const noexcept
 {
 	int glFormat;

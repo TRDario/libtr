@@ -165,6 +165,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs an event base.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception std::bad_alloc If an any allocation fails.
 		 *
 		 * @param type The type of the event.
@@ -182,23 +186,41 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Converts an event into an event base.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception std::bad_alloc If copying dynamically allocated resources fails.
 		 *
-		 * @param event The event to convert into an event base. If it holds any dynamically allocated resources, those
-		 *              will be copied into the custom event base. The event must be of a proper type.
+		 * @param event
+		 * @parblock
+		 * The event to convert into an event base. If it holds any dynamically allocated resources, those will be
+		 * copied into the custom event base.
+		 *
+		 * @pre The event must have a user event type.
+		 * @endparblock
 		 **************************************************************************************************************/
 		CustomEventBase(const Event& event);
 
 		/**************************************************************************************************************
 		 * Converts an event into an event base.
 		 *
-		 * @param event The event to convert into an event base. If it holds any dynamically allocated resources, those
-		 *              will be moved into the custom event base. The event must be of a proper type.
+		 * @param event
+		 * @parblock
+		 * The event to convert into an event base. If it holds any dynamically allocated resources, those will be
+		 * moved into the custom event base.
+		 *
+		 * @pre The event must have a user event type.
+		 * @endparblock
 		 **************************************************************************************************************/
 		CustomEventBase(Event&& event) noexcept;
 
 		/**************************************************************************************************************
 		 * Converts an event base into an event.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception std::bad_alloc If copying dynamically allocated resources fails.
 		 *
@@ -219,14 +241,18 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Unified event type.
 	 *
-	 * To handle individual event types, the type() method must be called and the event cast into the proper type.
-	 *
 	 * Event is copyable and movable.
+	 *
+	 * @note To handle individual event types, the type() method must be called and the event cast into the proper type.
 	 ******************************************************************************************************************/
 	class Event {
 	  public:
 		/**************************************************************************************************************
 		 * Copy-constructs an event.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception std::bad_alloc If copying dynamically allocated resources fails.
 		 *
@@ -251,9 +277,13 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Copy-assigns an event.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception std::bad_alloc If copying dynamically allocated resources fails.
 		 *
-		 * @param event The event to copy from.
+		 * @param r The event to copy from.
 		 *
 		 * @return A reference to the left-hand event.
 		 **************************************************************************************************************/
@@ -262,9 +292,9 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Move-assigns an event.
 		 *
-		 * @param event The event to move from. Any dynamically allocated resources will be moved into the left-hand
-		 *              event, and @em r will be left in a state where another event can be moved into it, but is
-		 *              otherwise unusable.
+		 * @param r The event to move from. Any dynamically allocated resources will be moved into the left-hand event,
+		 *			and @em r will be left in a state where another event can be moved into it, but is otherwise
+		 *          unusable.
 		 *
 		 * @return A reference to the left-hand event.
 		 **************************************************************************************************************/
@@ -323,7 +353,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Converts a generic event into a key down event.
 		 *
-		 * @param event The base event to convert. The type of the event must match.
+		 * @param event
+		 * @parblock
+		 * The base event to convert.
+		 *
+		 * @pre The type of the event must be event_type::KEY_DOWN.
+		 * @endparblock
 		 **************************************************************************************************************/
 		KeyDownEvent(const Event& event) noexcept;
 
@@ -356,7 +391,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Converts a generic event into a key up event.
 		 *
-		 * @param event The base event to convert. The type of the event must match.
+		 * @param event
+		 * @parblock
+		 * The base event to convert.
+		 *
+		 * @pre The type of the event must be event_type::KEY_UP.
+		 * @endparblock
 		 **************************************************************************************************************/
 		KeyUpEvent(const Event& event) noexcept;
 
@@ -395,7 +435,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Converts a generic event into a text editing event.
 		 *
-		 * @param event The base event to convert. The type of the event must match.
+		 * @param event
+		 * @parblock
+		 * The base event to convert.
+		 *
+		 * @pre The type of the event must be event_type::TEXT_EDIT.
+		 * @endparblock
 		 **************************************************************************************************************/
 		TextEditEvent(const Event& event) noexcept;
 
@@ -428,7 +473,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Converts a generic event into a text input event.
 		 *
-		 * @param event The base event to convert. The type of the event must match.
+		 * @param event
+		 * @parblock
+		 * The base event to convert.
+		 *
+		 * @pre The type of the event must be event_type::TEXT_INPUT.
+		 * @endparblock
 		 **************************************************************************************************************/
 		TextInputEvent(const Event& event) noexcept;
 
@@ -473,7 +523,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Converts a generic event into a mouse motion event.
 		 *
-		 * @param event The base event to convert. The type of the event must match.
+		 * @param event
+		 * @parblock
+		 * The base event to convert.
+		 *
+		 * @pre The type of the event must be event_type::MOUSE_MOTION.
+		 * @endparblock
 		 **************************************************************************************************************/
 		MouseMotionEvent(const Event& event) noexcept;
 
@@ -518,7 +573,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Converts a generic event into a mouse down event.
 		 *
-		 * @param event The base event to convert. The type of the event must match.
+		 * @param event
+		 * @parblock
+		 * The base event to convert.
+		 *
+		 * @pre The type of the event must be event_type::MOUSE_DOWN.
+		 * @endparblock
 		 **************************************************************************************************************/
 		MouseDownEvent(const Event& event) noexcept;
 
@@ -557,7 +617,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Converts a generic event into a mouse wheel event.
 		 *
-		 * @param event The base event to convert. The type of the event must match.
+		 * @param event
+		 * @parblock
+		 * The base event to convert.
+		 *
+		 * @pre The type of the event must be event_type::MOUSE_UP.
+		 * @endparblock
 		 **************************************************************************************************************/
 		MouseUpEvent(const Event& event) noexcept;
 
@@ -596,7 +661,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Converts a generic event into a mouse up event.
 		 *
-		 * @param event The base event to convert. The type of the event must match.
+		 * @param event
+		 * @parblock
+		 * The base event to convert.
+		 *
+		 * @pre The type of the event must be event_type::MOUSE_WHEEL.
+		 * @endparblock
 		 **************************************************************************************************************/
 		MouseWheelEvent(const Event& event) noexcept;
 
@@ -704,7 +774,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Converts a generic event into a window event.
 		 *
-		 * @param event The base event to convert. The type of the event must match.
+		 * @param event
+		 * @parblock
+		 * The base event to convert.
+		 *
+		 * @pre The type of the event must be event_type::WINDOW.
+		 * @endparblock
 		 **************************************************************************************************************/
 		WindowEvent(const Event& event) noexcept;
 
@@ -737,7 +812,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Converts a generic event into a tick event.
 		 *
-		 * @param event The base event to convert. The type of the event must match.
+		 * @param event
+		 * @parblock
+		 * The base event to convert.
+		 *
+		 * @pre The type of the event must be event_type::TICK.
+		 * @endparblock
 		 **************************************************************************************************************/
 		TickEvent(const Event& event) noexcept;
 
@@ -752,7 +832,12 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Creates a timer that sends tick events.
 	 *
-	 * For exceptions, see Timer's constructor.
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
+	 *
+	 * @exception std::system_error If launching a thread for the timer failed.
+	 * @exception std::bad_alloc If allocating the callback function failed.
 	 *
 	 * @param frequency The ticking frequency.
 	 * @param id The ID of the tick events emitted by the timer.
@@ -764,7 +849,12 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Creates a timer that sends draw events.
 	 *
-	 * For exceptions, see Timer's constructor.
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
+	 *
+	 * @exception std::system_error If launching a thread for the timer failed.
+	 * @exception std::bad_alloc If allocating the callback function failed.
 	 *
 	 * @param frequency The drawing frequency.
 	 *
@@ -822,6 +912,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Pushes an event to the queue.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception std::bad_alloc If copying dynamically allocated resources fails.
 		 * @exception EventPushError If pushing the event failed.
 		 *
@@ -831,6 +925,10 @@ namespace tr {
 
 		/**************************************************************************************************************
 		 * Pushes an event to the queue.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception EventPushError If pushing the event failed.
 		 *

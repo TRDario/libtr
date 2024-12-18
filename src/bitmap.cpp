@@ -50,12 +50,12 @@ const char* tr::BitmapSaveError::what() const noexcept
 	return str.c_str();
 }
 
-tr::SubBitmap::SubBitmap(const Bitmap& bitmap, RectI2 rect) noexcept
+tr::SubBitmap::SubBitmap(const Bitmap& bitmap, const RectI2& rect) noexcept
 	: _bitmap{bitmap._impl.get()}, _rect{rect}
 {
 }
 
-tr::SubBitmap::SubBitmap(const BitmapView& bitmap, RectI2 rect) noexcept
+tr::SubBitmap::SubBitmap(const BitmapView& bitmap, const RectI2& rect) noexcept
 	: _bitmap{bitmap._impl.get()}, _rect{rect}
 {
 }
@@ -65,7 +65,7 @@ glm::ivec2 tr::SubBitmap::size() const noexcept
 	return _rect.size;
 }
 
-tr::SubBitmap tr::SubBitmap::sub(RectI2 rect) noexcept
+tr::SubBitmap tr::SubBitmap::sub(const RectI2& rect) noexcept
 {
 	assert(_rect.contains(rect.tl + rect.size));
 	return {_bitmap, {_rect.tl + rect.tl, rect.size}};
@@ -177,7 +177,7 @@ tr::BitmapView::operator SubBitmap() const noexcept
 	return sub({{}, size()});
 }
 
-tr::SubBitmap tr::BitmapView::sub(RectI2 rect) const noexcept
+tr::SubBitmap tr::BitmapView::sub(const RectI2& rect) const noexcept
 {
 	return SubBitmap{*this, rect};
 }
@@ -248,7 +248,7 @@ tr::Bitmap::Bitmap(const BitmapView& view, BitmapFormat format)
 {
 }
 
-tr::Bitmap::Bitmap(SubBitmap source, BitmapFormat format)
+tr::Bitmap::Bitmap(const SubBitmap& source, BitmapFormat format)
 	: Bitmap{source.size(), format}
 {
 	blit({}, source);
@@ -304,7 +304,7 @@ tr::Bitmap::ConstIt tr::Bitmap::cend() const noexcept
 	return SubBitmap(*this).end();
 }
 
-void tr::Bitmap::blit(glm::ivec2 tl, SubBitmap source) noexcept
+void tr::Bitmap::blit(glm::ivec2 tl, const SubBitmap& source) noexcept
 {
 	assert(_impl != nullptr);
 	assert(RectI2{size()}.contains(tl + source.size()));
@@ -313,7 +313,7 @@ void tr::Bitmap::blit(glm::ivec2 tl, SubBitmap source) noexcept
 	SDL_BlitSurface(source._bitmap, &sdlSource, _impl.get(), &sdlDest);
 }
 
-void tr::Bitmap::fill(RectI2 rect, RGBA8 color) noexcept
+void tr::Bitmap::fill(const RectI2& rect, RGBA8 color) noexcept
 {
 	assert(_impl != nullptr);
 	assert(RectI2{size()}.contains(rect.tl + rect.size));
@@ -326,7 +326,7 @@ tr::Bitmap::operator SubBitmap() const noexcept
 	return sub({{}, size()});
 }
 
-tr::SubBitmap tr::Bitmap::sub(RectI2 rect) const noexcept
+tr::SubBitmap tr::Bitmap::sub(const RectI2& rect) const noexcept
 {
 	return SubBitmap{*this, rect};
 }

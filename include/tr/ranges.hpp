@@ -58,8 +58,9 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Reinterprets a span of mutable bytes as a span of objects.
 	 *
-	 * The span must be an integer multiple of the size of the object being cast into. If the span has a static length,
-	 * the function will fail to compile, and if the span has a dynamic length, a failed assertion may be triggered.
+	 * @pre The span must be an integer multiple of the size of the object being cast into. If the span has a static
+	 *      length, the function will fail to compile, and if the span has a dynamic length, a failed assertion may be
+	 *      triggered.
 	 *
 	 * @param[in] bytes The byte span to reinterpret.
 	 *
@@ -70,8 +71,9 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Reinterprets a span of immutable bytes as a span of const objects.
 	 *
-	 * The span must be an integer multiple of the size of the object being cast into. If the span has a static length,
-	 * the function will fail to compile, and if the span has a dynamic length, a failed assertion may be triggered.
+	 * @pre The span must be an integer multiple of the size of the object being cast into. If the span has a static
+	 *      length, the function will fail to compile, and if the span has a dynamic length, a failed assertion may be
+	 *      triggered.
 	 *
 	 * @param[in] bytes The byte span to reinterpret.
 	 *

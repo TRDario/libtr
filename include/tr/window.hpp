@@ -81,12 +81,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * The window has grabbed input focus.
 		 **************************************************************************************************************/
-		GRAB_INPUT = 0x2'00,
+		GRAB_INPUT = 0x200,
 
 		/**************************************************************************************************************
 		 * The window is always on top.
 		 **************************************************************************************************************/
-		ALWAYS_ON_TOP = 0x80'00
+		ALWAYS_ON_TOP = 0x8000
 	};
 	/// @cond IMPLEMENTATION
 	DEFINE_BITMASK_OPERATORS(WindowFlag);
@@ -135,7 +135,7 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Sentinel for a centered position on the screen.
 	 ******************************************************************************************************************/
-	inline constexpr glm::ivec2 CENTERED_POS{0x2F'FF'00'00, 0x2F'FF'00'00};
+	inline constexpr glm::ivec2 CENTERED_POS{0x2FFF0000, 0x2FFF0000};
 
 	/******************************************************************************************************************
 	 * The main application window.
@@ -155,7 +155,11 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Opens a windowed window.
 		 *
-		 * The window starts hidden and show() must be called.
+		 * @note The window starts hidden and show() must be called.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception WindowOpenError If opening the window fails.
 		 *
@@ -172,7 +176,11 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Opens a borderless fullscreen window.
 		 *
-		 * The window starts hidden and show() must be called.
+		 * @note The window starts hidden and show() must be called.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception WindowOpenError If opening the window fails.
 		 *
@@ -187,7 +195,11 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Opens a fullscreen window.
 		 *
-		 * The window starts hidden and show() must be called.
+		 * @note The window starts hidden and show() must be called.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception WindowOpenError If opening the window fails.
 		 *
@@ -261,6 +273,10 @@ namespace tr {
 		 *
 		 * This function sets the window to fullscreen if it isn't already.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception WindowError If setting the fullscreen mode fails.
 		 *
 		 * @param[in] dmode The new fullscreen mode.
@@ -276,6 +292,10 @@ namespace tr {
 
 		/**************************************************************************************************************
 		 * Sets the window's window mode.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception WindowError If setting the window mode fails.
 		 *
@@ -489,7 +509,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the window's V-sync mode.
 		 *
-		 * If setting the V-sync mode failed and the parameter is ADAPTIVE, regular V-sync will be used.
+		 * @note If setting the V-sync mode failed and @em vsync was ADAPTIVE, regular V-sync will be used.
 		 *
 		 * @param[in] vsync The new V-sync mode.
 		 **************************************************************************************************************/
@@ -592,7 +612,9 @@ namespace tr {
 	bool windowOpened() noexcept;
 
 	/******************************************************************************************************************
-	 * Gets a reference to the window. This function cannot be called if the window wasn't opened.
+	 * Gets a reference to the window.
+	 *
+	 * @pre This function cannot be called if the window wasn't opened.
 	 *
 	 * @return A reference to the window.
 	 ******************************************************************************************************************/

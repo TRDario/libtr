@@ -72,7 +72,7 @@ void tr::GraphicsContext::useScissorTest(bool use) noexcept
 	use ? glEnable(GL_SCISSOR_TEST) : glDisable(GL_SCISSOR_TEST);
 }
 
-void tr::GraphicsContext::setScissorBox(RectI2 rect) noexcept
+void tr::GraphicsContext::setScissorBox(const RectI2& rect) noexcept
 {
 	glScissor(rect.tl.x, rect.tl.y, rect.size.x, rect.size.y);
 }

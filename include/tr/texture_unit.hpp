@@ -12,10 +12,8 @@ namespace tr {
 	/******************************************************************************************************************
 	 * A texture unit onto which texture and samplers can be bound.
 	 *
-	 * OpenGL mandates that 80 <em>or more</em> texture units be provided, but libtr currently locks it at 80 for
-	 * maximum compatility with as many devices as possible.
-	 *
-	 * Texture units are not actual OpenGL objects and so cannot be labeled.
+	 * @remark OpenGL mandates that 80 <em>or more</em> texture units be provided, but libtr currently locks it at 80
+	 *         for maximum compatility with as many devices as possible.
 	 ******************************************************************************************************************/
 	class TextureUnit {
 	  public:

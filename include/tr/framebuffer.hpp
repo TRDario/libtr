@@ -29,15 +29,10 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Base framebuffer class.
 	 *
-	 * This class cannot be instantiated directly.
+	 * @note This class cannot be instantiated directly.
 	 ******************************************************************************************************************/
 	class BasicFramebuffer {
 	  public:
-		/**************************************************************************************************************
-		 * Equality comparison operator.
-		 **************************************************************************************************************/
-		bool operator==(const BasicFramebuffer&) const noexcept;
-
 		/**************************************************************************************************************
 		 * Gets the size of the framebuffer.
 		 *
@@ -57,7 +52,7 @@ namespace tr {
 		 *
 		 * @return A bitmap containing the pixel data.
 		 **************************************************************************************************************/
-		Bitmap readRegion(RectI2 rect, BitmapFormat format) const;
+		Bitmap readRegion(const RectI2& rect, BitmapFormat format) const;
 
 		/**************************************************************************************************************
 		 * Copies pixels to a texture.
@@ -68,21 +63,21 @@ namespace tr {
 		 * @param[out] texture The texture to copy the pixels to.
 		 * @param[in] textureTL The coordinates of the top-left corner of the rect within the texture.
 		 **************************************************************************************************************/
-		void copyRegion(RectI2 rect, Texture2D& texture, glm::ivec2 textureTL) const noexcept;
+		void copyRegion(const RectI2& rect, Texture2D& texture, glm::ivec2 textureTL) const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the viewport rect of the framebuffer.
 		 *
 		 * @return The viewport rect.
 		 **************************************************************************************************************/
-		RectI2 viewport() const noexcept;
+		const RectI2& viewport() const noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the viewport rect of the framebuffer.
 		 *
 		 * @param[in] viewport The new viewport.
 		 **************************************************************************************************************/
-		void setViewport(RectI2 viewport) noexcept;
+		void setViewport(const RectI2& viewport) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the depth range of the framebuffer.
@@ -103,7 +98,7 @@ namespace tr {
 		RectI2       _viewport;
 		DepthRange   _depthRange;
 
-		BasicFramebuffer(unsigned int id, RectI2 viewport, DepthRange depthRange) noexcept;
+		BasicFramebuffer(unsigned int id, const RectI2& viewport, DepthRange depthRange) noexcept;
 
 		// Binds the framebuffer for reading.
 		void bindRead() const noexcept;
@@ -204,7 +199,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Attaches a 1D texture to a slot on the framebuffer.
 		 *
-		 * The viewport of the framebuffer will be clamped to the minimum size of all attachments.
+		 * @note The viewport of the framebuffer will be clamped to the minimum size of all attachments.
 		 *
 		 * @param tex The texture to attach.
 		 * @param slot The slot to attach the texture to.
@@ -214,7 +209,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Attaches a layer of a 1D array texture to a slot on the framebuffer.
 		 *
-		 * The viewport of the framebuffer will be clamped to the minimum size of all attachments.
+		 * @note The viewport of the framebuffer will be clamped to the minimum size of all attachments.
 		 *
 		 * @param tex The texture to attach.
 		 * @param[in] layer The layer of the texture to attach.
@@ -225,7 +220,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Attaches a 2D texture to a slot on the framebuffer.
 		 *
-		 * The viewport of the framebuffer will be clamped to the minimum size of all attachments.
+		 * @note The viewport of the framebuffer will be clamped to the minimum size of all attachments.
 		 *
 		 * @param tex The texture to attach.
 		 * @param slot The slot to attach the texture to.
@@ -235,7 +230,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Attaches a layer of a 2D array texture to a slot on the framebuffer.
 		 *
-		 * The viewport of the framebuffer will be clamped to the minimum size of all attachments.
+		 * @note The viewport of the framebuffer will be clamped to the minimum size of all attachments.
 		 *
 		 * @param tex The texture to attach.
 		 * @param[in] layer The layer of the texture to attach.
@@ -246,7 +241,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Attaches a layer of a 3D texture to a slot on the framebuffer.
 		 *
-		 * The viewport of the framebuffer will be clamped to the minimum size of all attachments.
+		 * @note The viewport of the framebuffer will be clamped to the minimum size of all attachments.
 		 *
 		 * @param tex The texture to attach.
 		 * @param z The z layer of the texture to attach.
@@ -257,7 +252,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Attaches a renderbuffer to a slot on the framebuffer.
 		 *
-		 * The viewport of the framebuffer will be clamped to the minimum size of all attachments.
+		 * @note The viewport of the framebuffer will be clamped to the minimum size of all attachments.
 		 *
 		 * @param buffer The renderbuffer to attach.
 		 * @param slot The slot to attach the texture to.
@@ -267,7 +262,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Clears a slot of attachments.
 		 *
-		 * The viewport of the framebuffer will be clamped to the minimum size of all attachments.
+		 * @note The viewport of the framebuffer will be clamped to the minimum size of all attachments.
 		 *
 		 * @param slot The slot to clear.
 		 **************************************************************************************************************/
@@ -296,7 +291,7 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Special window backbuffer.
 	 *
-	 * This class cannot be instantiated directly.
+	 * @note This class cannot be instantiated directly.
 	 ******************************************************************************************************************/
 	class Backbuffer : public BasicFramebuffer {
 	  public:

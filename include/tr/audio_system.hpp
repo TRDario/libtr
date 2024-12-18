@@ -38,6 +38,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Initializes the audio system.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception AudioSystemInitializationError If initializing the audio system fails.
 		 **************************************************************************************************************/
 		AudioSystem();
@@ -69,7 +73,9 @@ namespace tr {
 	bool audioActive() noexcept;
 
 	/******************************************************************************************************************
-	 * Gets a reference to the active audio system. This function cannot be called if the audio system isn't active.
+	 * Gets a reference to the active audio system.
+	 *
+	 * @pre This function cannot be called if the audio system isn't active.
 	 *
 	 * @return A reference to the audio system.
 	 ******************************************************************************************************************/

@@ -346,19 +346,19 @@ namespace tr {
 	 * Key modifier bitmasks.
 	 ******************************************************************************************************************/
 	enum class Keymods : std::uint16_t {
-		NONE   = 0x00'00,
-		LSHIFT = 0x00'01,
-		RSHIFT = 0x00'02,
-		LCTRL  = 0x00'40,
-		RCTRL  = 0x00'80,
-		LALT   = 0x01'00,
-		RALT   = 0x02'00,
-		LWIN   = 0x04'00,
-		RWIN   = 0x08'00,
-		NUM    = 0x10'00,
-		CAPS   = 0x20'00,
-		MODE   = 0x40'00,
-		SCROLL = 0x80'00
+		NONE   = 0x0000,
+		LSHIFT = 0x0001,
+		RSHIFT = 0x0002,
+		LCTRL  = 0x0040,
+		RCTRL  = 0x0080,
+		LALT   = 0x0100,
+		RALT   = 0x0200,
+		LWIN   = 0x0400,
+		RWIN   = 0x0800,
+		NUM    = 0x1000,
+		CAPS   = 0x2000,
+		MODE   = 0x4000,
+		SCROLL = 0x8000
 	};
 
 	/// @cond IMPLEMENTATION
@@ -389,7 +389,7 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Keyboard functionality.
 	 *
-	 * This class cannot be directly instantiated.
+	 * @note This class cannot be directly instantiated.
 	 ******************************************************************************************************************/
 	class Keyboard {
 	  public:

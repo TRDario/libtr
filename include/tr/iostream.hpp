@@ -97,6 +97,10 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Opens a file for writing with extra checks.
 	 *
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
+	 *
 	 * @exception FileNotFound If the file path does not lead to a regular file.
 	 * @exception FileOpenError If the file at path cannot be opened.
 	 *
@@ -109,6 +113,10 @@ namespace tr {
 
 	/******************************************************************************************************************
 	 * Opens a file for reading with extra checks.
+	 *
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
 	 *
 	 * @exception FileNotFound If the file path does not lead to a regular file.
 	 * @exception FileOpenError If the file at path cannot be opened.

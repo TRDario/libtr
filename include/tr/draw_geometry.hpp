@@ -11,29 +11,41 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Calculates the number of segments needed to draw a smooth circle with pixel radius r.
 	 *
-	 * @param[in] r The radius of the circle. Must be in the range (0, +Inf.).
+	 * @param[in] r The radius of the circle.
+	 * @param[in] scale The field scale parameter to apply to the calculation.
 	 *
 	 * @return The number of segments needed to draw a smooth circle with pixel radius r.
 	 ******************************************************************************************************************/
-	inline std::size_t smoothPolygonVerticesCount(float r) noexcept;
+	inline std::size_t smoothPolygonVerticesCount(float r, float scale = 1.0f) noexcept;
 
 	/******************************************************************************************************************
 	 * Calculates the number of segments needed to draw a smooth arc.
 	 *
-	 * @param[in] r The radius of the arc circle. Must be in the range (0, +Inf.).
-	 * @param[in] sizeth The angular size of the arc. Must be in the range (0, 360deg).
+	 * @param[in] r The radius of the arc circle.
+	 * @param[in] sizeth The angular size of the arc.
+	 * @param[in] scale The field scale parameter to apply to the calculation.
 	 *
 	 * @return The number of segments needed to draw a smooth arc.
 	 ******************************************************************************************************************/
-	inline std::size_t smoothArcVerticesCount(float r, AngleF sizeth) noexcept;
+	inline std::size_t smoothArcVerticesCount(float r, AngleF sizeth, float scale = 1.0f) noexcept;
 
 	/******************************************************************************************************************
 	 * Outputs indices for a convex polygon.
 	 *
 	 * @tparam It An index output iterator type.
 	 *
-	 * @param[out] out The output iterator. There has to be space for `(vertices - 2) * 3` indices.
-	 * @param[in] vertices The number of vertices in the polygon. Must be greater than 2.
+	 * @param[out] out
+	 * @parblock
+	 * The output iterator.
+	 *
+	 * @pre There has to be space for `(vertices - 2) * 3` indices.
+	 * @endparblock
+	 * @param[in] vertices
+	 * @parblock
+	 * The number of vertices in the polygon.
+	 *
+	 * @pre @em vertices must be greater than 2.
+	 * @endparblock
 	 * @param[in] base The "base" index offset added to every index value.
 	 *
 	 * @return An iterator to the end of the outputted sequence.
@@ -46,8 +58,18 @@ namespace tr {
 	 *
 	 * @tparam It An index output iterator type.
 	 *
-	 * @param[out] out The output iterator. There has to be space for `(vertices - 2) * 6` indices.
-	 * @param[in] vertices The number of vertices in the polygon. Must be greater than 2.
+	 * @param[out] out
+	 * @parblock
+	 * The output iterator.
+	 *
+	 * @pre There has to be space for `(vertices - 2) * 6` indices.
+	 * @endparblock
+	 * @param[in] vertices
+	 * @parblock
+	 * The number of vertices in the polygon.
+	 *
+	 * @pre @em vertices must be greater than 2.
+	 * @endparblock
 	 * @param[in] base The "base" index offset added to every index value.
 	 *
 	 * @return An iterator to the end of the outputted sequence.
@@ -60,7 +82,12 @@ namespace tr {
 	 *
 	 * @tparam It A position vector output iterator type.
 	 *
-	 * @param[out] out The output iterator. There has to be space for 4 vertices.
+	 * @param[out] out
+	 * @parblock
+	 * The output iterator.
+	 *
+	 * @pre There has to be space for 4 vertices.
+	 * @endparblock
 	 * @param[in] tl The position of the top-left corner of the rectangle.
 	 * @param[in] size The size of the rectangle.
 	 *
@@ -73,7 +100,12 @@ namespace tr {
 	 *
 	 * @tparam It A position vector output iterator type.
 	 *
-	 * @param[out] out The output iterator. There has to be space for 4 vertices.
+	 * @param[out] out
+	 * @parblock
+	 * The output iterator.
+	 *
+	 * @pre There has to be space for 4 vertices.
+	 * @endparblock
 	 * @param[in] tl The position of the top-left corner of the rectangle.
 	 * @param[in] size The size of the rectangle.
 	 * @param[in] transform A transformation matrix to apply to the vertices.
@@ -88,7 +120,12 @@ namespace tr {
 	 *
 	 * @tparam It A position vector output iterator type.
 	 *
-	 * @param[out] out The output iterator. There has to be space for 8 vertices.
+	 * @param[out] out
+	 * @parblock
+	 * The output iterator.
+	 *
+	 * @pre There has to be space for 8 vertices.
+	 * @endparblock
 	 * @param[in] tl The position of the top-left corner of the rectangle.
 	 * @param[in] size The size of the rectangle.
 	 * @param[in] thickness The thickness of the outline.
@@ -103,7 +140,12 @@ namespace tr {
 	 *
 	 * @tparam It A position vector output iterator type.
 	 *
-	 * @param[out] out The output iterator. There has to be space for 8 vertices.
+	 * @param[out] out
+	 * @parblock
+	 * The output iterator.
+	 *
+	 * @pre There has to be space for 8 vertices.
+	 * @endparblock
 	 * @param[in] tl The position of the top-left corner of the rectangle.
 	 * @param[in] size The size of the rectangle.
 	 * @param[in] thickness The thickness of the outline.
@@ -120,8 +162,18 @@ namespace tr {
 	 *
 	 * @tparam It A position vector output iterator type.
 	 *
-	 * @param[out] out The output iterator. There has to be space for all of the vertices.
-	 * @param[in] vertices The number of vertices on the arc.
+	 * @param[out] out
+	 * @parblock
+	 * The output iterator.
+	 *
+	 * @pre There has to be space for all of the vertices.
+	 * @endparblock
+	 * @param[in] vertices
+	 * @parblock
+	 * The number of vertices on the arc.
+	 *
+	 * @pre @em vertices must be greater than 2.
+	 * @endparblock
 	 * @param[in] circ The arc circle.
 	 * @param[in] startth The starting angle on the arc circle of the arc.
 	 * @param[in] sizeth The angular size of the arc.
@@ -136,8 +188,18 @@ namespace tr {
 	 *
 	 * @tparam It A position vector output iterator type.
 	 *
-	 * @param[out] out The output iterator. There has to be space for all of the vertices.
-	 * @param[in] vertices The number of polygon vertices.
+	 * @param[out] out
+	 * @parblock
+	 * The output iterator.
+	 *
+	 * @pre There has to be space for all of the vertices.
+	 * @endparblock
+	 * @param[in] vertices
+	 * @parblock
+	 * The number of vertices in the polygon.
+	 *
+	 * @pre @em vertices must be greater than 2.
+	 * @endparblock
 	 * @param[in] circ The tangent circle of the polygon.
 	 * @param[in] rotation The rotation of the polygon.
 	 *
@@ -151,8 +213,18 @@ namespace tr {
 	 *
 	 * @tparam It A position vector output iterator type.
 	 *
-	 * @param[out] out The output iterator. There has to be space for `vertices * 2`.
-	 * @param[in] vertices The number of polygon vertices.
+	 * @param[out] out
+	 * @parblock
+	 * The output iterator.
+	 *
+	 * @pre There has to be space for `vertices * 2`.
+	 * @endparblock
+	 * @param[in] vertices
+	 * @parblock
+	 * The number of vertices in the polygon.
+	 *
+	 * @pre @em vertices must be greater than 2.
+	 * @endparblock
 	 * @param[in] circ The tangent circle of the polygon.
 	 * @param[in] rotation The rotation of the polygon.
 	 * @param[in] thickness The thickness of the polygon.

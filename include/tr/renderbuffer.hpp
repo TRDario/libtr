@@ -28,17 +28,16 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Allocates a blank renderbuffer.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception RenderbufferBadAlloc If allocating the renderbuffer fails.
 		 *
 		 * @param[in] size The size of the renderbuffer in pixels.
 		 * @param[in] format The pixel format of the renderbuffer.
 		 **************************************************************************************************************/
 		Renderbuffer(glm::ivec2 size, TextureFormat format);
-
-		/**************************************************************************************************************
-		 * Equality comparison operator.
-		 **************************************************************************************************************/
-		bool operator==(const Renderbuffer& r) const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the size of the renderbuffer.

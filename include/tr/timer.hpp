@@ -13,12 +13,12 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Minimal callback timer class.
 	 *
-	 * The timer runs a callback function on a separate thread at a regular interval until the timer is destroyed.
-	 *
-	 * The accuracy of the underlying system functions can be as low as 1ms, and although Timer attempts to correct for
-	 * errors, it's not advised to use it for applications with <1ms resolution.
+	 * An active timer runs a callback function on a separate thread at a regular interval until the timer is destroyed.
 	 *
 	 * Timer is default-constructible, non-copyable, and movable.
+	 *
+	 * @note The accuracy of the underlying system functions can be as low as 1ms, and although Timer attempts to
+	 *       correct for errors, it's not advised to use it for applications with <1ms resolution.
 	 ******************************************************************************************************************/
 	class Timer {
 	  public:
@@ -33,13 +33,19 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs an active timer.
 		 *
-		 * This constructor offers a strong exception guarantee.
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception std::system_error If launching a thread for the timer failed.
 		 * @exception std::bad_alloc If allocating the callback function failed.
 		 *
-		 * @param interval The interval between ticks. Must be greater than 0, otherwise the thread will exit
-		 *                 immediately.
+		 * @param interval
+		 * @parblock
+		 * The interval between ticks.
+		 *
+		 * @pre @em interval must be greater than 0, otherwise the thread will exit immediately.
+		 * @endparblock
 		 * @param callback The callback function to call on every tick.
 		 **************************************************************************************************************/
 		template <class Rep, class Period, class CallbackT>
@@ -49,7 +55,7 @@ namespace tr {
 		 * Move constructs a timer.
 		 *
 		 * If @em r was previously in an active state, the thread it was managing will be transferred to the new
-		 *timer, leaving @em r in an inactive state.
+		 * timer, leaving @em r in an inactive state.
 		 *
 		 * @param r The timer to move from.
 		 **************************************************************************************************************/

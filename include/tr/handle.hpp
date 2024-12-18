@@ -72,16 +72,15 @@ namespace tr {
 		 *
 		 * A handle constructed like this is guaranteed to hold a value.
 		 *
-		 * If @em EmptyValue is an expected input, Handle(T, NoEmptyHandleCheck)
-		 * may be used instead.
-		 *
 		 * Requires that @em Deleter is default constructible (pointers are not counted as default constructible).
+		 *
+		 * @remark If @em EmptyValue is an expected input, Handle(T, NoEmptyHandleCheck) may be used instead.
 		 *
 		 * @param[in] value
 		 * @parblock
 		 * The base type value that will be managed by the handle.
 		 *
-		 * May not equal @em EmptyValue, an assertion may be raised otherwise.
+		 * @pre @em value is not allowed to equal @em EmptyValue.
 		 * @endparblock
 		 **************************************************************************************************************/
 		constexpr explicit Handle(T value) noexcept
@@ -92,16 +91,15 @@ namespace tr {
 		 *
 		 * A handle constructed like this is guaranteed to hold a value.
 		 *
-		 * If @em EmptyValue is an expected input, Handle(T, deleter, NoEmptyHandleCheck)
-		 * may be used instead.
-		 *
 		 * Requires that @em Deleter is copy-constructible.
+		 *
+		 * @remark If @em EmptyValue is an expected input, Handle(T, deleter, NoEmptyHandleCheck) may be used instead.
 		 *
 		 * @param[in] value
 		 * @parblock
 		 * The base type value that will be managed by the handle.
 		 *
-		 * May not equal @em EmptyValue, an assertion may be raised otherwise.
+		 * @pre @em value is not allowed to equal @em EmptyValue.
 		 * @endparblock
 		 * @param[in] deleter The deleter value to copy.
 		 **************************************************************************************************************/
@@ -113,16 +111,15 @@ namespace tr {
 		 *
 		 * A handle constructed like this is guaranteed to hold a value.
 		 *
-		 * If @em EmptyValue is an expected input, Handle(T, deleter, NoEmptyHandleCheck)
-		 * may be used instead.
-		 *
 		 * Requires that @em Deleter is copy-constructible.
+		 *
+		 * @remark If @em EmptyValue is an expected input, Handle(T, deleter, NoEmptyHandleCheck) may be used instead.
 		 *
 		 * @param[in] value
 		 * @parblock
 		 * The base type value that will be managed by the handle.
 		 *
-		 * May not equal @em EmptyValue, an assertion may be raised otherwise.
+		 * @pre @em value is not allowed to equal @em EmptyValue.
 		 * @endparblock
 		 * @param[in] deleter The deleter value to copy.
 		 **************************************************************************************************************/
@@ -135,16 +132,15 @@ namespace tr {
 		 *
 		 * A handle constructed like this is guaranteed to hold a value.
 		 *
-		 * If @em EmptyValue is an expected input, Handle(T, deleter, NoEmptyHandleCheck)
-		 * may be used instead.
-		 *
 		 * Requires that @em Deleter is move-constructible.
+		 *
+		 * @remark If @em EmptyValue is an expected input, Handle(T, deleter, NoEmptyHandleCheck) may be used instead.
 		 *
 		 * @param[in] value
 		 * @parblock
 		 * The base type value that will be managed by the handle.
 		 *
-		 * May not equal @em EmptyValue, an assertion may be raised otherwise.
+		 * @pre @em value is not allowed to equal @em EmptyValue.
 		 * @endparblock
 		 * @param[in] deleter The deleter value to move.
 		 **************************************************************************************************************/
@@ -156,9 +152,9 @@ namespace tr {
 		 *
 		 * A handle constructed like this may or may not hold a value.
 		 *
-		 * Handle(T) should be used in cases where this isn't necessary.
-		 *
 		 * Requires that @em Deleter is default constructible (pointers are not counted as default constructible).
+		 *
+		 * @remark Handle(T) should be used in cases where this isn't necessary.
 		 *
 		 * @param[in] value The base type value that will be managed by the handle.
 		 **************************************************************************************************************/
@@ -171,16 +167,11 @@ namespace tr {
 		 *
 		 * A handle constructed like this may or may not hold a value.
 		 *
-		 * Handle(T, deleter) should be used in cases where this isn't necessary.
-		 *
 		 * Requires that @em Deleter is copy-constructible.
 		 *
-		 * @param[in] value
-		 * @parblock
-		 * The base type value that will be managed by the handle.
+		 * @remark Handle(T, deleter) should be used in cases where this isn't necessary.
 		 *
-		 * May not equal @em EmptyValue, an assertion may be raised otherwise.
-		 * @endparblock
+		 * @param[in] value The base type value that will be managed by the handle.
 		 * @param[in] deleter The deleter value to copy.
 		 **************************************************************************************************************/
 		constexpr explicit Handle(T value, Deleter& deleter,
@@ -193,16 +184,11 @@ namespace tr {
 		 *
 		 * A handle constructed like this may or may not hold a value.
 		 *
-		 * Handle(T, deleter) should be used in cases where this isn't necessary.
-		 *
 		 * Requires that @em Deleter is copy-constructible.
 		 *
-		 * @param[in] value
-		 * @parblock
-		 * The base type value that will be managed by the handle.
+		 * @remark Handle(T, deleter) should be used in cases where this isn't necessary.
 		 *
-		 * May not equal @em EmptyValue, an assertion may be raised otherwise.
-		 * @endparblock
+		 * @param[in] value The base type value that will be managed by the handle.
 		 * @param[in] deleter The deleter value to copy.
 		 **************************************************************************************************************/
 		constexpr explicit Handle(T value, const Deleter& deleter,
@@ -215,16 +201,11 @@ namespace tr {
 		 *
 		 * A handle constructed like this may or may not hold a value.
 		 *
-		 * Handle(T, deleter) should be used in cases where this isn't necessary.
-		 *
 		 * Requires that @em Deleter is move-constructible.
 		 *
-		 * @param[in] value
-		 * @parblock
-		 * The base type value that will be managed by the handle.
+		 * @remark Handle(T, deleter) should be used in cases where this isn't necessary.
 		 *
-		 * May not equal @em EmptyValue, an assertion may be raised otherwise.
-		 * @endparblock
+		 * @param[in] value The base type value that will be managed by the handle.
 		 * @param[in] deleter The deleter value to move.
 		 **************************************************************************************************************/
 		constexpr explicit Handle(T value, Deleter&& deleter,
@@ -248,14 +229,14 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Destroys the handle.
 		 *
-		 * If the handle is not empty, <em>Deleter</em> will be called with the contained value.
+		 * If the handle is not empty, @em Deleter will be called with the contained value.
 		 **************************************************************************************************************/
 		constexpr ~Handle() noexcept;
 
 		/**************************************************************************************************************
 		 * Move-assigns the handle.
 		 *
-		 * If any value was contained in the handle before this, <em>Deleter</em> is called with said value.
+		 * If any value was contained in the handle before this, @em Deleter is called with said value.
 		 *
 		 * @param[in] r
 		 * @parblock
@@ -269,17 +250,6 @@ namespace tr {
 		constexpr Handle& operator=(Handle&& r) noexcept;
 
 		/**************************************************************************************************************
-		 * Equality comparison operator.
-		 *
-		 * Two handle references are only considered equal if they point to the same object.
-		 *
-		 * @param[in] r A handle reference.
-		 *
-		 * @return true if r is a reference to the same object as *this.
-		 **************************************************************************************************************/
-		constexpr bool operator==(const Handle& r) const noexcept;
-
-		/**************************************************************************************************************
 		 * Checks if the handle contains a value.
 		 *
 		 * @return true if the handle is not empty.
@@ -288,16 +258,15 @@ namespace tr {
 
 		/**************************************************************************************************************
 		 * Checks if the handle contains a value, see has_value().
-		return std::hash<decltype(texture._id)> {}(texture._id);
-		**************************************************************************************************************/
+		 **************************************************************************************************************/
 		constexpr explicit operator bool() const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the handle's base type value.
 		 *
-		 * Calls to this function are only valid if the handle contains a value, an assertion may be raised otherwise.
+		 * @pre This function cannot be called if the handle is empty.
 		 *
-		 * get(NoEmptyHandleCheck) may be used in cases where the empty value is an expected input.
+		 * @remark get(NoEmptyHandleCheck) may be used in cases where the empty value is an expected input.
 		 *
 		 * @return A reference to the handle's base type value.
 		 **************************************************************************************************************/
@@ -306,10 +275,9 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Gets the handle's base type value.
 		 *
-		 * This function circuments the notion of an "empty" handle and returns a value even if it's
-		 *<em>EmptyValue</em>.
+		 * This function circuments the notion of an "empty" handle and returns a value even if it's @em EmptyValue.
 		 *
-		 * get() should be used in cases where this isn't necessary.
+		 * @remark get() should be used in cases where this isn't necessary.
 		 *
 		 * @return A reference to the handle's base type value.
 		 **************************************************************************************************************/
@@ -341,22 +309,22 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Resets the handle to an empty state.
 		 *
-		 * If the handle is not empty before this call, <em>Deleter</em> will be called with the contained value.
+		 * If the handle is not empty before this call, @em Deleter will be called with the contained value.
 		 **************************************************************************************************************/
 		constexpr void reset() noexcept;
 
 		/**************************************************************************************************************
 		 * Resets the handle to a non-empty state.
 		 *
-		 * If the handle is not empty before this call, <em>Deleter</em> will be called with the contained value.
+		 * If the handle is not empty before this call, @em Deleter will be called with the contained value.
 		 *
-		 * reset(T, NoEmptyHandleCheck) may be used in cases where the empty value is an expected input.
+		 * @remark reset(T, NoEmptyHandleCheck) may be used in cases where the empty value is an expected input.
 		 *
 		 * @param[in] value
 		 * @parblock
 		 * The base type value that will be managed by the handle.
 		 *
-		 * May not equal <em>EmptyValue</em>, an assertion may be raised otherwise.
+		 * May not equal @em EmptyValue, an assertion may be raised otherwise.
 		 * @endparblock
 		 **************************************************************************************************************/
 		constexpr void reset(T value) noexcept;
@@ -364,15 +332,15 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Resets the handle to a new state.
 		 *
-		 * If the handle is not empty before this call, <em>Deleter</em> will be called with the contained value.
+		 * If the handle is not empty before this call, @em Deleter will be called with the contained value.
 		 *
-		 * reset(T) should be preferred in most cases.
+		 * @remark reset(T) should be preferred in most cases.
 		 *
 		 * @param[in] value
 		 * @parblock
 		 * The base type value that will be managed by the handle.
 		 *
-		 * If it equals <em>EmptyValue</em>, the handle will be empty afterwards, otherwise it will contain a value.
+		 * If it equals @em EmptyValue, the handle will be empty afterwards, otherwise it will contain a value.
 		 * @endparblock
 		 **************************************************************************************************************/
 		constexpr void reset(T value, NoEmptyHandleCheck) noexcept;
@@ -501,12 +469,6 @@ constexpr tr::Handle<T, EmptyValue, Deleter>& tr::Handle<T, EmptyValue, Deleter>
 	std::ignore = Handle{std::move(*this)};
 	std::swap(_base, r._base);
 	return *this;
-}
-
-template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>
-constexpr bool tr::Handle<T, EmptyValue, Deleter>::operator==(const Handle& r) const noexcept
-{
-	return this == &r;
 }
 
 template <tr::HandleType T, T EmptyValue, tr::HandleDeleter<T> Deleter>

@@ -19,7 +19,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates a shader pipeline.
 		 *
-		 * All shaders must actually be of the type they're passed as.
+		 * @pre All shaders must actually be of the type they're passed as.
 		 *
 		 * @param[in] vertexShader The vertex shader.
 		 * @param[in] fragmentShader The fragment shader.
@@ -55,7 +55,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Creates an owning shader pipeline.
 		 *
-		 * All shaders must actually be of the type they're passed as.
+		 * @pre All shaders must actually be of the type they're passed as.
 		 *
 		 * @param[in] vertexShader The vertex shader that will be moved into the pipeline.
 		 * @param[in] fragmentShader The fragment shader that will be moved into the pipeline.

@@ -7,7 +7,7 @@ struct _TTF_Font;
 
 namespace tr {
 	/** @ingroup system
-	 *  @defgroup ttfont TrueType Font
+	 *  @defgroup ttfont Font
 	 *  TrueType font class and related functionality.
 	 *  @{
 	 */
@@ -156,6 +156,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Loads a font from file.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception FileNotFound If the file is not found.
 		 * @exception TTFontLoadError If loading the font fails.
 		 *
@@ -240,7 +244,8 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the hinting of the font. Doing this clears the glyph cache.
 		 *
-		 * If the value matches the current configuration, nothing happens and the cache isn't cleared.
+		 * Doing this clears the glyph cache unless the value matches the current configuration, in which case nothing
+		 * happens and the cache isn't cleared.
 		 *
 		 * @param[in] hinting The new hinting type of the font.
 		 **************************************************************************************************************/
@@ -270,7 +275,8 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the style of the font. Doing this clears the glyph cache.
 		 *
-		 * If the style matches the current configuration, nothing happens and the cache isn't cleared.
+		 * Doing this clears the glyph cache unless the style matches the current configuration, in which case nothing
+		 * happens and the cache isn't cleared.
 		 *
 		 * @param[in] style The new style of the font.
 		 **************************************************************************************************************/
@@ -284,9 +290,10 @@ namespace tr {
 		int outline() const noexcept;
 
 		/**************************************************************************************************************
-		 * Sets the outline thickness of the font. Doing this clears the glyph cache.
+		 * Sets the outline thickness of the font.
 		 *
-		 * If the value matches the current configuration, nothing happens and the cache isn't cleared.
+		 * Doing this clears the glyph cache unless the value matches the current configuration, in which case nothing
+		 * happens and the cache isn't cleared.
 		 *
 		 * @param[in] thickness The new outline thickness of the font.
 		 **************************************************************************************************************/
@@ -325,9 +332,10 @@ namespace tr {
 		Glyph glyph(std::uint32_t glyph) const noexcept;
 
 		/**************************************************************************************************************
-		 * Resizes the font. Doing this clears the glyph cache.
+		 * Resizes the font.
 		 *
-		 * If the size and dpi match the current configuration, nothing happens and the cache isn't cleared.
+		 * Doing this clears the glyph cache, however, if the size and dpi match the current configuration,
+		 * nothing happens and the cache isn't cleared.
 		 *
 		 * @exception TTFontError If resizing the font fails.
 		 *
@@ -355,10 +363,12 @@ namespace tr {
 		 **************************************************************************************************************/
 		MeasureResult measure(const char* text, int maxWidth) const noexcept;
 
-		// Renders an alpha-blended glyph to a 32-bit bitmap.
-
 		/**************************************************************************************************************
 		 * Renders a glyph.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception TTFontError If rendering the bitmap fails.
 		 *
@@ -372,6 +382,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Renders a line of text.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception TTFontError If rendering the bitmap fails.
 		 *
 		 * @param[in] text The line of text to render (\\n not supported).
@@ -383,6 +397,10 @@ namespace tr {
 
 		/**************************************************************************************************************
 		 * Renders wrapped text.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception TTFontError If rendering the bitmap fails.
 		 *

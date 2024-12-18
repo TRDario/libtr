@@ -21,11 +21,11 @@ void tr::Benchmark::stop()
 
 	atomic_thread_fence(std::memory_order::relaxed);
 	auto now{Clock::now()};
+	_durations.emplace_back(_startPoint, now - _startPoint);
 	auto it{std::ranges::upper_bound(_durations, now - 2.5s, std::less{}, &Deque::value_type::first)};
 	if (it != _durations.end()) {
 		_durations.erase(_durations.begin(), it);
 	}
-	_durations.emplace_back(_startPoint, now - _startPoint);
 	_startPoint = TimePoint{};
 	atomic_thread_fence(std::memory_order::relaxed);
 }

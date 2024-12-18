@@ -13,66 +13,66 @@ namespace tr {
 	 * Texture format types.
 	 ******************************************************************************************************************/
 	enum class TextureFormat {
-		R8          = 0x82'29,
-		R8_SNORM    = 0x8F'94,
-		R16         = 0x82'2A,
-		R16_SNORM   = 0x8F'98,
-		RG8         = 0x82'2B,
-		RG8_SNORM   = 0x8F'95,
-		RG16        = 0x82'2C,
-		RG16_SNORM  = 0x8F'99,
-		R3G3B2      = 0x2A'10,
-		RGB4        = 0x80'4F,
-		RGB5        = 0x80'50,
-		RGB8        = 0x80'51,
-		RGB8_SNORM  = 0x8F'96,
-		RGB10       = 0x80'52,
-		RGB12       = 0x80'53,
-		RGB16       = 0x80'54,
-		RGB16_SNORM = 0x8F'9A,
-		RGBA2       = 0x80'55,
-		RGBA4       = 0x80'56,
-		RGB5A1      = 0x80'57,
-		RGBA8       = 0x80'58,
-		RGBA8_SNORM = 0x8F'97,
-		RGB10A2     = 0x80'59,
-		RGB10A2_UI  = 0x90'6F,
-		RGBA12      = 0x80'5A,
-		RGBA16      = 0x80'5B,
-		SRGB8       = 0x8C'41,
-		SRGBA8      = 0x8C'43,
-		R_FP16      = 0x82'2D,
-		RG_FP16     = 0x82'2F,
-		RGB_FP16    = 0x88'1B,
-		RGBA_FP16   = 0x88'1A,
-		R_FP32      = 0x82'2E,
-		RG_FP32     = 0x82'30,
-		RGB_FP32    = 0x88'15,
-		RGBA_FP32   = 0x88'14,
-		RG11B10_FP  = 0x8C'3A,
-		RGB9E5      = 0x8C'3D,
-		R_SI8       = 0x82'31,
-		R_UI8       = 0x82'32,
-		R_SI16      = 0x82'33,
-		R_UI16      = 0x82'34,
-		R_SI32      = 0x82'35,
-		R_UI32      = 0x82'36,
-		RGB_SI8     = 0x8D'8F,
-		RGB_UI8     = 0x8D'7D,
-		RGB_SI16    = 0x8D'89,
-		RGB_UI16    = 0x8D'77,
-		RGB_SI32    = 0x8D'83,
-		RGB_UI32    = 0x8D'71,
-		RGBA_SI8    = 0x8D'8E,
-		RGBA_UI8    = 0x8D'7C,
-		RGBA_SI16   = 0x8D'88,
-		RGBA_UI16   = 0x8D'76,
-		RGBA_SI32   = 0x8D'82,
-		RGBA_UI32   = 0x8D'70,
-		DEPTH16     = 0x81'A5,
-		DEPTH24     = 0x81'A6,
-		DEPTH_FP32  = 0x8C'AC,
-		STENCIL8    = 0x8D'48
+		R8          = 0x8229,
+		R8_SNORM    = 0x8F94,
+		R16         = 0x822A,
+		R16_SNORM   = 0x8F98,
+		RG8         = 0x822B,
+		RG8_SNORM   = 0x8F95,
+		RG16        = 0x822C,
+		RG16_SNORM  = 0x8F99,
+		R3G3B2      = 0x2A10,
+		RGB4        = 0x804F,
+		RGB5        = 0x8050,
+		RGB8        = 0x8051,
+		RGB8_SNORM  = 0x8F96,
+		RGB10       = 0x8052,
+		RGB12       = 0x8053,
+		RGB16       = 0x8054,
+		RGB16_SNORM = 0x8F9A,
+		RGBA2       = 0x8055,
+		RGBA4       = 0x8056,
+		RGB5A1      = 0x8057,
+		RGBA8       = 0x8058,
+		RGBA8_SNORM = 0x8F97,
+		RGB10A2     = 0x8059,
+		RGB10A2_UI  = 0x906F,
+		RGBA12      = 0x805A,
+		RGBA16      = 0x805B,
+		SRGB8       = 0x8C41,
+		SRGBA8      = 0x8C43,
+		R_FP16      = 0x822D,
+		RG_FP16     = 0x822F,
+		RGB_FP16    = 0x881B,
+		RGBA_FP16   = 0x881A,
+		R_FP32      = 0x822E,
+		RG_FP32     = 0x8230,
+		RGB_FP32    = 0x8815,
+		RGBA_FP32   = 0x8814,
+		RG11B10_FP  = 0x8C3A,
+		RGB9E5      = 0x8C3D,
+		R_SI8       = 0x8231,
+		R_UI8       = 0x8232,
+		R_SI16      = 0x8233,
+		R_UI16      = 0x8234,
+		R_SI32      = 0x8235,
+		R_UI32      = 0x8236,
+		RGB_SI8     = 0x8D8F,
+		RGB_UI8     = 0x8D7D,
+		RGB_SI16    = 0x8D89,
+		RGB_UI16    = 0x8D77,
+		RGB_SI32    = 0x8D83,
+		RGB_UI32    = 0x8D71,
+		RGBA_SI8    = 0x8D8E,
+		RGBA_UI8    = 0x8D7C,
+		RGBA_SI16   = 0x8D88,
+		RGBA_UI16   = 0x8D76,
+		RGBA_SI32   = 0x8D82,
+		RGBA_UI32   = 0x8D70,
+		DEPTH16     = 0x81A5,
+		DEPTH24     = 0x81A6,
+		DEPTH_FP32  = 0x8CAC,
+		STENCIL8    = 0x8D48
 	};
 
 	/******************************************************************************************************************
@@ -92,7 +92,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * The channel will use the red channel value.
 		 **************************************************************************************************************/
-		R = 0x19'03,
+		R = 0x1903,
 
 		/**************************************************************************************************************
 		 * The channel will use the green channel value.
@@ -135,15 +135,10 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Base texture class.
 	 *
-	 * This class cannot be constructed directly.
+	 * @note This class cannot be constructed directly.
 	 ******************************************************************************************************************/
 	class Texture {
 	  public:
-		/**************************************************************************************************************
-		 * Equality comparison operator.
-		 **************************************************************************************************************/
-		friend bool operator==(const Texture&, const Texture&) noexcept;
-
 		/**************************************************************************************************************
 		 * Gets the format of the texture.
 		 *
@@ -250,6 +245,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Allocates an uninitialized 1D texture.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
 		 * @param[in] size The size of the texture in texels.
@@ -261,9 +260,18 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs a 1D texture with data uploaded from a bitmap.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
-		 * @param[in] bitmap The bitmap data. The bitmap must be 1 pixel tall.
+		 * @param[in] bitmap
+		 * @parblock
+		 * The bitmap data.
+		 *
+		 * @pre The bitmap must be 1 pixel tall.
+		 * @endparblock
 		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
@@ -279,10 +287,15 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets a region of the texture.
 		 *
-		 * The region must fully be inside the bounds of the texture.
+		 * @pre The region must fully be inside the bounds of the texture.
 		 *
-		 * @param[in] offset The starting offset within the texture
-		 * @param[in] bitmap The bitmap data to set the region to. The bitmap must be 1 pixel tall.
+		 * @param[in] offset The starting offset within the texture.
+		 * @param[in] bitmap
+		 * @parblock
+		 * The bitmap data to set the region so.
+		 *
+		 * @pre The bitmap must be 1 pixel tall.
+		 * @endparblock
 		 **************************************************************************************************************/
 		void setRegion(int offset, SubBitmap bitmap) noexcept;
 	};
@@ -293,6 +306,10 @@ namespace tr {
 	struct ArrayTexture1D : Texture {
 		/**************************************************************************************************************
 		 * Allocates an uninitialized 1D array texture.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
@@ -305,6 +322,10 @@ namespace tr {
 
 		/**************************************************************************************************************
 		 * Constructs a 1D array texture with data uploaded from a bitmap.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
@@ -331,7 +352,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets a region of the texture as if it were a 2D texture.
 		 *
-		 * The region must fully be inside the bounds of the texture.
+		 * @pre The region must fully be inside the bounds of the texture.
 		 *
 		 * @param[in] tl The top-left corner of the region within the texture.
 		 * @param[in] bitmap The bitmap data to set the region to.
@@ -346,6 +367,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Allocates an uninitialized 2D texture.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
 		 * @param[in] size The size of the texture in texels.
@@ -356,6 +381,10 @@ namespace tr {
 
 		/**************************************************************************************************************
 		 * Constructs a 2D texture with data uploaded from a bitmap.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
@@ -375,7 +404,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets a region of the texture.
 		 *
-		 * The region must fully be inside the bounds of the texture.
+		 * @pre The region must fully be inside the bounds of the texture.
 		 *
 		 * @param[in] tl The top-left corner of the region within the texture.
 		 * @param[in] bitmap The bitmap data to set the region to.
@@ -390,6 +419,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Allocates an uninitialized 1D array texture.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
 		 * @param[in] size The size of the texture in texels.
@@ -402,9 +435,18 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs a 2D array texture with data uploaded from a list of bitmaps.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
-		 * @param[in] layers the layer bitmaps. The span cannot be empty, and the bitmaps must all be of the same size.
+		 * @param[in] layers
+		 * @parblock
+		 * The layer bitmaps.
+		 *
+		 * @pre @em layers cannot be empty, and the bitmaps must all be of the same size.
+		 * @endparblock
 		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
@@ -427,7 +469,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets a region of a layer.
 		 *
-		 * The region must fully be inside the bounds of the texture.
+		 * @pre The region must fully be inside the bounds of the texture.
 		 *
 		 * @param[in] layer The layer whose region to set.
 		 * @param[in] tl The top-left corner of the region within the layer.
@@ -443,6 +485,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Allocates an uninitialized 2D texture.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
 		 * @param[in] size The size of the texture in texels.
@@ -454,10 +500,18 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs a 3D texture with data uploaded from a list of bitmaps.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
-		 * @param[in] layers the Z layer bitmaps. The span cannot be empty, and the bitmaps must all be of the same
-		 *                   size.
+		 * @param[in] layers
+		 * @parblock
+		 * The Z layer bitmaps.
+		 *
+		 * @pre @em layers cannot be empty, and the bitmaps must all be of the same size.
+		 * @endparblock
 		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
@@ -473,7 +527,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets a region of a Z layer.
 		 *
-		 * The region must fully be inside the bounds of the texture.
+		 * @pre The region must fully be inside the bounds of the texture.
 		 *
 		 * @param[in] tl The top-left corner of the region within the texture.
 		 * @param[in] bitmap The bitmap data to set the region to.
