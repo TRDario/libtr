@@ -1,14 +1,15 @@
 #pragma once
 #define BOOST_STATIC_STRING_STANDALONE
-#include "chrono.hpp"
 #include "keyboard.hpp"
 #include "mouse.hpp"
 #include "sdl.hpp"
+#include "timer.hpp"
 #include <any>
 #include <atomic>
 #include <boost/static_string.hpp>
 
 namespace tr {
+	class Event;
 	class EventQueue;
 
 	/** @ingroup system
@@ -20,7 +21,7 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Error thrown when an event operation fails.
 	 ******************************************************************************************************************/
-	struct EventError : SDLError {
+	struct EventPushError : SDLError {
 		using SDLError::SDLError;
 	};
 
@@ -105,7 +106,200 @@ namespace tr {
 	inline constexpr std::uint32_t USER_EVENT_START{0x9000};
 
 	/******************************************************************************************************************
+	 * Intermediate interface between custom event types and Event.
+	 ******************************************************************************************************************/
+	struct CustomEventBase {
+		/**************************************************************************************************************
+		 * The type of the event.
+		 **************************************************************************************************************/
+		std::uint32_t type;
+
+		/**************************************************************************************************************
+		 * An unsigned integer value.
+		 **************************************************************************************************************/
+		std::uint32_t uint;
+
+		/**************************************************************************************************************
+		 * A signed integer value.
+		 **************************************************************************************************************/
+		std::int32_t sint;
+
+		/**************************************************************************************************************
+		 * A generic value.
+		 **************************************************************************************************************/
+		std::any any1;
+
+		/**************************************************************************************************************
+		 * A generic value.
+		 **************************************************************************************************************/
+		std::any any2;
+
+		/**************************************************************************************************************
+		 * Constructs a simple event base.
+		 *
+		 * @param type The type of the event.
+		 **************************************************************************************************************/
+		CustomEventBase(std::uint32_t type) noexcept;
+
+		/**************************************************************************************************************
+		 * Constructs a simple event base.
+		 *
+		 * @param type The type of the event.
+		 * @param uint An unsigned integer value.
+		 * @param sint A signed integer value.
+		 **************************************************************************************************************/
+		CustomEventBase(std::uint32_t type, std::uint32_t uint, std::int32_t sint) noexcept;
+
+		/**************************************************************************************************************
+		 * Constructs an event base.
+		 *
+		 * @param type The type of the event.
+		 * @param uint An unsigned integer value.
+		 * @param sint A signed integer value.
+		 * @param any1 An any value that will be moved into the event.
+		 * @param any2 An any value that will be moved into the event.
+		 **************************************************************************************************************/
+		CustomEventBase(std::uint32_t type, std::uint32_t uint, std::int32_t sint, std::any&& any1,
+						std::any&& any2) noexcept;
+
+		/**************************************************************************************************************
+		 * Constructs an event base.
+		 *
+		 * @exception std::bad_alloc If an any allocation fails.
+		 *
+		 * @param type The type of the event.
+		 * @param uint An unsigned integer value.
+		 * @param sint A signed integer value.
+		 * @param any1 A value that will be forwarded into an instance of std::any that will be moved into the event.
+		 * @param any2 A value that will be forwarded into an instance of std::any that will be moved into the event.
+		 **************************************************************************************************************/
+		template <class T1, class T2>
+		CustomEventBase(std::uint32_t type, std::uint32_t uint, std::int32_t sint, T1&& any1, T2&& any2)
+			: CustomEventBase{type, uint, sint, std::any{std::forward<T1>(any1)}, std::any{std::forward<T2>(any2)}}
+		{
+		}
+
+		/**************************************************************************************************************
+		 * Converts an event into an event base.
+		 *
+		 * @exception std::bad_alloc If copying dynamically allocated resources fails.
+		 *
+		 * @param event The event to convert into an event base. If it holds any dynamically allocated resources, those
+		 *              will be copied into the custom event base. The event must be of a proper type.
+		 **************************************************************************************************************/
+		CustomEventBase(const Event& event);
+
+		/**************************************************************************************************************
+		 * Converts an event into an event base.
+		 *
+		 * @param event The event to convert into an event base. If it holds any dynamically allocated resources, those
+		 *              will be moved into the custom event base. The event must be of a proper type.
+		 **************************************************************************************************************/
+		CustomEventBase(Event&& event) noexcept;
+
+		/**************************************************************************************************************
+		 * Converts an event base into an event.
+		 *
+		 * @exception std::bad_alloc If copying dynamically allocated resources fails.
+		 *
+		 * @return A generic event. If the event base holds any dynamically allocated resources, those will be copied
+		 *         into the event.
+		 **************************************************************************************************************/
+		operator Event() const&;
+
+		/**************************************************************************************************************
+		 * Converts an event base into an event.
+		 *
+		 * @return A generic event. If the event base holds any dynamically allocated resources, those will be moved
+		 *         into the event.
+		 **************************************************************************************************************/
+		operator Event() && noexcept;
+	};
+
+	/******************************************************************************************************************
+	 * Unified event type.
+	 *
+	 * To handle individual event types, the type() method must be called and the event cast into the proper type.
+	 *
+	 * Event is copyable and movable.
+	 ******************************************************************************************************************/
+	class Event {
+	  public:
+		/**************************************************************************************************************
+		 * Copy-constructs an event.
+		 *
+		 * @exception std::bad_alloc If copying dynamically allocated resources fails.
+		 *
+		 * @param r The event to copy from.
+		 **************************************************************************************************************/
+		Event(const Event& r);
+
+		/**************************************************************************************************************
+		 * Move-constructs an event.
+		 *
+		 * @param r The event to move from. Any dynamically allocated resources will be moved into the left-hand
+		 *          event, and @em r will be left in a state where another event can be moved into it, but is
+		 *          otherwise unusable.
+		 **************************************************************************************************************/
+		Event(Event&& r) noexcept;
+
+		/**************************************************************************************************************
+		 * Destroys the event, deallocating any dynamically allocated resources it owned.
+		 **************************************************************************************************************/
+		~Event() noexcept;
+
+		/**************************************************************************************************************
+		 * Copy-assigns an event.
+		 *
+		 * @exception std::bad_alloc If copying dynamically allocated resources fails.
+		 *
+		 * @param event The event to copy from.
+		 *
+		 * @return A reference to the left-hand event.
+		 **************************************************************************************************************/
+		Event& operator=(const Event& r);
+
+		/**************************************************************************************************************
+		 * Move-assigns an event.
+		 *
+		 * @param event The event to move from. Any dynamically allocated resources will be moved into the left-hand
+		 *              event, and @em r will be left in a state where another event can be moved into it, but is
+		 *              otherwise unusable.
+		 *
+		 * @return A reference to the left-hand event.
+		 **************************************************************************************************************/
+		Event& operator=(Event&& r) noexcept;
+
+		/**************************************************************************************************************
+		 * Gets the type ID of the event.
+		 *
+		 * @return The type ID of the event.
+		 **************************************************************************************************************/
+		std::uint32_t type() const noexcept;
+
+	  private:
+		alignas(8) std::byte _impl[56];
+
+		Event() noexcept = default;
+
+		friend struct CustomEventBase;
+		friend class EventQueue;
+
+		friend struct KeyDownEvent;
+		friend struct KeyUpEvent;
+		friend struct TextEditEvent;
+		friend struct TextInputEvent;
+		friend struct MouseMotionEvent;
+		friend struct MouseDownEvent;
+		friend struct MouseUpEvent;
+		friend struct MouseWheelEvent;
+		friend struct WindowEvent;
+	};
+
+	/******************************************************************************************************************
 	 * Event emitted when a key is pressed.
+	 *
+	 * KeyDownEvent is trivially copyable/movable.
 	 ******************************************************************************************************************/
 	struct KeyDownEvent {
 		/**************************************************************************************************************
@@ -117,20 +311,67 @@ namespace tr {
 		 * Information about the pressed key.
 		 **************************************************************************************************************/
 		KeyInfo key;
+
+		/**************************************************************************************************************
+		 * Constructs a key down event.
+		 *
+		 * @param repeat Whether the event is a repeat.
+		 * @param key Information about the pressed key.
+		 **************************************************************************************************************/
+		KeyDownEvent(bool repeat, KeyInfo key) noexcept;
+
+		/**************************************************************************************************************
+		 * Converts a generic event into a key down event.
+		 *
+		 * @param event The base event to convert. The type of the event must match.
+		 **************************************************************************************************************/
+		KeyDownEvent(const Event& event) noexcept;
+
+		/**************************************************************************************************************
+		 * Converts the event into a generic event.
+		 *
+		 * @return A generic event.
+		 **************************************************************************************************************/
+		operator Event() const noexcept;
 	};
 
 	/******************************************************************************************************************
-	 * Event emitted when a key is released.
+	 * Event emitted when a key is release.
+	 *
+	 * KeyUpEvent is trivially copyable/movable.
 	 ******************************************************************************************************************/
 	struct KeyUpEvent {
 		/**************************************************************************************************************
 		 * Information about the released key.
 		 **************************************************************************************************************/
 		KeyInfo key;
+
+		/**************************************************************************************************************
+		 * Constructs a key up event.
+		 *
+		 * @param key Information about the released key.
+		 **************************************************************************************************************/
+		KeyUpEvent(KeyInfo key) noexcept;
+
+		/**************************************************************************************************************
+		 * Converts a generic event into a key up event.
+		 *
+		 * @param event The base event to convert. The type of the event must match.
+		 **************************************************************************************************************/
+		KeyUpEvent(const Event& event) noexcept;
+
+		/**************************************************************************************************************
+		 * Converts the event into a generic event.
+		 *
+		 * @return A generic event.
+		 **************************************************************************************************************/
+		operator Event() const noexcept;
 	};
 
 	/******************************************************************************************************************
 	 * Event emitted when text is edited.
+	 *
+	 * TextEditEvent is trivially copyable/movable.
 	 ******************************************************************************************************************/
 	struct TextEditEvent {
 		/**************************************************************************************************************
@@ -142,20 +383,67 @@ namespace tr {
 		 * The selected substring.
 		 **************************************************************************************************************/
 		std::string_view selected;
+
+		/**************************************************************************************************************
+		 * Constructs a text editing event.
+		 *
+		 * @param text The edited text string.
+		 * @param selected The selected substring.
+		 **************************************************************************************************************/
+		TextEditEvent(const boost::static_string<31>& text, std::string_view selected) noexcept;
+
+		/**************************************************************************************************************
+		 * Converts a generic event into a text editing event.
+		 *
+		 * @param event The base event to convert. The type of the event must match.
+		 **************************************************************************************************************/
+		TextEditEvent(const Event& event) noexcept;
+
+		/**************************************************************************************************************
+		 * Converts the event into a generic event.
+		 *
+		 * @return A generic event.
+		 **************************************************************************************************************/
+		operator Event() const noexcept;
 	};
 
 	/******************************************************************************************************************
 	 * Event emitted when text is inputted.
+	 *
+	 * TextInputEvent is trivially copyable/movable.
 	 ******************************************************************************************************************/
 	struct TextInputEvent {
 		/**************************************************************************************************************
 		 * The inputted text string.
 		 **************************************************************************************************************/
 		boost::static_string<31> text;
+
+		/**************************************************************************************************************
+		 * Constructs a text input event.
+		 *
+		 * @param text The inputted text string.
+		 **************************************************************************************************************/
+		TextInputEvent(const boost::static_string<31>& text) noexcept;
+
+		/**************************************************************************************************************
+		 * Converts a generic event into a text input event.
+		 *
+		 * @param event The base event to convert. The type of the event must match.
+		 **************************************************************************************************************/
+		TextInputEvent(const Event& event) noexcept;
+
+		/**************************************************************************************************************
+		 * Converts the event into a generic event.
+		 *
+		 * @return A generic event.
+		 **************************************************************************************************************/
+		operator Event() const noexcept;
 	};
 
 	/******************************************************************************************************************
 	 * Event emitted when the mouse is moved.
+	 *
+	 * MouseMotionEvent is trivially copyable/movable.
 	 ******************************************************************************************************************/
 	struct MouseMotionEvent {
 		/**************************************************************************************************************
@@ -172,10 +460,35 @@ namespace tr {
 		 * The change in mouse position since the last event of this type.
 		 **************************************************************************************************************/
 		glm::ivec2 delta;
+
+		/**************************************************************************************************************
+		 * Constructs a mouse motion event.
+		 *
+		 * @param buttons A mask of the held mouse buttons.
+		 * @param pos The position of the mouse.
+		 * @param delta The change in mouse position since the last event of this type.
+		 **************************************************************************************************************/
+		MouseMotionEvent(MouseButtonMask buttons, glm::ivec2 pos, glm::ivec2 delta) noexcept;
+
+		/**************************************************************************************************************
+		 * Converts a generic event into a mouse motion event.
+		 *
+		 * @param event The base event to convert. The type of the event must match.
+		 **************************************************************************************************************/
+		MouseMotionEvent(const Event& event) noexcept;
+
+		/**************************************************************************************************************
+		 * Converts the event into a generic event.
+		 *
+		 * @return A generic event.
+		 **************************************************************************************************************/
+		operator Event() const noexcept;
 	};
 
 	/******************************************************************************************************************
 	 * Event emitted when a mouse button is pressed.
+	 *
+	 * MouseDownEvent is trivially copyable/movable.
 	 ******************************************************************************************************************/
 	struct MouseDownEvent {
 		/**************************************************************************************************************
@@ -192,10 +505,35 @@ namespace tr {
 		 * The position of the mouse.
 		 **************************************************************************************************************/
 		glm::ivec2 pos;
+
+		/**************************************************************************************************************
+		 * Constructs a mouse down event.
+		 *
+		 * @param button The pressed mouse button.
+		 * @param clicks The number of consecutive clicks.
+		 * @param pos The position of the mouse.
+		 **************************************************************************************************************/
+		MouseDownEvent(MouseButton button, std::uint8_t clicks, glm::ivec2 pos) noexcept;
+
+		/**************************************************************************************************************
+		 * Converts a generic event into a mouse down event.
+		 *
+		 * @param event The base event to convert. The type of the event must match.
+		 **************************************************************************************************************/
+		MouseDownEvent(const Event& event) noexcept;
+
+		/**************************************************************************************************************
+		 * Converts the event into a generic event.
+		 *
+		 * @return A generic event.
+		 **************************************************************************************************************/
+		operator Event() const noexcept;
 	};
 
 	/******************************************************************************************************************
 	 * Event emitted when a mouse button is released.
+	 *
+	 * MouseUpEvent is trivially copyable/movable.
 	 ******************************************************************************************************************/
 	struct MouseUpEvent {
 		/**************************************************************************************************************
@@ -207,10 +545,34 @@ namespace tr {
 		 * The position of the mouse.
 		 **************************************************************************************************************/
 		glm::ivec2 pos;
+
+		/**************************************************************************************************************
+		 * Constructs a mouse up event.
+		 *
+		 * @param button The released mouse button.
+		 * @param pos The position of the mouse.
+		 **************************************************************************************************************/
+		MouseUpEvent(MouseButton button, glm::ivec2 pos) noexcept;
+
+		/**************************************************************************************************************
+		 * Converts a generic event into a mouse wheel event.
+		 *
+		 * @param event The base event to convert. The type of the event must match.
+		 **************************************************************************************************************/
+		MouseUpEvent(const Event& event) noexcept;
+
+		/**************************************************************************************************************
+		 * Converts the event into a generic event.
+		 *
+		 * @return A generic event.
+		 **************************************************************************************************************/
+		operator Event() const noexcept;
 	};
 
 	/******************************************************************************************************************
 	 * Event emitted when the mouse wheel is moved.
+	 *
+	 * MouseWheelEvent is trivially copyable/movable.
 	 ******************************************************************************************************************/
 	struct MouseWheelEvent {
 		/**************************************************************************************************************
@@ -222,6 +584,28 @@ namespace tr {
 		 * The position of the mouse.
 		 **************************************************************************************************************/
 		glm::ivec2 mousePos;
+
+		/**************************************************************************************************************
+		 * Constructs a mouse wheel event.
+		 *
+		 * @param delta The change in wheel value.
+		 * @param mousePos The position of the mouse.
+		 **************************************************************************************************************/
+		MouseWheelEvent(glm::vec2 delta, glm::ivec2 mousePos) noexcept;
+
+		/**************************************************************************************************************
+		 * Converts a generic event into a mouse up event.
+		 *
+		 * @param event The base event to convert. The type of the event must match.
+		 **************************************************************************************************************/
+		MouseWheelEvent(const Event& event) noexcept;
+
+		/**************************************************************************************************************
+		 * Converts the event into a generic event.
+		 *
+		 * @return A generic event.
+		 **************************************************************************************************************/
+		operator Event() const noexcept;
 	};
 
 	/******************************************************************************************************************
@@ -305,228 +689,88 @@ namespace tr {
 	struct WindowCloseEvent {};
 
 	/******************************************************************************************************************
-	 * Event emitted when a window hit-test occurs.
-	 ******************************************************************************************************************/
-	struct HitTestEvent {};
-
-	/******************************************************************************************************************
 	 * Union of window event types.
 	 ******************************************************************************************************************/
-	using WindowEvent = std::variant<WindowEnterEvent, WindowLeaveEvent, WindowShowEvent, WindowHideEvent,
-									 WindowExposeEvent, WindowMotionEvent, WindowResizeEvent, WindowSizeChangeEvent,
-									 WindowMinimizeEvent, WindowMaximizeEvent, WindowRestoreEvent, WindowGainFocusEvent,
-									 WindowLoseFocusEvent, WindowCloseEvent, HitTestEvent>;
-
-	/******************************************************************************************************************
-	 * Sentinel value that signals that a ticker should tick forever.
-	 ******************************************************************************************************************/
-	[[maybe_unused]] inline constexpr std::uint32_t TICK_FOREVER{0};
-
-	/******************************************************************************************************************
-	 * Ticker that regularly emits events.
-	 ******************************************************************************************************************/
-	class Ticker {
-	  public:
-		/**************************************************************************************************************
-		 * The event type emitted by tickers.
-		 **************************************************************************************************************/
-		struct Event {
-			/**********************************************************************************************************
-			 * The user-assigned ID attached to the ticker emitting the event.
-			 **********************************************************************************************************/
-			std::uint32_t id;
-		};
+	struct WindowEvent
+		: public std::variant<WindowEnterEvent, WindowLeaveEvent, WindowShowEvent, WindowHideEvent, WindowExposeEvent,
+							  WindowMotionEvent, WindowResizeEvent, WindowSizeChangeEvent, WindowMinimizeEvent,
+							  WindowMaximizeEvent, WindowRestoreEvent, WindowGainFocusEvent, WindowLoseFocusEvent,
+							  WindowCloseEvent> {
+		using std::variant<WindowEnterEvent, WindowLeaveEvent, WindowShowEvent, WindowHideEvent, WindowExposeEvent,
+						   WindowMotionEvent, WindowResizeEvent, WindowSizeChangeEvent, WindowMinimizeEvent,
+						   WindowMaximizeEvent, WindowRestoreEvent, WindowGainFocusEvent, WindowLoseFocusEvent,
+						   WindowCloseEvent>::variant;
 
 		/**************************************************************************************************************
-		 * Creates a ticker.
+		 * Converts a generic event into a window event.
 		 *
-		 * @exception SDLError If creating the ticker failed.
-		 *
-		 * @param[in] id The ID that will be attached to events emitted by this ticker.
-		 * @param[in] interval The interval between events.
-		 * @param[in] nticks The number of ticks before halting or TICK_FOREVER.
+		 * @param event The base event to convert. The type of the event must match.
 		 **************************************************************************************************************/
-		Ticker(std::int32_t id, MillisecondsD interval, std::uint32_t nticks);
-
-		~Ticker() noexcept;
-
-		/// @private
-		explicit Ticker(std::int32_t id, MillisecondsD interval, std::uint32_t nticks, bool sendDrawEvents);
-
-		Ticker(Ticker&&) = delete;
-
-		Ticker& operator=(Ticker&&) = delete;
+		WindowEvent(const Event& event) noexcept;
 
 		/**************************************************************************************************************
-		 * Resets the ticker's interval.
+		 * Converts the event into a generic event.
 		 *
-		 * @param[in] interval The new interval between events.
+		 * @return A generic event.
 		 **************************************************************************************************************/
-		void resetInterval(MillisecondsD interval) noexcept;
-
-	  private:
-		int                        _id;
-		bool                       _sendDrawEvents;
-		std::int32_t               _eventID;
-		std::uint32_t              _ticksLeft; // The number of ticks left before automatically halting or TICK_FOREVER.
-		std::atomic<MillisecondsD> _interval;
-		MillisecondsD              _accumulatedTimerError;
-
-		static std::uint32_t callback(std::uint32_t interval, void* ptr) noexcept;
-
-		friend class EventQueue;
+		operator Event() const noexcept;
 	};
 
 	/******************************************************************************************************************
-	 * Intermediate interface between custom event types and Event.
-	 ******************************************************************************************************************/
-	struct CustomEventBase {
-		/**************************************************************************************************************
-		 * The type of the event.
-		 **************************************************************************************************************/
-		std::uint32_t type;
-
-		/**************************************************************************************************************
-		 * An unsigned integer value.
-		 **************************************************************************************************************/
-		std::uint32_t uint;
-
-		/**************************************************************************************************************
-		 * A signed integer value.
-		 **************************************************************************************************************/
-		std::int32_t sint;
-
-		/**************************************************************************************************************
-		 * A generic value.
-		 **************************************************************************************************************/
-		std::any any1;
-
-		/**************************************************************************************************************
-		 * A generic value.
-		 **************************************************************************************************************/
-		std::any any2;
-	};
-
-	/******************************************************************************************************************
-	 * Concept denoting a custom event.
+	 * The event type emitted by ticker timers.
 	 *
-	 * To fulfill this concept, a type must be constructible from CustomEventBase and convertible to it.
+	 * TickEvent is trivially copyable/movable.
 	 ******************************************************************************************************************/
-	template <class T>
-	concept CustomEventType = std::constructible_from<T, CustomEventBase> && std::is_convertible_v<T, CustomEventBase>;
-
-	/******************************************************************************************************************
-	 * Unified event type.
-	 ******************************************************************************************************************/
-	class Event {
-	  public:
+	struct TickEvent {
 		/**************************************************************************************************************
-		 * Constructs an event from a custom event base.
-		 *
-		 * @exception std::bad_alloc If allocating generic values fails.
-		 *
-		 * @param[in] custom The custom event base to convert into a generic event.
+		 * The user-assigned type ID attached to the ticker emitting the event.
 		 **************************************************************************************************************/
-		Event(const CustomEventBase& custom);
+		std::uint32_t id;
 
 		/**************************************************************************************************************
-		 * Gets the type ID of the event.
+		 * Constructs a tick event.
 		 *
-		 * @return The type ID of the event.
+		 * @param id The tick type ID.
 		 **************************************************************************************************************/
-		std::uint32_t type() const noexcept;
+		TickEvent(std::uint32_t id) noexcept;
 
 		/**************************************************************************************************************
-		 * Converts the event into a key down event.
+		 * Converts a generic event into a tick event.
 		 *
-		 * The type must match, otherwise a failed assertion may be triggered.
+		 * @param event The base event to convert. The type of the event must match.
 		 **************************************************************************************************************/
-		operator KeyDownEvent() const noexcept;
+		TickEvent(const Event& event) noexcept;
 
 		/**************************************************************************************************************
-		 * Converts the event into a key up event.
+		 * Converts the event into a generic event.
 		 *
-		 * The type must match, otherwise a failed assertion may be triggered.
+		 * @return A generic event.
 		 **************************************************************************************************************/
-		operator KeyUpEvent() const noexcept;
-
-		/**************************************************************************************************************
-		 * Converts the event into a text editing event.
-		 *
-		 * The type must match, otherwise a failed assertion may be triggered.
-		 **************************************************************************************************************/
-		operator TextEditEvent() const noexcept;
-
-		/**************************************************************************************************************
-		 * Converts the event into a text input event.
-		 *
-		 * The type must match, otherwise a failed assertion may be triggered.
-		 **************************************************************************************************************/
-		operator TextInputEvent() const noexcept;
-
-		/**************************************************************************************************************
-		 * Converts the event into a mouse motion event.
-		 *
-		 * The type must match, otherwise a failed assertion may be triggered.
-		 **************************************************************************************************************/
-		operator MouseMotionEvent() const noexcept;
-
-		/**************************************************************************************************************
-		 * Converts the event into a mouse button down event.
-		 *
-		 * The type must match, otherwise a failed assertion may be triggered.
-		 **************************************************************************************************************/
-		operator MouseDownEvent() const noexcept;
-
-		/**************************************************************************************************************
-		 * Converts the event into a mouse buttom up event.
-		 *
-		 * The type must match, otherwise a failed assertion may be triggered.
-		 **************************************************************************************************************/
-		operator MouseUpEvent() const noexcept;
-
-		/**************************************************************************************************************
-		 * Converts the event into a mouse wheel event.
-		 *
-		 * The type must match, otherwise a failed assertion may be triggered.
-		 **************************************************************************************************************/
-		operator MouseWheelEvent() const noexcept;
-
-		/**************************************************************************************************************
-		 * Converts the event into a window event.
-		 *
-		 * The type must match, otherwise a failed assertion may be triggered.
-		 **************************************************************************************************************/
-		operator WindowEvent() const noexcept;
-
-		/**************************************************************************************************************
-		 * Converts the event into a tick event.
-		 *
-		 * The type must match, otherwise a failed assertion may be triggered.
-		 **************************************************************************************************************/
-		operator Ticker::Event() const noexcept;
-
-		/**************************************************************************************************************
-		 * Converts the event into a key down event.
-		 *
-		 * The type must match, otherwise a failed assertion may be triggered.
-		 **************************************************************************************************************/
-		template <std::constructible_from<CustomEventBase> T> operator T() const noexcept;
-
-	  private:
-		alignas(8) std::byte _impl[56];
-
-		Event() noexcept = default;
-
-		CustomEventBase getCustomEventBase() const noexcept;
-
-		friend class EventQueue;
+		operator Event() const noexcept;
 	};
 
 	/******************************************************************************************************************
-	 * Sentinel value that signals that no draw events should be emitted.
+	 * Creates a timer that sends tick events.
+	 *
+	 * For exceptions, see Timer's constructor.
+	 *
+	 * @param frequency The ticking frequency.
+	 * @param id The ID of the tick events emitted by the timer.
+	 *
+	 * @return A timer that sends tick events.
 	 ******************************************************************************************************************/
-	[[maybe_unused]] inline constexpr std::uint32_t NO_DRAW_EVENTS{0};
+	Timer createTickerTimer(unsigned int frequency, std::uint32_t id);
+
+	/******************************************************************************************************************
+	 * Creates a timer that sends draw events.
+	 *
+	 * For exceptions, see Timer's constructor.
+	 *
+	 * @param frequency The drawing frequency.
+	 *
+	 * @return A timer that sends draw events.
+	 ******************************************************************************************************************/
+	Timer createDrawTimer(unsigned int frequency);
 
 	/******************************************************************************************************************
 	 * Global event queue.
@@ -569,15 +813,6 @@ namespace tr {
 		void handle(const Fn& fn) noexcept(noexcept(std::declval<Fn>()(std::declval<Event>())));
 
 		/**************************************************************************************************************
-		 * Sets the frequency at which draw events are sent at.
-		 *
-		 * @exception EventError If creating the draw ticker fails.
-		 *
-		 * @param[in] frequency The frequency of draw events, or NO_DRAW_EVENTS to stop sending draw events.
-		 **************************************************************************************************************/
-		void sendDrawEvents(unsigned int frequency);
-
-		/**************************************************************************************************************
 		 * Sets whether text input events should be sent to the event queue.
 		 *
 		 * @param[in] arg Whether text input events should be sent.
@@ -587,34 +822,37 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Pushes an event to the queue.
 		 *
-		 * @exception EventError If pushing the event failed.
+		 * @exception std::bad_alloc If copying dynamically allocated resources fails.
+		 * @exception EventPushError If pushing the event failed.
 		 *
-		 * @param[in] event The event to push.
+		 * @param[in] event The event to push. Any dynamically allocated resources will be copied.
 		 **************************************************************************************************************/
 		void push(const Event& event);
 
-	  private:
-		std::optional<Ticker> _drawTicker;
+		/**************************************************************************************************************
+		 * Pushes an event to the queue.
+		 *
+		 * @exception EventPushError If pushing the event failed.
+		 *
+		 * @param[in] event The event to push. Any dynamically allocated resources will be moved into the pushed event.
+		 **************************************************************************************************************/
+		void push(Event&& event);
 
+	  private:
 		EventQueue() noexcept = default;
 
 		friend class Window;
 	};
 
-	/// @}
+	// 	/// @}
 } // namespace tr
 
 /// @cond
 
-template <std::constructible_from<tr::CustomEventBase> T> tr::Event::operator T() const noexcept
-{
-	return T(getCustomEventBase());
-}
-
 template <std::invocable<tr::Event> Fn>
 void tr::EventQueue::handle(const Fn& fn) noexcept(noexcept(std::declval<Fn>()(std::declval<Event>())))
 {
-	for (std::optional<Event> event = wait(std::chrono::milliseconds{1}); event.has_value(); event = poll()) {
+	for (std::optional<Event> event = wait(MillisecondsI{1}); event.has_value(); event = poll()) {
 		fn(*event);
 	}
 }

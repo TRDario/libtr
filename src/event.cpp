@@ -1,137 +1,392 @@
 #include "../include/tr/event.hpp"
+#include "../include/tr/overloaded_lambda.hpp"
 #include "../include/tr/window.hpp"
 #include <SDL2/SDL.h>
 
 using namespace std::chrono_literals;
+
+tr::CustomEventBase::CustomEventBase(std::uint32_t type) noexcept
+	: type{type}
+{
+}
+
+tr::CustomEventBase::CustomEventBase(std::uint32_t type, std::uint32_t uint, std::int32_t sint) noexcept
+	: type{type}, uint{uint}, sint{sint}
+{
+}
+
+tr::CustomEventBase::CustomEventBase(std::uint32_t type, std::uint32_t uint, std::int32_t sint, std::any&& any1,
+									 std::any&& any2) noexcept
+	: type{type}, uint{uint}, sint{sint}, any1{std::move(any1)}, any2{std::move(any2)}
+{
+}
+
+tr::CustomEventBase::CustomEventBase(const Event& event)
+{
+	assert(event.type() >= SDL_USEREVENT);
+	auto& sdl{((const SDL_Event*)(event._impl))->user};
+	type = sdl.type;
+	uint = sdl.windowID;
+	sint = sdl.code;
+	if (sdl.data1 != nullptr) {
+		any1 = *(const std::any*)(sdl.data1);
+	}
+	if (sdl.data2 != nullptr) {
+		any2 = *(const std::any*)(sdl.data2);
+	}
+}
+
+tr::CustomEventBase::CustomEventBase(Event&& event) noexcept
+{
+	assert(event.type() >= SDL_USEREVENT);
+	auto& sdl{((const SDL_Event*)(event._impl))->user};
+	type = sdl.type;
+	uint = sdl.windowID;
+	sint = sdl.code;
+	if (sdl.data1 != nullptr) {
+		any1 = std::move(*(std::any*)(sdl.data1));
+	}
+	if (sdl.data2 != nullptr) {
+		any2 = std::move(*(std::any*)(sdl.data2));
+	}
+}
+
+tr::CustomEventBase::operator Event() const&
+{
+	Event event;
+	auto& sdl{*(SDL_Event*)(event._impl)};
+	sdl.type          = type;
+	sdl.user.windowID = uint;
+	sdl.user.code     = sint;
+	sdl.user.data1    = any1.has_value() ? new std::any{any1} : nullptr;
+	sdl.user.data2    = any2.has_value() ? new std::any{any2} : nullptr;
+	return event;
+}
+
+tr::CustomEventBase::operator Event() && noexcept
+{
+	Event event;
+	auto& sdl{*(SDL_Event*)(event._impl)};
+	sdl.type          = type;
+	sdl.user.windowID = uint;
+	sdl.user.code     = sint;
+	sdl.user.data1    = any1.has_value() ? new std::any{std::move(any1)} : nullptr;
+	sdl.user.data2    = any2.has_value() ? new std::any{std::move(any2)} : nullptr;
+	return event;
+}
+
+tr::Event::Event(const Event& r)
+{
+	std::ranges::copy(r._impl, _impl);
+	if (type() >= SDL_USEREVENT) {
+		auto& lsdl{*(SDL_Event*)(r._impl)};
+		auto& rsdl{*(const SDL_Event*)(r._impl)};
+		lsdl.user.data1 = lsdl.user.data1 != nullptr ? new std::any{*(const std::any*)(rsdl.user.data1)} : nullptr;
+		lsdl.user.data2 = lsdl.user.data2 != nullptr ? new std::any{*(const std::any*)(rsdl.user.data2)} : nullptr;
+	}
+}
+
+tr::Event::Event(Event&& r) noexcept
+{
+	std::ranges::copy(r._impl, _impl);
+	if (type() >= SDL_USEREVENT) {
+		auto& rsdl{*(SDL_Event*)(r._impl)};
+		rsdl.user.data1 = nullptr;
+		rsdl.user.data2 = nullptr;
+	}
+}
+
+tr::Event::~Event() noexcept
+{
+	if (type() >= SDL_USEREVENT) {
+		auto& sdl{*(SDL_Event*)(_impl)};
+		delete (std::any*)(sdl.user.data1);
+		delete (std::any*)(sdl.user.data2);
+	}
+}
+
+tr::Event& tr::Event::operator=(const Event& r)
+{
+	std::ignore = std::move(*this);
+	std::ranges::copy(r._impl, _impl);
+	if (type() >= SDL_USEREVENT) {
+		auto& lsdl{*(SDL_Event*)(r._impl)};
+		auto& rsdl{*(const SDL_Event*)(r._impl)};
+		lsdl.user.data1 = lsdl.user.data1 != nullptr ? new std::any{*(const std::any*)(rsdl.user.data1)} : nullptr;
+		lsdl.user.data2 = lsdl.user.data2 != nullptr ? new std::any{*(const std::any*)(rsdl.user.data2)} : nullptr;
+	}
+	return *this;
+}
+
+tr::Event& tr::Event::operator=(Event&& r) noexcept
+{
+	std::ignore = std::move(*this);
+	std::ranges::copy(r._impl, _impl);
+	if (type() >= SDL_USEREVENT) {
+		auto& rsdl{*(SDL_Event*)(r._impl)};
+		rsdl.user.data1 = nullptr;
+		rsdl.user.data2 = nullptr;
+	}
+	return *this;
+}
 
 std::uint32_t tr::Event::type() const noexcept
 {
 	return ((const SDL_Event*)(&_impl))->type;
 }
 
-tr::Event::Event(const CustomEventBase& custom)
+tr::KeyDownEvent::KeyDownEvent(bool repeat, KeyInfo key) noexcept
+	: repeat{repeat}, key{key}
 {
-	auto& sdl{*(SDL_Event*)(&_impl)};
-
-	sdl.type          = custom.type;
-	sdl.user.windowID = custom.uint;
-	sdl.user.code     = custom.sint;
-	sdl.user.data1    = custom.any1.has_value() ? new std::any{std::move(custom.any1)} : nullptr;
-	sdl.user.data2    = custom.any2.has_value() ? new std::any{std::move(custom.any2)} : nullptr;
 }
 
-tr::Event::operator KeyDownEvent() const noexcept
+tr::KeyDownEvent::KeyDownEvent(const Event& event) noexcept
 {
-	auto& sdl{*(const SDL_Event*)(&_impl)};
-
-	assert(type() == event_type::KEY_DOWN);
-	return {.repeat = bool(sdl.key.repeat),
-			.key{.scan = Scancode::Enum(sdl.key.keysym.scancode),
-				 .key  = Keycode::Enum(sdl.key.keysym.sym),
-				 .mods = Keymods(sdl.key.keysym.mod)}};
+	assert(event.type() == event_type::KEY_DOWN);
+	auto& sdl{((SDL_Event*)(event._impl))->key};
+	repeat = sdl.repeat;
+	key    = {.scan = Scancode::Enum(sdl.keysym.scancode),
+			  .key  = Keycode::Enum(sdl.keysym.sym),
+			  .mods = Keymods(sdl.keysym.mod)};
 }
 
-tr::Event::operator KeyUpEvent() const noexcept
+tr::KeyDownEvent::operator Event() const noexcept
 {
-	auto& sdl{*(const SDL_Event*)(&_impl)};
-
-	assert(type() == event_type::KEY_UP);
-	return {.key = {.scan = Scancode::Enum(sdl.key.keysym.scancode),
-					.key  = Keycode::Enum(sdl.key.keysym.sym),
-					.mods = Keymods(sdl.key.keysym.mod)}};
-}
-
-tr::Event::operator TextEditEvent() const noexcept
-{
-	auto& sdl{*(const SDL_Event*)(&_impl)};
-
-	assert(type() == event_type::TEXT_EDIT);
-	TextEditEvent event{.text = sdl.edit.text};
-	event.selected = {event.text.data() + sdl.edit.start, std::size_t(sdl.edit.length)};
+	Event event;
+	auto& sdl{((SDL_Event*)(event._impl))->key};
+	sdl.type            = SDL_KEYDOWN;
+	sdl.repeat          = repeat;
+	sdl.keysym.scancode = SDL_Scancode(Scancode::Enum(key.scan));
+	sdl.keysym.sym      = SDL_Keycode(Keycode::Enum(key.key));
+	sdl.keysym.mod      = std::uint16_t(key.mods);
 	return event;
 }
 
-tr::Event::operator TextInputEvent() const noexcept
+tr::KeyUpEvent::KeyUpEvent(KeyInfo key) noexcept
+	: key{key}
 {
-	auto& sdl{*(const SDL_Event*)(&_impl)};
-
-	assert(type() == event_type::TEXT_INPUT);
-	return {.text = sdl.text.text};
 }
 
-tr::Event::operator MouseMotionEvent() const noexcept
+tr::KeyUpEvent::KeyUpEvent(const Event& event) noexcept
 {
-	auto& sdl{*(const SDL_Event*)(&_impl)};
-
-	assert(type() == event_type::MOUSE_MOTION);
-	return {.buttons = MouseButtonMask(sdl.motion.state),
-			.pos     = {sdl.motion.x, sdl.motion.y},
-			.delta   = {sdl.motion.xrel, sdl.motion.yrel}};
+	assert(event.type() == event_type::KEY_UP);
+	auto& sdl{((SDL_Event*)(event._impl))->key};
+	key = {.scan = Scancode::Enum(sdl.keysym.scancode),
+		   .key  = Keycode::Enum(sdl.keysym.sym),
+		   .mods = Keymods(sdl.keysym.mod)};
 }
 
-tr::Event::operator MouseDownEvent() const noexcept
+tr::KeyUpEvent::operator Event() const noexcept
 {
-	auto& sdl{*(const SDL_Event*)(&_impl)};
-
-	assert(type() == event_type::MOUSE_DOWN);
-	return {.button = MouseButton(sdl.button.button), .clicks = sdl.button.clicks, .pos = {sdl.button.x, sdl.button.y}};
+	Event event;
+	auto& sdl{((SDL_Event*)(event._impl))->key};
+	sdl.type            = SDL_KEYUP;
+	sdl.keysym.scancode = SDL_Scancode(Scancode::Enum(key.scan));
+	sdl.keysym.sym      = SDL_Keycode(Keycode::Enum(key.key));
+	sdl.keysym.mod      = std::uint16_t(key.mods);
+	return event;
 }
 
-tr::Event::operator MouseUpEvent() const noexcept
+tr::TextEditEvent::TextEditEvent(const boost::static_string<31>& text, std::string_view selected) noexcept
+	: text{text}, selected{selected}
 {
-	auto& sdl{*(const SDL_Event*)(&_impl)};
-
-	assert(type() == event_type::MOUSE_UP);
-	return {.button = MouseButton(sdl.button.button), .pos = {sdl.button.x, sdl.button.y}};
 }
 
-tr::Event::operator MouseWheelEvent() const noexcept
+tr::TextEditEvent::TextEditEvent(const Event& event) noexcept
 {
-	auto& sdl{*(const SDL_Event*)(&_impl)};
-
-	assert(type() == event_type::MOUSE_WHEEL);
-	return {.delta = {sdl.wheel.preciseX, sdl.wheel.preciseY}, .mousePos{sdl.wheel.mouseX, sdl.wheel.mouseY}};
+	auto& sdl{((const SDL_Event*)(event._impl))->edit};
+	assert(event.type() == event_type::TEXT_EDIT);
+	text     = sdl.text;
+	selected = {text.data() + sdl.start, std::size_t(sdl.length)};
 }
 
-tr::Event::operator WindowEvent() const noexcept
+tr::TextEditEvent::operator Event() const noexcept
 {
-	auto& sdl{*(const SDL_Event*)(&_impl)};
+	Event event;
+	auto& sdl{((SDL_Event*)(event._impl))->edit};
+	sdl.type = SDL_TEXTEDITING;
+	std::ranges::copy(text, sdl.text);
+	sdl.text[text.size()] = '\0';
+	sdl.start             = selected.begin() - text.begin();
+	sdl.length            = selected.length();
+	return event;
+}
 
-	assert(type() == event_type::WINDOW);
-	switch (sdl.window.event) {
+tr::TextInputEvent::TextInputEvent(const boost::static_string<31>& text) noexcept
+	: text{text}
+{
+}
+
+tr::TextInputEvent::TextInputEvent(const Event& event) noexcept
+{
+	auto& sdl{((const SDL_Event*)(event._impl))->text};
+	assert(event.type() == event_type::TEXT_INPUT);
+	text = sdl.text;
+}
+
+tr::TextInputEvent::operator Event() const noexcept
+{
+	Event event;
+	auto& sdl{((SDL_Event*)(event._impl))->text};
+	sdl.type = SDL_TEXTINPUT;
+	std::ranges::copy(text, sdl.text);
+	sdl.text[text.size()] = '\0';
+	return event;
+}
+
+tr::MouseMotionEvent::MouseMotionEvent(MouseButtonMask buttons, glm::ivec2 pos, glm::ivec2 delta) noexcept
+	: buttons{buttons}, pos{pos}, delta{delta}
+{
+}
+
+tr::MouseMotionEvent::MouseMotionEvent(const Event& event) noexcept
+{
+	auto& sdl{((SDL_Event*)(event._impl))->motion};
+	assert(event.type() == event_type::MOUSE_MOTION);
+	buttons = MouseButtonMask(sdl.state);
+	pos     = {sdl.x, sdl.y};
+	delta   = {sdl.xrel, sdl.yrel};
+}
+
+tr::MouseMotionEvent::operator Event() const noexcept
+{
+	Event event;
+	auto& sdl{((SDL_Event*)(event._impl))->motion};
+	sdl.type  = SDL_MOUSEMOTION;
+	sdl.state = std::uint32_t(buttons);
+	sdl.x     = pos.x;
+	sdl.y     = pos.y;
+	sdl.xrel  = delta.x;
+	sdl.yrel  = delta.y;
+	return event;
+}
+
+tr::MouseDownEvent::MouseDownEvent(MouseButton button, std::uint8_t clicks, glm::ivec2 pos) noexcept
+	: button{button}, clicks{clicks}, pos{pos}
+{
+}
+
+tr::MouseDownEvent::MouseDownEvent(const Event& event) noexcept
+{
+	auto& sdl{((const SDL_Event*)(event._impl))->button};
+	assert(event.type() == event_type::MOUSE_DOWN);
+	button = MouseButton(sdl.button);
+	clicks = sdl.clicks;
+	pos    = {sdl.x, sdl.y};
+}
+
+tr::MouseDownEvent::operator Event() const noexcept
+{
+	Event event;
+	auto& sdl{((SDL_Event*)(event._impl))->button};
+	sdl.type   = SDL_MOUSEBUTTONDOWN;
+	sdl.button = std::uint8_t(button);
+	sdl.clicks = clicks;
+	sdl.x      = pos.x;
+	sdl.y      = pos.y;
+	return event;
+}
+
+tr::MouseUpEvent::MouseUpEvent(MouseButton button, glm::ivec2 pos) noexcept
+	: button{button}, pos{pos}
+{
+}
+
+tr::MouseUpEvent::MouseUpEvent(const Event& event) noexcept
+{
+	auto& sdl{((const SDL_Event*)(event._impl))->button};
+	assert(event.type() == event_type::MOUSE_UP);
+	button = MouseButton(sdl.button);
+	pos    = {sdl.x, sdl.y};
+}
+
+tr::MouseUpEvent::operator Event() const noexcept
+{
+	Event event;
+	auto& sdl{((SDL_Event*)(event._impl))->button};
+	sdl.type   = SDL_MOUSEBUTTONUP;
+	sdl.button = std::uint8_t(button);
+	sdl.x      = pos.x;
+	sdl.y      = pos.y;
+	return event;
+}
+
+tr::MouseWheelEvent::MouseWheelEvent(glm::vec2 delta, glm::ivec2 mousePos) noexcept
+	: delta{delta}, mousePos{mousePos}
+{
+}
+
+tr::MouseWheelEvent::MouseWheelEvent(const Event& event) noexcept
+{
+	auto& sdl{((const SDL_Event*)(event._impl))->wheel};
+	assert(event.type() == event_type::MOUSE_WHEEL);
+	delta    = {sdl.preciseX, sdl.preciseY};
+	mousePos = {sdl.mouseX, sdl.mouseY};
+}
+
+tr::MouseWheelEvent::operator Event() const noexcept
+{
+	Event event;
+	auto& sdl{((SDL_Event*)(event._impl))->wheel};
+	sdl.type     = SDL_MOUSEWHEEL;
+	sdl.preciseX = delta.x;
+	sdl.preciseY = delta.y;
+	sdl.mouseX   = mousePos.x;
+	sdl.mouseY   = mousePos.y;
+	return event;
+}
+
+tr::WindowEvent::WindowEvent(const Event& event) noexcept
+{
+	auto& sdl{((const SDL_Event*)(&event._impl))->window};
+
+	assert(event.type() == event_type::WINDOW);
+	switch (sdl.event) {
 	case SDL_WINDOWEVENT_ENTER:
-		return WindowEnterEvent{};
+		*this = WindowEnterEvent{};
+		break;
 	case SDL_WINDOWEVENT_LEAVE:
-		return WindowLeaveEvent{};
+		*this = WindowLeaveEvent{};
+		break;
 	case SDL_WINDOWEVENT_SHOWN:
-		return WindowShowEvent{};
+		*this = WindowShowEvent{};
+		break;
 	case SDL_WINDOWEVENT_HIDDEN:
-		return WindowHideEvent{};
+		*this = WindowHideEvent{};
+		break;
 	case SDL_WINDOWEVENT_EXPOSED:
-		return WindowExposeEvent{};
+		*this = WindowExposeEvent{};
+		break;
 	case SDL_WINDOWEVENT_MOVED:
-		return WindowMotionEvent{.pos = {sdl.window.data1, sdl.window.data2}};
+		*this = WindowMotionEvent{.pos = {sdl.data1, sdl.data2}};
+		break;
 	case SDL_WINDOWEVENT_RESIZED:
-		return WindowResizeEvent{.size = {sdl.window.data1, sdl.window.data2}};
+		*this = WindowResizeEvent{.size = {sdl.data1, sdl.data2}};
+		break;
 	case SDL_WINDOWEVENT_SIZE_CHANGED:
-		return WindowSizeChangeEvent{};
+		*this = WindowSizeChangeEvent{};
+		break;
 	case SDL_WINDOWEVENT_MINIMIZED:
-		return WindowMinimizeEvent{};
+		*this = WindowMinimizeEvent{};
+		break;
 	case SDL_WINDOWEVENT_MAXIMIZED:
-		return WindowMaximizeEvent{};
+		*this = WindowMaximizeEvent{};
+		break;
 	case SDL_WINDOWEVENT_RESTORED:
-		return WindowRestoreEvent{};
+		*this = WindowRestoreEvent{};
+		break;
 	case SDL_WINDOWEVENT_FOCUS_GAINED:
-		return WindowGainFocusEvent{};
+		*this = WindowGainFocusEvent{};
+		break;
 	case SDL_WINDOWEVENT_FOCUS_LOST:
-		return WindowLoseFocusEvent{};
+		*this = WindowLoseFocusEvent{};
+		break;
 	case SDL_WINDOWEVENT_TAKE_FOCUS:
-		SDL_SetWindowInputFocus(SDL_GetWindowFromID(sdl.window.windowID));
+		SDL_SetWindowInputFocus(SDL_GetWindowFromID(sdl.windowID));
 		break;
 	case SDL_WINDOWEVENT_CLOSE:
-		return WindowCloseEvent{};
-	case SDL_WINDOWEVENT_HIT_TEST:
-		return HitTestEvent{};
+		*this = WindowCloseEvent{};
+		break;
 	}
 #if defined(_MSC_VER) && !defined(__clang__) // MSVC
 	__assume(false);
@@ -140,76 +395,61 @@ tr::Event::operator WindowEvent() const noexcept
 #endif
 }
 
-tr::Event::operator Ticker::Event() const noexcept
+tr::WindowEvent::operator Event() const noexcept
 {
-	auto& sdl{*(const SDL_Event*)(&_impl)};
-
-	assert(type() == event_type::TICK);
-	return {.id = sdl.user.windowID};
+	Event event;
+	auto& sdl{((SDL_Event*)(event._impl))->window};
+	sdl.type = SDL_WINDOWEVENT;
+	std::visit(Overloaded{[&](const WindowEnterEvent&) { sdl.type = SDL_WINDOWEVENT_ENTER; },
+						  [&](const WindowLeaveEvent&) { sdl.type = SDL_WINDOWEVENT_LEAVE; },
+						  [&](const WindowShowEvent&) { sdl.type = SDL_WINDOWEVENT_SHOWN; },
+						  [&](const WindowHideEvent&) { sdl.type = SDL_WINDOWEVENT_HIDDEN; },
+						  [&](const WindowExposeEvent&) { sdl.type = SDL_WINDOWEVENT_EXPOSED; },
+						  [&](const WindowMotionEvent& e) {
+							  sdl.type  = SDL_WINDOWEVENT_MOVED;
+							  sdl.data1 = e.pos.x;
+							  sdl.data2 = e.pos.y;
+						  },
+						  [&](const WindowResizeEvent& e) {
+							  sdl.type  = SDL_WINDOWEVENT_RESIZED;
+							  sdl.data1 = e.size.x;
+							  sdl.data2 = e.size.y;
+						  },
+						  [&](const WindowSizeChangeEvent&) { sdl.type = SDL_WINDOWEVENT_SIZE_CHANGED; },
+						  [&](const WindowMinimizeEvent&) { sdl.type = SDL_WINDOWEVENT_MINIMIZED; },
+						  [&](const WindowMaximizeEvent&) { sdl.type = SDL_WINDOWEVENT_MAXIMIZED; },
+						  [&](const WindowRestoreEvent&) { sdl.type = SDL_WINDOWEVENT_RESTORED; },
+						  [&](const WindowGainFocusEvent&) { sdl.type = SDL_WINDOWEVENT_FOCUS_GAINED; },
+						  [&](const WindowLoseFocusEvent&) { sdl.type = SDL_WINDOWEVENT_FOCUS_LOST; },
+						  [&](const WindowCloseEvent&) { sdl.type = SDL_WINDOWEVENT_CLOSE; }},
+			   *this);
+	return event;
 }
 
-tr::CustomEventBase tr::Event::getCustomEventBase() const noexcept
-{
-	auto& sdl{*(const SDL_Event*)(&_impl)};
-
-	std::unique_ptr<std::any> any1{(std::any*)(sdl.user.data1)};
-	std::unique_ptr<std::any> any2{(std::any*)(sdl.user.data2)};
-
-	return {.type = sdl.type,
-			.uint = sdl.user.windowID,
-			.sint = sdl.user.code,
-			.any1 = any1 != nullptr ? std::move(*any1) : std::any{},
-			.any2 = any2 != nullptr ? std::move(*any2) : std::any{}};
-}
-
-tr::Ticker::Ticker(std::int32_t id, MillisecondsD interval, std::uint32_t ticks)
-	: Ticker{id, interval, ticks, false}
+tr::TickEvent::TickEvent(std::uint32_t id) noexcept
+	: id{id}
 {
 }
 
-tr::Ticker::Ticker(std::int32_t id, MillisecondsD interval, std::uint32_t ticks, bool sendDrawEvents)
-	: _sendDrawEvents{sendDrawEvents}, _eventID{id}, _ticksLeft{ticks}, _interval{interval}
+tr::TickEvent::TickEvent(const Event& event) noexcept
+	: id{CustomEventBase{event}.uint}
 {
-	assert(windowOpened());
-	_id = SDL_AddTimer(interval.count(), callback, this);
-	if (_id == 0) {
-		throw EventError{"Failed to create event ticker"};
-	}
+	assert(event.type() == event_type::TICK);
 }
 
-tr::Ticker::~Ticker() noexcept
+tr::TickEvent::operator Event() const noexcept
 {
-	SDL_RemoveTimer(_id);
+	return CustomEventBase{event_type::TICK, id, 0};
 }
 
-void tr::Ticker::resetInterval(MillisecondsD interval) noexcept
+tr::Timer tr::createTickerTimer(unsigned int frequency, std::uint32_t id)
 {
-	_interval = interval;
+	return Timer{1.0s / frequency, [=] { window().events().push(TickEvent{id}); }};
 }
 
-std::uint32_t tr::Ticker::callback(std::uint32_t interval, void* ptr) noexcept
+tr::Timer tr::createDrawTimer(unsigned int frequency)
 {
-	auto& self = *(Ticker*)(ptr);
-	if (self._sendDrawEvents) {
-		window().events().push(CustomEventBase{.type = event_type::DRAW});
-	}
-	else {
-		window().events().push(CustomEventBase{.type = event_type::TICK, .uint = std::uint32_t(self._eventID)});
-	}
-	if (self._ticksLeft != TICK_FOREVER && --self._ticksLeft == 0) {
-		return 0;
-	}
-	else {
-		const auto accurateInterval{self._interval.load()};
-		self._accumulatedTimerError += accurateInterval - std::chrono::milliseconds{interval};
-		if (self._accumulatedTimerError >= 1ms) {
-			self._accumulatedTimerError -= 1ms;
-			return std::floor(accurateInterval.count());
-		}
-		else {
-			return std::ceil(accurateInterval.count());
-		}
-	}
+	return Timer{1.0s / frequency, [] { window().events().push(CustomEventBase{event_type::DRAW}); }};
 }
 
 std::optional<tr::Event> tr::EventQueue::poll() noexcept
@@ -236,21 +476,6 @@ std::optional<tr::Event> tr::EventQueue::wait(MillisecondsI timeout) noexcept
 	}
 }
 
-void tr::EventQueue::sendDrawEvents(unsigned int frequency)
-{
-	if (_drawTicker.has_value()) {
-		if (frequency == NO_DRAW_EVENTS) {
-			_drawTicker.reset();
-		}
-		else {
-			_drawTicker->resetInterval(1000.0ms / frequency);
-		}
-	}
-	else {
-		_drawTicker.emplace(0, 1000.0ms / frequency, TICK_FOREVER, true);
-	}
-}
-
 void tr::EventQueue::sendTextInputEvents(bool arg) noexcept
 {
 	arg ? SDL_StartTextInput() : SDL_StopTextInput();
@@ -258,7 +483,30 @@ void tr::EventQueue::sendTextInputEvents(bool arg) noexcept
 
 void tr::EventQueue::push(const Event& event)
 {
-	if (SDL_PushEvent((SDL_Event*)(&event)) < 0) {
-		throw EventError{"Failed to push event to event queue"};
+	SDL_Event sdl;
+	std::ranges::copy(event._impl, asMutBytes(sdl).begin());
+	if (event.type() >= SDL_USEREVENT) {
+		auto& rsdl{((SDL_Event*)(event._impl))->user};
+		sdl.user.data1 = rsdl.data1 != nullptr ? new std::any{*(const std::any*)(rsdl.data1)} : nullptr;
+		sdl.user.data2 = rsdl.data2 != nullptr ? new std::any{*(const std::any*)(rsdl.data2)} : nullptr;
+	}
+
+	if (SDL_PushEvent(&sdl) < 0) {
+		throw EventPushError{"Failed to push event to event queue"};
+	}
+}
+
+void tr::EventQueue::push(Event&& event)
+{
+	SDL_Event sdl;
+	std::ranges::copy(event._impl, asMutBytes(sdl).begin());
+	if (event.type() >= SDL_USEREVENT) {
+		auto& rsdl{((SDL_Event*)(event._impl))->user};
+		rsdl.data1 = nullptr;
+		rsdl.data2 = nullptr;
+	}
+
+	if (SDL_PushEvent(&sdl) < 0) {
+		throw EventPushError{"Failed to push event to event queue"};
 	}
 }
