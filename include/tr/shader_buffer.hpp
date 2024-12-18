@@ -137,7 +137,7 @@ namespace tr {
 		/******************************************************************************************************************
 		 * Sets the data of the dynamic array.
 		 *
-		 * @param[in] range
+		 * @param[in] data
 		 * @parblock
 		 * The new data of the array.
 		 *
