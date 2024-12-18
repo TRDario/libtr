@@ -11,6 +11,8 @@ namespace tr {
 
 	/******************************************************************************************************************
 	 * Shader program pipeline.
+	 *
+	 * OwningShaderPipeline is non-copyable and moveable.
 	 ******************************************************************************************************************/
 	class ShaderPipeline {
 	  public:
@@ -45,6 +47,8 @@ namespace tr {
 
 	/******************************************************************************************************************
 	 * Shader program pipeline that owns its shaders.
+	 *
+	 * OwningShaderPipeline is non-copyable and moveable.
 	 ******************************************************************************************************************/
 	class OwningShaderPipeline {
 	  public:
@@ -53,10 +57,10 @@ namespace tr {
 		 *
 		 * All shaders must actually be of the type they're passed as.
 		 *
-		 * @param[in] vertexShader The vertex shader.
-		 * @param[in] fragmentShader The fragment shader.
+		 * @param[in] vertexShader The vertex shader that will be moved into the pipeline.
+		 * @param[in] fragmentShader The fragment shader that will be moved into the pipeline.
 		 **************************************************************************************************************/
-		OwningShaderPipeline(Shader vertexShader, Shader fragmentShader) noexcept;
+		OwningShaderPipeline(Shader&& vertexShader, Shader&& fragmentShader) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the base pipeline object.

@@ -28,7 +28,7 @@ void tr::ShaderPipeline::bind() const noexcept
 	glBindProgramPipeline(_id.get());
 }
 
-tr::OwningShaderPipeline::OwningShaderPipeline(Shader vertexShader, Shader fragmentShader) noexcept
+tr::OwningShaderPipeline::OwningShaderPipeline(Shader&& vertexShader, Shader&& fragmentShader) noexcept
 	: _vertexShader{std::move(vertexShader)}
 	, _fragmentShader{std::move(fragmentShader)}
 	, _pipeline{_vertexShader, _fragmentShader}
