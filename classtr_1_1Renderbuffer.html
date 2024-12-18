@@ -115,9 +115,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6ec7ef71711f5b1ee2e14091cafb25d5" id="r_a6ec7ef71711f5b1ee2e14091cafb25d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ec7ef71711f5b1ee2e14091cafb25d5">Renderbuffer</a> (glm::ivec2 <a class="el" href="#aaa3b3ba0409b4239660aff1b9bf43d64">size</a>, <a class="el" href="group__texture.html#ga2e9ae2f935462a45286798ae6fd5def9">TextureFormat</a> format)</td></tr>
 <tr class="memdesc:a6ec7ef71711f5b1ee2e14091cafb25d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates a blank renderbuffer.  <br /></td></tr>
 <tr class="separator:a6ec7ef71711f5b1ee2e14091cafb25d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35ce6e5285950bc3c1bff788f0c5abdb" id="r_a35ce6e5285950bc3c1bff788f0c5abdb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35ce6e5285950bc3c1bff788f0c5abdb">operator==</a> (const <a class="el" href="classtr_1_1Renderbuffer.html">Renderbuffer</a> &amp;r) const noexcept</td></tr>
-<tr class="memdesc:a35ce6e5285950bc3c1bff788f0c5abdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality comparison operator.  <br /></td></tr>
-<tr class="separator:a35ce6e5285950bc3c1bff788f0c5abdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1826de55bea440dd34e8b581f46fcddc" id="r_a1826de55bea440dd34e8b581f46fcddc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1826de55bea440dd34e8b581f46fcddc">setLabel</a> (std::string_view label) noexcept</td></tr>
 <tr class="memdesc:a1826de55bea440dd34e8b581f46fcddc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug label of the renderbuffer.  <br /></td></tr>
 <tr class="separator:a1826de55bea440dd34e8b581f46fcddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,6 +145,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Allocates a blank renderbuffer. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1RenderbufferBadAlloc.html" title="Error thrown if a failed renderbuffer allocation fails.">RenderbufferBadAlloc</a></td><td>If allocating the renderbuffer fails.</td></tr>
@@ -165,33 +164,6 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a35ce6e5285950bc3c1bff788f0c5abdb" name="a35ce6e5285950bc3c1bff788f0c5abdb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35ce6e5285950bc3c1bff788f0c5abdb">&#9670;&#160;</a></span>operator==()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool tr::Renderbuffer::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtr_1_1Renderbuffer.html">Renderbuffer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Equality comparison operator. </p>
-
-</div>
-</div>
 <a id="a1826de55bea440dd34e8b581f46fcddc" name="a1826de55bea440dd34e8b581f46fcddc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1826de55bea440dd34e8b581f46fcddc">&#9670;&#160;</a></span>setLabel()</h2>
 

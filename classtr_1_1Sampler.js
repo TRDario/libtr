@@ -13,7 +13,6 @@ var classtr_1_1Sampler =
     [ "setWrapR", "classtr_1_1Sampler.html#ac34d365718c8436000a5a013884b6185", null ],
     [ "setWrapS", "classtr_1_1Sampler.html#a2b3b5f55fda587f1dc8c586c20eb1690", null ],
     [ "setWrapT", "classtr_1_1Sampler.html#a14608712cedbc549a62bff3f70a5cc13", null ],
-    [ "operator==", "classtr_1_1Sampler.html#a2179ec18bab2a57a97891c26537fa208", null ],
     [ "std::hash< Sampler >", "classtr_1_1Sampler.html#adb2efb37280f7e6780b1a64969722e30", null ],
     [ "TextureUnit", "classtr_1_1Sampler.html#a6c2888a66d90c37a3ddc1facbf17725c", null ]
 ];

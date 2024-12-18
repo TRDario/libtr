@@ -145,8 +145,8 @@ Enumerations</h2></td></tr>
 , <a class="el" href="#ggad463b226a0cad7ea3e64dd5b07ecf12fa43245b4788b59a22d5357a7146c06deb">tr::WindowFlag::MINIMIZED</a> = 0x40
 , <br />
 &#160;&#160;<a class="el" href="#ggad463b226a0cad7ea3e64dd5b07ecf12fa2f33d682f3a4e19c31ced6cb4fd022e3">tr::WindowFlag::MAXIMIZED</a> = 0x80
-, <a class="el" href="#ggad463b226a0cad7ea3e64dd5b07ecf12faa6de914e8cb1952483144b0aaa9b73ed">tr::WindowFlag::GRAB_INPUT</a> = 0x2'00
-, <a class="el" href="#ggad463b226a0cad7ea3e64dd5b07ecf12fae691ed6feadad498d49ae83224dfc172">tr::WindowFlag::ALWAYS_ON_TOP</a> = 0x80'00
+, <a class="el" href="#ggad463b226a0cad7ea3e64dd5b07ecf12faa6de914e8cb1952483144b0aaa9b73ed">tr::WindowFlag::GRAB_INPUT</a> = 0x200
+, <a class="el" href="#ggad463b226a0cad7ea3e64dd5b07ecf12fae691ed6feadad498d49ae83224dfc172">tr::WindowFlag::ALWAYS_ON_TOP</a> = 0x8000
 <br />
  }</td></tr>
 <tr class="memdesc:gad463b226a0cad7ea3e64dd5b07ecf12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Window flag bitmasks.  <a href="#gad463b226a0cad7ea3e64dd5b07ecf12f">More...</a><br /></td></tr>
@@ -169,7 +169,7 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ga3d79ab32d9b1afaebc7c4f45002ae5b6" id="r_ga3d79ab32d9b1afaebc7c4f45002ae5b6"><td class="memItemLeft" align="right" valign="top">constexpr glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3d79ab32d9b1afaebc7c4f45002ae5b6">tr::CENTERED_POS</a> {0x2F'FF'00'00, 0x2F'FF'00'00}</td></tr>
+<tr class="memitem:ga3d79ab32d9b1afaebc7c4f45002ae5b6" id="r_ga3d79ab32d9b1afaebc7c4f45002ae5b6"><td class="memItemLeft" align="right" valign="top">constexpr glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga3d79ab32d9b1afaebc7c4f45002ae5b6">tr::CENTERED_POS</a> {0x2FFF0000, 0x2FFF0000}</td></tr>
 <tr class="memdesc:ga3d79ab32d9b1afaebc7c4f45002ae5b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sentinel for a centered position on the screen.  <br /></td></tr>
 <tr class="separator:ga3d79ab32d9b1afaebc7c4f45002ae5b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -334,7 +334,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets a reference to the window. </p>
-<p>This function cannot be called if the window wasn't opened.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>This function cannot be called if the window wasn't opened.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the window. </dd></dl>
 
 </div>
@@ -378,7 +378,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">glm::ivec2 tr::CENTERED_POS {0x2F'FF'00'00, 0x2F'FF'00'00}</td>
+          <td class="memname">glm::ivec2 tr::CENTERED_POS {0x2FFF0000, 0x2FFF0000}</td>
         </tr>
       </table>
   </td>

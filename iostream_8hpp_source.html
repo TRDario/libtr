@@ -160,82 +160,82 @@ $(function(){initNavTree('iostream_8hpp_source.html',''); initResizable(true); }
 </div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="group__stream.html#ga4c86f4771c25e8344d52aba259c0d5a0">  108</a></span>    std::ofstream <a class="code hl_function" href="group__stream.html#ga4c86f4771c25e8344d52aba259c0d5a0">openFileW</a>(const std::filesystem::<a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>&amp; <a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>, std::ios::openmode openmode = std::ios::in);</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="group__stream.html#gad0830420d60ccc61b523706fcf496ebe">  121</a></span>    std::ifstream <a class="code hl_function" href="group__stream.html#gad0830420d60ccc61b523706fcf496ebe">openFileR</a>(const std::filesystem::<a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>&amp; <a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>, std::ios::openmode openmode = std::ios::out);</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="group__stream.html#gabb3f546b6b97aac72c8518f521338f56">  131</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayout.html">StandardLayout</a> T&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#gabb3f546b6b97aac72c8518f521338f56">readBinary</a>(std::istream&amp; is, T&amp; out);</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="group__stream.html#ga5a5a266fb0a9988c099579df154d2a24">  142</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayout.html">StandardLayout</a> T&gt; T <a class="code hl_function" href="group__stream.html#gabb3f546b6b97aac72c8518f521338f56">readBinary</a>(std::istream&amp; is);</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="group__stream.html#ga21d194e8831d9b864d9c8449ca981f7a">  152</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayoutRange.html">StandardLayoutRange</a> Range&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#ga21d194e8831d9b864d9c8449ca981f7a">readBinaryRange</a>(std::istream&amp; is, Range&amp;&amp; out);</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="group__stream.html#ga9cb9e3658a32a63b88f0575c32bfc104">  162</a></span>    template &lt;std::output_iterator&lt;<span class="keywordtype">char</span>&gt; It&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#ga9cb9e3658a32a63b88f0575c32bfc104">flushBinary</a>(std::istream&amp; is, It out);</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="group__stream.html#gabe01d793d646480829aa01f15c0b04f6">  176</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1BinaryFlushableContainer.html">BinaryFlushableContainer</a> Container&gt; Container <a class="code hl_function" href="group__stream.html#ga9cb9e3658a32a63b88f0575c32bfc104">flushBinary</a>(std::istream&amp; is);</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="group__stream.html#gab409e56d6da2e1919ad0a7dd46cecdc2">  186</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayout.html">StandardLayout</a> T&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#gab409e56d6da2e1919ad0a7dd46cecdc2">writeBinary</a>(std::ostream&amp; os, const T&amp; in);</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="group__stream.html#ga4d2a4dfa9cd9afca524a24e28957ce20">  196</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayoutRange.html">StandardLayoutRange</a> Range&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#ga4d2a4dfa9cd9afca524a24e28957ce20">writeBinaryRange</a>(std::ostream&amp; os, const Range&amp; range);</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="group__stream.html#gac5f90bbe1a5a9410262b417a1ba4e8d3">  206</a></span>    inline <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#gab409e56d6da2e1919ad0a7dd46cecdc2">writeBinary</a>(std::ostream&amp; os, const <span class="keywordtype">char</span>* cstr);</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>} <span class="comment">// namespace tr</span></div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>template &lt;<a class="code hl_namespace" href="namespacetr.html">tr</a>::<a class="code hl_concept" href="concepttr_1_1StandardLayout.html">StandardLayout</a> T&gt; <span class="keywordtype">void</span> <a class="code hl_namespace" href="namespacetr.html">tr</a>::<a class="code hl_function" href="group__stream.html#gabb3f546b6b97aac72c8518f521338f56">readBinary</a>(std::istream&amp; is, T&amp; out)</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>{</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    is.read((<span class="keywordtype">char</span>*)(std::addressof(out)), <span class="keyword">sizeof</span>(T));</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>}</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="keyword">template</span> &lt;tr::StandardLayout T&gt; T <a class="code hl_function" href="group__stream.html#gabb3f546b6b97aac72c8518f521338f56">tr::readBinary</a>(std::istream&amp; is)</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>{</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    std::array&lt;char, <span class="keyword">sizeof</span>(T)&gt; bytes;</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    is.read(bytes.data(), <span class="keyword">sizeof</span>(T));</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="keywordflow">return</span> std::bit_cast&lt;T&gt;(bytes);</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>}</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="keyword">template</span> &lt;tr::StandardLayoutRange Range&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#ga21d194e8831d9b864d9c8449ca981f7a">tr::readBinaryRange</a>(std::istream&amp; is, Range&amp;&amp; out)</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>{</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    is.read((<span class="keywordtype">char</span>*)(std::addressof(*out.begin())), out.size() * <span class="keyword">sizeof</span>(<span class="keyword">typename</span> Range::value_type));</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>}</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="keyword">template</span> &lt;std::output_iterator&lt;<span class="keywordtype">char</span>&gt; It&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#ga9cb9e3658a32a63b88f0575c32bfc104">tr::flushBinary</a>(std::istream&amp; is, It out)</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>{</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    std::copy(std::istreambuf_iterator&lt;char&gt;{is}, std::istreambuf_iterator&lt;char&gt;{}, out);</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>}</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="keyword">template</span> &lt;tr::BinaryFlushableContainer Container&gt; Container <a class="code hl_function" href="group__stream.html#ga9cb9e3658a32a63b88f0575c32bfc104">tr::flushBinary</a>(std::istream&amp; is)</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>{</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    Container out;</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <a class="code hl_function" href="group__stream.html#ga9cb9e3658a32a63b88f0575c32bfc104">flushBinary</a>(is, std::back_inserter(out));</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keywordflow">return</span> out;</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>}</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="keyword">template</span> &lt;tr::StandardLayout T&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#gab409e56d6da2e1919ad0a7dd46cecdc2">tr::writeBinary</a>(std::ostream&amp; os, <span class="keyword">const</span> T&amp; in)</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>{</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    os.write((<span class="keyword">const</span> <span class="keywordtype">char</span>*)(std::addressof(in)), <span class="keyword">sizeof</span>(T));</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>}</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="keyword">template</span> &lt;tr::StandardLayoutRange Range&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#ga4d2a4dfa9cd9afca524a24e28957ce20">tr::writeBinaryRange</a>(std::ostream&amp; os, <span class="keyword">const</span> Range&amp; range)</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>{</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    os.write((<span class="keyword">const</span> <span class="keywordtype">char</span>*)(std::addressof(*range.begin())), range.size() * <span class="keyword">sizeof</span>(<span class="keyword">typename</span> Range::value_type));</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>}</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#gab409e56d6da2e1919ad0a7dd46cecdc2">tr::writeBinary</a>(std::ostream&amp; os, <span class="keyword">const</span> <span class="keywordtype">char</span>* cstr)</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>{</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    os.write(cstr, std::strlen(cstr));</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>}</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="group__stream.html#ga4c86f4771c25e8344d52aba259c0d5a0">  112</a></span>    std::ofstream <a class="code hl_function" href="group__stream.html#ga4c86f4771c25e8344d52aba259c0d5a0">openFileW</a>(const std::filesystem::<a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>&amp; <a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>, std::ios::openmode openmode = std::ios::in);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="group__stream.html#gad0830420d60ccc61b523706fcf496ebe">  129</a></span>    std::ifstream <a class="code hl_function" href="group__stream.html#gad0830420d60ccc61b523706fcf496ebe">openFileR</a>(const std::filesystem::<a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>&amp; <a class="code hl_function" href="classtr_1_1FileError.html#ac1cf35f6d24c69fe3b3c642c78db506c">path</a>, std::ios::openmode openmode = std::ios::out);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="group__stream.html#gabb3f546b6b97aac72c8518f521338f56">  139</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayout.html">StandardLayout</a> T&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#gabb3f546b6b97aac72c8518f521338f56">readBinary</a>(std::istream&amp; is, T&amp; out);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="group__stream.html#ga5a5a266fb0a9988c099579df154d2a24">  150</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayout.html">StandardLayout</a> T&gt; T <a class="code hl_function" href="group__stream.html#gabb3f546b6b97aac72c8518f521338f56">readBinary</a>(std::istream&amp; is);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="group__stream.html#ga21d194e8831d9b864d9c8449ca981f7a">  160</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayoutRange.html">StandardLayoutRange</a> Range&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#ga21d194e8831d9b864d9c8449ca981f7a">readBinaryRange</a>(std::istream&amp; is, Range&amp;&amp; out);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="group__stream.html#ga9cb9e3658a32a63b88f0575c32bfc104">  170</a></span>    template &lt;std::output_iterator&lt;<span class="keywordtype">char</span>&gt; It&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#ga9cb9e3658a32a63b88f0575c32bfc104">flushBinary</a>(std::istream&amp; is, It out);</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="group__stream.html#gabe01d793d646480829aa01f15c0b04f6">  184</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1BinaryFlushableContainer.html">BinaryFlushableContainer</a> Container&gt; Container <a class="code hl_function" href="group__stream.html#ga9cb9e3658a32a63b88f0575c32bfc104">flushBinary</a>(std::istream&amp; is);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="group__stream.html#gab409e56d6da2e1919ad0a7dd46cecdc2">  194</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayout.html">StandardLayout</a> T&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#gab409e56d6da2e1919ad0a7dd46cecdc2">writeBinary</a>(std::ostream&amp; os, const T&amp; in);</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="group__stream.html#ga4d2a4dfa9cd9afca524a24e28957ce20">  204</a></span>    template &lt;<a class="code hl_concept" href="concepttr_1_1StandardLayoutRange.html">StandardLayoutRange</a> Range&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#ga4d2a4dfa9cd9afca524a24e28957ce20">writeBinaryRange</a>(std::ostream&amp; os, const Range&amp; range);</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="group__stream.html#gac5f90bbe1a5a9410262b417a1ba4e8d3">  214</a></span>    inline <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#gab409e56d6da2e1919ad0a7dd46cecdc2">writeBinary</a>(std::ostream&amp; os, const <span class="keywordtype">char</span>* cstr);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>} <span class="comment">// namespace tr</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>template &lt;<a class="code hl_namespace" href="namespacetr.html">tr</a>::<a class="code hl_concept" href="concepttr_1_1StandardLayout.html">StandardLayout</a> T&gt; <span class="keywordtype">void</span> <a class="code hl_namespace" href="namespacetr.html">tr</a>::<a class="code hl_function" href="group__stream.html#gabb3f546b6b97aac72c8518f521338f56">readBinary</a>(std::istream&amp; is, T&amp; out)</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>{</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    is.read((<span class="keywordtype">char</span>*)(std::addressof(out)), <span class="keyword">sizeof</span>(T));</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>}</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="keyword">template</span> &lt;tr::StandardLayout T&gt; T <a class="code hl_function" href="group__stream.html#gabb3f546b6b97aac72c8518f521338f56">tr::readBinary</a>(std::istream&amp; is)</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>{</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    std::array&lt;char, <span class="keyword">sizeof</span>(T)&gt; bytes;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    is.read(bytes.data(), <span class="keyword">sizeof</span>(T));</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="keywordflow">return</span> std::bit_cast&lt;T&gt;(bytes);</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>}</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="keyword">template</span> &lt;tr::StandardLayoutRange Range&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#ga21d194e8831d9b864d9c8449ca981f7a">tr::readBinaryRange</a>(std::istream&amp; is, Range&amp;&amp; out)</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>{</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    is.read((<span class="keywordtype">char</span>*)(std::addressof(*out.begin())), out.size() * <span class="keyword">sizeof</span>(<span class="keyword">typename</span> Range::value_type));</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>}</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="keyword">template</span> &lt;std::output_iterator&lt;<span class="keywordtype">char</span>&gt; It&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#ga9cb9e3658a32a63b88f0575c32bfc104">tr::flushBinary</a>(std::istream&amp; is, It out)</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>{</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    std::copy(std::istreambuf_iterator&lt;char&gt;{is}, std::istreambuf_iterator&lt;char&gt;{}, out);</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>}</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="keyword">template</span> &lt;tr::BinaryFlushableContainer Container&gt; Container <a class="code hl_function" href="group__stream.html#ga9cb9e3658a32a63b88f0575c32bfc104">tr::flushBinary</a>(std::istream&amp; is)</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>{</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    Container out;</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <a class="code hl_function" href="group__stream.html#ga9cb9e3658a32a63b88f0575c32bfc104">flushBinary</a>(is, std::back_inserter(out));</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="keywordflow">return</span> out;</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>}</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="keyword">template</span> &lt;tr::StandardLayout T&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#gab409e56d6da2e1919ad0a7dd46cecdc2">tr::writeBinary</a>(std::ostream&amp; os, <span class="keyword">const</span> T&amp; in)</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>{</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    os.write((<span class="keyword">const</span> <span class="keywordtype">char</span>*)(std::addressof(in)), <span class="keyword">sizeof</span>(T));</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>}</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="keyword">template</span> &lt;tr::StandardLayoutRange Range&gt; <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#ga4d2a4dfa9cd9afca524a24e28957ce20">tr::writeBinaryRange</a>(std::ostream&amp; os, <span class="keyword">const</span> Range&amp; range)</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>{</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    os.write((<span class="keyword">const</span> <span class="keywordtype">char</span>*)(std::addressof(*range.begin())), range.size() * <span class="keyword">sizeof</span>(<span class="keyword">typename</span> Range::value_type));</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>}</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="group__stream.html#gab409e56d6da2e1919ad0a7dd46cecdc2">tr::writeBinary</a>(std::ostream&amp; os, <span class="keyword">const</span> <span class="keywordtype">char</span>* cstr)</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>{</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    os.write(cstr, std::strlen(cstr));</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>}</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
 <div class="ttc" id="aclasstr_1_1FileError_html"><div class="ttname"><a href="classtr_1_1FileError.html">tr::FileError</a></div><div class="ttdoc">Generic file error base exception type.</div><div class="ttdef"><b>Definition</b> iostream.hpp:28</div></div>
 <div class="ttc" id="aclasstr_1_1FileError_html_a2721806b29b337df88b1872d26c235a9"><div class="ttname"><a href="classtr_1_1FileError.html#a2721806b29b337df88b1872d26c235a9">tr::FileError::FileError</a></div><div class="ttdeci">FileError(const std::filesystem::path &amp;path)</div><div class="ttdoc">Constructs a file error with a path.</div></div>
 <div class="ttc" id="aclasstr_1_1FileError_html_a40619fbc37d069161d0d1215061ca56c"><div class="ttname"><a href="classtr_1_1FileError.html#a40619fbc37d069161d0d1215061ca56c">tr::FileError::FileError</a></div><div class="ttdeci">FileError(std::string path) noexcept</div><div class="ttdoc">Constructs a file error with a path string.</div></div>

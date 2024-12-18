@@ -16,7 +16,7 @@ var classtr_1_1BitmapView =
     [ "pitch", "classtr_1_1BitmapView.html#ae1c30d801c22c2d0ca5a6a696e8a276b", null ],
     [ "save", "classtr_1_1BitmapView.html#a393080e39a4bbda4a7b77cd9ea7cd9e8", null ],
     [ "size", "classtr_1_1BitmapView.html#a737bdaca99ba8a6e252f9a34bba508be", null ],
-    [ "sub", "classtr_1_1BitmapView.html#ae639a46d66dba9ac0d52daa6bd3e221c", null ],
+    [ "sub", "classtr_1_1BitmapView.html#a7a9d29cf96645305bf6b81a31f0b1f09", null ],
     [ "Bitmap", "classtr_1_1BitmapView.html#a08f4603d248cce6ab74c80f858f877b0", null ],
     [ "Cursor", "classtr_1_1BitmapView.html#a9591eb6f6543f40292912e27b74f4d27", null ],
     [ "SubBitmap", "classtr_1_1BitmapView.html#a1d6c089c004adf8be40734d11af6f4a7", null ],

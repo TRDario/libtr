@@ -338,6 +338,8 @@ template&lt;class T1 , class T2 &gt; </div>
 </div><div class="memdoc">
 
 <p>Constructs an event base. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::bad_alloc</td><td>If an any allocation fails.</td></tr>
@@ -373,6 +375,8 @@ template&lt;class T1 , class T2 &gt; </div>
 </div><div class="memdoc">
 
 <p>Converts an event into an event base. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::bad_alloc</td><td>If copying dynamically allocated resources fails.</td></tr>
@@ -381,10 +385,13 @@ template&lt;class T1 , class T2 &gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">event</td><td>The event to convert into an event base. If it holds any dynamically allocated resources, those will be copied into the custom event base. The event must be of a proper type. </td></tr>
+    <tr><td class="paramname">event</td><td><p class="starttd">The event to convert into an event base. If it holds any dynamically allocated resources, those will be copied into the custom event base.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The event must have a user event type. </dd></dl>
 
 </div>
 </div>
@@ -414,10 +421,13 @@ template&lt;class T1 , class T2 &gt; </div>
 <p>Converts an event into an event base. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">event</td><td>The event to convert into an event base. If it holds any dynamically allocated resources, those will be moved into the custom event base. The event must be of a proper type. </td></tr>
+    <tr><td class="paramname">event</td><td><p class="starttd">The event to convert into an event base. If it holds any dynamically allocated resources, those will be moved into the custom event base.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The event must have a user event type. </dd></dl>
 
 </div>
 </div>
@@ -466,6 +476,8 @@ template&lt;class T1 , class T2 &gt; </div>
 </div><div class="memdoc">
 
 <p>Converts an event base into an event. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::bad_alloc</td><td>If copying dynamically allocated resources fails.</td></tr>

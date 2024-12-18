@@ -259,7 +259,7 @@ template&lt;StandardLayout T, std::size_t S&gt; </div>
 </div><div class="memdoc">
 
 <p>Reinterprets a span of mutable bytes as a span of objects. </p>
-<p>The span must be an integer multiple of the size of the object being cast into. If the span has a static length, the function will fail to compile, and if the span has a dynamic length, a failed assertion may be triggered.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>The span must be an integer multiple of the size of the object being cast into. If the span has a static length, the function will fail to compile, and if the span has a dynamic length, a failed assertion may be triggered.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">bytes</td><td>The byte span to reinterpret.</td></tr>
@@ -296,7 +296,7 @@ template&lt;StandardLayout T, std::size_t S&gt; </div>
 </div><div class="memdoc">
 
 <p>Reinterprets a span of immutable bytes as a span of const objects. </p>
-<p>The span must be an integer multiple of the size of the object being cast into. If the span has a static length, the function will fail to compile, and if the span has a dynamic length, a failed assertion may be triggered.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>The span must be an integer multiple of the size of the object being cast into. If the span has a static length, the function will fail to compile, and if the span has a dynamic length, a failed assertion may be triggered.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">bytes</td><td>The byte span to reinterpret.</td></tr>
@@ -430,7 +430,7 @@ template&lt;StandardLayoutRange T&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A span over the range's bytes. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="classtr_1_1AudioBuffer.html#a35149cffb4321b847760d57021c9a2dd">tr::AudioBuffer::AudioBuffer()</a>, <a class="el" href="classtr_1_1BitmapView.html#a7352c735396e897b100acf4f4629347b">tr::BitmapView::BitmapView()</a>, <a class="el" href="classtr_1_1Cursor.html#af7879d838f893fa10bddbc6ee8cef685">tr::Cursor::Cursor()</a>, <a class="el" href="classtr_1_1VertexBuffer.html#a6cfe2922eaac1e8bb9a8c312f29e1c5d">tr::VertexBuffer::VertexBuffer()</a>, <a class="el" href="classtr_1_1AudioBuffer.html#abf73bc6978ad4814969c2b43361463a7">tr::AudioBuffer::set()</a>, <a class="el" href="classtr_1_1AudioBufferView.html#a08ee346a07bb36841fa233e036219847">tr::AudioBufferView::set()</a>, <a class="el" href="classtr_1_1VertexBuffer.html#a80b83f0fd295e5a413c53938d0858cd8">tr::VertexBuffer::set()</a>, <a class="el" href="classtr_1_1ShaderBuffer.html#a7d2c1f56dbe0ffab0750e4c066b67688">tr::ShaderBuffer::setArray()</a>, <a class="el" href="classtr_1_1ShaderBuffer.html#ac3fba07ebe89285ba7e5adc7b6fb9d30">tr::ShaderBuffer::setHeader()</a>, and <a class="el" href="classtr_1_1VertexBuffer.html#a5f1b7efd8c9a1a2c37e51c467939cac5">tr::VertexBuffer::setRegion()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classtr_1_1BitmapView.html#a7352c735396e897b100acf4f4629347b">tr::BitmapView::BitmapView()</a>, <a class="el" href="classtr_1_1Cursor.html#af7879d838f893fa10bddbc6ee8cef685">tr::Cursor::Cursor()</a>, <a class="el" href="classtr_1_1VertexBuffer.html#a6cfe2922eaac1e8bb9a8c312f29e1c5d">tr::VertexBuffer::VertexBuffer()</a>, <a class="el" href="classtr_1_1VertexBuffer.html#a80b83f0fd295e5a413c53938d0858cd8">tr::VertexBuffer::set()</a>, <a class="el" href="classtr_1_1ShaderBuffer.html#a7d2c1f56dbe0ffab0750e4c066b67688">tr::ShaderBuffer::setArray()</a>, <a class="el" href="classtr_1_1ShaderBuffer.html#ac3fba07ebe89285ba7e5adc7b6fb9d30">tr::ShaderBuffer::setHeader()</a>, and <a class="el" href="classtr_1_1VertexBuffer.html#a5f1b7efd8c9a1a2c37e51c467939cac5">tr::VertexBuffer::setRegion()</a>.</p>
 
 </div>
 </div>

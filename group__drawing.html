@@ -147,12 +147,12 @@ Functions</h2></td></tr>
 <tr class="memitem:gaadb71e6fce205903028cde24fc1330af"><td class="memTemplItemLeft" align="right" valign="top">constexpr It&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gaadb71e6fce205903028cde24fc1330af">tr::fillRectVertices</a> (It out, glm::vec2 tl, glm::vec2 size, const glm::mat4 &amp;transform)</td></tr>
 <tr class="memdesc:gaadb71e6fce205903028cde24fc1330af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs rectangle vertices.  <br /></td></tr>
 <tr class="separator:gaadb71e6fce205903028cde24fc1330af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac24a040a181fa6027de10abac6f1fe63" id="r_gac24a040a181fa6027de10abac6f1fe63"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gac24a040a181fa6027de10abac6f1fe63">tr::smoothArcVerticesCount</a> (float r, <a class="el" href="group__angle.html#ga0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a> sizeth) noexcept</td></tr>
-<tr class="memdesc:gac24a040a181fa6027de10abac6f1fe63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the number of segments needed to draw a smooth arc.  <br /></td></tr>
-<tr class="separator:gac24a040a181fa6027de10abac6f1fe63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga02087bdad548abf300201ad4733afffa" id="r_ga02087bdad548abf300201ad4733afffa"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga02087bdad548abf300201ad4733afffa">tr::smoothPolygonVerticesCount</a> (float r) noexcept</td></tr>
-<tr class="memdesc:ga02087bdad548abf300201ad4733afffa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the number of segments needed to draw a smooth circle with pixel radius r.  <br /></td></tr>
-<tr class="separator:ga02087bdad548abf300201ad4733afffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadf57b2c3ad506f210ddc0a354f52c32c" id="r_gadf57b2c3ad506f210ddc0a354f52c32c"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gadf57b2c3ad506f210ddc0a354f52c32c">tr::smoothArcVerticesCount</a> (float r, <a class="el" href="group__angle.html#ga0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a> sizeth, float scale=1.0f) noexcept</td></tr>
+<tr class="memdesc:gadf57b2c3ad506f210ddc0a354f52c32c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the number of segments needed to draw a smooth arc.  <br /></td></tr>
+<tr class="separator:gadf57b2c3ad506f210ddc0a354f52c32c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga644ab8dc72e622681c312cf80e7499ac" id="r_ga644ab8dc72e622681c312cf80e7499ac"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga644ab8dc72e622681c312cf80e7499ac">tr::smoothPolygonVerticesCount</a> (float r, float scale=1.0f) noexcept</td></tr>
+<tr class="memdesc:ga644ab8dc72e622681c312cf80e7499ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the number of segments needed to draw a smooth circle with pixel radius r.  <br /></td></tr>
+<tr class="separator:ga644ab8dc72e622681c312cf80e7499ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Helper functionality for drawing. </p>
@@ -202,8 +202,24 @@ template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>The output iterator. There has to be space for all of the vertices. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vertices</td><td>The number of vertices on the arc. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td><p class="starttd">The output iterator.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>There has to be space for all of the vertices. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vertices</td><td><p class="starttd">The number of vertices on the arc.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>vertices</em> must be greater than 2. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">circ</td><td>The arc circle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">startth</td><td>The starting angle on the arc circle of the arc. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">sizeth</td><td>The angular size of the arc.</td></tr>
@@ -257,8 +273,24 @@ template&lt;std::output_iterator&lt; std::uint16_t &gt; It&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>The output iterator. There has to be space for <code>(vertices - 2) * 3</code> indices. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vertices</td><td>The number of vertices in the polygon. Must be greater than 2. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td><p class="starttd">The output iterator.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>There has to be space for <code>(vertices - 2) * 3</code> indices. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vertices</td><td><p class="starttd">The number of vertices in the polygon.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>vertices</em> must be greater than 2. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">base</td><td>The "base" index offset added to every index value.</td></tr>
   </table>
   </dd>
@@ -310,8 +342,24 @@ template&lt;std::output_iterator&lt; std::uint16_t &gt; It&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>The output iterator. There has to be space for <code>(vertices - 2) * 6</code> indices. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vertices</td><td>The number of vertices in the polygon. Must be greater than 2. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td><p class="starttd">The output iterator.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>There has to be space for <code>(vertices - 2) * 6</code> indices. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vertices</td><td><p class="starttd">The number of vertices in the polygon.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>vertices</em> must be greater than 2. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">base</td><td>The "base" index offset added to every index value.</td></tr>
   </table>
   </dd>
@@ -365,8 +413,24 @@ template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>The output iterator. There has to be space for <code>vertices * 2</code>. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vertices</td><td>The number of polygon vertices. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td><p class="starttd">The output iterator.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>There has to be space for <code>vertices * 2</code>. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vertices</td><td><p class="starttd">The number of vertices in the polygon.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>vertices</em> must be greater than 2. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">circ</td><td>The tangent circle of the polygon. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">rotation</td><td>The rotation of the polygon. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">thickness</td><td>The thickness of the polygon.</td></tr>
@@ -417,8 +481,24 @@ template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>The output iterator. There has to be space for all of the vertices. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vertices</td><td>The number of polygon vertices. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td><p class="starttd">The output iterator.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>There has to be space for all of the vertices. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vertices</td><td><p class="starttd">The number of vertices in the polygon.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>vertices</em> must be greater than 2. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">circ</td><td>The tangent circle of the polygon. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">rotation</td><td>The rotation of the polygon.</td></tr>
   </table>
@@ -476,7 +556,15 @@ template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>The output iterator. There has to be space for 8 vertices. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td><p class="starttd">The output iterator.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>There has to be space for 8 vertices. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">tl</td><td>The position of the top-left corner of the rectangle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The size of the rectangle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">thickness</td><td>The thickness of the outline.</td></tr>
@@ -540,7 +628,15 @@ template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>The output iterator. There has to be space for 8 vertices. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td><p class="starttd">The output iterator.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>There has to be space for 8 vertices. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">tl</td><td>The position of the top-left corner of the rectangle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The size of the rectangle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">thickness</td><td>The thickness of the outline. </td></tr>
@@ -595,7 +691,15 @@ template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>The output iterator. There has to be space for 4 vertices. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td><p class="starttd">The output iterator.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>There has to be space for 4 vertices. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">tl</td><td>The position of the top-left corner of the rectangle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The size of the rectangle.</td></tr>
   </table>
@@ -653,7 +757,15 @@ template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td>The output iterator. There has to be space for 4 vertices. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td><p class="starttd">The output iterator.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>There has to be space for 4 vertices. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">tl</td><td>The position of the top-left corner of the rectangle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The size of the rectangle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">transform</td><td>A transformation matrix to apply to the vertices.</td></tr>
@@ -664,8 +776,8 @@ template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </div>
 
 </div>
 </div>
-<a id="gac24a040a181fa6027de10abac6f1fe63" name="gac24a040a181fa6027de10abac6f1fe63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac24a040a181fa6027de10abac6f1fe63">&#9670;&#160;</a></span>smoothArcVerticesCount()</h2>
+<a id="gadf57b2c3ad506f210ddc0a354f52c32c" name="gadf57b2c3ad506f210ddc0a354f52c32c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadf57b2c3ad506f210ddc0a354f52c32c">&#9670;&#160;</a></span>smoothArcVerticesCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -681,7 +793,12 @@ template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group__angle.html#ga0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a></td>          <td class="paramname"><span class="paramname"><em>sizeth</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="group__angle.html#ga0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a></td>          <td class="paramname"><span class="paramname"><em>sizeth</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>scale</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0f</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -694,8 +811,9 @@ template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </div>
 <p>Calculates the number of segments needed to draw a smooth arc. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>The radius of the arc circle. Must be in the range (0, +Inf.). </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sizeth</td><td>The angular size of the arc. Must be in the range (0, 360deg).</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>The radius of the arc circle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sizeth</td><td>The angular size of the arc. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>The field scale parameter to apply to the calculation.</td></tr>
   </table>
   </dd>
 </dl>
@@ -703,8 +821,8 @@ template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </div>
 
 </div>
 </div>
-<a id="ga02087bdad548abf300201ad4733afffa" name="ga02087bdad548abf300201ad4733afffa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga02087bdad548abf300201ad4733afffa">&#9670;&#160;</a></span>smoothPolygonVerticesCount()</h2>
+<a id="ga644ab8dc72e622681c312cf80e7499ac" name="ga644ab8dc72e622681c312cf80e7499ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga644ab8dc72e622681c312cf80e7499ac">&#9670;&#160;</a></span>smoothPolygonVerticesCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -715,8 +833,12 @@ template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </div>
         <tr>
           <td class="memname">std::size_t tr::smoothPolygonVerticesCount </td>
           <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>scale</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1.0f</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -729,7 +851,8 @@ template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </div>
 <p>Calculates the number of segments needed to draw a smooth circle with pixel radius r. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>The radius of the circle. Must be in the range (0, +Inf.).</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>The radius of the circle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">scale</td><td>The field scale parameter to apply to the calculation.</td></tr>
   </table>
   </dd>
 </dl>

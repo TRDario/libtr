@@ -61,7 +61,6 @@ var group__shader =
       [ "setUniform", "classtr_1_1Shader.html#a39987e020ef573582ed4c9fba9bf82ef", null ],
       [ "setUniform", "classtr_1_1Shader.html#aa672a55b4e3e181ab604965a1e2e7857", null ],
       [ "type", "classtr_1_1Shader.html#aeb2d536a7edfb97815c87aedc6448f44", null ],
-      [ "operator==", "classtr_1_1Shader.html#a0bf105ab35958cb41bc1421c48bd03ba", null ],
       [ "ShaderPipeline", "classtr_1_1Shader.html#a66cbd73ed97c66fade8de706f0cd890f", null ]
     ] ],
     [ "tr::ShaderLoadError", "structtr_1_1ShaderLoadError.html", [

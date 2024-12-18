@@ -246,6 +246,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Allocates an uninitialized shader buffer. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
@@ -470,7 +472,7 @@ template&lt;GraphicsBufferCopyOutputIterator It&gt; </div>
 </div><div class="memdoc">
 
 <p>Maps the dynamic array. </p>
-<p>This function cannot be called if the buffer doesn't have a dynamic array block.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>This function cannot be called if the buffer doesn't have a dynamic array block.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>The mapped dynamic array. </dd></dl>
 
 </div>
@@ -499,7 +501,7 @@ template&lt;GraphicsBufferCopyOutputIterator It&gt; </div>
 </div><div class="memdoc">
 
 <p>Maps the fixed header. </p>
-<p>This function cannot be called if the buffer doesn't have a fixed header block.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>This function cannot be called if the buffer doesn't have a fixed header block.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>The mapped fixed header. </dd></dl>
 
 </div>
@@ -565,10 +567,13 @@ template&lt;std::ranges::contiguous_range Range&gt; </div>
 <p>Sets the data of the dynamic array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">range</td><td>The new data of the array. The range must be smaller or have the same size as the array capacity. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">range</td><td><p class="starttd">The new data of the array.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>range</em> must be smaller or have the same size as the array capacity. </dd></dl>
 
 </div>
 </div>
@@ -598,10 +603,13 @@ template&lt;std::ranges::contiguous_range Range&gt; </div>
 <p>Sets the data of the dynamic array. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The new data of the array. The span must be smaller or have the same size as the array capacity. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td><p class="starttd">The new data of the array.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>data</em> must be smaller or have the same size as the array capacity. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a7d2c1f56dbe0ffab0750e4c066b67688">setArray()</a>.</p>
 
@@ -635,10 +643,13 @@ template&lt;class T &gt; </div>
 <p>Sets the data of the header. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The new data of the header. The value must be the same size as the header. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The new data of the header.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The value must be the same size as the header. </dd></dl>
 
 </div>
 </div>
@@ -670,10 +681,13 @@ template&lt;std::ranges::contiguous_range Range&gt; </div>
 <p>Sets the data of the header. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">range</td><td>The new data of the header. The range must be the same size as the header. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">range</td><td><p class="starttd">The new data of the header.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The range must be the same size as the header. </dd></dl>
 
 </div>
 </div>
@@ -703,10 +717,13 @@ template&lt;std::ranges::contiguous_range Range&gt; </div>
 <p>Sets the data of the header. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The new data of the header. The span must be the same size as the header. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td><p class="starttd">The new data of the header.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The span must be the same size as the header. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a8ac83bc7dc3bc9531d8a785275cbc310">setHeader()</a>, and <a class="el" href="#ac3fba07ebe89285ba7e5adc7b6fb9d30">setHeader()</a>.</p>
 

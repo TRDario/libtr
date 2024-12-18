@@ -15,7 +15,7 @@ var classtr_1_1GraphicsContext =
     [ "setDepthTest", "classtr_1_1GraphicsContext.html#a3b71f3778d80d23e28d14d12e8bfdd21", null ],
     [ "setFramebuffer", "classtr_1_1GraphicsContext.html#a997ea3c65de59aa2e808a62856b86875", null ],
     [ "setIndexBuffer", "classtr_1_1GraphicsContext.html#a9eb95e7c24bb845ffe19d849017867d5", null ],
-    [ "setScissorBox", "classtr_1_1GraphicsContext.html#aee1a5c9b05d6dbc7671af87445fbec9e", null ],
+    [ "setScissorBox", "classtr_1_1GraphicsContext.html#a7fab13b0d2d09f4c3f6156b2f7deaf65", null ],
     [ "setShaderPipeline", "classtr_1_1GraphicsContext.html#a6eba53d9124a18d5201e4aa8a16711b5", null ],
     [ "setStencilMask", "classtr_1_1GraphicsContext.html#ad9c7c6e17436a3d4588aeba4976d65fb", null ],
     [ "setStencilOperation", "classtr_1_1GraphicsContext.html#a5ab93fa5ec156d6045305d155254ea1a", null ],

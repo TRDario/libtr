@@ -319,7 +319,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Opens a windowed window. </p>
-<p>The window starts hidden and <a class="el" href="#a213a3dddf9e5db863aa8132680b521b0" title="Unhides the window.">show()</a> must be called.</p>
+<dl class="section note"><dt>Note</dt><dd>The window starts hidden and <a class="el" href="#a213a3dddf9e5db863aa8132680b521b0" title="Unhides the window.">show()</a> must be called.</dd></dl>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1WindowOpenError.html" title="Error thrown when opening a window fails.">WindowOpenError</a></td><td>If opening the window fails.</td></tr>
@@ -369,7 +371,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Opens a borderless fullscreen window. </p>
-<p>The window starts hidden and <a class="el" href="#a213a3dddf9e5db863aa8132680b521b0" title="Unhides the window.">show()</a> must be called.</p>
+<dl class="section note"><dt>Note</dt><dd>The window starts hidden and <a class="el" href="#a213a3dddf9e5db863aa8132680b521b0" title="Unhides the window.">show()</a> must be called.</dd></dl>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1WindowOpenError.html" title="Error thrown when opening a window fails.">WindowOpenError</a></td><td>If opening the window fails.</td></tr>
@@ -423,7 +427,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Opens a fullscreen window. </p>
-<p>The window starts hidden and <a class="el" href="#a213a3dddf9e5db863aa8132680b521b0" title="Unhides the window.">show()</a> must be called.</p>
+<dl class="section note"><dt>Note</dt><dd>The window starts hidden and <a class="el" href="#a213a3dddf9e5db863aa8132680b521b0" title="Unhides the window.">show()</a> must be called.</dd></dl>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1WindowOpenError.html" title="Error thrown when opening a window fails.">WindowOpenError</a></td><td>If opening the window fails.</td></tr>
@@ -1338,6 +1344,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Sets the window's fullscreen display mode. </p>
 <p>This function sets the window to fullscreen if it isn't already.</p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1WindowError.html" title="Error thrown when a window operation fails.">WindowError</a></td><td>If setting the fullscreen mode fails.</td></tr>
@@ -1773,7 +1781,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the window's V-sync mode. </p>
-<p>If setting the V-sync mode failed and the parameter is ADAPTIVE, regular V-sync will be used.</p>
+<dl class="section note"><dt>Note</dt><dd>If setting the V-sync mode failed and <em>vsync</em> was ADAPTIVE, regular V-sync will be used.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">vsync</td><td>The new V-sync mode. </td></tr>
@@ -1799,6 +1807,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the window's window mode. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1WindowError.html" title="Error thrown when a window operation fails.">WindowError</a></td><td>If setting the window mode fails.</td></tr>

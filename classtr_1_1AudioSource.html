@@ -107,7 +107,7 @@ $(function(){initNavTree('classtr_1_1AudioSource.html',''); initResizable(true);
 </div><!--header-->
 <div class="contents">
 
-<p>Audio source.  
+<p>3D Audio source.  
  <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -249,8 +249,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aee6060e87105f58580f778a06d7877bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Audio source. </p>
-<p>This class cannot be instantiated before the audio system is initialized. </p>
+<div class="textblock"><p>3D Audio source. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a12740a36e2d94435845dc7478eee2122" name="a12740a36e2d94435845dc7478eee2122"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a12740a36e2d94435845dc7478eee2122">&#9670;&#160;</a></span>AudioSource() <span class="overload">[1/2]</span></h2>
@@ -268,6 +267,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructs an audio source. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1AudioSourceBadAlloc.html" title="Error thrown when allocating an audio source fails.">AudioSourceBadAlloc</a></td><td>If allocating the audio source fails. </td></tr>
@@ -293,6 +294,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructs an audio source with a pre-set buffer. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1AudioSourceBadAlloc.html" title="Error thrown when allocating an audio source fails.">AudioSourceBadAlloc</a></td><td>If allocating the audio source fails.</td></tr>
@@ -333,7 +336,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the buffer the source is currently using for playback. </p>
-<dl class="section return"><dt>Returns</dt><dd>A view over the playback buffer, or nullopt if the source is empty/streamed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A view over the playback buffer, or std::nullopt if the source is empty/streamed. </dd></dl>
 
 </div>
 </div>
@@ -809,10 +812,13 @@ Public Member Functions</h2></td></tr>
 <p>Queues a buffer for streaming. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">buffer</td><td>The buffer to attach. It must be of the same audio format as any other queued buffers. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">buffer</td><td><p class="starttd">The buffer to attach.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The buffer must be of the same audio format as any other queued buffers. </dd></dl>
 
 </div>
 </div>
@@ -842,10 +848,13 @@ Public Member Functions</h2></td></tr>
 <p>Queues buffers for streaming. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">buffers</td><td>The buffers to attach. They must be of the same audio format as any other queued buffers. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">buffers</td><td><p class="starttd">The buffers to attach.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The buffers must be of the same audio format as any other queued buffers. </dd></dl>
 
 </div>
 </div>
@@ -957,10 +966,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets a buffer for the source to use. </p>
-<p>Calling this function is not allowed while the source is playing/paused.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>Calling this function is not allowed while the source is playing/paused.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">buffer</td><td>The buffer to use, or nullopt to unset any set/queued buffers. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">buffer</td><td>The buffer to use, or std::nullopt to unset any set/queued buffers. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1574,7 +1583,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Removes a buffer from the source's queue. </p>
-<p>This function cannot be called if no buffers are able to be unqueued.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>This function cannot be called if no buffers are able to be unqueued.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>A view over the unqueued buffer. </dd></dl>
 
 </div>

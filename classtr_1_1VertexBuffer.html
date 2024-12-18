@@ -191,7 +191,6 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructs an empty vertex buffer. </p>
-<p>This function can be called before creating a <a class="el" href="classtr_1_1GraphicsContext.html" title="Graphics context.">GraphicsContext</a>. </p>
 
 </div>
 </div>
@@ -212,7 +211,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Allocates a vertex buffer. </p>
 <p>The buffer will be of size 0 and capacity <em>capacity</em> after construction.</p>
-<p>This function can't be called before creating a <a class="el" href="classtr_1_1GraphicsContext.html" title="Graphics context.">GraphicsContext</a>.</p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
@@ -221,10 +221,13 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">capacity</td><td>The capacity of the buffer in bytes. Must be greater than 0. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">capacity</td><td><p class="starttd">The capacity of the buffer in bytes.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>capacity</em> must be greater than 0. </dd></dl>
 
 </div>
 </div>
@@ -245,7 +248,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Allocates a vertex buffer and fills it with data. </p>
 <p>The buffer will be of size and capacity <em>data.size()</em> after construction.</p>
-<p>This function can't be called before creating a <a class="el" href="classtr_1_1GraphicsContext.html" title="Graphics context.">GraphicsContext</a>.</p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
@@ -254,10 +258,13 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The data to be uploaded to be buffer. Must not be empty. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td><p class="starttd">The data to be uploaded to be buffer.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>data</em> cannot be empty. </dd></dl>
 
 </div>
 </div>
@@ -287,8 +294,9 @@ template&lt;std::ranges::contiguous_range T&gt; </div>
 </div><div class="memdoc">
 
 <p>Allocates a vertex buffer and fills it with data. </p>
-<p>The buffer will be of size and capacity <em>range.size()</em> after construction.</p>
-<p>This function can't be called before creating a <a class="el" href="classtr_1_1GraphicsContext.html" title="Graphics context.">GraphicsContext</a>.</p>
+<p>The buffer will be of size and capacity <em>data.size()</em> after construction.</p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
@@ -297,10 +305,13 @@ template&lt;std::ranges::contiguous_range T&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">range</td><td>The data range to be uploaded to be buffer. Must not be empty. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">range</td><td><p class="starttd">The data to be uploaded to be buffer.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>range</em> cannot be empty. </dd></dl>
 
 </div>
 </div>
@@ -329,8 +340,8 @@ template&lt;std::ranges::contiguous_range T&gt; </div>
 </div><div class="memdoc">
 
 <p>Gets the capacity of the vertex buffer. </p>
-<p>The buffer can be resized past this capacity, but it will trigger a reallocation.</p>
-<dl class="section return"><dt>Returns</dt><dd>The capacity of the vertex buffer in bytes. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The buffer can be resized past this capacity, but it will trigger a reallocation.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The capacity of the vertex buffer in indices. </dd></dl>
 
 </div>
 </div>
@@ -358,8 +369,8 @@ template&lt;std::ranges::contiguous_range T&gt; </div>
 </div><div class="memdoc">
 
 <p>Sets the size of the vertex buffer to 0. </p>
-<p>The buffer cannot be mapped when this function is called.</p>
-<p>This does not affect the capacity of the buffer. </p>
+<p>This does not affect the capacity of the buffer.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>The buffer cannot be mapped when this function is called. </dd></dl>
 
 </div>
 </div>
@@ -407,20 +418,25 @@ template&lt;std::ranges::contiguous_range T&gt; </div>
 </div><div class="memdoc">
 
 <p>Maps the buffer, invalidating the previous contents in the process and resetting its size. </p>
-<p>If <em>size</em> is greater than the capacity of the buffer, a reallocation will be done. This voids any previous bindings of the buffer to the context, and so it must be rebound. <a class="el" href="#ae686a0a63fc36d421d58a94a9960ba48" title="Maps a region of the buffer, invalidating the previous contents in the process.">mapRegion()</a> will never cause a reallocation, so may be used in cases where that's a requirement.</p>
+<dl class="section note"><dt>Note</dt><dd>If <em>size</em> is greater than the capacity of the buffer, a reallocation will be done. This voids any previous bindings of the buffer to the context, and so it must be rebound. <a class="el" href="#ae686a0a63fc36d421d58a94a9960ba48" title="Maps a region of the buffer, invalidating the previous contents in the process.">mapRegion()</a> will never cause a reallocation, so may be used in cases where that's a requirement.</dd></dl>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Weak exception guarantee, if mapping the buffer after reallocation fails, the reallocation is not reverted.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If a reallocation was triggered and reallocating the buffer failed. </td></tr>
-    <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferMapBadAlloc.html" title="Error thrown when mapping a graphics buffer fails.">GraphicsBufferMapBadAlloc</a></td><td>If mapping the buffer failed.</td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If a reallocation was triggered and reallocating the buffer fails. </td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferMapBadAlloc.html" title="Error thrown when mapping a graphics buffer fails.">GraphicsBufferMapBadAlloc</a></td><td>If mapping the buffer fails.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The new size of the buffer in bytes. Must be greater than 0, otherwise a failed assertion may be triggered.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td><p class="starttd">The new size of the buffer in bytes.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>size</em> must be greater than 0. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>A map object. </dd></dl>
 
 </div>
@@ -473,7 +489,9 @@ template&lt;std::ranges::contiguous_range T&gt; </div>
 </div><div class="memdoc">
 
 <p>Maps a region of the buffer, invalidating the previous contents in the process. </p>
-<p>Unlike <a class="el" href="#a02ec636ce92098d37a34033623850c2c" title="Maps the buffer, invalidating the previous contents in the process and resetting its size.">mapNew()</a>, a call to this function will never cause a reallocation, but an assertion may fail if an out-of-bounds map is requested.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>Unlike <a class="el" href="#a02ec636ce92098d37a34033623850c2c" title="Maps the buffer, invalidating the previous contents in the process and resetting its size.">mapNew()</a>, a call to this function will never cause a reallocation.</dd></dl>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferMapBadAlloc.html" title="Error thrown when mapping a graphics buffer fails.">GraphicsBufferMapBadAlloc</a></td><td>If mapping the buffer failed.</td></tr>
@@ -483,10 +501,13 @@ template&lt;std::ranges::contiguous_range T&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">offset</td><td>The starting offset within the buffer in bytes. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The size of the mapped region in bytes. Must be greater than 0, and <code>offset + data.size() &lt;= <a class="el" href="#a5f80acdd1710f2af851efbe70e97b373" title="Gets the capacity of the vertex buffer.">capacity()</a></code> must hold true, otherwise a failed assertion may be triggered.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td><p class="starttd">The size of the mapped region in bytes.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>size</em> must be greater than 0, and <code>offset + data.size() &lt;= <a class="el" href="#a5f80acdd1710f2af851efbe70e97b373" title="Gets the capacity of the vertex buffer.">capacity()</a></code> must hold true. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>A map object. </dd></dl>
 
 </div>
@@ -507,8 +528,10 @@ template&lt;std::ranges::contiguous_range T&gt; </div>
 </div><div class="memdoc">
 
 <p>Sets the contents of the buffer. </p>
-<p>If data.size() is greater than the capacity of the buffer, a reallocation will be done. This voids any previous bindings of the buffer to the context, and so it must be rebound. <a class="el" href="#af8c1e5f8a478ef1a7b04b46884ed9a95" title="Sets a region of the buffer.">setRegion()</a> will never cause a reallocation, so may be used in cases where that's a requirement.</p>
-<p>The buffer cannot be mapped when this function is called.</p>
+<dl class="section note"><dt>Note</dt><dd>If data.size() is greater than the capacity of the buffer, a reallocation will be done. This voids any previous bindings of the buffer to the context, and so it must be rebound. <a class="el" href="#af8c1e5f8a478ef1a7b04b46884ed9a95" title="Sets a region of the buffer.">setRegion()</a> will never cause a reallocation, so may be used in cases where that's a requirement.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The buffer cannot be mapped when this function is called.</dd></dl>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If a reallocation is triggered and reallocating the buffer fails.</td></tr>
@@ -552,8 +575,10 @@ template&lt;std::ranges::contiguous_range T&gt; </div>
 </div><div class="memdoc">
 
 <p>Sets the contents of the buffer. </p>
-<p>If range.size() is greater than the capacity of the buffer, a reallocation will be done. This voids any previous bindings of the buffer to the context, and so it must be rebound. <a class="el" href="#af8c1e5f8a478ef1a7b04b46884ed9a95" title="Sets a region of the buffer.">setRegion()</a> will never cause a reallocation, so may be used in cases where that's a requirement.</p>
-<p>The buffer cannot be mapped when this function is called.</p>
+<dl class="section note"><dt>Note</dt><dd>If data.size() is greater than the capacity of the buffer, a reallocation will be done. This voids any previous bindings of the buffer to the context, and so it must be rebound. <a class="el" href="#af8c1e5f8a478ef1a7b04b46884ed9a95" title="Sets a region of the buffer.">setRegion()</a> will never cause a reallocation, so may be used in cases where that's a requirement.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The buffer cannot be mapped when this function is called.</dd></dl>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If a reallocation is triggered and reallocating the buffer fails.</td></tr>
@@ -630,15 +655,18 @@ template&lt;std::ranges::contiguous_range T&gt; </div>
 </div><div class="memdoc">
 
 <p>Sets a region of the buffer. </p>
-<p>Unlike <a class="el" href="#afd47c575cd53f7c6cae0f8d93d4d2ac0" title="Sets the contents of the buffer.">set()</a>, a call to this function will never cause a reallocation, but an assertion may fail if a span too large is passed to it.</p>
-<p>The buffer cannot be mapped when this function is called.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>Unlike <a class="el" href="#afd47c575cd53f7c6cae0f8d93d4d2ac0" title="Sets the contents of the buffer.">set()</a>, a call to this function will never cause a reallocation.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The buffer cannot be mapped when this function is called.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">offset</td><td>The starting offset within the buffer in bytes. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The new data of the buffer. <code>offset + data.size() &lt;= <a class="el" href="#a5f80acdd1710f2af851efbe70e97b373" title="Gets the capacity of the vertex buffer.">capacity()</a></code> must hold true. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td><p class="starttd">The new data of the buffer.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><code>offset + data.size() &lt;= <a class="el" href="#a5f80acdd1710f2af851efbe70e97b373" title="Gets the capacity of the vertex buffer.">capacity()</a></code> must hold true. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a5f1b7efd8c9a1a2c37e51c467939cac5">setRegion()</a>.</p>
 
@@ -674,15 +702,18 @@ template&lt;std::ranges::contiguous_range T&gt; </div>
 </div><div class="memdoc">
 
 <p>Sets a region of the buffer. </p>
-<p>Unlike <a class="el" href="#afd47c575cd53f7c6cae0f8d93d4d2ac0" title="Sets the contents of the buffer.">set()</a>, a call to this function will never cause a reallocation, but an assertion may fail if a range too large is passed to it.</p>
-<p>The buffer cannot be mapped when this function is called.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>Unlike <a class="el" href="#afd47c575cd53f7c6cae0f8d93d4d2ac0" title="Sets the contents of the buffer.">set()</a>, a call to this function will never cause a reallocation.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The buffer cannot be mapped when this function is called.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">offset</td><td>The starting offset within the buffer in bytes. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">range</td><td>The new data of the buffer. <code>offset + range.size() &lt;= <a class="el" href="#a5f80acdd1710f2af851efbe70e97b373" title="Gets the capacity of the vertex buffer.">capacity()</a></code> must hold true. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">range</td><td><p class="starttd">The new data of the buffer.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><code>offset + range.size() &lt;= <a class="el" href="#a5f80acdd1710f2af851efbe70e97b373" title="Gets the capacity of the vertex buffer.">capacity()</a></code> must hold true. </dd></dl>
 
 </div>
 </div>

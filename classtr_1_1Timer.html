@@ -140,9 +140,9 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Minimal callback timer class. </p>
-<p>The timer runs a callback function on a separate thread at a regular interval until the timer is destroyed.</p>
-<p>The accuracy of the underlying system functions can be as low as 1ms, and although <a class="el" href="classtr_1_1Timer.html" title="Minimal callback timer class.">Timer</a> attempts to correct for errors, it's not advised to use it for applications with &lt;1ms resolution.</p>
-<p><a class="el" href="classtr_1_1Timer.html" title="Minimal callback timer class.">Timer</a> is default-constructible, non-copyable, and movable. </p>
+<p>An active timer runs a callback function on a separate thread at a regular interval until the timer is destroyed.</p>
+<p><a class="el" href="classtr_1_1Timer.html" title="Minimal callback timer class.">Timer</a> is default-constructible, non-copyable, and movable.</p>
+<dl class="section note"><dt>Note</dt><dd>The accuracy of the underlying system functions can be as low as 1ms, and although <a class="el" href="classtr_1_1Timer.html" title="Minimal callback timer class.">Timer</a> attempts to correct for errors, it's not advised to use it for applications with &lt;1ms resolution. </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a34dde7a8784bad4686cc5383442af784" name="a34dde7a8784bad4686cc5383442af784"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a34dde7a8784bad4686cc5383442af784">&#9670;&#160;</a></span>Callback</h2>
@@ -208,7 +208,8 @@ template&lt;class Rep , class Period , class CallbackT &gt; </div>
 </div><div class="memdoc">
 
 <p>Constructs an active timer. </p>
-<p>This constructor offers a strong exception guarantee.</p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::system_error</td><td>If launching a thread for the timer failed. </td></tr>
@@ -218,7 +219,15 @@ template&lt;class Rep , class Period , class CallbackT &gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">interval</td><td>The interval between ticks. Must be greater than 0, otherwise the thread will exit immediately. </td></tr>
+    <tr><td class="paramname">interval</td><td><p class="starttd">The interval between ticks.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>interval</em> must be greater than 0, otherwise the thread will exit immediately. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramname">callback</td><td>The callback function to call on every tick. </td></tr>
   </table>
   </dd>

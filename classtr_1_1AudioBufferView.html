@@ -115,13 +115,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa2856a55c0afade66894b61fce08afce" id="r_aa2856a55c0afade66894b61fce08afce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__chrono.html#ga8bf48222a318f44cc048821df3489576">tr::SecondsF</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2856a55c0afade66894b61fce08afce">length</a> () const noexcept</td></tr>
 <tr class="memdesc:aa2856a55c0afade66894b61fce08afce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the length of the buffer.  <br /></td></tr>
 <tr class="separator:aa2856a55c0afade66894b61fce08afce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6764903b3c7ee986ffabad38d2a0bc24" id="r_a6764903b3c7ee986ffabad38d2a0bc24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6764903b3c7ee986ffabad38d2a0bc24">set</a> (std::span&lt; const std::byte &gt; data, <a class="el" href="group__audio__buffer.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> format, int frequency)</td></tr>
-<tr class="memdesc:a6764903b3c7ee986ffabad38d2a0bc24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the data of the buffer.  <br /></td></tr>
-<tr class="separator:a6764903b3c7ee986ffabad38d2a0bc24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08ee346a07bb36841fa233e036219847" id="r_a08ee346a07bb36841fa233e036219847"><td class="memTemplParams" colspan="2">template&lt;std::ranges::contiguous_range T&gt; </td></tr>
-<tr class="memitem:a08ee346a07bb36841fa233e036219847"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a08ee346a07bb36841fa233e036219847">set</a> (T &amp;&amp;range, <a class="el" href="group__audio__buffer.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> format, int frequency)</td></tr>
-<tr class="memdesc:a08ee346a07bb36841fa233e036219847"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the data of the buffer.  <br /></td></tr>
-<tr class="separator:a08ee346a07bb36841fa233e036219847"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72014acb899b2bcfa69562bd2d60cfd6" id="r_a72014acb899b2bcfa69562bd2d60cfd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72014acb899b2bcfa69562bd2d60cfd6">set</a> (std::span&lt; const std::int16_t &gt; data, <a class="el" href="group__audio__buffer.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> format, int frequency)</td></tr>
+<tr class="memdesc:a72014acb899b2bcfa69562bd2d60cfd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the data of the buffer.  <br /></td></tr>
+<tr class="separator:a72014acb899b2bcfa69562bd2d60cfd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Non-owning audio buffer view. </p>
@@ -154,8 +150,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6764903b3c7ee986ffabad38d2a0bc24" name="a6764903b3c7ee986ffabad38d2a0bc24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6764903b3c7ee986ffabad38d2a0bc24">&#9670;&#160;</a></span>set() <span class="overload">[1/2]</span></h2>
+<a id="a72014acb899b2bcfa69562bd2d60cfd6" name="a72014acb899b2bcfa69562bd2d60cfd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72014acb899b2bcfa69562bd2d60cfd6">&#9670;&#160;</a></span>set()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,7 +159,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void tr::AudioBufferView::set </td>
           <td>(</td>
-          <td class="paramtype">std::span&lt; const std::byte &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+          <td class="paramtype">std::span&lt; const std::int16_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -188,58 +184,6 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>A span over the audio data. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>The format of the audio data. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">frequency</td><td>The frequency of the audio data. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a08ee346a07bb36841fa233e036219847" name="a08ee346a07bb36841fa233e036219847"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08ee346a07bb36841fa233e036219847">&#9670;&#160;</a></span>set() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::ranges::contiguous_range T&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void tr::AudioBufferView::set </td>
-          <td>(</td>
-          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="group__audio__buffer.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a></td>          <td class="paramname"><span class="paramname"><em>format</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>frequency</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the data of the buffer. </p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1AudioBufferBadAlloc.html" title="Error thrown when allocating an audio buffer fails.">AudioBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">range</td><td>A contiguous range of audio data. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>The format of the audio data. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">frequency</td><td>The frequency of the audio data. </td></tr>
   </table>

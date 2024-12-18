@@ -316,6 +316,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Loads a shader from file. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1FileNotFound.html" title="File not found exception.">FileNotFound</a></td><td>If the file is not found. </td></tr>
@@ -363,6 +365,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Loads a shader from an embedded file. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">embeddedFile</td><td>An embedded SPIR-V shader file. </td></tr>
@@ -437,7 +441,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a shader storage buffer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the buffer. The index must be valid. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the buffer.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The buffer at the index must be valid. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">buffer</td><td>The buffer to bind. </td></tr>
   </table>
   </dd>
@@ -475,7 +487,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a boolean uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -513,7 +533,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat2 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -551,7 +579,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat2x3 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -589,7 +625,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat2x4 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -627,7 +671,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat3 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -665,7 +717,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat3x2 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -703,7 +763,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat3x4 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -741,7 +809,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat4 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -779,7 +855,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat4x2 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -817,7 +901,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat4x3 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -855,7 +947,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a texture sampler uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">unit</td><td>The texture unit to bind the uniform to. </td></tr>
   </table>
   </dd>
@@ -893,7 +993,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a double uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -931,7 +1039,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a float uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -969,7 +1085,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a bvec2 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1007,7 +1131,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a bvec3 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1045,7 +1177,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a bvec4 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1083,7 +1223,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a dvec2 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1121,7 +1269,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a dvec3 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1159,7 +1315,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a dvec4 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1197,7 +1361,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a ivec2 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1235,7 +1407,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a ivec3 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1273,7 +1453,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a ivec4 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1311,7 +1499,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a uvec2 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1349,7 +1545,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a uvec3 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1387,7 +1591,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a uvec4 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1425,7 +1637,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a vec2 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1463,7 +1683,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a vec3 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1501,7 +1729,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a vec4 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1539,7 +1775,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a integer uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1577,7 +1821,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a double array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1615,7 +1867,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a float array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1653,7 +1913,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a dvec2 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1691,7 +1959,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a dvec3 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1729,7 +2005,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a dvec4 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1767,7 +2051,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a ivec2 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1805,7 +2097,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a ivec3 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1843,7 +2143,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a ivec4 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1881,7 +2189,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat2 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1919,7 +2235,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat2x3 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1957,7 +2281,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat2x4 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -1995,7 +2327,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat3 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -2033,7 +2373,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat3x2 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -2071,7 +2419,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat3x4 uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -2109,7 +2465,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat4 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -2147,7 +2511,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat4x2 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -2185,7 +2557,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a mat4x3 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -2223,7 +2603,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a uvec2 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -2261,7 +2649,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a uvec3 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -2299,7 +2695,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a uvec4 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -2337,7 +2741,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a vec2 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -2375,7 +2787,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a vec3 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -2413,7 +2833,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a vec4 array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -2451,7 +2879,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets a integer array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -2489,7 +2925,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets an unsigned integer array uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>
@@ -2527,7 +2971,15 @@ Public Member Functions</h2></td></tr>
 <p>Sets an unsigned integer uniform. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>The index of the uniform. The uniform at the index must be valid and of the matching type. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td><p class="starttd">The index of the uniform.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The uniform at the index must be valid and of the matching type. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The value to set to. </td></tr>
   </table>
   </dd>

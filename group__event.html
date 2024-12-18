@@ -239,7 +239,15 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates a timer that sends draw events. </p>
-<p>For exceptions, see <a class="el" href="classtr_1_1Timer.html" title="Minimal callback timer class.">Timer</a>'s constructor.</p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::system_error</td><td>If launching a thread for the timer failed. </td></tr>
+    <tr><td class="paramname">std::bad_alloc</td><td>If allocating the callback function failed.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">frequency</td><td>The drawing frequency.</td></tr>
@@ -270,7 +278,15 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates a timer that sends tick events. </p>
-<p>For exceptions, see <a class="el" href="classtr_1_1Timer.html" title="Minimal callback timer class.">Timer</a>'s constructor.</p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::system_error</td><td>If launching a thread for the timer failed. </td></tr>
+    <tr><td class="paramname">std::bad_alloc</td><td>If allocating the callback function failed.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">frequency</td><td>The ticking frequency. </td></tr>

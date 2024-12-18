@@ -232,10 +232,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The length as if produced by <div class="fragment"><div class="line">std::distance(<a class="code hl_function" href="#gaf9745ab162880406220e467debe3c22e">utf8Begin</a>(str), <a class="code hl_function" href="#gaa0210a04b45f66f8bbe8e0ac42573a35">utf8End</a>(str)) </div>
-<div class="ttc" id="agroup__utf8_html_gaa0210a04b45f66f8bbe8e0ac42573a35"><div class="ttname"><a href="#gaa0210a04b45f66f8bbe8e0ac42573a35">tr::utf8End</a></div><div class="ttdeci">constexpr Utf8ConstIt utf8End(std::string_view str) noexcept</div><div class="ttdoc">Creates an ending codepoint iterator for a UTF-8 UTF-8 string view.</div></div>
-<div class="ttc" id="agroup__utf8_html_gaf9745ab162880406220e467debe3c22e"><div class="ttname"><a href="#gaf9745ab162880406220e467debe3c22e">tr::utf8Begin</a></div><div class="ttdeci">constexpr Utf8ConstIt utf8Begin(std::string_view str) noexcept</div><div class="ttdoc">Creates a beginning codepoint iterator for a UTF-8 string view.</div></div>
-</div><!-- fragment --> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The length as if produced by <code>std::distance(utf8Begin(str), utf8End(str))</code>. </dd></dl>
 
 </div>
 </div>
@@ -269,8 +266,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A range as if produced by <div class="fragment"><div class="line">{ <a class="code hl_function" href="#gaf9745ab162880406220e467debe3c22e">utf8Begin</a>(str), <a class="code hl_function" href="#gaa0210a04b45f66f8bbe8e0ac42573a35">utf8End</a>(str) } </div>
-</div><!-- fragment --> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A range as if produced by <code>{ utf8Begin(str), utf8End(str) }</code>. </dd></dl>
 
 </div>
 </div>

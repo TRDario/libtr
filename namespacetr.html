@@ -166,7 +166,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-owning audio buffer view.  <a href="classtr_1_1AudioBufferView.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1AudioSource.html">AudioSource</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio source.  <a href="classtr_1_1AudioSource.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D Audio source.  <a href="classtr_1_1AudioSource.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1AudioSourceBadAlloc.html">AudioSourceBadAlloc</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error thrown when allocating an audio source fails.  <a href="structtr_1_1AudioSourceBadAlloc.html#details">More...</a><br /></td></tr>
@@ -754,10 +754,8 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ga0cd93ec18a3882266f1c6cd2657e7cfe" id="r_ga0cd93ec18a3882266f1c6cd2657e7cfe"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__audio__buffer.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> { <a class="el" href="group__audio__buffer.html#gga0cd93ec18a3882266f1c6cd2657e7cfea6bb6d6a0741f2a5afd00611ed1ef5f8b">AudioFormat::MONO8</a> = 0x11'00
-, <a class="el" href="group__audio__buffer.html#gga0cd93ec18a3882266f1c6cd2657e7cfeae155ffb380a7c880b0f0365cdaa2d9c3">AudioFormat::STEREO8</a> = 0x11'02
-, <a class="el" href="group__audio__buffer.html#gga0cd93ec18a3882266f1c6cd2657e7cfea59e5ab3f0c1c59504cf28fc887787eab">AudioFormat::MONO16</a> = 0x11'01
-, <a class="el" href="group__audio__buffer.html#gga0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7">AudioFormat::STEREO16</a> = 0x11'03
+<tr class="memitem:ga0cd93ec18a3882266f1c6cd2657e7cfe" id="r_ga0cd93ec18a3882266f1c6cd2657e7cfe"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__audio__buffer.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">AudioFormat</a> { <a class="el" href="group__audio__buffer.html#gga0cd93ec18a3882266f1c6cd2657e7cfea59e5ab3f0c1c59504cf28fc887787eab">AudioFormat::MONO16</a> = 0x1101
+, <a class="el" href="group__audio__buffer.html#gga0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7">AudioFormat::STEREO16</a> = 0x1103
  }</td></tr>
 <tr class="memdesc:ga0cd93ec18a3882266f1c6cd2657e7cfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio data format.  <a href="group__audio__buffer.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">More...</a><br /></td></tr>
 <tr class="separator:ga0cd93ec18a3882266f1c6cd2657e7cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -774,10 +772,10 @@ Enumerations</h2></td></tr>
 <tr class="memdesc:ga6c94829f0dfe0e9696cc57a3c7aff830"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio source states.  <a href="group__audio__source.html#ga6c94829f0dfe0e9696cc57a3c7aff830">More...</a><br /></td></tr>
 <tr class="separator:ga6c94829f0dfe0e9696cc57a3c7aff830"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab02487840c576fc68a93203882127279" id="r_gab02487840c576fc68a93203882127279"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__graphics__context.html#gab02487840c576fc68a93203882127279">BlendFunction</a> { <br />
-&#160;&#160;<a class="el" href="group__graphics__context.html#ggab02487840c576fc68a93203882127279a9eeb52badb613229884838847294b90d">BlendFunction::ADD</a> = 0x80'06
+&#160;&#160;<a class="el" href="group__graphics__context.html#ggab02487840c576fc68a93203882127279a9eeb52badb613229884838847294b90d">BlendFunction::ADD</a> = 0x8006
 , <a class="el" href="group__graphics__context.html#ggab02487840c576fc68a93203882127279ace31e2a082d17e038fcc6e3006166653">BlendFunction::MIN</a>
 , <a class="el" href="group__graphics__context.html#ggab02487840c576fc68a93203882127279a26a4b44a837bf97b972628509912b4a5">BlendFunction::MAX</a>
-, <a class="el" href="group__graphics__context.html#ggab02487840c576fc68a93203882127279a23ebcc4776b613af25dfbe7c8ce4813e">BlendFunction::SUBTRACT</a> = 0x80'0A
+, <a class="el" href="group__graphics__context.html#ggab02487840c576fc68a93203882127279a23ebcc4776b613af25dfbe7c8ce4813e">BlendFunction::SUBTRACT</a> = 0x800A
 , <br />
 &#160;&#160;<a class="el" href="group__graphics__context.html#ggab02487840c576fc68a93203882127279a84501f117a8c5a3f3f9faaa21be26e8e">BlendFunction::REVERSE_SUBTRACT</a>
 <br />
@@ -787,7 +785,7 @@ Enumerations</h2></td></tr>
 <tr class="memitem:gab7083cc1749480ee24db1b5ef93d4767" id="r_gab7083cc1749480ee24db1b5ef93d4767"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__graphics__context.html#gab7083cc1749480ee24db1b5ef93d4767">BlendMultiplier</a> { <br />
 &#160;&#160;<a class="el" href="group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767a529e9e0beb5f85d1f132917c1a09860c">BlendMultiplier::ZERO</a>
 , <a class="el" href="group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767abc21e6484530fc9d0313cb816b733396">BlendMultiplier::ONE</a>
-, <a class="el" href="group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767a0d64e73cd04f53e815a849347285839e">BlendMultiplier::SRC_COLOR</a> = 0x3'00
+, <a class="el" href="group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767a0d64e73cd04f53e815a849347285839e">BlendMultiplier::SRC_COLOR</a> = 0x300
 , <a class="el" href="group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767af883b721fe8288abb2c5f8fc7b100b54">BlendMultiplier::ONE_MINUS_SRC_COLOR</a>
 , <br />
 &#160;&#160;<a class="el" href="group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767aa01be6519d4fb614f16261a59958bbb4">BlendMultiplier::SRC_ALPHA</a>
@@ -798,7 +796,7 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767a220e8b21c17d3d0f297244647d60df59">BlendMultiplier::DST_COLOR</a>
 , <a class="el" href="group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767ace05af0f4690600250a4f0dce0029906">BlendMultiplier::ONE_MINUS_DST_COLOR</a>
 , <a class="el" href="group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767ac3b3d055cc049ac9787677800d1c2c0a">BlendMultiplier::SRC_ALPHA_SATURATE</a>
-, <a class="el" href="group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767a30621775d687d61143980af264746e1d">BlendMultiplier::CONSTANT_COLOR</a> = 0x80'01
+, <a class="el" href="group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767a30621775d687d61143980af264746e1d">BlendMultiplier::CONSTANT_COLOR</a> = 0x8001
 , <br />
 &#160;&#160;<a class="el" href="group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767a49cf245431d345a1c63d5466cfe07a53">BlendMultiplier::ONE_MINUS_CONSTANT_COLOR</a>
 , <a class="el" href="group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767aadea5dd772ca5c4e887ee15c3bb588ec">BlendMultiplier::CONSTANT_ALPHA</a>
@@ -807,23 +805,23 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:gab7083cc1749480ee24db1b5ef93d4767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blending parameter multipliers.  <a href="group__graphics__context.html#gab7083cc1749480ee24db1b5ef93d4767">More...</a><br /></td></tr>
 <tr class="separator:gab7083cc1749480ee24db1b5ef93d4767"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaeaf2735d38842f598e12fe0e884992ed" id="r_gaeaf2735d38842f598e12fe0e884992ed"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__graphics__context.html#gaeaf2735d38842f598e12fe0e884992ed">Clear</a> { <a class="el" href="group__graphics__context.html#ggaeaf2735d38842f598e12fe0e884992edaaa1780b4fcce2d5d9af13dc25386d111">Clear::DEPTH</a> = 0b00000001'00000000
-, <a class="el" href="group__graphics__context.html#ggaeaf2735d38842f598e12fe0e884992eda301b25ea9a653329b5d5d727f92514c4">Clear::STENCIL</a> = 0b00000100'00000000
-, <a class="el" href="group__graphics__context.html#ggaeaf2735d38842f598e12fe0e884992eda04bd834032febb3fda8c6936ee140949">Clear::COLOR</a> = 0b01000000'00000000
-, <a class="el" href="group__graphics__context.html#ggaeaf2735d38842f598e12fe0e884992eda5fb1f955b45e38e31789286a1790398d">Clear::ALL</a> = 0b01000101'00000000
+<tr class="memitem:gaeaf2735d38842f598e12fe0e884992ed" id="r_gaeaf2735d38842f598e12fe0e884992ed"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__graphics__context.html#gaeaf2735d38842f598e12fe0e884992ed">Clear</a> { <a class="el" href="group__graphics__context.html#ggaeaf2735d38842f598e12fe0e884992edaaa1780b4fcce2d5d9af13dc25386d111">Clear::DEPTH</a> = 0b0000000100000000
+, <a class="el" href="group__graphics__context.html#ggaeaf2735d38842f598e12fe0e884992eda301b25ea9a653329b5d5d727f92514c4">Clear::STENCIL</a> = 0b0000010000000000
+, <a class="el" href="group__graphics__context.html#ggaeaf2735d38842f598e12fe0e884992eda04bd834032febb3fda8c6936ee140949">Clear::COLOR</a> = 0b0100000000000000
+, <a class="el" href="group__graphics__context.html#ggaeaf2735d38842f598e12fe0e884992eda5fb1f955b45e38e31789286a1790398d">Clear::ALL</a> = 0b0100010100000000
  }</td></tr>
 <tr class="memdesc:gaeaf2735d38842f598e12fe0e884992ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clearable components of the render target.  <a href="group__graphics__context.html#gaeaf2735d38842f598e12fe0e884992ed">More...</a><br /></td></tr>
 <tr class="separator:gaeaf2735d38842f598e12fe0e884992ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga88338da155e2e92486d80fb0650a07d5" id="r_ga88338da155e2e92486d80fb0650a07d5"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sampler.html#ga88338da155e2e92486d80fb0650a07d5">Compare</a> { <br />
-&#160;&#160;<a class="el" href="group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a443475558f0168dff92ecde26b98ae5a">Compare::NEVER</a> = 0x02'00
-, <a class="el" href="group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a1798e8c3621ca53d9e3a80d257306000">Compare::LESS</a> = 0x02'01
-, <a class="el" href="group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a969f331a87d8c958473c32b4d0e61a44">Compare::EQUAL</a> = 0x02'02
-, <a class="el" href="group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a8a72211a539c4f44dcaa446209076da6">Compare::LEQUAL</a> = 0x02'03
+&#160;&#160;<a class="el" href="group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a443475558f0168dff92ecde26b98ae5a">Compare::NEVER</a> = 0x0200
+, <a class="el" href="group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a1798e8c3621ca53d9e3a80d257306000">Compare::LESS</a> = 0x0201
+, <a class="el" href="group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a969f331a87d8c958473c32b4d0e61a44">Compare::EQUAL</a> = 0x0202
+, <a class="el" href="group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a8a72211a539c4f44dcaa446209076da6">Compare::LEQUAL</a> = 0x0203
 , <br />
-&#160;&#160;<a class="el" href="group__sampler.html#gga88338da155e2e92486d80fb0650a07d5ae7e72355289e404b762d4cf88824d23b">Compare::GREATER</a> = 0x02'04
-, <a class="el" href="group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a08c21e015248267a01d727848c97b40a">Compare::NEQUAL</a> = 0x02'05
-, <a class="el" href="group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a9e63a520a6e8fefd37a5fa966d96f3bc">Compare::GEQUAL</a> = 0x02'06
-, <a class="el" href="group__sampler.html#gga88338da155e2e92486d80fb0650a07d5af3fc827ade4b968e50406496907ef962">Compare::ALWAYS</a> = 0x02'07
+&#160;&#160;<a class="el" href="group__sampler.html#gga88338da155e2e92486d80fb0650a07d5ae7e72355289e404b762d4cf88824d23b">Compare::GREATER</a> = 0x0204
+, <a class="el" href="group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a08c21e015248267a01d727848c97b40a">Compare::NEQUAL</a> = 0x0205
+, <a class="el" href="group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a9e63a520a6e8fefd37a5fa966d96f3bc">Compare::GEQUAL</a> = 0x0206
+, <a class="el" href="group__sampler.html#gga88338da155e2e92486d80fb0650a07d5af3fc827ade4b968e50406496907ef962">Compare::ALWAYS</a> = 0x0207
 <br />
  }</td></tr>
 <tr class="memdesc:ga88338da155e2e92486d80fb0650a07d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Depth comparison functions.  <a href="group__sampler.html#ga88338da155e2e92486d80fb0650a07d5">More...</a><br /></td></tr>
@@ -835,39 +833,39 @@ Enumerations</h2></td></tr>
 <tr class="memdesc:ga41769bf3df85aadb5d910148498e9585"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flash operations.  <a href="group__window.html#ga41769bf3df85aadb5d910148498e9585">More...</a><br /></td></tr>
 <tr class="separator:ga41769bf3df85aadb5d910148498e9585"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1e5a857eb2f40e2b55bfb43225cbc658" id="r_ga1e5a857eb2f40e2b55bfb43225cbc658"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__keyboard.html#ga1e5a857eb2f40e2b55bfb43225cbc658">Keymods</a> : std::uint16_t { <br />
-&#160;&#160;<a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658ab50339a10e1de285ac99d4c3990b8693">Keymods::NONE</a> = 0x00'00
-, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658adff23c74b1d8d80f33e8a894964c74d7">Keymods::LSHIFT</a> = 0x00'01
-, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658ad13eccc8e378c60e2f9620ce4c77f963">Keymods::RSHIFT</a> = 0x00'02
-, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658aa0ff1131b5e3e765b0b5151de87cb6b2">Keymods::LCTRL</a> = 0x00'40
+&#160;&#160;<a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658ab50339a10e1de285ac99d4c3990b8693">Keymods::NONE</a> = 0x0000
+, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658adff23c74b1d8d80f33e8a894964c74d7">Keymods::LSHIFT</a> = 0x0001
+, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658ad13eccc8e378c60e2f9620ce4c77f963">Keymods::RSHIFT</a> = 0x0002
+, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658aa0ff1131b5e3e765b0b5151de87cb6b2">Keymods::LCTRL</a> = 0x0040
 , <br />
-&#160;&#160;<a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658a15f63aec610b5a7fb7e4c461e14e6ad9">Keymods::RCTRL</a> = 0x00'80
-, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658ac71417d2a3afe1a18b66cfa57a662df9">Keymods::LALT</a> = 0x01'00
-, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658adad2745b04899c2c1c0fdb404fce17d8">Keymods::RALT</a> = 0x02'00
-, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658a708f5ef3cba310fb0cb0d6254a71e220">Keymods::LWIN</a> = 0x04'00
+&#160;&#160;<a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658a15f63aec610b5a7fb7e4c461e14e6ad9">Keymods::RCTRL</a> = 0x0080
+, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658ac71417d2a3afe1a18b66cfa57a662df9">Keymods::LALT</a> = 0x0100
+, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658adad2745b04899c2c1c0fdb404fce17d8">Keymods::RALT</a> = 0x0200
+, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658a708f5ef3cba310fb0cb0d6254a71e220">Keymods::LWIN</a> = 0x0400
 , <br />
-&#160;&#160;<a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658a27cd5c43a8cb2f988335fa57cb0d1a83">Keymods::RWIN</a> = 0x08'00
-, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658a44119bf3bae5d40a8d0766b91c304aac">Keymods::NUM</a> = 0x10'00
-, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658a93eaa03494843069e0657f9255f55b96">Keymods::CAPS</a> = 0x20'00
-, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658ab742db58b16f1d7de716d5e8a8afabbb">Keymods::MODE</a> = 0x40'00
+&#160;&#160;<a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658a27cd5c43a8cb2f988335fa57cb0d1a83">Keymods::RWIN</a> = 0x0800
+, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658a44119bf3bae5d40a8d0766b91c304aac">Keymods::NUM</a> = 0x1000
+, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658a93eaa03494843069e0657f9255f55b96">Keymods::CAPS</a> = 0x2000
+, <a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658ab742db58b16f1d7de716d5e8a8afabbb">Keymods::MODE</a> = 0x4000
 , <br />
-&#160;&#160;<a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658a71574275cadb387a5082e87e9dd60c25">Keymods::SCROLL</a> = 0x80'00
+&#160;&#160;<a class="el" href="group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658a71574275cadb387a5082e87e9dd60c25">Keymods::SCROLL</a> = 0x8000
 <br />
  }</td></tr>
 <tr class="memdesc:ga1e5a857eb2f40e2b55bfb43225cbc658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Key modifier bitmasks.  <a href="group__keyboard.html#ga1e5a857eb2f40e2b55bfb43225cbc658">More...</a><br /></td></tr>
 <tr class="separator:ga1e5a857eb2f40e2b55bfb43225cbc658"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac346a03e941c8ea2519c19086c4ce299" id="r_gac346a03e941c8ea2519c19086c4ce299"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sampler.html#gac346a03e941c8ea2519c19086c4ce299">MagFilter</a> { <a class="el" href="group__sampler.html#ggac346a03e941c8ea2519c19086c4ce299aad135772d7cf93dd0ccf9d2474b34e6a">MagFilter::NEAREST</a> = 0x26'00
-, <a class="el" href="group__sampler.html#ggac346a03e941c8ea2519c19086c4ce299aaac544aacc3615aada24897a215f5046">MagFilter::LINEAR</a> = 0x26'01
+<tr class="memitem:gac346a03e941c8ea2519c19086c4ce299" id="r_gac346a03e941c8ea2519c19086c4ce299"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sampler.html#gac346a03e941c8ea2519c19086c4ce299">MagFilter</a> { <a class="el" href="group__sampler.html#ggac346a03e941c8ea2519c19086c4ce299aad135772d7cf93dd0ccf9d2474b34e6a">MagFilter::NEAREST</a> = 0x2600
+, <a class="el" href="group__sampler.html#ggac346a03e941c8ea2519c19086c4ce299aaac544aacc3615aada24897a215f5046">MagFilter::LINEAR</a> = 0x2601
  }</td></tr>
 <tr class="memdesc:gac346a03e941c8ea2519c19086c4ce299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Magnifying filter types.  <a href="group__sampler.html#gac346a03e941c8ea2519c19086c4ce299">More...</a><br /></td></tr>
 <tr class="separator:gac346a03e941c8ea2519c19086c4ce299"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad1e4cc9bea7f1b176409b1e42ea21d68" id="r_gad1e4cc9bea7f1b176409b1e42ea21d68"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sampler.html#gad1e4cc9bea7f1b176409b1e42ea21d68">MinFilter</a> { <br />
-&#160;&#160;<a class="el" href="group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68aad135772d7cf93dd0ccf9d2474b34e6a">MinFilter::NEAREST</a> = 0x26'00
-, <a class="el" href="group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68aaac544aacc3615aada24897a215f5046">MinFilter::LINEAR</a> = 0x26'01
-, <a class="el" href="group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68a31bdfa42123ea543959a75e6fbfc0f49">MinFilter::NMIP_NEAREST</a> = 0x27'00
-, <a class="el" href="group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68a0ff446207d03fcfae5a9699956be682c">MinFilter::NMIP_LINEAR</a> = 0x27'02
+&#160;&#160;<a class="el" href="group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68aad135772d7cf93dd0ccf9d2474b34e6a">MinFilter::NEAREST</a> = 0x2600
+, <a class="el" href="group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68aaac544aacc3615aada24897a215f5046">MinFilter::LINEAR</a> = 0x2601
+, <a class="el" href="group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68a31bdfa42123ea543959a75e6fbfc0f49">MinFilter::NMIP_NEAREST</a> = 0x2700
+, <a class="el" href="group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68a0ff446207d03fcfae5a9699956be682c">MinFilter::NMIP_LINEAR</a> = 0x2702
 , <br />
-&#160;&#160;<a class="el" href="group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68a80d7762017884e84483f1d34a81b8960">MinFilter::LMIPS_NEAREST</a> = 0x27'01
-, <a class="el" href="group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68acc8ed884527502bc599419e2d5c22cb6">MinFilter::LMIPS_LINEAR</a> = 0x27'03
+&#160;&#160;<a class="el" href="group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68a80d7762017884e84483f1d34a81b8960">MinFilter::LMIPS_NEAREST</a> = 0x2701
+, <a class="el" href="group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68acc8ed884527502bc599419e2d5c22cb6">MinFilter::LMIPS_LINEAR</a> = 0x2703
 <br />
  }</td></tr>
 <tr class="memdesc:gad1e4cc9bea7f1b176409b1e42ea21d68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minifying filter types.  <a href="group__sampler.html#gad1e4cc9bea7f1b176409b1e42ea21d68">More...</a><br /></td></tr>
@@ -899,26 +897,26 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ga836d6a68316285fa5bde27908d9d9184"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rendering primitives.  <a href="group__graphics__context.html#ga836d6a68316285fa5bde27908d9d9184">More...</a><br /></td></tr>
 <tr class="separator:ga836d6a68316285fa5bde27908d9d9184"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafcfa3e5f9682128a25a9ac5eb1de2579" id="r_gafcfa3e5f9682128a25a9ac5eb1de2579"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__shader.html#gafcfa3e5f9682128a25a9ac5eb1de2579">ShaderType</a> : std::uint32_t { <a class="el" href="group__shader.html#ggafcfa3e5f9682128a25a9ac5eb1de2579a0c3e47aef93a7f244f41ab309a33634b">ShaderType::VERTEX</a> = 0x8B'31
-, <a class="el" href="group__shader.html#ggafcfa3e5f9682128a25a9ac5eb1de2579a7345a249ed5c2f850d85dc1727c24716">ShaderType::FRAGMENT</a> = 0x8B'30
+<tr class="memitem:gafcfa3e5f9682128a25a9ac5eb1de2579" id="r_gafcfa3e5f9682128a25a9ac5eb1de2579"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__shader.html#gafcfa3e5f9682128a25a9ac5eb1de2579">ShaderType</a> : std::uint32_t { <a class="el" href="group__shader.html#ggafcfa3e5f9682128a25a9ac5eb1de2579a0c3e47aef93a7f244f41ab309a33634b">ShaderType::VERTEX</a> = 0x8B31
+, <a class="el" href="group__shader.html#ggafcfa3e5f9682128a25a9ac5eb1de2579a7345a249ed5c2f850d85dc1727c24716">ShaderType::FRAGMENT</a> = 0x8B30
  }</td></tr>
 <tr class="memdesc:gafcfa3e5f9682128a25a9ac5eb1de2579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shader types.  <a href="group__shader.html#gafcfa3e5f9682128a25a9ac5eb1de2579">More...</a><br /></td></tr>
 <tr class="separator:gafcfa3e5f9682128a25a9ac5eb1de2579"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae1a255c2dd97c61884a0c90d6e7aae8f" id="r_gae1a255c2dd97c61884a0c90d6e7aae8f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__graphics__context.html#gae1a255c2dd97c61884a0c90d6e7aae8f">StencilFace</a> { <a class="el" href="group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fabb2fe5c916efb43aab8cbb68f997d2ee">StencilFace::FRONT</a> = 0x4'04
-, <a class="el" href="group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fa1dd26f1f1790f0b56d5752fb0fbecef0">StencilFace::BACK</a> = 0x4'05
-, <a class="el" href="group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fa6328e5e3186c227a021ef2ff77e40197">StencilFace::BOTH</a> = 0x4'08
+<tr class="memitem:gae1a255c2dd97c61884a0c90d6e7aae8f" id="r_gae1a255c2dd97c61884a0c90d6e7aae8f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__graphics__context.html#gae1a255c2dd97c61884a0c90d6e7aae8f">StencilFace</a> { <a class="el" href="group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fabb2fe5c916efb43aab8cbb68f997d2ee">StencilFace::FRONT</a> = 0x404
+, <a class="el" href="group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fa1dd26f1f1790f0b56d5752fb0fbecef0">StencilFace::BACK</a> = 0x405
+, <a class="el" href="group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fa6328e5e3186c227a021ef2ff77e40197">StencilFace::BOTH</a> = 0x408
  }</td></tr>
 <tr class="memdesc:gae1a255c2dd97c61884a0c90d6e7aae8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stencil faces.  <a href="group__graphics__context.html#gae1a255c2dd97c61884a0c90d6e7aae8f">More...</a><br /></td></tr>
 <tr class="separator:gae1a255c2dd97c61884a0c90d6e7aae8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8c440fc4a94422129e86a69114e35b50" id="r_ga8c440fc4a94422129e86a69114e35b50"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__graphics__context.html#ga8c440fc4a94422129e86a69114e35b50">StencilOperation</a> { <br />
 &#160;&#160;<a class="el" href="group__graphics__context.html#gga8c440fc4a94422129e86a69114e35b50a529e9e0beb5f85d1f132917c1a09860c">StencilOperation::ZERO</a>
-, <a class="el" href="group__graphics__context.html#gga8c440fc4a94422129e86a69114e35b50a60cba2874369bd3790e14ea5f8a7bc58">StencilOperation::KEEP</a> = 0x1E'00
+, <a class="el" href="group__graphics__context.html#gga8c440fc4a94422129e86a69114e35b50a60cba2874369bd3790e14ea5f8a7bc58">StencilOperation::KEEP</a> = 0x1E00
 , <a class="el" href="group__graphics__context.html#gga8c440fc4a94422129e86a69114e35b50a560a2dd6f6744646473b3b19e1fe96d7">StencilOperation::REPLACE</a>
 , <a class="el" href="group__graphics__context.html#gga8c440fc4a94422129e86a69114e35b50a38924f2227ebf15f4bdc6dca5c5eca91">StencilOperation::INC</a>
 , <br />
 &#160;&#160;<a class="el" href="group__graphics__context.html#gga8c440fc4a94422129e86a69114e35b50a38344a4d87bb35ec197f26fad338b6ab">StencilOperation::DEC</a>
-, <a class="el" href="group__graphics__context.html#gga8c440fc4a94422129e86a69114e35b50aa2727ae72447eea06d4cc0ef67187280">StencilOperation::INVERT</a> = 0x15'0A
-, <a class="el" href="group__graphics__context.html#gga8c440fc4a94422129e86a69114e35b50ae49418c69e4102ecfcb193311e6be76d">StencilOperation::WRAPINC</a> = 0x85'07
+, <a class="el" href="group__graphics__context.html#gga8c440fc4a94422129e86a69114e35b50aa2727ae72447eea06d4cc0ef67187280">StencilOperation::INVERT</a> = 0x150A
+, <a class="el" href="group__graphics__context.html#gga8c440fc4a94422129e86a69114e35b50ae49418c69e4102ecfcb193311e6be76d">StencilOperation::WRAPINC</a> = 0x8507
 , <a class="el" href="group__graphics__context.html#gga8c440fc4a94422129e86a69114e35b50a07296a95713959b948879267498a4420">StencilOperation::WRAPDEC</a>
 <br />
  }</td></tr>
@@ -927,7 +925,7 @@ Enumerations</h2></td></tr>
 <tr class="memitem:ga228d86137368dd348340097c8a515439" id="r_ga228d86137368dd348340097c8a515439"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__texture.html#ga228d86137368dd348340097c8a515439">Swizzle</a> { <br />
 &#160;&#160;<a class="el" href="group__texture.html#gga228d86137368dd348340097c8a515439a529e9e0beb5f85d1f132917c1a09860c">Swizzle::ZERO</a>
 , <a class="el" href="group__texture.html#gga228d86137368dd348340097c8a515439abc21e6484530fc9d0313cb816b733396">Swizzle::ONE</a>
-, <a class="el" href="group__texture.html#gga228d86137368dd348340097c8a515439ae1e1d3d40573127e9ee0480caf1283d6">Swizzle::R</a> = 0x19'03
+, <a class="el" href="group__texture.html#gga228d86137368dd348340097c8a515439ae1e1d3d40573127e9ee0480caf1283d6">Swizzle::R</a> = 0x1903
 , <a class="el" href="group__texture.html#gga228d86137368dd348340097c8a515439adfcf28d0734569a6a693bc8194de62bf">Swizzle::G</a>
 , <br />
 &#160;&#160;<a class="el" href="group__texture.html#gga228d86137368dd348340097c8a515439a9d5ed678fe57bcca610140957afab571">Swizzle::B</a>
@@ -956,80 +954,80 @@ Enumerations</h2></td></tr>
 <tr class="memdesc:gafb288c9c0ebc6c9d4b511786aadb5d8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">System mouse cursor icons.  <a href="group__mouse.html#gafb288c9c0ebc6c9d4b511786aadb5d8e">More...</a><br /></td></tr>
 <tr class="separator:gafb288c9c0ebc6c9d4b511786aadb5d8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2e9ae2f935462a45286798ae6fd5def9" id="r_ga2e9ae2f935462a45286798ae6fd5def9"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__texture.html#ga2e9ae2f935462a45286798ae6fd5def9">TextureFormat</a> { <br />
-&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9acfff813d86d447fa2a9c858650ebbb90">TextureFormat::R8</a> = 0x82'29
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9afb68704b014646b912f3d2471ce2a53f">TextureFormat::R8_SNORM</a> = 0x8F'94
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a9a486e1a3c543c7c58e1cc8086dc4239">TextureFormat::R16</a> = 0x82'2A
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a3b0f40db5c8bdec8cc984a8998650318">TextureFormat::R16_SNORM</a> = 0x8F'98
+&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9acfff813d86d447fa2a9c858650ebbb90">TextureFormat::R8</a> = 0x8229
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9afb68704b014646b912f3d2471ce2a53f">TextureFormat::R8_SNORM</a> = 0x8F94
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a9a486e1a3c543c7c58e1cc8086dc4239">TextureFormat::R16</a> = 0x822A
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a3b0f40db5c8bdec8cc984a8998650318">TextureFormat::R16_SNORM</a> = 0x8F98
 , <br />
-&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a0367a93b9e3e7aa2fbe9802d80298e46">TextureFormat::RG8</a> = 0x82'2B
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a5eb1dc460fbf256416433d36b52d550c">TextureFormat::RG8_SNORM</a> = 0x8F'95
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a2b66caa416f0a28686ade3fc30ab223a">TextureFormat::RG16</a> = 0x82'2C
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a9ace920ee7761bfeb106636ccecec7b4">TextureFormat::RG16_SNORM</a> = 0x8F'99
+&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a0367a93b9e3e7aa2fbe9802d80298e46">TextureFormat::RG8</a> = 0x822B
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a5eb1dc460fbf256416433d36b52d550c">TextureFormat::RG8_SNORM</a> = 0x8F95
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a2b66caa416f0a28686ade3fc30ab223a">TextureFormat::RG16</a> = 0x822C
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a9ace920ee7761bfeb106636ccecec7b4">TextureFormat::RG16_SNORM</a> = 0x8F99
 , <br />
-&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a3a4bd3e6402ff09f69f3406640ad08d6">TextureFormat::R3G3B2</a> = 0x2A'10
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a988777bd9406d465bdf7d81a36b26749">TextureFormat::RGB4</a> = 0x80'4F
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a51e72bb0b91ea20485e3ad7657b9a60e">TextureFormat::RGB5</a> = 0x80'50
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a165c6379d01617e12de274a3952efa63">TextureFormat::RGB8</a> = 0x80'51
+&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a3a4bd3e6402ff09f69f3406640ad08d6">TextureFormat::R3G3B2</a> = 0x2A10
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a988777bd9406d465bdf7d81a36b26749">TextureFormat::RGB4</a> = 0x804F
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a51e72bb0b91ea20485e3ad7657b9a60e">TextureFormat::RGB5</a> = 0x8050
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a165c6379d01617e12de274a3952efa63">TextureFormat::RGB8</a> = 0x8051
 , <br />
-&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a5125a2eb23328fbebd49e8e34c2d81f4">TextureFormat::RGB8_SNORM</a> = 0x8F'96
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9aa3ac59ae1fad21561752e23c2bebc6b8">TextureFormat::RGB10</a> = 0x80'52
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ac65abdcc9466868b293bfb11179fedc5">TextureFormat::RGB12</a> = 0x80'53
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a1cd42e2af35bdfb43d791f8cecdce4a4">TextureFormat::RGB16</a> = 0x80'54
+&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a5125a2eb23328fbebd49e8e34c2d81f4">TextureFormat::RGB8_SNORM</a> = 0x8F96
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9aa3ac59ae1fad21561752e23c2bebc6b8">TextureFormat::RGB10</a> = 0x8052
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ac65abdcc9466868b293bfb11179fedc5">TextureFormat::RGB12</a> = 0x8053
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a1cd42e2af35bdfb43d791f8cecdce4a4">TextureFormat::RGB16</a> = 0x8054
 , <br />
-&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9aa992cd9526a4058019903d63c4e30e41">TextureFormat::RGB16_SNORM</a> = 0x8F'9A
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a6d3435115853ddb0d9c1711d182ad6ac">TextureFormat::RGBA2</a> = 0x80'55
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ad0194ebb93fd86b15f194ef73f81a01f">TextureFormat::RGBA4</a> = 0x80'56
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a145a041c8e2080c43fa129fb5b17d8be">TextureFormat::RGB5A1</a> = 0x80'57
+&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9aa992cd9526a4058019903d63c4e30e41">TextureFormat::RGB16_SNORM</a> = 0x8F9A
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a6d3435115853ddb0d9c1711d182ad6ac">TextureFormat::RGBA2</a> = 0x8055
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ad0194ebb93fd86b15f194ef73f81a01f">TextureFormat::RGBA4</a> = 0x8056
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a145a041c8e2080c43fa129fb5b17d8be">TextureFormat::RGB5A1</a> = 0x8057
 , <br />
-&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ab4b279046a02077466fa26cabb00c642">TextureFormat::RGBA8</a> = 0x80'58
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a50f236dafc21c443069d0c47937290a6">TextureFormat::RGBA8_SNORM</a> = 0x8F'97
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a4cad8c5058101f0f527e306958b6641b">TextureFormat::RGB10A2</a> = 0x80'59
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a2add6c22a8e5c9cc8cfe9de0dde55f45">TextureFormat::RGB10A2_UI</a> = 0x90'6F
+&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ab4b279046a02077466fa26cabb00c642">TextureFormat::RGBA8</a> = 0x8058
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a50f236dafc21c443069d0c47937290a6">TextureFormat::RGBA8_SNORM</a> = 0x8F97
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a4cad8c5058101f0f527e306958b6641b">TextureFormat::RGB10A2</a> = 0x8059
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a2add6c22a8e5c9cc8cfe9de0dde55f45">TextureFormat::RGB10A2_UI</a> = 0x906F
 , <br />
-&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9afb9e3f60db71f694d22e9013646d38f5">TextureFormat::RGBA12</a> = 0x80'5A
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a50989efe15b375dce8ba3a5714fe2543">TextureFormat::RGBA16</a> = 0x80'5B
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ab71c01d7fab5970416ff1c79c675dc15">TextureFormat::SRGB8</a> = 0x8C'41
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9aad2ecedf63a30a8f4201f44431d3e2f3">TextureFormat::SRGBA8</a> = 0x8C'43
+&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9afb9e3f60db71f694d22e9013646d38f5">TextureFormat::RGBA12</a> = 0x805A
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a50989efe15b375dce8ba3a5714fe2543">TextureFormat::RGBA16</a> = 0x805B
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ab71c01d7fab5970416ff1c79c675dc15">TextureFormat::SRGB8</a> = 0x8C41
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9aad2ecedf63a30a8f4201f44431d3e2f3">TextureFormat::SRGBA8</a> = 0x8C43
 , <br />
-&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ae14b21c0e754899e39583f05c2457cfd">TextureFormat::R_FP16</a> = 0x82'2D
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9add0dd71b9f0d6271d2657909fa6507ab">TextureFormat::RG_FP16</a> = 0x82'2F
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a907e7e2e4c3033bbc1c6baca9fd4e1c4">TextureFormat::RGB_FP16</a> = 0x88'1B
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9aa8f3af719ae28fad9bd50a0dde31f802">TextureFormat::RGBA_FP16</a> = 0x88'1A
+&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ae14b21c0e754899e39583f05c2457cfd">TextureFormat::R_FP16</a> = 0x822D
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9add0dd71b9f0d6271d2657909fa6507ab">TextureFormat::RG_FP16</a> = 0x822F
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a907e7e2e4c3033bbc1c6baca9fd4e1c4">TextureFormat::RGB_FP16</a> = 0x881B
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9aa8f3af719ae28fad9bd50a0dde31f802">TextureFormat::RGBA_FP16</a> = 0x881A
 , <br />
-&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9af801773599ae1e426d5f93df820f7fb4">TextureFormat::R_FP32</a> = 0x82'2E
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a2c88d72457a1d6022e11969aab25c41a">TextureFormat::RG_FP32</a> = 0x82'30
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ac38545ce2ad9a611d317031fb29eeb07">TextureFormat::RGB_FP32</a> = 0x88'15
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9aaf389cef6bcfd1ded7878eb28693be36">TextureFormat::RGBA_FP32</a> = 0x88'14
+&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9af801773599ae1e426d5f93df820f7fb4">TextureFormat::R_FP32</a> = 0x822E
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a2c88d72457a1d6022e11969aab25c41a">TextureFormat::RG_FP32</a> = 0x8230
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ac38545ce2ad9a611d317031fb29eeb07">TextureFormat::RGB_FP32</a> = 0x8815
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9aaf389cef6bcfd1ded7878eb28693be36">TextureFormat::RGBA_FP32</a> = 0x8814
 , <br />
-&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a24fdbd9b96fd3c22ee987190eb77ecca">TextureFormat::RG11B10_FP</a> = 0x8C'3A
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a02f40147ece0d4ef4c1ec76a56e22224">TextureFormat::RGB9E5</a> = 0x8C'3D
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9af8459b20105cc59973ca613cb7710d5f">TextureFormat::R_SI8</a> = 0x82'31
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9afa9cc304fd0dc74d1db26451242a3593">TextureFormat::R_UI8</a> = 0x82'32
+&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a24fdbd9b96fd3c22ee987190eb77ecca">TextureFormat::RG11B10_FP</a> = 0x8C3A
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a02f40147ece0d4ef4c1ec76a56e22224">TextureFormat::RGB9E5</a> = 0x8C3D
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9af8459b20105cc59973ca613cb7710d5f">TextureFormat::R_SI8</a> = 0x8231
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9afa9cc304fd0dc74d1db26451242a3593">TextureFormat::R_UI8</a> = 0x8232
 , <br />
-&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9afe422a166a2007d8d12b64c11e4d4a06">TextureFormat::R_SI16</a> = 0x82'33
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a988c83479022b2c0b414797c9bdf8da9">TextureFormat::R_UI16</a> = 0x82'34
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a34e23c9b8ab448894f859072809bfb86">TextureFormat::R_SI32</a> = 0x82'35
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a11c671092d9892cea4295fc4b643aae9">TextureFormat::R_UI32</a> = 0x82'36
+&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9afe422a166a2007d8d12b64c11e4d4a06">TextureFormat::R_SI16</a> = 0x8233
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a988c83479022b2c0b414797c9bdf8da9">TextureFormat::R_UI16</a> = 0x8234
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a34e23c9b8ab448894f859072809bfb86">TextureFormat::R_SI32</a> = 0x8235
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a11c671092d9892cea4295fc4b643aae9">TextureFormat::R_UI32</a> = 0x8236
 , <br />
-&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9afb214fc42a327a03bf2a12652722c626">TextureFormat::RGB_SI8</a> = 0x8D'8F
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ac0d5d504904ec9da899a64e234a4cfae">TextureFormat::RGB_UI8</a> = 0x8D'7D
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a67e018ae7d7ea7e0e7852c888921430c">TextureFormat::RGB_SI16</a> = 0x8D'89
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ab951850c2fc8c60ea0da7c10e64e5189">TextureFormat::RGB_UI16</a> = 0x8D'77
+&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9afb214fc42a327a03bf2a12652722c626">TextureFormat::RGB_SI8</a> = 0x8D8F
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ac0d5d504904ec9da899a64e234a4cfae">TextureFormat::RGB_UI8</a> = 0x8D7D
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a67e018ae7d7ea7e0e7852c888921430c">TextureFormat::RGB_SI16</a> = 0x8D89
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ab951850c2fc8c60ea0da7c10e64e5189">TextureFormat::RGB_UI16</a> = 0x8D77
 , <br />
-&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a68b571ed3b556d3e7e1e78d9bf73555e">TextureFormat::RGB_SI32</a> = 0x8D'83
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a0003dfc96b0367e7c5a9faa0da15e6da">TextureFormat::RGB_UI32</a> = 0x8D'71
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a7abbb12cc15f3f94896deabaf673225e">TextureFormat::RGBA_SI8</a> = 0x8D'8E
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a069fe26a6497de3d64aff2fe4a879fc3">TextureFormat::RGBA_UI8</a> = 0x8D'7C
+&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a68b571ed3b556d3e7e1e78d9bf73555e">TextureFormat::RGB_SI32</a> = 0x8D83
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a0003dfc96b0367e7c5a9faa0da15e6da">TextureFormat::RGB_UI32</a> = 0x8D71
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a7abbb12cc15f3f94896deabaf673225e">TextureFormat::RGBA_SI8</a> = 0x8D8E
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a069fe26a6497de3d64aff2fe4a879fc3">TextureFormat::RGBA_UI8</a> = 0x8D7C
 , <br />
-&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a557b1a1875dc7d819eb4c202f53a5146">TextureFormat::RGBA_SI16</a> = 0x8D'88
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9afaf55455976cc523d81b4b29993ccb87">TextureFormat::RGBA_UI16</a> = 0x8D'76
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ae9057dda3c42571adcbbc20c732f4848">TextureFormat::RGBA_SI32</a> = 0x8D'82
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a77d181e9261b3d2e50f318ab3b3cd417">TextureFormat::RGBA_UI32</a> = 0x8D'70
+&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a557b1a1875dc7d819eb4c202f53a5146">TextureFormat::RGBA_SI16</a> = 0x8D88
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9afaf55455976cc523d81b4b29993ccb87">TextureFormat::RGBA_UI16</a> = 0x8D76
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ae9057dda3c42571adcbbc20c732f4848">TextureFormat::RGBA_SI32</a> = 0x8D82
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a77d181e9261b3d2e50f318ab3b3cd417">TextureFormat::RGBA_UI32</a> = 0x8D70
 , <br />
-&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a552b95de83e557ad11a9330164831ffb">TextureFormat::DEPTH16</a> = 0x81'A5
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a25fda16aa10a025ab21b9019b094ef27">TextureFormat::DEPTH24</a> = 0x81'A6
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a5def214b76446802949c0509d71ce463">TextureFormat::DEPTH_FP32</a> = 0x8C'AC
-, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9acd7d9d5edb5cd72424f19be55ccbcbf4">TextureFormat::STENCIL8</a> = 0x8D'48
+&#160;&#160;<a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a552b95de83e557ad11a9330164831ffb">TextureFormat::DEPTH16</a> = 0x81A5
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a25fda16aa10a025ab21b9019b094ef27">TextureFormat::DEPTH24</a> = 0x81A6
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a5def214b76446802949c0509d71ce463">TextureFormat::DEPTH_FP32</a> = 0x8CAC
+, <a class="el" href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9acd7d9d5edb5cd72424f19be55ccbcbf4">TextureFormat::STENCIL8</a> = 0x8D48
 <br />
  }</td></tr>
 <tr class="memdesc:ga2e9ae2f935462a45286798ae6fd5def9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture format types.  <a href="group__texture.html#ga2e9ae2f935462a45286798ae6fd5def9">More...</a><br /></td></tr>
@@ -1047,8 +1045,8 @@ Enumerations</h2></td></tr>
 , <a class="el" href="group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa43245b4788b59a22d5357a7146c06deb">WindowFlag::MINIMIZED</a> = 0x40
 , <br />
 &#160;&#160;<a class="el" href="group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa2f33d682f3a4e19c31ced6cb4fd022e3">WindowFlag::MAXIMIZED</a> = 0x80
-, <a class="el" href="group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12faa6de914e8cb1952483144b0aaa9b73ed">WindowFlag::GRAB_INPUT</a> = 0x2'00
-, <a class="el" href="group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fae691ed6feadad498d49ae83224dfc172">WindowFlag::ALWAYS_ON_TOP</a> = 0x80'00
+, <a class="el" href="group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12faa6de914e8cb1952483144b0aaa9b73ed">WindowFlag::GRAB_INPUT</a> = 0x200
+, <a class="el" href="group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fae691ed6feadad498d49ae83224dfc172">WindowFlag::ALWAYS_ON_TOP</a> = 0x8000
 <br />
  }</td></tr>
 <tr class="memdesc:gad463b226a0cad7ea3e64dd5b07ecf12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Window flag bitmasks.  <a href="group__window.html#gad463b226a0cad7ea3e64dd5b07ecf12f">More...</a><br /></td></tr>
@@ -1059,10 +1057,10 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ga0caa27a38e3d8b688a5abab875ed28f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Window modes.  <a href="group__window.html#ga0caa27a38e3d8b688a5abab875ed28f7">More...</a><br /></td></tr>
 <tr class="separator:ga0caa27a38e3d8b688a5abab875ed28f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga68fa0648b9a72034f88944a16cadaea8" id="r_ga68fa0648b9a72034f88944a16cadaea8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sampler.html#ga68fa0648b9a72034f88944a16cadaea8">Wrap</a> { <a class="el" href="group__sampler.html#gga68fa0648b9a72034f88944a16cadaea8a5be68175be14dfaa080165456c2e9555">Wrap::REPEAT</a> = 0x29'01
-, <a class="el" href="group__sampler.html#gga68fa0648b9a72034f88944a16cadaea8a31dbbe4319ea02c28dad7cde7b782710">Wrap::MIRROR_REPEAT</a> = 0x83'70
-, <a class="el" href="group__sampler.html#gga68fa0648b9a72034f88944a16cadaea8ab80c0868d7eabc21de4f2810bf3a7ec4">Wrap::EDGE_CLAMP</a> = 0x81'2F
-, <a class="el" href="group__sampler.html#gga68fa0648b9a72034f88944a16cadaea8a02a0692f237a0bd7f39d7b7d87762510">Wrap::BORDER_CLAMP</a> = 0x81'2D
+<tr class="memitem:ga68fa0648b9a72034f88944a16cadaea8" id="r_ga68fa0648b9a72034f88944a16cadaea8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__sampler.html#ga68fa0648b9a72034f88944a16cadaea8">Wrap</a> { <a class="el" href="group__sampler.html#gga68fa0648b9a72034f88944a16cadaea8a5be68175be14dfaa080165456c2e9555">Wrap::REPEAT</a> = 0x2901
+, <a class="el" href="group__sampler.html#gga68fa0648b9a72034f88944a16cadaea8a31dbbe4319ea02c28dad7cde7b782710">Wrap::MIRROR_REPEAT</a> = 0x8370
+, <a class="el" href="group__sampler.html#gga68fa0648b9a72034f88944a16cadaea8ab80c0868d7eabc21de4f2810bf3a7ec4">Wrap::EDGE_CLAMP</a> = 0x812F
+, <a class="el" href="group__sampler.html#gga68fa0648b9a72034f88944a16cadaea8a02a0692f237a0bd7f39d7b7d87762510">Wrap::BORDER_CLAMP</a> = 0x812D
  }</td></tr>
 <tr class="memdesc:ga68fa0648b9a72034f88944a16cadaea8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Texture wrapping types.  <a href="group__sampler.html#ga68fa0648b9a72034f88944a16cadaea8">More...</a><br /></td></tr>
 <tr class="separator:ga68fa0648b9a72034f88944a16cadaea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1481,12 +1479,12 @@ requires SpecializationOf&lt;From, <a class="el" href="structtr_1_1RGBA.html">RG
 <tr class="memitem:ga5cd1fa20c4094ba1e7f59b51e2fdd6da"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::optional&lt; glm::dvec2 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga5cd1fa20c4094ba1e7f59b51e2fdd6da">segmentIntersect</a> (glm::tvec2&lt; T &gt; a1, glm::tvec2&lt; T &gt; b1, glm::tvec2&lt; T &gt; a2, glm::tvec2&lt; T &gt; b2) noexcept</td></tr>
 <tr class="memdesc:ga5cd1fa20c4094ba1e7f59b51e2fdd6da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the intersection point of two line segments.  <br /></td></tr>
 <tr class="separator:ga5cd1fa20c4094ba1e7f59b51e2fdd6da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac24a040a181fa6027de10abac6f1fe63" id="r_gac24a040a181fa6027de10abac6f1fe63"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drawing.html#gac24a040a181fa6027de10abac6f1fe63">smoothArcVerticesCount</a> (float r, <a class="el" href="group__angle.html#ga0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a> sizeth) noexcept</td></tr>
-<tr class="memdesc:gac24a040a181fa6027de10abac6f1fe63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the number of segments needed to draw a smooth arc.  <br /></td></tr>
-<tr class="separator:gac24a040a181fa6027de10abac6f1fe63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga02087bdad548abf300201ad4733afffa" id="r_ga02087bdad548abf300201ad4733afffa"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drawing.html#ga02087bdad548abf300201ad4733afffa">smoothPolygonVerticesCount</a> (float r) noexcept</td></tr>
-<tr class="memdesc:ga02087bdad548abf300201ad4733afffa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the number of segments needed to draw a smooth circle with pixel radius r.  <br /></td></tr>
-<tr class="separator:ga02087bdad548abf300201ad4733afffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadf57b2c3ad506f210ddc0a354f52c32c" id="r_gadf57b2c3ad506f210ddc0a354f52c32c"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drawing.html#gadf57b2c3ad506f210ddc0a354f52c32c">smoothArcVerticesCount</a> (float r, <a class="el" href="group__angle.html#ga0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a> sizeth, float scale=1.0f) noexcept</td></tr>
+<tr class="memdesc:gadf57b2c3ad506f210ddc0a354f52c32c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the number of segments needed to draw a smooth arc.  <br /></td></tr>
+<tr class="separator:gadf57b2c3ad506f210ddc0a354f52c32c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga644ab8dc72e622681c312cf80e7499ac" id="r_ga644ab8dc72e622681c312cf80e7499ac"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__drawing.html#ga644ab8dc72e622681c312cf80e7499ac">smoothPolygonVerticesCount</a> (float r, float scale=1.0f) noexcept</td></tr>
+<tr class="memdesc:ga644ab8dc72e622681c312cf80e7499ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the number of segments needed to draw a smooth circle with pixel radius r.  <br /></td></tr>
+<tr class="separator:ga644ab8dc72e622681c312cf80e7499ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3115bc0bbac5c9d6e2f081c8d3b95eb1" id="r_ga3115bc0bbac5c9d6e2f081c8d3b95eb1"><td class="memTemplParams" colspan="2">template&lt;Arithmetic T&gt; </td></tr>
 <tr class="memitem:ga3115bc0bbac5c9d6e2f081c8d3b95eb1"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__angle.html#ga3115bc0bbac5c9d6e2f081c8d3b95eb1">turns</a> (T th) noexcept</td></tr>
 <tr class="memdesc:ga3115bc0bbac5c9d6e2f081c8d3b95eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a numeric value into an angle value.  <br /></td></tr>
@@ -1529,7 +1527,7 @@ Variables</h2></td></tr>
 <tr class="memitem:gae3976b7bd434a18e18849f04b0f4fc1c" id="r_gae3976b7bd434a18e18849f04b0f4fc1c"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structtr_1_1BlendMode.html">BlendMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__graphics__context.html#gae3976b7bd434a18e18849f04b0f4fc1c">ALPHA_BLENDING</a></td></tr>
 <tr class="memdesc:gae3976b7bd434a18e18849f04b0f4fc1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alpha blending mode.  <br /></td></tr>
 <tr class="separator:gae3976b7bd434a18e18849f04b0f4fc1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3d79ab32d9b1afaebc7c4f45002ae5b6" id="r_ga3d79ab32d9b1afaebc7c4f45002ae5b6"><td class="memItemLeft" align="right" valign="top">constexpr glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__window.html#ga3d79ab32d9b1afaebc7c4f45002ae5b6">CENTERED_POS</a> {0x2F'FF'00'00, 0x2F'FF'00'00}</td></tr>
+<tr class="memitem:ga3d79ab32d9b1afaebc7c4f45002ae5b6" id="r_ga3d79ab32d9b1afaebc7c4f45002ae5b6"><td class="memItemLeft" align="right" valign="top">constexpr glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__window.html#ga3d79ab32d9b1afaebc7c4f45002ae5b6">CENTERED_POS</a> {0x2FFF0000, 0x2FFF0000}</td></tr>
 <tr class="memdesc:ga3d79ab32d9b1afaebc7c4f45002ae5b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sentinel for a centered position on the screen.  <br /></td></tr>
 <tr class="separator:ga3d79ab32d9b1afaebc7c4f45002ae5b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae217c35009c80b033d79c54b66c6329b" id="r_gae217c35009c80b033d79c54b66c6329b"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structtr_1_1Colors.html">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__vertex.html#gae217c35009c80b033d79c54b66c6329b">colors</a></td></tr>

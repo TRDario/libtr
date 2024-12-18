@@ -245,8 +245,6 @@ var namespacetr =
     [ "TimePoint", "group__chrono.html#ga406e1cc6456f37b7be0eb57f4c63c91b", null ],
     [ "VertexAttribute", "group__vertex__format.html#gaa4f8c01282cc53dfbd3c489a8aceabb7", null ],
     [ "AudioFormat", "group__audio__buffer.html#ga0cd93ec18a3882266f1c6cd2657e7cfe", [
-      [ "MONO8", "group__audio__buffer.html#gga0cd93ec18a3882266f1c6cd2657e7cfea6bb6d6a0741f2a5afd00611ed1ef5f8b", null ],
-      [ "STEREO8", "group__audio__buffer.html#gga0cd93ec18a3882266f1c6cd2657e7cfeae155ffb380a7c880b0f0365cdaa2d9c3", null ],
       [ "MONO16", "group__audio__buffer.html#gga0cd93ec18a3882266f1c6cd2657e7cfea59e5ab3f0c1c59504cf28fc887787eab", null ],
       [ "STEREO16", "group__audio__buffer.html#gga0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7", null ]
     ] ],
@@ -587,8 +585,8 @@ var namespacetr =
     [ "segmentIntersect", "group__geometry.html#gac9edf6492c65d3c29ca45a8dd94be8ec", null ],
     [ "segmentIntersect", "group__geometry.html#ga5cd1fa20c4094ba1e7f59b51e2fdd6da", null ],
     [ "segmentIntersect", "namespacetr.html#ga5cd1fa20c4094ba1e7f59b51e2fdd6da", null ],
-    [ "smoothArcVerticesCount", "group__drawing.html#gac24a040a181fa6027de10abac6f1fe63", null ],
-    [ "smoothPolygonVerticesCount", "group__drawing.html#ga02087bdad548abf300201ad4733afffa", null ],
+    [ "smoothArcVerticesCount", "group__drawing.html#gadf57b2c3ad506f210ddc0a354f52c32c", null ],
+    [ "smoothPolygonVerticesCount", "group__drawing.html#ga644ab8dc72e622681c312cf80e7499ac", null ],
     [ "turns", "group__angle.html#ga3115bc0bbac5c9d6e2f081c8d3b95eb1", null ],
     [ "utf8Begin", "group__utf8.html#gaf9745ab162880406220e467debe3c22e", null ],
     [ "utf8End", "group__utf8.html#gaa0210a04b45f66f8bbe8e0ac42573a35", null ],

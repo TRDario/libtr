@@ -105,7 +105,7 @@ $(function(){initNavTree('classtr_1_1TTFont.html',''); initResizable(true); });
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1TTFont-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">tr::TTFont Class Reference<div class="ingroups"><a class="el" href="group__system.html">System</a> &raquo; <a class="el" href="group__ttfont.html">TrueType Font</a></div></div></div>
+  <div class="headertitle"><div class="title">tr::TTFont Class Reference<div class="ingroups"><a class="el" href="group__system.html">System</a> &raquo; <a class="el" href="group__ttfont.html">Font</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -373,6 +373,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Loads a font from file. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1FileNotFound.html" title="File not found exception.">FileNotFound</a></td><td>If the file is not found. </td></tr>
@@ -843,6 +845,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Renders a line of text. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1TTFontError.html" title="Error thrown when a TrueType font operation fails.">TTFontError</a></td><td>If rendering the bitmap fails.</td></tr>
@@ -880,6 +884,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Renders a glyph. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1TTFontError.html" title="Error thrown when a TrueType font operation fails.">TTFontError</a></td><td>If rendering the bitmap fails.</td></tr>
@@ -922,6 +928,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Renders wrapped text. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1TTFontError.html" title="Error thrown when a TrueType font operation fails.">TTFontError</a></td><td>If rendering the bitmap fails.</td></tr>
@@ -960,8 +968,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Resizes the font. </p>
-<p>Doing this clears the glyph cache.</p>
-<p>If the size and dpi match the current configuration, nothing happens and the cache isn't cleared.</p>
+<p>Doing this clears the glyph cache, however, if the size and dpi match the current configuration, nothing happens and the cache isn't cleared.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1TTFontError.html" title="Error thrown when a TrueType font operation fails.">TTFontError</a></td><td>If resizing the font fails.</td></tr>
@@ -1003,7 +1010,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Sets the hinting of the font. </p>
 <p>Doing this clears the glyph cache.</p>
-<p>If the value matches the current configuration, nothing happens and the cache isn't cleared.</p>
+<p>Doing this clears the glyph cache unless the value matches the current configuration, in which case nothing happens and the cache isn't cleared.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">hinting</td><td>The new hinting type of the font. </td></tr>
@@ -1070,8 +1077,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the outline thickness of the font. </p>
-<p>Doing this clears the glyph cache.</p>
-<p>If the value matches the current configuration, nothing happens and the cache isn't cleared.</p>
+<p>Doing this clears the glyph cache unless the value matches the current configuration, in which case nothing happens and the cache isn't cleared.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">thickness</td><td>The new outline thickness of the font. </td></tr>
@@ -1106,7 +1112,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Sets the style of the font. </p>
 <p>Doing this clears the glyph cache.</p>
-<p>If the style matches the current configuration, nothing happens and the cache isn't cleared.</p>
+<p>Doing this clears the glyph cache unless the style matches the current configuration, in which case nothing happens and the cache isn't cleared.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">style</td><td>The new style of the font. </td></tr>

@@ -206,6 +206,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Allocates an uninitialized 1D array texture. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1TextureBadAlloc.html" title="Error thrown when a texture allocation failed.">TextureBadAlloc</a></td><td>If allocating the texture fails.</td></tr>
@@ -249,6 +251,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructs a 2D array texture with data uploaded from a list of bitmaps. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1TextureBadAlloc.html" title="Error thrown when a texture allocation failed.">TextureBadAlloc</a></td><td>If allocating the texture fails.</td></tr>
@@ -257,7 +261,15 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">layers</td><td>the layer bitmaps. The span cannot be empty, and the bitmaps must all be of the same size. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">layers</td><td><p class="starttd">The layer bitmaps.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>layers</em> cannot be empty, and the bitmaps must all be of the same size. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">mipmaps</td><td>The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>The internal format of the texture. </td></tr>
   </table>
@@ -328,7 +340,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets a region of a layer. </p>
-<p>The region must fully be inside the bounds of the texture.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>The region must fully be inside the bounds of the texture.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">layer</td><td>The layer whose region to set. </td></tr>

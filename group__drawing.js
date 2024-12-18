@@ -9,6 +9,6 @@ var group__drawing =
     [ "tr::fillRectOutlineVertices", "group__drawing.html#gabf71fdba47cb0560983da3287a591010", null ],
     [ "tr::fillRectVertices", "group__drawing.html#gaca2135b4ee1bf2b83ee2b6e1012d57bf", null ],
     [ "tr::fillRectVertices", "group__drawing.html#gaadb71e6fce205903028cde24fc1330af", null ],
-    [ "tr::smoothArcVerticesCount", "group__drawing.html#gac24a040a181fa6027de10abac6f1fe63", null ],
-    [ "tr::smoothPolygonVerticesCount", "group__drawing.html#ga02087bdad548abf300201ad4733afffa", null ]
+    [ "tr::smoothArcVerticesCount", "group__drawing.html#gadf57b2c3ad506f210ddc0a354f52c32c", null ],
+    [ "tr::smoothPolygonVerticesCount", "group__drawing.html#ga644ab8dc72e622681c312cf80e7499ac", null ]
 ];

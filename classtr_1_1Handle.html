@@ -175,9 +175,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1cdb2fba9f637f0374af06adf4f37e52" id="r_a1cdb2fba9f637f0374af06adf4f37e52"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classtr_1_1Handle.html">Handle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1cdb2fba9f637f0374af06adf4f37e52">operator=</a> (<a class="el" href="classtr_1_1Handle.html">Handle</a> &amp;&amp;r) noexcept</td></tr>
 <tr class="memdesc:a1cdb2fba9f637f0374af06adf4f37e52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move-assigns the handle.  <br /></td></tr>
 <tr class="separator:a1cdb2fba9f637f0374af06adf4f37e52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad448d9fea3c5af9cd9feebc50e0ec5e4" id="r_ad448d9fea3c5af9cd9feebc50e0ec5e4"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad448d9fea3c5af9cd9feebc50e0ec5e4">operator==</a> (const <a class="el" href="classtr_1_1Handle.html">Handle</a> &amp;r) const noexcept</td></tr>
-<tr class="memdesc:ad448d9fea3c5af9cd9feebc50e0ec5e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality comparison operator.  <br /></td></tr>
-<tr class="separator:ad448d9fea3c5af9cd9feebc50e0ec5e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad337cdca4f3215dce14cb517597b01ac" id="r_ad337cdca4f3215dce14cb517597b01ac"><td class="memItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad337cdca4f3215dce14cb517597b01ac">release</a> () noexcept</td></tr>
 <tr class="memdesc:ad337cdca4f3215dce14cb517597b01ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases ownership over the handle, if any.  <br /></td></tr>
 <tr class="separator:ad337cdca4f3215dce14cb517597b01ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -264,16 +261,17 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 
 <p>Constructs a handle from a base type value. </p>
 <p>A handle constructed like this is guaranteed to hold a value.</p>
-<p>If <em>EmptyValue</em> is an expected input, <a class="el" href="#a802572aca91256efb26c5f57b14493cb" title="Constructs a handle from a base type value without checking for the invalid EmptyValue case.">Handle(T, NoEmptyHandleCheck)</a> may be used instead.</p>
 <p>Requires that <em>Deleter</em> is default constructible (pointers are not counted as default constructible).</p>
+<dl class="section remark"><dt>Remarks</dt><dd>If <em>EmptyValue</em> is an expected input, <a class="el" href="#a802572aca91256efb26c5f57b14493cb" title="Constructs a handle from a base type value without checking for the invalid EmptyValue case.">Handle(T, NoEmptyHandleCheck)</a> may be used instead.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>
-<p class="endtd">May not equal <em>EmptyValue</em>, an assertion may be raised otherwise. </p>
+<p class="endtd"></p>
 </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>value</em> is not allowed to equal <em>EmptyValue</em>. </dd></dl>
 
 </div>
 </div>
@@ -308,13 +306,19 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 
 <p>Constructs a handle from a base type value and a deleter. </p>
 <p>A handle constructed like this is guaranteed to hold a value.</p>
-<p>If <em>EmptyValue</em> is an expected input, Handle(T, deleter, NoEmptyHandleCheck) may be used instead.</p>
 <p>Requires that <em>Deleter</em> is copy-constructible.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>If <em>EmptyValue</em> is an expected input, Handle(T, deleter, NoEmptyHandleCheck) may be used instead.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>
-<p class="endtd">May not equal <em>EmptyValue</em>, an assertion may be raised otherwise. </p>
+<p class="endtd"></p>
 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>value</em> is not allowed to equal <em>EmptyValue</em>. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">deleter</td><td>The deleter value to copy. </td></tr>
   </table>
   </dd>
@@ -353,13 +357,19 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 
 <p>Constructs a handle from a base type value and a deleter. </p>
 <p>A handle constructed like this is guaranteed to hold a value.</p>
-<p>If <em>EmptyValue</em> is an expected input, Handle(T, deleter, NoEmptyHandleCheck) may be used instead.</p>
 <p>Requires that <em>Deleter</em> is copy-constructible.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>If <em>EmptyValue</em> is an expected input, Handle(T, deleter, NoEmptyHandleCheck) may be used instead.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>
-<p class="endtd">May not equal <em>EmptyValue</em>, an assertion may be raised otherwise. </p>
+<p class="endtd"></p>
 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>value</em> is not allowed to equal <em>EmptyValue</em>. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">deleter</td><td>The deleter value to copy. </td></tr>
   </table>
   </dd>
@@ -398,13 +408,19 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 
 <p>Constructs a handle from a base type value and a deleter. </p>
 <p>A handle constructed like this is guaranteed to hold a value.</p>
-<p>If <em>EmptyValue</em> is an expected input, Handle(T, deleter, NoEmptyHandleCheck) may be used instead.</p>
 <p>Requires that <em>Deleter</em> is move-constructible.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>If <em>EmptyValue</em> is an expected input, Handle(T, deleter, NoEmptyHandleCheck) may be used instead.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>
-<p class="endtd">May not equal <em>EmptyValue</em>, an assertion may be raised otherwise. </p>
+<p class="endtd"></p>
 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>value</em> is not allowed to equal <em>EmptyValue</em>. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">deleter</td><td>The deleter value to move. </td></tr>
   </table>
   </dd>
@@ -443,8 +459,8 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 
 <p>Constructs a handle from a base type value without checking for the invalid <em>EmptyValue</em> case. </p>
 <p>A handle constructed like this may or may not hold a value.</p>
-<p><a class="el" href="#a0bfe6c2bf71bc5f40754b831fb580990" title="Constructs a handle from a base type value.">Handle(T)</a> should be used in cases where this isn't necessary.</p>
 <p>Requires that <em>Deleter</em> is default constructible (pointers are not counted as default constructible).</p>
+<dl class="section remark"><dt>Remarks</dt><dd><a class="el" href="#a0bfe6c2bf71bc5f40754b831fb580990" title="Constructs a handle from a base type value.">Handle(T)</a> should be used in cases where this isn't necessary.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The base type value that will be managed by the handle. </td></tr>
@@ -490,13 +506,11 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 
 <p>Constructs a handle from a base type value and a deleter without checking for the invalid <em>EmptyValue</em> case. </p>
 <p>A handle constructed like this may or may not hold a value.</p>
-<p>Handle(T, deleter) should be used in cases where this isn't necessary.</p>
 <p>Requires that <em>Deleter</em> is copy-constructible.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>Handle(T, deleter) should be used in cases where this isn't necessary.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>
-<p class="endtd">May not equal <em>EmptyValue</em>, an assertion may be raised otherwise. </p>
-</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The base type value that will be managed by the handle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">deleter</td><td>The deleter value to copy. </td></tr>
   </table>
   </dd>
@@ -540,13 +554,11 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 
 <p>Constructs a handle from a base type value and a deleter without checking for the invalid <em>EmptyValue</em> case. </p>
 <p>A handle constructed like this may or may not hold a value.</p>
-<p>Handle(T, deleter) should be used in cases where this isn't necessary.</p>
 <p>Requires that <em>Deleter</em> is copy-constructible.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>Handle(T, deleter) should be used in cases where this isn't necessary.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>
-<p class="endtd">May not equal <em>EmptyValue</em>, an assertion may be raised otherwise. </p>
-</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The base type value that will be managed by the handle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">deleter</td><td>The deleter value to copy. </td></tr>
   </table>
   </dd>
@@ -590,13 +602,11 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 
 <p>Constructs a handle from a base type value and a deleter without checking for the invalid <em>EmptyValue</em> case. </p>
 <p>A handle constructed like this may or may not hold a value.</p>
-<p>Handle(T, deleter) should be used in cases where this isn't necessary.</p>
 <p>Requires that <em>Deleter</em> is move-constructible.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>Handle(T, deleter) should be used in cases where this isn't necessary.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>
-<p class="endtd">May not equal <em>EmptyValue</em>, an assertion may be raised otherwise. </p>
-</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>The base type value that will be managed by the handle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">deleter</td><td>The deleter value to move. </td></tr>
   </table>
   </dd>
@@ -701,8 +711,8 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 </div><div class="memdoc">
 
 <p>Gets the handle's base type value. </p>
-<p>Calls to this function are only valid if the handle contains a value, an assertion may be raised otherwise.</p>
-<p>get(NoEmptyHandleCheck) may be used in cases where the empty value is an expected input.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>This function cannot be called if the handle is empty.</dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>get(NoEmptyHandleCheck) may be used in cases where the empty value is an expected input.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the handle's base type value. </dd></dl>
 
 </div>
@@ -734,7 +744,7 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 
 <p>Gets the handle's base type value. </p>
 <p>This function circuments the notion of an "empty" handle and returns a value even if it's <em>EmptyValue</em>.</p>
-<p><a class="el" href="#a60852e33eff675327cf0a47dc45d2397" title="Gets the handle&#39;s base type value.">get()</a> should be used in cases where this isn't necessary.</p>
+<dl class="section remark"><dt>Remarks</dt><dd><a class="el" href="#a60852e33eff675327cf0a47dc45d2397" title="Gets the handle&#39;s base type value.">get()</a> should be used in cases where this isn't necessary.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the handle's base type value. </dd></dl>
 
 </div>
@@ -855,7 +865,6 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 </div><div class="memdoc">
 
 <p>Checks if the handle contains a value, see <a class="el" href="#ab7f3720178f6b868e0f5bd10ad16767e" title="Checks if the handle contains a value.">has_value()</a>. </p>
-<p>return std::hash&lt;decltype(texture._id)&gt; {}(texture._id); </p>
 
 </div>
 </div>
@@ -895,43 +904,6 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to assigned-to handle. </dd></dl>
-
-</div>
-</div>
-<a id="ad448d9fea3c5af9cd9feebc50e0ec5e4" name="ad448d9fea3c5af9cd9feebc50e0ec5e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad448d9fea3c5af9cd9feebc50e0ec5e4">&#9670;&#160;</a></span>operator==()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classtr_1_1Handle.html">tr::Handle</a>&lt; T, EmptyValue, Deleter &gt;::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtr_1_1Handle.html">Handle</a>&lt; T, EmptyValue, Deleter &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Equality comparison operator. </p>
-<p>Two handle references are only considered equal if they point to the same object.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>A handle reference.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true if r is a reference to the same object as *this. </dd></dl>
 
 </div>
 </div>
@@ -1023,7 +995,7 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 
 <p>Resets the handle to a non-empty state. </p>
 <p>If the handle is not empty before this call, <em>Deleter</em> will be called with the contained value.</p>
-<p><a class="el" href="#ae1bb138c8cd178c3dd70e3366123e273" title="Resets the handle to a new state.">reset(T, NoEmptyHandleCheck)</a> may be used in cases where the empty value is an expected input.</p>
+<dl class="section remark"><dt>Remarks</dt><dd><a class="el" href="#ae1bb138c8cd178c3dd70e3366123e273" title="Resets the handle to a new state.">reset(T, NoEmptyHandleCheck)</a> may be used in cases where the empty value is an expected input.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>
@@ -1066,7 +1038,7 @@ template&lt;HandleType T, T EmptyValue, HandleDeleter&lt; T &gt; Deleter&gt; </d
 
 <p>Resets the handle to a new state. </p>
 <p>If the handle is not empty before this call, <em>Deleter</em> will be called with the contained value.</p>
-<p><a class="el" href="#a0677d3a3d1a1522f5feb341ea63e930d" title="Resets the handle to a non-empty state.">reset(T)</a> should be preferred in most cases.</p>
+<dl class="section remark"><dt>Remarks</dt><dd><a class="el" href="#a0677d3a3d1a1522f5feb341ea63e930d" title="Resets the handle to a non-empty state.">reset(T)</a> should be preferred in most cases.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td><p class="starttd">The base type value that will be managed by the handle.</p>

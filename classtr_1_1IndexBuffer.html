@@ -122,13 +122,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a58fa0319e387e7a559e1b52192aef747"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates an index buffer and fills it with data.  <br /></td></tr>
 <tr class="separator:a58fa0319e387e7a559e1b52192aef747"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31f8a3c4f731a93eeb1df4ee2d69f4f9" id="r_a31f8a3c4f731a93eeb1df4ee2d69f4f9"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31f8a3c4f731a93eeb1df4ee2d69f4f9">capacity</a> () const noexcept</td></tr>
-<tr class="memdesc:a31f8a3c4f731a93eeb1df4ee2d69f4f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the capacity of the vertex buffer.  <br /></td></tr>
+<tr class="memdesc:a31f8a3c4f731a93eeb1df4ee2d69f4f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the capacity of the index buffer.  <br /></td></tr>
 <tr class="separator:a31f8a3c4f731a93eeb1df4ee2d69f4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a973aafcce9d75c597b6f752dde00aeae" id="r_a973aafcce9d75c597b6f752dde00aeae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a973aafcce9d75c597b6f752dde00aeae">clear</a> () noexcept</td></tr>
-<tr class="memdesc:a973aafcce9d75c597b6f752dde00aeae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the size of the vertex buffer to 0.  <br /></td></tr>
+<tr class="memdesc:a973aafcce9d75c597b6f752dde00aeae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the size of the index buffer to 0.  <br /></td></tr>
 <tr class="separator:a973aafcce9d75c597b6f752dde00aeae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b883ae20b295406aa2b5e6e5fab3fab" id="r_a1b883ae20b295406aa2b5e6e5fab3fab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b883ae20b295406aa2b5e6e5fab3fab">empty</a> () const noexcept</td></tr>
-<tr class="memdesc:a1b883ae20b295406aa2b5e6e5fab3fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the vertex buffer is empty.  <br /></td></tr>
+<tr class="memdesc:a1b883ae20b295406aa2b5e6e5fab3fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the index buffer is empty.  <br /></td></tr>
 <tr class="separator:a1b883ae20b295406aa2b5e6e5fab3fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8fb9575c69c1fbe3927b2ef43e63660" id="r_ad8fb9575c69c1fbe3927b2ef43e63660"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1IndexBufferMap.html">IndexBufferMap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8fb9575c69c1fbe3927b2ef43e63660">mapNew</a> (std::size_t <a class="el" href="#a40faafe9ae801c3392651cbcd7c2dff4">size</a>)</td></tr>
 <tr class="memdesc:ad8fb9575c69c1fbe3927b2ef43e63660"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps the buffer, invalidating the previous contents in the process and resetting its size.  <br /></td></tr>
@@ -149,7 +149,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa30a9bfbe97fef413f1d1885cb8755e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a region of the buffer.  <br /></td></tr>
 <tr class="separator:aa30a9bfbe97fef413f1d1885cb8755e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40faafe9ae801c3392651cbcd7c2dff4" id="r_a40faafe9ae801c3392651cbcd7c2dff4"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40faafe9ae801c3392651cbcd7c2dff4">size</a> () const noexcept</td></tr>
-<tr class="memdesc:a40faafe9ae801c3392651cbcd7c2dff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the vertex buffer contents.  <br /></td></tr>
+<tr class="memdesc:a40faafe9ae801c3392651cbcd7c2dff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the index buffer contents.  <br /></td></tr>
 <tr class="separator:a40faafe9ae801c3392651cbcd7c2dff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -179,7 +179,6 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructs an empty index buffer. </p>
-<p>This function can be called before opening the window. </p>
 
 </div>
 </div>
@@ -200,6 +199,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Allocates an index buffer. </p>
 <p>The buffer will be of size 0 and capacity <em>capacity</em> after construction.</p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
@@ -208,10 +209,13 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">capacity</td><td>The capacity of the buffer in indices. Must be greater than 0, otherwise a failed assertion may be triggered. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">capacity</td><td><p class="starttd">The capacity of the buffer in indices.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>capacity</em> must be greater than 0. </dd></dl>
 
 </div>
 </div>
@@ -232,6 +236,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Allocates an index buffer and fills it with data. </p>
 <p>The buffer will be of size and capacity <em>data.size()</em> after construction.</p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
@@ -240,10 +246,13 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The data to be uploaded to be buffer. Must not be empty, otherwise a failed assertion may be triggered. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td><p class="starttd">The data to be uploaded to be buffer.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>data</em> cannot be empty. </dd></dl>
 
 </div>
 </div>
@@ -271,9 +280,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the capacity of the vertex buffer. </p>
-<p>The buffer can be resized past this capacity, but it will trigger a reallocation.</p>
-<dl class="section return"><dt>Returns</dt><dd>The capacity of the vertex buffer in indices. </dd></dl>
+<p>Gets the capacity of the index buffer. </p>
+<dl class="section note"><dt>Note</dt><dd>The buffer can be resized past this capacity, but it will trigger a reallocation.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The capacity of the index buffer in indices. </dd></dl>
 
 </div>
 </div>
@@ -300,9 +309,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the size of the vertex buffer to 0. </p>
-<p>The buffer cannot be mapped when this function is called.</p>
-<p>This does not affect the capacity of the buffer. </p>
+<p>Sets the size of the index buffer to 0. </p>
+<p>This does not affect the capacity of the buffer.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>The buffer cannot be mapped when this function is called. </dd></dl>
 
 </div>
 </div>
@@ -329,7 +338,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets whether the vertex buffer is empty. </p>
+<p>Gets whether the index buffer is empty. </p>
 <dl class="section return"><dt>Returns</dt><dd>True if the buffer has size 0. </dd></dl>
 
 </div>
@@ -350,7 +359,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Maps the buffer, invalidating the previous contents in the process and resetting its size. </p>
-<p>If <em>size</em> is greater than the capacity of the buffer, a reallocation will be done. This voids any previous bindings of the buffer to the context, and so it must be rebound. <a class="el" href="#a1cf5a9fa6050b9186f3efba99048cecc" title="Maps a region of the buffer, invalidating the previous contents in the process.">mapRegion()</a> will never cause a reallocation, so may be used in cases where that's a requirement.</p>
+<dl class="section note"><dt>Note</dt><dd>If <em>size</em> is greater than the capacity of the buffer, a reallocation will be done. This voids any previous bindings of the buffer to the context, and so it must be rebound. <a class="el" href="#a1cf5a9fa6050b9186f3efba99048cecc" title="Maps a region of the buffer, invalidating the previous contents in the process.">mapRegion()</a> will never cause a reallocation, so may be used in cases where that's a requirement.</dd></dl>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Weak exception guarantee, if mapping the buffer after reallocation fails, the reallocation is not reverted.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If a reallocation was triggered and reallocating the buffer fails. </td></tr>
@@ -360,10 +371,13 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The new size of the buffer in indices. Must be greater than 0, otherwise a failed assertion may be triggered.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td><p class="starttd">The new size of the buffer in elements.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>size</em> must be greater than 0. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>A map object. </dd></dl>
 
 </div>
@@ -416,7 +430,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Maps a region of the buffer, invalidating the previous contents in the process. </p>
-<p>Unlike <a class="el" href="#ad8fb9575c69c1fbe3927b2ef43e63660" title="Maps the buffer, invalidating the previous contents in the process and resetting its size.">mapNew()</a>, a call to this function will never cause a reallocation, but an assertion may fail if an out-of-bounds map is requested.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>Unlike <a class="el" href="#ad8fb9575c69c1fbe3927b2ef43e63660" title="Maps the buffer, invalidating the previous contents in the process and resetting its size.">mapNew()</a>, a call to this function will never cause a reallocation.</dd></dl>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferMapBadAlloc.html" title="Error thrown when mapping a graphics buffer fails.">GraphicsBufferMapBadAlloc</a></td><td>If mapping the buffer failed.</td></tr>
@@ -425,11 +441,14 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">offset</td><td>The starting offset within the buffer in indices. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The size of the mapped region in indices. Must be greater than 0, and <code>offset + data.size() &lt;= <a class="el" href="#a31f8a3c4f731a93eeb1df4ee2d69f4f9" title="Gets the capacity of the vertex buffer.">capacity()</a></code> must hold true, otherwise a failed assertion may be triggered.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">offset</td><td>The starting offset within the buffer in elements. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td><p class="starttd">The size of the mapped region in elements.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>size</em> must be greater than 0, and <code>offset + data.size() &lt;= <a class="el" href="#a31f8a3c4f731a93eeb1df4ee2d69f4f9" title="Gets the capacity of the index buffer.">capacity()</a></code> must hold true. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>A map object. </dd></dl>
 
 </div>
@@ -450,8 +469,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the contents of the buffer. </p>
-<p>If data.size() is greater than the capacity of the buffer, a reallocation will be done. This voids any previous bindings of the buffer to the context, and so it must be rebound. <a class="el" href="#aa30a9bfbe97fef413f1d1885cb8755e7" title="Sets a region of the buffer.">setRegion()</a> will never cause a reallocation, so may be used in cases where that's a requirement.</p>
-<p>The buffer cannot be mapped when this function is called.</p>
+<dl class="section note"><dt>Note</dt><dd>If data.size() is greater than the capacity of the buffer, a reallocation will be done. This voids any previous bindings of the buffer to the context, and so it must be rebound. <a class="el" href="#aa30a9bfbe97fef413f1d1885cb8755e7" title="Sets a region of the buffer.">setRegion()</a> will never cause a reallocation, so may be used in cases where that's a requirement.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The buffer cannot be mapped when this function is called.</dd></dl>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1GraphicsBufferBadAlloc.html" title="Error thrown when allocating a graphics buffer fails.">GraphicsBufferBadAlloc</a></td><td>If a reallocation is triggered and reallocating the buffer fails.</td></tr>
@@ -528,15 +549,18 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets a region of the buffer. </p>
-<p>Unlike <a class="el" href="#a5bdfa7747ee098809b8a5c0a5ac695d2" title="Sets the contents of the buffer.">set()</a>, a call to this function will never cause a reallocation, but an assertion may fail if a span too large is passed to it.</p>
-<p>The buffer cannot be mapped when this function is called.</p>
+<dl class="section remark"><dt>Remarks</dt><dd>Unlike <a class="el" href="#a5bdfa7747ee098809b8a5c0a5ac695d2" title="Sets the contents of the buffer.">set()</a>, a call to this function will never cause a reallocation.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The buffer cannot be mapped when this function is called.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">offset</td><td>The starting offset within the buffer in indices. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>The new data of the buffer. <code>offset + data.size() &lt;= <a class="el" href="#a31f8a3c4f731a93eeb1df4ee2d69f4f9" title="Gets the capacity of the vertex buffer.">capacity()</a></code> must hold true, otherwise a failed assertion may be triggered. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">offset</td><td>The starting offset within the buffer in elements. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td><p class="starttd">The new data of the buffer.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><code>offset + data.size() &lt;= <a class="el" href="#a31f8a3c4f731a93eeb1df4ee2d69f4f9" title="Gets the capacity of the index buffer.">capacity()</a></code> must hold true. </dd></dl>
 
 </div>
 </div>
@@ -563,8 +587,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the size of the vertex buffer contents. </p>
-<dl class="section return"><dt>Returns</dt><dd>The size of the vertex buffer contents in indices. </dd></dl>
+<p>Gets the size of the index buffer contents. </p>
+<dl class="section return"><dt>Returns</dt><dd>The size of the index buffer contents in indices. </dd></dl>
 
 </div>
 </div>

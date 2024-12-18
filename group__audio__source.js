@@ -46,8 +46,7 @@ var group__audio__source =
       [ "stop", "classtr_1_1AudioSource.html#ad346f6a9e24cbfeecffd2e93bc5c8965", null ],
       [ "unqueueBuffer", "classtr_1_1AudioSource.html#a75fe7e0c8c3520f7e642b0d77ae61f28", null ],
       [ "velocity", "classtr_1_1AudioSource.html#aee6060e87105f58580f778a06d7877bc", null ],
-      [ "AudioStream", "classtr_1_1AudioSource.html#ac4a5eaa8965a8497bcd8eb0384abb928", null ],
-      [ "operator==", "classtr_1_1AudioSource.html#ac35c1aa64feff4cdf0fea8ae28d50b0e", null ]
+      [ "AudioStream", "classtr_1_1AudioSource.html#ac4a5eaa8965a8497bcd8eb0384abb928", null ]
     ] ],
     [ "tr::AudioSourceBadAlloc", "structtr_1_1AudioSourceBadAlloc.html", [
       [ "what", "structtr_1_1AudioSourceBadAlloc.html#a2a74463893f03a2e9437bbe82611b897", null ]

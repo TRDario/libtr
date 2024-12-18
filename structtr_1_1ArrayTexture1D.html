@@ -206,6 +206,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Allocates an uninitialized 1D array texture. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1TextureBadAlloc.html" title="Error thrown when a texture allocation failed.">TextureBadAlloc</a></td><td>If allocating the texture fails.</td></tr>
@@ -249,6 +251,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructs a 1D array texture with data uploaded from a bitmap. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1TextureBadAlloc.html" title="Error thrown when a texture allocation failed.">TextureBadAlloc</a></td><td>If allocating the texture fails.</td></tr>
@@ -323,7 +327,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets a region of the texture as if it were a 2D texture. </p>
-<p>The region must fully be inside the bounds of the texture.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>The region must fully be inside the bounds of the texture.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">tl</td><td>The top-left corner of the region within the texture. </td></tr>

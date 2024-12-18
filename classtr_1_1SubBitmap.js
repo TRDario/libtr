@@ -1,7 +1,7 @@
 var classtr_1_1SubBitmap =
 [
-    [ "SubBitmap", "classtr_1_1SubBitmap.html#a91a62cee57218f1031278f17ec4067d1", null ],
-    [ "SubBitmap", "classtr_1_1SubBitmap.html#a9479abbcdcc4152fd8cec91a1dc926b4", null ],
+    [ "SubBitmap", "classtr_1_1SubBitmap.html#a9eed2f89f1b04e719771742b37b8096c", null ],
+    [ "SubBitmap", "classtr_1_1SubBitmap.html#a01c0e0af537b60bf6134f705fa9bfafd", null ],
     [ "begin", "classtr_1_1SubBitmap.html#a5fb76832f6bba9631e5f6158fdc8adce", null ],
     [ "cbegin", "classtr_1_1SubBitmap.html#ab66b74b49a82276ef4746548e19bf1b3", null ],
     [ "cend", "classtr_1_1SubBitmap.html#a0e70d0bfdbc3a56d07c1adebc6b9a8ae", null ],
@@ -12,6 +12,6 @@ var classtr_1_1SubBitmap =
     [ "pitch", "classtr_1_1SubBitmap.html#a3fa1b0580eb43480f80c21524bebddc0", null ],
     [ "rowLength", "classtr_1_1SubBitmap.html#a4113c0e2ba49b345a2e008b7da2ed448", null ],
     [ "size", "classtr_1_1SubBitmap.html#a02ec0123bbb37ad21d4ef8e64526cd0e", null ],
-    [ "sub", "classtr_1_1SubBitmap.html#a6ffcd392d9745154327a5164e72ae034", null ],
+    [ "sub", "classtr_1_1SubBitmap.html#ad77f399e866bc076ff1eac5ba83c20c8", null ],
     [ "Bitmap", "classtr_1_1SubBitmap.html#a08f4603d248cce6ab74c80f858f877b0", null ]
 ];

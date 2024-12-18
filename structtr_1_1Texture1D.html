@@ -198,6 +198,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Allocates an uninitialized 1D texture. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1TextureBadAlloc.html" title="Error thrown when a texture allocation failed.">TextureBadAlloc</a></td><td>If allocating the texture fails.</td></tr>
@@ -240,6 +242,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructs a 1D texture with data uploaded from a bitmap. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname"><a class="el" href="structtr_1_1TextureBadAlloc.html" title="Error thrown when a texture allocation failed.">TextureBadAlloc</a></td><td>If allocating the texture fails.</td></tr>
@@ -248,7 +252,15 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">bitmap</td><td>The bitmap data. The bitmap must be 1 pixel tall. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bitmap</td><td><p class="starttd">The bitmap data.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The bitmap must be 1 pixel tall. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">mipmaps</td><td>The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">format</td><td>The internal format of the texture. </td></tr>
   </table>
@@ -286,14 +298,17 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets a region of the texture. </p>
-<p>The region must fully be inside the bounds of the texture.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>The region must fully be inside the bounds of the texture.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">offset</td><td>The starting offset within the texture </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">bitmap</td><td>The bitmap data to set the region to. The bitmap must be 1 pixel tall. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">offset</td><td>The starting offset within the texture. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bitmap</td><td><p class="starttd">The bitmap data to set the region so.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The bitmap must be 1 pixel tall. </dd></dl>
 
 </div>
 </div>

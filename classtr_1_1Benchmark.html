@@ -120,6 +120,7 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6311f5cc1a340fae160745694f02e946" id="r_a6311f5cc1a340fae160745694f02e946"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6311f5cc1a340fae160745694f02e946">Benchmark</a> () noexcept=default</td></tr>
+<tr class="memdesc:a6311f5cc1a340fae160745694f02e946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty benchmark.  <br /></td></tr>
 <tr class="separator:a6311f5cc1a340fae160745694f02e946"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a672c6dffc1bea90d7bafb4a768c9ab4c" id="r_a672c6dffc1bea90d7bafb4a768c9ab4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__chrono.html#ga7ddef69a056dbb28ab75697bd1abe75e">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a672c6dffc1bea90d7bafb4a768c9ab4c">average</a> () const noexcept</td></tr>
 <tr class="memdesc:a672c6dffc1bea90d7bafb4a768c9ab4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the average duration of the available measurements.  <br /></td></tr>
@@ -193,6 +194,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Constructs an empty benchmark. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -248,7 +251,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Clears all previous measurements from the queue. </p>
-<p>If a measurement was started but not stopped, it is cancelled. </p>
+<dl class="section remark"><dt>Remarks</dt><dd>If a measurement was started but not stopped, it is cancelled. </dd></dl>
 
 </div>
 </div>
@@ -416,7 +419,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Starts a new measurement. </p>
-<p>This function cannot be called if a previous measurement was started but not ended. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>This function cannot be called if a previous measurement was started but not ended. </dd></dl>
 
 </div>
 </div>
@@ -436,13 +439,15 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Stops a measurement. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>This function cannot be called if a measurement was not started.</dd></dl>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::bad_alloc</td><td>If an internal allocation fails.</td></tr>
+    <tr><td class="paramname">std::bad_alloc</td><td>If an internal allocation fails. </td></tr>
   </table>
   </dd>
 </dl>
-<p>This function cannot be called if a measurement was not started. </p>
 
 </div>
 </div>

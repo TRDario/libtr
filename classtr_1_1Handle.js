@@ -18,7 +18,6 @@ var classtr_1_1Handle =
     [ "has_value", "classtr_1_1Handle.html#ab7f3720178f6b868e0f5bd10ad16767e", null ],
     [ "operator bool", "classtr_1_1Handle.html#a199473bf292fbefde51e7c66340f0304", null ],
     [ "operator=", "classtr_1_1Handle.html#a1cdb2fba9f637f0374af06adf4f37e52", null ],
-    [ "operator==", "classtr_1_1Handle.html#ad448d9fea3c5af9cd9feebc50e0ec5e4", null ],
     [ "release", "classtr_1_1Handle.html#ad337cdca4f3215dce14cb517597b01ac", null ],
     [ "reset", "classtr_1_1Handle.html#ae350ebfc8469d797d40e47f06c4ca071", null ],
     [ "reset", "classtr_1_1Handle.html#a0677d3a3d1a1522f5feb341ea63e930d", null ],
