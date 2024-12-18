@@ -10,7 +10,7 @@ namespace tr {
 	 */
 
 	/******************************************************************************************************************
-	 * Error in getting the executable directory path.
+	 * Error thrown when getting the executable directory path fails.
 	 ******************************************************************************************************************/
 	struct ExeDirInitError : std::exception {
 		/**************************************************************************************************************
@@ -22,7 +22,7 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Error in getting the executable directory path.
+	 * Error thrown when getting the user directory path fails.
 	 ******************************************************************************************************************/
 	struct UserDirInitError : std::exception {
 		/**************************************************************************************************************
@@ -36,19 +36,19 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Gets a path to the executable directory.
 	 *
-	 * This function should only be called once at the beginning of the program as it may be relatively expensive.
+	 * @note This function should only be called once at the beginning of the program as it may be relatively expensive.
 	 *
 	 * @exception ExeDirInitError If getting the path fails.
 	 * @exception std::bad_alloc If allocating the path fails.
 	 *
-	 * @return A fath to the executable directory.
+	 * @return A path to the executable directory.
 	 ******************************************************************************************************************/
 	std::filesystem::path getExeDir();
 
 	/******************************************************************************************************************
 	 * Gets a path to a safe user directory where data can be stored.
 	 *
-	 * This function should only be called once at the beginning of the program as it may be relatively expensive.
+	 * @note This function should only be called once at the beginning of the program as it may be relatively expensive.
 	 *
 	 * @exception UserDirInitError If getting the path fails.
 	 * @exception std::bad_alloc If allocating the path fails.

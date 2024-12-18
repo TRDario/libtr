@@ -207,7 +207,7 @@ namespace tr {
 		 *
 		 * @exception BitmapBadAlloc If allocating the bitmap view's internals fails.
 		 *
-		 * @param[in] rawData A contiguous range of pixel data. The size of the range must match size.x * size.y *
+		 * @param[in] range A contiguous range of pixel data. The size of the range must match size.x * size.y *
 		 * [pixel bytes].
 		 * @param[in] size The size of the bitmap.
 		 * @param[in] format The format of the bitmap.

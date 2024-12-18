@@ -181,7 +181,7 @@ namespace tr {
 		 * @param[in] flags The flags of the window.
 		 * @param[in] gfxProperties The properties of the window's graphics context.
 		 **************************************************************************************************************/
-		Window(const char* title, DisplayInfo display = DEFAULT_DISPLAY, WindowFlag flags = WindowFlag::DEFAULT,
+		Window(const char* title, DisplayInfo display = tr::display(), WindowFlag flags = WindowFlag::DEFAULT,
 			   const GraphicsProperties& gfxProperties = {});
 
 		/**************************************************************************************************************
@@ -197,7 +197,7 @@ namespace tr {
 		 * @param[in] flags The flags of the window.
 		 * @param[in] gfxProperties The properties of the window's graphics context.
 		 **************************************************************************************************************/
-		Window(const char* title, const DisplayMode& dmode, DisplayInfo display = DEFAULT_DISPLAY,
+		Window(const char* title, const DisplayMode& dmode, DisplayInfo display = tr::display(),
 			   WindowFlag flags = WindowFlag::DEFAULT, const GraphicsProperties& gfxProperties = {});
 
 		/**************************************************************************************************************

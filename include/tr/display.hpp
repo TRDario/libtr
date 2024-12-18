@@ -11,7 +11,7 @@ namespace tr {
 	 */
 
 	/******************************************************************************************************************
-	 * Display mode information.
+	 * Display mode datatype.
 	 ******************************************************************************************************************/
 	struct DisplayMode {
 		/**************************************************************************************************************
@@ -41,35 +41,12 @@ namespace tr {
 	inline constexpr int DESKTOP_MODE{-2};
 
 	/******************************************************************************************************************
-	 * Display information.
+	 * Display information querying object.
 	 ******************************************************************************************************************/
 	class DisplayInfo {
 	  public:
 		/**************************************************************************************************************
-		 * Creates an information object for the default display (see: DEFAULT_DISPLAY).
-		 **************************************************************************************************************/
-		constexpr DisplayInfo() noexcept
-			: _id{0} {};
-
-		/**************************************************************************************************************
-		 * Creates an information object for a display.
-		 *
-		 * @param[in] id The ID of the display. Must be in the range (0, displayCount()).
-		 **************************************************************************************************************/
-		DisplayInfo(int id) noexcept;
-
-		/**************************************************************************************************************
-		 * Tries to return a display information object from global coordinates.
-		 *
-		 * @param[in] globalCoords The global coordinates.
-		 *
-		 * @return std::nullopt if the coordinates are not in the bounds of any display, or display information of the
-		 *         display the coordinates are in otherwise.
-		 **************************************************************************************************************/
-		static std::optional<DisplayInfo> fromCoords(glm::ivec2 globalCoords) noexcept;
-
-		/**************************************************************************************************************
-		 * Gets the bounds of the display.
+		 * Queries the bounds of the display.
 		 *
 		 * @return The bounds of the display.
 		 **************************************************************************************************************/
@@ -110,12 +87,16 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Gets one of the display's display modes.
 		 *
-		 * @param[in] index The index of the display mode, HIGHEST_MODE, or DESKTOP_MODE. If an index, it must be in the
-		 *              	range [0, displayModeCount).
+		 * @param[in] mode
+		 * @parblock
+		 * The index of the display mode, HIGHEST_MODE, or DESKTOP_MODE.
 		 *
-		 * @return The display at the requested index.
+		 * @pre If an index, @em mode must be in the range [0, displayModeCount()).
+		 * @endparblock
+		 *
+		 * @return The requested display modes.
 		 **************************************************************************************************************/
-		DisplayMode displayMode(int index) const noexcept;
+		DisplayMode displayMode(int mode) const noexcept;
 
 		/**************************************************************************************************************
 		 * Tries to get the closest compatible display mode to the desired one.
@@ -128,12 +109,11 @@ namespace tr {
 
 	  private:
 		int _id;
-	};
 
-	/******************************************************************************************************************
-	 * Default display information.
-	 ******************************************************************************************************************/
-	inline constexpr DisplayInfo DEFAULT_DISPLAY{};
+		DisplayInfo(int id) noexcept;
+
+		friend DisplayInfo display(int display) noexcept;
+	};
 
 	/******************************************************************************************************************
 	 * Gets the number of available displays.
@@ -141,6 +121,30 @@ namespace tr {
 	 * @return The number of available displays.
 	 ******************************************************************************************************************/
 	int displayCount() noexcept;
+
+	/******************************************************************************************************************
+	 * Gets a display querying object.
+	 *
+	 * @param display
+	 * @parblock
+	 * The index of the display to query.
+	 *
+	 * @pre @em display must be in the range [0, displayCount()).
+	 * @endparblock
+	 *
+	 * @return A querying object for the desired display.
+	 ******************************************************************************************************************/
+	DisplayInfo display(int display = 0) noexcept;
+
+	/******************************************************************************************************************
+	 * Tries to determine a display from global coordinates.
+	 *
+	 * @param[in] globalCoords The global coordinates.
+	 *
+	 * @return A querying object for the display in which the global coordinates are located, or std::nullopt if the
+	 *         coordinates are not in the bounds of any display.
+	 ******************************************************************************************************************/
+	std::optional<DisplayInfo> display(glm::ivec2 globalCoords) noexcept;
 
 	/// @}
 } // namespace tr

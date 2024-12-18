@@ -197,7 +197,7 @@ namespace tr {
 		 *
 		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
 		 *
-		 * @param[in] data A contiguous range of audio data.
+		 * @param[in] range A contiguous range of audio data.
 		 * @param[in] format The format of the audio data.
 		 * @param[in] frequency The frequency of the audio data.
 		 **************************************************************************************************************/

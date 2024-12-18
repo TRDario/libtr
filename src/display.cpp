@@ -14,14 +14,19 @@ tr::DisplayMode tr::toDisplayMode(const SDL_DisplayMode& mode) noexcept
 tr::DisplayInfo::DisplayInfo(int id) noexcept
 	: _id{id}
 {
-	assert(id < displayCount());
 }
 
-std::optional<tr::DisplayInfo> tr::DisplayInfo::fromCoords(glm::ivec2 globalCoords) noexcept
+tr::DisplayInfo tr::display(int display) noexcept
+{
+	assert(display < displayCount());
+	return DisplayInfo{display};
+}
+
+std::optional<tr::DisplayInfo> tr::display(glm::ivec2 globalCoords) noexcept
 {
 	for (int i = 0; i < displayCount(); ++i) {
-		if (DisplayInfo{i}.bounds().contains(globalCoords)) {
-			return DisplayInfo{i};
+		if (display(i).bounds().contains(globalCoords)) {
+			return display(i);
 		}
 	}
 	return std::nullopt;

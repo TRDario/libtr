@@ -86,9 +86,11 @@ namespace tr {
 
 		static void thread(bool& active, Duration interval, Callback callback) noexcept;
 	};
+
+	/// @}
 } // namespace tr
 
-/// @cond
+/// @cond IMPLEMENTATION
 
 template <class Rep, class Period, class CallbackT>
 tr::Timer::Timer(const std::chrono::duration<Rep, Period>& interval, CallbackT&& callback)
