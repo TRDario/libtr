@@ -92,7 +92,7 @@ namespace tr {
 		 *
 		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
 		 *
-		 * @param[in] data A contiguous range of audio data.
+		 * @param[in] range A contiguous range of audio data.
 		 * @param[in] format The format of the audio data.
 		 * @param[in] frequency The frequency of the audio data.
 		 **************************************************************************************************************/
@@ -139,6 +139,21 @@ namespace tr {
 		AudioBuffer(std::span<const std::byte> data, AudioFormat format, int frequency);
 
 		/**************************************************************************************************************
+		 * Constructs an audio buffer and immediately sets it.
+		 *
+		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
+		 *
+		 * @param[in] range A contiguous range of audio data.
+		 * @param[in] format The format of the audio data.
+		 * @param[in] frequency The frequency of the audio data.
+		 **************************************************************************************************************/
+		template <std::ranges::contiguous_range T>
+		AudioBuffer(T&& range, AudioFormat format, int frequency)
+			: AudioBuffer{std::span<const std::byte>{rangeBytes(range)}, format, frequency}
+		{
+		}
+
+		/**************************************************************************************************************
 		 * Loads audio data from file to a buffer.
 		 *
 		 * @exception FileNotFound If the file isn't found.
@@ -175,6 +190,20 @@ namespace tr {
 		 * @param[in] frequency The frequency of the audio data.
 		 **************************************************************************************************************/
 		void set(std::span<const std::byte> data, AudioFormat format, int frequency);
+
+		/**************************************************************************************************************
+		 * Sets the data of the buffer.
+		 *
+		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
+		 *
+		 * @param[in] data A contiguous range of audio data.
+		 * @param[in] format The format of the audio data.
+		 * @param[in] frequency The frequency of the audio data.
+		 **************************************************************************************************************/
+		template <std::ranges::contiguous_range T> void set(T&& range, AudioFormat format, int frequency)
+		{
+			set(std::span<const std::byte>{rangeBytes(range)}, format, frequency);
+		}
 
 	  private:
 		struct Deleter {

@@ -1,6 +1,11 @@
 #include "../include/tr/iostream.hpp"
 #include <format>
 
+tr::FileError::FileError(const char* path) noexcept
+	: _path{path}
+{
+}
+
 tr::FileError::FileError(std::string path) noexcept
 	: _path{path}
 {
