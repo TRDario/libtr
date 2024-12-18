@@ -132,6 +132,8 @@ namespace tr {
 		};
 		using enum Enum;
 
+		Scancode() noexcept = default;
+
 		/**************************************************************************************************************
 		 * Constructs a keycode from the base enumerator.
 		 *
@@ -302,6 +304,8 @@ namespace tr {
 			RWIN
 		};
 		using enum Enum;
+
+		Keycode() noexcept = default;
 
 		/**************************************************************************************************************
 		 * Constructs a keycode from the base enumerator.
