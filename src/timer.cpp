@@ -2,16 +2,6 @@
 
 using namespace std::chrono_literals;
 
-tr::Timer::Timer(Duration interval, const Callback& callback)
-	: _active{std::make_unique<bool>(true)}, _thread{thread, *_active, interval, callback}
-{
-}
-
-tr::Timer::Timer(Duration interval, Callback&& callback)
-	: _active{std::make_unique<bool>(true)}, _thread{thread, *_active, interval, std::move(callback)}
-{
-}
-
 tr::Timer::~Timer() noexcept
 {
 	if (_active != nullptr) {
@@ -37,6 +27,10 @@ bool tr::Timer::active() const noexcept
 
 void tr::Timer::thread(bool& active, Duration interval, Callback callback) noexcept
 {
+	if (interval == 0s) {
+		return;
+	}
+
 	try {
 		tr::TimePoint prev{tr::Clock::now()};
 		tr::Duration  totalError{};

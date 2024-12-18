@@ -33,29 +33,23 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs an active timer.
 		 *
-		 * @exception std::system_error If launching a thread for the timer failed.
-		 * @exception std::bad_alloc If copying the callback function failed.
-		 *
-		 * @param interval The interval between ticks. Must be greater than 0.
-		 * @param callback The callback function to call on every tick. The function will be copied.
-		 **************************************************************************************************************/
-		Timer(Duration interval, const Callback& callback);
-
-		/**************************************************************************************************************
-		 * Constructs an active timer.
+		 * This constructor offers a strong exception guarantee.
 		 *
 		 * @exception std::system_error If launching a thread for the timer failed.
+		 * @exception std::bad_alloc If allocating the callback function failed.
 		 *
-		 * @param interval The interval between ticks. Must be greater than 0.
-		 * @param callback The callback function to call on every tick. The function will be moved from.
+		 * @param interval The interval between ticks. Must be greater than 0, otherwise the thread will exit
+		 *                 immediately.
+		 * @param callback The callback function to call on every tick.
 		 **************************************************************************************************************/
-		Timer(Duration interval, Callback&& callback);
+		template <class Rep, class Period, class CallbackT>
+		Timer(const std::chrono::duration<Rep, Period>& interval, CallbackT&& callback);
 
 		/**************************************************************************************************************
 		 * Move constructs a timer.
 		 *
-		 * If @em r was previously in an active state, the thread it was managing will be transferred to the new timer,
-		 * leaving @em r in an inactive state.
+		 * If @em r was previously in an active state, the thread it was managing will be transferred to the new
+		 *timer, leaving @em r in an inactive state.
 		 *
 		 * @param r The timer to move from.
 		 **************************************************************************************************************/
@@ -93,3 +87,15 @@ namespace tr {
 		static void thread(bool& active, Duration interval, Callback callback) noexcept;
 	};
 } // namespace tr
+
+/// @cond
+
+template <class Rep, class Period, class CallbackT>
+tr::Timer::Timer(const std::chrono::duration<Rep, Period>& interval, CallbackT&& callback)
+	: _active{std::make_unique<bool>(true)}
+	, _thread{thread, std::ref(*_active), std::chrono::duration_cast<Duration>(interval),
+			  Callback{std::forward<CallbackT>(callback)}}
+{
+}
+
+/// @endcond
