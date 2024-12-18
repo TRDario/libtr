@@ -43,16 +43,6 @@ namespace tr {
 	 ******************************************************************************************************************/
 	enum class AudioFormat {
 		/**************************************************************************************************************
-		 * 1-channel, 8-bit audio.
-		 **************************************************************************************************************/
-		MONO8 = 0x11'00, // 8-bit mono audio.
-
-		/**************************************************************************************************************
-		 * 2-channel, 8-bit audio.
-		 **************************************************************************************************************/
-		STEREO8 = 0x11'02, // 8-bit stereo audio.
-
-		/**************************************************************************************************************
 		 * 1-channel, 16-bit audio.
 		 **************************************************************************************************************/
 		MONO16 = 0x11'01, // 16-bit mono audio.
@@ -68,6 +58,11 @@ namespace tr {
 	 ******************************************************************************************************************/
 	class AudioBufferView {
 	  public:
+		/**************************************************************************************************************
+		 * Equality comparison operator.
+		 *
+		 * Returns true if the views are to the same buffer, and false otherwise.
+		 **************************************************************************************************************/
 		friend bool operator==(const AudioBufferView&, const AudioBufferView&) noexcept = default;
 
 		/**************************************************************************************************************
@@ -86,21 +81,7 @@ namespace tr {
 		 * @param[in] format The format of the audio data.
 		 * @param[in] frequency The frequency of the audio data.
 		 **************************************************************************************************************/
-		void set(std::span<const std::byte> data, AudioFormat format, int frequency);
-
-		/**************************************************************************************************************
-		 * Sets the data of the buffer.
-		 *
-		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
-		 *
-		 * @param[in] range A contiguous range of audio data.
-		 * @param[in] format The format of the audio data.
-		 * @param[in] frequency The frequency of the audio data.
-		 **************************************************************************************************************/
-		template <std::ranges::contiguous_range T> void set(T&& range, AudioFormat format, int frequency)
-		{
-			set(std::span<const std::byte>{rangeBytes(range)}, format, frequency);
-		}
+		void set(std::span<const std::int16_t> data, AudioFormat format, int frequency);
 
 	  protected:
 		/// @cond IMPLEMENTATION
@@ -124,6 +105,10 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs an empty audio buffer.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
 		 **************************************************************************************************************/
 		AudioBuffer();
@@ -131,31 +116,24 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Constructs an audio buffer and immediately sets it.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
 		 *
 		 * @param[in] data A span over audio data.
 		 * @param[in] format The format of the audio data.
 		 * @param[in] frequency The frequency of the audio data.
 		 **************************************************************************************************************/
-		AudioBuffer(std::span<const std::byte> data, AudioFormat format, int frequency);
-
-		/**************************************************************************************************************
-		 * Constructs an audio buffer and immediately sets it.
-		 *
-		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
-		 *
-		 * @param[in] range A contiguous range of audio data.
-		 * @param[in] format The format of the audio data.
-		 * @param[in] frequency The frequency of the audio data.
-		 **************************************************************************************************************/
-		template <std::ranges::contiguous_range T>
-		AudioBuffer(T&& range, AudioFormat format, int frequency)
-			: AudioBuffer{std::span<const std::byte>{rangeBytes(range)}, format, frequency}
-		{
-		}
+		AudioBuffer(std::span<const std::int16_t> data, AudioFormat format, int frequency);
 
 		/**************************************************************************************************************
 		 * Loads audio data from file to a buffer.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
 		 *
 		 * @exception FileNotFound If the file isn't found.
 		 * @exception FileOpenError If opening the file fails.
@@ -166,8 +144,6 @@ namespace tr {
 		 * @param[in] path The path to an audio file.
 		 **************************************************************************************************************/
 		explicit AudioBuffer(const std::filesystem::path& path);
-
-		friend bool operator==(const AudioBuffer&, const AudioBuffer&) noexcept = default;
 
 		/**************************************************************************************************************
 		 * Casts the audio buffer to an audio buffer view.
@@ -184,27 +160,17 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the data of the buffer.
 		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
 		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
 		 *
 		 * @param[in] data A span over audio data.
 		 * @param[in] format The format of the audio data.
 		 * @param[in] frequency The frequency of the audio data.
 		 **************************************************************************************************************/
-		void set(std::span<const std::byte> data, AudioFormat format, int frequency);
-
-		/**************************************************************************************************************
-		 * Sets the data of the buffer.
-		 *
-		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
-		 *
-		 * @param[in] range A contiguous range of audio data.
-		 * @param[in] format The format of the audio data.
-		 * @param[in] frequency The frequency of the audio data.
-		 **************************************************************************************************************/
-		template <std::ranges::contiguous_range T> void set(T&& range, AudioFormat format, int frequency)
-		{
-			set(std::span<const std::byte>{rangeBytes(range)}, format, frequency);
-		}
+		void set(std::span<const std::int16_t> data, AudioFormat format, int frequency);
 
 	  private:
 		struct Deleter {

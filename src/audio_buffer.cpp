@@ -1,5 +1,4 @@
 #include "../include/tr/audio_buffer.hpp"
-#include "../include/tr/ranges.hpp"
 #include <AL/al.h>
 #include <format>
 #include <sndfile.h>
@@ -21,7 +20,7 @@ tr::SecondsF tr::AudioBufferView::length() const noexcept
 	return sampleRate == 0 ? tr::SecondsF::zero() : tr::SecondsF{double(size) / double(sampleRate)};
 }
 
-void tr::AudioBufferView::set(std::span<const std::byte> data, AudioFormat format, int frequency)
+void tr::AudioBufferView::set(std::span<const std::int16_t> data, AudioFormat format, int frequency)
 {
 	alBufferData(_id, ALenum(format), data.data(), data.size(), frequency);
 	if (alGetError() == AL_OUT_OF_MEMORY) {
@@ -39,7 +38,7 @@ tr::AudioBuffer::AudioBuffer()
 	_id.reset(id);
 }
 
-tr::AudioBuffer::AudioBuffer(std::span<const std::byte> data, AudioFormat format, int frequency)
+tr::AudioBuffer::AudioBuffer(std::span<const std::int16_t> data, AudioFormat format, int frequency)
 	: AudioBuffer{}
 {
 	set(data, format, frequency);
@@ -97,7 +96,7 @@ tr::SecondsF tr::AudioBuffer::length() const noexcept
 	return AudioBufferView(*this).length();
 }
 
-void tr::AudioBuffer::set(std::span<const std::byte> data, AudioFormat format, int frequency)
+void tr::AudioBuffer::set(std::span<const std::int16_t> data, AudioFormat format, int frequency)
 {
 	AudioBufferView(*this).set(data, format, frequency);
 }
