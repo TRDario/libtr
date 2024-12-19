@@ -422,33 +422,6 @@ namespace tr {
 		Bitmap(glm::ivec2 size, BitmapFormat format);
 
 		/**************************************************************************************************************
-		 * Loads an embedded bitmap file.
-		 *
-		 * @par Exception Safety
-		 *
-		 * Strong exception guarantee.
-		 *
-		 * @exception BitmapBadAlloc If allocating the bitmap fails.
-		 *
-		 * @param[in] embeddedFile The embedded file data.
-		 **************************************************************************************************************/
-		explicit Bitmap(std::span<const std::byte> embeddedFile);
-
-		/**************************************************************************************************************
-		 * Loads a bitmap from file (BMP/QOI).
-		 *
-		 * @par Exception Safety
-		 *
-		 * Strong exception guarantee.
-		 *
-		 * @exception FileNotFound If the file isn't found.
-		 * @exception BitmapLoadError If loading the bitmap fails.
-		 *
-		 * @param[in] path The path to the bitmap file.
-		 **************************************************************************************************************/
-		explicit Bitmap(const std::filesystem::path& path);
-
-		/**************************************************************************************************************
 		 * Clones a bitmap.
 		 *
 		 * @par Exception Safety
@@ -672,6 +645,9 @@ namespace tr {
 		friend class Cursor;
 		friend class TTFont;
 		friend class Window;
+
+		friend Bitmap loadEmbeddedBitmap(std::span<const std::byte> data);
+		friend Bitmap loadBitmapFile(const std::filesystem::path& path);
 	};
 
 	/******************************************************************************************************************
@@ -684,6 +660,65 @@ namespace tr {
 	 * @return A bitmap with the missing texture checkerboard pattern.
 	 ******************************************************************************************************************/
 	Bitmap createCheckerboard(glm::ivec2 size);
+
+	/******************************************************************************************************************
+	 * Loads an embedded bitmap file.
+	 *
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
+	 *
+	 * @exception BitmapBadAlloc If allocating the bitmap fails.
+	 *
+	 * @param[in] data
+	 * @parblock
+	 * The embedded file data.
+	 *
+	 * @pre @em data is assumed to always be a valid bitmap file.
+	 * @endparblock
+	 *
+	 * @return A bitmap loaded with data from the embedded file.
+	 ******************************************************************************************************************/
+	Bitmap loadEmbeddedBitmap(std::span<const std::byte> data);
+
+	/******************************************************************************************************************
+	 * Loads an embedded bitmap file.
+	 *
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
+	 *
+	 * @exception BitmapBadAlloc If allocating the bitmap fails.
+	 *
+	 * @param[in] range
+	 * @parblock
+	 * The embedded file data.
+	 *
+	 * @pre @em range is assumed to always be a valid bitmap file.
+	 * @endparblock
+	 *
+	 * @return A bitmap loaded with data from the embedded file.
+	 ******************************************************************************************************************/
+	template <std::ranges::contiguous_range Range> Bitmap loadEmbeddedBitmap(Range&& range)
+	{
+		return loadEmbeddedBitmap(std::span<const std::byte>{rangeBytes(range)});
+	}
+
+	/******************************************************************************************************************
+	 * Loads a bitmap from file (BMP/QOI).
+	 *
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
+	 *
+	 * @exception FileNotFound If the file isn't found.
+	 * @exception BitmapLoadError If loading the bitmap fails.
+	 *
+	 * @param[in] path The path to the bitmap file.
+	 *
+	 * @return A bitmap loaded with data from the file.
+	 ******************************************************************************************************************/
+	Bitmap loadBitmapFile(const std::filesystem::path& path);
 
 	/// @}
 } // namespace tr

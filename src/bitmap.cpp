@@ -217,27 +217,6 @@ tr::Bitmap::Bitmap(glm::ivec2 size, BitmapFormat format)
 {
 }
 
-tr::Bitmap::Bitmap(std::span<const std::byte> embeddedFile)
-	: _impl{checkNotNull(IMG_Load_RW(SDL_RWFromConstMem(embeddedFile.data(), embeddedFile.size()), true))}
-{
-}
-
-tr::Bitmap::Bitmap(const std::filesystem::path& path)
-{
-	if (!is_regular_file(path)) {
-		throw FileNotFound{path};
-	}
-
-#ifdef _WIN32
-	_impl.reset(IMG_Load_RW(SDL_RWFromFP(_wfopen(path.c_str(), L"r"), true), true));
-#else
-	_impl.reset(IMG_Load(path.c_str()));
-#endif
-	if (_impl == nullptr) {
-		throw BitmapLoadError{path};
-	}
-}
-
 tr::Bitmap::Bitmap(const Bitmap& bitmap, BitmapFormat format)
 	: _impl{checkNotNull(SDL_ConvertSurfaceFormat(bitmap._impl.get(), std::uint32_t(BitmapFormat::Type(format)), 0))}
 {
@@ -373,4 +352,26 @@ tr::Bitmap tr::createCheckerboard(glm::ivec2 size)
 	bitmap.fill({{0, halfSize.x}, halfSize}, MAGENTA);
 	bitmap.fill({halfSize, halfSize}, BLACK);
 	return bitmap;
+}
+
+tr::Bitmap tr::loadEmbeddedBitmap(std::span<const std::byte> data)
+{
+	return Bitmap{checkNotNull(IMG_Load_RW(SDL_RWFromConstMem(data.data(), data.size()), true))};
+}
+
+tr::Bitmap tr::loadBitmapFile(const std::filesystem::path& path)
+{
+	if (!is_regular_file(path)) {
+		throw FileNotFound{path};
+	}
+
+#ifdef _WIN32
+	auto ptr{IMG_Load_RW(SDL_RWFromFP(_wfopen(path.c_str(), L"r"), true), true)};
+#else
+	auto ptr{IMG_Load(path.c_str())};
+#endif
+	if (ptr == nullptr) {
+		throw BitmapLoadError{path};
+	}
+	return Bitmap{ptr};
 }
