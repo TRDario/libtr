@@ -195,11 +195,11 @@ namespace tr {
 	 *
 	 * @exception AudioBufferBadAlloc If allocating the buffer fails.
 	 *
-	 * @param[in] embeddedFile
+	 * @param[in] data
 	 * @parblock
 	 * The embedded file data.
 	 *
-	 * @pre @em embeddedFile is assumed to always be a valid audio file.
+	 * @pre @em data is assumed to always be a valid audio file.
 	 * @endparblock
 	 *
 	 * @return An audio buffer loaded with data from the embedded file.
@@ -215,11 +215,11 @@ namespace tr {
 	 *
 	 * @exception AudioBufferBadAlloc If allocating the buffer fails.
 	 *
-	 * @param[in] embeddedFile
+	 * @param[in] range
 	 * @parblock
 	 * The embedded file range.
 	 *
-	 * @pre @em embeddedFile is assumed to always be a valid audio file.
+	 * @pre @em range is assumed to always be a valid audio file.
 	 * @endparblock
 	 *
 	 * @return An audio buffer loaded with data from the embedded file.
