@@ -45,19 +45,8 @@ const char* tr::ShaderLoadError::what() const noexcept
 	return str.c_str();
 }
 
-tr::Shader::Shader(const std::filesystem::path& path, ShaderType type)
-	: _type{type}
-{
-	auto file{openFileR(path, std::ios::binary)};
-	auto data{flushBinary<std::vector<char>>(file)};
-	_id.reset(constructProgram(rangeBytes(data), type), NO_EMPTY_HANDLE_CHECK);
-	if (!_id.has_value()) {
-		throw ShaderLoadError{path};
-	}
-}
-
-tr::Shader::Shader(std::span<const std::byte> embeddedFile, ShaderType type) noexcept
-	: _id{constructProgram(embeddedFile, type)}, _type{type}
+tr::Shader::Shader(unsigned int id, ShaderType type) noexcept
+	: _id{id}, _type{type}
 {
 }
 
@@ -405,4 +394,20 @@ void tr::Shader::setStorageBuffer(unsigned int index, ShaderBuffer& buffer) noex
 void tr::Shader::setLabel(std::string_view label) noexcept
 {
 	glObjectLabel(GL_PROGRAM, _id.get(), label.size(), label.data());
+}
+
+tr::Shader tr::loadEmbeddedShader(std::span<const std::byte> data, ShaderType type) noexcept
+{
+	return Shader{constructProgram(data, type), type};
+}
+
+tr::Shader tr::loadShaderFile(const std::filesystem::path& path, ShaderType type)
+{
+	auto file{openFileR(path, std::ios::binary)};
+	auto data{flushBinary<std::vector<char>>(file)};
+	auto id{constructProgram(rangeBytes(data), type)};
+	if (id == 0) {
+		throw ShaderLoadError{path};
+	}
+	return Shader{id, type};
 }

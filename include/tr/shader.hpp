@@ -33,38 +33,12 @@ namespace tr {
 
 	/******************************************************************************************************************
 	 * GPU shader program.
+	 *
+	 * Shader is movable, but not copyable. A moved shader is left in a state where another shader can be moved into it,
+	 * but is otherwise unusable.
 	 ******************************************************************************************************************/
 	class Shader {
 	  public:
-		/**************************************************************************************************************
-		 * Loads a shader from file.
-		 *
-		 * @par Exception Safety
-		 *
-		 * Strong exception guarantee.
-		 *
-		 * @exception FileNotFound If the file is not found.
-		 * @exception FileOpenError If opening the file fails.
-		 * @exception std::bad_alloc If copying the contents of the file to a buffer fails.
-		 * @exception ShaderLoadError If loading the shader fails.
-		 *
-		 * @param path The path to the shader file.
-		 * @param type The shader type.
-		 **************************************************************************************************************/
-		Shader(const std::filesystem::path& path, ShaderType type);
-
-		/**************************************************************************************************************
-		 * Loads a shader from an embedded file.
-		 *
-		 * @par Exception Safety
-		 *
-		 * Strong exception guarantee.
-		 *
-		 * @param embeddedFile An embedded SPIR-V shader file.
-		 * @param type The shader type.
-		 **************************************************************************************************************/
-		Shader(std::span<const std::byte> embeddedFile, ShaderType type) noexcept;
-
 		/**************************************************************************************************************
 		 * Sets the type of the shader.
 		 *
@@ -815,8 +789,62 @@ namespace tr {
 		Handle<unsigned int, 0, Deleter> _id;
 		ShaderType                       _type;
 
+		Shader(unsigned int id, ShaderType type) noexcept;
+
 		friend class ShaderPipeline;
+		friend Shader loadEmbeddedShader(std::span<const std::byte> embeddedFile, ShaderType type) noexcept;
+		friend Shader loadShaderFile(const std::filesystem::path& path, ShaderType type);
 	};
+
+	/**************************************************************************************************************
+	 * Loads a shader from an embedded file.
+	 *
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
+	 *
+	 * @param data An embedded SPIR-V shader file.
+	 * @param type The shader type.
+	 *
+	 * @return The loaded shader.
+	 **************************************************************************************************************/
+	Shader loadEmbeddedShader(std::span<const std::byte> data, ShaderType type) noexcept;
+
+	/**************************************************************************************************************
+	 * Loads a shader from an embedded file.
+	 *
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
+	 *
+	 * @param range An embedded SPIR-V shader file.
+	 * @param type The shader type.
+	 *
+	 * @return The loaded shader.
+	 **************************************************************************************************************/
+	template <std::ranges::contiguous_range Range> Shader loadEmbeddedShader(Range&& range, ShaderType type) noexcept
+	{
+		return loadEmbeddedShader(std::span<const std::byte>(rangeBytes(range)), type);
+	}
+
+	/**************************************************************************************************************
+	 * Loads a shader from file.
+	 *
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
+	 *
+	 * @exception FileNotFound If the file is not found.
+	 * @exception FileOpenError If opening the file fails.
+	 * @exception std::bad_alloc If copying the contents of the file to a buffer fails.
+	 * @exception ShaderLoadError If loading the shader fails.
+	 *
+	 * @param path The path to the shader file.
+	 * @param type The shader type.
+	 *
+	 * @return The loaded shader.
+	 **************************************************************************************************************/
+	Shader loadShaderFile(const std::filesystem::path& path, ShaderType type);
 
 	/// @}
 } // namespace tr
