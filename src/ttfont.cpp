@@ -18,26 +18,9 @@ void tr::fixAlphaArtifacts(Bitmap& bitmap, std::uint8_t maxAlpha) noexcept
 	}
 }
 
-tr::TTFont::TTFont(const std::filesystem::path& path, int size, glm::uvec2 dpi)
+tr::TTFont::TTFont(_TTF_Font* impl, int size, glm::uvec2 dpi) noexcept
+	: _impl{impl}, _size{size}, _dpi{dpi}
 {
-	if (!is_regular_file(path)) {
-		throw FileNotFound{path};
-	}
-
-#ifdef _WIN32
-	_impl.reset(TTF_OpenFontDPIRW(SDL_RWFromFP(_wfopen(path.c_str(), L"r"), true), true, size, dpi.x, dpi.y));
-#else
-	_impl.reset(TTF_OpenFontDPI(path.c_str(), size, dpi.x, dpi.y));
-#endif
-	if (_impl == nullptr) {
-		throw TTFontLoadError{path};
-	}
-}
-
-tr::TTFont::TTFont(std::span<const std::byte> embeddedFile, int size, glm::uvec2 dpi) noexcept
-	: _impl{TTF_OpenFontDPIRW(SDL_RWFromConstMem(embeddedFile.data(), embeddedFile.size()), true, size, dpi.x, dpi.y)}
-{
-	assert(_impl != nullptr);
 }
 
 void tr::TTFont::Deleter::operator()(TTF_Font* ptr) const noexcept
@@ -219,4 +202,30 @@ tr::Bitmap tr::TTFont::renderWrapped(const char* text, RGBA8 color, std::uint32_
 		fixAlphaArtifacts(bitmap, color.a);
 	}
 	return bitmap;
+}
+
+tr::TTFont tr::loadEmbeddedTTFont(std::span<const std::byte> embeddedFile, int size, glm::uvec2 dpi)
+{
+	auto ptr{TTF_OpenFontDPIRW(SDL_RWFromConstMem(embeddedFile.data(), embeddedFile.size()), true, size, dpi.x, dpi.y)};
+	if (ptr == nullptr) {
+		throw TTFontLoadError{"(embedded file)"};
+	}
+	return TTFont{ptr, size, dpi};
+}
+
+tr::TTFont tr::loadTTFontFile(const std::filesystem::path& path, int size, glm::uvec2 dpi)
+{
+	if (!is_regular_file(path)) {
+		throw FileNotFound{path};
+	}
+
+#ifdef _WIN32
+	auto ptr{TTF_OpenFontDPIRW(SDL_RWFromFP(_wfopen(path.c_str(), L"r"), true), true, size, dpi.x, dpi.y)};
+#else
+	auto ptr{TTF_OpenFontDPI(path.c_str(), size, dpi.x, dpi.y)};
+#endif
+	if (ptr == nullptr) {
+		throw TTFontLoadError{path};
+	}
+	return TTFont{ptr, size, dpi};
 }

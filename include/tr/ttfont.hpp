@@ -33,9 +33,9 @@ namespace tr {
 		using SDLError::SDLError;
 	};
 
-	/**************************************************************************************************************
+	/******************************************************************************************************************
 	 * TrueType font.
-	 **************************************************************************************************************/
+	 ******************************************************************************************************************/
 	class TTFont {
 	  public:
 		/**************************************************************************************************************
@@ -152,31 +152,6 @@ namespace tr {
 			 **********************************************************************************************************/
 			int width;
 		};
-
-		/**************************************************************************************************************
-		 * Loads a font from file.
-		 *
-		 * @par Exception Safety
-		 *
-		 * Strong exception guarantee.
-		 *
-		 * @exception FileNotFound If the file is not found.
-		 * @exception TTFontLoadError If loading the font fails.
-		 *
-		 * @param[in] path The path to the font file.
-		 * @param[in] size The point size of the font.
-		 * @param[in] dpi The target resolution of the font.
-		 **************************************************************************************************************/
-		TTFont(const std::filesystem::path& path, int size, glm::uvec2 dpi = {72, 72});
-
-		/**************************************************************************************************************
-		 * Loads an embedded font file.
-		 *
-		 * @param[in] embeddedFile The embedded font file.
-		 * @param[in] size The point size of the font.
-		 * @param[in] dpi The target resolution of the font.
-		 **************************************************************************************************************/
-		TTFont(std::span<const std::byte> embeddedFile, int size, glm::uvec2 dpi = {72, 72}) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the ascent of the font.
@@ -420,7 +395,62 @@ namespace tr {
 		std::unique_ptr<_TTF_Font, Deleter> _impl;
 		int                                 _size;
 		glm::uvec2                          _dpi;
+
+		TTFont(_TTF_Font* impl, int size, glm::uvec2 dpi) noexcept;
+
+		friend TTFont loadEmbeddedTTFont(std::span<const std::byte> data, int size, glm::uvec2 dpi);
+		friend TTFont loadTTFontFile(const std::filesystem::path& path, int size, glm::uvec2 dpi);
 	};
+
+	/******************************************************************************************************************
+	 * Loads an embedded font file.
+	 *
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
+	 *
+	 * @exception TTFontLoadError If loading the font fails.
+	 *
+	 * @param[in] data The embedded font file.
+	 * @param[in] size The point size of the font.
+	 * @param[in] dpi The target resolution of the font.
+	 ******************************************************************************************************************/
+	TTFont loadEmbeddedTTFont(std::span<const std::byte> data, int size, glm::uvec2 dpi = {72, 72});
+
+	/******************************************************************************************************************
+	 * Loads an embedded font file.
+	 *
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
+	 *
+	 * @exception TTFontLoadError If loading the font fails.
+	 *
+	 * @param[in] range The embedded font file.
+	 * @param[in] size The point size of the font.
+	 * @param[in] dpi The target resolution of the font.
+	 ******************************************************************************************************************/
+	template <std::ranges::contiguous_range Range>
+	TTFont loadEmbeddedTTFont(Range&& range, int size, glm::uvec2 dpi = {72, 72})
+	{
+		return loadEmbeddedTTFont(std::span<const std::byte>{rangeBytes(range)}, size, dpi);
+	};
+
+	/******************************************************************************************************************
+	 * Loads a font from file.
+	 *
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
+	 *
+	 * @exception FileNotFound If the file is not found.
+	 * @exception TTFontLoadError If loading the font fails.
+	 *
+	 * @param[in] path The path to the font file.
+	 * @param[in] size The point size of the font.
+	 * @param[in] dpi The target resolution of the font.
+	 ******************************************************************************************************************/
+	TTFont loadTTFontFile(const std::filesystem::path& path, int size, glm::uvec2 dpi = {72, 72});
 
 	/// @cond IMPLEMENTATION
 	DEFINE_BITMASK_OPERATORS(TTFont::Style);
