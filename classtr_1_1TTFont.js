@@ -21,8 +21,6 @@ var classtr_1_1TTFont =
       [ "CENTER", "classtr_1_1TTFont.html#afd715019ff947708ce95f3670331b0feac397289ee45877be0cd49811fe245b4e", null ],
       [ "RIGHT", "classtr_1_1TTFont.html#afd715019ff947708ce95f3670331b0fea21507b40c80068eda19865706fdc2403", null ]
     ] ],
-    [ "TTFont", "classtr_1_1TTFont.html#aebe51e4647bf92e3d2d97d7275db3a1d", null ],
-    [ "TTFont", "classtr_1_1TTFont.html#a1da5fe93056dce70da1b06061de7d2c5", null ],
     [ "ascent", "classtr_1_1TTFont.html#a22207d2fc5fe00875b6d4e3855501f4a", null ],
     [ "descent", "classtr_1_1TTFont.html#a623c591b19256f3e1da47b28382539bf", null ],
     [ "height", "classtr_1_1TTFont.html#aaccd358d4c7a82fb9b483bb51e3d4b25", null ],
@@ -48,5 +46,7 @@ var classtr_1_1TTFont =
     [ "measure", "classtr_1_1TTFont.html#a04fbc42376729904292f7e5eae19f32b", null ],
     [ "render", "classtr_1_1TTFont.html#abe28f80837b1793585d04f6455b4f89f", null ],
     [ "render", "classtr_1_1TTFont.html#a383f2fb68eb5481acdc5786f3cf42293", null ],
-    [ "renderWrapped", "classtr_1_1TTFont.html#a06cf520a8ecae2fbd957604f348e81b8", null ]
+    [ "renderWrapped", "classtr_1_1TTFont.html#a06cf520a8ecae2fbd957604f348e81b8", null ],
+    [ "loadEmbeddedTTFont", "classtr_1_1TTFont.html#ab6763d57b5d38e107103492952d13929", null ],
+    [ "loadTTFontFile", "classtr_1_1TTFont.html#a854265c64773493e87437fcc86c0dc54", null ]
 ];

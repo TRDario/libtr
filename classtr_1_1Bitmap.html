@@ -146,12 +146,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a30b01788ff43d878b16891b60fad4291" id="r_a30b01788ff43d878b16891b60fad4291"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30b01788ff43d878b16891b60fad4291">Bitmap</a> (glm::ivec2 <a class="el" href="#a45c89c6b9f996dbd99799370de244b45">size</a>, <a class="el" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> <a class="el" href="#a10ed1ee277822c5aafa78d5413916024">format</a>)</td></tr>
 <tr class="memdesc:a30b01788ff43d878b16891b60fad4291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a blank bitmap.  <br /></td></tr>
 <tr class="separator:a30b01788ff43d878b16891b60fad4291"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e7cd665c28b8b094957dea46d37c5a6" id="r_a7e7cd665c28b8b094957dea46d37c5a6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e7cd665c28b8b094957dea46d37c5a6">Bitmap</a> (std::span&lt; const std::byte &gt; embeddedFile)</td></tr>
-<tr class="memdesc:a7e7cd665c28b8b094957dea46d37c5a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an embedded bitmap file.  <br /></td></tr>
-<tr class="separator:a7e7cd665c28b8b094957dea46d37c5a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1b4499ce75fb2a294967c48099e3969" id="r_aa1b4499ce75fb2a294967c48099e3969"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1b4499ce75fb2a294967c48099e3969">Bitmap</a> (const std::filesystem::path &amp;path)</td></tr>
-<tr class="memdesc:aa1b4499ce75fb2a294967c48099e3969"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a bitmap from file (BMP/QOI).  <br /></td></tr>
-<tr class="separator:aa1b4499ce75fb2a294967c48099e3969"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6f0af7691af98c0ec6577a9b82c6a86" id="r_ab6f0af7691af98c0ec6577a9b82c6a86"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6f0af7691af98c0ec6577a9b82c6a86">Bitmap</a> (const <a class="el" href="classtr_1_1Bitmap.html">Bitmap</a> &amp;bitmap, <a class="el" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> <a class="el" href="#a10ed1ee277822c5aafa78d5413916024">format</a>)</td></tr>
 <tr class="memdesc:ab6f0af7691af98c0ec6577a9b82c6a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clones a bitmap.  <br /></td></tr>
 <tr class="separator:ab6f0af7691af98c0ec6577a9b82c6a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -253,7 +247,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a30b01788ff43d878b16891b60fad4291" name="a30b01788ff43d878b16891b60fad4291"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30b01788ff43d878b16891b60fad4291">&#9670;&#160;</a></span>Bitmap() <span class="overload">[1/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a30b01788ff43d878b16891b60fad4291">&#9670;&#160;</a></span>Bitmap() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -290,91 +284,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7e7cd665c28b8b094957dea46d37c5a6" name="a7e7cd665c28b8b094957dea46d37c5a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e7cd665c28b8b094957dea46d37c5a6">&#9670;&#160;</a></span>Bitmap() <span class="overload">[2/6]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tr::Bitmap::Bitmap </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; const std::byte &gt;</td>          <td class="paramname"><span class="paramname"><em>embeddedFile</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Loads an embedded bitmap file. </p>
-<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
-<p>Strong exception guarantee.</p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapBadAlloc.html" title="Error thrown when bitmap allocation fails.">BitmapBadAlloc</a></td><td>If allocating the bitmap fails.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">embeddedFile</td><td>The embedded file data. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aa1b4499ce75fb2a294967c48099e3969" name="aa1b4499ce75fb2a294967c48099e3969"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1b4499ce75fb2a294967c48099e3969">&#9670;&#160;</a></span>Bitmap() <span class="overload">[3/6]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tr::Bitmap::Bitmap </td>
-          <td>(</td>
-          <td class="paramtype">const std::filesystem::path &amp;</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Loads a bitmap from file (BMP/QOI). </p>
-<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
-<p>Strong exception guarantee.</p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1FileNotFound.html" title="File not found exception.">FileNotFound</a></td><td>If the file isn't found. </td></tr>
-    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapLoadError.html" title="Error thrown when bitmap loading fails.">BitmapLoadError</a></td><td>If loading the bitmap fails.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>The path to the bitmap file. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="ab6f0af7691af98c0ec6577a9b82c6a86" name="ab6f0af7691af98c0ec6577a9b82c6a86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6f0af7691af98c0ec6577a9b82c6a86">&#9670;&#160;</a></span>Bitmap() <span class="overload">[4/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6f0af7691af98c0ec6577a9b82c6a86">&#9670;&#160;</a></span>Bitmap() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -412,7 +323,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a136336485b66edf12a438892c5e20978" name="a136336485b66edf12a438892c5e20978"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a136336485b66edf12a438892c5e20978">&#9670;&#160;</a></span>Bitmap() <span class="overload">[5/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a136336485b66edf12a438892c5e20978">&#9670;&#160;</a></span>Bitmap() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -450,7 +361,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a1f945e79f021c6ca082696444d51005d" name="a1f945e79f021c6ca082696444d51005d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f945e79f021c6ca082696444d51005d">&#9670;&#160;</a></span>Bitmap() <span class="overload">[6/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f945e79f021c6ca082696444d51005d">&#9670;&#160;</a></span>Bitmap() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

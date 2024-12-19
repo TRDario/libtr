@@ -129,6 +129,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9c8903e6e5880e1b662c9b7ce6b46026" id="r_a9c8903e6e5880e1b662c9b7ce6b46026"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__keyboard.html#ga1e5a857eb2f40e2b55bfb43225cbc658">Keymods</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c8903e6e5880e1b662c9b7ce6b46026">heldMods</a> () const noexcept</td></tr>
 <tr class="memdesc:a9c8903e6e5880e1b662c9b7ce6b46026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a bitmask of the held keyboard modifiers.  <br /></td></tr>
 <tr class="separator:a9c8903e6e5880e1b662c9b7ce6b46026"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41f430ec044561003618dc2b104ee569" id="r_a41f430ec044561003618dc2b104ee569"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41f430ec044561003618dc2b104ee569">clipboardHasTest</a> () const noexcept</td></tr>
+<tr class="memdesc:a41f430ec044561003618dc2b104ee569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether the clipboard contains text.  <br /></td></tr>
+<tr class="separator:a41f430ec044561003618dc2b104ee569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2d52cfbbbf67e3bc3612c806def5795" id="r_af2d52cfbbbf67e3bc3612c806def5795"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2d52cfbbbf67e3bc3612c806def5795">setClipboardText</a> (const char *text) noexcept</td></tr>
+<tr class="memdesc:af2d52cfbbbf67e3bc3612c806def5795"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the clipboard text.  <br /></td></tr>
+<tr class="separator:af2d52cfbbbf67e3bc3612c806def5795"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87dd58f8b72647016579266b51aec74c" id="r_a87dd58f8b72647016579266b51aec74c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87dd58f8b72647016579266b51aec74c">setClipboardText</a> (const std::string &amp;text) noexcept</td></tr>
+<tr class="memdesc:a87dd58f8b72647016579266b51aec74c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the clipboard text.  <br /></td></tr>
+<tr class="separator:a87dd58f8b72647016579266b51aec74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab47c52de341ae6f536fdba380fbed911" id="r_ab47c52de341ae6f536fdba380fbed911"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab47c52de341ae6f536fdba380fbed911">clipboardText</a> () const</td></tr>
+<tr class="memdesc:ab47c52de341ae6f536fdba380fbed911"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the clipboard text.  <br /></td></tr>
+<tr class="separator:ab47c52de341ae6f536fdba380fbed911"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classtr_1_1Keyboard.html" title="Keyboard functionality.">Keyboard</a> functionality. </p>
@@ -193,6 +205,128 @@ Public Member Functions</h2></td></tr>
 
 <p>Gets a bitmask of the held keyboard modifiers. </p>
 <dl class="section return"><dt>Returns</dt><dd>A bitmask of the held keyboard modifiers. </dd></dl>
+
+</div>
+</div>
+<a id="a41f430ec044561003618dc2b104ee569" name="a41f430ec044561003618dc2b104ee569"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41f430ec044561003618dc2b104ee569">&#9670;&#160;</a></span>clipboardHasTest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool tr::Keyboard::clipboardHasTest </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets whether the clipboard contains text. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the clipboard holds text, and false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="af2d52cfbbbf67e3bc3612c806def5795" name="af2d52cfbbbf67e3bc3612c806def5795"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2d52cfbbbf67e3bc3612c806def5795">&#9670;&#160;</a></span>setClipboardText() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tr::Keyboard::setClipboardText </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>text</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the clipboard text. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td>The text to put into the clipboard. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a87dd58f8b72647016579266b51aec74c" name="a87dd58f8b72647016579266b51aec74c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87dd58f8b72647016579266b51aec74c">&#9670;&#160;</a></span>setClipboardText() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tr::Keyboard::setClipboardText </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>text</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the clipboard text. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td>The text to put into the clipboard. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab47c52de341ae6f536fdba380fbed911" name="ab47c52de341ae6f536fdba380fbed911"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab47c52de341ae6f536fdba380fbed911">&#9670;&#160;</a></span>clipboardText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string tr::Keyboard::clipboardText </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the clipboard text. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::bad_alloc</td><td>If allocating the string fails.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The text that is held in the clipboard. </dd></dl>
 
 </div>
 </div>

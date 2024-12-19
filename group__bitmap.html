@@ -162,6 +162,16 @@ Functions</h2></td></tr>
 <tr class="memitem:gaf8beb3d49b6411407cbf541c75e9576a" id="r_gaf8beb3d49b6411407cbf541c75e9576a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaf8beb3d49b6411407cbf541c75e9576a">tr::createCheckerboard</a> (glm::ivec2 size)</td></tr>
 <tr class="memdesc:gaf8beb3d49b6411407cbf541c75e9576a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a bitmap with the missing texture checkerboard pattern.  <br /></td></tr>
 <tr class="separator:gaf8beb3d49b6411407cbf541c75e9576a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d9a964e32633d2901ebaf47d5b47999" id="r_ga6d9a964e32633d2901ebaf47d5b47999"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga6d9a964e32633d2901ebaf47d5b47999">tr::loadEmbeddedBitmap</a> (std::span&lt; const std::byte &gt; data)</td></tr>
+<tr class="memdesc:ga6d9a964e32633d2901ebaf47d5b47999"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an embedded bitmap file.  <br /></td></tr>
+<tr class="separator:ga6d9a964e32633d2901ebaf47d5b47999"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae27b0b361d2b3225f11e4712e59b1f80" id="r_gae27b0b361d2b3225f11e4712e59b1f80"><td class="memTemplParams" colspan="2">template&lt;std::ranges::contiguous_range Range&gt; </td></tr>
+<tr class="memitem:gae27b0b361d2b3225f11e4712e59b1f80"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gae27b0b361d2b3225f11e4712e59b1f80">tr::loadEmbeddedBitmap</a> (Range &amp;&amp;range)</td></tr>
+<tr class="memdesc:gae27b0b361d2b3225f11e4712e59b1f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an embedded bitmap file.  <br /></td></tr>
+<tr class="separator:gae27b0b361d2b3225f11e4712e59b1f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae4527ddf3c4b096a5874dded987a58d6" id="r_gae4527ddf3c4b096a5874dded987a58d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae4527ddf3c4b096a5874dded987a58d6">tr::loadBitmapFile</a> (const std::filesystem::path &amp;path)</td></tr>
+<tr class="memdesc:gae4527ddf3c4b096a5874dded987a58d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a bitmap from file (BMP/QOI).  <br /></td></tr>
+<tr class="separator:gae4527ddf3c4b096a5874dded987a58d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p><a class="el" href="classtr_1_1Bitmap.html" title="Class containing owned bitmap data.">Bitmap</a> classes and related functionality. </p>
@@ -195,6 +205,121 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A bitmap with the missing texture checkerboard pattern. </dd></dl>
+
+</div>
+</div>
+<a id="ga6d9a964e32633d2901ebaf47d5b47999" name="ga6d9a964e32633d2901ebaf47d5b47999"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6d9a964e32633d2901ebaf47d5b47999">&#9670;&#160;</a></span>loadEmbeddedBitmap() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a> tr::loadEmbeddedBitmap </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const std::byte &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads an embedded bitmap file. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapBadAlloc.html" title="Error thrown when bitmap allocation fails.">BitmapBadAlloc</a></td><td>If allocating the bitmap fails.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td><p class="starttd">The embedded file data.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>data</em> is assumed to always be a valid bitmap file. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A bitmap loaded with data from the embedded file. </dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="#gae27b0b361d2b3225f11e4712e59b1f80">tr::loadEmbeddedBitmap()</a>.</p>
+
+</div>
+</div>
+<a id="gae27b0b361d2b3225f11e4712e59b1f80" name="gae27b0b361d2b3225f11e4712e59b1f80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae27b0b361d2b3225f11e4712e59b1f80">&#9670;&#160;</a></span>loadEmbeddedBitmap() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::ranges::contiguous_range Range&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a> tr::loadEmbeddedBitmap </td>
+          <td>(</td>
+          <td class="paramtype">Range &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads an embedded bitmap file. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapBadAlloc.html" title="Error thrown when bitmap allocation fails.">BitmapBadAlloc</a></td><td>If allocating the bitmap fails.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">range</td><td><p class="starttd">The embedded file data.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>range</em> is assumed to always be a valid bitmap file. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A bitmap loaded with data from the embedded file. </dd></dl>
+
+</div>
+</div>
+<a id="gae4527ddf3c4b096a5874dded987a58d6" name="gae4527ddf3c4b096a5874dded987a58d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae4527ddf3c4b096a5874dded987a58d6">&#9670;&#160;</a></span>loadBitmapFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a> tr::loadBitmapFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::filesystem::path &amp;</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads a bitmap from file (BMP/QOI). </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structtr_1_1FileNotFound.html" title="File not found exception.">FileNotFound</a></td><td>If the file isn't found. </td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1BitmapLoadError.html" title="Error thrown when bitmap loading fails.">BitmapLoadError</a></td><td>If loading the bitmap fails.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>The path to the bitmap file.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A bitmap loaded with data from the file. </dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="#gae4527ddf3c4b096a5874dded987a58d6">tr::loadBitmapFile()</a>.</p>
 
 </div>
 </div>

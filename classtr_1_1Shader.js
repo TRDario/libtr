@@ -1,7 +1,5 @@
 var classtr_1_1Shader =
 [
-    [ "Shader", "classtr_1_1Shader.html#ac139df92f4dae70840bcf4c50a633967", null ],
-    [ "Shader", "classtr_1_1Shader.html#ab328c124a2674fe6fc15d186c324cea2", null ],
     [ "type", "classtr_1_1Shader.html#aeb2d536a7edfb97815c87aedc6448f44", null ],
     [ "setUniform", "classtr_1_1Shader.html#a7ff61a19c1473194d31a759869fc2802", null ],
     [ "setUniform", "classtr_1_1Shader.html#a3f9bf539e592b907649a53d2920861fd", null ],
@@ -60,5 +58,7 @@ var classtr_1_1Shader =
     [ "setUniform", "classtr_1_1Shader.html#a2160e5ade875d05bb90216b43db950fb", null ],
     [ "setStorageBuffer", "classtr_1_1Shader.html#aecf4621488b97089aec635971374a972", null ],
     [ "setLabel", "classtr_1_1Shader.html#a26ae373f3dad7300e43097bd4ea58ea2", null ],
-    [ "ShaderPipeline", "classtr_1_1Shader.html#a66cbd73ed97c66fade8de706f0cd890f", null ]
+    [ "ShaderPipeline", "classtr_1_1Shader.html#a66cbd73ed97c66fade8de706f0cd890f", null ],
+    [ "loadEmbeddedShader", "classtr_1_1Shader.html#a1ea05d4bc07ef91fe387282b7a517a7b", null ],
+    [ "loadShaderFile", "classtr_1_1Shader.html#ac3a76666ce22abeb2c0078c360e1d1b5", null ]
 ];

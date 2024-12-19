@@ -23,7 +23,6 @@ var searchData=
   ['stencil_20',['STENCIL',['../classtr_1_1Framebuffer.html#a83dfe57520b21bf6c260b789d965f973a301b25ea9a653329b5d5d727f92514c4',1,'tr::Framebuffer::STENCIL'],['../group__graphics__context.html#ggaeaf2735d38842f598e12fe0e884992eda301b25ea9a653329b5d5d727f92514c4',1,'tr::STENCIL']]],
   ['stencil8_21',['STENCIL8',['../group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9acd7d9d5edb5cd72424f19be55ccbcbf4',1,'tr']]],
   ['stereo16_22',['STEREO16',['../group__audio__buffer.html#gga0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7',1,'tr']]],
-  ['stopped_23',['STOPPED',['../group__audio__source.html#gga6c94829f0dfe0e9696cc57a3c7aff830a09d4d696b4e935115b9313e3c412509a',1,'tr']]],
-  ['strikethrough_24',['STRIKETHROUGH',['../classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06aad166989fa2b7da7d238b3e7105c64f8',1,'tr::TTFont']]],
-  ['subtract_25',['SUBTRACT',['../group__graphics__context.html#ggab02487840c576fc68a93203882127279a23ebcc4776b613af25dfbe7c8ce4813e',1,'tr']]]
+  ['strikethrough_23',['STRIKETHROUGH',['../classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06aad166989fa2b7da7d238b3e7105c64f8',1,'tr::TTFont']]],
+  ['subtract_24',['SUBTRACT',['../group__graphics__context.html#ggab02487840c576fc68a93203882127279a23ebcc4776b613af25dfbe7c8ce4813e',1,'tr']]]
 ];

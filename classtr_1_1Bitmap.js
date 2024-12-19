@@ -3,8 +3,6 @@ var classtr_1_1Bitmap =
     [ "PixelCref", "classtr_1_1Bitmap.html#ad9d5e3489943ea1b66b814aa49085c73", null ],
     [ "ConstIt", "classtr_1_1Bitmap.html#a4bfadd9d521de8c9c298e9360121885a", null ],
     [ "Bitmap", "classtr_1_1Bitmap.html#a30b01788ff43d878b16891b60fad4291", null ],
-    [ "Bitmap", "classtr_1_1Bitmap.html#a7e7cd665c28b8b094957dea46d37c5a6", null ],
-    [ "Bitmap", "classtr_1_1Bitmap.html#aa1b4499ce75fb2a294967c48099e3969", null ],
     [ "Bitmap", "classtr_1_1Bitmap.html#ab6f0af7691af98c0ec6577a9b82c6a86", null ],
     [ "Bitmap", "classtr_1_1Bitmap.html#a136336485b66edf12a438892c5e20978", null ],
     [ "Bitmap", "classtr_1_1Bitmap.html#a1f945e79f021c6ca082696444d51005d", null ],
@@ -31,5 +29,7 @@ var classtr_1_1Bitmap =
     [ "MutIt", "classtr_1_1Bitmap.html#a91376fae63927ead9c54625ccdecc97e", null ],
     [ "Cursor", "classtr_1_1Bitmap.html#a9591eb6f6543f40292912e27b74f4d27", null ],
     [ "TTFont", "classtr_1_1Bitmap.html#af050535dccf24ebc2d422c05c16c78f2", null ],
-    [ "Window", "classtr_1_1Bitmap.html#a553f958a25683445088050a69d3de8e9", null ]
+    [ "Window", "classtr_1_1Bitmap.html#a553f958a25683445088050a69d3de8e9", null ],
+    [ "loadEmbeddedBitmap", "classtr_1_1Bitmap.html#a90ce3384f14ed3fc8bbf7ba9ec43cb18", null ],
+    [ "loadBitmapFile", "classtr_1_1Bitmap.html#a632d90efc9d5083c80ab6dc1db1a526c", null ]
 ];

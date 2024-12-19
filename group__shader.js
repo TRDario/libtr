@@ -7,8 +7,6 @@ var group__shader =
       [ "FileError", "structtr_1_1ShaderLoadError.html#a2721806b29b337df88b1872d26c235a9", null ]
     ] ],
     [ "tr::Shader", "classtr_1_1Shader.html", [
-      [ "Shader", "classtr_1_1Shader.html#ac139df92f4dae70840bcf4c50a633967", null ],
-      [ "Shader", "classtr_1_1Shader.html#ab328c124a2674fe6fc15d186c324cea2", null ],
       [ "type", "classtr_1_1Shader.html#aeb2d536a7edfb97815c87aedc6448f44", null ],
       [ "setUniform", "classtr_1_1Shader.html#a7ff61a19c1473194d31a759869fc2802", null ],
       [ "setUniform", "classtr_1_1Shader.html#a3f9bf539e592b907649a53d2920861fd", null ],
@@ -67,10 +65,15 @@ var group__shader =
       [ "setUniform", "classtr_1_1Shader.html#a2160e5ade875d05bb90216b43db950fb", null ],
       [ "setStorageBuffer", "classtr_1_1Shader.html#aecf4621488b97089aec635971374a972", null ],
       [ "setLabel", "classtr_1_1Shader.html#a26ae373f3dad7300e43097bd4ea58ea2", null ],
-      [ "ShaderPipeline", "classtr_1_1Shader.html#a66cbd73ed97c66fade8de706f0cd890f", null ]
+      [ "ShaderPipeline", "classtr_1_1Shader.html#a66cbd73ed97c66fade8de706f0cd890f", null ],
+      [ "loadEmbeddedShader", "classtr_1_1Shader.html#a1ea05d4bc07ef91fe387282b7a517a7b", null ],
+      [ "loadShaderFile", "classtr_1_1Shader.html#ac3a76666ce22abeb2c0078c360e1d1b5", null ]
     ] ],
     [ "tr::ShaderType", "group__shader.html#gafcfa3e5f9682128a25a9ac5eb1de2579", [
       [ "tr::ShaderType::VERTEX", "group__shader.html#ggafcfa3e5f9682128a25a9ac5eb1de2579a0c3e47aef93a7f244f41ab309a33634b", null ],
       [ "tr::ShaderType::FRAGMENT", "group__shader.html#ggafcfa3e5f9682128a25a9ac5eb1de2579a7345a249ed5c2f850d85dc1727c24716", null ]
-    ] ]
+    ] ],
+    [ "tr::loadEmbeddedShader", "group__shader.html#ga6fd66e945040bc4569193abac0e12b2b", null ],
+    [ "tr::loadEmbeddedShader", "group__shader.html#ga1f5ccb99d703e9044f56f62015440755", null ],
+    [ "tr::loadShaderFile", "group__shader.html#gae6427ef54d00279e92afeaf185fd4481", null ]
 ];

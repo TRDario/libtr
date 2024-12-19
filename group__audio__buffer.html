@@ -113,7 +113,8 @@ $(function(){initNavTree('group__audio__buffer.html',''); initResizable(true); }
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Audio Buffer<div class="ingroups"><a class="el" href="group__audio.html">Audio</a></div></div></div>
 </div><!--header-->
 <div class="contents">
@@ -133,7 +134,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-owning audio buffer view.  <a href="classtr_1_1AudioBufferView.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1AudioBuffer.html">tr::AudioBuffer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Owning audio buffer.  <a href="classtr_1_1AudioBuffer.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Owning audio data buffer.  <a href="classtr_1_1AudioBuffer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
@@ -143,6 +144,19 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ga0cd93ec18a3882266f1c6cd2657e7cfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio data format.  <a href="#ga0cd93ec18a3882266f1c6cd2657e7cfe">More...</a><br /></td></tr>
 <tr class="separator:ga0cd93ec18a3882266f1c6cd2657e7cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gaee9f17084330d0efedb53c35768c8e1f" id="r_gaee9f17084330d0efedb53c35768c8e1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1AudioBuffer.html">AudioBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaee9f17084330d0efedb53c35768c8e1f">tr::loadEmbeddedAudio</a> (std::span&lt; const std::byte &gt; data)</td></tr>
+<tr class="memdesc:gaee9f17084330d0efedb53c35768c8e1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads audio data from an embedded file to a buffer.  <br /></td></tr>
+<tr class="separator:gaee9f17084330d0efedb53c35768c8e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga47b61cf7744f7af032803d7a181810cc" id="r_ga47b61cf7744f7af032803d7a181810cc"><td class="memTemplParams" colspan="2">template&lt;std::ranges::contiguous_range Range&gt; </td></tr>
+<tr class="memitem:ga47b61cf7744f7af032803d7a181810cc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1AudioBuffer.html">AudioBuffer</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga47b61cf7744f7af032803d7a181810cc">tr::loadEmbeddedAudio</a> (Range &amp;&amp;range)</td></tr>
+<tr class="memdesc:ga47b61cf7744f7af032803d7a181810cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads audio data from an embedded file to a buffer.  <br /></td></tr>
+<tr class="separator:ga47b61cf7744f7af032803d7a181810cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab23072114f77e39558591a773f7286c9" id="r_gab23072114f77e39558591a773f7286c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1AudioBuffer.html">AudioBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gab23072114f77e39558591a773f7286c9">tr::loadAudioFile</a> (const std::filesystem::path &amp;path)</td></tr>
+<tr class="memdesc:gab23072114f77e39558591a773f7286c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads audio data from file to a buffer.  <br /></td></tr>
+<tr class="separator:gab23072114f77e39558591a773f7286c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Audio buffer class and related functionality. </p>
@@ -174,6 +188,125 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="gga0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7" name="gga0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7"></a>STEREO16&#160;</td><td class="fielddoc"><p>2-channel, 16-bit audio. </p>
 </td></tr>
 </table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gaee9f17084330d0efedb53c35768c8e1f" name="gaee9f17084330d0efedb53c35768c8e1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaee9f17084330d0efedb53c35768c8e1f">&#9670;&#160;</a></span>loadEmbeddedAudio() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtr_1_1AudioBuffer.html">AudioBuffer</a> tr::loadEmbeddedAudio </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const std::byte &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads audio data from an embedded file to a buffer. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structtr_1_1AudioBufferBadAlloc.html" title="Error thrown when allocating an audio buffer fails.">AudioBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td><p class="starttd">The embedded file data.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>data</em> is assumed to always be a valid audio file. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>An audio buffer loaded with data from the embedded file. </dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="#ga47b61cf7744f7af032803d7a181810cc">tr::loadEmbeddedAudio()</a>, and <a class="el" href="#gaee9f17084330d0efedb53c35768c8e1f">tr::loadEmbeddedAudio()</a>.</p>
+
+</div>
+</div>
+<a id="ga47b61cf7744f7af032803d7a181810cc" name="ga47b61cf7744f7af032803d7a181810cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga47b61cf7744f7af032803d7a181810cc">&#9670;&#160;</a></span>loadEmbeddedAudio() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::ranges::contiguous_range Range&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtr_1_1AudioBuffer.html">AudioBuffer</a> tr::loadEmbeddedAudio </td>
+          <td>(</td>
+          <td class="paramtype">Range &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads audio data from an embedded file to a buffer. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structtr_1_1AudioBufferBadAlloc.html" title="Error thrown when allocating an audio buffer fails.">AudioBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">range</td><td><p class="starttd">The embedded file range.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>range</em> is assumed to always be a valid audio file. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>An audio buffer loaded with data from the embedded file. </dd></dl>
+
+</div>
+</div>
+<a id="gab23072114f77e39558591a773f7286c9" name="gab23072114f77e39558591a773f7286c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab23072114f77e39558591a773f7286c9">&#9670;&#160;</a></span>loadAudioFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtr_1_1AudioBuffer.html">AudioBuffer</a> tr::loadAudioFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::filesystem::path &amp;</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Loads audio data from file to a buffer. </p>
+<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
+<p>Strong exception guarantee.</p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="structtr_1_1FileNotFound.html" title="File not found exception.">FileNotFound</a></td><td>If the file isn't found. </td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1FileOpenError.html" title="File opening error exception.">FileOpenError</a></td><td>If opening the file fails. </td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1UnsupportedAudioFile.html" title="Error thrown when an trying to load an unsupported audio file.">UnsupportedAudioFile</a></td><td>If the file is an unsupported or invalid format. </td></tr>
+    <tr><td class="paramname">std::bad_alloc</td><td>If allocating a buffer for reading the data fails. </td></tr>
+    <tr><td class="paramname"><a class="el" href="structtr_1_1AudioBufferBadAlloc.html" title="Error thrown when allocating an audio buffer fails.">AudioBufferBadAlloc</a></td><td>If allocating the buffer fails.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>The path to an audio file.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An audio buffer loaded with data from the file. </dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="#gab23072114f77e39558591a773f7286c9">tr::loadAudioFile()</a>.</p>
 
 </div>
 </div>

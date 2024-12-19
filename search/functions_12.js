@@ -1,20 +1,13 @@
 var searchData=
 [
-  ['tan_0',['tan',['../classtr_1_1Angle.html#aee509627c414576a087b52c99dd80fd3',1,'tr::Angle']]],
-  ['texteditevent_1',['TextEditEvent',['../structtr_1_1TextEditEvent.html#a309ff0ca0eb4c87ac46fce47e99669d6',1,'tr::TextEditEvent::TextEditEvent(const boost::static_string&lt; 31 &gt; &amp;text, std::string_view selected) noexcept'],['../structtr_1_1TextEditEvent.html#a8efc1b782197fb025bbde1a275b19aeb',1,'tr::TextEditEvent::TextEditEvent(const Event &amp;event) noexcept']]],
-  ['textinputevent_2',['TextInputEvent',['../structtr_1_1TextInputEvent.html#a65061ca9c1699ce4fb462794ffb9ca15',1,'tr::TextInputEvent::TextInputEvent(const boost::static_string&lt; 31 &gt; &amp;text) noexcept'],['../structtr_1_1TextInputEvent.html#aadc26330b4e7dc455453c96ce60bc1fa',1,'tr::TextInputEvent::TextInputEvent(const Event &amp;event) noexcept']]],
-  ['textsize_3',['textSize',['../classtr_1_1TTFont.html#a5f338f4368e3abfa52ea5bcb34ba730b',1,'tr::TTFont']]],
-  ['texture1d_4',['Texture1D',['../structtr_1_1Texture1D.html#aa4a1f687fb964d07952ae3bda0fdf609',1,'tr::Texture1D::Texture1D(int size, int mipmaps, TextureFormat format=TextureFormat::RGBA8)'],['../structtr_1_1Texture1D.html#aca81529f018762ec1c7f9dd9a23ec5cd',1,'tr::Texture1D::Texture1D(SubBitmap bitmap, int mipmaps, TextureFormat format=TextureFormat::RGBA8)']]],
-  ['texture2d_5',['Texture2D',['../structtr_1_1Texture2D.html#afcf501cc7db6e454c4bec165090cf3e1',1,'tr::Texture2D::Texture2D(glm::ivec2 size, int mipmaps, TextureFormat format)'],['../structtr_1_1Texture2D.html#a8604f722f359af71bcbfca0d00c311ee',1,'tr::Texture2D::Texture2D(SubBitmap bitmap, int mipmaps, TextureFormat format)']]],
-  ['texture3d_6',['Texture3D',['../structtr_1_1Texture3D.html#af976afbd5b2dc6ea84d90c6a4736d857',1,'tr::Texture3D::Texture3D(glm::ivec3 size, int mipmaps, TextureFormat format)'],['../structtr_1_1Texture3D.html#a26b8f40b83bb539f05fe8b53e498fa45',1,'tr::Texture3D::Texture3D(std::span&lt; SubBitmap &gt; layers, int mipmaps, TextureFormat format)']]],
-  ['textureunit_7',['TextureUnit',['../classtr_1_1TextureUnit.html#aadef99618bf661ca00d08d8972b5d6b1',1,'tr::TextureUnit']]],
-  ['tickevent_8',['TickEvent',['../structtr_1_1TickEvent.html#a7900bc6e58a05f9167d9b061240b94f1',1,'tr::TickEvent::TickEvent(std::uint32_t id) noexcept'],['../structtr_1_1TickEvent.html#abd8fafa039eb731222f2047cae5b2f8c',1,'tr::TickEvent::TickEvent(const Event &amp;event) noexcept']]],
-  ['timer_9',['Timer',['../classtr_1_1Timer.html#a573ed1c9ce33a15e4987fb297d6eca92',1,'tr::Timer::Timer() noexcept=default'],['../classtr_1_1Timer.html#af7d072c4157598434a3ec6343f11616e',1,'tr::Timer::Timer(const std::chrono::duration&lt; Rep, Period &gt; &amp;interval, CallbackT &amp;&amp;callback)'],['../classtr_1_1Timer.html#a07322a149e45998d144bc78797242224',1,'tr::Timer::Timer(Timer &amp;&amp;r) noexcept=default']]],
-  ['title_10',['title',['../classtr_1_1Window.html#a3645839730d3b741dcc0b0c7eb2ed96e',1,'tr::Window']]],
-  ['tobuiltin_11',['toBuiltin',['../structtr_1_1ColorCaster_3_01HSV_01_4.html#ad15ff2d24c8432cf5d8b63c31a22f595',1,'tr::ColorCaster&lt; HSV &gt;']]],
-  ['toglobalcoords_12',['toGlobalCoords',['../classtr_1_1DisplayInfo.html#a05ed1ed471b2566e57ce8a1808b125ee',1,'tr::DisplayInfo']]],
-  ['tolocalcoords_13',['toLocalCoords',['../classtr_1_1DisplayInfo.html#a1dc04e7ad92a84adc7e7e168b06261a0',1,'tr::DisplayInfo']]],
-  ['ttfont_14',['TTFont',['../classtr_1_1TTFont.html#aebe51e4647bf92e3d2d97d7275db3a1d',1,'tr::TTFont::TTFont(const std::filesystem::path &amp;path, int size, glm::uvec2 dpi={72, 72})'],['../classtr_1_1TTFont.html#a1da5fe93056dce70da1b06061de7d2c5',1,'tr::TTFont::TTFont(std::span&lt; const std::byte &gt; embeddedFile, int size, glm::uvec2 dpi={72, 72}) noexcept']]],
-  ['turns_15',['turns',['../classtr_1_1Angle.html#a83954391a60becfd227ab94b5907d580',1,'tr::Angle::turns()'],['../group__angle.html#ga3115bc0bbac5c9d6e2f081c8d3b95eb1',1,'tr::turns()']]],
-  ['type_16',['type',['../classtr_1_1Event.html#ae65941cf1b4cc2976294f391877fb3c1',1,'tr::Event::type()'],['../classtr_1_1Shader.html#aeb2d536a7edfb97815c87aedc6448f44',1,'tr::Shader::type()']]]
+  ['useblending_0',['useBlending',['../classtr_1_1GraphicsContext.html#a150b2542253f0a8e409faa920193cd5e',1,'tr::GraphicsContext']]],
+  ['usedepthtest_1',['useDepthTest',['../classtr_1_1GraphicsContext.html#ad5bf1560f8e2b47c017aea842e5b1e3f',1,'tr::GraphicsContext']]],
+  ['usefaceculling_2',['useFaceCulling',['../classtr_1_1GraphicsContext.html#a23abfd33eb174d0d569f566acb98a7c4',1,'tr::GraphicsContext']]],
+  ['usescissortest_3',['useScissorTest',['../classtr_1_1GraphicsContext.html#aeee96e71b6807342b46361cdc6c78376',1,'tr::GraphicsContext']]],
+  ['usestenciltest_4',['useStencilTest',['../classtr_1_1GraphicsContext.html#aace7b358607fe5364d8bae5e2bb05d96',1,'tr::GraphicsContext']]],
+  ['utf8begin_5',['utf8Begin',['../group__utf8.html#gaf9745ab162880406220e467debe3c22e',1,'tr']]],
+  ['utf8constit_6',['Utf8ConstIt',['../classtr_1_1Utf8ConstIt.html#a346088f94c351ce754617453099fec8b',1,'tr::Utf8ConstIt::Utf8ConstIt() noexcept=default'],['../classtr_1_1Utf8ConstIt.html#a2ae09509e719288f34cf4ea3d1e70964',1,'tr::Utf8ConstIt::Utf8ConstIt(const char *ptr) noexcept']]],
+  ['utf8end_7',['utf8End',['../group__utf8.html#gaa0210a04b45f66f8bbe8e0ac42573a35',1,'tr']]],
+  ['utf8length_8',['utf8Length',['../group__utf8.html#gaf97cb3c8f72d4952bd9fceaf49ae67a6',1,'tr']]],
+  ['utf8range_9',['utf8Range',['../group__utf8.html#ga61b8ad8446bda9044a04748eb6f94f3a',1,'tr']]]
 ];

@@ -165,12 +165,6 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aebe51e4647bf92e3d2d97d7275db3a1d" id="r_aebe51e4647bf92e3d2d97d7275db3a1d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebe51e4647bf92e3d2d97d7275db3a1d">TTFont</a> (const std::filesystem::path &amp;path, int size, glm::uvec2 dpi={72, 72})</td></tr>
-<tr class="memdesc:aebe51e4647bf92e3d2d97d7275db3a1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a font from file.  <br /></td></tr>
-<tr class="separator:aebe51e4647bf92e3d2d97d7275db3a1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1da5fe93056dce70da1b06061de7d2c5" id="r_a1da5fe93056dce70da1b06061de7d2c5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1da5fe93056dce70da1b06061de7d2c5">TTFont</a> (std::span&lt; const std::byte &gt; embeddedFile, int size, glm::uvec2 dpi={72, 72}) noexcept</td></tr>
-<tr class="memdesc:a1da5fe93056dce70da1b06061de7d2c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an embedded font file.  <br /></td></tr>
-<tr class="separator:a1da5fe93056dce70da1b06061de7d2c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22207d2fc5fe00875b6d4e3855501f4a" id="r_a22207d2fc5fe00875b6d4e3855501f4a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22207d2fc5fe00875b6d4e3855501f4a">ascent</a> () const noexcept</td></tr>
 <tr class="memdesc:a22207d2fc5fe00875b6d4e3855501f4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the ascent of the font.  <br /></td></tr>
 <tr class="separator:a22207d2fc5fe00875b6d4e3855501f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -355,96 +349,6 @@ Public Member Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="afd715019ff947708ce95f3670331b0fea21507b40c80068eda19865706fdc2403" name="afd715019ff947708ce95f3670331b0fea21507b40c80068eda19865706fdc2403"></a>RIGHT&#160;</td><td class="fielddoc"><p>The text is right-aligned. </p>
 </td></tr>
 </table>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aebe51e4647bf92e3d2d97d7275db3a1d" name="aebe51e4647bf92e3d2d97d7275db3a1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebe51e4647bf92e3d2d97d7275db3a1d">&#9670;&#160;</a></span>TTFont() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">tr::TTFont::TTFont </td>
-          <td>(</td>
-          <td class="paramtype">const std::filesystem::path &amp;</td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">glm::uvec2</td>          <td class="paramname"><span class="paramname"><em>dpi</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{72,&#160;72}</span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Loads a font from file. </p>
-<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
-<p>Strong exception guarantee.</p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1FileNotFound.html" title="File not found exception.">FileNotFound</a></td><td>If the file is not found. </td></tr>
-    <tr><td class="paramname"><a class="el" href="structtr_1_1TTFontLoadError.html" title="Error thrown when TrueType font loading fails.">TTFontLoadError</a></td><td>If loading the font fails.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>The path to the font file. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The point size of the font. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dpi</td><td>The target resolution of the font. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a1da5fe93056dce70da1b06061de7d2c5" name="a1da5fe93056dce70da1b06061de7d2c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1da5fe93056dce70da1b06061de7d2c5">&#9670;&#160;</a></span>TTFont() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tr::TTFont::TTFont </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; const std::byte &gt;</td>          <td class="paramname"><span class="paramname"><em>embeddedFile</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">glm::uvec2</td>          <td class="paramname"><span class="paramname"><em>dpi</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{72,&#160;72}</span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Loads an embedded font file. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">embeddedFile</td><td>The embedded font file. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The point size of the font. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dpi</td><td>The target resolution of the font. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

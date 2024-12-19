@@ -3,6 +3,8 @@ var classtr_1_1GraphicsContext =
     [ "vendorInfo", "classtr_1_1GraphicsContext.html#a7c7b1ac4384721aa1f47e48293665ebb", null ],
     [ "rendererInfo", "classtr_1_1GraphicsContext.html#ac2d7ec7caca7d7c119a90fe9e4a2e34d", null ],
     [ "versionInfo", "classtr_1_1GraphicsContext.html#a11296fb413c08e2a2ee28e02e85164d7", null ],
+    [ "setViewport", "classtr_1_1GraphicsContext.html#ac3d445a7fcd7771caa795d85f22ed11c", null ],
+    [ "setDepthRange", "classtr_1_1GraphicsContext.html#af399d3bd038f4f47721c91d71b8a4803", null ],
     [ "setFramebuffer", "classtr_1_1GraphicsContext.html#a997ea3c65de59aa2e808a62856b86875", null ],
     [ "setShaderPipeline", "classtr_1_1GraphicsContext.html#a6eba53d9124a18d5201e4aa8a16711b5", null ],
     [ "setVertexFormat", "classtr_1_1GraphicsContext.html#a7aad5366df16192006a4c416d5a2fb6d", null ],

@@ -301,99 +301,110 @@ $(function(){initNavTree('bitmap_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00422" name="l00422"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a30b01788ff43d878b16891b60fad4291">  422</a></span>        <a class="code hl_function" href="classtr_1_1Bitmap.html#a30b01788ff43d878b16891b60fad4291">Bitmap</a>(glm::ivec2 size, <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format);</div>
 <div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span> </div>
 <div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span> </div>
-<div class="line"><a id="l00435" name="l00435"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a7e7cd665c28b8b094957dea46d37c5a6">  435</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="classtr_1_1Bitmap.html#a7e7cd665c28b8b094957dea46d37c5a6">Bitmap</a>(std::span&lt;const std::byte&gt; embeddedFile);</div>
-<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span> </div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#ab6f0af7691af98c0ec6577a9b82c6a86">  436</a></span>        <a class="code hl_function" href="classtr_1_1Bitmap.html#ab6f0af7691af98c0ec6577a9b82c6a86">Bitmap</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>&amp; bitmap, <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format);</div>
 <div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span> </div>
-<div class="line"><a id="l00449" name="l00449"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#aa1b4499ce75fb2a294967c48099e3969">  449</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="classtr_1_1Bitmap.html#aa1b4499ce75fb2a294967c48099e3969">Bitmap</a>(<span class="keyword">const</span> std::filesystem::path&amp; path);</div>
-<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span> </div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span> </div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a136336485b66edf12a438892c5e20978">  450</a></span>        <a class="code hl_function" href="classtr_1_1Bitmap.html#a136336485b66edf12a438892c5e20978">Bitmap</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1BitmapView.html">BitmapView</a>&amp; view, <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format);</div>
 <div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span> </div>
-<div class="line"><a id="l00463" name="l00463"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#ab6f0af7691af98c0ec6577a9b82c6a86">  463</a></span>        <a class="code hl_function" href="classtr_1_1Bitmap.html#ab6f0af7691af98c0ec6577a9b82c6a86">Bitmap</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>&amp; bitmap, <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format);</div>
-<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span> </div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span> </div>
+<div class="line"><a id="l00464" name="l00464"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a1f945e79f021c6ca082696444d51005d">  464</a></span>        <a class="code hl_function" href="classtr_1_1Bitmap.html#a1f945e79f021c6ca082696444d51005d">Bitmap</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>&amp; source, <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format);</div>
 <div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span> </div>
-<div class="line"><a id="l00477" name="l00477"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a136336485b66edf12a438892c5e20978">  477</a></span>        <a class="code hl_function" href="classtr_1_1Bitmap.html#a136336485b66edf12a438892c5e20978">Bitmap</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1BitmapView.html">BitmapView</a>&amp; view, <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format);</div>
-<div class="line"><a id="l00478" name="l00478"></a><span class="lineno">  478</span> </div>
-<div class="line"><a id="l00479" name="l00479"></a><span class="lineno">  479</span> </div>
-<div class="line"><a id="l00491" name="l00491"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a1f945e79f021c6ca082696444d51005d">  491</a></span>        <a class="code hl_function" href="classtr_1_1Bitmap.html#a1f945e79f021c6ca082696444d51005d">Bitmap</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>&amp; source, <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format);</div>
-<div class="line"><a id="l00492" name="l00492"></a><span class="lineno">  492</span> </div>
-<div class="line"><a id="l00493" name="l00493"></a><span class="lineno">  493</span> </div>
-<div class="line"><a id="l00498" name="l00498"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a45c89c6b9f996dbd99799370de244b45">  498</a></span>        glm::ivec2 <a class="code hl_function" href="classtr_1_1Bitmap.html#a45c89c6b9f996dbd99799370de244b45">size</a>() const noexcept;</div>
-<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span> </div>
+<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span> </div>
+<div class="line"><a id="l00471" name="l00471"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a45c89c6b9f996dbd99799370de244b45">  471</a></span>        glm::ivec2 <a class="code hl_function" href="classtr_1_1Bitmap.html#a45c89c6b9f996dbd99799370de244b45">size</a>() const noexcept;</div>
+<div class="line"><a id="l00472" name="l00472"></a><span class="lineno">  472</span> </div>
+<div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span> </div>
+<div class="line"><a id="l00485" name="l00485"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#aec4f0f2fe733d37b7d30ff97ac93cb68">  485</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a> operator[](glm::ivec2 pos) noexcept;</div>
+<div class="line"><a id="l00486" name="l00486"></a><span class="lineno">  486</span> </div>
+<div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span> </div>
+<div class="line"><a id="l00499" name="l00499"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a8716efe94ce8e18275b088bd04a11d7d">  499</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelCref</a> operator[](glm::ivec2 pos) const noexcept;</div>
 <div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span> </div>
-<div class="line"><a id="l00512" name="l00512"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#aec4f0f2fe733d37b7d30ff97ac93cb68">  512</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1PixelRef.html">PixelRef</a> operator[](glm::ivec2 pos) noexcept;</div>
-<div class="line"><a id="l00513" name="l00513"></a><span class="lineno">  513</span> </div>
+<div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span> </div>
+<div class="line"><a id="l00506" name="l00506"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a3402c18edf559bfe08ded3e808cfdb7d">  506</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> begin() noexcept;</div>
+<div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span> </div>
+<div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span> </div>
+<div class="line"><a id="l00513" name="l00513"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#ad474f5477c28894c3b09d8503bc4f020">  513</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a> begin() const noexcept;</div>
 <div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span> </div>
-<div class="line"><a id="l00526" name="l00526"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a8716efe94ce8e18275b088bd04a11d7d">  526</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1PixelRef.html">PixelCref</a> operator[](glm::ivec2 pos) const noexcept;</div>
-<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span> </div>
+<div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span> </div>
+<div class="line"><a id="l00520" name="l00520"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#adfb7d8a9bfefa1493c445c042eb80914">  520</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a> cbegin() const noexcept;</div>
+<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span> </div>
+<div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span> </div>
+<div class="line"><a id="l00527" name="l00527"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a475aa60ee49636d05a4cbde3f337e37c">  527</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> end() noexcept;</div>
 <div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span> </div>
-<div class="line"><a id="l00533" name="l00533"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a3402c18edf559bfe08ded3e808cfdb7d">  533</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> begin() noexcept;</div>
-<div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span> </div>
+<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span> </div>
+<div class="line"><a id="l00534" name="l00534"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a01f09532f7212c624a687440624bc8d4">  534</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a> end() const noexcept;</div>
 <div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span> </div>
-<div class="line"><a id="l00540" name="l00540"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#ad474f5477c28894c3b09d8503bc4f020">  540</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a> begin() const noexcept;</div>
-<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span> </div>
+<div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span> </div>
+<div class="line"><a id="l00541" name="l00541"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a381dcd9b272a9e47b99623342bb1a725">  541</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a> cend() const noexcept;</div>
 <div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span> </div>
-<div class="line"><a id="l00547" name="l00547"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#adfb7d8a9bfefa1493c445c042eb80914">  547</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a> cbegin() const noexcept;</div>
-<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span> </div>
-<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span> </div>
-<div class="line"><a id="l00554" name="l00554"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a475aa60ee49636d05a4cbde3f337e37c">  554</a></span>        <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a> end() noexcept;</div>
+<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span> </div>
+<div class="line"><a id="l00554" name="l00554"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a72b36d6f1f472d18d46cc4197999190a">  554</a></span>        <span class="keywordtype">void</span> blit(glm::ivec2 tl, const <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>&amp; source) noexcept;</div>
 <div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span> </div>
 <div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span> </div>
-<div class="line"><a id="l00561" name="l00561"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a01f09532f7212c624a687440624bc8d4">  561</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a> end() const noexcept;</div>
-<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span> </div>
-<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span> </div>
-<div class="line"><a id="l00568" name="l00568"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a381dcd9b272a9e47b99623342bb1a725">  568</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap_1_1Iterator.html">ConstIt</a> cend() const noexcept;</div>
+<div class="line"><a id="l00567" name="l00567"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a2063a1fe729b7735532c87bf056599b2">  567</a></span>        <span class="keywordtype">void</span> fill(const <a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a>&amp; rect, <a class="code hl_class" href="structtr_1_1RGBA.html">RGBA8</a> color) noexcept;</div>
+<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span> </div>
 <div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span> </div>
-<div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span> </div>
-<div class="line"><a id="l00581" name="l00581"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a72b36d6f1f472d18d46cc4197999190a">  581</a></span>        <span class="keywordtype">void</span> blit(glm::ivec2 tl, const <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>&amp; source) noexcept;</div>
-<div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span> </div>
-<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span> </div>
-<div class="line"><a id="l00594" name="l00594"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a2063a1fe729b7735532c87bf056599b2">  594</a></span>        <span class="keywordtype">void</span> fill(const <a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a>&amp; rect, <a class="code hl_class" href="structtr_1_1RGBA.html">RGBA8</a> color) noexcept;</div>
-<div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span> </div>
-<div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span> </div>
-<div class="line"><a id="l00599" name="l00599"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#ace45d21639cd13f3f72a39859ba44e24">  599</a></span>        operator <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>() const noexcept;</div>
-<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span> </div>
-<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span> </div>
-<div class="line"><a id="l00613" name="l00613"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#aefd6d657221706a2ddadc8596db5e73f">  613</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a> sub(const <a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a>&amp; rect) const noexcept;</div>
+<div class="line"><a id="l00572" name="l00572"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#ace45d21639cd13f3f72a39859ba44e24">  572</a></span>        operator <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>() const noexcept;</div>
+<div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span> </div>
+<div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span> </div>
+<div class="line"><a id="l00586" name="l00586"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#aefd6d657221706a2ddadc8596db5e73f">  586</a></span>        <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a> sub(const <a class="code hl_struct" href="structtr_1_1Rect.html">RectI2</a>&amp; rect) const noexcept;</div>
+<div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span> </div>
+<div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span> </div>
+<div class="line"><a id="l00596" name="l00596"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a93db84aad7415a26c201d7b496d38f1d">  596</a></span>        std::<span class="keywordtype">byte</span>* data() noexcept;</div>
+<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span> </div>
+<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span> </div>
+<div class="line"><a id="l00606" name="l00606"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a3d16c9297dc25dad1ff4844efc69e8a2">  606</a></span>        const std::<span class="keywordtype">byte</span>* data() const noexcept;</div>
+<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span> </div>
+<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span> </div>
+<div class="line"><a id="l00613" name="l00613"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a10ed1ee277822c5aafa78d5413916024">  613</a></span>        <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format() const noexcept;</div>
 <div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span> </div>
 <div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span> </div>
-<div class="line"><a id="l00623" name="l00623"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a93db84aad7415a26c201d7b496d38f1d">  623</a></span>        std::<span class="keywordtype">byte</span>* data() noexcept;</div>
+<div class="line"><a id="l00622" name="l00622"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a448a8bcae98fa547db2a087eab2b6f38">  622</a></span>        <span class="keywordtype">int</span> pitch() const noexcept;</div>
+<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span> </div>
 <div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span> </div>
-<div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span> </div>
-<div class="line"><a id="l00633" name="l00633"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a3d16c9297dc25dad1ff4844efc69e8a2">  633</a></span>        const std::<span class="keywordtype">byte</span>* data() const noexcept;</div>
-<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span> </div>
-<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span> </div>
-<div class="line"><a id="l00640" name="l00640"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a10ed1ee277822c5aafa78d5413916024">  640</a></span>        <a class="code hl_class" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format() const noexcept;</div>
+<div class="line"><a id="l00635" name="l00635"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a8a5c851bea186f86c60b21e73aa8e302">  635</a></span>        <span class="keywordtype">void</span> save(const std::filesystem::path&amp; path) const;</div>
+<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span> </div>
+<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span>      private:</div>
+<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span>        std::unique_ptr&lt;SDL_Surface, <a class="code hl_class" href="classtr_1_1BitmapView.html">BitmapView</a>::Deleter&gt; _impl;</div>
+<div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span> </div>
+<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>        <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>(SDL_Surface* ptr);</div>
 <div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span> </div>
-<div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span> </div>
-<div class="line"><a id="l00649" name="l00649"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a448a8bcae98fa547db2a087eab2b6f38">  649</a></span>        <span class="keywordtype">int</span> pitch() const noexcept;</div>
-<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span> </div>
-<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span> </div>
-<div class="line"><a id="l00662" name="l00662"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a8a5c851bea186f86c60b21e73aa8e302">  662</a></span>        <span class="keywordtype">void</span> save(const std::filesystem::path&amp; path) const;</div>
-<div class="line"><a id="l00663" name="l00663"></a><span class="lineno">  663</span> </div>
-<div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span>      private:</div>
-<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>        std::unique_ptr&lt;SDL_Surface, <a class="code hl_class" href="classtr_1_1BitmapView.html">BitmapView</a>::Deleter&gt; _impl;</div>
-<div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span> </div>
-<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span>        <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a>(SDL_Surface* ptr);</div>
-<div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span> </div>
-<div class="line"><a id="l00669" name="l00669"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a1d6c089c004adf8be40734d11af6f4a7">  669</a></span>        friend class <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>;</div>
-<div class="line"><a id="l00670" name="l00670"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a8c54891f44875f82dbaefbc487166fb2">  670</a></span>        friend class <a class="code hl_namespace" href="namespacetr.html">tr</a>::<a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>::Iterator;</div>
-<div class="line"><a id="l00671" name="l00671"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a91376fae63927ead9c54625ccdecc97e">  671</a></span>        friend class <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>;</div>
-<div class="line"><a id="l00672" name="l00672"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a9591eb6f6543f40292912e27b74f4d27">  672</a></span>        friend class <a class="code hl_class" href="classtr_1_1Cursor.html">Cursor</a>;</div>
-<div class="line"><a id="l00673" name="l00673"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#af050535dccf24ebc2d422c05c16c78f2">  673</a></span>        friend class <a class="code hl_class" href="classtr_1_1TTFont.html">TTFont</a>;</div>
-<div class="line"><a id="l00674" name="l00674"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a553f958a25683445088050a69d3de8e9">  674</a></span>        friend class <a class="code hl_class" href="classtr_1_1Window.html">Window</a>;</div>
-<div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span>    };</div>
+<div class="line"><a id="l00642" name="l00642"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a1d6c089c004adf8be40734d11af6f4a7">  642</a></span>        friend class <a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>;</div>
+<div class="line"><a id="l00643" name="l00643"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a8c54891f44875f82dbaefbc487166fb2">  643</a></span>        friend class <a class="code hl_namespace" href="namespacetr.html">tr</a>::<a class="code hl_class" href="classtr_1_1SubBitmap.html">SubBitmap</a>::Iterator;</div>
+<div class="line"><a id="l00644" name="l00644"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a91376fae63927ead9c54625ccdecc97e">  644</a></span>        friend class <a class="code hl_class" href="classtr_1_1Bitmap_1_1MutIt.html">MutIt</a>;</div>
+<div class="line"><a id="l00645" name="l00645"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a9591eb6f6543f40292912e27b74f4d27">  645</a></span>        friend class <a class="code hl_class" href="classtr_1_1Cursor.html">Cursor</a>;</div>
+<div class="line"><a id="l00646" name="l00646"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#af050535dccf24ebc2d422c05c16c78f2">  646</a></span>        friend class <a class="code hl_class" href="classtr_1_1TTFont.html">TTFont</a>;</div>
+<div class="line"><a id="l00647" name="l00647"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a553f958a25683445088050a69d3de8e9">  647</a></span>        friend class <a class="code hl_class" href="classtr_1_1Window.html">Window</a>;</div>
+<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span> </div>
+<div class="line"><a id="l00649" name="l00649"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a90ce3384f14ed3fc8bbf7ba9ec43cb18">  649</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a> loadEmbeddedBitmap(std::span&lt;const std::<span class="keywordtype">byte</span>&gt; data);</div>
+<div class="line"><a id="l00650" name="l00650"></a><span class="lineno"><a class="line" href="classtr_1_1Bitmap.html#a632d90efc9d5083c80ab6dc1db1a526c">  650</a></span>        friend <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a> loadBitmapFile(const std::filesystem::path&amp; path);</div>
+<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span>    };</div>
 </div>
-<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span> </div>
-<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span> </div>
-<div class="line"><a id="l00686" name="l00686"></a><span class="lineno"><a class="line" href="group__bitmap.html#gaf8beb3d49b6411407cbf541c75e9576a">  686</a></span>    <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a> createCheckerboard(glm::ivec2 size);</div>
-<div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span> </div>
-<div class="line"><a id="l00689" name="l00689"></a><span class="lineno">  689</span>} <span class="comment">// namespace tr</span></div>
-<div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span> </div>
-<div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span> </div>
-<div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span>constexpr const <span class="keywordtype">char</span>* <a class="code hl_namespace" href="namespacetr.html">tr</a>::<a class="code hl_struct" href="structtr_1_1BitmapBadAlloc.html">BitmapBadAlloc</a>::what() const noexcept</div>
-<div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span>{</div>
-<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;failed bitmap allocation&quot;</span>;</div>
-<div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span>}</div>
-<div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span> </div>
+<div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span> </div>
+<div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span> </div>
+<div class="line"><a id="l00662" name="l00662"></a><span class="lineno"><a class="line" href="group__bitmap.html#gaf8beb3d49b6411407cbf541c75e9576a">  662</a></span>    <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a> createCheckerboard(glm::ivec2 size);</div>
+<div class="line"><a id="l00663" name="l00663"></a><span class="lineno">  663</span> </div>
+<div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span> </div>
+<div class="line"><a id="l00682" name="l00682"></a><span class="lineno"><a class="line" href="group__bitmap.html#ga6d9a964e32633d2901ebaf47d5b47999">  682</a></span>    <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a> loadEmbeddedBitmap(std::span&lt;const std::<span class="keywordtype">byte</span>&gt; data);</div>
+<div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span> </div>
+<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span> </div>
+<div class="foldopen" id="foldopen00702" data-start="{" data-end="}">
+<div class="line"><a id="l00702" name="l00702"></a><span class="lineno"><a class="line" href="group__bitmap.html#gae27b0b361d2b3225f11e4712e59b1f80">  702</a></span>    template &lt;std::ranges::contiguous_range Range&gt; <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a> loadEmbeddedBitmap(Range&amp;&amp; range)</div>
+<div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span>    {</div>
+<div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="group__bitmap.html#ga6d9a964e32633d2901ebaf47d5b47999">loadEmbeddedBitmap</a>(std::span&lt;const std::byte&gt;{<a class="code hl_function" href="group__ranges.html#ga1257a17328760a08c322c3cf7e1abcf5">rangeBytes</a>(range)});</div>
+<div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span>    }</div>
+</div>
+<div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span> </div>
+<div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span> </div>
+<div class="line"><a id="l00721" name="l00721"></a><span class="lineno"><a class="line" href="group__bitmap.html#gae4527ddf3c4b096a5874dded987a58d6">  721</a></span>    <a class="code hl_class" href="classtr_1_1Bitmap.html">Bitmap</a> <a class="code hl_function" href="group__bitmap.html#gae4527ddf3c4b096a5874dded987a58d6">loadBitmapFile</a>(<span class="keyword">const</span> std::filesystem::path&amp; path);</div>
+<div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span> </div>
+<div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span>} <span class="comment">// namespace tr</span></div>
+<div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span> </div>
+<div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span> </div>
+<div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span><span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1BitmapBadAlloc.html#a45909a8566bbeb327511c9770d693ad4">tr::BitmapBadAlloc::what</a>() const noexcept</div>
+<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>{</div>
+<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;failed bitmap allocation&quot;</span>;</div>
+<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span>}</div>
+<div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span> </div>
 <div class="ttc" id="aclasstr_1_1BitmapFormat_html"><div class="ttname"><a href="classtr_1_1BitmapFormat.html">tr::BitmapFormat</a></div><div class="ttdoc">Bitmap format information.</div><div class="ttdef"><b>Definition</b> bitmap_format.hpp:11</div></div>
 <div class="ttc" id="aclasstr_1_1BitmapView_html"><div class="ttname"><a href="classtr_1_1BitmapView.html">tr::BitmapView</a></div><div class="ttdoc">Non-owning view over bitmap data.</div><div class="ttdef"><b>Definition</b> bitmap.hpp:200</div></div>
 <div class="ttc" id="aclasstr_1_1BitmapView_html_a247fdbe53753ed936632a4b7320c51cc"><div class="ttname"><a href="classtr_1_1BitmapView.html#a247fdbe53753ed936632a4b7320c51cc">tr::BitmapView::BitmapView</a></div><div class="ttdeci">BitmapView(const std::byte *rawDataStart, int pitch, glm::ivec2 size, BitmapFormat format)</div><div class="ttdoc">Creates a bitmap view over pixel data.</div></div>
@@ -407,8 +418,6 @@ $(function(){initNavTree('bitmap_8hpp_source.html',''); initResizable(true); });
 <div class="ttc" id="aclasstr_1_1Bitmap_html_a1f945e79f021c6ca082696444d51005d"><div class="ttname"><a href="classtr_1_1Bitmap.html#a1f945e79f021c6ca082696444d51005d">tr::Bitmap::Bitmap</a></div><div class="ttdeci">Bitmap(const SubBitmap &amp;source, BitmapFormat format)</div><div class="ttdoc">Clones a sub-bitmap.</div></div>
 <div class="ttc" id="aclasstr_1_1Bitmap_html_a30b01788ff43d878b16891b60fad4291"><div class="ttname"><a href="classtr_1_1Bitmap.html#a30b01788ff43d878b16891b60fad4291">tr::Bitmap::Bitmap</a></div><div class="ttdeci">Bitmap(glm::ivec2 size, BitmapFormat format)</div><div class="ttdoc">Creates a blank bitmap.</div></div>
 <div class="ttc" id="aclasstr_1_1Bitmap_html_a45c89c6b9f996dbd99799370de244b45"><div class="ttname"><a href="classtr_1_1Bitmap.html#a45c89c6b9f996dbd99799370de244b45">tr::Bitmap::size</a></div><div class="ttdeci">glm::ivec2 size() const noexcept</div><div class="ttdoc">Gets the size of the bitmap.</div></div>
-<div class="ttc" id="aclasstr_1_1Bitmap_html_a7e7cd665c28b8b094957dea46d37c5a6"><div class="ttname"><a href="classtr_1_1Bitmap.html#a7e7cd665c28b8b094957dea46d37c5a6">tr::Bitmap::Bitmap</a></div><div class="ttdeci">Bitmap(std::span&lt; const std::byte &gt; embeddedFile)</div><div class="ttdoc">Loads an embedded bitmap file.</div></div>
-<div class="ttc" id="aclasstr_1_1Bitmap_html_aa1b4499ce75fb2a294967c48099e3969"><div class="ttname"><a href="classtr_1_1Bitmap.html#aa1b4499ce75fb2a294967c48099e3969">tr::Bitmap::Bitmap</a></div><div class="ttdeci">Bitmap(const std::filesystem::path &amp;path)</div><div class="ttdoc">Loads a bitmap from file (BMP/QOI).</div></div>
 <div class="ttc" id="aclasstr_1_1Bitmap_html_ab6f0af7691af98c0ec6577a9b82c6a86"><div class="ttname"><a href="classtr_1_1Bitmap.html#ab6f0af7691af98c0ec6577a9b82c6a86">tr::Bitmap::Bitmap</a></div><div class="ttdeci">Bitmap(const Bitmap &amp;bitmap, BitmapFormat format)</div><div class="ttdoc">Clones a bitmap.</div></div>
 <div class="ttc" id="aclasstr_1_1Cursor_html"><div class="ttname"><a href="classtr_1_1Cursor.html">tr::Cursor</a></div><div class="ttdoc">Mouse cursor graphic.</div><div class="ttdef"><b>Definition</b> mouse.hpp:214</div></div>
 <div class="ttc" id="aclasstr_1_1FileError_html"><div class="ttname"><a href="classtr_1_1FileError.html">tr::FileError</a></div><div class="ttdoc">Generic file error base exception type.</div><div class="ttdef"><b>Definition</b> iostream.hpp:28</div></div>
@@ -421,6 +430,8 @@ $(function(){initNavTree('bitmap_8hpp_source.html',''); initResizable(true); });
 <div class="ttc" id="aclasstr_1_1SubBitmap_html_a9eed2f89f1b04e719771742b37b8096c"><div class="ttname"><a href="classtr_1_1SubBitmap.html#a9eed2f89f1b04e719771742b37b8096c">tr::SubBitmap::SubBitmap</a></div><div class="ttdeci">SubBitmap(const Bitmap &amp;bitmap, const RectI2 &amp;rect) noexcept</div><div class="ttdoc">Constructs a sub-bitmap.</div></div>
 <div class="ttc" id="aclasstr_1_1TTFont_html"><div class="ttname"><a href="classtr_1_1TTFont.html">tr::TTFont</a></div><div class="ttdoc">TrueType font.</div><div class="ttdef"><b>Definition</b> ttfont.hpp:39</div></div>
 <div class="ttc" id="aclasstr_1_1Window_html"><div class="ttname"><a href="classtr_1_1Window.html">tr::Window</a></div><div class="ttdoc">The main application window.</div><div class="ttdef"><b>Definition</b> window.hpp:153</div></div>
+<div class="ttc" id="agroup__bitmap_html_ga6d9a964e32633d2901ebaf47d5b47999"><div class="ttname"><a href="group__bitmap.html#ga6d9a964e32633d2901ebaf47d5b47999">tr::loadEmbeddedBitmap</a></div><div class="ttdeci">Bitmap loadEmbeddedBitmap(std::span&lt; const std::byte &gt; data)</div><div class="ttdoc">Loads an embedded bitmap file.</div></div>
+<div class="ttc" id="agroup__bitmap_html_gae4527ddf3c4b096a5874dded987a58d6"><div class="ttname"><a href="group__bitmap.html#gae4527ddf3c4b096a5874dded987a58d6">tr::loadBitmapFile</a></div><div class="ttdeci">Bitmap loadBitmapFile(const std::filesystem::path &amp;path)</div><div class="ttdoc">Loads a bitmap from file (BMP/QOI).</div></div>
 <div class="ttc" id="agroup__ranges_html_ga1257a17328760a08c322c3cf7e1abcf5"><div class="ttname"><a href="group__ranges.html#ga1257a17328760a08c322c3cf7e1abcf5">tr::rangeBytes</a></div><div class="ttdeci">auto rangeBytes(const T &amp;range) noexcept</div><div class="ttdoc">Gets a view of a contiguous range as a span of immutable bytes.</div></div>
 <div class="ttc" id="anamespacetr_html"><div class="ttname"><a href="namespacetr.html">tr</a></div><div class="ttdoc">Namespace containing all libtr functionality.</div><div class="ttdef"><b>Definition</b> angle.hpp:5</div></div>
 <div class="ttc" id="astructtr_1_1BitmapBadAlloc_html"><div class="ttname"><a href="structtr_1_1BitmapBadAlloc.html">tr::BitmapBadAlloc</a></div><div class="ttdoc">Error thrown when bitmap allocation fails.</div><div class="ttdef"><b>Definition</b> bitmap.hpp:23</div></div>

@@ -132,6 +132,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a11296fb413c08e2a2ee28e02e85164d7" id="r_a11296fb413c08e2a2ee28e02e85164d7"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11296fb413c08e2a2ee28e02e85164d7">versionInfo</a> () const noexcept</td></tr>
 <tr class="memdesc:a11296fb413c08e2a2ee28e02e85164d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the context's version string.  <br /></td></tr>
 <tr class="separator:a11296fb413c08e2a2ee28e02e85164d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3d445a7fcd7771caa795d85f22ed11c" id="r_ac3d445a7fcd7771caa795d85f22ed11c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3d445a7fcd7771caa795d85f22ed11c">setViewport</a> (const <a class="el" href="group__geometry.html#ga386ecd8029d58f09791896b6421218d9">RectI2</a> &amp;viewport) noexcept</td></tr>
+<tr class="memdesc:ac3d445a7fcd7771caa795d85f22ed11c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the active viewport.  <br /></td></tr>
+<tr class="separator:ac3d445a7fcd7771caa795d85f22ed11c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af399d3bd038f4f47721c91d71b8a4803" id="r_af399d3bd038f4f47721c91d71b8a4803"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af399d3bd038f4f47721c91d71b8a4803">setDepthRange</a> (double min, double max) noexcept</td></tr>
+<tr class="memdesc:af399d3bd038f4f47721c91d71b8a4803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the active depth range.  <br /></td></tr>
+<tr class="separator:af399d3bd038f4f47721c91d71b8a4803"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a997ea3c65de59aa2e808a62856b86875" id="r_a997ea3c65de59aa2e808a62856b86875"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a997ea3c65de59aa2e808a62856b86875">setFramebuffer</a> (<a class="el" href="classtr_1_1BasicFramebuffer.html">BasicFramebuffer</a> &amp;framebuffer) noexcept</td></tr>
 <tr class="memdesc:a997ea3c65de59aa2e808a62856b86875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the target framebuffer.  <br /></td></tr>
 <tr class="separator:a997ea3c65de59aa2e808a62856b86875"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -299,6 +305,77 @@ Public Member Functions</h2></td></tr>
 
 <p>Gets the context's version string. </p>
 <dl class="section return"><dt>Returns</dt><dd>A version information C-string. </dd></dl>
+
+</div>
+</div>
+<a id="ac3d445a7fcd7771caa795d85f22ed11c" name="ac3d445a7fcd7771caa795d85f22ed11c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3d445a7fcd7771caa795d85f22ed11c">&#9670;&#160;</a></span>setViewport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tr::GraphicsContext::setViewport </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group__geometry.html#ga386ecd8029d58f09791896b6421218d9">RectI2</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>viewport</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the active viewport. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">viewport</td><td>The viewport rectangle. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af399d3bd038f4f47721c91d71b8a4803" name="af399d3bd038f4f47721c91d71b8a4803"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af399d3bd038f4f47721c91d71b8a4803">&#9670;&#160;</a></span>setDepthRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void tr::GraphicsContext::setDepthRange </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>min</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>max</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the active depth range. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min</td><td>The minimum depth value. </td></tr>
+    <tr><td class="paramname">max</td><td>The maximum depth value. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
