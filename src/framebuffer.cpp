@@ -5,7 +5,6 @@
 
 namespace tr {
 	GLuint createFramebuffer() noexcept;
-	GLuint findBoundWriteFramebuffer() noexcept;
 	GLenum getGLAttachment(Framebuffer::Slot slot) noexcept;
 } // namespace tr
 
@@ -13,13 +12,6 @@ GLuint tr::createFramebuffer() noexcept
 {
 	GLuint id;
 	glCreateFramebuffers(1, &id);
-	return id;
-}
-
-GLuint tr::findBoundWriteFramebuffer() noexcept
-{
-	GLint id;
-	glGetIntegerv(GL_FRAMEBUFFER_BINDING, &id);
 	return id;
 }
 
@@ -35,8 +27,8 @@ GLenum tr::getGLAttachment(Framebuffer::Slot slot) noexcept
 	}
 }
 
-tr::BasicFramebuffer::BasicFramebuffer(GLuint id, const RectI2& viewport, DepthRange depthRange) noexcept
-	: _id{id}, _viewport{viewport}, _depthRange{depthRange}
+tr::BasicFramebuffer::BasicFramebuffer(GLuint id) noexcept
+	: _id{id}
 {
 }
 
@@ -56,32 +48,6 @@ void tr::BasicFramebuffer::copyRegion(const RectI2& rect, Texture2D& texture, gl
 							rect.size.x, rect.size.y);
 }
 
-const tr::RectI2& tr::BasicFramebuffer::viewport() const noexcept
-{
-	return _viewport;
-}
-
-void tr::BasicFramebuffer::setViewport(const RectI2& viewport) noexcept
-{
-	_viewport = viewport;
-	if (findBoundWriteFramebuffer() == _id) {
-		glViewport(viewport.tl.x, viewport.tl.y, viewport.size.x, viewport.size.y);
-	}
-}
-
-tr::DepthRange tr::BasicFramebuffer::depthRange() const noexcept
-{
-	return _depthRange;
-}
-
-void tr::BasicFramebuffer::setDepthRange(DepthRange range) noexcept
-{
-	_depthRange = range;
-	if (findBoundWriteFramebuffer() == _id) {
-		glDepthRange(range.min, range.max);
-	}
-}
-
 void tr::BasicFramebuffer::bindRead() const noexcept
 {
 	glBindFramebuffer(GL_READ_FRAMEBUFFER, _id);
@@ -93,7 +59,7 @@ void tr::BasicFramebuffer::bindWrite() const noexcept
 }
 
 tr::Framebuffer::Framebuffer() noexcept
-	: BasicFramebuffer{createFramebuffer(), {{0, 0}, {0, 0}}, {0.0, 1.0}}
+	: BasicFramebuffer{createFramebuffer()}
 {
 }
 
@@ -126,7 +92,6 @@ void tr::Framebuffer::attach(Texture1D& tex, Slot slot) noexcept
 {
 	glNamedFramebufferTexture(_id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0);
 	_attachSizes[int(slot)] = {tex.size(), 1};
-	clampViewport();
 }
 
 void tr::Framebuffer::attach(ArrayTexture1D& tex, int layer, Slot slot) noexcept
@@ -134,14 +99,12 @@ void tr::Framebuffer::attach(ArrayTexture1D& tex, int layer, Slot slot) noexcept
 	assert(layer >= 0 && layer < tex.layers());
 	glNamedFramebufferTextureLayer(_id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0, layer);
 	_attachSizes[int(slot)] = {tex.size(), 1};
-	clampViewport();
 }
 
 void tr::Framebuffer::attach(Texture2D& tex, Slot slot) noexcept
 {
 	glNamedFramebufferTexture(_id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0);
 	_attachSizes[int(slot)] = tex.size();
-	clampViewport();
 }
 
 void tr::Framebuffer::attach(ArrayTexture2D& tex, int layer, Slot slot) noexcept
@@ -149,7 +112,6 @@ void tr::Framebuffer::attach(ArrayTexture2D& tex, int layer, Slot slot) noexcept
 	assert(layer >= 0 && layer < tex.layers());
 	glNamedFramebufferTextureLayer(_id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0, layer);
 	_attachSizes[int(slot)] = tex.size();
-	clampViewport();
 }
 
 void tr::Framebuffer::attach(Texture3D& tex, int z, Slot slot) noexcept
@@ -157,21 +119,18 @@ void tr::Framebuffer::attach(Texture3D& tex, int z, Slot slot) noexcept
 	assert(z >= 0 && z < tex.size().z);
 	glNamedFramebufferTextureLayer(_id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0, z);
 	_attachSizes[int(slot)] = {tex.size().x, tex.size().y};
-	clampViewport();
 }
 
 void tr::Framebuffer::attach(Renderbuffer& buffer, Slot slot) noexcept
 {
 	glNamedFramebufferRenderbuffer(_id, getGLAttachment(slot), GL_RENDERBUFFER, buffer._id.get());
 	_attachSizes[int(slot)] = buffer.size();
-	clampViewport();
 }
 
 void tr::Framebuffer::clear(Slot slot) noexcept
 {
 	glNamedFramebufferTexture(_id, getGLAttachment(slot), 0, 0);
 	_attachSizes[int(slot)] = EMPTY_ATTACHMENT;
-	clampViewport();
 }
 
 void tr::Framebuffer::setLabel(std::string_view label) noexcept
@@ -194,28 +153,8 @@ glm::ivec2 tr::Framebuffer::calcSize() noexcept
 	return _size;
 }
 
-void tr::Framebuffer::clampViewport() noexcept
-{
-	auto size{calcSize()};
-	auto newViewportSize{_viewport.size};
-	if (!RectI2{size}.contains(_viewport.tl)) {
-		setViewport(RectI2{size});
-	}
-	else {
-		if (_viewport.tl.x + _viewport.size.x >= size.x) {
-			newViewportSize.x = size.x - _viewport.tl.x;
-		}
-		if (_viewport.tl.y + _viewport.size.y >= size.y) {
-			newViewportSize.y = size.y - _viewport.tl.y;
-		}
-		if (_viewport.size != newViewportSize) {
-			setViewport({_viewport.tl, newViewportSize});
-		}
-	}
-}
-
 tr::Backbuffer::Backbuffer(Window& window) noexcept
-	: BasicFramebuffer{0, {{}, window.size()}, {0.0, 1.0}}
+	: BasicFramebuffer{0}
 {
 }
 

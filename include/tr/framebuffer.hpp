@@ -65,40 +65,10 @@ namespace tr {
 		 **************************************************************************************************************/
 		void copyRegion(const RectI2& rect, Texture2D& texture, glm::ivec2 textureTL) const noexcept;
 
-		/**************************************************************************************************************
-		 * Gets the viewport rect of the framebuffer.
-		 *
-		 * @return The viewport rect.
-		 **************************************************************************************************************/
-		const RectI2& viewport() const noexcept;
-
-		/**************************************************************************************************************
-		 * Sets the viewport rect of the framebuffer.
-		 *
-		 * @param[in] viewport The new viewport.
-		 **************************************************************************************************************/
-		void setViewport(const RectI2& viewport) noexcept;
-
-		/**************************************************************************************************************
-		 * Gets the depth range of the framebuffer.
-		 *
-		 * @return The depth range.
-		 **************************************************************************************************************/
-		DepthRange depthRange() const noexcept;
-
-		/**************************************************************************************************************
-		 * Sets the depth range of the framebuffer.
-		 *
-		 * @param[in] range The new depth range.
-		 **************************************************************************************************************/
-		void setDepthRange(DepthRange range) noexcept;
-
 	  protected:
 		unsigned int _id;
-		RectI2       _viewport;
-		DepthRange   _depthRange;
 
-		BasicFramebuffer(unsigned int id, const RectI2& viewport, DepthRange depthRange) noexcept;
+		BasicFramebuffer(unsigned int id) noexcept;
 
 		// Binds the framebuffer for reading.
 		void bindRead() const noexcept;
@@ -282,8 +252,6 @@ namespace tr {
 
 		// Recalculates the size of the framebuffer.
 		glm::ivec2 calcSize() noexcept;
-		// Clamps the viewport to a valid rect of the framebuffer.
-		void clampViewport() noexcept;
 
 		friend class GraphicsContext;
 	};
