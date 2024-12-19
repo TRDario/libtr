@@ -204,9 +204,9 @@ tr::Bitmap tr::TTFont::renderWrapped(const char* text, RGBA8 color, std::uint32_
 	return bitmap;
 }
 
-tr::TTFont tr::loadEmbeddedTTFont(std::span<const std::byte> embeddedFile, int size, glm::uvec2 dpi)
+tr::TTFont tr::loadEmbeddedTTFont(std::span<const std::byte> data, int size, glm::uvec2 dpi)
 {
-	auto ptr{TTF_OpenFontDPIRW(SDL_RWFromConstMem(embeddedFile.data(), embeddedFile.size()), true, size, dpi.x, dpi.y)};
+	auto ptr{TTF_OpenFontDPIRW(SDL_RWFromConstMem(data.data(), data.size()), true, size, dpi.x, dpi.y)};
 	if (ptr == nullptr) {
 		throw TTFontLoadError{"(embedded file)"};
 	}
