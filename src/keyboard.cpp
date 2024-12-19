@@ -1,6 +1,7 @@
 #include "../include/tr/keyboard.hpp"
 #include <SDL2/SDL.h>
 #include <cassert>
+#include <memory>
 
 tr::Scancode::Scancode(Enum base) noexcept
 	: _enum{base}
@@ -61,4 +62,25 @@ bool tr::Keyboard::held(Scancode key) const noexcept
 tr::Keymods tr::Keyboard::heldMods() const noexcept
 {
 	return Keymods(SDL_GetModState());
+}
+
+bool tr::Keyboard::clipboardHasTest() const noexcept
+{
+	return SDL_HasClipboardText();
+}
+
+void tr::Keyboard::setClipboardText(const char* text) noexcept
+{
+	SDL_SetClipboardText(text);
+}
+
+void tr::Keyboard::setClipboardText(const std::string& text) noexcept
+{
+	setClipboardText(text.c_str());
+}
+
+std::string tr::Keyboard::clipboardText() const
+{
+	std::unique_ptr<char, decltype(&SDL_free)> ptr{SDL_GetClipboardText(), SDL_free};
+	return std::string{ptr.get()};
 }

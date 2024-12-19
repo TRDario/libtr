@@ -409,6 +409,40 @@ namespace tr {
 		 **************************************************************************************************************/
 		Keymods heldMods() const noexcept;
 
+		/**************************************************************************************************************
+		 * Gets whether the clipboard contains text.
+		 *
+		 * @return True if the clipboard holds text, and false otherwise.
+		 **************************************************************************************************************/
+		bool clipboardHasTest() const noexcept;
+
+		/**************************************************************************************************************
+		 * Sets the clipboard text.
+		 *
+		 * @param[in] text The text to put into the clipboard.
+		 **************************************************************************************************************/
+		void setClipboardText(const char* text) noexcept;
+
+		/**************************************************************************************************************
+		 * Sets the clipboard text.
+		 *
+		 * @param[in] text The text to put into the clipboard.
+		 **************************************************************************************************************/
+		void setClipboardText(const std::string& text) noexcept;
+
+		/**************************************************************************************************************
+		 * Gets the clipboard text.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
+		 * @exception std::bad_alloc If allocating the string fails.
+		 *
+		 * @return The text that is held in the clipboard.
+		 **************************************************************************************************************/
+		std::string clipboardText() const;
+
 	  private:
 		Keyboard() noexcept = default;
 
