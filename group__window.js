@@ -60,6 +60,7 @@ var group__window =
       [ "keyboard", "classtr_1_1Window.html#a698a5bc1017ae34fa9165398f0a15116", null ],
       [ "mouse", "classtr_1_1Window.html#a05ae3b82cd5842bf99c52189c472b0dd", null ],
       [ "mouse", "classtr_1_1Window.html#ac49f4af1aad68cdda527c4c620437cde", null ],
+      [ "Backbuffer", "classtr_1_1Window.html#a6ccca6f8365f521a0329a1b018cd2aac", null ],
       [ "GraphicsContext", "classtr_1_1Window.html#a8fffd8ec74983da6e71d9f81690cea11", null ]
     ] ],
     [ "tr::WindowMode", "group__window.html#ga0caa27a38e3d8b688a5abab875ed28f7", [
@@ -74,6 +75,7 @@ var group__window =
       [ "tr::WindowFlag::MINIMIZED", "group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa43245b4788b59a22d5357a7146c06deb", null ],
       [ "tr::WindowFlag::MAXIMIZED", "group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa2f33d682f3a4e19c31ced6cb4fd022e3", null ],
       [ "tr::WindowFlag::GRAB_INPUT", "group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12faa6de914e8cb1952483144b0aaa9b73ed", null ],
+      [ "tr::WindowFlag::SDL_WINDOW_ALLOW_HIGHDPI", "group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa2563258c8a71750d9441b6b1a13b44ea", null ],
       [ "tr::WindowFlag::ALWAYS_ON_TOP", "group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fae691ed6feadad498d49ae83224dfc172", null ]
     ] ],
     [ "tr::FlashOperation", "group__window.html#ga41769bf3df85aadb5d910148498e9585", [

@@ -450,6 +450,7 @@ var namespacetr =
       [ "MINIMIZED", "group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa43245b4788b59a22d5357a7146c06deb", null ],
       [ "MAXIMIZED", "group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa2f33d682f3a4e19c31ced6cb4fd022e3", null ],
       [ "GRAB_INPUT", "group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12faa6de914e8cb1952483144b0aaa9b73ed", null ],
+      [ "SDL_WINDOW_ALLOW_HIGHDPI", "group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa2563258c8a71750d9441b6b1a13b44ea", null ],
       [ "ALWAYS_ON_TOP", "group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fae691ed6feadad498d49ae83224dfc172", null ]
     ] ],
     [ "FlashOperation", "group__window.html#ga41769bf3df85aadb5d910148498e9585", [

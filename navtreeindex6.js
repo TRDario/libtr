@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"namespacemembers_o.html":[1,1,0,13],
+"namespacemembers_p.html":[1,1,0,14],
 "namespacemembers_q.html":[1,1,0,15],
 "namespacemembers_r.html":[1,1,0,16],
 "namespacemembers_s.html":[1,1,0,17],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "structtr_1_1G.html#ab74c8eec7387d4a789989dc23f9d7857":[0,1,3,5,0],
 "structtr_1_1GraphicsBufferBadAlloc.html":[0,2,4,1,1],
 "structtr_1_1GraphicsBufferBadAlloc.html#a96ef77cd330ad4f2c61c736fe71399b2":[0,2,4,1,1,0],
-"structtr_1_1GraphicsBufferMapBadAlloc.html":[0,2,4,1,2],
-"structtr_1_1GraphicsBufferMapBadAlloc.html#a1c8b908bd89be070df4c2eeec648858e":[0,2,4,1,2,0],
-"structtr_1_1GraphicsProperties.html":[0,2,4,2,0]
+"structtr_1_1GraphicsBufferMapBadAlloc.html":[0,2,4,1,2]
 };

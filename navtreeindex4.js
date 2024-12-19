@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"classtr_1_1Window.html#af8547a82b3491d105df596c22a192160":[0,2,8,2,9],
 "classtr_1_1Window.html#aff0d28a97ee51ec3a7bc37a9142d5561":[0,2,8,2,22],
 "classtr_1_1Window.html#affa5c23cb7d4154b7cbe864c9f546476":[0,2,8,2,34],
 "concepts.html":[2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767ac3b3d055cc049ac9787677800d1c2c0a":[0,2,4,2,6,10],
 "group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767ace05af0f4690600250a4f0dce0029906":[0,2,4,2,6,9],
 "group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767af883b721fe8288abb2c5f8fc7b100b54":[0,2,4,2,6,3],
-"group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fa1dd26f1f1790f0b56d5752fb0fbecef0":[0,2,4,2,3,1],
-"group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fa6328e5e3186c227a021ef2ff77e40197":[0,2,4,2,3,2]
+"group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fa1dd26f1f1790f0b56d5752fb0fbecef0":[0,2,4,2,3,1]
 };

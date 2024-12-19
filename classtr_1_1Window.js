@@ -55,5 +55,6 @@ var classtr_1_1Window =
     [ "keyboard", "classtr_1_1Window.html#a698a5bc1017ae34fa9165398f0a15116", null ],
     [ "mouse", "classtr_1_1Window.html#a05ae3b82cd5842bf99c52189c472b0dd", null ],
     [ "mouse", "classtr_1_1Window.html#ac49f4af1aad68cdda527c4c620437cde", null ],
+    [ "Backbuffer", "classtr_1_1Window.html#a6ccca6f8365f521a0329a1b018cd2aac", null ],
     [ "GraphicsContext", "classtr_1_1Window.html#a8fffd8ec74983da6e71d9f81690cea11", null ]
 ];
