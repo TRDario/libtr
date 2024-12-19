@@ -96,9 +96,9 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Owning audio buffer.
+	 * Owning audio data buffer.
 	 *
-	 * This class cannot be instantiated before the audio system is initialized.
+	 * AudioBuffer is default-constructible, non-copyable, and movable.
 	 ******************************************************************************************************************/
 	class AudioBuffer {
 	  public:
@@ -129,21 +129,12 @@ namespace tr {
 		AudioBuffer(std::span<const std::int16_t> data, AudioFormat format, int frequency);
 
 		/**************************************************************************************************************
-		 * Loads audio data from file to a buffer.
+		 * Move constructs an audio buffer.
 		 *
-		 * @par Exception Safety
-		 *
-		 * Strong exception guarantee.
-		 *
-		 * @exception FileNotFound If the file isn't found.
-		 * @exception FileOpenError If opening the file fails.
-		 * @exception UnsupportedAudioFile If the file is an unsupported or invalid format.
-		 * @exception std::bad_alloc If allocating a buffer for reading the data fails.
-		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
-		 *
-		 * @param[in] path The path to an audio file.
+		 * @param r The buffer to move from. @em r will be left in a state where other buffers can be moved into it,
+		 *          but is otherwise unusable.
 		 **************************************************************************************************************/
-		explicit AudioBuffer(const std::filesystem::path& path);
+		AudioBuffer(AudioBuffer&& r) noexcept = default;
 
 		/**************************************************************************************************************
 		 * Destroys the audio buffer.
@@ -151,6 +142,18 @@ namespace tr {
 		 * @pre The audio buffer must not be in use.
 		 **************************************************************************************************************/
 		~AudioBuffer() noexcept = default;
+
+		/**************************************************************************************************************
+		 * Move assigns an audio buffer.
+		 *
+		 * @pre The assigned-to audio buffer must not be in use, as its previous data will be freed.
+		 *
+		 * @param r The buffer to move from. @em r will be left in a state where other buffers can be moved into it,
+		 *          but is otherwise unusable.
+		 *
+		 * @return A reference to the assigned-to buffer.
+		 **************************************************************************************************************/
+		AudioBuffer& operator=(AudioBuffer&& r) noexcept = default;
 
 		/**************************************************************************************************************
 		 * Casts the audio buffer to an audio buffer view.
@@ -167,10 +170,6 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the data of the buffer.
 		 *
-		 * @par Exception Safety
-		 *
-		 * Strong exception guarantee.
-		 *
 		 * @exception AudioBufferBadAlloc If allocating the buffer fails.
 		 *
 		 * @param[in] data A span over audio data.
@@ -186,6 +185,68 @@ namespace tr {
 
 		Handle<unsigned int, 0, Deleter> _id;
 	};
+
+	/******************************************************************************************************************
+	 * Loads audio data from an embedded file to a buffer.
+	 *
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
+	 *
+	 * @exception AudioBufferBadAlloc If allocating the buffer fails.
+	 *
+	 * @param[in] embeddedFile
+	 * @parblock
+	 * The embedded file data.
+	 *
+	 * @pre @em embeddedFile is assumed to always be a valid audio file.
+	 * @endparblock
+	 *
+	 * @return An audio buffer loaded with data from the embedded file.
+	 ******************************************************************************************************************/
+	AudioBuffer loadEmbeddedAudio(std::span<const std::byte> data);
+
+	/******************************************************************************************************************
+	 * Loads audio data from an embedded file to a buffer.
+	 *
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
+	 *
+	 * @exception AudioBufferBadAlloc If allocating the buffer fails.
+	 *
+	 * @param[in] embeddedFile
+	 * @parblock
+	 * The embedded file range.
+	 *
+	 * @pre @em embeddedFile is assumed to always be a valid audio file.
+	 * @endparblock
+	 *
+	 * @return An audio buffer loaded with data from the embedded file.
+	 ******************************************************************************************************************/
+	template <std::ranges::contiguous_range Range> AudioBuffer loadEmbeddedAudio(Range&& range)
+	{
+		return loadEmbeddedAudio(std::span<const std::byte>(rangeBytes(range)));
+	}
+
+	/******************************************************************************************************************
+	 * Loads audio data from file to a buffer.
+	 *
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
+	 *
+	 * @exception FileNotFound If the file isn't found.
+	 * @exception FileOpenError If opening the file fails.
+	 * @exception UnsupportedAudioFile If the file is an unsupported or invalid format.
+	 * @exception std::bad_alloc If allocating a buffer for reading the data fails.
+	 * @exception AudioBufferBadAlloc If allocating the buffer fails.
+	 *
+	 * @param[in] path The path to an audio file.
+	 *
+	 * @return An audio buffer loaded with data from the file.
+	 ******************************************************************************************************************/
+	AudioBuffer loadAudioFile(const std::filesystem::path& path);
 
 	/// @}
 } // namespace tr

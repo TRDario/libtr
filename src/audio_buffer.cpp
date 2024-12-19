@@ -7,6 +7,47 @@
 #include <windows.h>
 #endif
 
+namespace tr {
+	struct EmbeddedAudioFile {
+		std::span<const std::byte>           file;
+		std::span<const std::byte>::iterator pos;
+	};
+	sf_count_t embeddedAudioSize(void* user_data) noexcept;
+	sf_count_t embeddedAudioSeek(sf_count_t offset, int whence, void* user_data) noexcept;
+	sf_count_t embeddedAudioRead(void* ptr, sf_count_t count, void* user_data) noexcept;
+	sf_count_t embeddedAudioTell(void* user_data) noexcept;
+
+	AudioBuffer loadAudio(SNDFILE* file, const SF_INFO& info);
+} // namespace tr
+
+sf_count_t tr::embeddedAudioSize(void* user_data) noexcept
+{
+	return ((EmbeddedAudioFile*)(user_data))->file.size();
+}
+
+sf_count_t tr::embeddedAudioSeek(sf_count_t offset, int whence, void* user_data) noexcept;
+
+sf_count_t tr::embeddedAudioRead(void* ptr, sf_count_t count, void* user_data) noexcept;
+
+sf_count_t tr::embeddedAudioTell(void* user_data) noexcept
+{
+	auto& file{*(EmbeddedAudioFile*)(user_data)};
+	return std::distance(file.file.begin(), file.pos);
+}
+
+tr::AudioBuffer tr::loadAudio(SNDFILE* file, const SF_INFO& info)
+{
+	AudioBuffer               buffer;
+	std::vector<std::int16_t> data(info.frames * info.channels);
+
+	if (info.format & (SF_FORMAT_OGG | SF_FORMAT_VORBIS | SF_FORMAT_FLOAT | SF_FORMAT_DOUBLE)) {
+		sf_command(file, SFC_SET_SCALE_FLOAT_INT_READ, nullptr, true);
+	}
+	sf_readf_short(file, data.data(), info.frames);
+
+	return AudioBuffer{data, info.channels == 2 ? AudioFormat::STEREO16 : AudioFormat::MONO16, info.samplerate};
+}
+
 tr::AudioBufferView::AudioBufferView(ALuint id) noexcept
 	: _id{id}
 {
@@ -23,8 +64,13 @@ tr::SecondsF tr::AudioBufferView::length() const noexcept
 void tr::AudioBufferView::set(std::span<const std::int16_t> data, AudioFormat format, int frequency)
 {
 	alBufferData(_id, ALenum(format), data.data(), data.size(), frequency);
-	if (alGetError() == AL_OUT_OF_MEMORY) {
+	switch (alGetError()) {
+	case AL_NO_ERROR:
+		break;
+	case AL_OUT_OF_MEMORY:
 		throw AudioBufferBadAlloc{};
+	default:
+		assert(false);
 	}
 }
 
@@ -42,35 +88,6 @@ tr::AudioBuffer::AudioBuffer(std::span<const std::int16_t> data, AudioFormat for
 	: AudioBuffer{}
 {
 	set(data, format, frequency);
-}
-
-tr::AudioBuffer::AudioBuffer(const std::filesystem::path& path)
-	: AudioBuffer{}
-{
-	if (!is_regular_file(path)) {
-		throw FileNotFound{path};
-	}
-
-	SF_INFO info;
-#ifdef _WIN32
-	std::unique_ptr<SNDFILE, decltype(&sf_close)> file{sf_wchar_open(path.c_str(), SFM_READ, &info), sf_close};
-#else
-	std::unique_ptr<SNDFILE, decltype(&sf_close)> file{sf_open(path.c_str(), SFM_READ, &info), sf_close};
-#endif
-
-	if (file == nullptr) {
-		throw FileOpenError{path};
-	}
-	if (info.channels > 2) {
-		throw UnsupportedAudioFile{path};
-	}
-	if (info.format & (SF_FORMAT_OGG | SF_FORMAT_VORBIS | SF_FORMAT_FLOAT | SF_FORMAT_DOUBLE)) {
-		sf_command(file.get(), SFC_SET_SCALE_FLOAT_INT_READ, nullptr, true);
-	}
-
-	std::vector<std::int16_t> data(info.frames * info.channels);
-	sf_readf_short(file.get(), data.data(), info.frames);
-	set(data, info.channels == 2 ? AudioFormat::STEREO16 : AudioFormat::MONO16, info.samplerate);
 }
 
 void tr::AudioBuffer::Deleter::operator()(unsigned int id) const noexcept
@@ -99,4 +116,42 @@ tr::SecondsF tr::AudioBuffer::length() const noexcept
 void tr::AudioBuffer::set(std::span<const std::int16_t> data, AudioFormat format, int frequency)
 {
 	AudioBufferView(*this).set(data, format, frequency);
+}
+
+tr::AudioBuffer tr::loadEmbeddedAudio(std::span<const std::byte> data)
+{
+	EmbeddedAudioFile fp{data, data.begin()};
+	SF_VIRTUAL_IO     io{.get_filelen = embeddedAudioSize,
+						 .seek        = embeddedAudioSeek,
+						 .read        = embeddedAudioRead,
+						 .tell        = embeddedAudioTell};
+	SF_INFO           info;
+
+	std::unique_ptr<SNDFILE, decltype(&sf_close)> file{sf_open_virtual(&io, SFM_READ, &info, &fp), sf_close};
+	assert(file != nullptr);
+
+	return loadAudio(file.get(), info);
+}
+
+tr::AudioBuffer tr::loadAudioFile(const std::filesystem::path& path)
+{
+	if (!is_regular_file(path)) {
+		throw FileNotFound{path};
+	}
+
+	SF_INFO info;
+#ifdef _WIN32
+	std::unique_ptr<SNDFILE, decltype(&sf_close)> file{sf_wchar_open(path.c_str(), SFM_READ, &info), sf_close};
+#else
+	std::unique_ptr<SNDFILE, decltype(&sf_close)> file{sf_open(path.c_str(), SFM_READ, &info), sf_close};
+#endif
+
+	if (file == nullptr) {
+		throw FileOpenError{path};
+	}
+	if (info.channels > 2) {
+		throw UnsupportedAudioFile{path};
+	}
+
+	return loadAudio(file.get(), info);
 }
