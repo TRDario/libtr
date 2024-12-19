@@ -52,6 +52,16 @@ const char* tr::GraphicsContext::versionInfo() const noexcept
 	return (const char*)(glGetString(GL_VERSION));
 }
 
+void tr::GraphicsContext::setViewport(const RectI2& viewport) noexcept
+{
+	glViewport(viewport.tl.x, viewport.tl.y, viewport.size.x, viewport.size.y);
+}
+
+void tr::GraphicsContext::setDepthRange(double min, double max) noexcept
+{
+	glDepthRange(min, max);
+}
+
 void tr::GraphicsContext::setFramebuffer(BasicFramebuffer& framebuffer) noexcept
 {
 	framebuffer.bindWrite();

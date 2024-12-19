@@ -369,6 +369,21 @@ namespace tr {
 		const char* versionInfo() const noexcept;
 
 		/**************************************************************************************************************
+		 * Sets the active viewport.
+		 *
+		 * @param viewport The viewport rectangle.
+		 **************************************************************************************************************/
+		void setViewport(const RectI2& viewport) noexcept;
+
+		/**************************************************************************************************************
+		 * Sets the active depth range.
+		 *
+		 * @param min The minimum depth value.
+		 * @param max The maximum depth value.
+		 **************************************************************************************************************/
+		void setDepthRange(double min, double max) noexcept;
+
+		/**************************************************************************************************************
 		 * Sets the target framebuffer.
 		 *
 		 * @param[in] framebuffer The new target framebuffer (user-defined or backbuffer).
