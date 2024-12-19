@@ -509,7 +509,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * Sets the window's V-sync mode.
 		 *
-		 * @note If setting the V-sync mode failed and @em vsync was ADAPTIVE, regular V-sync will be used.
+		 * @note If setting the V-sync mode failed and @em vsync was VSync::ADAPTIVE, regular V-sync will be used.
 		 *
 		 * @param[in] vsync The new V-sync mode.
 		 **************************************************************************************************************/
