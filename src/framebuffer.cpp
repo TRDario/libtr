@@ -2,6 +2,7 @@
 #include "../include/tr/window.hpp"
 #include "bitmap_to_gl_format.hpp"
 #include <GL/glew.h>
+#include <SDL2/SDL.h>
 
 namespace tr {
 	GLuint createFramebuffer() noexcept;
@@ -160,5 +161,7 @@ tr::Backbuffer::Backbuffer(Window& window) noexcept
 
 glm::ivec2 tr::Backbuffer::size() const noexcept
 {
-	return window().size();
+	glm::ivec2 size;
+	SDL_GL_GetDrawableSize(window()._impl.get(), &size.x, &size.y);
+	return size;
 }
