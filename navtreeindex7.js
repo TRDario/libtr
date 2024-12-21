@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"structtr_1_1GraphicsBufferBadAlloc.html#a96ef77cd330ad4f2c61c736fe71399b2":[0,2,4,1,1,0],
+"structtr_1_1GraphicsBufferMapBadAlloc.html":[0,2,4,1,2],
 "structtr_1_1GraphicsBufferMapBadAlloc.html#a1c8b908bd89be070df4c2eeec648858e":[0,2,4,1,2,0],
 "structtr_1_1GraphicsProperties.html":[0,2,4,2,0],
 "structtr_1_1GraphicsProperties.html#a7ead72a7ac9fefcc86b84b1586e52921":[0,2,4,2,0,2],

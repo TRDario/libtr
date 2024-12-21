@@ -144,6 +144,10 @@ Functions</h2></td></tr>
 <tr class="memitem:gaadb71e6fce205903028cde24fc1330af"><td class="memTemplItemLeft" align="right" valign="top">constexpr It&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gaadb71e6fce205903028cde24fc1330af">tr::fillRectVertices</a> (It out, glm::vec2 tl, glm::vec2 size, const glm::mat4 &amp;transform)</td></tr>
 <tr class="memdesc:gaadb71e6fce205903028cde24fc1330af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs rectangle vertices.  <br /></td></tr>
 <tr class="separator:gaadb71e6fce205903028cde24fc1330af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab9d90f4f0d20cdb3283668c3c514f253" id="r_gab9d90f4f0d20cdb3283668c3c514f253"><td class="memTemplParams" colspan="2">template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </td></tr>
+<tr class="memitem:gab9d90f4f0d20cdb3283668c3c514f253"><td class="memTemplItemLeft" align="right" valign="top">It&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gab9d90f4f0d20cdb3283668c3c514f253">tr::fillRotatedRectangleVertices</a> (It out, glm::vec2 pos, glm::vec2 posAnchor, glm::vec2 size, <a class="el" href="group__angle.html#ga0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a> rotation)</td></tr>
+<tr class="memdesc:gab9d90f4f0d20cdb3283668c3c514f253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs rotated rectangle vertices.  <br /></td></tr>
+<tr class="separator:gab9d90f4f0d20cdb3283668c3c514f253"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5675ece9e42d04045256493ec874273d" id="r_ga5675ece9e42d04045256493ec874273d"><td class="memTemplParams" colspan="2">template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </td></tr>
 <tr class="memitem:ga5675ece9e42d04045256493ec874273d"><td class="memTemplItemLeft" align="right" valign="top">constexpr It&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga5675ece9e42d04045256493ec874273d">tr::fillRectOutlineVertices</a> (It out, glm::vec2 tl, glm::vec2 size, float thickness)</td></tr>
 <tr class="memdesc:ga5675ece9e42d04045256493ec874273d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs unrotated rectangle outline vertices.  <br /></td></tr>
@@ -152,6 +156,10 @@ Functions</h2></td></tr>
 <tr class="memitem:gabf71fdba47cb0560983da3287a591010"><td class="memTemplItemLeft" align="right" valign="top">constexpr It&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gabf71fdba47cb0560983da3287a591010">tr::fillRectOutlineVertices</a> (It out, glm::vec2 tl, glm::vec2 size, float thickness, const glm::mat4 &amp;transform)</td></tr>
 <tr class="memdesc:gabf71fdba47cb0560983da3287a591010"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs rectangle outline vertices.  <br /></td></tr>
 <tr class="separator:gabf71fdba47cb0560983da3287a591010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga97490154009d42611bc0a13f4822861f" id="r_ga97490154009d42611bc0a13f4822861f"><td class="memTemplParams" colspan="2">template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </td></tr>
+<tr class="memitem:ga97490154009d42611bc0a13f4822861f"><td class="memTemplItemLeft" align="right" valign="top">It&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga97490154009d42611bc0a13f4822861f">tr::fillRotatedRectangleOutlineVertices</a> (It out, glm::vec2 pos, glm::vec2 posAnchor, glm::vec2 size, <a class="el" href="group__angle.html#ga0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a> rotation, float thickness)</td></tr>
+<tr class="memdesc:ga97490154009d42611bc0a13f4822861f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs rotated rectangle outline vertices.  <br /></td></tr>
+<tr class="separator:ga97490154009d42611bc0a13f4822861f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa9703a67fe8a407c1cd131af21aa6340" id="r_gaa9703a67fe8a407c1cd131af21aa6340"><td class="memTemplParams" colspan="2">template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </td></tr>
 <tr class="memitem:gaa9703a67fe8a407c1cd131af21aa6340"><td class="memTemplItemLeft" align="right" valign="top">It&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gaa9703a67fe8a407c1cd131af21aa6340">tr::fillArcVertices</a> (It out, std::size_t vertices, <a class="el" href="group__geometry.html#ga1d2cc5a6dbb44e5016299c518415f2fd">CircleF</a> circ, <a class="el" href="group__angle.html#ga0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a> startth, <a class="el" href="group__angle.html#ga0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a> sizeth)</td></tr>
 <tr class="memdesc:gaa9703a67fe8a407c1cd131af21aa6340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs vertex positions along an arc.  <br /></td></tr>
@@ -518,6 +526,79 @@ template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </div>
 
 </div>
 </div>
+<a id="gab9d90f4f0d20cdb3283668c3c514f253" name="gab9d90f4f0d20cdb3283668c3c514f253"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab9d90f4f0d20cdb3283668c3c514f253">&#9670;&#160;</a></span>fillRotatedRectangleVertices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">It tr::fillRotatedRectangleVertices </td>
+          <td>(</td>
+          <td class="paramtype">It</td>          <td class="paramname"><span class="paramname"><em>out</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec2</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec2</td>          <td class="paramname"><span class="paramname"><em>posAnchor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec2</td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__angle.html#ga0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a></td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Outputs rotated rectangle vertices. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">It</td><td>A position vector output iterator type.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td><p class="starttd">The output iterator.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>There has to be space for 4 vertices. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>The position of the anchor point of the rectangle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">posAnchor</td><td>The position of the anchor point within the rectangle ((0, 0) = top-left). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The size of the rectangle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rotation</td><td>The rotation of the rectangle.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An iterator to the end of the outputted sequence. </dd></dl>
+
+</div>
+</div>
 <a id="ga5675ece9e42d04045256493ec874273d" name="ga5675ece9e42d04045256493ec874273d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga5675ece9e42d04045256493ec874273d">&#9670;&#160;</a></span>fillRectOutlineVertices() <span class="overload">[1/2]</span></h2>
 
@@ -651,6 +732,85 @@ template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </div>
     <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The size of the rectangle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">thickness</td><td>The thickness of the outline. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">transform</td><td>A transformation matrix to apply to the vertices.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An iterator to the end of the outputted sequence. </dd></dl>
+
+</div>
+</div>
+<a id="ga97490154009d42611bc0a13f4822861f" name="ga97490154009d42611bc0a13f4822861f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga97490154009d42611bc0a13f4822861f">&#9670;&#160;</a></span>fillRotatedRectangleOutlineVertices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::output_iterator&lt; glm::vec2 &gt; It&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">It tr::fillRotatedRectangleOutlineVertices </td>
+          <td>(</td>
+          <td class="paramtype">It</td>          <td class="paramname"><span class="paramname"><em>out</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec2</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec2</td>          <td class="paramname"><span class="paramname"><em>posAnchor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec2</td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__angle.html#ga0ecdb2258fd1b27015d801b1799cfe5f">AngleF</a></td>          <td class="paramname"><span class="paramname"><em>rotation</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>thickness</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Outputs rotated rectangle outline vertices. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">It</td><td>A position vector output iterator type.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">out</td><td><p class="starttd">The output iterator.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>There has to be space for 8 vertices. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>The position of the anchor point of the rectangle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">posAnchor</td><td>The position of the anchor point within the rectangle ((0, 0) = top-left). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The size of the rectangle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rotation</td><td>The rotation of the rectangle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">thickness</td><td>The thickness of the outline.</td></tr>
   </table>
   </dd>
 </dl>

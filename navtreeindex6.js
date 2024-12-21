@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"namespacemembers_m.html":[1,1,0,11],
+"namespacemembers_n.html":[1,1,0,12],
 "namespacemembers_o.html":[1,1,0,13],
 "namespacemembers_p.html":[1,1,0,14],
 "namespacemembers_q.html":[1,1,0,15],
@@ -18,9 +20,9 @@ var NAVTREEINDEX6 =
 "namespacetr.html":[1,0,0],
 "namespacetr.html#ga06aeaa45377e5bfdce392f3dfb7e6bc3":[1,0,0,259],
 "namespacetr.html#ga06aeaa45377e5bfdce392f3dfb7e6bc3":[1,0,0,260],
-"namespacetr.html#ga3cef1602b3bb2dba9d4df7e58dab1fe3":[1,0,0,297],
-"namespacetr.html#ga5cd1fa20c4094ba1e7f59b51e2fdd6da":[1,0,0,299],
-"namespacetr.html#ga8a827623b51153bdb19d62d1ec2a317f":[1,0,0,312],
+"namespacetr.html#ga3cef1602b3bb2dba9d4df7e58dab1fe3":[1,0,0,299],
+"namespacetr.html#ga5cd1fa20c4094ba1e7f59b51e2fdd6da":[1,0,0,301],
+"namespacetr.html#ga8a827623b51153bdb19d62d1ec2a317f":[1,0,0,314],
 "namespacetr_1_1angle__literals.html":[0,1,0,0],
 "namespacetr_1_1angle__literals.html#a00342906cedbecc6511fc93a643b0188":[1,0,0,0,8],
 "namespacetr_1_1angle__literals.html#a00342906cedbecc6511fc93a643b0188":[1,0,0,239],
@@ -75,13 +77,13 @@ var NAVTREEINDEX6 =
 "namespacetr_1_1event__type.html#aff7b615c3a2467c8e6252fc1c50174b8":[1,0,0,1,3],
 "namespacetr_1_1matrix__operators.html":[0,1,6,0],
 "namespacetr_1_1matrix__operators.html#a5b958043451fca41d9a0de81714fac98":[1,0,0,2,1],
-"namespacetr_1_1matrix__operators.html#a5b958043451fca41d9a0de81714fac98":[1,0,0,314],
+"namespacetr_1_1matrix__operators.html#a5b958043451fca41d9a0de81714fac98":[1,0,0,316],
 "namespacetr_1_1matrix__operators.html#a65eeae125ad1de01cec01a955b8257d9":[1,0,0,2,0],
-"namespacetr_1_1matrix__operators.html#a65eeae125ad1de01cec01a955b8257d9":[1,0,0,313],
+"namespacetr_1_1matrix__operators.html#a65eeae125ad1de01cec01a955b8257d9":[1,0,0,315],
 "namespacetr_1_1matrix__operators.html#a7fbd66dc1ec3b2db9985283231a04fc5":[1,0,0,2,3],
-"namespacetr_1_1matrix__operators.html#a7fbd66dc1ec3b2db9985283231a04fc5":[1,0,0,316],
+"namespacetr_1_1matrix__operators.html#a7fbd66dc1ec3b2db9985283231a04fc5":[1,0,0,318],
 "namespacetr_1_1matrix__operators.html#a9e3057b68b025f8d55ee09cc2fb6cc71":[1,0,0,2,2],
-"namespacetr_1_1matrix__operators.html#a9e3057b68b025f8d55ee09cc2fb6cc71":[1,0,0,315],
+"namespacetr_1_1matrix__operators.html#a9e3057b68b025f8d55ee09cc2fb6cc71":[1,0,0,317],
 "pages.html":[],
 "structtr_1_1ABGR__Ui16__1__5__5__5.html":[0,1,3,21],
 "structtr_1_1ABGR__Ui16__1__5__5__5.html#a491502e6aa3c186b70121886d0fb2000":[0,1,3,21,2],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "structtr_1_1G.html":[0,1,3,5],
 "structtr_1_1G.html#a7b5620a1f59ccad6599b8da8619a780d":[0,1,3,5,1],
 "structtr_1_1G.html#ab74c8eec7387d4a789989dc23f9d7857":[0,1,3,5,0],
-"structtr_1_1GraphicsBufferBadAlloc.html":[0,2,4,1,1],
-"structtr_1_1GraphicsBufferBadAlloc.html#a96ef77cd330ad4f2c61c736fe71399b2":[0,2,4,1,1,0],
-"structtr_1_1GraphicsBufferMapBadAlloc.html":[0,2,4,1,2]
+"structtr_1_1GraphicsBufferBadAlloc.html":[0,2,4,1,1]
 };
