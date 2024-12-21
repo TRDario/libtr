@@ -116,6 +116,27 @@ namespace tr {
 	constexpr It fillRectVertices(It out, glm::vec2 tl, glm::vec2 size, const glm::mat4& transform);
 
 	/******************************************************************************************************************
+	 * Outputs rotated rectangle vertices.
+	 *
+	 * @tparam It A position vector output iterator type.
+	 *
+	 * @param[out] out
+	 * @parblock
+	 * The output iterator.
+	 *
+	 * @pre There has to be space for 4 vertices.
+	 * @endparblock
+	 * @param[in] pos The position of the anchor point of the rectangle.
+	 * @param[in] posAnchor The position of the anchor point within the rectangle ((0, 0) = top-left).
+	 * @param[in] size The size of the rectangle.
+	 * @param[in] rotation The rotation of the rectangle.
+	 *
+	 * @return An iterator to the end of the outputted sequence.
+	 ******************************************************************************************************************/
+	template <std::output_iterator<glm::vec2> It>
+	inline It fillRotatedRectangleVertices(It out, glm::vec2 pos, glm::vec2 posAnchor, glm::vec2 size, AngleF rotation);
+
+	/******************************************************************************************************************
 	 * Outputs unrotated rectangle outline vertices.
 	 *
 	 * @tparam It A position vector output iterator type.
@@ -156,6 +177,29 @@ namespace tr {
 	template <std::output_iterator<glm::vec2> It>
 	constexpr It fillRectOutlineVertices(It out, glm::vec2 tl, glm::vec2 size, float thickness,
 										 const glm::mat4& transform);
+
+	/******************************************************************************************************************
+	 * Outputs rotated rectangle outline vertices.
+	 *
+	 * @tparam It A position vector output iterator type.
+	 *
+	 * @param[out] out
+	 * @parblock
+	 * The output iterator.
+	 *
+	 * @pre There has to be space for 8 vertices.
+	 * @endparblock
+	 * @param[in] pos The position of the anchor point of the rectangle.
+	 * @param[in] posAnchor The position of the anchor point within the rectangle ((0, 0) = top-left).
+	 * @param[in] size The size of the rectangle.
+	 * @param[in] rotation The rotation of the rectangle.
+	 * @param[in] thickness The thickness of the outline.
+	 *
+	 * @return An iterator to the end of the outputted sequence.
+	 ******************************************************************************************************************/
+	template <std::output_iterator<glm::vec2> It>
+	inline It fillRotatedRectangleOutlineVertices(It out, glm::vec2 pos, glm::vec2 posAnchor, glm::vec2 size,
+												  AngleF rotation, float thickness);
 
 	/******************************************************************************************************************
 	 * Outputs vertex positions along an arc.

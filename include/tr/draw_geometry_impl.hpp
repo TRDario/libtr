@@ -62,6 +62,18 @@ constexpr It tr::fillRectVertices(It out, glm::vec2 tl, glm::vec2 size, const gl
 }
 
 template <std::output_iterator<glm::vec2> It>
+inline It tr::fillRotatedRectangleVertices(It out, glm::vec2 pos, glm::vec2 posAnchor, glm::vec2 size, AngleF rotation)
+{
+	if (rotation == tr::rads(0)) {
+		return fillRectVertices(out, pos - posAnchor, size);
+	}
+	else {
+		const auto transform{tr::rotateAroundPoint2(glm::mat4{1}, pos, rotation)};
+		return fillRectVertices(out, pos - posAnchor, size, transform);
+	}
+}
+
+template <std::output_iterator<glm::vec2> It>
 constexpr It tr::fillRectOutlineVertices(It out, glm::vec2 tl, glm::vec2 size, float thickness)
 {
 	out = fillRectVertices(out, tl - thickness / 2, size + thickness);
@@ -74,6 +86,19 @@ constexpr It tr::fillRectOutlineVertices(It out, glm::vec2 tl, glm::vec2 size, f
 {
 	out = fillRectVertices(out, tl - thickness / 2, size + thickness, transform);
 	return fillRectVertices(out, tl + thickness / 2, size - thickness, transform);
+}
+
+template <std::output_iterator<glm::vec2> It>
+inline It tr::fillRotatedRectangleOutlineVertices(It out, glm::vec2 pos, glm::vec2 posAnchor, glm::vec2 size,
+												  AngleF rotation, float thickness)
+{
+	if (rotation == tr::rads(0)) {
+		return fillRectOutlineVertices(out, pos - posAnchor, size, thickness);
+	}
+	else {
+		const auto transform{tr::rotateAroundPoint2(glm::mat4{1}, pos, rotation)};
+		return fillRectOutlineVertices(out, pos - posAnchor, size, thickness, transform);
+	}
 }
 
 template <std::output_iterator<glm::vec2> It>
