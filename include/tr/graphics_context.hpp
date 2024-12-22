@@ -255,6 +255,8 @@ namespace tr {
 		 * The multiplier used for the destination alpha.
 		 **************************************************************************************************************/
 		BlendMultiplier alphaDst;
+
+		friend bool operator==(const BlendMode& l, const BlendMode& r) noexcept = default;
 	};
 
 	/******************************************************************************************************************
