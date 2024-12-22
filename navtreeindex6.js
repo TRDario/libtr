@@ -191,12 +191,13 @@ var NAVTREEINDEX6 =
 "structtr_1_1BitmapSaveError.html#af20b3a2264436da0f630a2399d7fbec5":[0,2,0,2,0],
 "structtr_1_1BitmapSaveError.html#afdc352e7cd537ad610e937393246c310":[0,2,0,2,1],
 "structtr_1_1BlendMode.html":[0,2,4,2,1],
-"structtr_1_1BlendMode.html#a44066af0e0296b1637f82e7aeaea8f7d":[0,2,4,2,1,2],
-"structtr_1_1BlendMode.html#a7509e716191946fa7fac575eac077bea":[0,2,4,2,1,3],
-"structtr_1_1BlendMode.html#a77a2fae0c517e164f3f83997e6659533":[0,2,4,2,1,4],
-"structtr_1_1BlendMode.html#a9f7f7d4df0775ad7d3fbfa173e7f57d6":[0,2,4,2,1,5],
-"structtr_1_1BlendMode.html#aa9a44cb89d38d94471ec787f72a4ddc9":[0,2,4,2,1,0],
-"structtr_1_1BlendMode.html#abb86ded01daaa9c6a9e98bcbdc1300bb":[0,2,4,2,1,1],
+"structtr_1_1BlendMode.html#a44066af0e0296b1637f82e7aeaea8f7d":[0,2,4,2,1,3],
+"structtr_1_1BlendMode.html#a7509e716191946fa7fac575eac077bea":[0,2,4,2,1,4],
+"structtr_1_1BlendMode.html#a77a2fae0c517e164f3f83997e6659533":[0,2,4,2,1,5],
+"structtr_1_1BlendMode.html#a9f7f7d4df0775ad7d3fbfa173e7f57d6":[0,2,4,2,1,6],
+"structtr_1_1BlendMode.html#aa9a44cb89d38d94471ec787f72a4ddc9":[0,2,4,2,1,1],
+"structtr_1_1BlendMode.html#abb86ded01daaa9c6a9e98bcbdc1300bb":[0,2,4,2,1,2],
+"structtr_1_1BlendMode.html#ae8c6cc969b097d3369d38985c4c4bb96":[0,2,4,2,1,0],
 "structtr_1_1Circle.html":[0,1,6,2],
 "structtr_1_1Circle.html#a16017adaa1da02ed1643765d9bc219fb":[0,1,6,2,4],
 "structtr_1_1Circle.html#a2509fc035d2e9942ab6ac6cbc35678c0":[0,1,6,2,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "structtr_1_1FileOpenError.html#afdc352e7cd537ad610e937393246c310":[0,1,13,3,1],
 "structtr_1_1G.html":[0,1,3,5],
 "structtr_1_1G.html#a7b5620a1f59ccad6599b8da8619a780d":[0,1,3,5,1],
-"structtr_1_1G.html#ab74c8eec7387d4a789989dc23f9d7857":[0,1,3,5,0],
-"structtr_1_1GraphicsBufferBadAlloc.html":[0,2,4,1,1]
+"structtr_1_1G.html#ab74c8eec7387d4a789989dc23f9d7857":[0,1,3,5,0]
 };
