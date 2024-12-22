@@ -124,7 +124,7 @@ int tr::operator-(const tr::SubBitmap::Iterator& l, const tr::SubBitmap::Iterato
 tr::BitmapView::BitmapView(std::span<const std::byte> rawData, glm::ivec2 size, BitmapFormat format)
 	: BitmapView(rawData.data(), size.x * format.pixelBytes(), size, format)
 {
-	assert(rawData.size() == size.x * size.y * format.pixelBytes());
+	assert(rawData.size() == size.x * size.y * std::size_t(format.pixelBytes()));
 }
 
 tr::BitmapView::BitmapView(const std::byte* rawDataStart, int pitch, glm::ivec2 size, BitmapFormat format)
@@ -288,7 +288,7 @@ void tr::Bitmap::blit(glm::ivec2 tl, const SubBitmap& source) noexcept
 	assert(_impl != nullptr);
 	assert(RectI2{size()}.contains(tl + source.size()));
 	SDL_Rect sdlSource{source._rect.tl.x, source._rect.tl.y, source.size().x, source.size().y};
-	SDL_Rect sdlDest{tl.x, tl.y};
+	SDL_Rect sdlDest{tl.x, tl.y, source.size().x, source.size().y};
 	SDL_BlitSurface(source._bitmap, &sdlSource, _impl.get(), &sdlDest);
 }
 

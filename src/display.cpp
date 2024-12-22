@@ -74,7 +74,8 @@ tr::DisplayMode tr::DisplayInfo::displayMode(int index) const noexcept
 
 std::optional<tr::DisplayMode> tr::DisplayInfo::closestModeTo(const DisplayMode& mode) const noexcept
 {
-	SDL_DisplayMode target{std::uint32_t(BitmapFormat::Type(mode.format)), mode.size.x, mode.size.y, mode.refreshRate};
+	SDL_DisplayMode target{std::uint32_t(BitmapFormat::Type(mode.format)), mode.size.x, mode.size.y, mode.refreshRate,
+						   nullptr};
 	SDL_DisplayMode sdlMode;
 	return SDL_GetClosestDisplayMode(_id, &target, &sdlMode) != nullptr ? std::optional{toDisplayMode(sdlMode)}
 																		: std::nullopt;

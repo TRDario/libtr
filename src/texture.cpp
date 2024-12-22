@@ -232,7 +232,7 @@ tr::ArrayTexture2D::ArrayTexture2D(glm::ivec2 size, int layers, int mipmaps, Tex
 tr::ArrayTexture2D::ArrayTexture2D(std::span<SubBitmap> layers, int mipmaps, TextureFormat format)
 	: ArrayTexture2D{determineArrayTextureSize(layers), int(layers.size()), mipmaps, format}
 {
-	for (int i = 0; i < layers.size(); ++i) {
+	for (std::size_t i = 0; i < layers.size(); ++i) {
 		setLayerRegion(i, {}, layers[i]);
 	}
 }

@@ -1,12 +1,12 @@
-#include "../include/tr/vertex_format.hpp"
 #include "../include/tr/overloaded_lambda.hpp"
+#include "../include/tr/vertex_format.hpp"
 #include <GL/glew.h>
 
 tr::VertexFormat::VertexFormat(std::span<const VertexAttribute> attrs) noexcept
 {
 	GLuint vao;
 	glCreateVertexArrays(1, &vao);
-	for (int i = 0; i < attrs.size(); ++i) {
+	for (std::size_t i = 0; i < attrs.size(); ++i) {
 		std::visit(Overloaded{[=](const VertexAttributeF& attr) {
 								  glVertexArrayAttribFormat(vao, i, attr.elements, GLenum(attr.type), attr.normalized,
 															attr.offset);

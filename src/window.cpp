@@ -104,7 +104,7 @@ SDL_Window* tr::openFullscreenWindow(const char* title, const DisplayMode& dmode
 {
 	auto            pos{display.centeredPos()};
 	SDL_DisplayMode sdlMode{std::uint32_t(BitmapFormat::Type(dmode.format)), dmode.size.x, dmode.size.y,
-							dmode.refreshRate};
+							dmode.refreshRate, nullptr};
 	const auto      sdlFlags{std::uint32_t(flags) | SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN};
 	SDL_Window*     window{SDL_CreateWindow(title, pos.x, pos.y, dmode.size.x, dmode.size.y, sdlFlags)};
 	if (window == nullptr || SDL_SetWindowDisplayMode(window, &sdlMode) < 0) {
@@ -116,20 +116,14 @@ SDL_Window* tr::openFullscreenWindow(const char* title, const DisplayMode& dmode
 
 tr::Window::Window(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFlag flags,
 				   const GraphicsProperties& gfxProperties)
-	: _sdl{initSDL(gfxProperties)}
-	, _impl{openWindowedWindow(title, size, pos, flags)}
-	, _glContext{_impl.get()}
-	, _backbuffer{*this}
+	: _sdl{initSDL(gfxProperties)}, _impl{openWindowedWindow(title, size, pos, flags)}, _glContext{_impl.get()}
 {
 	assert(!windowOpened());
 	_window = this;
 }
 
 tr::Window::Window(const char* title, DisplayInfo display, WindowFlag flags, const GraphicsProperties& gfxProperties)
-	: _sdl{initSDL(gfxProperties)}
-	, _impl{openBorderlessWindow(title, display, flags)}
-	, _glContext{_impl.get()}
-	, _backbuffer{*this}
+	: _sdl{initSDL(gfxProperties)}, _impl{openBorderlessWindow(title, display, flags)}, _glContext{_impl.get()}
 {
 	assert(!windowOpened());
 	_window = this;
@@ -137,10 +131,7 @@ tr::Window::Window(const char* title, DisplayInfo display, WindowFlag flags, con
 
 tr::Window::Window(const char* title, const DisplayMode& dmode, DisplayInfo display, WindowFlag flags,
 				   const GraphicsProperties& gfxProperties)
-	: _sdl{initSDL(gfxProperties)}
-	, _impl{openFullscreenWindow(title, dmode, display, flags)}
-	, _glContext{_impl.get()}
-	, _backbuffer{*this}
+	: _sdl{initSDL(gfxProperties)}, _impl{openFullscreenWindow(title, dmode, display, flags)}, _glContext{_impl.get()}
 {
 	assert(!windowOpened());
 	_window = this;
@@ -228,7 +219,7 @@ void tr::Window::setFullscreenMode(const DisplayMode& dmode)
 {
 	assert(_impl.get() != nullptr);
 	SDL_DisplayMode sdlMode{std::uint32_t(BitmapFormat::Type(dmode.format)), dmode.size.x, dmode.size.y,
-							dmode.refreshRate};
+							dmode.refreshRate, nullptr};
 	if (SDL_SetWindowDisplayMode(_impl.get(), &sdlMode) < 0) {
 		throw WindowError{"Failed to set window fullscreen mode"};
 	}

@@ -85,7 +85,7 @@ tr::Cursor::Cursor(const BitmapView& view, glm::ivec2 focus)
 
 tr::Cursor::Cursor(std::span<const std::byte> color, std::span<const std::byte> mask, glm::ivec2 size, glm::ivec2 focus)
 {
-	assert(color.size() == mask.size() && color.size() == size.x * size.y / 64);
+	assert(color.size() == mask.size() && color.size() == std::size_t(size.x) * size.y / 64);
 	_impl.reset(checkNotNull(SDL_CreateCursor((const std::uint8_t*)(color.data()), (const std::uint8_t*)(mask.data()),
 											  size.x, size.y, focus.x, focus.y)));
 }

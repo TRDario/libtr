@@ -12,7 +12,7 @@ namespace tr {
 tr::TextureUnit::TextureUnit() noexcept
 {
 	assert(!_texUnitPool.all());
-	for (int i = 0; i < _texUnitPool.size(); ++i) {
+	for (std::size_t i = 0; i < _texUnitPool.size(); ++i) {
 		if (!_texUnitPool[i]) {
 			_texUnitPool[i] = true;
 			_id.reset(i);

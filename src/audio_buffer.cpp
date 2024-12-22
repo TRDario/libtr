@@ -124,6 +124,7 @@ tr::AudioBuffer tr::loadEmbeddedAudio(std::span<const std::byte> data)
 	SF_VIRTUAL_IO     io{.get_filelen = embeddedAudioSize,
 						 .seek        = embeddedAudioSeek,
 						 .read        = embeddedAudioRead,
+						 .write       = nullptr,
 						 .tell        = embeddedAudioTell};
 	SF_INFO           info;
 

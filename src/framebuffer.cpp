@@ -154,7 +154,7 @@ glm::ivec2 tr::Framebuffer::calcSize() noexcept
 	return _size;
 }
 
-tr::Backbuffer::Backbuffer(Window& window) noexcept
+tr::Backbuffer::Backbuffer() noexcept
 	: BasicFramebuffer{0}
 {
 }
