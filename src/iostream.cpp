@@ -39,9 +39,6 @@ const char* tr::FileOpenError::what() const noexcept
 
 std::ofstream tr::openFileW(const std::filesystem::path& path, std::ios::openmode openmode)
 {
-	if (!is_regular_file(path)) {
-		throw FileNotFound{path};
-	}
 	std::ofstream file{path, openmode};
 	if (!file.is_open()) {
 		throw FileOpenError{path};

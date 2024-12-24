@@ -101,7 +101,6 @@ namespace tr {
 	 *
 	 * Strong exception guarantee.
 	 *
-	 * @exception FileNotFound If the file path does not lead to a regular file.
 	 * @exception FileOpenError If the file at path cannot be opened.
 	 *
 	 * @param[in] path The file path. Must be a valid, writable file.
