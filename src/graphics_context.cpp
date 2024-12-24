@@ -192,13 +192,14 @@ void tr::GraphicsContext::drawInstances(Primitive type, std::size_t offset, std:
 
 void tr::GraphicsContext::drawIndexed(Primitive type, std::size_t offset, std::size_t indices) noexcept
 {
-	glDrawElements(GLenum(type), indices, GL_UNSIGNED_SHORT, (const void*)(offset));
+	glDrawElements(GLenum(type), indices, GL_UNSIGNED_SHORT, (const void*)(offset * sizeof(std::uint16_t)));
 }
 
 void tr::GraphicsContext::drawIndexedInstances(Primitive type, std::size_t offset, std::size_t indices,
 											   int instances) noexcept
 {
-	glDrawElementsInstanced(GLenum(type), indices, GL_UNSIGNED_SHORT, (const void*)(offset), instances);
+	glDrawElementsInstanced(GLenum(type), indices, GL_UNSIGNED_SHORT, (const void*)(offset * sizeof(std::uint16_t)),
+							instances);
 }
 
 void tr::GraphicsContext::swap() noexcept
