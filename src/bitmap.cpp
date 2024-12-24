@@ -365,19 +365,19 @@ tr::Bitmap tr::loadBitmapFile(const std::filesystem::path& path)
 		throw FileNotFound{path};
 	}
 
-	const auto extension{path.extension()};
-	if (extension == ".png") {
+#ifdef _WIN32
+	auto rwops{SDL_RWFromFP(_wfopen(path.c_str(), L"r"), true)};
+#else
+	auto rwops{SDL_RWFromFile(path.c_str(), "r")};
+#endif
+	if (IMG_isPNG(rwops) && !(IMG_Init(0) & IMG_INIT_PNG)) {
 		IMG_Init(IMG_INIT_PNG);
 	}
-	else if ((extension == ".jpg" || extension == ".jpeg")) {
+	else if (IMG_isJPG(rwops) && !(IMG_Init(0) & IMG_INIT_JPG)) {
 		IMG_Init(IMG_INIT_JPG);
 	}
 
-#ifdef _WIN32
-	auto ptr{IMG_Load_RW(SDL_RWFromFP(_wfopen(path.c_str(), L"r"), true), true)};
-#else
-	auto ptr{IMG_Load(path.c_str())};
-#endif
+	auto ptr{IMG_Load_RW(rwops, true)};
 	if (ptr == nullptr) {
 		throw BitmapLoadError{path};
 	}
