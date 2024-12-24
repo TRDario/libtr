@@ -68,7 +68,7 @@ void tr::suppressUnsupportedEvents() noexcept
 
 bool tr::initSDL(const GraphicsProperties& gfxProperties)
 {
-	if (SDL_InitSubSystem(SDL_INIT_VIDEO) < 0) {
+	if (SDL_InitSubSystem(SDL_INIT_VIDEO) < 0 || TTF_Init() < 0) {
 		SDL_Quit();
 		throw WindowOpenError{"Failed to initialize SDL"};
 	}

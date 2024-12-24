@@ -1,5 +1,6 @@
 #include "../include/tr/ttfont.hpp"
 #include <SDL2/SDL_ttf.h>
+#include <format>
 
 namespace tr {
 	// Fixes certain edge artifacts when rendering partially transparent text.
@@ -16,6 +17,14 @@ void tr::fixAlphaArtifacts(Bitmap& bitmap, std::uint8_t maxAlpha) noexcept
 		}
 		it += bitmap.pitch();
 	}
+}
+
+const char* tr::TTFontLoadError::what() const noexcept
+{
+	static std::string str;
+	str.clear();
+	format_to(back_inserter(str), "Failed to load TrueType font file ({}): '{}'", SDL_GetError(), path());
+	return str.c_str();
 }
 
 tr::TTFont::TTFont(_TTF_Font* impl, int size, glm::uvec2 dpi) noexcept
