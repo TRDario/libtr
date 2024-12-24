@@ -705,7 +705,7 @@ namespace tr {
 	}
 
 	/******************************************************************************************************************
-	 * Loads a bitmap from file (BMP/QOI).
+	 * Loads a bitmap from file (BMP/PNG/JPG/QOI).
 	 *
 	 * @par Exception Safety
 	 *

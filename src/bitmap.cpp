@@ -365,6 +365,14 @@ tr::Bitmap tr::loadBitmapFile(const std::filesystem::path& path)
 		throw FileNotFound{path};
 	}
 
+	const auto extension{path.extension()};
+	if (extension == ".png") {
+		IMG_Init(IMG_INIT_PNG);
+	}
+	else if ((extension == ".jpg" || extension == ".jpeg")) {
+		IMG_Init(IMG_INIT_JPG);
+	}
+
 #ifdef _WIN32
 	auto ptr{IMG_Load_RW(SDL_RWFromFP(_wfopen(path.c_str(), L"r"), true), true)};
 #else
