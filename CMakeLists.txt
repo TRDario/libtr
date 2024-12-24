@@ -6,6 +6,7 @@ endif()
 project(tr LANGUAGES C CXX VERSION 0.1.0)
 
 option(TR_ENABLE_INSTALL "whether to enable the install rule" ON)
+option(TR_DEAR_IMGUI_INTEGRATION "whether to include Dear ImGui integration" OFF)
 
 include(FetchContent)
 
@@ -59,6 +60,18 @@ target_sources(tr PUBLIC
         include/tr/texture.hpp include/tr/timer.hpp include/tr/tr.hpp include/tr/ttfont.hpp include/tr/utf8.hpp
         include/tr/vertex_buffer.hpp include/tr/vertex_format.hpp include/tr/vertex.hpp include/tr/window.hpp
 )
+
+if(TR_DEAR_IMGUI_INTEGRATION)
+    target_sources(tr PUBLIC
+        FILE_SET HEADERS
+        BASE_DIRS include
+        FILES
+        include/tr/imgui.hpp
+    )
+    target_sources(tr PRIVATE
+        src/imgui/imgui_impl_opengl3.cpp src/imgui/imgui_impl_sdl2.cpp src/imgui.cpp
+    )
+endif()
 
 if(TR_ENABLE_INSTALL)
     include(GNUInstallDirs)

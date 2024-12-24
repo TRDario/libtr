@@ -8,6 +8,10 @@
 
 struct SDL_Window;
 
+namespace tr::ImGui {
+	void initialize();
+}
+
 namespace tr {
 	/** @ingroup system
 	 *  @defgroup graphics Graphics
@@ -607,6 +611,7 @@ namespace tr {
 		GraphicsContext(SDL_Window* window);
 
 		friend class Window;
+		friend void ImGui::initialize();
 	};
 
 	/// @}

@@ -68,7 +68,7 @@ auto tr::StringHash::operator()(std::string_view str) const noexcept
 
 template <std::size_t Cap> auto tr::StaticStringHash::operator()(const boost::static_string<Cap>& arg) const noexcept
 {
-	return std::hash<std::string_view>{}(std::string_view(arg));
+	return std::hash<std::string_view>{}(std::string_view(arg.c_str()));
 }
 
 auto tr::StaticStringHash::operator()(std::string_view str) const noexcept

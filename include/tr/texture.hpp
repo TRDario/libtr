@@ -236,6 +236,7 @@ namespace tr {
 		friend class Framebuffer;
 		friend class TextureUnit;
 		friend class std::hash<Texture>;
+		friend std::uint64_t getImGUITextureID(const Texture& texture) noexcept;
 	};
 
 	/******************************************************************************************************************

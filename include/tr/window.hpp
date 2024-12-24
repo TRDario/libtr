@@ -608,6 +608,7 @@ namespace tr {
 
 		friend class Backbuffer;
 		friend class GraphicsContext;
+		friend void ImGui::initialize();
 	};
 
 	/******************************************************************************************************************
