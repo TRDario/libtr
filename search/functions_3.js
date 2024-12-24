@@ -9,7 +9,7 @@ var searchData=
   ['displaycount_6',['displayCount',['../group__display.html#ga9a6f207d79a36e6b83c9c709b13af14b',1,'tr']]],
   ['displaymode_7',['displayMode',['../classtr_1_1DisplayInfo.html#aeefb31fc56c2ad8790dfcb680d74fbc5',1,'tr::DisplayInfo']]],
   ['displaymodecount_8',['displayModeCount',['../classtr_1_1DisplayInfo.html#abf825c4dfb82beafd4d3638d31aa3f16',1,'tr::DisplayInfo']]],
-  ['draw_9',['draw',['../classtr_1_1GraphicsContext.html#a5970005bd6ddce59d45e997605e7b4b9',1,'tr::GraphicsContext']]],
+  ['draw_9',['draw',['../classtr_1_1GraphicsContext.html#a5970005bd6ddce59d45e997605e7b4b9',1,'tr::GraphicsContext::draw()'],['../namespacetr_1_1ImGui.html#a85e81d2346dc870f483f878402b7f711',1,'tr::ImGui::draw()']]],
   ['drawindexed_10',['drawIndexed',['../classtr_1_1GraphicsContext.html#afa1468174c1e4ad836bc8fda094783ea',1,'tr::GraphicsContext']]],
   ['drawindexedinstances_11',['drawIndexedInstances',['../classtr_1_1GraphicsContext.html#a609e8e26979d1b15443229da132e0a67',1,'tr::GraphicsContext']]],
   ['drawinstances_12',['drawInstances',['../classtr_1_1GraphicsContext.html#a0c29c83e3771c767391b9bbb2f5c284b',1,'tr::GraphicsContext']]]

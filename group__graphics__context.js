@@ -48,7 +48,8 @@ var group__graphics__context =
       [ "drawIndexed", "classtr_1_1GraphicsContext.html#afa1468174c1e4ad836bc8fda094783ea", null ],
       [ "drawIndexedInstances", "classtr_1_1GraphicsContext.html#a609e8e26979d1b15443229da132e0a67", null ],
       [ "swap", "classtr_1_1GraphicsContext.html#a9b8b5cce30a4b0b614a0140d2234b26a", null ],
-      [ "Window", "classtr_1_1GraphicsContext.html#a553f958a25683445088050a69d3de8e9", null ]
+      [ "Window", "classtr_1_1GraphicsContext.html#a553f958a25683445088050a69d3de8e9", null ],
+      [ "ImGui::initialize", "classtr_1_1GraphicsContext.html#a9a20e3a345f19520f5e9e58b742eefe4", null ]
     ] ],
     [ "tr::StencilFace", "group__graphics__context.html#gae1a255c2dd97c61884a0c90d6e7aae8f", [
       [ "tr::StencilFace::FRONT", "group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fabb2fe5c916efb43aab8cbb68f997d2ee", null ],

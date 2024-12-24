@@ -134,6 +134,9 @@ Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetr_1_1event__type.html">event_type</a></td></tr>
 <tr class="memdesc:namespacetr_1_1event__type"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace containing event type IDs. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetr_1_1ImGui.html">ImGui</a></td></tr>
+<tr class="memdesc:namespacetr_1_1ImGui"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace containing functionality for integrating Dear <a class="el" href="namespacetr_1_1ImGui.html" title="Namespace containing functionality for integrating Dear ImGui with libtr.">ImGui</a> with libtr. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetr_1_1matrix__operators.html">matrix_operators</a></td></tr>
 <tr class="memdesc:namespacetr_1_1matrix__operators"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix multiplication operators. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1167,7 +1170,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:gae27b0b361d2b3225f11e4712e59b1f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an embedded bitmap file.  <br /></td></tr>
 <tr class="separator:gae27b0b361d2b3225f11e4712e59b1f80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae4527ddf3c4b096a5874dded987a58d6" id="r_gae4527ddf3c4b096a5874dded987a58d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__bitmap.html#gae4527ddf3c4b096a5874dded987a58d6">loadBitmapFile</a> (const std::filesystem::path &amp;path)</td></tr>
-<tr class="memdesc:gae4527ddf3c4b096a5874dded987a58d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a bitmap from file (BMP/QOI).  <br /></td></tr>
+<tr class="memdesc:gae4527ddf3c4b096a5874dded987a58d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a bitmap from file (BMP/PNG/JPG/QOI).  <br /></td></tr>
 <tr class="separator:gae4527ddf3c4b096a5874dded987a58d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga06aeaa45377e5bfdce392f3dfb7e6bc3" id="r_ga06aeaa45377e5bfdce392f3dfb7e6bc3"><td class="memTemplParams" colspan="2">template&lt;BuiltinColor To, SpecializationOf&lt; <a class="el" href="structtr_1_1R.html">R</a> &gt; From&gt; </td></tr>
 <tr class="memitem:ga06aeaa45377e5bfdce392f3dfb7e6bc3"><td class="memTemplItemLeft" align="right" valign="top">constexpr To&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__color.html#ga06aeaa45377e5bfdce392f3dfb7e6bc3">color_cast</a> (const From &amp;from) noexcept</td></tr>
@@ -1424,6 +1427,9 @@ requires SpecializationOf&lt;From, <a class="el" href="structtr_1_1RGBA.html">RG
 <tr class="memitem:gab3ae26e166308ba24edd77e345da07d9"><td class="memTemplItemLeft" align="right" valign="top">glm::tmat4x4&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__geometry.html#gab3ae26e166308ba24edd77e345da07d9">rotateAroundPoint3</a> (const glm::tmat4x4&lt; T &gt; &amp;matrix, const glm::tvec3&lt; T &gt; &amp;center, const <a class="el" href="classtr_1_1Angle.html">Angle</a>&lt; T &gt; &amp;angle, const glm::tvec3&lt; T &gt; &amp;axis) noexcept</td></tr>
 <tr class="memdesc:gab3ae26e166308ba24edd77e345da07d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a 3D rotation around a point to a matrix.  <br /></td></tr>
 <tr class="separator:gab3ae26e166308ba24edd77e345da07d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga56fa64a24994b1993c280e5613f01b9d" id="r_ga56fa64a24994b1993c280e5613f01b9d"><td class="memItemLeft" align="right" valign="top">std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__imgui.html#ga56fa64a24994b1993c280e5613f01b9d">getImGUITextureID</a> (const <a class="el" href="classtr_1_1Texture.html">Texture</a> &amp;texture)</td></tr>
+<tr class="memdesc:ga56fa64a24994b1993c280e5613f01b9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the Dear <a class="el" href="namespacetr_1_1ImGui.html" title="Namespace containing functionality for integrating Dear ImGui with libtr.">ImGui</a> texture ID for a libtr texture.  <br /></td></tr>
+<tr class="separator:ga56fa64a24994b1993c280e5613f01b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4c86f4771c25e8344d52aba259c0d5a0" id="r_ga4c86f4771c25e8344d52aba259c0d5a0"><td class="memItemLeft" align="right" valign="top">std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__stream.html#ga4c86f4771c25e8344d52aba259c0d5a0">openFileW</a> (const std::filesystem::path &amp;path, std::ios::openmode openmode=std::ios::in)</td></tr>
 <tr class="memdesc:ga4c86f4771c25e8344d52aba259c0d5a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a file for writing with extra checks.  <br /></td></tr>
 <tr class="separator:ga4c86f4771c25e8344d52aba259c0d5a0"><td class="memSeparator" colspan="2">&#160;</td></tr>

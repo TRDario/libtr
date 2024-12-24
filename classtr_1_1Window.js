@@ -56,5 +56,6 @@ var classtr_1_1Window =
     [ "mouse", "classtr_1_1Window.html#a05ae3b82cd5842bf99c52189c472b0dd", null ],
     [ "mouse", "classtr_1_1Window.html#ac49f4af1aad68cdda527c4c620437cde", null ],
     [ "Backbuffer", "classtr_1_1Window.html#a6ccca6f8365f521a0329a1b018cd2aac", null ],
-    [ "GraphicsContext", "classtr_1_1Window.html#a8fffd8ec74983da6e71d9f81690cea11", null ]
+    [ "GraphicsContext", "classtr_1_1Window.html#a8fffd8ec74983da6e71d9f81690cea11", null ],
+    [ "ImGui::initialize", "classtr_1_1Window.html#a9a20e3a345f19520f5e9e58b742eefe4", null ]
 ];

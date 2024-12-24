@@ -6,6 +6,7 @@ var searchData=
   ['pixelbytes_3',['pixelBytes',['../classtr_1_1BitmapFormat.html#aa73127cdc21bb2918caa8fa7913a4c3b',1,'tr::BitmapFormat']]],
   ['poll_4',['poll',['../classtr_1_1EventQueue.html#a43f2dc1d0a3a7e3dc55bc8fb9889b626',1,'tr::EventQueue']]],
   ['position_5',['position',['../classtr_1_1Listener.html#a82dace3eb5536952b478a0b8e170316c',1,'tr::Listener::position()'],['../classtr_1_1Mouse.html#a6cc3731b955789ed3963fc9b8919b329',1,'tr::Mouse::position()'],['../classtr_1_1Window.html#a10387f6bfa191a30b6ea050c57628298',1,'tr::Window::position()']]],
-  ['project_6',['project',['../group__ranges.html#gac186319e04a9295cc09a84d5ea618369',1,'tr::project(auto R::*ptr) noexcept'],['../group__ranges.html#gac8f05cb3910768caf9e6f93ce213c444',1,'tr::project(R &amp;&amp;range, auto std::ranges::range_value_t&lt; R &gt;::*ptr) noexcept']]],
-  ['push_7',['push',['../classtr_1_1EventQueue.html#a4f139be8c3a88dab3f7b63cef1ec6ef9',1,'tr::EventQueue::push(const Event &amp;event)'],['../classtr_1_1EventQueue.html#a06363f37229b5645d8ed3e2792a931a6',1,'tr::EventQueue::push(Event &amp;&amp;event)']]]
+  ['processevent_6',['processEvent',['../namespacetr_1_1ImGui.html#a499a4656d78a2ed9abb11f305fd410f2',1,'tr::ImGui']]],
+  ['project_7',['project',['../group__ranges.html#gac186319e04a9295cc09a84d5ea618369',1,'tr::project(auto R::*ptr) noexcept'],['../group__ranges.html#gac8f05cb3910768caf9e6f93ce213c444',1,'tr::project(R &amp;&amp;range, auto std::ranges::range_value_t&lt; R &gt;::*ptr) noexcept']]],
+  ['push_8',['push',['../classtr_1_1EventQueue.html#a4f139be8c3a88dab3f7b63cef1ec6ef9',1,'tr::EventQueue::push(const Event &amp;event)'],['../classtr_1_1EventQueue.html#a06363f37229b5645d8ed3e2792a931a6',1,'tr::EventQueue::push(Event &amp;&amp;event)']]]
 ];

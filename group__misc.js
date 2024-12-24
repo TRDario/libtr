@@ -5,6 +5,7 @@ var group__misc =
     [ "Chrono", "group__chrono.html", "group__chrono" ],
     [ "Colors", "group__color.html", "group__color" ],
     [ "Concepts", "group__concepts.html", "group__concepts" ],
+    [ "Dear ImGui Integration", "group__imgui.html", "group__imgui" ],
     [ "Drawing", "group__drawing.html", "group__drawing" ],
     [ "Geometry", "group__geometry.html", "group__geometry" ],
     [ "Handle", "group__handle.html", "group__handle" ],

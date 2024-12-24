@@ -168,7 +168,7 @@ $(function(){initNavTree('hashmap_8hpp_source.html',''); initResizable(true); })
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> Cap&gt; <span class="keyword">auto</span> tr::StaticStringHash::operator()(<span class="keyword">const</span> boost::static_string&lt;Cap&gt;&amp; arg) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>{</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordflow">return</span> std::hash&lt;std::string_view&gt;{}(std::string_view(arg));</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordflow">return</span> std::hash&lt;std::string_view&gt;{}(std::string_view(arg.c_str()));</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">auto</span> tr::StaticStringHash::operator()(std::string_view str) <span class="keyword">const</span> <span class="keyword">noexcept</span></div>

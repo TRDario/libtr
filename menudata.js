@@ -165,5 +165,7 @@ var menudata={children:[
 {text:"Enumerations",url:"functions_enum.html"},
 {text:"Related Symbols",url:"functions_rela.html",children:[
 {text:"d",url:"functions_rela.html#index_d"},
+{text:"g",url:"functions_rela.html#index_g"},
+{text:"i",url:"functions_rela.html#index_i"},
 {text:"l",url:"functions_rela.html#index_l"},
 {text:"o",url:"functions_rela.html#index_o"}]}]}]}]}
