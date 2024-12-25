@@ -2,10 +2,18 @@
 #include "../include/tr/dependencies/imgui_impl_sdl2.h"
 #include "../include/tr/imgui.hpp"
 #include "../include/tr/window.hpp"
+#include <GL/glew.h>
 
-std::uint64_t tr::getImGUITextureID(const Texture& texture) noexcept
+std::uint64_t tr::ImGui::getTextureID(const Texture& texture) noexcept
 {
 	return texture._id.get();
+}
+
+void tr::ImGui::setTextureSampling(const Texture& texture, MinFilter minFilter, MagFilter magFilter) noexcept
+{
+	auto id{getTextureID(texture)};
+	glTextureParameteri(id, GL_TEXTURE_MIN_FILTER, GLenum(minFilter));
+	glTextureParameteri(id, GL_TEXTURE_MAG_FILTER, GLenum(magFilter));
 }
 
 void tr::ImGui::initialize()

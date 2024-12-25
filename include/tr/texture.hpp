@@ -3,6 +3,13 @@
 #include "handle.hpp"
 
 namespace tr {
+	class Texture;
+	namespace ImGui {
+		std::uint64_t getTextureID(const Texture& texture) noexcept;
+	}
+} // namespace tr
+
+namespace tr {
 	/** @ingroup graphics
 	 *  @defgroup texture Textures
 	 *  Texture classes and related functionality.
@@ -236,7 +243,7 @@ namespace tr {
 		friend class Framebuffer;
 		friend class TextureUnit;
 		friend class std::hash<Texture>;
-		friend std::uint64_t getImGUITextureID(const Texture& texture) noexcept;
+		friend std::uint64_t ImGui::getTextureID(const Texture& texture) noexcept;
 	};
 
 	/******************************************************************************************************************

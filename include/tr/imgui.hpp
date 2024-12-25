@@ -1,5 +1,6 @@
 #pragma once
 #include "event.hpp"
+#include "sampler.hpp"
 #include "texture.hpp"
 
 namespace tr {
@@ -8,15 +9,6 @@ namespace tr {
 	 *  Functionality for Dear ImGui integration.
 	 *  @{
 	 */
-
-	/******************************************************************************************************************
-	 * Gets the Dear ImGui texture ID for a libtr texture.
-	 *
-	 * @param[in] texture The texture to get an ID for.
-	 *
-	 * @return A corresponding Dear ImGui texture ID.
-	 ******************************************************************************************************************/
-	std::uint64_t getImGUITextureID(const Texture& texture) noexcept;
 
 	/******************************************************************************************************************
 	 * Namespace containing functionality for integrating Dear ImGui with libtr.
@@ -31,6 +23,24 @@ namespace tr {
 		 * Prepares the Dear ImGui backends needed for work with libtr for a new frame.
 		 **************************************************************************************************************/
 		void newFrame();
+
+		/**************************************************************************************************************
+		 * Gets the Dear ImGui texture ID for a libtr texture.
+		 *
+		 * @param[in] texture The texture to get an ID for.
+		 *
+		 * @return A corresponding Dear ImGui texture ID.
+		 **************************************************************************************************************/
+		std::uint64_t getTextureID(const Texture& texture) noexcept;
+
+		/**************************************************************************************************************
+		 * Sets the sampling mode used for a texture by Dear ImGui.
+		 *
+		 * @param[in] texture The texture to set the sampling mode for.
+		 * @param[in] minFilter The minifying filter to use.
+		 * @param[in] magFilter The magniifying filter to use.
+		 **************************************************************************************************************/
+		void setTextureSampling(const Texture& texture, MinFilter minFilter, MagFilter magFilter) noexcept;
 
 		/**************************************************************************************************************
 		 * Processes an event for Dear ImGui.
