@@ -8,7 +8,7 @@ var searchData=
   ['get_5',['get',['../classtr_1_1Handle.html#a60852e33eff675327cf0a47dc45d2397',1,'tr::Handle::get() const noexcept'],['../classtr_1_1Handle.html#a2283dd42c1b70d34e5dd1b5e332d0fc9',1,'tr::Handle::get(NoEmptyHandleCheck) const noexcept']]],
   ['get_5fdeleter_6',['get_deleter',['../classtr_1_1Handle.html#a97721eb9ea8980f6ec4deb62211149f1',1,'tr::Handle::get_deleter() noexcept'],['../classtr_1_1Handle.html#a57afae313361ff209068f8239d7c4af9',1,'tr::Handle::get_deleter() const noexcept']]],
   ['getexedir_7',['getExeDir',['../group__path.html#ga499a4fb44878eb1a868aeb1445464629',1,'tr']]],
-  ['getimguitextureid_8',['getImGUITextureID',['../classtr_1_1Texture.html#a2486a0678029cc69b068bfb16b992b0e',1,'tr::Texture::getImGUITextureID'],['../group__imgui.html#ga56fa64a24994b1993c280e5613f01b9d',1,'tr::getImGUITextureID(const Texture &amp;texture)']]],
+  ['gettextureid_8',['getTextureID',['../namespacetr_1_1ImGui.html#af8e9efa2ae00e4c4c73597e8ff50af90',1,'tr::ImGui']]],
   ['getuserdir_9',['getUserDir',['../group__path.html#ga9ea47d809fe5d1a36d42f8f98e5bbda8',1,'tr']]],
   ['glyph_10',['Glyph',['../structtr_1_1TTFont_1_1Glyph.html',1,'tr::TTFont']]],
   ['glyph_11',['glyph',['../classtr_1_1TTFont.html#a0a02854ee3cba554d89fd123135ba96c',1,'tr::TTFont']]],

@@ -39,6 +39,8 @@ var namespacetr =
     [ "ImGui", "namespacetr_1_1ImGui.html", [
       [ "initialize", "namespacetr_1_1ImGui.html#a4aabc0d4b7b7e352d119ceb8c463cb6b", null ],
       [ "newFrame", "namespacetr_1_1ImGui.html#aba85dc6011d3b2c7129fe948a23b766f", null ],
+      [ "getTextureID", "namespacetr_1_1ImGui.html#af8e9efa2ae00e4c4c73597e8ff50af90", null ],
+      [ "setTextureFilter", "namespacetr_1_1ImGui.html#a54c0bd34e515b0f6c1fffc5107aa7658", null ],
       [ "processEvent", "namespacetr_1_1ImGui.html#a499a4656d78a2ed9abb11f305fd410f2", null ],
       [ "draw", "namespacetr_1_1ImGui.html#a85e81d2346dc870f483f878402b7f711", null ],
       [ "shutdown", "namespacetr_1_1ImGui.html#ac1a1ece21668daecf2a7d2ab4529cb12", null ]
@@ -569,7 +571,6 @@ var namespacetr =
     [ "scaleAroundPoint3", "group__geometry.html#ga470c9e1a07c8a88a56986c2ad9909323", null ],
     [ "rotateAroundPoint2", "group__geometry.html#ga24619c6cf354c12058a51733736459ce", null ],
     [ "rotateAroundPoint3", "group__geometry.html#gab3ae26e166308ba24edd77e345da07d9", null ],
-    [ "getImGUITextureID", "group__imgui.html#ga56fa64a24994b1993c280e5613f01b9d", null ],
     [ "openFileW", "group__stream.html#ga4c86f4771c25e8344d52aba259c0d5a0", null ],
     [ "openFileR", "group__stream.html#gad0830420d60ccc61b523706fcf496ebe", null ],
     [ "readBinary", "group__stream.html#gabb3f546b6b97aac72c8518f521338f56", null ],

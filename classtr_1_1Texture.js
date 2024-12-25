@@ -15,5 +15,5 @@ var classtr_1_1Texture =
     [ "Framebuffer", "classtr_1_1Texture.html#a88df80064068d454e05a22e38842d1d2", null ],
     [ "TextureUnit", "classtr_1_1Texture.html#a6c2888a66d90c37a3ddc1facbf17725c", null ],
     [ "std::hash< Texture >", "classtr_1_1Texture.html#addc76ecb04faa6926b52ed85518a7e5f", null ],
-    [ "getImGUITextureID", "classtr_1_1Texture.html#a2486a0678029cc69b068bfb16b992b0e", null ]
+    [ "ImGui::getTextureID", "classtr_1_1Texture.html#a53e856935c75ca67528f1dbab2e27fca", null ]
 ];
