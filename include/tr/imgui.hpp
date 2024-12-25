@@ -34,13 +34,13 @@ namespace tr {
 		std::uint64_t getTextureID(const Texture& texture) noexcept;
 
 		/**************************************************************************************************************
-		 * Sets the sampling mode used for a texture by Dear ImGui.
+		 * Sets the filtering mode used for a texture by Dear ImGui.
 		 *
 		 * @param[in] texture The texture to set the sampling mode for.
 		 * @param[in] minFilter The minifying filter to use.
 		 * @param[in] magFilter The magniifying filter to use.
 		 **************************************************************************************************************/
-		void setTextureSampling(const Texture& texture, MinFilter minFilter, MagFilter magFilter) noexcept;
+		void setTextureFilter(const Texture& texture, MinFilter minFilter, MagFilter magFilter) noexcept;
 
 		/**************************************************************************************************************
 		 * Processes an event for Dear ImGui.

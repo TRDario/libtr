@@ -9,7 +9,7 @@ std::uint64_t tr::ImGui::getTextureID(const Texture& texture) noexcept
 	return texture._id.get();
 }
 
-void tr::ImGui::setTextureSampling(const Texture& texture, MinFilter minFilter, MagFilter magFilter) noexcept
+void tr::ImGui::setTextureFilter(const Texture& texture, MinFilter minFilter, MagFilter magFilter) noexcept
 {
 	auto id{getTextureID(texture)};
 	glTextureParameteri(id, GL_TEXTURE_MIN_FILTER, GLenum(minFilter));
