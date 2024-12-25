@@ -19,5 +19,6 @@ var searchData=
   ['comma_16',['COMMA',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204da4d9b3e9fc12849d060371eb65154c751',1,'tr::Scancode::COMMA'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a4d9b3e9fc12849d060371eb65154c751',1,'tr::Keycode::COMMA']]],
   ['constant_5falpha_17',['CONSTANT_ALPHA',['../group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767aadea5dd772ca5c4e887ee15c3bb588ec',1,'tr']]],
   ['constant_5fcolor_18',['CONSTANT_COLOR',['../group__graphics__context.html#ggab7083cc1749480ee24db1b5ef93d4767a30621775d687d61143980af264746e1d',1,'tr']]],
-  ['crosshair_19',['CROSSHAIR',['../group__mouse.html#ggafb288c9c0ebc6c9d4b511786aadb5d8ea8a4fecb652c88a55f40bce1d48998b01',1,'tr']]]
+  ['crosshair_19',['CROSSHAIR',['../group__mouse.html#ggafb288c9c0ebc6c9d4b511786aadb5d8ea8a4fecb652c88a55f40bce1d48998b01',1,'tr']]],
+  ['ctrl_20',['CTRL',['../group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658a32f7eee2581c72a5561c21df3013a89a',1,'tr']]]
 ];

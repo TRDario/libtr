@@ -1,5 +1,9 @@
 var NAVTREEINDEX8 =
 {
+"structtr_1_1WindowExposeEvent.html":[0,2,2,16],
+"structtr_1_1WindowGainFocusEvent.html":[0,2,2,23],
+"structtr_1_1WindowHideEvent.html":[0,2,2,15],
+"structtr_1_1WindowLeaveEvent.html":[0,2,2,13],
 "structtr_1_1WindowLoseFocusEvent.html":[0,2,2,24],
 "structtr_1_1WindowMaximizeEvent.html":[0,2,2,21],
 "structtr_1_1WindowMinimizeEvent.html":[0,2,2,20],
