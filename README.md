@@ -41,6 +41,8 @@ libtr depends on the following external libraries:
 - [SDL2](https://github.com/libsdl-org/SDL) (including [SDL2_image](https://github.com/libsdl-org/SDL_image) and [SDL2_ttf](https://github.com/libsdl-org/SDL_ttf))
 - [libsndfile](https://github.com/libsndfile/libsndfile)
 
+Also (optionally) included is support for integration with [Dear ImGui](https://github.com/ocornut/imgui) (v1.91.6).
+
 ## License
 
 libtr is licensed under the MIT license, see [here](https://github.com/TRDario/libtr/blob/main/LICENSE). Vendored external libraries used by libtr are distributed under their respective licenses.
