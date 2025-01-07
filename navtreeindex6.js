@@ -226,7 +226,7 @@ var NAVTREEINDEX6 =
 "structtr_1_1ClrVtx2.html#a86c6855471da11546454a645eb0a9032":[0,1,17,3,1],
 "structtr_1_1ClrVtx2.html#ac9ec71cebbde2ae0cd683ee8a13ad2d8":[0,1,17,3,0],
 "structtr_1_1ColorCaster.html":[0,1,3,29],
-"structtr_1_1ColorCaster_3_01HSV_01_4.html":[0,1,3,30],
+"structtr_1_1ColorCaster.html":[0,1,3,30],
 "structtr_1_1Colors.html":[0,1,17,8],
 "structtr_1_1Colors.html#a34db316a07abdaf3d3f679e81d31f769":[0,1,17,8,0],
 "structtr_1_1CursorBadAlloc.html":[0,2,6,0],

@@ -11,9 +11,8 @@ var searchData=
   ['tickevent_8',['TickEvent',['../structtr_1_1TickEvent.html#a7900bc6e58a05f9167d9b061240b94f1',1,'tr::TickEvent::TickEvent(std::uint32_t id) noexcept'],['../structtr_1_1TickEvent.html#abd8fafa039eb731222f2047cae5b2f8c',1,'tr::TickEvent::TickEvent(const Event &amp;event) noexcept']]],
   ['timer_9',['Timer',['../classtr_1_1Timer.html#a573ed1c9ce33a15e4987fb297d6eca92',1,'tr::Timer::Timer() noexcept=default'],['../classtr_1_1Timer.html#af7d072c4157598434a3ec6343f11616e',1,'tr::Timer::Timer(const std::chrono::duration&lt; Rep, Period &gt; &amp;interval, CallbackT &amp;&amp;callback)'],['../classtr_1_1Timer.html#a07322a149e45998d144bc78797242224',1,'tr::Timer::Timer(Timer &amp;&amp;r) noexcept=default']]],
   ['title_10',['title',['../classtr_1_1Window.html#a3645839730d3b741dcc0b0c7eb2ed96e',1,'tr::Window']]],
-  ['tobuiltin_11',['toBuiltin',['../structtr_1_1ColorCaster_3_01HSV_01_4.html#ad15ff2d24c8432cf5d8b63c31a22f595',1,'tr::ColorCaster&lt; HSV &gt;']]],
-  ['toglobalcoords_12',['toGlobalCoords',['../classtr_1_1DisplayInfo.html#a05ed1ed471b2566e57ce8a1808b125ee',1,'tr::DisplayInfo']]],
-  ['tolocalcoords_13',['toLocalCoords',['../classtr_1_1DisplayInfo.html#a1dc04e7ad92a84adc7e7e168b06261a0',1,'tr::DisplayInfo']]],
-  ['turns_14',['turns',['../classtr_1_1Angle.html#a83954391a60becfd227ab94b5907d580',1,'tr::Angle::turns()'],['../group__angle.html#ga3115bc0bbac5c9d6e2f081c8d3b95eb1',1,'tr::turns()']]],
-  ['type_15',['type',['../classtr_1_1Event.html#ae65941cf1b4cc2976294f391877fb3c1',1,'tr::Event::type()'],['../classtr_1_1Shader.html#aeb2d536a7edfb97815c87aedc6448f44',1,'tr::Shader::type()']]]
+  ['toglobalcoords_11',['toGlobalCoords',['../classtr_1_1DisplayInfo.html#a05ed1ed471b2566e57ce8a1808b125ee',1,'tr::DisplayInfo']]],
+  ['tolocalcoords_12',['toLocalCoords',['../classtr_1_1DisplayInfo.html#a1dc04e7ad92a84adc7e7e168b06261a0',1,'tr::DisplayInfo']]],
+  ['turns_13',['turns',['../classtr_1_1Angle.html#a83954391a60becfd227ab94b5907d580',1,'tr::Angle::turns()'],['../group__angle.html#ga3115bc0bbac5c9d6e2f081c8d3b95eb1',1,'tr::turns()']]],
+  ['type_14',['type',['../classtr_1_1Event.html#ae65941cf1b4cc2976294f391877fb3c1',1,'tr::Event::type()'],['../classtr_1_1Shader.html#aeb2d536a7edfb97815c87aedc6448f44',1,'tr::Shader::type()']]]
 ];

@@ -86,7 +86,7 @@ var namespacetr =
     [ "Circle", "structtr_1_1Circle.html", "structtr_1_1Circle" ],
     [ "ClrVtx2", "structtr_1_1ClrVtx2.html", "structtr_1_1ClrVtx2" ],
     [ "ColorCaster", "structtr_1_1ColorCaster.html", null ],
-    [ "ColorCaster< HSV >", "structtr_1_1ColorCaster_3_01HSV_01_4.html", null ],
+    [ "ColorCaster< HSV >", "structtr_1_1ColorCaster.html", null ],
     [ "Colors", "structtr_1_1Colors.html", "structtr_1_1Colors" ],
     [ "Cursor", "classtr_1_1Cursor.html", "classtr_1_1Cursor" ],
     [ "CursorBadAlloc", "structtr_1_1CursorBadAlloc.html", "structtr_1_1CursorBadAlloc" ],

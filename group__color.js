@@ -165,7 +165,7 @@ var group__color =
       [ "b", "structtr_1_1ARGB__Ui32__2__10__10__10.html#aedb5b43944e215e5ccca644d5c451a1e", null ]
     ] ],
     [ "tr::ColorCaster< T >", "structtr_1_1ColorCaster.html", null ],
-    [ "tr::ColorCaster< HSV >", "structtr_1_1ColorCaster_3_01HSV_01_4.html", null ],
+    [ "tr::ColorCaster< HSV >", "structtr_1_1ColorCaster.html", null ],
     [ "tr::RGB8", "group__color.html#ga9168e2ec57685569404fd7bb3b77dc70", null ],
     [ "tr::RGBA8", "group__color.html#ga1713cee25653ace2c701e2811e86386c", null ],
     [ "tr::RGBAF", "group__color.html#gaaede9b1d58e8ca2c89f538b907a9c688", null ],

@@ -16,12 +16,13 @@ var searchData=
   ['no_5fempty_5fhandle_5fcheck_13',['NO_EMPTY_HANDLE_CHECK',['../group__handle.html#ga1e7ac718fa682f5f24962b1ff9394da7',1,'tr']]],
   ['no_5fmipmaps_14',['NO_MIPMAPS',['../group__texture.html#ga02fff69ed521e43c379d217660940615',1,'tr']]],
   ['noemptyhandlecheck_15',['NoEmptyHandleCheck',['../structtr_1_1NoEmptyHandleCheck.html',1,'tr']]],
-  ['none_16',['NONE',['../classtr_1_1BitmapFormat.html#a079a4959fd2fefb871a55b43c888c054ab50339a10e1de285ac99d4c3990b8693',1,'tr::BitmapFormat::NONE'],['../classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2ab50339a10e1de285ac99d4c3990b8693',1,'tr::TTFont::NONE'],['../group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658ab50339a10e1de285ac99d4c3990b8693',1,'tr::NONE']]],
-  ['nonus_5fbackslash_17',['NONUS_BACKSLASH',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204da50ecae6234ac9df494bef8e44ea53169',1,'tr::Scancode']]],
-  ['norm_5fcast_18',['norm_cast',['../group__norm__cast.html#ga1ebf34a83293fd952afab49b44f7b49a',1,'tr']]],
-  ['normal_19',['NORMAL',['../classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2a1e23852820b9154316c7c06e2b7ba051',1,'tr::TTFont::NORMAL'],['../classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06a1e23852820b9154316c7c06e2b7ba051',1,'tr::TTFont::NORMAL']]],
-  ['normalized_20',['normalized',['../structtr_1_1VertexAttributeF.html#abac8ba89dff1166c43f52b3ca5a90eed',1,'tr::VertexAttributeF']]],
-  ['normalized_20cast_21',['Normalized Cast',['../group__norm__cast.html',1,'']]],
-  ['num_22',['NUM',['../group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658a44119bf3bae5d40a8d0766b91c304aac',1,'tr']]],
-  ['num_5flock_23',['NUM_LOCK',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204dacb0d0bf9279e78f982deba761110e434',1,'tr::Scancode::NUM_LOCK'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88acb0d0bf9279e78f982deba761110e434',1,'tr::Keycode::NUM_LOCK']]]
+  ['nonconstreference_16',['NonConstReference',['../concepttr_1_1NonConstReference.html',1,'tr']]],
+  ['none_17',['NONE',['../classtr_1_1BitmapFormat.html#a079a4959fd2fefb871a55b43c888c054ab50339a10e1de285ac99d4c3990b8693',1,'tr::BitmapFormat::NONE'],['../classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2ab50339a10e1de285ac99d4c3990b8693',1,'tr::TTFont::NONE'],['../group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658ab50339a10e1de285ac99d4c3990b8693',1,'tr::NONE']]],
+  ['nonus_5fbackslash_18',['NONUS_BACKSLASH',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204da50ecae6234ac9df494bef8e44ea53169',1,'tr::Scancode']]],
+  ['norm_5fcast_19',['norm_cast',['../group__norm__cast.html#ga1ebf34a83293fd952afab49b44f7b49a',1,'tr']]],
+  ['normal_20',['NORMAL',['../classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2a1e23852820b9154316c7c06e2b7ba051',1,'tr::TTFont::NORMAL'],['../classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06a1e23852820b9154316c7c06e2b7ba051',1,'tr::TTFont::NORMAL']]],
+  ['normalized_21',['normalized',['../structtr_1_1VertexAttributeF.html#abac8ba89dff1166c43f52b3ca5a90eed',1,'tr::VertexAttributeF']]],
+  ['normalized_20cast_22',['Normalized Cast',['../group__norm__cast.html',1,'']]],
+  ['num_23',['NUM',['../group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658a44119bf3bae5d40a8d0766b91c304aac',1,'tr']]],
+  ['num_5flock_24',['NUM_LOCK',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204dacb0d0bf9279e78f982deba761110e434',1,'tr::Scancode::NUM_LOCK'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88acb0d0bf9279e78f982deba761110e434',1,'tr::Keycode::NUM_LOCK']]]
 ];

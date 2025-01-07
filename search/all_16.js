@@ -29,5 +29,6 @@ var searchData=
   ['utf8range_26',['utf8Range',['../group__utf8.html#ga61b8ad8446bda9044a04748eb6f94f3a',1,'tr']]],
   ['uv_27',['uv',['../structtr_1_1TexVtx2.html#ad764171b61078aecabe522d8c7967ccb',1,'tr::TexVtx2::uv'],['../structtr_1_1TintVtx2.html#a892778a9f1fa23f2154c1bfb8bcf767d',1,'tr::TintVtx2::uv']]],
   ['uvs_28',['UVs',['../structtr_1_1UVs.html',1,'tr']]],
-  ['uvs_29',['uvs',['../group__vertex.html#ga5b6d376f9261a7e0ce800c9292ae43ec',1,'tr']]]
+  ['uvs_29',['uvs',['../group__vertex.html#ga5b6d376f9261a7e0ce800c9292ae43ec',1,'tr']]],
+  ['uvsrange_30',['UVsRange',['../concepttr_1_1UVsRange.html',1,'tr']]]
 ];

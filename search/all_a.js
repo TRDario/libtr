@@ -13,7 +13,7 @@ var searchData=
   ['id_10',['id',['../structtr_1_1TickEvent.html#aac315d984df5b7ea2fa22adf4501a28d',1,'tr::TickEvent']]],
   ['imgui_20integration_11',['Dear ImGui Integration',['../group__imgui.html',1,'']]],
   ['imgui_3a_3agettextureid_12',['getTextureID',['../classtr_1_1Texture.html#a53e856935c75ca67528f1dbab2e27fca',1,'tr::Texture']]],
-  ['imgui_3a_3ainitialize_13',['ImGui::initialize',['../classtr_1_1GraphicsContext.html#a9a20e3a345f19520f5e9e58b742eefe4',1,'tr::GraphicsContext::initialize'],['../classtr_1_1Window.html#a9a20e3a345f19520f5e9e58b742eefe4',1,'tr::Window::initialize']]],
+  ['imgui_3a_3ainitialize_13',['ImGui::initialize',['../classtr_1_1GraphicsContext.html#a9a20e3a345f19520f5e9e58b742eefe4',1,'tr::GraphicsContext::initialize()'],['../classtr_1_1Window.html#a9a20e3a345f19520f5e9e58b742eefe4',1,'tr::Window::initialize()']]],
   ['inc_14',['INC',['../group__graphics__context.html#gga8c440fc4a94422129e86a69114e35b50a38924f2227ebf15f4bdc6dca5c5eca91',1,'tr']]],
   ['index_20buffer_15',['Index Buffer',['../group__index__buffer.html',1,'']]],
   ['index_5f1lsb_16',['INDEX_1LSB',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464a02b49fdb506f71ab9c0be21c14edecc4',1,'tr::BitmapFormat']]],
