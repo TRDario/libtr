@@ -27,7 +27,7 @@ const char* tr::TTFontLoadError::what() const noexcept
 	return str.c_str();
 }
 
-tr::TTFont::TTFont(_TTF_Font* impl, int size, glm::uvec2 dpi) noexcept
+tr::TTFont::TTFont(TTF_Font* impl, int size, glm::uvec2 dpi) noexcept
 	: _impl{impl}, _size{size}, _dpi{dpi}
 {
 }

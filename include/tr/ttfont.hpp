@@ -3,7 +3,7 @@
 #include "dependencies/EnumBitmask.hpp"
 #include "sdl.hpp"
 
-struct _TTF_Font;
+struct TTF_Font;
 
 namespace tr {
 	/** @ingroup system
@@ -389,14 +389,14 @@ namespace tr {
 
 	  private:
 		struct Deleter {
-			void operator()(_TTF_Font* ptr) const noexcept;
+			void operator()(TTF_Font* ptr) const noexcept;
 		};
 
-		std::unique_ptr<_TTF_Font, Deleter> _impl;
-		int                                 _size;
-		glm::uvec2                          _dpi;
+		std::unique_ptr<TTF_Font, Deleter> _impl;
+		int                                _size;
+		glm::uvec2                         _dpi;
 
-		TTFont(_TTF_Font* impl, int size, glm::uvec2 dpi) noexcept;
+		TTFont(TTF_Font* impl, int size, glm::uvec2 dpi) noexcept;
 
 		friend TTFont loadEmbeddedTTFont(std::span<const std::byte> data, int size, glm::uvec2 dpi);
 		friend TTFont loadTTFontFile(const std::filesystem::path& path, int size, glm::uvec2 dpi);
