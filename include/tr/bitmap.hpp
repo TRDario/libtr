@@ -419,7 +419,7 @@ namespace tr {
 		 * @param[in] size The size of the bitmap.
 		 * @param[in] format The format of the bitmap.
 		 **************************************************************************************************************/
-		Bitmap(glm::ivec2 size, BitmapFormat format);
+		Bitmap(glm::ivec2 size, BitmapFormat format = BitmapFormat::RGBA_8888);
 
 		/**************************************************************************************************************
 		 * Clones a bitmap.
@@ -433,7 +433,7 @@ namespace tr {
 		 * @param[in] bitmap The bitmap to clone.
 		 * @param[in] format The format of the new bitmap.
 		 **************************************************************************************************************/
-		Bitmap(const Bitmap& bitmap, BitmapFormat format);
+		explicit Bitmap(const Bitmap& bitmap, BitmapFormat format = BitmapFormat::RGBA_8888);
 
 		/**************************************************************************************************************
 		 * Clones a bitmap view.
@@ -447,7 +447,7 @@ namespace tr {
 		 * @param[in] view The bitmap view to clone.
 		 * @param[in] format The format of the new bitmap.
 		 **************************************************************************************************************/
-		Bitmap(const BitmapView& view, BitmapFormat format);
+		explicit Bitmap(const BitmapView& view, BitmapFormat format = BitmapFormat::RGBA_8888);
 
 		/**************************************************************************************************************
 		 * Clones a sub-bitmap.
@@ -461,7 +461,11 @@ namespace tr {
 		 * @param[in] source The sub-bitmap to clone.
 		 * @param[in] format The format of the new bitmap.
 		 **************************************************************************************************************/
-		Bitmap(const SubBitmap& source, BitmapFormat format);
+		explicit Bitmap(const SubBitmap& source, BitmapFormat format = BitmapFormat::RGBA_8888);
+
+		Bitmap(Bitmap&& bitmap) noexcept = default;
+
+		Bitmap& operator=(Bitmap&& r) noexcept = default;
 
 		/**************************************************************************************************************
 		 * Gets the size of the bitmap.
