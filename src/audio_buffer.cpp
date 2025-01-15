@@ -25,13 +25,37 @@ sf_count_t tr::embeddedAudioSize(void* user_data) noexcept
 	return ((EmbeddedAudioFile*)(user_data))->file.size();
 }
 
-sf_count_t tr::embeddedAudioSeek(sf_count_t offset, int whence, void* user_data) noexcept;
+sf_count_t tr::embeddedAudioSeek(sf_count_t offset, int whence, void* user_data) noexcept
+{
+	EmbeddedAudioFile& file{*(EmbeddedAudioFile*)(user_data)};
+	switch (whence) {
+	case SEEK_SET:
+		file.pos = file.file.begin() + offset;
+		break;
+	case SEEK_CUR:
+		file.pos += offset;
+		break;
+	case SEEK_END:
+		file.pos = file.file.end() + offset;
+		break;
+	}
+	return std::distance(file.file.begin(), file.pos);
+}
 
-sf_count_t tr::embeddedAudioRead(void* ptr, sf_count_t count, void* user_data) noexcept;
+sf_count_t tr::embeddedAudioRead(void* ptr, sf_count_t count, void* user_data) noexcept
+{
+	EmbeddedAudioFile& file{*(EmbeddedAudioFile*)(user_data)};
+	count = std::max(std::min(count, std::distance(file.pos, file.file.end())), std::ptrdiff_t{0});
+	if (count > 0) {
+		std::memcpy(ptr, &*file.pos, count);
+		file.pos += count;
+	}
+	return count;
+}
 
 sf_count_t tr::embeddedAudioTell(void* user_data) noexcept
 {
-	auto& file{*(EmbeddedAudioFile*)(user_data)};
+	EmbeddedAudioFile& file{*(EmbeddedAudioFile*)(user_data)};
 	return std::distance(file.file.begin(), file.pos);
 }
 
