@@ -1,7 +1,7 @@
 var searchData=
 [
   ['e_0',['E',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204da3a3ea00cfc35332cedf6e5e9a32e94da',1,'tr::Scancode::E'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a3a3ea00cfc35332cedf6e5e9a32e94da',1,'tr::Keycode::E']]],
-  ['edge_5fclamp_1',['EDGE_CLAMP',['../group__sampler.html#gga68fa0648b9a72034f88944a16cadaea8ab80c0868d7eabc21de4f2810bf3a7ec4',1,'tr']]],
+  ['edge_5fclamp_1',['EDGE_CLAMP',['../group__texture.html#gga68fa0648b9a72034f88944a16cadaea8ab80c0868d7eabc21de4f2810bf3a7ec4',1,'tr']]],
   ['elapsedtime_2',['elapsedTime',['../classtr_1_1Stopwatch.html#a584b3227898f8da739ef0485efb49653',1,'tr::Stopwatch']]],
   ['elements_3',['elements',['../structtr_1_1VertexAttributeF.html#ae55c5e70c9c83cf2fa136a61c505bd00',1,'tr::VertexAttributeF::elements'],['../structtr_1_1VertexAttributeD.html#a06b5ac7a604900c95600d0ab214f8428',1,'tr::VertexAttributeD::elements'],['../structtr_1_1VertexAttributeI.html#a8610f928ad3245436853fe984198383a',1,'tr::VertexAttributeI::elements']]],
   ['empty_4',['empty',['../classtr_1_1IndexBuffer.html#a1b883ae20b295406aa2b5e6e5fab3fab',1,'tr::IndexBuffer::empty()'],['../classtr_1_1VertexBuffer.html#accd0c27c682f84562cd12bbccb5f23bc',1,'tr::VertexBuffer::empty()']]],
@@ -12,7 +12,7 @@ var searchData=
   ['enum_9',['Enum',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204d',1,'tr::Scancode::Enum'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88',1,'tr::Keycode::Enum']]],
   ['enumerator_10',['Enumerator',['../concepttr_1_1Enumerator.html',1,'tr']]],
   ['enumhashmap_11',['EnumHashMap',['../group__hash__map.html#ga797dd87a0405a155ce82350b5e3be205',1,'tr']]],
-  ['equal_12',['EQUAL',['../group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a969f331a87d8c958473c32b4d0e61a44',1,'tr']]],
+  ['equal_12',['EQUAL',['../group__texture.html#gga88338da155e2e92486d80fb0650a07d5a969f331a87d8c958473c32b4d0e61a44',1,'tr']]],
   ['equals_13',['EQUALS',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204da6837aeca94b8f55801166eb031e26a5a',1,'tr::Scancode::EQUALS'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a6837aeca94b8f55801166eb031e26a5a',1,'tr::Keycode::EQUALS']]],
   ['escape_14',['ESCAPE',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204dadaaedac409335b869929ea43fa44be5d',1,'tr::Scancode::ESCAPE'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88adaaedac409335b869929ea43fa44be5d',1,'tr::Keycode::ESCAPE']]],
   ['event_15',['Event',['../classtr_1_1Event.html',1,'tr::Event'],['../classtr_1_1Event.html#aab0e9de90b4789a11d463e24fa58c5d9',1,'tr::Event::Event(const Event &amp;r)'],['../classtr_1_1Event.html#a3c0268ea0e8a051a7f4ee4154960aece',1,'tr::Event::Event(Event &amp;&amp;r) noexcept']]],

@@ -46,7 +46,8 @@ var searchData=
   ['fragmentshader_43',['fragmentShader',['../classtr_1_1OwningShaderPipeline.html#a374853ed741e37a95a104c26bffe39bf',1,'tr::OwningShaderPipeline::fragmentShader() noexcept'],['../classtr_1_1OwningShaderPipeline.html#a5231a2cde9ae0b69683e0f2a07dbd28b',1,'tr::OwningShaderPipeline::fragmentShader() const noexcept']]],
   ['framebuffer_44',['Framebuffer',['../classtr_1_1Framebuffer.html',1,'tr::Framebuffer'],['../classtr_1_1Framebuffer.html#a6bc919f939e4d0a899cf379acd16ebac',1,'tr::Framebuffer::Framebuffer() noexcept'],['../classtr_1_1Framebuffer.html#a8e2a07fae9ed3f1f8c5d7fbd3f4bb45f',1,'tr::Framebuffer::Framebuffer(Framebuffer &amp;&amp;move) noexcept']]],
   ['framebuffers_45',['Framebuffers',['../group__framebuffer.html',1,'']]],
-  ['front_46',['FRONT',['../group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fabb2fe5c916efb43aab8cbb68f997d2ee',1,'tr']]],
-  ['fullscreen_47',['FULLSCREEN',['../group__window.html#gga0caa27a38e3d8b688a5abab875ed28f7ab89c3d897b196ffff1537331bc659a97',1,'tr']]],
-  ['fullscreenmode_48',['fullscreenMode',['../classtr_1_1Window.html#a16c255f64116b5f7da41d2a35b9dfa3a',1,'tr::Window']]]
+  ['frombuiltin_46',['fromBuiltin',['../structtr_1_1ColorCaster_3_01HSV_01_4.html#a38f84621ecf947aa45d0e6e19e955f86',1,'tr::ColorCaster&lt; HSV &gt;']]],
+  ['front_47',['FRONT',['../group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fabb2fe5c916efb43aab8cbb68f997d2ee',1,'tr']]],
+  ['fullscreen_48',['FULLSCREEN',['../group__window.html#gga0caa27a38e3d8b688a5abab875ed28f7ab89c3d897b196ffff1537331bc659a97',1,'tr']]],
+  ['fullscreenmode_49',['fullscreenMode',['../classtr_1_1Window.html#a16c255f64116b5f7da41d2a35b9dfa3a',1,'tr::Window']]]
 ];

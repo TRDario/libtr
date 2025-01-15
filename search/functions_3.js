@@ -4,7 +4,7 @@ var searchData=
   ['degs_1',['degs',['../classtr_1_1Angle.html#adf433cf09fc49c2970d291255c3f4cc7',1,'tr::Angle::degs()'],['../group__angle.html#gae7e866accf854115cc8399c2bca9cda2',1,'tr::degs()']]],
   ['delta_2',['delta',['../classtr_1_1Mouse.html#a2e581ff4a8c7b77b8e478e863ed7b9cc',1,'tr::Mouse']]],
   ['descent_3',['descent',['../classtr_1_1TTFont.html#a623c591b19256f3e1da47b28382539bf',1,'tr::TTFont']]],
-  ['disablecomparison_4',['disableComparison',['../classtr_1_1Sampler.html#af3d828ddcb780539acb1e91abd88dbb7',1,'tr::Sampler']]],
+  ['disablecomparison_4',['disableComparison',['../classtr_1_1Texture.html#aa338fc3c718fe6774f47a0480c1c969c',1,'tr::Texture']]],
   ['display_5',['display',['../group__display.html#gad51a17a225484bc25b2fadc3e778330e',1,'tr::display(int display=0)'],['../group__display.html#ga20c45eb884ef47bf3ba3824698ff2af1',1,'tr::display(glm::ivec2 globalCoords) noexcept']]],
   ['displaycount_6',['displayCount',['../group__display.html#ga9a6f207d79a36e6b83c9c709b13af14b',1,'tr']]],
   ['displaymode_7',['displayMode',['../classtr_1_1DisplayInfo.html#aeefb31fc56c2ad8790dfcb680d74fbc5',1,'tr::DisplayInfo']]],

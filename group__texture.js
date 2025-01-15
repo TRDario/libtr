@@ -5,15 +5,15 @@ var group__texture =
     ] ],
     [ "tr::Texture", "classtr_1_1Texture.html", [
       [ "format", "classtr_1_1Texture.html#a9e77cc52c0cf1cc4d6aa3e7639ee39a5", null ],
-      [ "swizzleR", "classtr_1_1Texture.html#ad806c966f801b963d96e9cc7f47c3110", null ],
-      [ "swizzleG", "classtr_1_1Texture.html#a479b6dfac3b905bcca92001598dd0630", null ],
-      [ "swizzleB", "classtr_1_1Texture.html#a394bf052a49923cb21c70b02f03361d2", null ],
-      [ "swizzleA", "classtr_1_1Texture.html#a92d9aee3f77b70f0ff72c86e0a8f5e85", null ],
-      [ "setSwizzleR", "classtr_1_1Texture.html#a1c5cd64d284938933fc621bf8d59196f", null ],
-      [ "setSwizzleG", "classtr_1_1Texture.html#a926cd9f2e86c1d9b76bdc1f4d3749218", null ],
-      [ "setSwizzleB", "classtr_1_1Texture.html#abb4852f1a66c0a7a6ec5ea6a5bc9d368", null ],
-      [ "setSwizzleA", "classtr_1_1Texture.html#a466ce86495ac3cf56d9a2479774f5b1e", null ],
       [ "setSwizzle", "classtr_1_1Texture.html#aadca619fe504034fdc1ee3e8b0d1e591", null ],
+      [ "setMinFilter", "classtr_1_1Texture.html#a9afa852b1ec0f76b99fc33a0748d28ed", null ],
+      [ "setMagFilter", "classtr_1_1Texture.html#a02323cd69a9a5afe5ccf9f22f4629fc6", null ],
+      [ "setMinLOD", "classtr_1_1Texture.html#a962eaeb632eac660d3b66ad23def08e1", null ],
+      [ "setMaxLOD", "classtr_1_1Texture.html#a221d92756d66183f43d0198231c119ab", null ],
+      [ "disableComparison", "classtr_1_1Texture.html#aa338fc3c718fe6774f47a0480c1c969c", null ],
+      [ "setComparisonMode", "classtr_1_1Texture.html#a96b1f33aad43e55e29878f6db9d4aea5", null ],
+      [ "setWrap", "classtr_1_1Texture.html#a6563319cc0d89575466eff2ca1aa20d0", null ],
+      [ "setBorderColor", "classtr_1_1Texture.html#a03410ec20b59c2d8bd745605b53994e1", null ],
       [ "setLabel", "classtr_1_1Texture.html#a29d8b23cb7c0011b3ae5654ff7a9c254", null ],
       [ "BasicFramebuffer", "classtr_1_1Texture.html#a3f1d9cbc68a163b304ac92076325e131", null ],
       [ "Framebuffer", "classtr_1_1Texture.html#a88df80064068d454e05a22e38842d1d2", null ],
@@ -22,34 +22,34 @@ var group__texture =
       [ "ImGui::getTextureID", "classtr_1_1Texture.html#a53e856935c75ca67528f1dbab2e27fca", null ]
     ] ],
     [ "tr::Texture1D", "structtr_1_1Texture1D.html", [
-      [ "Texture1D", "structtr_1_1Texture1D.html#aa4a1f687fb964d07952ae3bda0fdf609", null ],
-      [ "Texture1D", "structtr_1_1Texture1D.html#aca81529f018762ec1c7f9dd9a23ec5cd", null ],
+      [ "Texture1D", "structtr_1_1Texture1D.html#a2733610c1e2ee7d591b5ad5b907f9339", null ],
+      [ "Texture1D", "structtr_1_1Texture1D.html#a5b566be5e579a86799a67ad8f44197b5", null ],
       [ "size", "structtr_1_1Texture1D.html#a5920d1bbf40c1146bba0048940387d6c", null ],
       [ "setRegion", "structtr_1_1Texture1D.html#a1f15160377145524f8a7093581a5e581", null ]
     ] ],
     [ "tr::ArrayTexture1D", "structtr_1_1ArrayTexture1D.html", [
-      [ "ArrayTexture1D", "structtr_1_1ArrayTexture1D.html#a77b4d5464e542e5b469af4f51362e709", null ],
-      [ "ArrayTexture1D", "structtr_1_1ArrayTexture1D.html#a247bf3d6070a9fe7a6fd9f948c154a76", null ],
+      [ "ArrayTexture1D", "structtr_1_1ArrayTexture1D.html#a4fb9f9d8b05f0c0e14211bf17c4ed869", null ],
+      [ "ArrayTexture1D", "structtr_1_1ArrayTexture1D.html#a2e0532d1d38ee500fe114cb69b76f7e9", null ],
       [ "size", "structtr_1_1ArrayTexture1D.html#ac15ec3334a789f0f80a82f946eab0067", null ],
       [ "layers", "structtr_1_1ArrayTexture1D.html#a2773fb8788020a4ccb1d4c64a1ab15bd", null ],
       [ "setRegion", "structtr_1_1ArrayTexture1D.html#aa682440e5b859bb2580b80eb59122ad4", null ]
     ] ],
     [ "tr::Texture2D", "structtr_1_1Texture2D.html", [
-      [ "Texture2D", "structtr_1_1Texture2D.html#afcf501cc7db6e454c4bec165090cf3e1", null ],
-      [ "Texture2D", "structtr_1_1Texture2D.html#a8604f722f359af71bcbfca0d00c311ee", null ],
+      [ "Texture2D", "structtr_1_1Texture2D.html#a3774273528b87ed72c3b34b579379eca", null ],
+      [ "Texture2D", "structtr_1_1Texture2D.html#a678ca3bf655c4905ce784a67506c99e9", null ],
       [ "size", "structtr_1_1Texture2D.html#a1a18772b7d8e526a4c1d4a1d06305490", null ],
       [ "setRegion", "structtr_1_1Texture2D.html#a837fd46a444c90762e1e9e1d0e986a0a", null ]
     ] ],
     [ "tr::ArrayTexture2D", "structtr_1_1ArrayTexture2D.html", [
-      [ "ArrayTexture2D", "structtr_1_1ArrayTexture2D.html#ac41a8b220b5e8301f16ea7a08d851a65", null ],
-      [ "ArrayTexture2D", "structtr_1_1ArrayTexture2D.html#a2e550d39cc4b3596551a7fcb7b308daa", null ],
+      [ "ArrayTexture2D", "structtr_1_1ArrayTexture2D.html#af6f4e41b64972966b5668d437fe394d1", null ],
+      [ "ArrayTexture2D", "structtr_1_1ArrayTexture2D.html#a849f4a53082dfa849bf250326ba5e5f7", null ],
       [ "size", "structtr_1_1ArrayTexture2D.html#a009376463eafb9da3e9ad358f5a54d04", null ],
       [ "layers", "structtr_1_1ArrayTexture2D.html#a1a878ab66709a956d0dc90dc62dfa63f", null ],
       [ "setLayerRegion", "structtr_1_1ArrayTexture2D.html#a0c6720bb52bb78be84595c9d6dd3d985", null ]
     ] ],
     [ "tr::Texture3D", "structtr_1_1Texture3D.html", [
-      [ "Texture3D", "structtr_1_1Texture3D.html#af976afbd5b2dc6ea84d90c6a4736d857", null ],
-      [ "Texture3D", "structtr_1_1Texture3D.html#a26b8f40b83bb539f05fe8b53e498fa45", null ],
+      [ "Texture3D", "structtr_1_1Texture3D.html#aff22ef9ae47fcf0bf876a132f3e82d04", null ],
+      [ "Texture3D", "structtr_1_1Texture3D.html#a62cb36eb1e8a5b3006986745399e172a", null ],
       [ "size", "structtr_1_1Texture3D.html#abc8dfc3db4e499884f576df14dc029df", null ],
       [ "setLayerRegion", "structtr_1_1Texture3D.html#a6b3b7250c9db85189122d43152e0cbcc", null ]
     ] ],
@@ -115,6 +115,34 @@ var group__texture =
       [ "tr::TextureFormat::DEPTH_FP32", "group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a5def214b76446802949c0509d71ce463", null ],
       [ "tr::TextureFormat::STENCIL8", "group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9acd7d9d5edb5cd72424f19be55ccbcbf4", null ]
     ] ],
+    [ "tr::Wrap", "group__texture.html#ga68fa0648b9a72034f88944a16cadaea8", [
+      [ "tr::Wrap::REPEAT", "group__texture.html#gga68fa0648b9a72034f88944a16cadaea8a5be68175be14dfaa080165456c2e9555", null ],
+      [ "tr::Wrap::MIRROR_REPEAT", "group__texture.html#gga68fa0648b9a72034f88944a16cadaea8a31dbbe4319ea02c28dad7cde7b782710", null ],
+      [ "tr::Wrap::EDGE_CLAMP", "group__texture.html#gga68fa0648b9a72034f88944a16cadaea8ab80c0868d7eabc21de4f2810bf3a7ec4", null ],
+      [ "tr::Wrap::BORDER_CLAMP", "group__texture.html#gga68fa0648b9a72034f88944a16cadaea8a02a0692f237a0bd7f39d7b7d87762510", null ]
+    ] ],
+    [ "tr::MinFilter", "group__texture.html#gad1e4cc9bea7f1b176409b1e42ea21d68", [
+      [ "tr::MinFilter::NEAREST", "group__texture.html#ggad1e4cc9bea7f1b176409b1e42ea21d68aad135772d7cf93dd0ccf9d2474b34e6a", null ],
+      [ "tr::MinFilter::LINEAR", "group__texture.html#ggad1e4cc9bea7f1b176409b1e42ea21d68aaac544aacc3615aada24897a215f5046", null ],
+      [ "tr::MinFilter::NMIP_NEAREST", "group__texture.html#ggad1e4cc9bea7f1b176409b1e42ea21d68a31bdfa42123ea543959a75e6fbfc0f49", null ],
+      [ "tr::MinFilter::NMIP_LINEAR", "group__texture.html#ggad1e4cc9bea7f1b176409b1e42ea21d68a0ff446207d03fcfae5a9699956be682c", null ],
+      [ "tr::MinFilter::LMIPS_NEAREST", "group__texture.html#ggad1e4cc9bea7f1b176409b1e42ea21d68a80d7762017884e84483f1d34a81b8960", null ],
+      [ "tr::MinFilter::LMIPS_LINEAR", "group__texture.html#ggad1e4cc9bea7f1b176409b1e42ea21d68acc8ed884527502bc599419e2d5c22cb6", null ]
+    ] ],
+    [ "tr::MagFilter", "group__texture.html#gac346a03e941c8ea2519c19086c4ce299", [
+      [ "tr::MagFilter::NEAREST", "group__texture.html#ggac346a03e941c8ea2519c19086c4ce299aad135772d7cf93dd0ccf9d2474b34e6a", null ],
+      [ "tr::MagFilter::LINEAR", "group__texture.html#ggac346a03e941c8ea2519c19086c4ce299aaac544aacc3615aada24897a215f5046", null ]
+    ] ],
+    [ "tr::Compare", "group__texture.html#ga88338da155e2e92486d80fb0650a07d5", [
+      [ "tr::Compare::NEVER", "group__texture.html#gga88338da155e2e92486d80fb0650a07d5a443475558f0168dff92ecde26b98ae5a", null ],
+      [ "tr::Compare::LESS", "group__texture.html#gga88338da155e2e92486d80fb0650a07d5a1798e8c3621ca53d9e3a80d257306000", null ],
+      [ "tr::Compare::EQUAL", "group__texture.html#gga88338da155e2e92486d80fb0650a07d5a969f331a87d8c958473c32b4d0e61a44", null ],
+      [ "tr::Compare::LEQUAL", "group__texture.html#gga88338da155e2e92486d80fb0650a07d5a8a72211a539c4f44dcaa446209076da6", null ],
+      [ "tr::Compare::GREATER", "group__texture.html#gga88338da155e2e92486d80fb0650a07d5ae7e72355289e404b762d4cf88824d23b", null ],
+      [ "tr::Compare::NEQUAL", "group__texture.html#gga88338da155e2e92486d80fb0650a07d5a08c21e015248267a01d727848c97b40a", null ],
+      [ "tr::Compare::GEQUAL", "group__texture.html#gga88338da155e2e92486d80fb0650a07d5a9e63a520a6e8fefd37a5fa966d96f3bc", null ],
+      [ "tr::Compare::ALWAYS", "group__texture.html#gga88338da155e2e92486d80fb0650a07d5af3fc827ade4b968e50406496907ef962", null ]
+    ] ],
     [ "tr::Swizzle", "group__texture.html#ga228d86137368dd348340097c8a515439", [
       [ "tr::Swizzle::ZERO", "group__texture.html#gga228d86137368dd348340097c8a515439a529e9e0beb5f85d1f132917c1a09860c", null ],
       [ "tr::Swizzle::ONE", "group__texture.html#gga228d86137368dd348340097c8a515439abc21e6484530fc9d0313cb816b733396", null ],
@@ -122,7 +150,5 @@ var group__texture =
       [ "tr::Swizzle::G", "group__texture.html#gga228d86137368dd348340097c8a515439adfcf28d0734569a6a693bc8194de62bf", null ],
       [ "tr::Swizzle::B", "group__texture.html#gga228d86137368dd348340097c8a515439a9d5ed678fe57bcca610140957afab571", null ],
       [ "tr::Swizzle::A", "group__texture.html#gga228d86137368dd348340097c8a515439a7fc56270e7a70fa81a5935b72eacbe29", null ]
-    ] ],
-    [ "tr::NO_MIPMAPS", "group__texture.html#ga02fff69ed521e43c379d217660940615", null ],
-    [ "tr::ALL_MIPMAPS", "group__texture.html#ga5f6d61b2b5572a6723926bd8251ed289", null ]
+    ] ]
 ];

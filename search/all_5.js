@@ -19,7 +19,7 @@ var searchData=
   ['descent_16',['descent',['../classtr_1_1TTFont.html#a623c591b19256f3e1da47b28382539bf',1,'tr::TTFont']]],
   ['desktop_5fmode_17',['DESKTOP_MODE',['../group__display.html#ga5f87abb661ca3280aa64f73b1395589b',1,'tr']]],
   ['difference_5ftype_18',['difference_type',['../classtr_1_1SubBitmap_1_1Iterator.html#aa9ebe975921619f18767a0118aeee632',1,'tr::SubBitmap::Iterator::difference_type'],['../classtr_1_1Bitmap_1_1MutIt.html#aecd97899bef97672aaf83fd05a0b3f21',1,'tr::Bitmap::MutIt::difference_type'],['../classtr_1_1Utf8ConstIt.html#a402b78198c3ae7f8911b12a9a95f7280',1,'tr::Utf8ConstIt::difference_type']]],
-  ['disablecomparison_19',['disableComparison',['../classtr_1_1Sampler.html#af3d828ddcb780539acb1e91abd88dbb7',1,'tr::Sampler']]],
+  ['disablecomparison_19',['disableComparison',['../classtr_1_1Texture.html#aa338fc3c718fe6774f47a0480c1c969c',1,'tr::Texture']]],
   ['disabled_20',['DISABLED',['../group__window.html#ggac6c470285a932bb2ce74499f1ff07ac5a055c1a591abb0e8cd86dc969727bcc0b',1,'tr']]],
   ['display_21',['Display',['../group__display.html',1,'']]],
   ['display_22',['display',['../classtr_1_1DisplayInfo.html#a9887ff0813ea7da62757f2687297f5c7',1,'tr::DisplayInfo::display()'],['../group__display.html#gad51a17a225484bc25b2fadc3e778330e',1,'tr::display(int display=0)'],['../group__display.html#ga20c45eb884ef47bf3ba3824698ff2af1',1,'tr::display(glm::ivec2 globalCoords) noexcept']]],

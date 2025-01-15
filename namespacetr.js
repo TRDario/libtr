@@ -40,7 +40,6 @@ var namespacetr =
       [ "initialize", "namespacetr_1_1ImGui.html#a4aabc0d4b7b7e352d119ceb8c463cb6b", null ],
       [ "newFrame", "namespacetr_1_1ImGui.html#aba85dc6011d3b2c7129fe948a23b766f", null ],
       [ "getTextureID", "namespacetr_1_1ImGui.html#af8e9efa2ae00e4c4c73597e8ff50af90", null ],
-      [ "setTextureFilter", "namespacetr_1_1ImGui.html#a54c0bd34e515b0f6c1fffc5107aa7658", null ],
       [ "processEvent", "namespacetr_1_1ImGui.html#a499a4656d78a2ed9abb11f305fd410f2", null ],
       [ "draw", "namespacetr_1_1ImGui.html#a85e81d2346dc870f483f878402b7f711", null ],
       [ "shutdown", "namespacetr_1_1ImGui.html#ac1a1ece21668daecf2a7d2ab4529cb12", null ]
@@ -86,7 +85,7 @@ var namespacetr =
     [ "Circle", "structtr_1_1Circle.html", "structtr_1_1Circle" ],
     [ "ClrVtx2", "structtr_1_1ClrVtx2.html", "structtr_1_1ClrVtx2" ],
     [ "ColorCaster", "structtr_1_1ColorCaster.html", null ],
-    [ "ColorCaster< HSV >", "structtr_1_1ColorCaster.html", null ],
+    [ "ColorCaster< HSV >", "structtr_1_1ColorCaster_3_01HSV_01_4.html", null ],
     [ "Colors", "structtr_1_1Colors.html", "structtr_1_1Colors" ],
     [ "Cursor", "classtr_1_1Cursor.html", "classtr_1_1Cursor" ],
     [ "CursorBadAlloc", "structtr_1_1CursorBadAlloc.html", "structtr_1_1CursorBadAlloc" ],
@@ -140,7 +139,6 @@ var namespacetr =
     [ "RGBA_Ui16_4_4_4_4", "structtr_1_1RGBA__Ui16__4__4__4__4.html", "structtr_1_1RGBA__Ui16__4__4__4__4" ],
     [ "RGBA_Ui16_5_5_5_1", "structtr_1_1RGBA__Ui16__5__5__5__1.html", "structtr_1_1RGBA__Ui16__5__5__5__1" ],
     [ "RGBA_Ui32_10_10_10_2", "structtr_1_1RGBA__Ui32__10__10__10__2.html", "structtr_1_1RGBA__Ui32__10__10__10__2" ],
-    [ "Sampler", "classtr_1_1Sampler.html", "classtr_1_1Sampler" ],
     [ "Scancode", "classtr_1_1Scancode.html", "classtr_1_1Scancode" ],
     [ "SDLError", "structtr_1_1SDLError.html", "structtr_1_1SDLError" ],
     [ "Shader", "classtr_1_1Shader.html", "classtr_1_1Shader" ],
@@ -349,34 +347,6 @@ var namespacetr =
       [ "X2", "group__mouse.html#gga8c4a44871ba907dcd4225b2617b40f77a54105bddbfe3f639d49cbe8f5182c958", null ]
     ] ],
     [ "MouseButtonMask", "group__mouse.html#ga7a6ba61b3e90ed6064cd4a1b4ef92536", null ],
-    [ "Wrap", "group__sampler.html#ga68fa0648b9a72034f88944a16cadaea8", [
-      [ "REPEAT", "group__sampler.html#gga68fa0648b9a72034f88944a16cadaea8a5be68175be14dfaa080165456c2e9555", null ],
-      [ "MIRROR_REPEAT", "group__sampler.html#gga68fa0648b9a72034f88944a16cadaea8a31dbbe4319ea02c28dad7cde7b782710", null ],
-      [ "EDGE_CLAMP", "group__sampler.html#gga68fa0648b9a72034f88944a16cadaea8ab80c0868d7eabc21de4f2810bf3a7ec4", null ],
-      [ "BORDER_CLAMP", "group__sampler.html#gga68fa0648b9a72034f88944a16cadaea8a02a0692f237a0bd7f39d7b7d87762510", null ]
-    ] ],
-    [ "MinFilter", "group__sampler.html#gad1e4cc9bea7f1b176409b1e42ea21d68", [
-      [ "NEAREST", "group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68aad135772d7cf93dd0ccf9d2474b34e6a", null ],
-      [ "LINEAR", "group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68aaac544aacc3615aada24897a215f5046", null ],
-      [ "NMIP_NEAREST", "group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68a31bdfa42123ea543959a75e6fbfc0f49", null ],
-      [ "NMIP_LINEAR", "group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68a0ff446207d03fcfae5a9699956be682c", null ],
-      [ "LMIPS_NEAREST", "group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68a80d7762017884e84483f1d34a81b8960", null ],
-      [ "LMIPS_LINEAR", "group__sampler.html#ggad1e4cc9bea7f1b176409b1e42ea21d68acc8ed884527502bc599419e2d5c22cb6", null ]
-    ] ],
-    [ "MagFilter", "group__sampler.html#gac346a03e941c8ea2519c19086c4ce299", [
-      [ "NEAREST", "group__sampler.html#ggac346a03e941c8ea2519c19086c4ce299aad135772d7cf93dd0ccf9d2474b34e6a", null ],
-      [ "LINEAR", "group__sampler.html#ggac346a03e941c8ea2519c19086c4ce299aaac544aacc3615aada24897a215f5046", null ]
-    ] ],
-    [ "Compare", "group__sampler.html#ga88338da155e2e92486d80fb0650a07d5", [
-      [ "NEVER", "group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a443475558f0168dff92ecde26b98ae5a", null ],
-      [ "LESS", "group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a1798e8c3621ca53d9e3a80d257306000", null ],
-      [ "EQUAL", "group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a969f331a87d8c958473c32b4d0e61a44", null ],
-      [ "LEQUAL", "group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a8a72211a539c4f44dcaa446209076da6", null ],
-      [ "GREATER", "group__sampler.html#gga88338da155e2e92486d80fb0650a07d5ae7e72355289e404b762d4cf88824d23b", null ],
-      [ "NEQUAL", "group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a08c21e015248267a01d727848c97b40a", null ],
-      [ "GEQUAL", "group__sampler.html#gga88338da155e2e92486d80fb0650a07d5a9e63a520a6e8fefd37a5fa966d96f3bc", null ],
-      [ "ALWAYS", "group__sampler.html#gga88338da155e2e92486d80fb0650a07d5af3fc827ade4b968e50406496907ef962", null ]
-    ] ],
     [ "ShaderType", "group__shader.html#gafcfa3e5f9682128a25a9ac5eb1de2579", [
       [ "VERTEX", "group__shader.html#ggafcfa3e5f9682128a25a9ac5eb1de2579a0c3e47aef93a7f244f41ab309a33634b", null ],
       [ "FRAGMENT", "group__shader.html#ggafcfa3e5f9682128a25a9ac5eb1de2579a7345a249ed5c2f850d85dc1727c24716", null ]
@@ -442,6 +412,34 @@ var namespacetr =
       [ "DEPTH24", "group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a25fda16aa10a025ab21b9019b094ef27", null ],
       [ "DEPTH_FP32", "group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9a5def214b76446802949c0509d71ce463", null ],
       [ "STENCIL8", "group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9acd7d9d5edb5cd72424f19be55ccbcbf4", null ]
+    ] ],
+    [ "Wrap", "group__texture.html#ga68fa0648b9a72034f88944a16cadaea8", [
+      [ "REPEAT", "group__texture.html#gga68fa0648b9a72034f88944a16cadaea8a5be68175be14dfaa080165456c2e9555", null ],
+      [ "MIRROR_REPEAT", "group__texture.html#gga68fa0648b9a72034f88944a16cadaea8a31dbbe4319ea02c28dad7cde7b782710", null ],
+      [ "EDGE_CLAMP", "group__texture.html#gga68fa0648b9a72034f88944a16cadaea8ab80c0868d7eabc21de4f2810bf3a7ec4", null ],
+      [ "BORDER_CLAMP", "group__texture.html#gga68fa0648b9a72034f88944a16cadaea8a02a0692f237a0bd7f39d7b7d87762510", null ]
+    ] ],
+    [ "MinFilter", "group__texture.html#gad1e4cc9bea7f1b176409b1e42ea21d68", [
+      [ "NEAREST", "group__texture.html#ggad1e4cc9bea7f1b176409b1e42ea21d68aad135772d7cf93dd0ccf9d2474b34e6a", null ],
+      [ "LINEAR", "group__texture.html#ggad1e4cc9bea7f1b176409b1e42ea21d68aaac544aacc3615aada24897a215f5046", null ],
+      [ "NMIP_NEAREST", "group__texture.html#ggad1e4cc9bea7f1b176409b1e42ea21d68a31bdfa42123ea543959a75e6fbfc0f49", null ],
+      [ "NMIP_LINEAR", "group__texture.html#ggad1e4cc9bea7f1b176409b1e42ea21d68a0ff446207d03fcfae5a9699956be682c", null ],
+      [ "LMIPS_NEAREST", "group__texture.html#ggad1e4cc9bea7f1b176409b1e42ea21d68a80d7762017884e84483f1d34a81b8960", null ],
+      [ "LMIPS_LINEAR", "group__texture.html#ggad1e4cc9bea7f1b176409b1e42ea21d68acc8ed884527502bc599419e2d5c22cb6", null ]
+    ] ],
+    [ "MagFilter", "group__texture.html#gac346a03e941c8ea2519c19086c4ce299", [
+      [ "NEAREST", "group__texture.html#ggac346a03e941c8ea2519c19086c4ce299aad135772d7cf93dd0ccf9d2474b34e6a", null ],
+      [ "LINEAR", "group__texture.html#ggac346a03e941c8ea2519c19086c4ce299aaac544aacc3615aada24897a215f5046", null ]
+    ] ],
+    [ "Compare", "group__texture.html#ga88338da155e2e92486d80fb0650a07d5", [
+      [ "NEVER", "group__texture.html#gga88338da155e2e92486d80fb0650a07d5a443475558f0168dff92ecde26b98ae5a", null ],
+      [ "LESS", "group__texture.html#gga88338da155e2e92486d80fb0650a07d5a1798e8c3621ca53d9e3a80d257306000", null ],
+      [ "EQUAL", "group__texture.html#gga88338da155e2e92486d80fb0650a07d5a969f331a87d8c958473c32b4d0e61a44", null ],
+      [ "LEQUAL", "group__texture.html#gga88338da155e2e92486d80fb0650a07d5a8a72211a539c4f44dcaa446209076da6", null ],
+      [ "GREATER", "group__texture.html#gga88338da155e2e92486d80fb0650a07d5ae7e72355289e404b762d4cf88824d23b", null ],
+      [ "NEQUAL", "group__texture.html#gga88338da155e2e92486d80fb0650a07d5a08c21e015248267a01d727848c97b40a", null ],
+      [ "GEQUAL", "group__texture.html#gga88338da155e2e92486d80fb0650a07d5a9e63a520a6e8fefd37a5fa966d96f3bc", null ],
+      [ "ALWAYS", "group__texture.html#gga88338da155e2e92486d80fb0650a07d5af3fc827ade4b968e50406496907ef962", null ]
     ] ],
     [ "Swizzle", "group__texture.html#ga228d86137368dd348340097c8a515439", [
       [ "ZERO", "group__texture.html#gga228d86137368dd348340097c8a515439a529e9e0beb5f85d1f132917c1a09860c", null ],
@@ -621,8 +619,6 @@ var namespacetr =
     [ "ALPHA_BLENDING", "group__graphics__context.html#gae3976b7bd434a18e18849f04b0f4fc1c", null ],
     [ "PREMUL_ALPHA_BLENDING", "group__graphics__context.html#gaedf4dc5efc833855ae8e7305afe8a958", null ],
     [ "NO_EMPTY_HANDLE_CHECK", "group__handle.html#ga1e7ac718fa682f5f24962b1ff9394da7", null ],
-    [ "NO_MIPMAPS", "group__texture.html#ga02fff69ed521e43c379d217660940615", null ],
-    [ "ALL_MIPMAPS", "group__texture.html#ga5f6d61b2b5572a6723926bd8251ed289", null ],
     [ "positions", "group__vertex.html#ga31a7b1cca56e3c10e4478f5b45ceb5bb", null ],
     [ "uvs", "group__vertex.html#ga5b6d376f9261a7e0ce800c9292ae43ec", null ],
     [ "colors", "group__vertex.html#gae217c35009c80b033d79c54b66c6329b", null ],

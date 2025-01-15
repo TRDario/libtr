@@ -32,7 +32,7 @@ var searchData=
   ['windowrestoreevent_29',['WindowRestoreEvent',['../structtr_1_1WindowRestoreEvent.html',1,'tr']]],
   ['windowshowevent_30',['WindowShowEvent',['../structtr_1_1WindowShowEvent.html',1,'tr']]],
   ['windowsizechangeevent_31',['WindowSizeChangeEvent',['../structtr_1_1WindowSizeChangeEvent.html',1,'tr']]],
-  ['wrap_32',['Wrap',['../group__sampler.html#ga68fa0648b9a72034f88944a16cadaea8',1,'tr']]],
+  ['wrap_32',['Wrap',['../group__texture.html#ga68fa0648b9a72034f88944a16cadaea8',1,'tr']]],
   ['wrapalignment_33',['WrapAlignment',['../classtr_1_1TTFont.html#afd715019ff947708ce95f3670331b0fe',1,'tr::TTFont']]],
   ['wrapalignment_34',['wrapAlignment',['../classtr_1_1TTFont.html#abe04ec82e8c597363e58d04d11744112',1,'tr::TTFont']]],
   ['wrapdec_35',['WRAPDEC',['../group__graphics__context.html#gga8c440fc4a94422129e86a69114e35b50a07296a95713959b948879267498a4420',1,'tr']]],
