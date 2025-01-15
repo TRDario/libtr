@@ -1,5 +1,4 @@
 #pragma once
-#include "sampler.hpp"
 #include "texture.hpp"
 
 namespace tr {
@@ -10,7 +9,7 @@ namespace tr {
 	 */
 
 	/******************************************************************************************************************
-	 * A texture unit onto which texture and samplers can be bound.
+	 * A texture unit onto which textures can be bound.
 	 *
 	 * @remark OpenGL mandates that 80 <em>or more</em> texture units be provided, but libtr currently locks it at 80
 	 *         for maximum compatility with as many devices as possible.
@@ -23,15 +22,6 @@ namespace tr {
 		 * No more than 80 texture units can exist simultaneously.
 		 **************************************************************************************************************/
 		TextureUnit() noexcept;
-
-		/**************************************************************************************************************
-		 * Binds a sampler to the texture unit.
-		 *
-		 * A sampler can be bound to multiple texture units simultaneously.
-		 *
-		 * @param[in] sampler A sampler object.
-		 **************************************************************************************************************/
-		void setSampler(const Sampler& sampler) noexcept;
 
 		/**************************************************************************************************************
 		 * Binds a texture to the texture unit.

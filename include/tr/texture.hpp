@@ -83,6 +83,126 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
+	 * Texture wrapping types.
+	 ******************************************************************************************************************/
+	enum class Wrap {
+		/**************************************************************************************************************
+		 * The texture is repeated.
+		 **************************************************************************************************************/
+		REPEAT = 0x2901,
+
+		/**************************************************************************************************************
+		 * The texture is repeated and mirrored.
+		 **************************************************************************************************************/
+		MIRROR_REPEAT = 0x8370,
+
+		/**************************************************************************************************************
+		 * The value of the edge pixel is used.
+		 **************************************************************************************************************/
+		EDGE_CLAMP = 0x812F,
+
+		/**************************************************************************************************************
+		 * The value of the border color is used.
+		 **************************************************************************************************************/
+		BORDER_CLAMP = 0x812D
+	};
+
+	/******************************************************************************************************************
+	 * Minifying filter types.
+	 ******************************************************************************************************************/
+	enum class MinFilter {
+		/**************************************************************************************************************
+		 * The value of the texture element that is nearest to the specified texture coordinates is used.
+		 **************************************************************************************************************/
+		NEAREST = 0x2600,
+
+		/**************************************************************************************************************
+		 * The average of the four texture elements that are closest to the specified texture coordinates is used.
+		 **************************************************************************************************************/
+		LINEAR = 0x2601,
+
+		/**************************************************************************************************************
+		 * Chooses the mipmap that most closely matches the size of the pixel being textured and uses "nearest".
+		 **************************************************************************************************************/
+		NMIP_NEAREST = 0x2700,
+
+		/**************************************************************************************************************
+		 * Chooses the mipmap that most closely matches the size of the pixel being textured and uses "linear".
+		 **************************************************************************************************************/
+		NMIP_LINEAR = 0x2702,
+
+		/**************************************************************************************************************
+		 * Chooses the two mipmaps that most closely match the size of the pixel being textured and uses "nearest".
+		 **************************************************************************************************************/
+		LMIPS_NEAREST = 0x2701,
+
+		/**************************************************************************************************************
+		 * Chooses the two mipmaps that most closely match the size of the pixel being textured and uses "linear".
+		 **************************************************************************************************************/
+		LMIPS_LINEAR = 0x2703
+	};
+
+	/******************************************************************************************************************
+	 * Magnifying filter types.
+	 ******************************************************************************************************************/
+	enum class MagFilter {
+		/**************************************************************************************************************
+		 * The value of the texture element that is nearest to the specified texture coordinates is used.
+		 **************************************************************************************************************/
+		NEAREST = 0x2600,
+
+		/**************************************************************************************************************
+		 * The average of the four texture elements that are closest to the specified texture coordinates is used.
+		 **************************************************************************************************************/
+		LINEAR = 0x2601
+	};
+
+	/******************************************************************************************************************
+	 * Depth comparison functions.
+	 ******************************************************************************************************************/
+	enum class Compare {
+		/**************************************************************************************************************
+		 * The function always returns false.
+		 **************************************************************************************************************/
+		NEVER = 0x0200,
+
+		/**************************************************************************************************************
+		 * The function returns true if the value is less than the value being compared to.
+		 **************************************************************************************************************/
+		LESS = 0x0201,
+
+		/**************************************************************************************************************
+		 * The function returns true if the value is equal to the value being compared to.
+		 **************************************************************************************************************/
+		EQUAL = 0x0202,
+
+		/**************************************************************************************************************
+		 * The function returns true if the value is less than or equal to the value being compared to.
+		 **************************************************************************************************************/
+		LEQUAL = 0x0203,
+
+		/**************************************************************************************************************
+		 * The function returns true if the value is greater than the value being compared to.
+		 **************************************************************************************************************/
+		GREATER = 0x0204,
+
+		/**************************************************************************************************************
+		 * The function returns true if the value is not equal to the value being compared to.
+		 **************************************************************************************************************/
+		NEQUAL = 0x0205,
+
+		/**************************************************************************************************************
+		 * The function returns true if the value is greater than or equal to the value being compared to.
+		 **************************************************************************************************************/
+		GEQUAL = 0x0206,
+
+		/**************************************************************************************************************
+		 * The function always returns true.
+		 **************************************************************************************************************/
+		ALWAYS = 0x0207
+	};
+
+	/******************************************************************************************************************
 	 * Texture swizzles.
 	 ******************************************************************************************************************/
 	enum class Swizzle {
@@ -118,16 +238,6 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Sentinel value representing the number of layers for a texture with no mipmaps.
-	 ******************************************************************************************************************/
-	inline constexpr int NO_MIPMAPS{1};
-
-	/******************************************************************************************************************
-	 * Sentinel value representing the number of layers for a texture with all mipmaps.
-	 ******************************************************************************************************************/
-	inline constexpr int ALL_MIPMAPS{INT_MAX};
-
-	/******************************************************************************************************************
 	 * Error thrown when a texture allocation failed.
 	 ******************************************************************************************************************/
 	struct TextureBadAlloc : std::bad_alloc {
@@ -154,67 +264,65 @@ namespace tr {
 		TextureFormat format() const noexcept;
 
 		/**************************************************************************************************************
-		 * Gets the swizzle parameter for the red channel.
-		 *
-		 * @return The red channel swizzle.
-		 **************************************************************************************************************/
-		Swizzle swizzleR() const noexcept;
-
-		/**************************************************************************************************************
-		 * Gets the swizzle parameter for the green channel.
-		 *
-		 * @return The green channel swizzle.
-		 **************************************************************************************************************/
-		Swizzle swizzleG() const noexcept;
-
-		/**************************************************************************************************************
-		 * Gets the swizzle parameter for the blue channel.
-		 *
-		 * @return The blue channel swizzle.
-		 **************************************************************************************************************/
-		Swizzle swizzleB() const noexcept;
-
-		/**************************************************************************************************************
-		 * Gets the swizzle parameter for the alpha channel.
-		 *
-		 * @return The alpha channel swizzle.
-		 **************************************************************************************************************/
-		Swizzle swizzleA() const noexcept;
-
-		/**************************************************************************************************************
-		 * Sets the swizzle parameter for the red channel.
-		 *
-		 * @param[in] swizzle The new red channel swizzle.
-		 **************************************************************************************************************/
-		void setSwizzleR(Swizzle swizzle) noexcept;
-
-		/**************************************************************************************************************
-		 * Sets the swizzle parameter for the green channel.
-		 *
-		 * @param[in] swizzle The new green channel swizzle.
-		 **************************************************************************************************************/
-		void setSwizzleG(Swizzle swizzle) noexcept;
-
-		/**************************************************************************************************************
-		 * Sets the swizzle parameter for the blue channel.
-		 *
-		 * @param[in] swizzle The new blue channel swizzle.
-		 **************************************************************************************************************/
-		void setSwizzleB(Swizzle swizzle) noexcept;
-
-		/**************************************************************************************************************
-		 * Sets the swizzle parameter for the alpha channel.
-		 *
-		 * @param[in] swizzle The new alpha channel swizzle.
-		 **************************************************************************************************************/
-		void setSwizzleA(Swizzle swizzle) noexcept;
-
-		/**************************************************************************************************************
 		 * Sets the swizzle parameters of the texture.
 		 *
 		 * @param[in] r, g, b, a The new swizzles.
 		 **************************************************************************************************************/
 		void setSwizzle(Swizzle r, Swizzle g, Swizzle b, Swizzle a) noexcept;
+
+		/**************************************************************************************************************
+		 * Sets the minifying filter used by the texture sampler.
+		 *
+		 * @param[in] filter The new minifying filter type.
+		 **************************************************************************************************************/
+		void setMinFilter(MinFilter filter) noexcept;
+
+		/**************************************************************************************************************
+		 * Sets the magnifying filter used by the texture sampler.
+		 *
+		 * @param[in] filter The new magnifying filter type.
+		 **************************************************************************************************************/
+		void setMagFilter(MagFilter filter) noexcept;
+
+		/**************************************************************************************************************
+		 * Sets the minimum allowed level-of-detail parameter used by the texture sampler.
+		 *
+		 * @param[in] lod The new minimum LOD.
+		 **************************************************************************************************************/
+		void setMinLOD(int lod) noexcept;
+
+		/**************************************************************************************************************
+		 * Sets the maximum allowed level-of-detail parameter used by the texture sampler.
+		 *
+		 * @param[in] lod The new maximum LOD.
+		 **************************************************************************************************************/
+		void setMaxLOD(int lod) noexcept;
+
+		/**************************************************************************************************************
+		 * Disables the use of depth comparison.
+		 **************************************************************************************************************/
+		void disableComparison() noexcept;
+
+		/**************************************************************************************************************
+		 * Enables the use of depth comparison and sets the depth comparison operator of the texture sampler.
+		 *
+		 * @param[in] op The function to use for comparison.
+		 **************************************************************************************************************/
+		void setComparisonMode(Compare op) noexcept;
+
+		/**************************************************************************************************************
+		 * Sets the wrapping used for by the texture sampler.
+		 *
+		 * @param[in] wrap The new wrapping type.
+		 **************************************************************************************************************/
+		void setWrap(Wrap wrap) noexcept;
+
+		/**************************************************************************************************************
+		 * Sets the border color of the texture sampler (used when Wrap::BORDER_CLAMP is in use).
+		 *
+		 * @param[in] color The border color in floating point RGBA format.
+		 **************************************************************************************************************/
+		void setBorderColor(RGBAF color) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the debug label of the texture.
@@ -260,10 +368,10 @@ namespace tr {
 		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
 		 * @param[in] size The size of the texture in texels.
-		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		Texture1D(int size, int mipmaps, TextureFormat format = TextureFormat::RGBA8);
+		Texture1D(int size, bool mipmapped = false, TextureFormat format = TextureFormat::RGBA8);
 
 		/**************************************************************************************************************
 		 * Constructs a 1D texture with data uploaded from a bitmap.
@@ -280,10 +388,10 @@ namespace tr {
 		 *
 		 * @pre The bitmap must be 1 pixel tall.
 		 * @endparblock
-		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		Texture1D(SubBitmap bitmap, int mipmaps, TextureFormat format = TextureFormat::RGBA8);
+		Texture1D(SubBitmap bitmap, bool mipmapped = false, TextureFormat format = TextureFormat::RGBA8);
 
 		/**************************************************************************************************************
 		 * Gets the size of the texture.
@@ -323,10 +431,10 @@ namespace tr {
 		 *
 		 * @param[in] size The size of the texture in texels.
 		 * @param[in] layers The number of layers in the texture.
-		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		ArrayTexture1D(int size, int layers, int mipmaps, TextureFormat format);
+		ArrayTexture1D(int size, int layers, bool mipmapped = false, TextureFormat format = TextureFormat::RGBA8);
 
 		/**************************************************************************************************************
 		 * Constructs a 1D array texture with data uploaded from a bitmap.
@@ -338,10 +446,10 @@ namespace tr {
 		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
 		 * @param[in] bitmap The bitmap data.
-		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		ArrayTexture1D(SubBitmap bitmap, int mipmaps, TextureFormat format);
+		ArrayTexture1D(SubBitmap bitmap, bool mipmapped = false, TextureFormat format = TextureFormat::RGBA8);
 
 		/**************************************************************************************************************
 		 * Gets the size of the texture.
@@ -382,10 +490,10 @@ namespace tr {
 		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
 		 * @param[in] size The size of the texture in texels.
-		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		Texture2D(glm::ivec2 size, int mipmaps, TextureFormat format);
+		Texture2D(glm::ivec2 size, bool mipmapped = false, TextureFormat format = TextureFormat::RGBA8);
 
 		/**************************************************************************************************************
 		 * Constructs a 2D texture with data uploaded from a bitmap.
@@ -397,10 +505,10 @@ namespace tr {
 		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
 		 * @param[in] bitmap The bitmap data.
-		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		Texture2D(SubBitmap bitmap, int mipmaps, TextureFormat format);
+		Texture2D(SubBitmap bitmap, bool mipmapped = false, TextureFormat format = TextureFormat::RGBA8);
 
 		/**************************************************************************************************************
 		 * Gets the size of the texture.
@@ -435,10 +543,11 @@ namespace tr {
 		 *
 		 * @param[in] size The size of the texture in texels.
 		 * @param[in] layers The number of layers in the texture.
-		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		ArrayTexture2D(glm::ivec2 size, int layers, int mipmaps, TextureFormat format);
+		ArrayTexture2D(glm::ivec2 size, int layers, bool mipmapped = false,
+					   TextureFormat format = TextureFormat::RGBA8);
 
 		/**************************************************************************************************************
 		 * Constructs a 2D array texture with data uploaded from a list of bitmaps.
@@ -455,10 +564,11 @@ namespace tr {
 		 *
 		 * @pre @em layers cannot be empty, and the bitmaps must all be of the same size.
 		 * @endparblock
-		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		ArrayTexture2D(std::span<SubBitmap> layers, int mipmaps, TextureFormat format);
+		ArrayTexture2D(std::span<SubBitmap> layers, bool mipmapped = false,
+					   TextureFormat format = TextureFormat::RGBA8);
 
 		/**************************************************************************************************************
 		 * Gets the size of the texture.
@@ -500,10 +610,10 @@ namespace tr {
 		 * @exception TextureBadAlloc If allocating the texture fails.
 		 *
 		 * @param[in] size The size of the texture in texels.
-		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		Texture3D(glm::ivec3 size, int mipmaps, TextureFormat format);
+		Texture3D(glm::ivec3 size, bool mipmapped = false, TextureFormat format = TextureFormat::RGBA8);
 
 		/**************************************************************************************************************
 		 * Constructs a 3D texture with data uploaded from a list of bitmaps.
@@ -520,10 +630,10 @@ namespace tr {
 		 *
 		 * @pre @em layers cannot be empty, and the bitmaps must all be of the same size.
 		 * @endparblock
-		 * @param[in] mipmaps The number of mipmaps to generate. Special values: NO_MIPMAPS, ALL_MIPMAPS.
+		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		Texture3D(std::span<SubBitmap> layers, int mipmaps, TextureFormat format);
+		Texture3D(std::span<SubBitmap> layers, bool mipmapped = false, TextureFormat format = TextureFormat::RGBA8);
 
 		/**************************************************************************************************************
 		 * Gets the size of the texture.

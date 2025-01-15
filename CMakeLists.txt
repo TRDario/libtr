@@ -38,7 +38,7 @@ target_sources(tr PRIVATE
     src/audio_buffer.cpp src/audio_source.cpp src/audio_system.cpp
     src/benchmark.cpp src/bitmap_format.cpp src/bitmap_iterators.cpp src/bitmap.cpp src/display.cpp src/event.cpp
     src/framebuffer.cpp src/graphics_buffer.cpp src/graphics_context.cpp src/index_buffer.cpp src/iostream.cpp src/keyboard.cpp
-    src/listener.cpp src/mouse.cpp src/path.cpp src/renderbuffer.cpp src/sampler.cpp src/sdl.cpp src/shader_buffer.cpp
+    src/listener.cpp src/mouse.cpp src/path.cpp src/renderbuffer.cpp src/sdl.cpp src/shader_buffer.cpp
     src/shader_pipeline.cpp src/shader.cpp src/stopwatch.cpp src/texture_unit.cpp src/texture.cpp src/timer.cpp src/ttfont.cpp
     src/vertex_buffer.cpp src/vertex_format.cpp src/vertex.cpp src/window.cpp
 )
@@ -55,7 +55,7 @@ target_sources(tr PUBLIC
         include/tr/geometry.hpp include/tr/graphics_buffer.hpp include/tr/graphics_context.hpp include/tr/handle.hpp include/tr/hashmap.hpp
         include/tr/index_buffer.hpp include/tr/iostream.hpp include/tr/keyboard.hpp include/tr/listener.hpp include/tr/mouse.hpp
         include/tr/norm_cast.hpp include/tr/overloaded_lambda.hpp include/tr/path.hpp include/tr/ranges.hpp
-        include/tr/renderbuffer.hpp include/tr/sampler.hpp include/tr/sdl.hpp include/tr/shader_buffer.hpp
+        include/tr/renderbuffer.hpp include/tr/sdl.hpp include/tr/shader_buffer.hpp
         include/tr/shader_pipeline.hpp include/tr/shader.hpp include/tr/stopwatch.hpp include/tr/texture_unit.hpp
         include/tr/texture.hpp include/tr/timer.hpp include/tr/tr.hpp include/tr/ttfont.hpp include/tr/utf8.hpp
         include/tr/vertex_buffer.hpp include/tr/vertex_format.hpp include/tr/vertex.hpp include/tr/window.hpp

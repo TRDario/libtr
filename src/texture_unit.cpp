@@ -26,11 +26,6 @@ void tr::TextureUnit::Deleter::operator()(GLuint id) noexcept
 	_texUnitPool[id] = false;
 }
 
-void tr::TextureUnit::setSampler(const Sampler& sampler) noexcept
-{
-	glBindSampler(_id.get(), sampler._id.get());
-}
-
 void tr::TextureUnit::setTexture(const Texture& texture) noexcept
 {
 	glBindTextures(_id.get(), 1, &texture._id.get());

@@ -37,7 +37,7 @@ namespace tr {
 		 * @param[in] size The size of the renderbuffer in pixels.
 		 * @param[in] format The pixel format of the renderbuffer.
 		 **************************************************************************************************************/
-		Renderbuffer(glm::ivec2 size, TextureFormat format);
+		Renderbuffer(glm::ivec2 size, TextureFormat format = TextureFormat::RGBA8);
 
 		/**************************************************************************************************************
 		 * Gets the size of the renderbuffer.

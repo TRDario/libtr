@@ -1,6 +1,5 @@
 #pragma once
 #include "event.hpp"
-#include "sampler.hpp"
 #include "texture.hpp"
 
 namespace tr {
@@ -32,15 +31,6 @@ namespace tr {
 		 * @return A corresponding Dear ImGui texture ID.
 		 **************************************************************************************************************/
 		std::uint64_t getTextureID(const Texture& texture) noexcept;
-
-		/**************************************************************************************************************
-		 * Sets the filtering mode used for a texture by Dear ImGui.
-		 *
-		 * @param[in] texture The texture to set the sampling mode for.
-		 * @param[in] minFilter The minifying filter to use.
-		 * @param[in] magFilter The magniifying filter to use.
-		 **************************************************************************************************************/
-		void setTextureFilter(const Texture& texture, MinFilter minFilter, MagFilter magFilter) noexcept;
 
 		/**************************************************************************************************************
 		 * Processes an event for Dear ImGui.
