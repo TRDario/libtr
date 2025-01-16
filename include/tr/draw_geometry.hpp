@@ -62,7 +62,7 @@ namespace tr {
 	 * @parblock
 	 * The output iterator.
 	 *
-	 * @pre There has to be space for `(vertices - 2) * 6` indices.
+	 * @pre There has to be space for `vertices * 6` indices.
 	 * @endparblock
 	 * @param[in] vertices
 	 * @parblock
