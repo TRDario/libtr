@@ -560,6 +560,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1WindowSizeChangeEvent.html">WindowSizeChangeEvent</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtr_1_1Event.html" title="Unified event type.">Event</a> emitted when a window's size changes.  <a href="structtr_1_1WindowSizeChangeEvent.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1Xorshiftr128p.html">Xorshiftr128p</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Xorshiftr128+ random number generator.  <a href="classtr_1_1Xorshiftr128p.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
@@ -1512,6 +1515,24 @@ requires SpecializationOf&lt;From, <a class="el" href="structtr_1_1RGBA.html">RG
 <tr class="memitem:gac8f05cb3910768caf9e6f93ce213c444"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__ranges.html#gac8f05cb3910768caf9e6f93ce213c444">project</a> (<a class="el" href="structtr_1_1R.html">R</a> &amp;&amp;range, auto std::ranges::range_value_t&lt; <a class="el" href="structtr_1_1R.html">R</a> &gt;::*ptr) noexcept</td></tr>
 <tr class="memdesc:gac8f05cb3910768caf9e6f93ce213c444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a transformed view over a range as a range of one of its members.  <br /></td></tr>
 <tr class="separator:gac8f05cb3910768caf9e6f93ce213c444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7dd6f0cd36111857662f8a462313d3fd" id="r_ga7dd6f0cd36111857662f8a462313d3fd"><td class="memItemLeft" align="right" valign="top">std::uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rng.html#ga7dd6f0cd36111857662f8a462313d3fd">generateRandomSeed</a> () noexcept</td></tr>
+<tr class="memdesc:ga7dd6f0cd36111857662f8a462313d3fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random seed.  <br /></td></tr>
+<tr class="separator:ga7dd6f0cd36111857662f8a462313d3fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab5aa9df387fc217300b279b5e3752fda" id="r_gab5aa9df387fc217300b279b5e3752fda"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__rng.html#gab5aa9df387fc217300b279b5e3752fda">randb</a> (<a class="el" href="classtr_1_1Xorshiftr128p.html">Xorshiftr128p</a> &amp;rng) noexcept</td></tr>
+<tr class="memdesc:gab5aa9df387fc217300b279b5e3752fda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random boolean value.  <br /></td></tr>
+<tr class="separator:gab5aa9df387fc217300b279b5e3752fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4f3603bd85ef2ef49ba62dbe6d3fe910" id="r_ga4f3603bd85ef2ef49ba62dbe6d3fe910"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
+<tr class="memitem:ga4f3603bd85ef2ef49ba62dbe6d3fe910"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__rng.html#ga4f3603bd85ef2ef49ba62dbe6d3fe910">rand</a> (<a class="el" href="classtr_1_1Xorshiftr128p.html">Xorshiftr128p</a> &amp;rng) noexcept</td></tr>
+<tr class="memdesc:ga4f3603bd85ef2ef49ba62dbe6d3fe910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integral value.  <br /></td></tr>
+<tr class="separator:ga4f3603bd85ef2ef49ba62dbe6d3fe910"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9f5d24b4abfd4d0fdd94e9e3f208c58a" id="r_ga9f5d24b4abfd4d0fdd94e9e3f208c58a"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
+<tr class="memitem:ga9f5d24b4abfd4d0fdd94e9e3f208c58a"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__rng.html#ga9f5d24b4abfd4d0fdd94e9e3f208c58a">rand</a> (<a class="el" href="classtr_1_1Xorshiftr128p.html">Xorshiftr128p</a> &amp;rng, T max) noexcept</td></tr>
+<tr class="memdesc:ga9f5d24b4abfd4d0fdd94e9e3f208c58a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integral value in the range [0, max).  <br /></td></tr>
+<tr class="separator:ga9f5d24b4abfd4d0fdd94e9e3f208c58a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7eaadfbe5b6001e9c275c26e7f10fe83" id="r_ga7eaadfbe5b6001e9c275c26e7f10fe83"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
+<tr class="memitem:ga7eaadfbe5b6001e9c275c26e7f10fe83"><td class="memTemplItemLeft" align="right" valign="top">constexpr T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group__rng.html#ga7eaadfbe5b6001e9c275c26e7f10fe83">rand</a> (<a class="el" href="classtr_1_1Xorshiftr128p.html">Xorshiftr128p</a> &amp;rng, T min, T max) noexcept</td></tr>
+<tr class="memdesc:ga7eaadfbe5b6001e9c275c26e7f10fe83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integral value in the range [min, max).  <br /></td></tr>
+<tr class="separator:ga7eaadfbe5b6001e9c275c26e7f10fe83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6fd66e945040bc4569193abac0e12b2b" id="r_ga6fd66e945040bc4569193abac0e12b2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1Shader.html">Shader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__shader.html#ga6fd66e945040bc4569193abac0e12b2b">loadEmbeddedShader</a> (std::span&lt; const std::byte &gt; data, <a class="el" href="group__shader.html#gafcfa3e5f9682128a25a9ac5eb1de2579">ShaderType</a> type)</td></tr>
 <tr class="memdesc:ga6fd66e945040bc4569193abac0e12b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a shader from an embedded file.  <br /></td></tr>
 <tr class="separator:ga6fd66e945040bc4569193abac0e12b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>

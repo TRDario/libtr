@@ -165,5 +165,6 @@ var hierarchy =
     [ "tr::WindowResizeEvent", "structtr_1_1WindowResizeEvent.html", null ],
     [ "tr::WindowRestoreEvent", "structtr_1_1WindowRestoreEvent.html", null ],
     [ "tr::WindowShowEvent", "structtr_1_1WindowShowEvent.html", null ],
-    [ "tr::WindowSizeChangeEvent", "structtr_1_1WindowSizeChangeEvent.html", null ]
+    [ "tr::WindowSizeChangeEvent", "structtr_1_1WindowSizeChangeEvent.html", null ],
+    [ "tr::Xorshiftr128p", "classtr_1_1Xorshiftr128p.html", null ]
 ];

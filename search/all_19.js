@@ -6,7 +6,8 @@ var searchData=
   ['x_5faxis_3',['X_AXIS',['../group__geometry.html#gad9cf1feaffaf287bb81e633aeb5fa58f',1,'tr']]],
   ['xbgr_5f1555_4',['XBGR_1555',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464a3b1457f687f7c74e7231e7953927d152',1,'tr::BitmapFormat']]],
   ['xbgr_5f8888_5',['XBGR_8888',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464a22da750115bc95fbbb192751ff483e1b',1,'tr::BitmapFormat']]],
-  ['xrgb_5f1555_6',['XRGB_1555',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464af3a285d2fb10d10c211ecf50f57e4519',1,'tr::BitmapFormat']]],
-  ['xrgb_5f4444_7',['XRGB_4444',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464a6328ee487e59f71d36f21517cc4b7c20',1,'tr::BitmapFormat']]],
-  ['xrgb_5f8888_8',['XRGB_8888',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464a32300ede12809140888d7bcd416e4f57',1,'tr::BitmapFormat']]]
+  ['xorshiftr128p_6',['Xorshiftr128p',['../classtr_1_1Xorshiftr128p.html',1,'tr::Xorshiftr128p'],['../classtr_1_1Xorshiftr128p.html#af448469c2262b998f6ea6cb844fde978',1,'tr::Xorshiftr128p::Xorshiftr128p() noexcept'],['../classtr_1_1Xorshiftr128p.html#a5bb36293be8c95e719323c8d3f1ef6c9',1,'tr::Xorshiftr128p::Xorshiftr128p(std::uint64_t seed) noexcept']]],
+  ['xrgb_5f1555_7',['XRGB_1555',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464af3a285d2fb10d10c211ecf50f57e4519',1,'tr::BitmapFormat']]],
+  ['xrgb_5f4444_8',['XRGB_4444',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464a6328ee487e59f71d36f21517cc4b7c20',1,'tr::BitmapFormat']]],
+  ['xrgb_5f8888_9',['XRGB_8888',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464a32300ede12809140888d7bcd416e4f57',1,'tr::BitmapFormat']]]
 ];

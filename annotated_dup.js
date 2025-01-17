@@ -139,6 +139,7 @@ var annotated_dup =
       [ "WindowResizeEvent", "structtr_1_1WindowResizeEvent.html", "structtr_1_1WindowResizeEvent" ],
       [ "WindowRestoreEvent", "structtr_1_1WindowRestoreEvent.html", null ],
       [ "WindowShowEvent", "structtr_1_1WindowShowEvent.html", null ],
-      [ "WindowSizeChangeEvent", "structtr_1_1WindowSizeChangeEvent.html", null ]
+      [ "WindowSizeChangeEvent", "structtr_1_1WindowSizeChangeEvent.html", null ],
+      [ "Xorshiftr128p", "classtr_1_1Xorshiftr128p.html", "classtr_1_1Xorshiftr128p" ]
     ] ]
 ];

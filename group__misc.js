@@ -12,6 +12,7 @@ var group__misc =
     [ "Hash Maps", "group__hash__map.html", "group__hash__map" ],
     [ "Normalized Cast", "group__norm__cast.html", "group__norm__cast" ],
     [ "Overloaded", "group__overloaded__lambda.html", "group__overloaded__lambda" ],
+    [ "RNG", "group__rng.html", "group__rng" ],
     [ "Ranges", "group__ranges.html", "group__ranges" ],
     [ "Stopwatch", "group__stopwatch.html", "group__stopwatch" ],
     [ "Streams", "group__stream.html", "group__stream" ],
