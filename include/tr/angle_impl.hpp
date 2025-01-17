@@ -161,7 +161,7 @@ template <tr::AngleBase T> constexpr T tr::Angle<T>::rads() const noexcept
 
 template <tr::AngleBase T> constexpr T tr::Angle<T>::degs() const noexcept
 {
-	return _rads / (std::numbers::pi_v<T> * 180);
+	return _rads * (180 / std::numbers::pi_v<T>);
 }
 
 template <tr::AngleBase T> constexpr T tr::Angle<T>::turns() const noexcept
