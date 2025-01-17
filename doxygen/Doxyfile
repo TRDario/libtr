@@ -1073,7 +1073,8 @@ RECURSIVE              = NO
 EXCLUDE                = ../include/tr/angle_impl.hpp \
                          ../include/tr/color_cast_impl.hpp \
                          ../include/tr/draw_geometry_impl.hpp \
-                         ../include/tr/geometry_impl.hpp
+                         ../include/tr/geometry_impl.hpp \
+                         ../include/tr/rng_impl.hpp
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded
