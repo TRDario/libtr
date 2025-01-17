@@ -29,6 +29,7 @@
 #include "path.hpp"
 #include "ranges.hpp"
 #include "renderbuffer.hpp"
+#include "rng.hpp"
 #include "sdl.hpp"
 #include "shader.hpp"
 #include "shader_buffer.hpp"
