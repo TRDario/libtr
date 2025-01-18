@@ -1,7 +1,7 @@
 #include "../include/tr/framebuffer.hpp"
 #include "../include/tr/window.hpp"
 #include "bitmap_to_gl_format.hpp"
-#include <GL/glew.h>
+#include "gl_call.hpp"
 #include <SDL2/SDL.h>
 
 namespace tr {
@@ -12,7 +12,7 @@ namespace tr {
 GLuint tr::createFramebuffer() noexcept
 {
 	GLuint id;
-	glCreateFramebuffers(1, &id);
+	TR_GL_CALL(glCreateFramebuffers, 1, &id);
 	return id;
 }
 
@@ -38,25 +38,25 @@ tr::Bitmap tr::BasicFramebuffer::readRegion(const RectI2& rect, BitmapFormat for
 	auto [glFormat, glType]{bitmapToGLFormat(format)};
 	Bitmap bitmap{rect.size, format};
 	bindRead();
-	glReadPixels(rect.tl.x, rect.tl.y, rect.size.x, rect.size.y, glFormat, glType, bitmap.data());
+	TR_GL_CALL(glReadPixels, rect.tl.x, rect.tl.y, rect.size.x, rect.size.y, glFormat, glType, bitmap.data());
 	return bitmap;
 }
 
 void tr::BasicFramebuffer::copyRegion(const RectI2& rect, Texture2D& texture, glm::ivec2 textureTL) const noexcept
 {
 	bindRead();
-	glCopyTextureSubImage2D(((Texture&)(texture))._id.get(), 0, textureTL.x, textureTL.y, rect.tl.x, rect.tl.y,
-							rect.size.x, rect.size.y);
+	TR_GL_CALL(glCopyTextureSubImage2D, ((Texture&)(texture))._id.get(), 0, textureTL.x, textureTL.y, rect.tl.x,
+			   rect.tl.y, rect.size.x, rect.size.y);
 }
 
 void tr::BasicFramebuffer::bindRead() const noexcept
 {
-	glBindFramebuffer(GL_READ_FRAMEBUFFER, _id);
+	TR_GL_CALL(glBindFramebuffer, GL_READ_FRAMEBUFFER, _id);
 }
 
 void tr::BasicFramebuffer::bindWrite() const noexcept
 {
-	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, _id);
+	TR_GL_CALL(glBindFramebuffer, GL_DRAW_FRAMEBUFFER, _id);
 }
 
 tr::Framebuffer::Framebuffer() noexcept
@@ -81,7 +81,7 @@ tr::Framebuffer& tr::Framebuffer::operator=(Framebuffer&& r) noexcept
 
 tr::Framebuffer::~Framebuffer() noexcept
 {
-	glDeleteFramebuffers(1, &_id);
+	TR_GL_CALL(glDeleteFramebuffers, 1, &_id);
 }
 
 glm::ivec2 tr::Framebuffer::size() const noexcept
@@ -91,52 +91,52 @@ glm::ivec2 tr::Framebuffer::size() const noexcept
 
 void tr::Framebuffer::attach(Texture1D& tex, Slot slot) noexcept
 {
-	glNamedFramebufferTexture(_id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0);
+	TR_GL_CALL(glNamedFramebufferTexture, _id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0);
 	_attachSizes[int(slot)] = {tex.size(), 1};
 }
 
 void tr::Framebuffer::attach(ArrayTexture1D& tex, int layer, Slot slot) noexcept
 {
 	assert(layer >= 0 && layer < tex.layers());
-	glNamedFramebufferTextureLayer(_id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0, layer);
+	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0, layer);
 	_attachSizes[int(slot)] = {tex.size(), 1};
 }
 
 void tr::Framebuffer::attach(Texture2D& tex, Slot slot) noexcept
 {
-	glNamedFramebufferTexture(_id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0);
+	TR_GL_CALL(glNamedFramebufferTexture, _id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0);
 	_attachSizes[int(slot)] = tex.size();
 }
 
 void tr::Framebuffer::attach(ArrayTexture2D& tex, int layer, Slot slot) noexcept
 {
 	assert(layer >= 0 && layer < tex.layers());
-	glNamedFramebufferTextureLayer(_id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0, layer);
+	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0, layer);
 	_attachSizes[int(slot)] = tex.size();
 }
 
 void tr::Framebuffer::attach(Texture3D& tex, int z, Slot slot) noexcept
 {
 	assert(z >= 0 && z < tex.size().z);
-	glNamedFramebufferTextureLayer(_id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0, z);
+	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0, z);
 	_attachSizes[int(slot)] = {tex.size().x, tex.size().y};
 }
 
 void tr::Framebuffer::attach(Renderbuffer& buffer, Slot slot) noexcept
 {
-	glNamedFramebufferRenderbuffer(_id, getGLAttachment(slot), GL_RENDERBUFFER, buffer._id.get());
+	TR_GL_CALL(glNamedFramebufferRenderbuffer, _id, getGLAttachment(slot), GL_RENDERBUFFER, buffer._id.get());
 	_attachSizes[int(slot)] = buffer.size();
 }
 
 void tr::Framebuffer::clear(Slot slot) noexcept
 {
-	glNamedFramebufferTexture(_id, getGLAttachment(slot), 0, 0);
+	TR_GL_CALL(glNamedFramebufferTexture, _id, getGLAttachment(slot), 0, 0);
 	_attachSizes[int(slot)] = EMPTY_ATTACHMENT;
 }
 
 void tr::Framebuffer::setLabel(std::string_view label) noexcept
 {
-	glObjectLabel(GL_FRAMEBUFFER, _id, label.size(), label.data());
+	TR_GL_CALL(glObjectLabel, GL_FRAMEBUFFER, _id, label.size(), label.data());
 }
 
 glm::ivec2 tr::Framebuffer::calcSize() noexcept

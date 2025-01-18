@@ -1,40 +1,41 @@
-#include "../include/tr/overloaded_lambda.hpp"
 #include "../include/tr/vertex_format.hpp"
-#include <GL/glew.h>
+#include "../include/tr/overloaded_lambda.hpp"
+#include "gl_call.hpp"
 
 tr::VertexFormat::VertexFormat(std::span<const VertexAttribute> attrs) noexcept
 {
 	GLuint vao;
-	glCreateVertexArrays(1, &vao);
+	TR_GL_CALL(glCreateVertexArrays, 1, &vao);
 	for (std::size_t i = 0; i < attrs.size(); ++i) {
 		std::visit(Overloaded{[=](const VertexAttributeF& attr) {
-								  glVertexArrayAttribFormat(vao, i, attr.elements, GLenum(attr.type), attr.normalized,
-															attr.offset);
+								  TR_GL_CALL(glVertexArrayAttribFormat, vao, i, attr.elements, GLenum(attr.type),
+											 attr.normalized, attr.offset);
 							  },
 							  [=](const VertexAttributeD& attr) {
-								  glVertexArrayAttribLFormat(vao, i, attr.elements, GL_DOUBLE, attr.offset);
+								  TR_GL_CALL(glVertexArrayAttribLFormat, vao, i, attr.elements, GL_DOUBLE, attr.offset);
 							  },
 							  [=](const VertexAttributeI& attr) {
-								  glVertexArrayAttribIFormat(vao, i, attr.elements, GLenum(attr.type), attr.offset);
+								  TR_GL_CALL(glVertexArrayAttribIFormat, vao, i, attr.elements, GLenum(attr.type),
+											 attr.offset);
 							  }},
 				   attrs[i]);
-		glVertexArrayAttribBinding(vao, i, 0);
-		glEnableVertexArrayAttrib(vao, i);
+		TR_GL_CALL(glVertexArrayAttribBinding, vao, i, 0);
+		TR_GL_CALL(glEnableVertexArrayAttrib, vao, i);
 	}
 	_id.reset(vao);
 }
 
 void tr::VertexFormat::Deleter::operator()(unsigned int id) const noexcept
 {
-	glDeleteVertexArrays(1, &id);
+	TR_GL_CALL(glDeleteVertexArrays, 1, &id);
 }
 
 void tr::VertexFormat::setLabel(std::string_view label) noexcept
 {
-	glObjectLabel(GL_VERTEX_ARRAY, _id.get(), label.size(), label.data());
+	TR_GL_CALL(glObjectLabel, GL_VERTEX_ARRAY, _id.get(), label.size(), label.data());
 }
 
 void tr::VertexFormat::bind() const noexcept
 {
-	glBindVertexArray(_id.get());
+	TR_GL_CALL(glBindVertexArray, _id.get());
 }

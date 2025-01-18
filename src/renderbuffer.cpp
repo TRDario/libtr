@@ -1,14 +1,14 @@
 #include "../include/tr/renderbuffer.hpp"
-#include <GL/glew.h>
+#include "gl_call.hpp"
 
 tr::Renderbuffer::Renderbuffer(glm::ivec2 size, TextureFormat format)
 	: _size{size}
 {
 	GLuint id;
-	glCreateRenderbuffers(1, &id);
+	TR_GL_CALL(glCreateRenderbuffers, 1, &id);
 	_id.reset(id);
 
-	glNamedRenderbufferStorage(id, GLenum(format), size.x, size.y);
+	TR_GL_CALL(glNamedRenderbufferStorage, id, GLenum(format), size.x, size.y);
 	if (glGetError() == GL_OUT_OF_MEMORY) {
 		throw RenderbufferBadAlloc{};
 	}
@@ -16,7 +16,7 @@ tr::Renderbuffer::Renderbuffer(glm::ivec2 size, TextureFormat format)
 
 void tr::Renderbuffer::Deleter::operator()(unsigned int id) const noexcept
 {
-	glDeleteRenderbuffers(1, &id);
+	TR_GL_CALL(glDeleteRenderbuffers, 1, &id);
 }
 
 glm::ivec2 tr::Renderbuffer::size() const noexcept
@@ -26,10 +26,10 @@ glm::ivec2 tr::Renderbuffer::size() const noexcept
 
 void tr::Renderbuffer::bind() const noexcept
 {
-	glBindRenderbuffer(GL_RENDERBUFFER, _id.get());
+	TR_GL_CALL(glBindRenderbuffer, GL_RENDERBUFFER, _id.get());
 }
 
 void tr::Renderbuffer::setLabel(std::string_view label) noexcept
 {
-	glObjectLabel(GL_RENDERBUFFER, _id.get(), label.size(), label.data());
+	TR_GL_CALL(glObjectLabel, GL_RENDERBUFFER, _id.get(), label.size(), label.data());
 }

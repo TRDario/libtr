@@ -1,6 +1,6 @@
 #include "../include/tr/texture.hpp"
 #include "bitmap_to_gl_format.hpp"
-#include <GL/glew.h>
+#include "gl_call.hpp"
 
 namespace tr {
 	// Determines the size of the array texture from a spam of bitmaps.
@@ -18,7 +18,7 @@ tr::Texture::Texture(unsigned int target) noexcept
 	: _target{target}
 {
 	GLuint id;
-	glCreateTextures(target, 1, &id);
+	TR_GL_CALL(glCreateTextures, target, 1, &id);
 	_id.reset(id);
 }
 
@@ -30,83 +30,83 @@ void tr::Texture::Deleter::operator()(unsigned int id) const noexcept
 tr::TextureFormat tr::Texture::format() const noexcept
 {
 	int glFormat;
-	glGetTextureLevelParameteriv(_id.get(), 0, GL_TEXTURE_INTERNAL_FORMAT, &glFormat);
+	TR_GL_CALL(glGetTextureLevelParameteriv, _id.get(), 0, GL_TEXTURE_INTERNAL_FORMAT, &glFormat);
 	return TextureFormat(glFormat);
 }
 
 int tr::Texture::width() const noexcept
 {
 	int width;
-	glGetTextureLevelParameteriv(_id.get(), 0, GL_TEXTURE_WIDTH, &width);
+	TR_GL_CALL(glGetTextureLevelParameteriv, _id.get(), 0, GL_TEXTURE_WIDTH, &width);
 	return width;
 }
 
 int tr::Texture::height() const noexcept
 {
 	int height;
-	glGetTextureLevelParameteriv(_id.get(), 0, GL_TEXTURE_HEIGHT, &height);
+	TR_GL_CALL(glGetTextureLevelParameteriv, _id.get(), 0, GL_TEXTURE_HEIGHT, &height);
 	return height;
 }
 
 int tr::Texture::depth() const noexcept
 {
 	int depth;
-	glGetTextureLevelParameteriv(_id.get(), 0, GL_TEXTURE_DEPTH, &depth);
+	TR_GL_CALL(glGetTextureLevelParameteriv, _id.get(), 0, GL_TEXTURE_DEPTH, &depth);
 	return depth;
 }
 
 void tr::Texture::setSwizzle(Swizzle r, Swizzle g, Swizzle b, Swizzle a) noexcept
 {
 	std::array<int, 4> glSwizzle{int(r), int(g), int(b), int(a)};
-	glTextureParameteriv(_id.get(), GL_TEXTURE_SWIZZLE_RGBA, glSwizzle.data());
+	TR_GL_CALL(glTextureParameteriv, _id.get(), GL_TEXTURE_SWIZZLE_RGBA, glSwizzle.data());
 }
 
 void tr::Texture::setMinFilter(MinFilter filter) noexcept
 {
-	glTextureParameteri(_id.get(), GL_TEXTURE_MIN_FILTER, GLint(filter));
+	TR_GL_CALL(glTextureParameteri, _id.get(), GL_TEXTURE_MIN_FILTER, GLint(filter));
 }
 
 void tr::Texture::setMagFilter(MagFilter filter) noexcept
 {
-	glTextureParameteri(_id.get(), GL_TEXTURE_MAG_FILTER, GLint(filter));
+	TR_GL_CALL(glTextureParameteri, _id.get(), GL_TEXTURE_MAG_FILTER, GLint(filter));
 }
 
 void tr::Texture::setMinLOD(int lod) noexcept
 {
-	glTextureParameteri(_id.get(), GL_TEXTURE_MIN_LOD, lod);
+	TR_GL_CALL(glTextureParameteri, _id.get(), GL_TEXTURE_MIN_LOD, lod);
 }
 
 void tr::Texture::setMaxLOD(int lod) noexcept
 {
-	glTextureParameteri(_id.get(), GL_TEXTURE_MAX_LOD, lod);
+	TR_GL_CALL(glTextureParameteri, _id.get(), GL_TEXTURE_MAX_LOD, lod);
 }
 
 void tr::Texture::disableComparison() noexcept
 {
-	glTextureParameteri(_id.get(), GL_TEXTURE_COMPARE_MODE, GL_NONE);
+	TR_GL_CALL(glTextureParameteri, _id.get(), GL_TEXTURE_COMPARE_MODE, GL_NONE);
 }
 
 void tr::Texture::setComparisonMode(Compare op) noexcept
 {
-	glTextureParameteri(_id.get(), GL_TEXTURE_COMPARE_MODE, GL_COMPARE_REF_TO_TEXTURE);
-	glTextureParameteri(_id.get(), GL_TEXTURE_COMPARE_FUNC, GLint(op));
+	TR_GL_CALL(glTextureParameteri, _id.get(), GL_TEXTURE_COMPARE_MODE, GL_COMPARE_REF_TO_TEXTURE);
+	TR_GL_CALL(glTextureParameteri, _id.get(), GL_TEXTURE_COMPARE_FUNC, GLint(op));
 }
 
 void tr::Texture::setWrap(Wrap wrap) noexcept
 {
-	glTextureParameteri(_id.get(), GL_TEXTURE_WRAP_S, GLint(wrap));
-	glTextureParameteri(_id.get(), GL_TEXTURE_WRAP_T, GLint(wrap));
-	glTextureParameteri(_id.get(), GL_TEXTURE_WRAP_R, GLint(wrap));
+	TR_GL_CALL(glTextureParameteri, _id.get(), GL_TEXTURE_WRAP_S, GLint(wrap));
+	TR_GL_CALL(glTextureParameteri, _id.get(), GL_TEXTURE_WRAP_T, GLint(wrap));
+	TR_GL_CALL(glTextureParameteri, _id.get(), GL_TEXTURE_WRAP_R, GLint(wrap));
 }
 
 void tr::Texture::setBorderColor(RGBAF color) noexcept
 {
-	glTextureParameterfv(_id.get(), GL_TEXTURE_BORDER_COLOR, &color.r);
+	TR_GL_CALL(glTextureParameterfv, _id.get(), GL_TEXTURE_BORDER_COLOR, &color.r);
 }
 
 void tr::Texture::setLabel(std::string_view label) noexcept
 {
-	glObjectLabel(GL_TEXTURE, _id.get(), label.size(), label.data());
+	TR_GL_CALL(glObjectLabel, GL_TEXTURE, _id.get(), label.size(), label.data());
 }
 
 tr::Texture1D::Texture1D(int size, bool mipmapped, TextureFormat format)
@@ -114,7 +114,7 @@ tr::Texture1D::Texture1D(int size, bool mipmapped, TextureFormat format)
 {
 	assert(size > 0);
 
-	glTextureStorage1D(_id.get(), mipmapped ? std::floor(std::log2(size)) + 1 : 1, GLenum(format), size);
+	TR_GL_CALL(glTextureStorage1D, _id.get(), mipmapped ? std::floor(std::log2(size)) + 1 : 1, GLenum(format), size);
 	if (glGetError() == GL_OUT_OF_MEMORY) {
 		throw TextureBadAlloc{};
 	}
@@ -137,9 +137,9 @@ void tr::Texture1D::setRegion(int offset, SubBitmap bitmap) noexcept
 	assert(offset + bitmap.size().x <= size());
 
 	auto [format, type]{bitmapToGLFormat(bitmap.format())};
-	glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
-	glTextureSubImage1D(_id.get(), 0, offset, bitmap.size().x, format, type, bitmap.data());
-	glGenerateTextureMipmap(_id.get());
+	TR_GL_CALL(glPixelStorei, GL_UNPACK_ROW_LENGTH, 0);
+	TR_GL_CALL(glTextureSubImage1D, _id.get(), 0, offset, bitmap.size().x, format, type, bitmap.data());
+	TR_GL_CALL(glGenerateTextureMipmap, _id.get());
 }
 
 tr::ArrayTexture1D::ArrayTexture1D(int size, int layers, bool mipmapped, TextureFormat format)
@@ -147,7 +147,8 @@ tr::ArrayTexture1D::ArrayTexture1D(int size, int layers, bool mipmapped, Texture
 {
 	assert(size > 0 && layers > 0);
 
-	glTextureStorage2D(_id.get(), mipmapped ? std::floor(std::log2(size)) + 1 : 1, GLenum(format), size, layers);
+	TR_GL_CALL(glTextureStorage2D, _id.get(), mipmapped ? std::floor(std::log2(size)) + 1 : 1, GLenum(format), size,
+			   layers);
 	if (glGetError() == GL_OUT_OF_MEMORY) {
 		throw TextureBadAlloc{};
 	}
@@ -177,9 +178,10 @@ void tr::ArrayTexture1D::setRegion(glm::ivec2 tl, SubBitmap bitmap) noexcept
 #endif
 
 	auto [format, type]{bitmapToGLFormat(bitmap.format())};
-	glPixelStorei(GL_UNPACK_ROW_LENGTH, bitmap.pitch() / bitmap.format().pixelBytes());
-	glTextureSubImage2D(_id.get(), 0, tl.x, tl.y, bitmap.size().x, bitmap.size().y, format, type, bitmap.data());
-	glGenerateTextureMipmap(_id.get());
+	TR_GL_CALL(glPixelStorei, GL_UNPACK_ROW_LENGTH, bitmap.pitch() / bitmap.format().pixelBytes());
+	TR_GL_CALL(glTextureSubImage2D, _id.get(), 0, tl.x, tl.y, bitmap.size().x, bitmap.size().y, format, type,
+			   bitmap.data());
+	TR_GL_CALL(glGenerateTextureMipmap, _id.get());
 }
 
 tr::Texture2D::Texture2D(glm::ivec2 size, bool mipmapped, TextureFormat format)
@@ -209,9 +211,10 @@ void tr::Texture2D::setRegion(glm::ivec2 tl, SubBitmap bitmap) noexcept
 {
 	assert(RectI2{size()}.contains(tl + bitmap.size()));
 	auto [format, type]{bitmapToGLFormat(bitmap.format())};
-	glPixelStorei(GL_UNPACK_ROW_LENGTH, bitmap.pitch() / bitmap.format().pixelBytes());
-	glTextureSubImage2D(_id.get(), 0, tl.x, tl.y, bitmap.size().x, bitmap.size().y, format, type, bitmap.data());
-	glGenerateTextureMipmap(_id.get());
+	TR_GL_CALL(glPixelStorei, GL_UNPACK_ROW_LENGTH, bitmap.pitch() / bitmap.format().pixelBytes());
+	TR_GL_CALL(glTextureSubImage2D, _id.get(), 0, tl.x, tl.y, bitmap.size().x, bitmap.size().y, format, type,
+			   bitmap.data());
+	TR_GL_CALL(glGenerateTextureMipmap, _id.get());
 }
 
 tr::ArrayTexture2D::ArrayTexture2D(glm::ivec2 size, int layers, bool mipmapped, TextureFormat format)
@@ -219,8 +222,8 @@ tr::ArrayTexture2D::ArrayTexture2D(glm::ivec2 size, int layers, bool mipmapped, 
 {
 	assert(size.x > 0 && size.y > 0 && layers > 0);
 
-	glTextureStorage3D(_id.get(), mipmapped ? std::floor(std::log2(std::max(size.x, size.y))) + 1 : 1,
-					   std::uint32_t(format), size.x, size.y, layers);
+	TR_GL_CALL(glTextureStorage3D, _id.get(), mipmapped ? std::floor(std::log2(std::max(size.x, size.y))) + 1 : 1,
+			   std::uint32_t(format), size.x, size.y, layers);
 	if (glGetError() == GL_OUT_OF_MEMORY) {
 		throw TextureBadAlloc{};
 	}
@@ -249,10 +252,10 @@ void tr::ArrayTexture2D::setLayerRegion(int layer, glm::ivec2 tl, SubBitmap bitm
 	assert(layer <= layers());
 	assert(RectI2{size()}.contains(tl + bitmap.size()));
 	auto [format, type]{bitmapToGLFormat(bitmap.format())};
-	glPixelStorei(GL_UNPACK_ROW_LENGTH, bitmap.pitch() / bitmap.format().pixelBytes());
-	glTextureSubImage3D(_id.get(), 0, tl.x, tl.y, layer, bitmap.size().x, bitmap.size().y, 1, format, type,
-						bitmap.data());
-	glGenerateTextureMipmap(_id.get());
+	TR_GL_CALL(glPixelStorei, GL_UNPACK_ROW_LENGTH, bitmap.pitch() / bitmap.format().pixelBytes());
+	TR_GL_CALL(glTextureSubImage3D, _id.get(), 0, tl.x, tl.y, layer, bitmap.size().x, bitmap.size().y, 1, format, type,
+			   bitmap.data());
+	TR_GL_CALL(glGenerateTextureMipmap, _id.get());
 }
 
 tr::Texture3D::Texture3D(glm::ivec3 size, bool mipmapped, TextureFormat format)
@@ -260,8 +263,8 @@ tr::Texture3D::Texture3D(glm::ivec3 size, bool mipmapped, TextureFormat format)
 {
 	assert(size.x > 0 && size.y > 0 && size.z > 0);
 
-	glTextureStorage3D(_id.get(), mipmapped ? std::floor(std::log2(std::max(size.x, size.y))) + 1 : 1,
-					   std::uint32_t(format), size.x, size.y, size.z);
+	TR_GL_CALL(glTextureStorage3D, _id.get(), mipmapped ? std::floor(std::log2(std::max(size.x, size.y))) + 1 : 1,
+			   std::uint32_t(format), size.x, size.y, size.z);
 	if (glGetError() == GL_OUT_OF_MEMORY) {
 		throw TextureBadAlloc{};
 	}
@@ -277,8 +280,8 @@ void tr::Texture3D::setLayerRegion(glm::ivec3 tl, SubBitmap bitmap) noexcept
 	assert(tl.z <= size().z);
 	assert(RectI2{glm::ivec2(size())}.contains(glm::ivec2(tl) + bitmap.size()));
 	auto [format, type]{bitmapToGLFormat(bitmap.format())};
-	glPixelStorei(GL_UNPACK_ROW_LENGTH, bitmap.pitch() / bitmap.format().pixelBytes());
-	glTextureSubImage3D(_id.get(), 0, tl.x, tl.y, tl.z, bitmap.size().x, bitmap.size().y, 1, format, type,
-						bitmap.data());
-	glGenerateTextureMipmap(_id.get());
+	TR_GL_CALL(glPixelStorei, GL_UNPACK_ROW_LENGTH, bitmap.pitch() / bitmap.format().pixelBytes());
+	TR_GL_CALL(glTextureSubImage3D, _id.get(), 0, tl.x, tl.y, tl.z, bitmap.size().x, bitmap.size().y, 1, format, type,
+			   bitmap.data());
+	TR_GL_CALL(glGenerateTextureMipmap, _id.get());
 }
