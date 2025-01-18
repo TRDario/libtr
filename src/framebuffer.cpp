@@ -60,8 +60,9 @@ void tr::BasicFramebuffer::bindWrite() const noexcept
 }
 
 tr::Framebuffer::Framebuffer() noexcept
-	: BasicFramebuffer{createFramebuffer()}
+	: BasicFramebuffer{createFramebuffer()}, _size{0, 0}
 {
+	_attachSizes.fill(EMPTY_ATTACHMENT);
 }
 
 tr::Framebuffer::Framebuffer(Framebuffer&& r) noexcept
@@ -93,6 +94,7 @@ void tr::Framebuffer::attach(Texture1D& tex, Slot slot) noexcept
 {
 	TR_GL_CALL(glNamedFramebufferTexture, _id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0);
 	_attachSizes[int(slot)] = {tex.size(), 1};
+	calcSize();
 }
 
 void tr::Framebuffer::attach(ArrayTexture1D& tex, int layer, Slot slot) noexcept
@@ -100,12 +102,14 @@ void tr::Framebuffer::attach(ArrayTexture1D& tex, int layer, Slot slot) noexcept
 	assert(layer >= 0 && layer < tex.layers());
 	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0, layer);
 	_attachSizes[int(slot)] = {tex.size(), 1};
+	calcSize();
 }
 
 void tr::Framebuffer::attach(Texture2D& tex, Slot slot) noexcept
 {
 	TR_GL_CALL(glNamedFramebufferTexture, _id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0);
 	_attachSizes[int(slot)] = tex.size();
+	calcSize();
 }
 
 void tr::Framebuffer::attach(ArrayTexture2D& tex, int layer, Slot slot) noexcept
@@ -113,6 +117,7 @@ void tr::Framebuffer::attach(ArrayTexture2D& tex, int layer, Slot slot) noexcept
 	assert(layer >= 0 && layer < tex.layers());
 	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0, layer);
 	_attachSizes[int(slot)] = tex.size();
+	calcSize();
 }
 
 void tr::Framebuffer::attach(Texture3D& tex, int z, Slot slot) noexcept
@@ -120,18 +125,21 @@ void tr::Framebuffer::attach(Texture3D& tex, int z, Slot slot) noexcept
 	assert(z >= 0 && z < tex.size().z);
 	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, getGLAttachment(slot), ((Texture&)(tex))._id.get(), 0, z);
 	_attachSizes[int(slot)] = {tex.size().x, tex.size().y};
+	calcSize();
 }
 
 void tr::Framebuffer::attach(Renderbuffer& buffer, Slot slot) noexcept
 {
 	TR_GL_CALL(glNamedFramebufferRenderbuffer, _id, getGLAttachment(slot), GL_RENDERBUFFER, buffer._id.get());
 	_attachSizes[int(slot)] = buffer.size();
+	calcSize();
 }
 
 void tr::Framebuffer::clear(Slot slot) noexcept
 {
 	TR_GL_CALL(glNamedFramebufferTexture, _id, getGLAttachment(slot), 0, 0);
 	_attachSizes[int(slot)] = EMPTY_ATTACHMENT;
+	calcSize();
 }
 
 void tr::Framebuffer::setLabel(std::string_view label) noexcept
