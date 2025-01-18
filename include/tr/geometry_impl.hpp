@@ -217,9 +217,9 @@ template <tr::Arithmetic T1, tr::Arithmetic T2> std::common_type_t<T1, T2> tr::m
 
 template <tr::Arithmetic T> T tr::mirrorRepeat(T v, T min, T max) noexcept
 {
-	auto shift{v - min};
-	auto size{max - min};
-	shift = mod(abs(shift + (shift < 0)), (2 * size));
+	T shift{v - min};
+	T size{max - min};
+	shift = tr::mod(std::abs(shift + (shift < 0)), (2 * size));
 	return min + (shift >= size ? 2 * size - shift - 1 : shift);
 }
 
