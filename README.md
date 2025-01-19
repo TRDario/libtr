@@ -33,8 +33,8 @@ libtr depends on the following external libraries:
 
 - [Boost](https://www.boost.org/)
 - [EnumBitmask](https://github.com/Reputeless/EnumBitmask) (vendored)
+- [glad](https://github.com/Dav1dde/glad) (vendored)
 - [GLM](https://github.com/g-truc/glm)
-- [GLEW](https://glew.sourceforge.net/)
 - [half](https://sourceforge.net/projects/half/files/half/) (vendored)
 - [magic_enum](https://github.com/Neargye/magic_enum)
 - [OpenALSoft](https://github.com/kcat/openal-soft)
