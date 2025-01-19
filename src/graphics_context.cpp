@@ -15,7 +15,7 @@ SDL_GLContext tr::createContext(SDL_Window* window)
 	if (context == nullptr) {
 		throw WindowOpenError{std::format("Failed to create OpenGL context: {}", SDL_GetError())};
 	}
-	else if (!gladLoadGL()) {
+	else if (!gladLoadGLLoader(SDL_GL_GetProcAddress)) {
 		throw WindowOpenError{"Failed to load OpenGL 4.6."};
 	}
 	return context;
