@@ -52,17 +52,17 @@ var group__event =
       [ "key", "structtr_1_1KeyUpEvent.html#a1230d9fd067a9f4e2938a99c0af907e4", null ]
     ] ],
     [ "tr::TextEditEvent", "structtr_1_1TextEditEvent.html", [
-      [ "TextEditEvent", "structtr_1_1TextEditEvent.html#a309ff0ca0eb4c87ac46fce47e99669d6", null ],
+      [ "TextEditEvent", "structtr_1_1TextEditEvent.html#af75be8a3cf96723ee56206667915710b", null ],
       [ "TextEditEvent", "structtr_1_1TextEditEvent.html#a8efc1b782197fb025bbde1a275b19aeb", null ],
       [ "operator Event", "structtr_1_1TextEditEvent.html#acacbe1e7d5a1185226711b6bc46fdfe8", null ],
-      [ "text", "structtr_1_1TextEditEvent.html#a9ccb8b613874a1a55ef8bf8bd8df4e58", null ],
+      [ "text", "structtr_1_1TextEditEvent.html#a734ab94dcbfbb1663f03963dcf52e578", null ],
       [ "selected", "structtr_1_1TextEditEvent.html#a8d667474a0447f869815956d52149288", null ]
     ] ],
     [ "tr::TextInputEvent", "structtr_1_1TextInputEvent.html", [
-      [ "TextInputEvent", "structtr_1_1TextInputEvent.html#a65061ca9c1699ce4fb462794ffb9ca15", null ],
+      [ "TextInputEvent", "structtr_1_1TextInputEvent.html#a2b4530c5ac919f423bf6c2552d00a962", null ],
       [ "TextInputEvent", "structtr_1_1TextInputEvent.html#aadc26330b4e7dc455453c96ce60bc1fa", null ],
       [ "operator Event", "structtr_1_1TextInputEvent.html#a2487f3f90e1f08ea58c247f4e7a59c44", null ],
-      [ "text", "structtr_1_1TextInputEvent.html#af63cc44e0640a5e2a9063b53fc8dabbc", null ]
+      [ "text", "structtr_1_1TextInputEvent.html#acc6899cba96d633cdcb3c5e9d03701ee", null ]
     ] ],
     [ "tr::MouseMotionEvent", "structtr_1_1MouseMotionEvent.html", [
       [ "MouseMotionEvent", "structtr_1_1MouseMotionEvent.html#a5126ff52322fa0578314cf0084c4b335", null ],

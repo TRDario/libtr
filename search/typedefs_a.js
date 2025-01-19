@@ -4,6 +4,5 @@ var searchData=
   ['secondsd_1',['SecondsD',['../group__chrono.html#ga0f92e87943507c498db866578bf86b58',1,'tr']]],
   ['secondsf_2',['SecondsF',['../group__chrono.html#ga8bf48222a318f44cc048821df3489576',1,'tr']]],
   ['secondsi_3',['SecondsI',['../group__chrono.html#gac3b0f92332e2487ba38ba305d8e3c09e',1,'tr']]],
-  ['staticstringhashmap_4',['StaticStringHashMap',['../group__hash__map.html#ga8014c86bab19adcb28b1ba1b58119ce9',1,'tr']]],
-  ['stringhashmap_5',['StringHashMap',['../group__hash__map.html#ga75ea6209bc089aebbd5821b3028643d9',1,'tr']]]
+  ['stringhashmap_4',['StringHashMap',['../group__hash__map.html#ga75ea6209bc089aebbd5821b3028643d9',1,'tr']]]
 ];

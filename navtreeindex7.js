@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"structtr_1_1FileOpenError.html":[0,1,15,3],
 "structtr_1_1FileOpenError.html#a154a619d8790490a78ed04dea19458dc":[0,1,15,3,0],
 "structtr_1_1FileOpenError.html#a2721806b29b337df88b1872d26c235a9":[0,1,15,3,3],
 "structtr_1_1FileOpenError.html#a40619fbc37d069161d0d1215061ca56c":[0,1,15,3,2],
@@ -154,16 +155,16 @@ var NAVTREEINDEX7 =
 "structtr_1_1TexVtx2.html#a5c99ac957fa72ce1ed1c6264607e9d3e":[0,1,18,4,0],
 "structtr_1_1TexVtx2.html#ad764171b61078aecabe522d8c7967ccb":[0,1,18,4,1],
 "structtr_1_1TextEditEvent.html":[0,2,2,6],
-"structtr_1_1TextEditEvent.html#a309ff0ca0eb4c87ac46fce47e99669d6":[0,2,2,6,0],
+"structtr_1_1TextEditEvent.html#a734ab94dcbfbb1663f03963dcf52e578":[0,2,2,6,3],
 "structtr_1_1TextEditEvent.html#a8d667474a0447f869815956d52149288":[0,2,2,6,4],
 "structtr_1_1TextEditEvent.html#a8efc1b782197fb025bbde1a275b19aeb":[0,2,2,6,1],
-"structtr_1_1TextEditEvent.html#a9ccb8b613874a1a55ef8bf8bd8df4e58":[0,2,2,6,3],
 "structtr_1_1TextEditEvent.html#acacbe1e7d5a1185226711b6bc46fdfe8":[0,2,2,6,2],
+"structtr_1_1TextEditEvent.html#af75be8a3cf96723ee56206667915710b":[0,2,2,6,0],
 "structtr_1_1TextInputEvent.html":[0,2,2,7],
 "structtr_1_1TextInputEvent.html#a2487f3f90e1f08ea58c247f4e7a59c44":[0,2,2,7,2],
-"structtr_1_1TextInputEvent.html#a65061ca9c1699ce4fb462794ffb9ca15":[0,2,2,7,0],
+"structtr_1_1TextInputEvent.html#a2b4530c5ac919f423bf6c2552d00a962":[0,2,2,7,0],
 "structtr_1_1TextInputEvent.html#aadc26330b4e7dc455453c96ce60bc1fa":[0,2,2,7,1],
-"structtr_1_1TextInputEvent.html#af63cc44e0640a5e2a9063b53fc8dabbc":[0,2,2,7,3],
+"structtr_1_1TextInputEvent.html#acc6899cba96d633cdcb3c5e9d03701ee":[0,2,2,7,3],
 "structtr_1_1Texture1D.html":[0,2,4,9,2],
 "structtr_1_1Texture1D.html#a1f15160377145524f8a7093581a5e581":[0,2,4,9,2,3],
 "structtr_1_1Texture1D.html#a2733610c1e2ee7d591b5ad5b907f9339":[0,2,4,9,2,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX7 =
 "structtr_1_1WindowLoseFocusEvent.html":[0,2,2,24],
 "structtr_1_1WindowMaximizeEvent.html":[0,2,2,21],
 "structtr_1_1WindowMinimizeEvent.html":[0,2,2,20],
-"structtr_1_1WindowMotionEvent.html":[0,2,2,17],
-"structtr_1_1WindowMotionEvent.html#a383e07caa27ebb68d9c37f52d03fbb2c":[0,2,2,17,0]
+"structtr_1_1WindowMotionEvent.html":[0,2,2,17]
 };

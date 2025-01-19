@@ -141,11 +141,11 @@ Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1StandardLayout.html">tr::StandardLayout</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept wrapper over std::is_standard_layout_v. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1SpecializationOf.html">tr::SpecializationOf</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept that denotes a type is a specialization of a certain template. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1StandardLayoutRange.html">tr::StandardLayoutRange</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept denoting a contiguous range of standard layout objects. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1SpecializationOf.html">tr::SpecializationOf</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept that denotes a type is a specialization of a certain template. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
@@ -153,10 +153,18 @@ Typedefs</h2></td></tr>
 <tr class="memitem:gaa9fb5ed6efb7979279398a2ed8ab41cc" id="r_gaa9fb5ed6efb7979279398a2ed8ab41cc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gaa9fb5ed6efb7979279398a2ed8ab41cc">tr::Half</a> = half_float::half</td></tr>
 <tr class="memdesc:gaa9fb5ed6efb7979279398a2ed8ab41cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typedef for a 16-bit floating-point type.  <br /></td></tr>
 <tr class="separator:gaa9fb5ed6efb7979279398a2ed8ab41cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7d27da0979dd5dcecf290bb304d95aa5" id="r_ga7d27da0979dd5dcecf290bb304d95aa5"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
-<tr class="memitem:ga7d27da0979dd5dcecf290bb304d95aa5"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga7d27da0979dd5dcecf290bb304d95aa5">tr::remove_noexcept_t</a> = remove_noexcept&lt;T&gt;::type</td></tr>
-<tr class="memdesc:ga7d27da0979dd5dcecf290bb304d95aa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes noexcept qualification from a function type.  <br /></td></tr>
-<tr class="separator:ga7d27da0979dd5dcecf290bb304d95aa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga185c90a9b4288cb80012632e3f775811" id="r_ga185c90a9b4288cb80012632e3f775811"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:ga185c90a9b4288cb80012632e3f775811"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga185c90a9b4288cb80012632e3f775811">tr::RemoveNoexceptT</a> = RemoveNoexcept&lt;T&gt;::type</td></tr>
+<tr class="memdesc:ga185c90a9b4288cb80012632e3f775811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes noexcept qualification from a function type.  <br /></td></tr>
+<tr class="separator:ga185c90a9b4288cb80012632e3f775811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa756ab945f712271e029660bb53672bb" id="r_gaa756ab945f712271e029660bb53672bb"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:gaa756ab945f712271e029660bb53672bb"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gaa756ab945f712271e029660bb53672bb">tr::ReturnTypeT</a> = ReturnType&lt;T&gt;::type</td></tr>
+<tr class="memdesc:gaa756ab945f712271e029660bb53672bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the return type of a function.  <br /></td></tr>
+<tr class="separator:gaa756ab945f712271e029660bb53672bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga016fb6f1f267243c246db69f57f2cd9e" id="r_ga016fb6f1f267243c246db69f57f2cd9e"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:ga016fb6f1f267243c246db69f57f2cd9e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga016fb6f1f267243c246db69f57f2cd9e">tr::ArgumentTypeT</a> = ArgumentType&lt;T&gt;::type</td></tr>
+<tr class="memdesc:ga016fb6f1f267243c246db69f57f2cd9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the type of the argument of a function.  <br /></td></tr>
+<tr class="separator:ga016fb6f1f267243c246db69f57f2cd9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Miscellaneous concepts. </p>
@@ -177,8 +185,8 @@ Typedefs</h2></td></tr>
 
 </div>
 </div>
-<a id="ga7d27da0979dd5dcecf290bb304d95aa5" name="ga7d27da0979dd5dcecf290bb304d95aa5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7d27da0979dd5dcecf290bb304d95aa5">&#9670;&#160;</a></span>remove_noexcept_t</h2>
+<a id="ga185c90a9b4288cb80012632e3f775811" name="ga185c90a9b4288cb80012632e3f775811"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga185c90a9b4288cb80012632e3f775811">&#9670;&#160;</a></span>RemoveNoexceptT</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -186,12 +194,48 @@ Typedefs</h2></td></tr>
 template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#ga7d27da0979dd5dcecf290bb304d95aa5">tr::remove_noexcept_t</a> = remove_noexcept&lt;T&gt;::type</td>
+          <td class="memname">using <a class="el" href="#ga185c90a9b4288cb80012632e3f775811">tr::RemoveNoexceptT</a> = RemoveNoexcept&lt;T&gt;::type</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Removes noexcept qualification from a function type. </p>
+
+</div>
+</div>
+<a id="gaa756ab945f712271e029660bb53672bb" name="gaa756ab945f712271e029660bb53672bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa756ab945f712271e029660bb53672bb">&#9670;&#160;</a></span>ReturnTypeT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#gaa756ab945f712271e029660bb53672bb">tr::ReturnTypeT</a> = ReturnType&lt;T&gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the return type of a function. </p>
+
+</div>
+</div>
+<a id="ga016fb6f1f267243c246db69f57f2cd9e" name="ga016fb6f1f267243c246db69f57f2cd9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga016fb6f1f267243c246db69f57f2cd9e">&#9670;&#160;</a></span>ArgumentTypeT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ga016fb6f1f267243c246db69f57f2cd9e">tr::ArgumentTypeT</a> = ArgumentType&lt;T&gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the type of the argument of a function. </p>
 
 </div>
 </div>
