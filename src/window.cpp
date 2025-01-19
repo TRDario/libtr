@@ -10,10 +10,7 @@ namespace tr {
 	bool        initSDL(const GraphicsProperties& gfxProperties);
 	void        setSDLGLAttributes(const GraphicsProperties& gfxProperties) noexcept;
 	void        suppressUnsupportedEvents() noexcept;
-	SDL_Window* openWindowedWindow(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFlag flags);
-	SDL_Window* openBorderlessWindow(const char* title, DisplayInfo display, WindowFlag flags);
-	SDL_Window* openFullscreenWindow(const char* title, const DisplayMode& dmode, DisplayInfo display,
-									 WindowFlag flags);
+	SDL_Window* openWindow(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFlag flags);
 } // namespace tr
 
 void tr::setSDLGLAttributes(const GraphicsProperties& gfxProperties) noexcept
@@ -77,7 +74,7 @@ bool tr::initSDL(const GraphicsProperties& gfxProperties)
 	return true;
 }
 
-SDL_Window* tr::openWindowedWindow(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFlag flags)
+SDL_Window* tr::openWindow(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFlag flags)
 {
 	const auto  sdlFlags{std::uint32_t(flags) | SDL_WINDOW_OPENGL | SDL_WINDOW_HIDDEN};
 	SDL_Window* window{SDL_CreateWindow(title, pos.x, pos.y, size.x, size.y, sdlFlags)};
@@ -87,51 +84,9 @@ SDL_Window* tr::openWindowedWindow(const char* title, glm::ivec2 size, glm::ivec
 	return window;
 }
 
-SDL_Window* tr::openBorderlessWindow(const char* title, DisplayInfo display, WindowFlag flags)
-{
-	const auto  size{display.displayMode(DESKTOP_MODE).size};
-	const auto  pos{display.centeredPos()};
-	const auto  sdlFlags{std::uint32_t(flags) | SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP | SDL_WINDOW_HIDDEN};
-	SDL_Window* window{SDL_CreateWindow(title, pos.x, pos.y, size.x, size.y, sdlFlags)};
-	if (window == nullptr) {
-		throw WindowOpenError{
-			std::format("Failed to open borderless {}x{} window ({}).", size.x, size.y, SDL_GetError())};
-	}
-	return window;
-}
-
-SDL_Window* tr::openFullscreenWindow(const char* title, const DisplayMode& dmode, DisplayInfo display, WindowFlag flags)
-{
-	auto            pos{display.centeredPos()};
-	SDL_DisplayMode sdlMode{std::uint32_t(BitmapFormat::Type(dmode.format)), dmode.size.x, dmode.size.y,
-							dmode.refreshRate, nullptr};
-	const auto      sdlFlags{std::uint32_t(flags) | SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN};
-	SDL_Window*     window{SDL_CreateWindow(title, pos.x, pos.y, dmode.size.x, dmode.size.y, sdlFlags)};
-	if (window == nullptr || SDL_SetWindowDisplayMode(window, &sdlMode) < 0) {
-		throw WindowOpenError{
-			std::format("Failed to open fullscreen {}x{} window ({}).", dmode.size.x, dmode.size.y, SDL_GetError())};
-	}
-	return window;
-}
-
 tr::Window::Window(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFlag flags,
 				   const GraphicsProperties& gfxProperties)
-	: _sdl{initSDL(gfxProperties)}, _impl{openWindowedWindow(title, size, pos, flags)}, _glContext{_impl.get()}
-{
-	assert(!windowOpened());
-	_window = this;
-}
-
-tr::Window::Window(const char* title, DisplayInfo display, WindowFlag flags, const GraphicsProperties& gfxProperties)
-	: _sdl{initSDL(gfxProperties)}, _impl{openBorderlessWindow(title, display, flags)}, _glContext{_impl.get()}
-{
-	assert(!windowOpened());
-	_window = this;
-}
-
-tr::Window::Window(const char* title, const DisplayMode& dmode, DisplayInfo display, WindowFlag flags,
-				   const GraphicsProperties& gfxProperties)
-	: _sdl{initSDL(gfxProperties)}, _impl{openFullscreenWindow(title, dmode, display, flags)}, _glContext{_impl.get()}
+	: _sdl{initSDL(gfxProperties)}, _impl{openWindow(title, size, pos, flags)}, _glContext{_impl.get()}
 {
 	assert(!windowOpened());
 	_window = this;

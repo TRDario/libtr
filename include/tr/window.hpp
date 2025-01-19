@@ -158,7 +158,7 @@ namespace tr {
 	class Window {
 	  public:
 		/**************************************************************************************************************
-		 * Opens a windowed window.
+		 * Opens a window.
 		 *
 		 * @note The window starts hidden and show() must be called.
 		 *
@@ -176,45 +176,6 @@ namespace tr {
 		 * @param[in] gfxProperties The properties of the window's graphics context.
 		 **************************************************************************************************************/
 		Window(const char* title, glm::ivec2 size, glm::ivec2 pos = CENTERED_POS,
-			   WindowFlag flags = WindowFlag::DEFAULT, const GraphicsProperties& gfxProperties = {});
-
-		/**************************************************************************************************************
-		 * Opens a borderless fullscreen window.
-		 *
-		 * @note The window starts hidden and show() must be called.
-		 *
-		 * @par Exception Safety
-		 *
-		 * Strong exception guarantee.
-		 *
-		 * @exception WindowOpenError If opening the window fails.
-		 *
-		 * @param[in] title The title of the window.
-		 * @param[in] display The display to put the window on.
-		 * @param[in] flags The flags of the window.
-		 * @param[in] gfxProperties The properties of the window's graphics context.
-		 **************************************************************************************************************/
-		Window(const char* title, DisplayInfo display = tr::display(), WindowFlag flags = WindowFlag::DEFAULT,
-			   const GraphicsProperties& gfxProperties = {});
-
-		/**************************************************************************************************************
-		 * Opens a fullscreen window.
-		 *
-		 * @note The window starts hidden and show() must be called.
-		 *
-		 * @par Exception Safety
-		 *
-		 * Strong exception guarantee.
-		 *
-		 * @exception WindowOpenError If opening the window fails.
-		 *
-		 * @param[in] title The title of the window.
-		 * @param[in] dmode The display mode to use.
-		 * @param[in] display The display to put the window on.
-		 * @param[in] flags The flags of the window.
-		 * @param[in] gfxProperties The properties of the window's graphics context.
-		 **************************************************************************************************************/
-		Window(const char* title, const DisplayMode& dmode, DisplayInfo display = tr::display(),
 			   WindowFlag flags = WindowFlag::DEFAULT, const GraphicsProperties& gfxProperties = {});
 
 		/**************************************************************************************************************
