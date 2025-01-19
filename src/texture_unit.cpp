@@ -1,5 +1,5 @@
 #include "../include/tr/texture_unit.hpp"
-#include <GL/glew.h>
+#include "gl_call.hpp"
 #include <bitset>
 
 namespace tr {
@@ -28,5 +28,5 @@ void tr::TextureUnit::Deleter::operator()(GLuint id) noexcept
 
 void tr::TextureUnit::setTexture(const Texture& texture) noexcept
 {
-	glBindTextures(_id.get(), 1, &texture._id.get());
+	TR_GL_CALL(glBindTextures, _id.get(), 1, &texture._id.get());
 }

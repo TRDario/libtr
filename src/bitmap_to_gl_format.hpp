@@ -1,6 +1,6 @@
 #pragma once
 #include "../include/tr/bitmap_format.hpp"
-#include <GL/glew.h>
+#include "gl_call.hpp"
 #include <cassert>
 #include <utility>
 

@@ -1,5 +1,5 @@
 #pragma once
-#include <GL/glew.h>
+#include "../include/tr/dependencies/glad.h"
 #include <iostream>
 
 namespace tr {

@@ -14,7 +14,6 @@ find_package(OpenAL REQUIRED)
 find_package(Boost REQUIRED)
 find_package(glm REQUIRED)
 find_package(OpenGL REQUIRED)
-find_package(GLEW REQUIRED)
 find_package(magic_enum REQUIRED)
 find_package(OpenAL REQUIRED)
 find_package(SDL2 REQUIRED)
@@ -31,13 +30,13 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GN
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     target_compile_options(tr PRIVATE /W4 /WX)
 endif()
-target_link_libraries(tr PUBLIC SDL2_image SDL2_ttf SDL2 GLEW OpenGL openal sndfile)
+target_link_libraries(tr PUBLIC SDL2_image SDL2_ttf SDL2 OpenGL openal sndfile)
 set_target_properties(tr PROPERTIES DEBUG_POSTFIX "d")
 
 target_sources(tr PRIVATE
     src/audio_buffer.cpp src/audio_source.cpp src/audio_system.cpp
     src/benchmark.cpp src/bitmap_format.cpp src/bitmap_iterators.cpp src/bitmap.cpp src/display.cpp src/event.cpp
-    src/framebuffer.cpp src/graphics_buffer.cpp src/graphics_context.cpp src/index_buffer.cpp src/iostream.cpp src/keyboard.cpp
+    src/framebuffer.cpp src/graphics_buffer.cpp src/glad.c src/graphics_context.cpp src/index_buffer.cpp src/iostream.cpp src/keyboard.cpp
     src/listener.cpp src/mouse.cpp src/path.cpp src/renderbuffer.cpp src/rng.cpp src/sdl.cpp src/shader_buffer.cpp
     src/shader_pipeline.cpp src/shader.cpp src/stopwatch.cpp src/texture_unit.cpp src/texture.cpp src/timer.cpp src/ttfont.cpp
     src/vertex_buffer.cpp src/vertex_format.cpp src/vertex.cpp src/window.cpp
@@ -46,7 +45,7 @@ target_sources(tr PUBLIC
     FILE_SET HEADERS
     BASE_DIRS include
     FILES
-        include/tr/dependencies/EnumBitmask.hpp include/tr/dependencies/half.hpp
+        include/tr/dependencies/EnumBitmask.hpp include/tr/dependencies/half.hpp include/tr/dependencies/glad.h include/tr/dependencies/khrplatform.h
         include/tr/angle_impl.hpp include/tr/angle.hpp include/tr/audio_buffer.hpp include/tr/audio_source.hpp
         include/tr/audio_system.hpp include/tr/benchmark.hpp include/tr/bitmap_format.hpp include/tr/bitmap_iterators.hpp
         include/tr/bitmap.hpp include/tr/chrono.hpp include/tr/color_cast.hpp include/tr/chrono.hpp include/tr/color_cast_impl.hpp

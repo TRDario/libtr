@@ -2,7 +2,6 @@
 #include "../include/tr/dependencies/imgui_impl_opengl3.h"
 #include "../include/tr/dependencies/imgui_impl_sdl2.h"
 #include "../include/tr/window.hpp"
-#include <GL/glew.h>
 
 std::uint64_t tr::ImGui::getTextureID(const Texture& texture) noexcept
 {

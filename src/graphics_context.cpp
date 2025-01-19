@@ -15,15 +15,9 @@ SDL_GLContext tr::createContext(SDL_Window* window)
 	if (context == nullptr) {
 		throw WindowOpenError{std::format("Failed to create OpenGL context: {}", SDL_GetError())};
 	}
-
-	glewExperimental = true;
-	GLenum glewError;
-	if ((glewError = glewInit()) != GLEW_OK) {
-		SDL_GL_DeleteContext(context);
-		auto error{(const char*)(glewGetErrorString(glewError))};
-		throw WindowOpenError{std::format("Failed to initialize GLEW: {}", error)};
+	else if (!gladLoadGL()) {
+		throw WindowOpenError{"Failed to load OpenGL 4.6."};
 	}
-
 	return context;
 }
 
