@@ -124,14 +124,8 @@ $(function(){initNavTree('classtr_1_1Window.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ada54ab84d957e835581c52f0c7eb57f4" id="r_ada54ab84d957e835581c52f0c7eb57f4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada54ab84d957e835581c52f0c7eb57f4">Window</a> (const char *<a class="el" href="#a3645839730d3b741dcc0b0c7eb2ed96e">title</a>, glm::ivec2 <a class="el" href="#a42ac3eed9253802bb8234558685ebce0">size</a>, glm::ivec2 pos=<a class="el" href="group__window.html#ga3d79ab32d9b1afaebc7c4f45002ae5b6">CENTERED_POS</a>, <a class="el" href="group__window.html#gad463b226a0cad7ea3e64dd5b07ecf12f">WindowFlag</a> flags=<a class="el" href="group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee">WindowFlag::DEFAULT</a>, const <a class="el" href="structtr_1_1GraphicsProperties.html">GraphicsProperties</a> &amp;gfxProperties={})</td></tr>
-<tr class="memdesc:ada54ab84d957e835581c52f0c7eb57f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a windowed window.  <br /></td></tr>
+<tr class="memdesc:ada54ab84d957e835581c52f0c7eb57f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a window.  <br /></td></tr>
 <tr class="separator:ada54ab84d957e835581c52f0c7eb57f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa285262c59db8ccb8b42606656715e18" id="r_aa285262c59db8ccb8b42606656715e18"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa285262c59db8ccb8b42606656715e18">Window</a> (const char *<a class="el" href="#a3645839730d3b741dcc0b0c7eb2ed96e">title</a>, <a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a> <a class="el" href="group__display.html#gad51a17a225484bc25b2fadc3e778330e">display</a>=<a class="el" href="group__display.html#gad51a17a225484bc25b2fadc3e778330e">tr::display</a>(), <a class="el" href="group__window.html#gad463b226a0cad7ea3e64dd5b07ecf12f">WindowFlag</a> flags=<a class="el" href="group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee">WindowFlag::DEFAULT</a>, const <a class="el" href="structtr_1_1GraphicsProperties.html">GraphicsProperties</a> &amp;gfxProperties={})</td></tr>
-<tr class="memdesc:aa285262c59db8ccb8b42606656715e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a borderless fullscreen window.  <br /></td></tr>
-<tr class="separator:aa285262c59db8ccb8b42606656715e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d8e106a8287c3f38a81316be70ad137" id="r_a7d8e106a8287c3f38a81316be70ad137"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d8e106a8287c3f38a81316be70ad137">Window</a> (const char *<a class="el" href="#a3645839730d3b741dcc0b0c7eb2ed96e">title</a>, const <a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> &amp;dmode, <a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a> <a class="el" href="group__display.html#gad51a17a225484bc25b2fadc3e778330e">display</a>=<a class="el" href="group__display.html#gad51a17a225484bc25b2fadc3e778330e">tr::display</a>(), <a class="el" href="group__window.html#gad463b226a0cad7ea3e64dd5b07ecf12f">WindowFlag</a> flags=<a class="el" href="group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee">WindowFlag::DEFAULT</a>, const <a class="el" href="structtr_1_1GraphicsProperties.html">GraphicsProperties</a> &amp;gfxProperties={})</td></tr>
-<tr class="memdesc:a7d8e106a8287c3f38a81316be70ad137"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a fullscreen window.  <br /></td></tr>
-<tr class="separator:a7d8e106a8287c3f38a81316be70ad137"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3645839730d3b741dcc0b0c7eb2ed96e" id="r_a3645839730d3b741dcc0b0c7eb2ed96e"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3645839730d3b741dcc0b0c7eb2ed96e">title</a> () const noexcept</td></tr>
 <tr class="memdesc:a3645839730d3b741dcc0b0c7eb2ed96e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the title of the window.  <br /></td></tr>
 <tr class="separator:a3645839730d3b741dcc0b0c7eb2ed96e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -296,7 +290,7 @@ Public Member Functions</h2></td></tr>
 <p><a class="el" href="classtr_1_1Window.html" title="The main application window.">Window</a> is movable, but not copyable. A moved window is left in a state where another window can be moved into it, but is otherwise unusable. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ada54ab84d957e835581c52f0c7eb57f4" name="ada54ab84d957e835581c52f0c7eb57f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada54ab84d957e835581c52f0c7eb57f4">&#9670;&#160;</a></span>Window() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ada54ab84d957e835581c52f0c7eb57f4">&#9670;&#160;</a></span>Window()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -329,7 +323,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Opens a windowed window. </p>
+<p>Opens a window. </p>
 <dl class="section note"><dt>Note</dt><dd>The window starts hidden and <a class="el" href="#a213a3dddf9e5db863aa8132680b521b0" title="Unhides the window.">show()</a> must be called.</dd></dl>
 <dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
 <p>Strong exception guarantee.</p>
@@ -344,114 +338,6 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">title</td><td>The title of the window. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>The size of the window in pixels. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>The position of the window, offset to the top-left corner of the window in pixels. Several special sentinels exist, such as CENTERED_POS, as well as <a class="el" href="classtr_1_1DisplayInfo.html#a50fb050f427a47e451aa98353b335d17" title="Creates a value usable by a Window constructor for centering a window on the display.">DisplayInfo::centeredPos()</a>. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">flags</td><td>The flags of the window. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">gfxProperties</td><td>The properties of the window's graphics context. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aa285262c59db8ccb8b42606656715e18" name="aa285262c59db8ccb8b42606656715e18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa285262c59db8ccb8b42606656715e18">&#9670;&#160;</a></span>Window() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">tr::Window::Window </td>
-          <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>title</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a></td>          <td class="paramname"><span class="paramname"><em>display</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="group__display.html#gad51a17a225484bc25b2fadc3e778330e">tr::display</a>()</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="group__window.html#gad463b226a0cad7ea3e64dd5b07ecf12f">WindowFlag</a></td>          <td class="paramname"><span class="paramname"><em>flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee">WindowFlag::DEFAULT</a></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structtr_1_1GraphicsProperties.html">GraphicsProperties</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>gfxProperties</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Opens a borderless fullscreen window. </p>
-<dl class="section note"><dt>Note</dt><dd>The window starts hidden and <a class="el" href="#a213a3dddf9e5db863aa8132680b521b0" title="Unhides the window.">show()</a> must be called.</dd></dl>
-<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
-<p>Strong exception guarantee.</p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1WindowOpenError.html" title="Error thrown when opening a window fails.">WindowOpenError</a></td><td>If opening the window fails.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">title</td><td>The title of the window. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">display</td><td>The display to put the window on. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">flags</td><td>The flags of the window. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">gfxProperties</td><td>The properties of the window's graphics context. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a7d8e106a8287c3f38a81316be70ad137" name="a7d8e106a8287c3f38a81316be70ad137"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d8e106a8287c3f38a81316be70ad137">&#9670;&#160;</a></span>Window() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">tr::Window::Window </td>
-          <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>title</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structtr_1_1DisplayMode.html">DisplayMode</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>dmode</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a></td>          <td class="paramname"><span class="paramname"><em>display</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="group__display.html#gad51a17a225484bc25b2fadc3e778330e">tr::display</a>()</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="group__window.html#gad463b226a0cad7ea3e64dd5b07ecf12f">WindowFlag</a></td>          <td class="paramname"><span class="paramname"><em>flags</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee">WindowFlag::DEFAULT</a></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structtr_1_1GraphicsProperties.html">GraphicsProperties</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>gfxProperties</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Opens a fullscreen window. </p>
-<dl class="section note"><dt>Note</dt><dd>The window starts hidden and <a class="el" href="#a213a3dddf9e5db863aa8132680b521b0" title="Unhides the window.">show()</a> must be called.</dd></dl>
-<dl class="section user"><dt>Exception Safety</dt><dd></dd></dl>
-<p>Strong exception guarantee.</p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="structtr_1_1WindowOpenError.html" title="Error thrown when opening a window fails.">WindowOpenError</a></td><td>If opening the window fails.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">title</td><td>The title of the window. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dmode</td><td>The display mode to use. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">display</td><td>The display to put the window on. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">flags</td><td>The flags of the window. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">gfxProperties</td><td>The properties of the window's graphics context. </td></tr>
   </table>
@@ -487,7 +373,7 @@ Public Member Functions</h2></td></tr>
 <p>Gets the title of the window. </p>
 <dl class="section return"><dt>Returns</dt><dd>A C-string containing the title of the window. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="#a7d8e106a8287c3f38a81316be70ad137">Window()</a>, <a class="el" href="#aa285262c59db8ccb8b42606656715e18">Window()</a>, <a class="el" href="#ada54ab84d957e835581c52f0c7eb57f4">Window()</a>, <a class="el" href="#a8e79db6579292020949791516b621e67">setTitle()</a>, and <a class="el" href="#af3e348ca7897f4380bcaecadc13e9598">setTitle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#ada54ab84d957e835581c52f0c7eb57f4">Window()</a>, <a class="el" href="#a8e79db6579292020949791516b621e67">setTitle()</a>, and <a class="el" href="#af3e348ca7897f4380bcaecadc13e9598">setTitle()</a>.</p>
 
 </div>
 </div>

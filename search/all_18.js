@@ -8,7 +8,7 @@ var searchData=
   ['width_5',['width',['../structtr_1_1TTFont_1_1MeasureResult.html#a3998914f9b390409553199e1ff4d86a4',1,'tr::TTFont::MeasureResult']]],
   ['win_6',['WIN',['../group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658a92e56d8195a9dd45a9b90aacf82886b1',1,'tr']]],
   ['window_7',['WINDOW',['../namespacetr_1_1event__type.html#a39b734a4c85067c0867fc998443c1dc2',1,'tr::event_type']]],
-  ['window_8',['Window',['../classtr_1_1Window.html',1,'tr::Window'],['../classtr_1_1Window.html#ada54ab84d957e835581c52f0c7eb57f4',1,'tr::Window::Window(const char *title, glm::ivec2 size, glm::ivec2 pos=CENTERED_POS, WindowFlag flags=WindowFlag::DEFAULT, const GraphicsProperties &amp;gfxProperties={})'],['../classtr_1_1Window.html#aa285262c59db8ccb8b42606656715e18',1,'tr::Window::Window(const char *title, DisplayInfo display=tr::display(), WindowFlag flags=WindowFlag::DEFAULT, const GraphicsProperties &amp;gfxProperties={})'],['../classtr_1_1Window.html#a7d8e106a8287c3f38a81316be70ad137',1,'tr::Window::Window(const char *title, const DisplayMode &amp;dmode, DisplayInfo display=tr::display(), WindowFlag flags=WindowFlag::DEFAULT, const GraphicsProperties &amp;gfxProperties={})'],['../group__window.html',1,'Window']]],
+  ['window_8',['Window',['../classtr_1_1Window.html',1,'tr::Window'],['../classtr_1_1Window.html#ada54ab84d957e835581c52f0c7eb57f4',1,'tr::Window::Window()'],['../group__window.html',1,'Window']]],
   ['window_9',['window',['../group__window.html#ga1b5287dbdc177a5306c50acbda2573c8',1,'tr']]],
   ['windowcloseevent_10',['WindowCloseEvent',['../structtr_1_1WindowCloseEvent.html',1,'tr']]],
   ['windowed_11',['WINDOWED',['../group__window.html#gga0caa27a38e3d8b688a5abab875ed28f7adaa43822b2c6abbb5d4eaf867ff6e4a4',1,'tr']]],

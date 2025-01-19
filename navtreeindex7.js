@@ -1,7 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"structtr_1_1FileNotFound.html#afdc352e7cd537ad610e937393246c310":[0,1,15,2,1],
-"structtr_1_1FileOpenError.html":[0,1,15,3],
 "structtr_1_1FileOpenError.html#a154a619d8790490a78ed04dea19458dc":[0,1,15,3,0],
 "structtr_1_1FileOpenError.html#a2721806b29b337df88b1872d26c235a9":[0,1,15,3,3],
 "structtr_1_1FileOpenError.html#a40619fbc37d069161d0d1215061ca56c":[0,1,15,3,2],
@@ -249,5 +247,7 @@ var NAVTREEINDEX7 =
 "structtr_1_1WindowLeaveEvent.html":[0,2,2,13],
 "structtr_1_1WindowLoseFocusEvent.html":[0,2,2,24],
 "structtr_1_1WindowMaximizeEvent.html":[0,2,2,21],
-"structtr_1_1WindowMinimizeEvent.html":[0,2,2,20]
+"structtr_1_1WindowMinimizeEvent.html":[0,2,2,20],
+"structtr_1_1WindowMotionEvent.html":[0,2,2,17],
+"structtr_1_1WindowMotionEvent.html#a383e07caa27ebb68d9c37f52d03fbb2c":[0,2,2,17,0]
 };

@@ -1,7 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"concepttr_1_1ColorCastableFrom.html":[0,1,3,2],
-"concepttr_1_1ColorCastableTo.html":[0,1,3,3],
 "concepttr_1_1ColorDatatype.html":[0,1,3,0],
 "concepttr_1_1ColorsRange.html":[0,1,18,2],
 "concepttr_1_1ConstReference.html":[0,1,4,3],
@@ -249,5 +247,7 @@ var NAVTREEINDEX4 =
 "group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fa6328e5e3186c227a021ef2ff77e40197":[0,2,4,2,3,2],
 "group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fabb2fe5c916efb43aab8cbb68f997d2ee":[0,2,4,2,3,0],
 "group__graphics__context.html#ggaeaf2735d38842f598e12fe0e884992eda04bd834032febb3fda8c6936ee140949":[0,2,4,2,7,2],
-"group__graphics__context.html#ggaeaf2735d38842f598e12fe0e884992eda301b25ea9a653329b5d5d727f92514c4":[0,2,4,2,7,1]
+"group__graphics__context.html#ggaeaf2735d38842f598e12fe0e884992eda301b25ea9a653329b5d5d727f92514c4":[0,2,4,2,7,1],
+"group__graphics__context.html#ggaeaf2735d38842f598e12fe0e884992eda5fb1f955b45e38e31789286a1790398d":[0,2,4,2,7,3],
+"group__graphics__context.html#ggaeaf2735d38842f598e12fe0e884992edaaa1780b4fcce2d5d9af13dc25386d111":[0,2,4,2,7,0]
 };

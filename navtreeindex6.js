@@ -1,7 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"namespacemembers_k.html":[1,1,0,9],
-"namespacemembers_l.html":[1,1,0,10],
 "namespacemembers_m.html":[1,1,0,11],
 "namespacemembers_n.html":[1,1,0,12],
 "namespacemembers_o.html":[1,1,0,13],
@@ -249,5 +247,7 @@ var NAVTREEINDEX6 =
 "structtr_1_1FileNotFound.html":[0,1,15,2],
 "structtr_1_1FileNotFound.html#a04b95a1cd6067f64248a241447cb2350":[0,1,15,2,0],
 "structtr_1_1FileNotFound.html#a2721806b29b337df88b1872d26c235a9":[0,1,15,2,3],
-"structtr_1_1FileNotFound.html#a40619fbc37d069161d0d1215061ca56c":[0,1,15,2,2]
+"structtr_1_1FileNotFound.html#a40619fbc37d069161d0d1215061ca56c":[0,1,15,2,2],
+"structtr_1_1FileNotFound.html#afdc352e7cd537ad610e937393246c310":[0,1,15,2,1],
+"structtr_1_1FileOpenError.html":[0,1,15,3]
 };
