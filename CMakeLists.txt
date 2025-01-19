@@ -11,7 +11,6 @@ option(TR_DEAR_IMGUI_INTEGRATION "whether to include Dear ImGui integration" OFF
 include(FetchContent)
 
 find_package(OpenAL REQUIRED)
-find_package(Boost REQUIRED)
 find_package(glm REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(magic_enum REQUIRED)

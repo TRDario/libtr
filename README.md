@@ -31,7 +31,6 @@ The following is required to build libtre:
 
 libtr depends on the following external libraries:
 
-- [Boost](https://www.boost.org/)
 - [EnumBitmask](https://github.com/Reputeless/EnumBitmask) (vendored)
 - [glad](https://github.com/Dav1dde/glad) (vendored)
 - [GLM](https://github.com/g-truc/glm)
