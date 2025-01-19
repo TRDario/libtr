@@ -54,6 +54,12 @@ namespace tr {
 	template <class T>
 	concept StandardLayout = std::is_standard_layout_v<T>;
 
+	/******************************************************************************************************************
+	 * Concept denoting a contiguous range of standard layout objects.
+	 ******************************************************************************************************************/
+	template <class T>
+	concept StandardLayoutRange = std::ranges::contiguous_range<T> && StandardLayout<std::ranges::range_value_t<T>>;
+
 	/// @cond IMPLEMENTATION
 	template <class T, template <class...> class Z> struct isSpecializationOf : std::false_type {};
 
@@ -67,26 +73,67 @@ namespace tr {
 	concept SpecializationOf = isSpecializationOf<T, Z>::value;
 
 	/// @cond IMPLEMENTATION
-	template <typename T> struct remove_noexcept {
+	template <typename T> struct RemoveNoexcept {
 		using type = T;
 	};
-
-	template <typename R, typename... P> struct remove_noexcept<R(P...) noexcept> {
+	template <typename R, typename... P> struct RemoveNoexcept<R(P...) noexcept> {
 		using type = R(P...);
 	};
-
 	/// @endcond
 
 	/******************************************************************************************************************
 	 * Removes noexcept qualification from a function type.
 	 ******************************************************************************************************************/
-	template <typename T> using remove_noexcept_t = remove_noexcept<T>::type;
+	template <typename T> using RemoveNoexceptT = RemoveNoexcept<T>::type;
+
+	/// @cond IMPLEMENTATION
+	template <class T> struct ReturnType {};
+	///
+	template <class T, class... Ts> struct ReturnType<T(Ts...)> {
+		using type = T;
+	};
+	template <class T, class... Ts> struct ReturnType<T (*)(Ts...)> {
+		using type = T;
+	};
+	template <class T, class... Ts> struct ReturnType<T(Ts...) noexcept> {
+		using type = T;
+	};
+	template <class T, class... Ts> struct ReturnType<T (*)(Ts...) noexcept> {
+		using type = T;
+	};
+	/// @endcond
 
 	/******************************************************************************************************************
-	 * Concept denoting a contiguous range of standard layout objects.
+	 * Gets the return type of a function.
 	 ******************************************************************************************************************/
-	template <class T>
-	concept StandardLayoutRange = std::ranges::contiguous_range<T> && StandardLayout<std::ranges::range_value_t<T>>;
+	template <typename T> using ReturnTypeT = ReturnType<T>::type;
+
+	/******************************************************************************************************************
+	 * Removes noexcept qualification from a function type.
+	 ******************************************************************************************************************/
+	template <typename T> using RemoveNoexceptT = RemoveNoexcept<T>::type;
+
+	/// @cond IMPLEMENTATION
+	template <class T> struct ArgumentType {};
+	///
+	template <class T, class T1> struct ArgumentType<T(T1)> {
+		using type = T1;
+	};
+	template <class T, class T1> struct ArgumentType<T (*)(T1)> {
+		using type = T1;
+	};
+	template <class T, class T1> struct ArgumentType<T(T1) noexcept> {
+		using type = T1;
+	};
+	template <class T, class T1> struct ArgumentType<T (*)(T1) noexcept> {
+		using type = T1;
+	};
+	/// @endcond
+
+	/******************************************************************************************************************
+	 * Gets the type of the argument of a function.
+	 ******************************************************************************************************************/
+	template <typename T> using ArgumentTypeT = ArgumentType<T>::type;
 
 	/// @}
 } // namespace tr
