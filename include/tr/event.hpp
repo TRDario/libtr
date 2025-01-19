@@ -5,8 +5,6 @@
 #include "sdl.hpp"
 #include "timer.hpp"
 #include <any>
-#include <atomic>
-#include <boost/static_string.hpp>
 
 namespace tr {
 	class Event;
@@ -415,9 +413,9 @@ namespace tr {
 	 ******************************************************************************************************************/
 	struct TextEditEvent {
 		/**************************************************************************************************************
-		 * The edited text string.
+		 * Character buffer holding the edited text string.
 		 **************************************************************************************************************/
-		boost::static_string<31> text;
+		std::array<char, 32> text{};
 
 		/**************************************************************************************************************
 		 * The selected substring.
@@ -430,14 +428,14 @@ namespace tr {
 		 * @param text The edited text string.
 		 * @param selected The selected substring.
 		 **************************************************************************************************************/
-		TextEditEvent(const boost::static_string<31>& text, std::string_view selected) noexcept;
+		TextEditEvent(const std::array<char, 32>& text, std::string_view selected) noexcept;
 
 		/**************************************************************************************************************
 		 * Converts a generic event into a text editing event.
 		 *
 		 * @param event
 		 * @parblock
-		 * The base event to convert.
+		 * The base event to co{}nvert.
 		 *
 		 * @pre The type of the event must be event_type::TEXT_EDIT.
 		 * @endparblock
@@ -459,16 +457,16 @@ namespace tr {
 	 ******************************************************************************************************************/
 	struct TextInputEvent {
 		/**************************************************************************************************************
-		 * The inputted text string.
+		 * Character buffer holding the inputted text string.
 		 **************************************************************************************************************/
-		boost::static_string<31> text;
+		std::array<char, 32> text{};
 
 		/**************************************************************************************************************
 		 * Constructs a text input event.
 		 *
 		 * @param text The inputted text string.
 		 **************************************************************************************************************/
-		TextInputEvent(const boost::static_string<31>& text) noexcept;
+		TextInputEvent(const std::array<char, 32>& text) noexcept;
 
 		/**************************************************************************************************************
 		 * Converts a generic event into a text input event.

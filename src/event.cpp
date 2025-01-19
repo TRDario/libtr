@@ -187,7 +187,7 @@ tr::KeyUpEvent::operator Event() const noexcept
 	return event;
 }
 
-tr::TextEditEvent::TextEditEvent(const boost::static_string<31>& text, std::string_view selected) noexcept
+tr::TextEditEvent::TextEditEvent(const std::array<char, 32>& text, std::string_view selected) noexcept
 	: text{text}, selected{selected}
 {
 }
@@ -196,7 +196,7 @@ tr::TextEditEvent::TextEditEvent(const Event& event) noexcept
 {
 	auto& sdl{((const SDL_Event*)(event._impl))->edit};
 	assert(event.type() == event_type::TEXT_EDIT);
-	text     = sdl.text;
+	std::ranges::copy(std::string_view{sdl.text}, text.begin());
 	selected = {text.data() + sdl.start, std::size_t(sdl.length)};
 }
 
@@ -212,7 +212,7 @@ tr::TextEditEvent::operator Event() const noexcept
 	return event;
 }
 
-tr::TextInputEvent::TextInputEvent(const boost::static_string<31>& text) noexcept
+tr::TextInputEvent::TextInputEvent(const std::array<char, 32>& text) noexcept
 	: text{text}
 {
 }
@@ -221,7 +221,7 @@ tr::TextInputEvent::TextInputEvent(const Event& event) noexcept
 {
 	auto& sdl{((const SDL_Event*)(event._impl))->text};
 	assert(event.type() == event_type::TEXT_INPUT);
-	text = sdl.text;
+	std::ranges::copy(std::string_view{sdl.text}, text.begin());
 }
 
 tr::TextInputEvent::operator Event() const noexcept

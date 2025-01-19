@@ -1,7 +1,6 @@
 #pragma once
 #define BOOST_STATIC_STRING_STANDALONE
 #include "concepts.hpp"
-#include <boost/static_string.hpp>
 
 namespace tr {
 	/// @cond IMPLEMENTATION
@@ -13,13 +12,6 @@ namespace tr {
 		using is_transparent = std::true_type;
 
 		inline auto operator()(std::string_view str) const noexcept;
-	};
-
-	struct StaticStringHash {
-		using is_transparent = std::true_type;
-
-		template <std::size_t Cap> auto operator()(const boost::static_string<Cap>& str) const noexcept;
-		inline auto                     operator()(std::string_view str) const noexcept;
 	};
 
 	struct StringEquals {
@@ -45,12 +37,6 @@ namespace tr {
 	 ******************************************************************************************************************/
 	template <class Value> using StringHashMap = std::unordered_map<std::string, Value, StringHash, StringEquals>;
 
-	/******************************************************************************************************************
-	 * Typedef for a static_string-key hash map.
-	 ******************************************************************************************************************/
-	template <std::size_t Cap, class Value>
-	using StaticStringHashMap = std::unordered_map<boost::static_string<Cap>, Value, StaticStringHash, StringEquals>;
-
 	/// @}
 } // namespace tr
 
@@ -62,16 +48,6 @@ template <tr::Enumerator T> auto tr::EnumHash<T>::operator()(T arg) const noexce
 }
 
 auto tr::StringHash::operator()(std::string_view str) const noexcept
-{
-	return std::hash<std::string_view>{}(str);
-}
-
-template <std::size_t Cap> auto tr::StaticStringHash::operator()(const boost::static_string<Cap>& arg) const noexcept
-{
-	return std::hash<std::string_view>{}(std::string_view(arg.c_str()));
-}
-
-auto tr::StaticStringHash::operator()(std::string_view str) const noexcept
 {
 	return std::hash<std::string_view>{}(str);
 }
