@@ -769,9 +769,7 @@ template <tr::BuiltinColor To> constexpr To tr::color_cast(const ARGB_Ui32_2_10_
 
 template <tr::BuiltinColor To, tr::ColorCastableFrom From> constexpr To tr::color_cast(const From& from) noexcept
 {
-	if constexpr (std::same_as<typename boost::function_traits<
-								   remove_noexcept_t<decltype(ColorCaster<From>::toBuiltin)>>::result_type,
-							   To>) {
+	if constexpr (std::same_as<std::remove_cvref_t<ReturnTypeT<decltype(ColorCaster<From>::toBuiltin)>>, To>) {
 		return ColorCaster<From>::toBuiltin(from);
 	}
 	else {
@@ -781,8 +779,7 @@ template <tr::BuiltinColor To, tr::ColorCastableFrom From> constexpr To tr::colo
 
 template <tr::ColorCastableTo To, tr::BuiltinColor From> constexpr To tr::color_cast(const From& from) noexcept
 {
-	using NaturalBuiltin = std::remove_cvref_t<
-		typename boost::function_traits<remove_noexcept_t<decltype(ColorCaster<From>::fromBuiltin)>>::argument_type>;
+	using NaturalBuiltin = std::remove_cvref_t<ArgumentTypeT<decltype(ColorCaster<To>::fromBuiltin)>>;
 
 	if constexpr (std::same_as<NaturalBuiltin, From>) {
 		return ColorCaster<To>::fromBuiltin(from);
@@ -794,8 +791,7 @@ template <tr::ColorCastableTo To, tr::BuiltinColor From> constexpr To tr::color_
 
 template <tr::ColorCastableTo To, tr::ColorCastableFrom From> constexpr To tr::color_cast(const From& from) noexcept
 {
-	return color_cast<To>(color_cast<std::remove_cvref_t<typename boost::function_traits<
-							  remove_noexcept_t<decltype(ColorCaster<From>::fromBuiltin)>>::argument_type>>(from));
+	return color_cast<To>(color_cast<std::remove_cvref_t<ArgumentTypeT<decltype(ColorCaster<To>::fromBuiltin)>>>(from));
 }
 
 constexpr tr::RGBAF tr::ColorCaster<tr::HSV>::toBuiltin(const HSV& from) noexcept

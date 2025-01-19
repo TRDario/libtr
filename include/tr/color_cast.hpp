@@ -1,6 +1,5 @@
 #pragma once
 #include "color.hpp"
-#include <boost/type_traits.hpp>
 
 namespace tr {
 	/** @addtogroup color
@@ -28,9 +27,7 @@ namespace tr {
 	 * and returning a builtin color type.
 	 *******************************************************************************************************************/
 	template <class T>
-	concept ColorCastableFrom = requires(T val) {
-		{ ColorCaster<T>::toBuiltin(val) } -> BuiltinColor;
-	};
+	concept ColorCastableFrom = BuiltinColor<std::remove_cvref_t<ReturnTypeT<decltype(ColorCaster<T>::toBuiltin)>>>;
 
 	/******************************************************************************************************************
 	 * Concept that denotes a type able to be color casted to.
@@ -39,14 +36,8 @@ namespace tr {
 	 * and returning <em>T</em>.
 	 ******************************************************************************************************************/
 	template <class T>
-	concept ColorCastableTo =
-		BuiltinColor<std::remove_cvref_t<typename boost::function_traits<
-			remove_noexcept_t<decltype(ColorCaster<T>::fromBuiltin)>>::argument_type>> &&
-		requires(
-			typename boost::function_traits<remove_noexcept_t<decltype(ColorCaster<T>::fromBuiltin)>>::argument_type
-				val) {
-			{ ColorCaster<T>::fromBuiltin(val) } -> std::same_as<T>;
-		};
+	concept ColorCastableTo = BuiltinColor<std::remove_cvref_t<ArgumentTypeT<decltype(ColorCaster<T>::fromBuiltin)>>> &&
+							  std::same_as<std::remove_cvref_t<ReturnTypeT<decltype(ColorCaster<T>::fromBuiltin)>>, T>;
 
 	/******************************************************************************************************************
 	 * Converts a red channel color to a built-in color.
