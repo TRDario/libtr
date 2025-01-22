@@ -24,7 +24,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * I-shaped cursor.
 		 **************************************************************************************************************/
-		IBEAM,
+		TEXT,
 
 		/**************************************************************************************************************
 		 * Waiting cursor.
@@ -118,14 +118,14 @@ namespace tr {
 		 *
 		 * @return The position of the mouse relative to the top left corner of the window.
 		 **************************************************************************************************************/
-		glm::ivec2 position() const noexcept;
+		glm::vec2 position() const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the delta of the mouse position.
 		 *
 		 * @return The mouse position delta between the last call to this function and now.
 		 **************************************************************************************************************/
-		glm::ivec2 delta() const noexcept;
+		glm::vec2 delta() const noexcept;
 
 		/**************************************************************************************************************
 		 * Gets the held mouse buttons.
@@ -152,24 +152,6 @@ namespace tr {
 		 * @return True if the button is held, and false otherwise.
 		 **************************************************************************************************************/
 		bool held(MouseButton button, MouseButtonMask mask) const noexcept;
-
-		/**************************************************************************************************************
-		 * Gets whether relative mouse mode is enabled.
-		 *
-		 * @note In relative mouse mode, only deltas are reported, mouse position isn't changed.
-		 *
-		 * @return True if relative mode is enabled, false otherwise.
-		 **************************************************************************************************************/
-		bool inRelativeMode() const noexcept;
-
-		/**************************************************************************************************************
-		 * Sets whether relative mouse mode is enabled.
-		 *
-		 * @note In relative mouse mode, only deltas are reported, mouse position isn't changed.
-		 *
-		 * @param[in] relative Whether relative mouse mode should be enabled.
-		 **************************************************************************************************************/
-		bool setRelativeMode(bool relative) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets whether the mouse is captured.

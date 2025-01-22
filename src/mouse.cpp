@@ -1,5 +1,5 @@
 #include "../include/tr/mouse.hpp"
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 
 namespace tr {
 	// Checks if a cursor if not null and throws CursorBadAlloc otherwise.
@@ -19,16 +19,16 @@ const char* tr::CursorBadAlloc::what() const noexcept
 	return "failed cursor allocation";
 }
 
-glm::ivec2 tr::Mouse::position() const noexcept
+glm::vec2 tr::Mouse::position() const noexcept
 {
-	glm::ivec2 pos;
+	glm::vec2 pos;
 	SDL_GetMouseState(&pos.x, &pos.y);
 	return pos;
 }
 
-glm::ivec2 tr::Mouse::delta() const noexcept
+glm::vec2 tr::Mouse::delta() const noexcept
 {
-	glm::ivec2 delta;
+	glm::vec2 delta;
 	SDL_GetRelativeMouseState(&delta.x, &delta.y);
 	return delta;
 }
@@ -45,22 +45,12 @@ bool tr::Mouse::held(MouseButton button) const noexcept
 
 bool tr::Mouse::held(MouseButton button, MouseButtonMask mask) const noexcept
 {
-	return std::uint32_t(mask) & SDL_BUTTON(std::uint32_t(button));
-}
-
-bool tr::Mouse::inRelativeMode() const noexcept
-{
-	return SDL_GetRelativeMouseMode();
-}
-
-bool tr::Mouse::setRelativeMode(bool relative) noexcept
-{
-	return !SDL_SetRelativeMouseMode(SDL_bool(relative));
+	return std::uint32_t(mask) & SDL_BUTTON_MASK(std::uint32_t(button));
 }
 
 bool tr::Mouse::setCaptured(bool captured) noexcept
 {
-	return !SDL_CaptureMouse(SDL_bool(captured));
+	return !SDL_CaptureMouse(captured);
 }
 
 tr::Cursor::Cursor()
@@ -92,7 +82,7 @@ tr::Cursor::Cursor(std::span<const std::byte> color, std::span<const std::byte> 
 
 void tr::Cursor::Deleter::operator()(SDL_Cursor* ptr) const noexcept
 {
-	SDL_FreeCursor(ptr);
+	SDL_DestroyCursor(ptr);
 }
 
 void tr::Mouse::setCursor(const Cursor& cursor) noexcept
@@ -102,10 +92,10 @@ void tr::Mouse::setCursor(const Cursor& cursor) noexcept
 
 bool tr::Mouse::cursorShown() const noexcept
 {
-	return SDL_ShowCursor(SDL_QUERY);
+	return SDL_CursorVisible();
 }
 
 void tr::Mouse::showCursor(bool show) noexcept
 {
-	SDL_ShowCursor(show);
+	show ? SDL_ShowCursor() : SDL_HideCursor();
 }
