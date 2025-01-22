@@ -1,5 +1,5 @@
 #include "../include/tr/keyboard.hpp"
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 #include <cassert>
 #include <memory>
 
@@ -16,11 +16,6 @@ tr::Scancode::Scancode(const char* name) noexcept
 tr::Scancode::operator Enum() const noexcept
 {
 	return _enum;
-}
-
-tr::Scancode::operator Keycode() const noexcept
-{
-	return Keycode::Enum(SDL_GetKeyFromScancode(SDL_Scancode(_enum)));
 }
 
 const char* tr::Scancode::name() const noexcept
@@ -41,11 +36,6 @@ tr::Keycode::Keycode(const char* name) noexcept
 tr::Keycode::operator Enum() const noexcept
 {
 	return _enum;
-}
-
-tr::Keycode::operator Scancode() const noexcept
-{
-	return Scancode::Enum(SDL_GetScancodeFromKey(SDL_Keycode(_enum)));
 }
 
 std::string tr::Keycode::name() const noexcept
