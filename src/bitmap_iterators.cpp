@@ -1,15 +1,15 @@
 #include "../include/tr/bitmap_iterators.hpp"
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+#include <SDL3/SDL.h>
+#include <SDL3_image/SDL_image.h>
 
 namespace tr {
-	RGBA8 getPixelColor(const void* data, SDL_PixelFormat* format);
+	RGBA8 getPixelColor(const void* data, const SDL_PixelFormatDetails* format);
 }
 
-tr::RGBA8 tr::getPixelColor(const void* data, SDL_PixelFormat* format)
+tr::RGBA8 tr::getPixelColor(const void* data, const SDL_PixelFormatDetails* format)
 {
 	std::uint32_t value;
-	switch (format->BytesPerPixel) {
+	switch (format->bytes_per_pixel) {
 	case 1:
 		value = *((const std::uint8_t*)(data));
 	case 2:
@@ -22,11 +22,11 @@ tr::RGBA8 tr::getPixelColor(const void* data, SDL_PixelFormat* format)
 	}
 
 	RGBA8 color;
-	SDL_GetRGBA(value, format, &color.r, &color.g, &color.b, &color.a);
+	SDL_GetRGBA(value, format, nullptr, &color.r, &color.g, &color.b, &color.a);
 	return color;
 }
 
-tr::SubBitmap::PixelRef::PixelRef(const std::byte* ptr, SDL_PixelFormat* format) noexcept
+tr::SubBitmap::PixelRef::PixelRef(const std::byte* ptr, const SDL_PixelFormatDetails* format) noexcept
 	: _impl{ptr}, _format{format}
 {
 }
@@ -37,7 +37,8 @@ tr::SubBitmap::PixelRef::operator RGBA8() const noexcept
 }
 
 tr::SubBitmap::Iterator::Iterator(SubBitmap bitmap, glm::ivec2 pos) noexcept
-	: _pixel{bitmap.data() + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x, bitmap._bitmap->format}
+	: _pixel{bitmap.data() + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x,
+			 SDL_GetPixelFormatDetails(bitmap._bitmap->format)}
 	, _bitmapSize{bitmap.size()}
 	, _pitch{bitmap.pitch()}
 	, _pos{pos}
@@ -107,7 +108,7 @@ tr::SubBitmap::Iterator& tr::SubBitmap::Iterator::operator+=(int diff) noexcept
 		--lines;
 		diff += _bitmapSize.x;
 	}
-	_pixel._impl = _pixel._impl + _pitch * lines + _pixel._format->BytesPerPixel * diff;
+	_pixel._impl = _pixel._impl + _pitch * lines + _pixel._format->bytes_per_pixel * diff;
 	return *this;
 }
 
@@ -186,7 +187,7 @@ tr::SubBitmap::Iterator tr::operator-(glm::ivec2 diff, const tr::SubBitmap::Iter
 	return it - diff;
 }
 
-tr::Bitmap::PixelRef::PixelRef(std::byte* ptr, SDL_PixelFormat* format) noexcept
+tr::Bitmap::PixelRef::PixelRef(std::byte* ptr, const SDL_PixelFormatDetails* format) noexcept
 	: _impl{ptr}, _format{format}
 {
 }
@@ -198,8 +199,8 @@ tr::Bitmap::PixelRef::operator RGBA8() const noexcept
 
 tr::Bitmap::PixelRef& tr::Bitmap::PixelRef::operator=(RGBA8 color) noexcept
 {
-	auto formatted{SDL_MapRGBA(_format, color.r, color.g, color.b, color.a)};
-	switch (_format->BytesPerPixel) {
+	auto formatted{SDL_MapRGBA(_format, nullptr, color.r, color.g, color.b, color.a)};
+	switch (_format->bytes_per_pixel) {
 	case 1:
 		*((std::uint8_t*)(_impl)) = formatted;
 		break;
@@ -218,7 +219,8 @@ tr::Bitmap::PixelRef& tr::Bitmap::PixelRef::operator=(RGBA8 color) noexcept
 }
 
 tr::Bitmap::MutIt::MutIt(Bitmap& bitmap, glm::ivec2 pos) noexcept
-	: _pixel{bitmap.data() + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x, bitmap._impl.get()->format}
+	: _pixel{bitmap.data() + bitmap.pitch() * pos.y + bitmap.format().pixelBytes() * pos.x,
+			 SDL_GetPixelFormatDetails(bitmap._impl.get()->format)}
 	, _bitmap{&bitmap}
 	, _pos{pos}
 {
@@ -290,7 +292,7 @@ tr::Bitmap::MutIt& tr::Bitmap::MutIt::operator+=(int diff) noexcept
 		--lines;
 		diff += bitmapSize.x;
 	}
-	_pixel._impl = _pixel._impl + _bitmap->pitch() * lines + _pixel._format->BytesPerPixel * diff;
+	_pixel._impl = _pixel._impl + _bitmap->pitch() * lines + _pixel._format->bytes_per_pixel * diff;
 	_pos += glm::ivec2{diff, lines};
 	return *this;
 }

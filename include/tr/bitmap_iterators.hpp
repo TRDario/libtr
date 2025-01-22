@@ -17,11 +17,11 @@ namespace tr {
 		operator RGBA8() const noexcept;
 
 	  private:
-		const std::byte* _impl;   // A pointer to the pixel data.
-		SDL_PixelFormat* _format; // The format of the pixel.
+		const std::byte*              _impl;   // A pointer to the pixel data.
+		const SDL_PixelFormatDetails* _format; // The format of the pixel.
 
 		PixelRef() noexcept = default;
-		PixelRef(const std::byte* ptr, SDL_PixelFormat* format) noexcept;
+		PixelRef(const std::byte* ptr, const SDL_PixelFormatDetails* format) noexcept;
 
 		friend class SubBitmap;
 		friend class Iterator;
@@ -173,7 +173,7 @@ namespace tr {
 		 * Adds to an iterator.
 		 *
 		 * @param[in] diff The number of pixels to move forward (in vector form).
-		 * @param[in] it The iterator to add to.
+		 * @param[in] it The iterator to add to.num
 		 *
 		 * @return An iterator equal to @em it advanced by @em diff pixels.
 		 **************************************************************************************************************/
@@ -289,11 +289,11 @@ namespace tr {
 		PixelRef& operator=(RGBA8 color) noexcept;
 
 	  private:
-		std::byte*       _impl;   // A pointer to the pixel data.
-		SDL_PixelFormat* _format; // The format of the pixel.
+		std::byte*                    _impl;   // A pointer to the pixel data.
+		const SDL_PixelFormatDetails* _format; // The format of the pixel.
 
 		PixelRef() noexcept = default;
-		PixelRef(std::byte* ptr, SDL_PixelFormat* format) noexcept;
+		PixelRef(std::byte* ptr, const SDL_PixelFormatDetails* format) noexcept;
 
 		friend class MutIt;
 	};
