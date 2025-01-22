@@ -1,7 +1,7 @@
 #include "../include/tr/graphics_context.hpp"
 #include "../include/tr/window.hpp"
 #include "gl_call.hpp"
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 #include <format>
 
 namespace tr {
@@ -15,7 +15,7 @@ SDL_GLContext tr::createContext(SDL_Window* window)
 	if (context == nullptr) {
 		throw WindowOpenError{std::format("Failed to create OpenGL context: {}", SDL_GetError())};
 	}
-	else if (!gladLoadGLLoader(SDL_GL_GetProcAddress)) {
+	else if (!gladLoadGLLoader((void* (*)(const char*))(SDL_GL_GetProcAddress))) {
 		throw WindowOpenError{"Failed to load OpenGL 4.6."};
 	}
 	return context;
@@ -28,7 +28,7 @@ tr::GraphicsContext::GraphicsContext(SDL_Window* window)
 
 void tr::GraphicsContext::Deleter::operator()(SDL_GLContext ptr) const noexcept
 {
-	SDL_GL_DeleteContext(ptr);
+	SDL_GL_DestroyContext(ptr);
 }
 
 const char* tr::GraphicsContext::vendorInfo() const noexcept

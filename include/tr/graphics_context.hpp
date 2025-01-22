@@ -7,6 +7,7 @@
 #include "vertex_format.hpp"
 
 struct SDL_Window;
+struct SDL_GLContextState;
 
 namespace tr::ImGui {
 	void initialize();
@@ -603,10 +604,10 @@ namespace tr {
 
 	  private:
 		struct Deleter {
-			void operator()(void* ptr) const noexcept;
+			void operator()(SDL_GLContextState* ptr) const noexcept;
 		};
 
-		std::unique_ptr<void, Deleter> _impl;
+		std::unique_ptr<SDL_GLContextState, Deleter> _impl;
 
 		GraphicsContext(SDL_Window* window);
 
