@@ -1,7 +1,7 @@
 #include "../include/tr/event.hpp"
 #include "../include/tr/overloaded_lambda.hpp"
 #include "../include/tr/window.hpp"
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 
 using namespace std::chrono_literals;
 
@@ -23,7 +23,7 @@ tr::CustomEventBase::CustomEventBase(std::uint32_t type, std::uint32_t uint, std
 
 tr::CustomEventBase::CustomEventBase(const Event& event)
 {
-	assert(event.type() >= SDL_USEREVENT);
+	assert(event.type() >= SDL_EVENT_USER);
 	auto& sdl{((const SDL_Event*)(event._impl))->user};
 	type = sdl.type;
 	uint = sdl.windowID;
@@ -38,7 +38,7 @@ tr::CustomEventBase::CustomEventBase(const Event& event)
 
 tr::CustomEventBase::CustomEventBase(Event&& event) noexcept
 {
-	assert(event.type() >= SDL_USEREVENT);
+	assert(event.type() >= SDL_EVENT_USER);
 	auto& sdl{((const SDL_Event*)(event._impl))->user};
 	type = sdl.type;
 	uint = sdl.windowID;
@@ -78,7 +78,7 @@ tr::CustomEventBase::operator Event() && noexcept
 tr::Event::Event(const Event& r)
 {
 	std::ranges::copy(r._impl, _impl);
-	if (type() >= SDL_USEREVENT) {
+	if (type() >= SDL_EVENT_USER) {
 		auto& lsdl{*(SDL_Event*)(r._impl)};
 		auto& rsdl{*(const SDL_Event*)(r._impl)};
 		lsdl.user.data1 = lsdl.user.data1 != nullptr ? new std::any{*(const std::any*)(rsdl.user.data1)} : nullptr;
@@ -89,7 +89,7 @@ tr::Event::Event(const Event& r)
 tr::Event::Event(Event&& r) noexcept
 {
 	std::ranges::copy(r._impl, _impl);
-	if (type() >= SDL_USEREVENT) {
+	if (type() >= SDL_EVENT_USER) {
 		auto& rsdl{*(SDL_Event*)(r._impl)};
 		rsdl.user.data1 = nullptr;
 		rsdl.user.data2 = nullptr;
@@ -98,7 +98,7 @@ tr::Event::Event(Event&& r) noexcept
 
 tr::Event::~Event() noexcept
 {
-	if (type() >= SDL_USEREVENT) {
+	if (type() >= SDL_EVENT_USER) {
 		auto& sdl{*(SDL_Event*)(_impl)};
 		delete (std::any*)(sdl.user.data1);
 		delete (std::any*)(sdl.user.data2);
@@ -109,7 +109,7 @@ tr::Event& tr::Event::operator=(const Event& r)
 {
 	std::ignore = std::move(*this);
 	std::ranges::copy(r._impl, _impl);
-	if (type() >= SDL_USEREVENT) {
+	if (type() >= SDL_EVENT_USER) {
 		auto& lsdl{*(SDL_Event*)(r._impl)};
 		auto& rsdl{*(const SDL_Event*)(r._impl)};
 		lsdl.user.data1 = lsdl.user.data1 != nullptr ? new std::any{*(const std::any*)(rsdl.user.data1)} : nullptr;
@@ -122,7 +122,7 @@ tr::Event& tr::Event::operator=(Event&& r) noexcept
 {
 	std::ignore = std::move(*this);
 	std::ranges::copy(r._impl, _impl);
-	if (type() >= SDL_USEREVENT) {
+	if (type() >= SDL_EVENT_USER) {
 		auto& rsdl{*(SDL_Event*)(r._impl)};
 		rsdl.user.data1 = nullptr;
 		rsdl.user.data2 = nullptr;
@@ -145,20 +145,18 @@ tr::KeyDownEvent::KeyDownEvent(const Event& event) noexcept
 	assert(event.type() == event_type::KEY_DOWN);
 	auto& sdl{((SDL_Event*)(event._impl))->key};
 	repeat = sdl.repeat;
-	key    = {.scan = Scancode::Enum(sdl.keysym.scancode),
-			  .key  = Keycode::Enum(sdl.keysym.sym),
-			  .mods = Keymods(sdl.keysym.mod)};
+	key    = {.scan = Scancode::Enum(sdl.scancode), .key = Keycode::Enum(sdl.key), .mods = Keymods(sdl.mod)};
 }
 
 tr::KeyDownEvent::operator Event() const noexcept
 {
 	Event event;
 	auto& sdl{((SDL_Event*)(event._impl))->key};
-	sdl.type            = SDL_KEYDOWN;
-	sdl.repeat          = repeat;
-	sdl.keysym.scancode = SDL_Scancode(Scancode::Enum(key.scan));
-	sdl.keysym.sym      = SDL_Keycode(Keycode::Enum(key.key));
-	sdl.keysym.mod      = std::uint16_t(key.mods);
+	sdl.type     = SDL_EVENT_KEY_DOWN;
+	sdl.repeat   = repeat;
+	sdl.scancode = SDL_Scancode(Scancode::Enum(key.scan));
+	sdl.key      = SDL_Keycode(Keycode::Enum(key.key));
+	sdl.mod      = std::uint16_t(key.mods);
 	return event;
 }
 
@@ -171,23 +169,21 @@ tr::KeyUpEvent::KeyUpEvent(const Event& event) noexcept
 {
 	assert(event.type() == event_type::KEY_UP);
 	auto& sdl{((SDL_Event*)(event._impl))->key};
-	key = {.scan = Scancode::Enum(sdl.keysym.scancode),
-		   .key  = Keycode::Enum(sdl.keysym.sym),
-		   .mods = Keymods(sdl.keysym.mod)};
+	key = {.scan = Scancode::Enum(sdl.scancode), .key = Keycode::Enum(sdl.key), .mods = Keymods(sdl.mod)};
 }
 
 tr::KeyUpEvent::operator Event() const noexcept
 {
 	Event event;
 	auto& sdl{((SDL_Event*)(event._impl))->key};
-	sdl.type            = SDL_KEYUP;
-	sdl.keysym.scancode = SDL_Scancode(Scancode::Enum(key.scan));
-	sdl.keysym.sym      = SDL_Keycode(Keycode::Enum(key.key));
-	sdl.keysym.mod      = std::uint16_t(key.mods);
+	sdl.type     = SDL_EVENT_KEY_UP;
+	sdl.scancode = SDL_Scancode(Scancode::Enum(key.scan));
+	sdl.key      = SDL_Keycode(Keycode::Enum(key.key));
+	sdl.mod      = std::uint16_t(key.mods);
 	return event;
 }
 
-tr::TextEditEvent::TextEditEvent(const std::array<char, 32>& text, std::string_view selected) noexcept
+tr::TextEditEvent::TextEditEvent(std::string&& text, std::string_view selected) noexcept
 	: text{text}, selected{selected}
 {
 }
@@ -204,15 +200,16 @@ tr::TextEditEvent::operator Event() const noexcept
 {
 	Event event;
 	auto& sdl{((SDL_Event*)(event._impl))->edit};
-	sdl.type = SDL_TEXTEDITING;
-	std::ranges::copy(text, sdl.text);
-	sdl.text[text.size()] = '\0';
-	sdl.start             = selected.begin() - text.begin();
-	sdl.length            = selected.length();
+	sdl.type = SDL_EVENT_TEXT_EDITING;
+	char* buffer{(char*)(SDL_calloc(text.size() + 1, sizeof(char)))};
+	std::ranges::copy(text, buffer);
+	sdl.text   = buffer;
+	sdl.start  = std::to_address(selected.begin()) - std::to_address(text.begin());
+	sdl.length = selected.length();
 	return event;
 }
 
-tr::TextInputEvent::TextInputEvent(const std::array<char, 32>& text) noexcept
+tr::TextInputEvent::TextInputEvent(std::string&& text) noexcept
 	: text{text}
 {
 }
@@ -228,13 +225,14 @@ tr::TextInputEvent::operator Event() const noexcept
 {
 	Event event;
 	auto& sdl{((SDL_Event*)(event._impl))->text};
-	sdl.type = SDL_TEXTINPUT;
-	std::ranges::copy(text, sdl.text);
-	sdl.text[text.size()] = '\0';
+	sdl.type = SDL_EVENT_TEXT_INPUT;
+	char* buffer{(char*)(SDL_calloc(text.size() + 1, sizeof(char)))};
+	std::ranges::copy(text, buffer);
+	sdl.text = buffer;
 	return event;
 }
 
-tr::MouseMotionEvent::MouseMotionEvent(MouseButtonMask buttons, glm::ivec2 pos, glm::ivec2 delta) noexcept
+tr::MouseMotionEvent::MouseMotionEvent(MouseButtonMask buttons, glm::vec2 pos, glm::vec2 delta) noexcept
 	: buttons{buttons}, pos{pos}, delta{delta}
 {
 }
@@ -252,7 +250,7 @@ tr::MouseMotionEvent::operator Event() const noexcept
 {
 	Event event;
 	auto& sdl{((SDL_Event*)(event._impl))->motion};
-	sdl.type  = SDL_MOUSEMOTION;
+	sdl.type  = SDL_EVENT_MOUSE_MOTION;
 	sdl.state = std::uint32_t(buttons);
 	sdl.x     = pos.x;
 	sdl.y     = pos.y;
@@ -261,7 +259,7 @@ tr::MouseMotionEvent::operator Event() const noexcept
 	return event;
 }
 
-tr::MouseDownEvent::MouseDownEvent(MouseButton button, std::uint8_t clicks, glm::ivec2 pos) noexcept
+tr::MouseDownEvent::MouseDownEvent(MouseButton button, std::uint8_t clicks, glm::vec2 pos) noexcept
 	: button{button}, clicks{clicks}, pos{pos}
 {
 }
@@ -279,7 +277,7 @@ tr::MouseDownEvent::operator Event() const noexcept
 {
 	Event event;
 	auto& sdl{((SDL_Event*)(event._impl))->button};
-	sdl.type   = SDL_MOUSEBUTTONDOWN;
+	sdl.type   = SDL_EVENT_MOUSE_BUTTON_DOWN;
 	sdl.button = std::uint8_t(button);
 	sdl.clicks = clicks;
 	sdl.x      = pos.x;
@@ -287,7 +285,7 @@ tr::MouseDownEvent::operator Event() const noexcept
 	return event;
 }
 
-tr::MouseUpEvent::MouseUpEvent(MouseButton button, glm::ivec2 pos) noexcept
+tr::MouseUpEvent::MouseUpEvent(MouseButton button, glm::vec2 pos) noexcept
 	: button{button}, pos{pos}
 {
 }
@@ -304,14 +302,14 @@ tr::MouseUpEvent::operator Event() const noexcept
 {
 	Event event;
 	auto& sdl{((SDL_Event*)(event._impl))->button};
-	sdl.type   = SDL_MOUSEBUTTONUP;
+	sdl.type   = SDL_EVENT_MOUSE_BUTTON_UP;
 	sdl.button = std::uint8_t(button);
 	sdl.x      = pos.x;
 	sdl.y      = pos.y;
 	return event;
 }
 
-tr::MouseWheelEvent::MouseWheelEvent(glm::vec2 delta, glm::ivec2 mousePos) noexcept
+tr::MouseWheelEvent::MouseWheelEvent(glm::vec2 delta, glm::vec2 mousePos) noexcept
 	: delta{delta}, mousePos{mousePos}
 {
 }
@@ -320,19 +318,19 @@ tr::MouseWheelEvent::MouseWheelEvent(const Event& event) noexcept
 {
 	auto& sdl{((const SDL_Event*)(event._impl))->wheel};
 	assert(event.type() == event_type::MOUSE_WHEEL);
-	delta    = {sdl.preciseX, sdl.preciseY};
-	mousePos = {sdl.mouseX, sdl.mouseY};
+	delta    = {sdl.x, sdl.y};
+	mousePos = {sdl.mouse_x, sdl.mouse_y};
 }
 
 tr::MouseWheelEvent::operator Event() const noexcept
 {
 	Event event;
 	auto& sdl{((SDL_Event*)(event._impl))->wheel};
-	sdl.type     = SDL_MOUSEWHEEL;
-	sdl.preciseX = delta.x;
-	sdl.preciseY = delta.y;
-	sdl.mouseX   = mousePos.x;
-	sdl.mouseY   = mousePos.y;
+	sdl.type    = SDL_EVENT_MOUSE_WHEEL;
+	sdl.x       = delta.x;
+	sdl.y       = delta.y;
+	sdl.mouse_x = mousePos.x;
+	sdl.mouse_y = mousePos.y;
 	return event;
 }
 
@@ -341,58 +339,53 @@ tr::WindowEvent::WindowEvent(const Event& event) noexcept
 	auto& sdl{((const SDL_Event*)(&event._impl))->window};
 
 	assert(event.type() == event_type::WINDOW);
-	switch (sdl.event) {
-	case SDL_WINDOWEVENT_ENTER:
+	switch (sdl.type) {
+	case SDL_EVENT_WINDOW_MOUSE_ENTER:
 		*this = WindowEnterEvent{};
 		break;
-	case SDL_WINDOWEVENT_LEAVE:
+	case SDL_EVENT_WINDOW_MOUSE_LEAVE:
 		*this = WindowLeaveEvent{};
 		break;
-	case SDL_WINDOWEVENT_SHOWN:
+	case SDL_EVENT_WINDOW_SHOWN:
 		*this = WindowShowEvent{};
 		break;
-	case SDL_WINDOWEVENT_HIDDEN:
+	case SDL_EVENT_WINDOW_HIDDEN:
 		*this = WindowHideEvent{};
 		break;
-	case SDL_WINDOWEVENT_EXPOSED:
+	case SDL_EVENT_WINDOW_EXPOSED:
 		*this = WindowExposeEvent{};
 		break;
-	case SDL_WINDOWEVENT_MOVED:
+	case SDL_EVENT_WINDOW_MOVED:
 		*this = WindowMotionEvent{.pos = {sdl.data1, sdl.data2}};
 		break;
-	case SDL_WINDOWEVENT_RESIZED:
+	case SDL_EVENT_WINDOW_RESIZED:
 		*this = WindowResizeEvent{.size = {sdl.data1, sdl.data2}};
 		break;
-	case SDL_WINDOWEVENT_SIZE_CHANGED:
-		*this = WindowSizeChangeEvent{};
-		break;
-	case SDL_WINDOWEVENT_MINIMIZED:
+	case SDL_EVENT_WINDOW_MINIMIZED:
 		*this = WindowMinimizeEvent{};
 		break;
-	case SDL_WINDOWEVENT_MAXIMIZED:
+	case SDL_EVENT_WINDOW_MAXIMIZED:
 		*this = WindowMaximizeEvent{};
 		break;
-	case SDL_WINDOWEVENT_RESTORED:
+	case SDL_EVENT_WINDOW_RESTORED:
 		*this = WindowRestoreEvent{};
 		break;
-	case SDL_WINDOWEVENT_FOCUS_GAINED:
+	case SDL_EVENT_WINDOW_FOCUS_GAINED:
 		*this = WindowGainFocusEvent{};
 		break;
-	case SDL_WINDOWEVENT_FOCUS_LOST:
+	case SDL_EVENT_WINDOW_FOCUS_LOST:
 		*this = WindowLoseFocusEvent{};
 		break;
-	case SDL_WINDOWEVENT_TAKE_FOCUS:
-		SDL_SetWindowInputFocus(SDL_GetWindowFromID(sdl.windowID));
+	case SDL_EVENT_WINDOW_CLOSE_REQUESTED:
+		*this = WindowCloseRequestedEvent{};
 		break;
-	case SDL_WINDOWEVENT_CLOSE:
-		*this = WindowCloseEvent{};
-		break;
-	}
+	default:
 #if defined(_MSC_VER) && !defined(__clang__) // MSVC
-	__assume(false);
+		__assume(false);
 #else // GCC, Clang
-	__builtin_unreachable();
+		__builtin_unreachable();
 #endif
+	}
 }
 
 tr::WindowEvent::operator Event() const noexcept
@@ -421,7 +414,7 @@ tr::WindowEvent::operator Event() const noexcept
 						  [&](const WindowRestoreEvent&) { sdl.type = SDL_WINDOWEVENT_RESTORED; },
 						  [&](const WindowGainFocusEvent&) { sdl.type = SDL_WINDOWEVENT_FOCUS_GAINED; },
 						  [&](const WindowLoseFocusEvent&) { sdl.type = SDL_WINDOWEVENT_FOCUS_LOST; },
-						  [&](const WindowCloseEvent&) { sdl.type = SDL_WINDOWEVENT_CLOSE; }},
+						  [&](const WindowCloseRequestedEvent&) { sdl.type = SDL_WINDOWEVENT_CLOSE; }},
 			   *this);
 	return event;
 }
@@ -485,7 +478,7 @@ void tr::EventQueue::push(const Event& event)
 {
 	SDL_Event sdl;
 	std::ranges::copy(event._impl, asMutBytes(sdl).begin());
-	if (event.type() >= SDL_USEREVENT) {
+	if (event.type() >= SDL_EVENT_USER) {
 		auto& rsdl{((SDL_Event*)(event._impl))->user};
 		sdl.user.data1 = rsdl.data1 != nullptr ? new std::any{*(const std::any*)(rsdl.data1)} : nullptr;
 		sdl.user.data2 = rsdl.data2 != nullptr ? new std::any{*(const std::any*)(rsdl.data2)} : nullptr;
@@ -504,7 +497,7 @@ void tr::EventQueue::push(Event&& event)
 		throw EventPushError{"Failed to push event to event queue"};
 	}
 
-	if (event.type() >= SDL_USEREVENT) {
+	if (event.type() >= SDL_EVENT_USER) {
 		auto& rsdl{((SDL_Event*)(event._impl))->user};
 		rsdl.data1 = nullptr;
 		rsdl.data2 = nullptr;

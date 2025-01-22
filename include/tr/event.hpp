@@ -413,9 +413,9 @@ namespace tr {
 	 ******************************************************************************************************************/
 	struct TextEditEvent {
 		/**************************************************************************************************************
-		 * Character buffer holding the edited text string.
+		 * The edited text string.
 		 **************************************************************************************************************/
-		std::array<char, 32> text{};
+		std::string text;
 
 		/**************************************************************************************************************
 		 * The selected substring.
@@ -428,7 +428,7 @@ namespace tr {
 		 * @param text The edited text string.
 		 * @param selected The selected substring.
 		 **************************************************************************************************************/
-		TextEditEvent(const std::array<char, 32>& text, std::string_view selected) noexcept;
+		TextEditEvent(std::string&& text, std::string_view selected) noexcept;
 
 		/**************************************************************************************************************
 		 * Converts a generic event into a text editing event.
@@ -457,16 +457,16 @@ namespace tr {
 	 ******************************************************************************************************************/
 	struct TextInputEvent {
 		/**************************************************************************************************************
-		 * Character buffer holding the inputted text string.
+		 * The inputted text string.
 		 **************************************************************************************************************/
-		std::array<char, 32> text{};
+		std::string text;
 
 		/**************************************************************************************************************
 		 * Constructs a text input event.
 		 *
 		 * @param text The inputted text string.
 		 **************************************************************************************************************/
-		TextInputEvent(const std::array<char, 32>& text) noexcept;
+		TextInputEvent(std::string&& text) noexcept;
 
 		/**************************************************************************************************************
 		 * Converts a generic event into a text input event.
@@ -502,12 +502,12 @@ namespace tr {
 		/**************************************************************************************************************
 		 * The position of the mouse.
 		 **************************************************************************************************************/
-		glm::ivec2 pos;
+		glm::vec2 pos;
 
 		/**************************************************************************************************************
 		 * The change in mouse position since the last event of this type.
 		 **************************************************************************************************************/
-		glm::ivec2 delta;
+		glm::vec2 delta;
 
 		/**************************************************************************************************************
 		 * Constructs a mouse motion event.
@@ -516,7 +516,7 @@ namespace tr {
 		 * @param pos The position of the mouse.
 		 * @param delta The change in mouse position since the last event of this type.
 		 **************************************************************************************************************/
-		MouseMotionEvent(MouseButtonMask buttons, glm::ivec2 pos, glm::ivec2 delta) noexcept;
+		MouseMotionEvent(MouseButtonMask buttons, glm::vec2 pos, glm::vec2 delta) noexcept;
 
 		/**************************************************************************************************************
 		 * Converts a generic event into a mouse motion event.
@@ -557,7 +557,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * The position of the mouse.
 		 **************************************************************************************************************/
-		glm::ivec2 pos;
+		glm::vec2 pos;
 
 		/**************************************************************************************************************
 		 * Constructs a mouse down event.
@@ -566,7 +566,7 @@ namespace tr {
 		 * @param clicks The number of consecutive clicks.
 		 * @param pos The position of the mouse.
 		 **************************************************************************************************************/
-		MouseDownEvent(MouseButton button, std::uint8_t clicks, glm::ivec2 pos) noexcept;
+		MouseDownEvent(MouseButton button, std::uint8_t clicks, glm::vec2 pos) noexcept;
 
 		/**************************************************************************************************************
 		 * Converts a generic event into a mouse down event.
@@ -602,7 +602,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * The position of the mouse.
 		 **************************************************************************************************************/
-		glm::ivec2 pos;
+		glm::vec2 pos;
 
 		/**************************************************************************************************************
 		 * Constructs a mouse up event.
@@ -610,7 +610,7 @@ namespace tr {
 		 * @param button The released mouse button.
 		 * @param pos The position of the mouse.
 		 **************************************************************************************************************/
-		MouseUpEvent(MouseButton button, glm::ivec2 pos) noexcept;
+		MouseUpEvent(MouseButton button, glm::vec2 pos) noexcept;
 
 		/**************************************************************************************************************
 		 * Converts a generic event into a mouse wheel event.
@@ -646,7 +646,7 @@ namespace tr {
 		/**************************************************************************************************************
 		 * The position of the mouse.
 		 **************************************************************************************************************/
-		glm::ivec2 mousePos;
+		glm::vec2 mousePos;
 
 		/**************************************************************************************************************
 		 * Constructs a mouse wheel event.
@@ -654,7 +654,7 @@ namespace tr {
 		 * @param delta The change in wheel value.
 		 * @param mousePos The position of the mouse.
 		 **************************************************************************************************************/
-		MouseWheelEvent(glm::vec2 delta, glm::ivec2 mousePos) noexcept;
+		MouseWheelEvent(glm::vec2 delta, glm::vec2 mousePos) noexcept;
 
 		/**************************************************************************************************************
 		 * Converts a generic event into a mouse up event.
@@ -722,11 +722,6 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Event emitted when a window's size changes.
-	 ******************************************************************************************************************/
-	struct WindowSizeChangeEvent {};
-
-	/******************************************************************************************************************
 	 * Event emitted when a window is minimized.
 	 ******************************************************************************************************************/
 	struct WindowMinimizeEvent {};
@@ -754,20 +749,19 @@ namespace tr {
 	/******************************************************************************************************************
 	 * Event emitted when a window close request is made.
 	 ******************************************************************************************************************/
-	struct WindowCloseEvent {};
+	struct WindowCloseRequestedEvent {};
 
 	/******************************************************************************************************************
 	 * Union of window event types.
 	 ******************************************************************************************************************/
-	struct WindowEvent
-		: public std::variant<WindowEnterEvent, WindowLeaveEvent, WindowShowEvent, WindowHideEvent, WindowExposeEvent,
-							  WindowMotionEvent, WindowResizeEvent, WindowSizeChangeEvent, WindowMinimizeEvent,
-							  WindowMaximizeEvent, WindowRestoreEvent, WindowGainFocusEvent, WindowLoseFocusEvent,
-							  WindowCloseEvent> {
+	struct WindowEvent : public std::variant<WindowEnterEvent, WindowLeaveEvent, WindowShowEvent, WindowHideEvent,
+											 WindowExposeEvent, WindowMotionEvent, WindowResizeEvent,
+											 WindowMinimizeEvent, WindowMaximizeEvent, WindowRestoreEvent,
+											 WindowGainFocusEvent, WindowLoseFocusEvent, WindowCloseRequestedEvent> {
 		using std::variant<WindowEnterEvent, WindowLeaveEvent, WindowShowEvent, WindowHideEvent, WindowExposeEvent,
-						   WindowMotionEvent, WindowResizeEvent, WindowSizeChangeEvent, WindowMinimizeEvent,
-						   WindowMaximizeEvent, WindowRestoreEvent, WindowGainFocusEvent, WindowLoseFocusEvent,
-						   WindowCloseEvent>::variant;
+						   WindowMotionEvent, WindowResizeEvent, WindowMinimizeEvent, WindowMaximizeEvent,
+						   WindowRestoreEvent, WindowGainFocusEvent, WindowLoseFocusEvent,
+						   WindowCloseRequestedEvent>::variant;
 
 		/**************************************************************************************************************
 		 * Converts a generic event into a window event.

@@ -431,6 +431,24 @@ namespace tr {
 		void resetMouseConfines() noexcept;
 
 		/**************************************************************************************************************
+		 * Gets whether relative mouse mode is enabled for this window.
+		 *
+		 * @note In relative mouse mode, only deltas are reported, mouse position isn't changed.
+		 *
+		 * @return True if relative mode is enabled, false otherwise.
+		 **************************************************************************************************************/
+		bool inRelativeMouseMode() const noexcept;
+
+		/**************************************************************************************************************
+		 * Sets whether relative mouse mode is enabled for this window.
+		 *
+		 * @note In relative mouse mode, only deltas are reported, mouse position isn't changed.
+		 *
+		 * @param[in] relative Whether relative mouse mode should be enabled.
+		 **************************************************************************************************************/
+		bool setRelativeMouseMode(bool relative) noexcept;
+
+		/**************************************************************************************************************
 		 * Gets whether the window is always on top.
 		 *
 		 * @return True if the window is always on top, or false otherwise.

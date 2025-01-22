@@ -1,7 +1,7 @@
 #include "../include/tr/window.hpp"
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
+#include <SDL3/SDL.h>
+#include <SDL3_image/SDL_image.h>
 #include <format>
 
 namespace tr {
@@ -33,34 +33,32 @@ void tr::setSDLGLAttributes(const GraphicsProperties& gfxProperties) noexcept
 
 void tr::suppressUnsupportedEvents() noexcept
 {
-	SDL_EventState(SDL_AUDIODEVICEADDED, SDL_IGNORE);
-	SDL_EventState(SDL_AUDIODEVICEREMOVED, SDL_IGNORE);
-	SDL_EventState(SDL_CONTROLLERAXISMOTION, SDL_IGNORE);
-	SDL_EventState(SDL_CONTROLLERBUTTONDOWN, SDL_IGNORE);
-	SDL_EventState(SDL_CONTROLLERBUTTONUP, SDL_IGNORE);
-	SDL_EventState(SDL_AUDIODEVICEREMOVED, SDL_IGNORE);
-	SDL_EventState(SDL_DOLLARGESTURE, SDL_IGNORE);
-	SDL_EventState(SDL_DOLLARRECORD, SDL_IGNORE);
-	SDL_EventState(SDL_CONTROLLERDEVICEADDED, SDL_IGNORE);
-	SDL_EventState(SDL_CONTROLLERDEVICEREMOVED, SDL_IGNORE);
-	SDL_EventState(SDL_CONTROLLERDEVICEREMAPPED, SDL_IGNORE);
-	SDL_EventState(SDL_DROPFILE, SDL_IGNORE);
-	SDL_EventState(SDL_DROPTEXT, SDL_IGNORE);
-	SDL_EventState(SDL_DROPBEGIN, SDL_IGNORE);
-	SDL_EventState(SDL_DROPCOMPLETE, SDL_IGNORE);
-	SDL_EventState(SDL_FINGERMOTION, SDL_IGNORE);
-	SDL_EventState(SDL_FINGERDOWN, SDL_IGNORE);
-	SDL_EventState(SDL_FINGERUP, SDL_IGNORE);
-	SDL_EventState(SDL_JOYAXISMOTION, SDL_IGNORE);
-	SDL_EventState(SDL_JOYBALLMOTION, SDL_IGNORE);
-	SDL_EventState(SDL_JOYHATMOTION, SDL_IGNORE);
-	SDL_EventState(SDL_JOYBUTTONDOWN, SDL_IGNORE);
-	SDL_EventState(SDL_JOYBUTTONUP, SDL_IGNORE);
-	SDL_EventState(SDL_JOYDEVICEADDED, SDL_IGNORE);
-	SDL_EventState(SDL_JOYDEVICEREMOVED, SDL_IGNORE);
-	SDL_EventState(SDL_MULTIGESTURE, SDL_IGNORE);
-	SDL_EventState(SDL_SYSWMEVENT, SDL_IGNORE);
-	SDL_StopTextInput();
+	SDL_SetEventEnabled(SDL_EVENT_AUDIO_DEVICE_ADDED, false);
+	SDL_SetEventEnabled(SDL_EVENT_AUDIO_DEVICE_REMOVED, false);
+	SDL_SetEventEnabled(SDL_EVENT_GAMEPAD_AXIS_MOTION, false);
+	SDL_SetEventEnabled(SDL_EVENT_GAMEPAD_BUTTON_DOWN, false);
+	SDL_SetEventEnabled(SDL_EVENT_GAMEPAD_BUTTON_UP, false);
+	SDL_SetEventEnabled(SDL_EVENT_AUDIO_DEVICE_REMOVED, false);
+	SDL_SetEventEnabled(SDL_EVENT_DOLLAR_GESTURE, false);
+	SDL_SetEventEnabled(SDL_EVENT_DOLLAR_RECORD, false);
+	SDL_SetEventEnabled(SDL_EVENT_GAMEPAD_ADDED, false);
+	SDL_SetEventEnabled(SDL_EVENT_GAMEPAD_REMOVED, false);
+	SDL_SetEventEnabled(SDL_EVENT_GAMEPAD_REMAPPED, false);
+	SDL_SetEventEnabled(SDL_EVENT_DROP_FILE, false);
+	SDL_SetEventEnabled(SDL_EVENT_DROP_TEXT, false);
+	SDL_SetEventEnabled(SDL_EVENT_DROP_BEGIN, false);
+	SDL_SetEventEnabled(SDL_EVENT_DROP_COMPLETE, false);
+	SDL_SetEventEnabled(SDL_EVENT_FINGER_MOTION, false);
+	SDL_SetEventEnabled(SDL_EVENT_FINGER_DOWN, false);
+	SDL_SetEventEnabled(SDL_EVENT_FINGER_UP, false);
+	SDL_SetEventEnabled(SDL_EVENT_JOYSTICK_AXIS_MOTION, false);
+	SDL_SetEventEnabled(SDL_EVENT_JOYSTICK_BALL_MOTION, false);
+	SDL_SetEventEnabled(SDL_EVENT_JOYSTICK_HAT_MOTION, false);
+	SDL_SetEventEnabled(SDL_EVENT_JOYSTICK_BUTTON_DOWN, false);
+	SDL_SetEventEnabled(SDL_EVENT_JOYSTICK_BUTTON_UP, false);
+	SDL_SetEventEnabled(SDL_EVENT_JOYSTICK_ADDED, false);
+	SDL_SetEventEnabled(SDL_EVENT_JOYSTICK_REMOVED, false);
+	SDL_SetEventEnabled(SDL_EVENT_MULTI_GESTURE, false);
 }
 
 bool tr::initSDL(const GraphicsProperties& gfxProperties)
@@ -96,9 +94,6 @@ void tr::Window::SDLDeleter::operator()(bool) const noexcept
 {
 	if (TTF_WasInit()) {
 		TTF_Quit();
-	}
-	if (IMG_Init(0)) {
-		IMG_Quit();
 	}
 	if (SDL_WasInit(SDL_INIT_VIDEO | SDL_INIT_TIMER)) {
 		SDL_Quit();
@@ -358,6 +353,10 @@ void tr::Window::resetMouseConfines() noexcept
 	assert(_impl.get() != nullptr);
 	SDL_SetWindowMouseRect(_impl.get(), nullptr);
 }
+
+bool tr::Window::inRelativeMouseMode() const noexcept;
+
+bool tr::Window::setRelativeMouseMode(bool relative) noexcept;
 
 bool tr::Window::alwaysOnTop() const noexcept
 {
