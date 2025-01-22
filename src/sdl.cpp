@@ -1,5 +1,5 @@
 #include "../include/tr/sdl.hpp"
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 #include <format>
 
 tr::SDLError::SDLError(std::string_view message)
