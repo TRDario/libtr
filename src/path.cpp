@@ -1,16 +1,12 @@
 #include "../include/tr/path.hpp"
-#include <SDL2/SDL.h>
+#include <SDL3/SDL.h>
 
 std::filesystem::path tr::getExeDir()
 {
 	SDL_InitSubSystem(SDL_INIT_VIDEO);
-	std::unique_ptr<char[], decltype([](void* ptr) { SDL_free(ptr); })> cExedir{SDL_GetBasePath()};
-	if (cExedir == nullptr) {
-		throw ExeDirInitError{};
-	}
-	std::filesystem::path exedir{cExedir.get()};
+	const char* path{SDL_GetBasePath()};
 	SDL_QuitSubSystem(SDL_INIT_VIDEO);
-	return exedir;
+	return path;
 }
 
 std::filesystem::path tr::getUserDir(const char* org, const char* app)
