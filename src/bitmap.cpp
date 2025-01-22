@@ -1,12 +1,8 @@
 #include "../include/tr/bitmap.hpp"
 #include "../include/tr/bitmap_iterators.hpp"
-#include "SDL2/SDL_image.h"
-#include <SDL2/SDL.h>
+#include "SDL3_image/SDL_image.h"
+#include <SDL3/SDL.h>
 #include <format>
-
-#ifdef _WIN32
-#include <windows.h>
-#endif
 
 namespace tr {
 	template <class T> T checkNotNull(T ptr);
@@ -26,9 +22,9 @@ void tr::saveBitmap(SDL_Surface* bitmap, const std::filesystem::path& path)
 	assert(bitmap != nullptr);
 
 #ifdef _WIN32
-	if (!IMG_Init(IMG_INIT_PNG) || IMG_SavePNG_RW(bitmap, SDL_RWFromFP(_wfopen(path.c_str(), L"w"), true), true) < 0) {
+	if (!IMG_SavePNG(bitmap, path.string().c_str())) {
 #else
-	if (!IMG_Init(IMG_INIT_PNG) || IMG_SavePNG(bitmap, path.c_str()) < 0) {
+	if (!IMG_SavePNG(bitmap, path.c_str())) {
 #endif
 		throw BitmapSaveError{path};
 	}
@@ -46,7 +42,7 @@ const char* tr::BitmapSaveError::what() const noexcept
 {
 	static std::string str;
 	str.clear();
-	format_to(back_inserter(str), "Failed to save bitmap file ({}): '{}'", IMG_GetError(), path());
+	format_to(back_inserter(str), "Failed to save bitmap file ({}): '{}'", SDL_GetError(), path());
 	return str.c_str();
 }
 
@@ -103,7 +99,7 @@ const std::byte* tr::SubBitmap::data() const noexcept
 
 tr::BitmapFormat tr::SubBitmap::format() const noexcept
 {
-	return tr::BitmapFormat::Type(_bitmap->format->format);
+	return tr::BitmapFormat::Type(_bitmap->format);
 }
 
 int tr::SubBitmap::rowLength() const noexcept
@@ -128,15 +124,14 @@ tr::BitmapView::BitmapView(std::span<const std::byte> rawData, glm::ivec2 size, 
 }
 
 tr::BitmapView::BitmapView(const std::byte* rawDataStart, int pitch, glm::ivec2 size, BitmapFormat format)
-	: _impl{checkNotNull(SDL_CreateRGBSurfaceWithFormatFrom((std::byte*)(rawDataStart), size.x, size.y,
-															format.pixelBits(), pitch,
-															std::uint32_t(BitmapFormat::Type(format))))}
+	: _impl{checkNotNull(SDL_CreateSurfaceFrom(size.x, size.y, SDL_PixelFormat(BitmapFormat::Type(format)),
+											   (std::byte*)(rawDataStart), pitch))}
 {
 }
 
 void tr::BitmapView::Deleter::operator()(SDL_Surface* ptr) const noexcept
 {
-	SDL_FreeSurface(ptr);
+	SDL_DestroySurface(ptr);
 }
 
 glm::ivec2 tr::BitmapView::size() const noexcept
@@ -192,7 +187,7 @@ tr::BitmapFormat tr::BitmapView::format() const noexcept
 {
 	assert(_impl != nullptr);
 	assert(_impl.get()->format);
-	return BitmapFormat::Type(_impl.get()->format->format);
+	return BitmapFormat::Type(_impl.get()->format);
 }
 
 int tr::BitmapView::pitch() const noexcept
@@ -212,18 +207,17 @@ tr::Bitmap::Bitmap(SDL_Surface* ptr)
 }
 
 tr::Bitmap::Bitmap(glm::ivec2 size, BitmapFormat format)
-	: _impl{checkNotNull(SDL_CreateRGBSurfaceWithFormat(0, size.x, size.y, format.pixelBits(),
-														SDL_PixelFormatEnum(BitmapFormat::Type(format))))}
+	: _impl{checkNotNull(SDL_CreateSurface(size.x, size.y, SDL_PixelFormat(BitmapFormat::Type(format))))}
 {
 }
 
 tr::Bitmap::Bitmap(const Bitmap& bitmap, BitmapFormat format)
-	: _impl{checkNotNull(SDL_ConvertSurfaceFormat(bitmap._impl.get(), std::uint32_t(BitmapFormat::Type(format)), 0))}
+	: _impl{checkNotNull(SDL_ConvertSurface(bitmap._impl.get(), SDL_PixelFormat(BitmapFormat::Type(format))))}
 {
 }
 
 tr::Bitmap::Bitmap(const BitmapView& view, BitmapFormat format)
-	: _impl{checkNotNull(SDL_ConvertSurfaceFormat(view._impl.get(), std::uint32_t(BitmapFormat::Type(format)), 0))}
+	: _impl{checkNotNull(SDL_ConvertSurface(view._impl.get(), SDL_PixelFormat(BitmapFormat::Type(format))))}
 {
 }
 
@@ -297,7 +291,7 @@ void tr::Bitmap::fill(const RectI2& rect, RGBA8 color) noexcept
 	assert(_impl != nullptr);
 	assert(RectI2{size()}.contains(rect.tl + rect.size));
 	SDL_Rect sdlRect{rect.tl.x, rect.tl.y, rect.size.x, rect.size.y};
-	SDL_FillRect(_impl.get(), &sdlRect, SDL_MapRGBA(_impl.get()->format, color.r, color.g, color.b, color.a));
+	SDL_FillSurfaceRect(_impl.get(), &sdlRect, SDL_MapSurfaceRGBA(_impl.get(), color.r, color.g, color.b, color.a));
 }
 
 tr::Bitmap::operator SubBitmap() const noexcept
@@ -326,7 +320,7 @@ tr::BitmapFormat tr::Bitmap::format() const noexcept
 {
 	assert(_impl != nullptr);
 	assert(_impl.get()->format);
-	return BitmapFormat::Type(_impl.get()->format->format);
+	return BitmapFormat::Type(_impl.get()->format);
 }
 
 int tr::Bitmap::pitch() const noexcept
@@ -356,7 +350,7 @@ tr::Bitmap tr::createCheckerboard(glm::ivec2 size)
 
 tr::Bitmap tr::loadEmbeddedBitmap(std::span<const std::byte> data)
 {
-	return Bitmap{checkNotNull(IMG_Load_RW(SDL_RWFromConstMem(data.data(), data.size()), true))};
+	return Bitmap{checkNotNull(IMG_Load_IO(SDL_IOFromConstMem(data.data(), data.size()), true))};
 }
 
 tr::Bitmap tr::loadBitmapFile(const std::filesystem::path& path)
@@ -366,18 +360,10 @@ tr::Bitmap tr::loadBitmapFile(const std::filesystem::path& path)
 	}
 
 #ifdef _WIN32
-	auto rwops{SDL_RWFromFP(_wfopen(path.c_str(), L"r"), true)};
+	auto ptr{IMG_Load(path.string().c_str())};
 #else
-	auto rwops{SDL_RWFromFile(path.c_str(), "r")};
+	auto ptr{IMG_Load(path.c_str())};
 #endif
-	if (IMG_isPNG(rwops) && !(IMG_Init(0) & IMG_INIT_PNG)) {
-		IMG_Init(IMG_INIT_PNG);
-	}
-	else if (IMG_isJPG(rwops) && !(IMG_Init(0) & IMG_INIT_JPG)) {
-		IMG_Init(IMG_INIT_JPG);
-	}
-
-	auto ptr{IMG_Load_RW(rwops, true)};
 	if (ptr == nullptr) {
 		throw BitmapLoadError{path};
 	}

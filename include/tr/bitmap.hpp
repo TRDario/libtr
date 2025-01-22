@@ -5,7 +5,7 @@
 #include "iostream.hpp"
 
 struct SDL_Surface;
-struct SDL_PixelFormat;
+struct SDL_PixelFormatDetails;
 
 namespace tr {
 	class Bitmap;
