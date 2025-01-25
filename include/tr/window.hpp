@@ -594,8 +594,8 @@ namespace tr {
 /// @cond IMPLEMENTATION
 
 template <> struct magic_enum::customize::enum_range<tr::WindowMode> {
-	static constexpr int min = int(tr::WindowMode::WINDOWED);
-	static constexpr int max = int(tr::WindowMode::BORDERLESS);
+	static constexpr int min = static_cast<int>(tr::WindowMode::WINDOWED);
+	static constexpr int max = static_cast<int>(tr::WindowMode::BORDERLESS);
 };
 
 /// @endcond
