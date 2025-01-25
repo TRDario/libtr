@@ -33,17 +33,17 @@ void tr::GraphicsContext::Deleter::operator()(SDL_GLContext ptr) const noexcept
 
 const char* tr::GraphicsContext::vendorInfo() const noexcept
 {
-	return (const char*)(TR_RETURNING_GL_CALL(glGetString, GL_VENDOR));
+	return reinterpret_cast<const char*>(TR_RETURNING_GL_CALL(glGetString, GL_VENDOR));
 }
 
 const char* tr::GraphicsContext::rendererInfo() const noexcept
 {
-	return (const char*)(TR_RETURNING_GL_CALL(glGetString, GL_RENDERER));
+	return reinterpret_cast<const char*>(TR_RETURNING_GL_CALL(glGetString, GL_RENDERER));
 }
 
 const char* tr::GraphicsContext::versionInfo() const noexcept
 {
-	return (const char*)(TR_RETURNING_GL_CALL(glGetString, GL_VERSION));
+	return reinterpret_cast<const char*>(TR_RETURNING_GL_CALL(glGetString, GL_VERSION));
 }
 
 void tr::GraphicsContext::setViewport(const RectI2& viewport) noexcept
@@ -103,18 +103,19 @@ void tr::GraphicsContext::useStencilTest(bool use) noexcept
 
 void tr::GraphicsContext::setStencilTest(StencilFace face, Compare func, int comp, std::uint32_t mask) noexcept
 {
-	TR_GL_CALL(glStencilFuncSeparate, GLenum(face), GLenum(func), comp, mask);
+	TR_GL_CALL(glStencilFuncSeparate, static_cast<GLenum>(face), static_cast<GLenum>(func), comp, mask);
 }
 
 void tr::GraphicsContext::setStencilOperation(StencilFace face, StencilOperation sfail, StencilOperation dfail,
 											  StencilOperation dpass) noexcept
 {
-	TR_GL_CALL(glStencilOpSeparate, GLenum(face), GLenum(sfail), GLenum(dfail), GLenum(dpass));
+	TR_GL_CALL(glStencilOpSeparate, static_cast<GLenum>(face), static_cast<GLenum>(sfail), static_cast<GLenum>(dfail),
+			   static_cast<GLenum>(dpass));
 }
 
 void tr::GraphicsContext::setStencilMask(StencilFace face, std::uint32_t mask) noexcept
 {
-	TR_GL_CALL(glStencilMaskSeparate, GLenum(face), mask);
+	TR_GL_CALL(glStencilMaskSeparate, static_cast<GLenum>(face), mask);
 }
 
 void tr::GraphicsContext::useDepthTest(bool use) noexcept
@@ -129,7 +130,7 @@ void tr::GraphicsContext::useDepthTest(bool use) noexcept
 
 void tr::GraphicsContext::setDepthTest(Compare func) noexcept
 {
-	TR_GL_CALL(glDepthFunc, GLenum(func));
+	TR_GL_CALL(glDepthFunc, static_cast<GLenum>(func));
 }
 
 void tr::GraphicsContext::useBlending(bool use) noexcept
@@ -144,9 +145,9 @@ void tr::GraphicsContext::useBlending(bool use) noexcept
 
 void tr::GraphicsContext::setBlendingMode(BlendMode blendMode) noexcept
 {
-	TR_GL_CALL(glBlendEquationSeparate, GLenum(blendMode.rgbFn), GLenum(blendMode.alphaFn));
-	TR_GL_CALL(glBlendFuncSeparate, GLenum(blendMode.rgbSrc), GLenum(blendMode.rgbDst), GLenum(blendMode.alphaSrc),
-			   GLenum(blendMode.alphaDst));
+	TR_GL_CALL(glBlendEquationSeparate, static_cast<GLenum>(blendMode.rgbFn), static_cast<GLenum>(blendMode.alphaFn));
+	TR_GL_CALL(glBlendFuncSeparate, static_cast<GLenum>(blendMode.rgbSrc), static_cast<GLenum>(blendMode.rgbDst),
+			   static_cast<GLenum>(blendMode.alphaSrc), static_cast<GLenum>(blendMode.alphaDst));
 }
 
 void tr::GraphicsContext::setBlendingColor(RGBAF clr)
@@ -176,7 +177,7 @@ void tr::GraphicsContext::setClearStencil(int stencil) noexcept
 
 void tr::GraphicsContext::clear(Clear components) noexcept
 {
-	TR_GL_CALL(glClear, GLbitfield(components));
+	TR_GL_CALL(glClear, static_cast<GLbitfield>(components));
 }
 
 void tr::GraphicsContext::setVertexFormat(const VertexFormat& format) noexcept
@@ -189,40 +190,42 @@ void tr::GraphicsContext::setVertexBuffer(const VertexBuffer& buffer, std::size_
 {
 	assert(buffer._buffer.has_value());
 	assert(offset < buffer.size());
+
 	TR_GL_CALL(glBindVertexBuffer, 0, buffer._buffer->_id.get(), offset, vertexStride);
 }
 
 void tr::GraphicsContext::setIndexBuffer(const IndexBuffer& buffer) noexcept
 {
 	assert(buffer._buffer.has_value());
+
 	buffer._buffer->bind();
 }
 
 void tr::GraphicsContext::draw(Primitive type, std::size_t offset, std::size_t vertices) noexcept
 {
-	TR_GL_CALL(glDrawArrays, GLenum(type), offset, vertices);
+	TR_GL_CALL(glDrawArrays, static_cast<GLenum>(type), offset, vertices);
 }
 
 void tr::GraphicsContext::drawInstances(Primitive type, std::size_t offset, std::size_t vertices,
 										int instances) noexcept
 {
-	TR_GL_CALL(glDrawArraysInstanced, GLenum(type), offset, vertices, instances);
+	TR_GL_CALL(glDrawArraysInstanced, static_cast<GLenum>(type), offset, vertices, instances);
 }
 
 void tr::GraphicsContext::drawIndexed(Primitive type, std::size_t offset, std::size_t indices) noexcept
 {
-	TR_GL_CALL(glDrawElements, GLenum(type), indices, GL_UNSIGNED_SHORT, (const void*)(offset * sizeof(std::uint16_t)));
+	TR_GL_CALL(glDrawElements, static_cast<GLenum>(type), indices, GL_UNSIGNED_SHORT,
+			   reinterpret_cast<const void*>(offset * sizeof(std::uint16_t)));
 }
 
 void tr::GraphicsContext::drawIndexedInstances(Primitive type, std::size_t offset, std::size_t indices,
 											   int instances) noexcept
 {
-	TR_GL_CALL(glDrawElementsInstanced, GLenum(type), indices, GL_UNSIGNED_SHORT,
-			   (const void*)(offset * sizeof(std::uint16_t)), instances);
+	TR_GL_CALL(glDrawElementsInstanced, static_cast<GLenum>(type), indices, GL_UNSIGNED_SHORT,
+			   reinterpret_cast<const void*>(offset * sizeof(std::uint16_t)), instances);
 }
 
 void tr::GraphicsContext::swap() noexcept
 {
-	assert(_impl.get() != nullptr);
 	SDL_GL_SwapWindow(window()._impl.get());
 }

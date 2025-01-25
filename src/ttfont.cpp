@@ -10,7 +10,7 @@ namespace tr {
 void tr::fixAlphaArtifacts(Bitmap& bitmap, std::uint8_t maxAlpha) noexcept
 {
 	// We know the bitmap is ARGB_8888.
-	auto it{(std::uint8_t*)(bitmap.data())};
+	std::uint8_t* it{reinterpret_cast<std::uint8_t*>(bitmap.data())};
 	for (int y = 0; y < bitmap.size().y; ++y) {
 		for (int x = 0; x < bitmap.size().x; ++x) {
 			it[x * 4] = std::min(it[x * 4], maxAlpha);
@@ -79,7 +79,7 @@ int tr::TTFont::faceCount() const noexcept
 
 tr::TTFont::Hint tr::TTFont::hinting() const noexcept
 {
-	return Hint(TTF_GetFontHinting(_impl.get()));
+	return static_cast<Hint>(TTF_GetFontHinting(_impl.get()));
 }
 
 void tr::TTFont::setHinting(Hint hinting) noexcept
@@ -87,7 +87,7 @@ void tr::TTFont::setHinting(Hint hinting) noexcept
 	if (hinting == this->hinting()) {
 		return;
 	}
-	TTF_SetFontHinting(_impl.get(), int(hinting));
+	TTF_SetFontHinting(_impl.get(), static_cast<int>(hinting));
 }
 
 bool tr::TTFont::kerning() const noexcept
@@ -102,7 +102,7 @@ void tr::TTFont::setKerning(bool kerning) noexcept
 
 tr::TTFont::Style tr::TTFont::style() const noexcept
 {
-	return Style(TTF_GetFontStyle(_impl.get()));
+	return static_cast<Style>(TTF_GetFontStyle(_impl.get()));
 }
 
 void tr::TTFont::setStyle(Style style) noexcept
@@ -110,7 +110,7 @@ void tr::TTFont::setStyle(Style style) noexcept
 	if (style == this->style()) {
 		return;
 	}
-	TTF_SetFontStyle(_impl.get(), int(style));
+	TTF_SetFontStyle(_impl.get(), static_cast<int>(style));
 }
 
 int tr::TTFont::outline() const noexcept
@@ -128,12 +128,12 @@ void tr::TTFont::setOutline(int thickness) noexcept
 
 tr::TTFont::WrapAlignment tr::TTFont::wrapAlignment() const noexcept
 {
-	return WrapAlignment(TTF_GetFontWrappedAlign(_impl.get()));
+	return static_cast<WrapAlignment>(TTF_GetFontWrappedAlign(_impl.get()));
 }
 
 void tr::TTFont::setWrapAlignment(WrapAlignment alignment) noexcept
 {
-	TTF_SetFontWrappedAlign(_impl.get(), int(alignment));
+	TTF_SetFontWrappedAlign(_impl.get(), static_cast<int>(alignment));
 }
 
 bool tr::TTFont::contains(std::uint32_t cp) const noexcept
@@ -173,7 +173,7 @@ tr::TTFont::MeasureResult tr::TTFont::measure(const char* text, int maxWidth) co
 {
 	int extent, count;
 	TTF_MeasureUTF8(_impl.get(), text, maxWidth, &extent, &count);
-	return {std::string_view{text, std::size_t(count)}, extent};
+	return {std::string_view{text, static_cast<std::size_t>(count)}, extent};
 }
 
 tr::Bitmap tr::TTFont::render(std::uint32_t cp, RGBA8 color) const

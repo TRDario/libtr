@@ -3,12 +3,12 @@
 
 inline std::size_t tr::smoothPolygonVerticesCount(float r, float scale) noexcept
 {
-	return std::max(std::size_t(6 * scale * std::sqrt(std::abs(r))), std::size_t(3));
+	return std::max<std::size_t>(6 * scale * std::sqrt(std::abs(r)), 3);
 }
 
 inline std::size_t tr::smoothArcVerticesCount(float r, AngleF sizeth, float scale) noexcept
 {
-	return std::max(std::size_t(6 * scale * std::sqrt(std::abs(r)) / (360_degf / (sizeth % 360_degf))), std::size_t(3));
+	return std::max<std::size_t>(6 * scale * std::sqrt(std::abs(r)) / (360_degf / (sizeth % 360_degf)), 3);
 }
 
 template <std::output_iterator<std::uint16_t> It>
@@ -68,7 +68,7 @@ inline It tr::fillRotatedRectangleVertices(It out, glm::vec2 pos, glm::vec2 posA
 		return fillRectVertices(out, pos - posAnchor, size);
 	}
 	else {
-		const auto transform{tr::rotateAroundPoint2(glm::mat4{1}, pos, rotation)};
+		const glm::mat4 transform{tr::rotateAroundPoint2(glm::mat4{1}, pos, rotation)};
 		return fillRectVertices(out, pos - posAnchor, size, transform);
 	}
 }
@@ -96,7 +96,7 @@ inline It tr::fillRotatedRectangleOutlineVertices(It out, glm::vec2 pos, glm::ve
 		return fillRectOutlineVertices(out, pos - posAnchor, size, thickness);
 	}
 	else {
-		const auto transform{tr::rotateAroundPoint2(glm::mat4{1}, pos, rotation)};
+		const glm::mat4 transform{tr::rotateAroundPoint2(glm::mat4{1}, pos, rotation)};
 		return fillRectOutlineVertices(out, pos - posAnchor, size, thickness, transform);
 	}
 }
@@ -104,9 +104,9 @@ inline It tr::fillRotatedRectangleOutlineVertices(It out, glm::vec2 pos, glm::ve
 template <std::output_iterator<glm::vec2> It>
 It tr::fillArcVertices(It out, std::size_t vertices, CircleF circ, AngleF startth, AngleF sizeth)
 {
-	auto      dth{sizeth / vertices};
-	auto      dsin{dth.sin()};
-	auto      dcos{dth.cos()};
+	AngleF    dth{sizeth / vertices};
+	float     dsin{dth.sin()};
+	float     dcos{dth.cos()};
 	glm::vec2 delta{circ.r * startth.cos(), circ.r * startth.sin()};
 	for (std::size_t i = 0; i < vertices; ++i) {
 		*out++ = delta + circ.c;

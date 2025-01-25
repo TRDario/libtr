@@ -1,6 +1,6 @@
-#include "../include/tr/imgui.hpp"
 #include "../include/tr/dependencies/imgui_impl_opengl3.h"
 #include "../include/tr/dependencies/imgui_impl_sdl2.h"
+#include "../include/tr/imgui.hpp"
 #include "../include/tr/window.hpp"
 
 std::uint64_t tr::ImGui::getTextureID(const Texture& texture) noexcept
@@ -22,7 +22,7 @@ void tr::ImGui::newFrame()
 
 void tr::ImGui::processEvent(const Event& event)
 {
-	ImGui_ImplSDL2_ProcessEvent((const SDL_Event*)(&event));
+	ImGui_ImplSDL2_ProcessEvent(reinterpret_cast<const SDL_Event*>(&event));
 }
 
 void tr::ImGui::draw()

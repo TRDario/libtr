@@ -184,24 +184,24 @@ tr::AudioOrigin tr::AudioSource::origin() const noexcept
 {
 	int type;
 	alGetSourcei(_id.get(), AL_SOURCE_RELATIVE, &type);
-	return AudioOrigin(type);
+	return static_cast<AudioOrigin>(type);
 }
 
 void tr::AudioSource::setOrigin(AudioOrigin type) noexcept
 {
-	alSourcei(_id.get(), AL_SOURCE_RELATIVE, int(type));
+	alSourcei(_id.get(), AL_SOURCE_RELATIVE, static_cast<int>(type));
 }
 
 bool tr::AudioSource::looping() const noexcept
 {
 	int looping;
 	alGetSourcei(_id.get(), AL_LOOPING, &looping);
-	return bool(looping);
+	return static_cast<bool>(looping);
 }
 
 void tr::AudioSource::setLooping(bool value) noexcept
 {
-	alSourcei(_id.get(), AL_LOOPING, int(value));
+	alSourcei(_id.get(), AL_LOOPING, static_cast<int>(value));
 }
 
 tr::AudioState tr::AudioSource::state() const noexcept
@@ -241,7 +241,7 @@ std::optional<tr::AudioBufferView> tr::AudioSource::buffer() const noexcept
 {
 	int id;
 	alGetSourcei(_id.get(), AL_BUFFER, &id);
-	return id != 0 ? std::optional<AudioBufferView>{{(unsigned int)(id)}} : std::nullopt;
+	return id != 0 ? std::optional<AudioBufferView>{{static_cast<unsigned int>(id)}} : std::nullopt;
 }
 
 void tr::AudioSource::setBuffer(std::optional<AudioBufferView> buffer) noexcept
@@ -278,7 +278,7 @@ void tr::AudioSource::queueBuffer(AudioBufferView buffer) noexcept
 
 void tr::AudioSource::queueBuffers(std::span<AudioBufferView> buffers) noexcept
 {
-	alSourceQueueBuffers(_id.get(), buffers.size(), (unsigned int*)(buffers.data()));
+	alSourceQueueBuffers(_id.get(), buffers.size(), reinterpret_cast<const ALuint*>(buffers.data()));
 	assert(alGetError() != AL_INVALID_OPERATION);
 }
 
@@ -294,7 +294,7 @@ tr::SecondsF tr::AudioSource::offset() const noexcept
 {
 	float offset;
 	alGetSourcef(_id.get(), AL_SEC_OFFSET, &offset);
-	return SecondsF(offset);
+	return SecondsF{offset};
 }
 
 void tr::AudioSource::setOffset(SecondsF offset) noexcept

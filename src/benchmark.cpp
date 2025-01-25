@@ -20,9 +20,9 @@ void tr::Benchmark::stop()
 	assert(_startPoint != TimePoint{});
 
 	atomic_thread_fence(std::memory_order::relaxed);
-	auto now{Clock::now()};
+	const TimePoint now{Clock::now()};
 	_durations.emplace_back(_startPoint, now - _startPoint);
-	auto it{std::ranges::upper_bound(_durations, now - 2.5s, std::less{}, &Deque::value_type::first)};
+	const auto it{std::ranges::upper_bound(_durations, now - 2.5s, std::less{}, &Deque::value_type::first)};
 	if (it != _durations.end()) {
 		_durations.erase(_durations.begin(), it);
 	}
@@ -57,8 +57,8 @@ tr::Duration tr::Benchmark::average() const noexcept
 		return Duration{0};
 	}
 	else {
-		auto durations{std::views::values(_durations)};
-		return std::accumulate(durations.begin(), durations.end(), Duration{0}) / int(_durations.size());
+		const auto durations{std::views::values(_durations)};
+		return std::accumulate(durations.begin(), durations.end(), Duration{0}) / _durations.size();
 	}
 }
 

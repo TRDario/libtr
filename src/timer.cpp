@@ -38,7 +38,7 @@ void tr::Timer::thread(bool& active, Duration interval, Callback callback) noexc
 		std::this_thread::sleep_for(interval);
 		while (active) {
 			atomic_thread_fence(std::memory_order::relaxed);
-			const auto now{tr::Clock::now()};
+			const TimePoint now{tr::Clock::now()};
 			atomic_thread_fence(std::memory_order::relaxed);
 
 			const tr::Duration lastInterval{now - prev};

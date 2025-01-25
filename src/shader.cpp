@@ -1,5 +1,5 @@
-#include "../include/tr/shader.hpp"
 #include "../include/tr/ranges.hpp"
+#include "../include/tr/shader.hpp"
 #include "gl_call.hpp"
 #include <format>
 #include <glm/ext.hpp>
@@ -14,7 +14,7 @@ GLuint tr::constructProgram(std::span<const std::byte> data, ShaderType type) no
 	using ShaderHandle  = Handle<GLuint, 0, decltype([](GLuint id) { TR_GL_CALL(glDeleteShader, id); })>;
 	using ProgramHandle = Handle<GLuint, 0, decltype([](GLuint id) { TR_GL_CALL(glDeleteShader, id); })>;
 
-	ShaderHandle  shader{TR_RETURNING_GL_CALL(glCreateShader, GLenum(type))};
+	ShaderHandle  shader{TR_RETURNING_GL_CALL(glCreateShader, static_cast<GLenum>(type))};
 	ProgramHandle program{TR_RETURNING_GL_CALL(glCreateProgram)};
 
 	TR_GL_CALL(glShaderBinary, 1, &shader.get(), GL_SHADER_BINARY_FORMAT_SPIR_V, data.data(), data.size());
@@ -65,22 +65,22 @@ tr::ShaderType tr::Shader::type() const noexcept
 
 void tr::Shader::setUniform(int index, bool value) noexcept
 {
-	setUniform(index, int(value));
+	setUniform(index, static_cast<int>(value));
 }
 
 void tr::Shader::setUniform(int index, glm::bvec2 value) noexcept
 {
-	setUniform(index, glm::ivec2(value));
+	setUniform(index, static_cast<glm::ivec2>(value));
 }
 
 void tr::Shader::setUniform(int index, glm::bvec3 value) noexcept
 {
-	setUniform(index, glm::ivec3(value));
+	setUniform(index, static_cast<glm::ivec3>(value));
 }
 
 void tr::Shader::setUniform(int index, glm::bvec4 value) noexcept
 {
-	setUniform(index, glm::ivec4(value));
+	setUniform(index, static_cast<glm::ivec4>(value));
 }
 
 void tr::Shader::setUniform(int index, int value) noexcept
@@ -335,7 +335,7 @@ void tr::Shader::setUniform(int index, std::span<const glm::dvec4> value) noexce
 
 void tr::Shader::setUniform(int index, const TextureUnit& value) noexcept
 {
-	setUniform(index, int(value._id.get()));
+	setUniform(index, static_cast<int>(value._id.get()));
 }
 
 void tr::Shader::setStorageBuffer(unsigned int index, ShaderBuffer& buffer) noexcept
@@ -355,9 +355,9 @@ tr::Shader tr::loadEmbeddedShader(std::span<const std::byte> data, ShaderType ty
 
 tr::Shader tr::loadShaderFile(const std::filesystem::path& path, ShaderType type)
 {
-	auto file{openFileR(path, std::ios::binary)};
-	auto data{flushBinary<std::vector<char>>(file)};
-	auto id{constructProgram(rangeBytes(data), type)};
+	std::ifstream          file{openFileR(path, std::ios::binary)};
+	std::vector<std::byte> data{flushBinary(file)};
+	GLuint                 id{constructProgram(data, type)};
 	if (id == 0) {
 		throw ShaderLoadError{path};
 	}

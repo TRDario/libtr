@@ -16,7 +16,7 @@ constexpr tr::Rect<S, T>::Rect(glm::vec<S, T> size) noexcept
 template <int S, class T>
 template <class T1>
 constexpr tr::Rect<S, T>::Rect(const Rect<S, T1>& rect) noexcept
-	: tl{glm::vec<S, T>(rect.tl)}, size{glm::vec<S, T>(rect.size)}
+	: tl{static_cast<glm::vec<S, T>>(rect.tl)}, size{static_cast<glm::vec<S, T>>(rect.size)}
 {
 }
 
@@ -48,7 +48,7 @@ constexpr tr::Circle<T>::Circle(glm::tvec2<T> c, T r) noexcept
 template <class T>
 template <class T1>
 constexpr tr::Circle<T>::Circle(const Circle<T1>& circle) noexcept
-	: c{glm::tvec2<T>(circle.c)}, r{T(circle.r)}
+	: c{static_cast<glm::tvec2<T>>(circle.c)}, r{static_cast<T>(circle.r)}
 {
 }
 
@@ -93,7 +93,7 @@ constexpr glm::tvec2<T> tr::closestPoint(glm::tvec2<T> p, glm::tvec2<T> a, glm::
 template <std::integral T>
 constexpr glm::dvec2 tr::closestPoint(glm::tvec2<T> p, glm::tvec2<T> a, glm::tvec2<T> b) noexcept
 {
-	return closestPoint(glm::dvec2(p), glm::dvec2(a), glm::dvec2(b));
+	return closestPoint(static_cast<glm::dvec2>(p), static_cast<glm::dvec2>(a), static_cast<glm::dvec2>(b));
 }
 
 template <std::floating_point T>
@@ -124,7 +124,8 @@ template <std::integral T>
 constexpr std::optional<glm::dvec2> tr::segmentIntersect(glm::tvec2<T> a1, glm::tvec2<T> b1, glm::tvec2<T> a2,
 														 glm::tvec2<T> b2) noexcept
 {
-	return segmentIntersect(glm::dvec2(a1), glm::dvec2(b1), glm::dvec2(a2), glm::dvec2(b2));
+	return segmentIntersect(static_cast<glm::dvec2>(a1), static_cast<glm::dvec2>(b1), static_cast<glm::dvec2>(a2),
+							static_cast<glm::dvec2>(b2));
 }
 
 template <std::floating_point T>
@@ -150,7 +151,7 @@ template <std::integral T>
 std::optional<glm::dvec2> tr::segmentIntersect(glm::tvec2<T> a1, AngleD th1, glm::tvec2<T> a2,
 											   glm::tvec2<T> b2) noexcept
 {
-	return segmentIntersect(glm::dvec2(a1), th1, glm::dvec2(a2), glm::dvec2(b2));
+	return segmentIntersect(static_cast<glm::dvec2>(a1), th1, static_cast<glm::dvec2>(a2), static_cast<glm::dvec2>(b2));
 }
 
 template <std::floating_point T>
@@ -169,7 +170,7 @@ std::optional<glm::tvec2<T>> tr::intersect(glm::tvec2<T> a1, Angle<T> th1, glm::
 template <std::integral T>
 std::optional<glm::dvec2> tr::intersect(glm::tvec2<T> a1, AngleD th1, glm::tvec2<T> a2, AngleD th2) noexcept
 {
-	return intersect(glm::dvec2(a1), th1, glm::dvec2(a2), th2);
+	return intersect(static_cast<glm::dvec2>(a1), th1, static_cast<glm::dvec2>(a2), th2);
 }
 
 template <std::floating_point T>
@@ -208,7 +209,7 @@ constexpr std::common_type_t<T1, T2> tr::cross2(glm::tvec2<T1> a, glm::tvec2<T2>
 template <tr::Arithmetic T1, tr::Arithmetic T2> std::common_type_t<T1, T2> tr::mod(T1 v, T2 mod) noexcept
 {
 	if constexpr (std::floating_point<T1> || std::floating_point<T2>) {
-		return std::fmod(std::common_type_t<T1, T2>(v), std::common_type_t<T1, T2>(mod));
+		return std::fmod(static_cast<std::common_type_t<T1, T2>>(v), static_cast<std::common_type_t<T1, T2>>(mod));
 	}
 	else {
 		return std::common_type_t<T1, T2>(v % mod);
@@ -227,7 +228,7 @@ template <int S, class T>
 glm::vec<S, T> tr::mirrorRepeat(const glm::vec<S, T>& v, const glm::vec<S, T>& min, const glm::vec<S, T>& max) noexcept
 {
 	glm::vec<S, T> result;
-	for (auto i = 0; i < S; ++i) {
+	for (int i = 0; i < S; ++i) {
 		result[i] = mirrorRepeat(v[i], min[i], max[i]);
 	}
 	return result;
@@ -243,7 +244,7 @@ template <std::size_t S, std::floating_point T> constexpr glm::vec<S, T> tr::inv
 {
 	glm::vec<S, T> result;
 	for (std::size_t i = 0; i < S; ++i) {
-		result[i] = T(1) / vec[i];
+		result[i] = static_cast<T>(1) / vec[i];
 	}
 	return result;
 }

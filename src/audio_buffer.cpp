@@ -22,12 +22,12 @@ namespace tr {
 
 sf_count_t tr::embeddedAudioSize(void* user_data) noexcept
 {
-	return ((EmbeddedAudioFile*)(user_data))->file.size();
+	return (static_cast<EmbeddedAudioFile*>(user_data))->file.size();
 }
 
 sf_count_t tr::embeddedAudioSeek(sf_count_t offset, int whence, void* user_data) noexcept
 {
-	EmbeddedAudioFile& file{*(EmbeddedAudioFile*)(user_data)};
+	EmbeddedAudioFile& file{*static_cast<EmbeddedAudioFile*>(user_data)};
 	switch (whence) {
 	case SEEK_SET:
 		file.pos = file.file.begin() + offset;
@@ -44,7 +44,7 @@ sf_count_t tr::embeddedAudioSeek(sf_count_t offset, int whence, void* user_data)
 
 sf_count_t tr::embeddedAudioRead(void* ptr, sf_count_t count, void* user_data) noexcept
 {
-	EmbeddedAudioFile& file{*(EmbeddedAudioFile*)(user_data)};
+	EmbeddedAudioFile& file{*static_cast<EmbeddedAudioFile*>(user_data)};
 	count = std::max(std::min(count, std::distance(file.pos, file.file.end())), std::ptrdiff_t{0});
 	if (count > 0) {
 		std::memcpy(ptr, &*file.pos, count);
@@ -55,7 +55,7 @@ sf_count_t tr::embeddedAudioRead(void* ptr, sf_count_t count, void* user_data) n
 
 sf_count_t tr::embeddedAudioTell(void* user_data) noexcept
 {
-	EmbeddedAudioFile& file{*(EmbeddedAudioFile*)(user_data)};
+	EmbeddedAudioFile& file{*static_cast<EmbeddedAudioFile*>(user_data)};
 	return std::distance(file.file.begin(), file.pos);
 }
 
@@ -82,7 +82,7 @@ tr::SecondsF tr::AudioBufferView::length() const noexcept
 	ALint sampleRate, size;
 	alGetBufferi(_id, AL_FREQUENCY, &sampleRate);
 	alGetBufferi(_id, AL_SIZE, &size);
-	return sampleRate == 0 ? tr::SecondsF::zero() : tr::SecondsF{double(size) / double(sampleRate)};
+	return sampleRate == 0 ? tr::SecondsF::zero() : tr::SecondsF{static_cast<double>(size) / sampleRate};
 }
 
 void tr::AudioBufferView::set(std::span<const std::int16_t> data, AudioFormat format, int frequency)
@@ -145,11 +145,7 @@ void tr::AudioBuffer::set(std::span<const std::int16_t> data, AudioFormat format
 tr::AudioBuffer tr::loadEmbeddedAudio(std::span<const std::byte> data)
 {
 	EmbeddedAudioFile fp{data, data.begin()};
-	SF_VIRTUAL_IO     io{.get_filelen = embeddedAudioSize,
-						 .seek        = embeddedAudioSeek,
-						 .read        = embeddedAudioRead,
-						 .write       = nullptr,
-						 .tell        = embeddedAudioTell};
+	SF_VIRTUAL_IO     io{embeddedAudioSize, embeddedAudioSeek, embeddedAudioRead, nullptr, embeddedAudioTell};
 	SF_INFO           info;
 
 	std::unique_ptr<SNDFILE, decltype(&sf_close)> file{sf_open_virtual(&io, SFM_READ, &info, &fp), sf_close};

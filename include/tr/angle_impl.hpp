@@ -11,7 +11,7 @@ constexpr tr::Angle<T>::Angle(T rads) noexcept
 template <tr::AngleBase T>
 template <tr::AngleBase U>
 constexpr tr::Angle<T>::Angle(Angle<U> th) noexcept
-	: _rads{T(th.rads())}
+	: _rads{static_cast<T>(th.rads())}
 {
 }
 
@@ -110,7 +110,7 @@ template <tr::Arithmetic T> constexpr auto tr::rads(T th) noexcept
 		return Angle<T>{th};
 	}
 	else {
-		return AngleD{double(th)};
+		return AngleD{static_cast<double>(th)};
 	}
 }
 
@@ -186,22 +186,22 @@ template <tr::AngleBase T> constexpr T tr::Angle<T>::tan() const noexcept
 
 consteval tr::AngleF tr::angle_literals::operator"" _degf(long double deg) noexcept
 {
-	return degs(float(deg));
+	return degs(static_cast<float>(deg));
 }
 
 consteval tr::AngleF tr::angle_literals::operator"" _degf(unsigned long long deg) noexcept
 {
-	return degs(float(deg));
+	return degs(static_cast<float>(deg));
 }
 
 consteval tr::AngleD tr::angle_literals::operator"" _deg(long double deg) noexcept
 {
-	return degs(double(deg));
+	return degs(static_cast<double>(deg));
 }
 
 consteval tr::AngleD tr::angle_literals::operator"" _deg(unsigned long long deg) noexcept
 {
-	return degs(double(deg));
+	return degs(static_cast<double>(deg));
 }
 
 consteval tr::AngleL tr::angle_literals::operator"" _degl(long double deg) noexcept
@@ -211,22 +211,22 @@ consteval tr::AngleL tr::angle_literals::operator"" _degl(long double deg) noexc
 
 consteval tr::AngleL tr::angle_literals::operator"" _degl(unsigned long long deg) noexcept
 {
-	return degs((long double)(deg));
+	return degs(static_cast<long double>(deg));
 }
 
 consteval tr::AngleF tr::angle_literals::operator"" _radf(long double rad) noexcept
 {
-	return rads(float(rad));
+	return rads(static_cast<float>(rad));
 }
 
 consteval tr::AngleF tr::angle_literals::operator"" _radf(unsigned long long rad) noexcept
 {
-	return rads(float(rad));
+	return rads(static_cast<float>(rad));
 }
 
 consteval tr::AngleD tr::angle_literals::operator"" _rad(long double rad) noexcept
 {
-	return rads(double(rad));
+	return rads(static_cast<double>(rad));
 }
 
 consteval tr::AngleD tr::angle_literals::operator"" _rad(unsigned long long rad) noexcept
@@ -241,27 +241,27 @@ consteval tr::AngleL tr::angle_literals::operator"" _radl(long double rad) noexc
 
 consteval tr::AngleL tr::angle_literals::operator"" _radl(unsigned long long rad) noexcept
 {
-	return rads((long double)(rad));
+	return rads(static_cast<long double>(rad));
 }
 
 consteval tr::AngleF tr::angle_literals::operator"" _turnsf(long double tr) noexcept
 {
-	return turns(float(tr));
+	return turns(static_cast<float>(tr));
 }
 
 consteval tr::AngleF tr::angle_literals::operator"" _turnsf(unsigned long long tr) noexcept
 {
-	return turns(float(tr));
+	return turns(static_cast<float>(tr));
 }
 
 consteval tr::AngleD tr::angle_literals::operator"" _turns(long double tr) noexcept
 {
-	return turns(double(tr));
+	return turns(static_cast<double>(tr));
 }
 
 consteval tr::AngleD tr::angle_literals::operator"" _turns(unsigned long long tr) noexcept
 {
-	return turns(double(tr));
+	return turns(static_cast<double>(tr));
 }
 
 consteval tr::AngleL tr::angle_literals::operator"" _turnsl(long double tr) noexcept
@@ -271,5 +271,5 @@ consteval tr::AngleL tr::angle_literals::operator"" _turnsl(long double tr) noex
 
 consteval tr::AngleL tr::angle_literals::operator"" _turnsl(unsigned long long tr) noexcept
 {
-	return turns((long double)(tr));
+	return turns(static_cast<long double>(tr));
 }

@@ -8,7 +8,7 @@ namespace tr {
 
 tr::DisplayMode tr::toDisplayMode(const SDL_DisplayMode& mode) noexcept
 {
-	return DisplayMode{{mode.w, mode.h}, BitmapFormat::Type(mode.format), mode.refresh_rate};
+	return DisplayMode{{mode.w, mode.h}, static_cast<BitmapFormat::Type>(mode.format), mode.refresh_rate};
 }
 
 tr::DisplayInfo::DisplayInfo(int id) noexcept
@@ -74,8 +74,8 @@ tr::DisplayMode tr::DisplayInfo::displayMode(int index) const noexcept
 
 std::optional<tr::DisplayMode> tr::DisplayInfo::closestModeTo(const DisplayMode& mode) const noexcept
 {
-	SDL_DisplayMode target{std::uint32_t(BitmapFormat::Type(mode.format)), mode.size.x, mode.size.y, mode.refreshRate,
-						   nullptr};
+	SDL_DisplayMode target{static_cast<SDL_PixelFormatEnum>(static_cast<BitmapFormat::Type>(mode.format)), mode.size.x,
+						   mode.size.y, mode.refreshRate, nullptr};
 	SDL_DisplayMode sdlMode;
 	return SDL_GetClosestDisplayMode(_id, &target, &sdlMode) != nullptr ? std::optional{toDisplayMode(sdlMode)}
 																		: std::nullopt;

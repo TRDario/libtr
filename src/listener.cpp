@@ -12,6 +12,7 @@ float tr::Listener::gain() const noexcept
 void tr::Listener::setGain(float gain) noexcept
 {
 	assert(gain >= 0.0f);
+
 	alListenerf(AL_GAIN, gain);
 }
 

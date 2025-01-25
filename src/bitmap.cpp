@@ -124,13 +124,13 @@ int tr::operator-(const tr::SubBitmap::Iterator& l, const tr::SubBitmap::Iterato
 tr::BitmapView::BitmapView(std::span<const std::byte> rawData, glm::ivec2 size, BitmapFormat format)
 	: BitmapView(rawData.data(), size.x * format.pixelBytes(), size, format)
 {
-	assert(rawData.size() == size.x * size.y * std::size_t(format.pixelBytes()));
+	assert(rawData.size() == size.x * size.y * static_cast<std::size_t>(format.pixelBytes()));
 }
 
 tr::BitmapView::BitmapView(const std::byte* rawDataStart, int pitch, glm::ivec2 size, BitmapFormat format)
-	: _impl{checkNotNull(SDL_CreateRGBSurfaceWithFormatFrom((std::byte*)(rawDataStart), size.x, size.y,
-															format.pixelBits(), pitch,
-															std::uint32_t(BitmapFormat::Type(format))))}
+	: _impl{checkNotNull(SDL_CreateRGBSurfaceWithFormatFrom(
+		  const_cast<std::byte*>(rawDataStart), size.x, size.y, format.pixelBits(), pitch,
+		  static_cast<SDL_PixelFormatEnum>(static_cast<BitmapFormat::Type>(format))))}
 {
 }
 
@@ -185,14 +185,14 @@ tr::SubBitmap tr::BitmapView::sub(const RectI2& rect) const noexcept
 const std::byte* tr::BitmapView::data() const noexcept
 {
 	assert(_impl != nullptr);
-	return (const std::byte*)(_impl.get()->pixels);
+	return static_cast<const std::byte*>(_impl.get()->pixels);
 }
 
 tr::BitmapFormat tr::BitmapView::format() const noexcept
 {
 	assert(_impl != nullptr);
 	assert(_impl.get()->format);
-	return BitmapFormat::Type(_impl.get()->format->format);
+	return static_cast<BitmapFormat::Type>(_impl.get()->format->format);
 }
 
 int tr::BitmapView::pitch() const noexcept
@@ -212,18 +212,21 @@ tr::Bitmap::Bitmap(SDL_Surface* ptr)
 }
 
 tr::Bitmap::Bitmap(glm::ivec2 size, BitmapFormat format)
-	: _impl{checkNotNull(SDL_CreateRGBSurfaceWithFormat(0, size.x, size.y, format.pixelBits(),
-														SDL_PixelFormatEnum(BitmapFormat::Type(format))))}
+	: _impl{checkNotNull(
+		  SDL_CreateRGBSurfaceWithFormat(0, size.x, size.y, format.pixelBits(),
+										 static_cast<SDL_PixelFormatEnum>(static_cast<BitmapFormat::Type>(format))))}
 {
 }
 
 tr::Bitmap::Bitmap(const Bitmap& bitmap, BitmapFormat format)
-	: _impl{checkNotNull(SDL_ConvertSurfaceFormat(bitmap._impl.get(), std::uint32_t(BitmapFormat::Type(format)), 0))}
+	: _impl{checkNotNull(SDL_ConvertSurfaceFormat(
+		  bitmap._impl.get(), static_cast<SDL_PixelFormatEnum>(static_cast<BitmapFormat::Type>(format)), 0))}
 {
 }
 
 tr::Bitmap::Bitmap(const BitmapView& view, BitmapFormat format)
-	: _impl{checkNotNull(SDL_ConvertSurfaceFormat(view._impl.get(), std::uint32_t(BitmapFormat::Type(format)), 0))}
+	: _impl{checkNotNull(SDL_ConvertSurfaceFormat(
+		  view._impl.get(), static_cast<SDL_PixelFormatEnum>(static_cast<BitmapFormat::Type>(format)), 0))}
 {
 }
 
@@ -313,20 +316,20 @@ tr::SubBitmap tr::Bitmap::sub(const RectI2& rect) const noexcept
 std::byte* tr::Bitmap::data() noexcept
 {
 	assert(_impl != nullptr);
-	return (std::byte*)(_impl.get()->pixels);
+	return static_cast<std::byte*>(_impl.get()->pixels);
 }
 
 const std::byte* tr::Bitmap::data() const noexcept
 {
 	assert(_impl != nullptr);
-	return (const std::byte*)(_impl.get()->pixels);
+	return static_cast<const std::byte*>(_impl.get()->pixels);
 }
 
 tr::BitmapFormat tr::Bitmap::format() const noexcept
 {
 	assert(_impl != nullptr);
 	assert(_impl.get()->format);
-	return BitmapFormat::Type(_impl.get()->format->format);
+	return static_cast<BitmapFormat::Type>(_impl.get()->format->format);
 }
 
 int tr::Bitmap::pitch() const noexcept
@@ -377,7 +380,7 @@ tr::Bitmap tr::loadBitmapFile(const std::filesystem::path& path)
 		IMG_Init(IMG_INIT_JPG);
 	}
 
-	auto ptr{IMG_Load_RW(rwops, true)};
+	SDL_Surface* ptr{IMG_Load_RW(rwops, true)};
 	if (ptr == nullptr) {
 		throw BitmapLoadError{path};
 	}

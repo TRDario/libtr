@@ -151,13 +151,13 @@ constexpr std::uint32_t tr::Utf8ConstIt::operator*() const noexcept
 {
 	assert(_impl != nullptr);
 
-	if (std::uint8_t(*_impl) < 0x80) {
+	if (static_cast<std::uint8_t>(*_impl) < 0x80) {
 		return *_impl;
 	}
-	else if (std::uint8_t(*_impl) < 0xE0) {
+	else if (static_cast<std::uint8_t>(*_impl) < 0xE0) {
 		return ((_impl[0] & 0x1F) << 6) + (_impl[1] & 0x3F);
 	}
-	else if (std::uint8_t(*_impl) < 0xF0) {
+	else if (static_cast<std::uint8_t>(*_impl) < 0xF0) {
 		return ((_impl[0] & 0xF) << 12) + ((_impl[1] & 0x3F) << 6) + (_impl[2] & 0x3F);
 	}
 	else {
@@ -169,13 +169,13 @@ constexpr tr::Utf8ConstIt& tr::Utf8ConstIt::operator++() noexcept
 {
 	assert(_impl != nullptr);
 
-	if (std::uint8_t(*_impl) < 0x80) {
+	if (static_cast<std::uint8_t>(*_impl) < 0x80) {
 		++_impl;
 	}
-	else if (std::uint8_t(*_impl) < 0xE0) {
+	else if (static_cast<std::uint8_t>(*_impl) < 0xE0) {
 		_impl += 2;
 	}
-	else if (std::uint8_t(*_impl) < 0xF0) {
+	else if (static_cast<std::uint8_t>(*_impl) < 0xF0) {
 		_impl += 3;
 	}
 	else {

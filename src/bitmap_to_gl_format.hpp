@@ -10,7 +10,7 @@ namespace tr {
 
 inline std::pair<GLenum, GLenum> tr::bitmapToGLFormat(BitmapFormat format) noexcept
 {
-	switch (BitmapFormat::Type(format)) {
+	switch (static_cast<BitmapFormat::Type>(format)) {
 	case BitmapFormat::INDEX_8:
 		return {GL_RED, GL_UNSIGNED_BYTE};
 	case BitmapFormat::RGB_332:

@@ -8,7 +8,7 @@ tr::Renderbuffer::Renderbuffer(glm::ivec2 size, TextureFormat format)
 	TR_GL_CALL(glCreateRenderbuffers, 1, &id);
 	_id.reset(id);
 
-	TR_GL_CALL(glNamedRenderbufferStorage, id, GLenum(format), size.x, size.y);
+	TR_GL_CALL(glNamedRenderbufferStorage, id, static_cast<GLenum>(format), size.x, size.y);
 	if (glGetError() == GL_OUT_OF_MEMORY) {
 		throw RenderbufferBadAlloc{};
 	}

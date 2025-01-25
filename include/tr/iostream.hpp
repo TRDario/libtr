@@ -12,13 +12,13 @@ namespace tr {
 	 */
 
 	/******************************************************************************************************************
-	 * Concept that denotes a binaryFlush-compatible container.
+	 * Concept that denotes a binaryFlush-compatible iterator.
 	 *
-	 * To satisfy this requirement, a container must be a contiguous range of char-sized values.
+	 * To satisfy this requirement, a container must be an output iterator to a char variant or std::byte.
 	 ******************************************************************************************************************/
 	template <class T>
-	concept BinaryFlushableContainer =
-		std::ranges::contiguous_range<T> && sizeof(typename T::value_type) == sizeof(std::byte);
+	concept BinaryFlushableIterator = std::output_iterator<T, char> || std::output_iterator<T, signed char> ||
+									  std::output_iterator<T, unsigned char> || std::output_iterator<T, std::byte>;
 
 	/******************************************************************************************************************
 	 * Generic file error base exception type.
@@ -166,21 +166,19 @@ namespace tr {
 	 * @param[in] is The input stream.
 	 * @param[out] out The output iterator.
 	 ******************************************************************************************************************/
-	template <std::output_iterator<char> It> void flushBinary(std::istream& is, It out);
+	template <tr::BinaryFlushableIterator It> void flushBinary(std::istream& is, It out);
 
 	/******************************************************************************************************************
-	 * Flushes the rest of the stream into a container.
-	 *
-	 * @em Container must satisfy @em BinaryFlushableContainer.
+	 * Flushes the rest of the stream into a vector of bytes.
 	 *
 	 * @exception std::ios_base::failure If the stream throws an error.
-	 * @exception std::bad_alloc If container construction fails.
+	 * @exception std::bad_alloc If vector construction fails.
 	 *
 	 * @param[in] is The input stream.
 	 *
-	 * @return A container with the rest of the stream data.
+	 * @return A byte vector with the rest of the stream data.
 	 ******************************************************************************************************************/
-	template <BinaryFlushableContainer Container> Container flushBinary(std::istream& is);
+	std::vector<std::byte> flushBinary(std::istream& is);
 
 	/******************************************************************************************************************
 	 * Writes an object's binary data to stream.
@@ -219,7 +217,7 @@ namespace tr {
 
 template <tr::StandardLayout T> void tr::readBinary(std::istream& is, T& out)
 {
-	is.read((char*)(std::addressof(out)), sizeof(T));
+	is.read(reinterpret_cast<char*>(std::addressof(out)), sizeof(T));
 }
 
 template <tr::StandardLayout T> T tr::readBinary(std::istream& is)
@@ -231,29 +229,36 @@ template <tr::StandardLayout T> T tr::readBinary(std::istream& is)
 
 template <tr::StandardLayoutRange Range> void tr::readBinaryRange(std::istream& is, Range&& out)
 {
-	is.read((char*)(std::addressof(*out.begin())), out.size() * sizeof(typename Range::value_type));
+	is.read(reinterpret_cast<char*>(std::addressof(*out.begin())), out.size() * sizeof(typename Range::value_type));
 }
 
-template <std::output_iterator<char> It> void tr::flushBinary(std::istream& is, It out)
+template <tr::BinaryFlushableIterator It> void tr::flushBinary(std::istream& is, It out)
 {
-	std::copy(std::istreambuf_iterator<char>{is}, std::istreambuf_iterator<char>{}, out);
-}
-
-template <tr::BinaryFlushableContainer Container> Container tr::flushBinary(std::istream& is)
-{
-	Container out;
-	flushBinary(is, std::back_inserter(out));
-	return out;
+	while (!is.eof()) {
+		if constexpr (std::output_iterator<It, char>) {
+			*out++ = static_cast<char>(is.get());
+		}
+		else if constexpr (std::output_iterator<It, signed char>) {
+			*out++ = static_cast<signed char>(is.get());
+		}
+		else if constexpr (std::output_iterator<It, unsigned char>) {
+			*out++ = static_cast<unsigned char>(is.get());
+		}
+		else {
+			*out++ = static_cast<std::byte>(is.get());
+		}
+	}
 }
 
 template <tr::StandardLayout T> void tr::writeBinary(std::ostream& os, const T& in)
 {
-	os.write((const char*)(std::addressof(in)), sizeof(T));
+	os.write(reinterpret_cast<const char*>(std::addressof(in)), sizeof(T));
 }
 
 template <tr::StandardLayoutRange Range> void tr::writeBinaryRange(std::ostream& os, const Range& range)
 {
-	os.write((const char*)(std::addressof(*range.begin())), range.size() * sizeof(typename Range::value_type));
+	os.write(reinterpret_cast<const char*>(std::addressof(*range.begin())),
+			 range.size() * sizeof(typename Range::value_type));
 }
 
 inline void tr::writeBinary(std::ostream& os, const char* cstr)

@@ -24,37 +24,39 @@ tr::CustomEventBase::CustomEventBase(std::uint32_t type, std::uint32_t uint, std
 tr::CustomEventBase::CustomEventBase(const Event& event)
 {
 	assert(event.type() >= SDL_USEREVENT);
-	auto& sdl{((const SDL_Event*)(event._impl))->user};
+
+	const SDL_UserEvent& sdl{reinterpret_cast<const SDL_Event*>(event._impl)->user};
 	type = sdl.type;
 	uint = sdl.windowID;
 	sint = sdl.code;
 	if (sdl.data1 != nullptr) {
-		any1 = *(const std::any*)(sdl.data1);
+		any1 = *static_cast<const std::any*>(sdl.data1);
 	}
 	if (sdl.data2 != nullptr) {
-		any2 = *(const std::any*)(sdl.data2);
+		any2 = *static_cast<const std::any*>(sdl.data2);
 	}
 }
 
 tr::CustomEventBase::CustomEventBase(Event&& event) noexcept
 {
 	assert(event.type() >= SDL_USEREVENT);
-	auto& sdl{((const SDL_Event*)(event._impl))->user};
+
+	SDL_UserEvent& sdl{reinterpret_cast<SDL_Event*>(event._impl)->user};
 	type = sdl.type;
 	uint = sdl.windowID;
 	sint = sdl.code;
 	if (sdl.data1 != nullptr) {
-		any1 = std::move(*(std::any*)(sdl.data1));
+		any1 = std::move(*static_cast<std::any*>(sdl.data1));
 	}
 	if (sdl.data2 != nullptr) {
-		any2 = std::move(*(std::any*)(sdl.data2));
+		any2 = std::move(*static_cast<std::any*>(sdl.data2));
 	}
 }
 
 tr::CustomEventBase::operator Event() const&
 {
-	Event event;
-	auto& sdl{*(SDL_Event*)(event._impl)};
+	Event      event;
+	SDL_Event& sdl{*reinterpret_cast<SDL_Event*>(event._impl)};
 	sdl.type          = type;
 	sdl.user.windowID = uint;
 	sdl.user.code     = sint;
@@ -65,8 +67,8 @@ tr::CustomEventBase::operator Event() const&
 
 tr::CustomEventBase::operator Event() && noexcept
 {
-	Event event;
-	auto& sdl{*(SDL_Event*)(event._impl)};
+	Event      event;
+	SDL_Event& sdl{*reinterpret_cast<SDL_Event*>(event._impl)};
 	sdl.type          = type;
 	sdl.user.windowID = uint;
 	sdl.user.code     = sint;
@@ -79,10 +81,10 @@ tr::Event::Event(const Event& r)
 {
 	std::ranges::copy(r._impl, _impl);
 	if (type() >= SDL_USEREVENT) {
-		auto& lsdl{*(SDL_Event*)(r._impl)};
-		auto& rsdl{*(const SDL_Event*)(r._impl)};
-		lsdl.user.data1 = lsdl.user.data1 != nullptr ? new std::any{*(const std::any*)(rsdl.user.data1)} : nullptr;
-		lsdl.user.data2 = lsdl.user.data2 != nullptr ? new std::any{*(const std::any*)(rsdl.user.data2)} : nullptr;
+		SDL_UserEvent&       lsdl{reinterpret_cast<SDL_Event*>(_impl)->user};
+		const SDL_UserEvent& rsdl{reinterpret_cast<const SDL_Event*>(r._impl)->user};
+		lsdl.data1 = lsdl.data1 != nullptr ? new std::any{*static_cast<const std::any*>(rsdl.data1)} : nullptr;
+		lsdl.data2 = lsdl.data2 != nullptr ? new std::any{*static_cast<const std::any*>(rsdl.data2)} : nullptr;
 	}
 }
 
@@ -90,18 +92,18 @@ tr::Event::Event(Event&& r) noexcept
 {
 	std::ranges::copy(r._impl, _impl);
 	if (type() >= SDL_USEREVENT) {
-		auto& rsdl{*(SDL_Event*)(r._impl)};
-		rsdl.user.data1 = nullptr;
-		rsdl.user.data2 = nullptr;
+		SDL_UserEvent& rsdl{reinterpret_cast<SDL_Event*>(r._impl)->user};
+		rsdl.data1 = nullptr;
+		rsdl.data2 = nullptr;
 	}
 }
 
 tr::Event::~Event() noexcept
 {
 	if (type() >= SDL_USEREVENT) {
-		auto& sdl{*(SDL_Event*)(_impl)};
-		delete (std::any*)(sdl.user.data1);
-		delete (std::any*)(sdl.user.data2);
+		SDL_UserEvent& sdl{reinterpret_cast<SDL_Event*>(_impl)->user};
+		delete static_cast<std::any*>(sdl.data1);
+		delete static_cast<std::any*>(sdl.data2);
 	}
 }
 
@@ -110,10 +112,10 @@ tr::Event& tr::Event::operator=(const Event& r)
 	std::ignore = std::move(*this);
 	std::ranges::copy(r._impl, _impl);
 	if (type() >= SDL_USEREVENT) {
-		auto& lsdl{*(SDL_Event*)(r._impl)};
-		auto& rsdl{*(const SDL_Event*)(r._impl)};
-		lsdl.user.data1 = lsdl.user.data1 != nullptr ? new std::any{*(const std::any*)(rsdl.user.data1)} : nullptr;
-		lsdl.user.data2 = lsdl.user.data2 != nullptr ? new std::any{*(const std::any*)(rsdl.user.data2)} : nullptr;
+		SDL_UserEvent&       lsdl{reinterpret_cast<SDL_Event*>(_impl)->user};
+		const SDL_UserEvent& rsdl{reinterpret_cast<const SDL_Event*>(r._impl)->user};
+		lsdl.data1 = lsdl.data1 != nullptr ? new std::any{*static_cast<const std::any*>(rsdl.data1)} : nullptr;
+		lsdl.data2 = lsdl.data2 != nullptr ? new std::any{*static_cast<const std::any*>(rsdl.data2)} : nullptr;
 	}
 	return *this;
 }
@@ -123,16 +125,16 @@ tr::Event& tr::Event::operator=(Event&& r) noexcept
 	std::ignore = std::move(*this);
 	std::ranges::copy(r._impl, _impl);
 	if (type() >= SDL_USEREVENT) {
-		auto& rsdl{*(SDL_Event*)(r._impl)};
-		rsdl.user.data1 = nullptr;
-		rsdl.user.data2 = nullptr;
+		SDL_UserEvent& rsdl{reinterpret_cast<SDL_Event*>(r._impl)->user};
+		rsdl.data1 = nullptr;
+		rsdl.data2 = nullptr;
 	}
 	return *this;
 }
 
 std::uint32_t tr::Event::type() const noexcept
 {
-	return ((const SDL_Event*)(&_impl))->type;
+	return (reinterpret_cast<const SDL_Event*>(_impl))->type;
 }
 
 tr::KeyDownEvent::KeyDownEvent(bool repeat, KeyInfo key) noexcept
@@ -143,22 +145,23 @@ tr::KeyDownEvent::KeyDownEvent(bool repeat, KeyInfo key) noexcept
 tr::KeyDownEvent::KeyDownEvent(const Event& event) noexcept
 {
 	assert(event.type() == event_type::KEY_DOWN);
-	auto& sdl{((SDL_Event*)(event._impl))->key};
+
+	const SDL_KeyboardEvent& sdl{(reinterpret_cast<const SDL_Event*>(event._impl))->key};
 	repeat = sdl.repeat;
-	key    = {.scan = Scancode::Enum(sdl.keysym.scancode),
-			  .key  = Keycode::Enum(sdl.keysym.sym),
-			  .mods = Keymods(sdl.keysym.mod)};
+	key    = {.scan = static_cast<Scancode::Enum>(sdl.keysym.scancode),
+			  .key  = static_cast<Keycode::Enum>(sdl.keysym.sym),
+			  .mods = static_cast<Keymods>(sdl.keysym.mod)};
 }
 
 tr::KeyDownEvent::operator Event() const noexcept
 {
-	Event event;
-	auto& sdl{((SDL_Event*)(event._impl))->key};
+	Event              event;
+	SDL_KeyboardEvent& sdl{(reinterpret_cast<SDL_Event*>(event._impl))->key};
 	sdl.type            = SDL_KEYDOWN;
 	sdl.repeat          = repeat;
-	sdl.keysym.scancode = SDL_Scancode(Scancode::Enum(key.scan));
-	sdl.keysym.sym      = SDL_Keycode(Keycode::Enum(key.key));
-	sdl.keysym.mod      = std::uint16_t(key.mods);
+	sdl.keysym.scancode = static_cast<SDL_Scancode>(static_cast<Scancode::Enum>(key.scan));
+	sdl.keysym.sym      = static_cast<SDL_Keycode>(static_cast<Keycode::Enum>(key.key));
+	sdl.keysym.mod      = static_cast<std::uint16_t>(key.mods);
 	return event;
 }
 
@@ -170,20 +173,21 @@ tr::KeyUpEvent::KeyUpEvent(KeyInfo key) noexcept
 tr::KeyUpEvent::KeyUpEvent(const Event& event) noexcept
 {
 	assert(event.type() == event_type::KEY_UP);
-	auto& sdl{((SDL_Event*)(event._impl))->key};
-	key = {.scan = Scancode::Enum(sdl.keysym.scancode),
-		   .key  = Keycode::Enum(sdl.keysym.sym),
-		   .mods = Keymods(sdl.keysym.mod)};
+
+	const SDL_KeyboardEvent& sdl{(reinterpret_cast<const SDL_Event*>(event._impl))->key};
+	key = {.scan = static_cast<Scancode::Enum>(sdl.keysym.scancode),
+		   .key  = static_cast<Keycode::Enum>(sdl.keysym.sym),
+		   .mods = static_cast<Keymods>(sdl.keysym.mod)};
 }
 
 tr::KeyUpEvent::operator Event() const noexcept
 {
-	Event event;
-	auto& sdl{((SDL_Event*)(event._impl))->key};
+	Event              event;
+	SDL_KeyboardEvent& sdl{(reinterpret_cast<SDL_Event*>(event._impl))->key};
 	sdl.type            = SDL_KEYUP;
-	sdl.keysym.scancode = SDL_Scancode(Scancode::Enum(key.scan));
-	sdl.keysym.sym      = SDL_Keycode(Keycode::Enum(key.key));
-	sdl.keysym.mod      = std::uint16_t(key.mods);
+	sdl.keysym.scancode = static_cast<SDL_Scancode>(static_cast<Scancode::Enum>(key.scan));
+	sdl.keysym.sym      = static_cast<SDL_Keycode>(static_cast<Keycode::Enum>(key.key));
+	sdl.keysym.mod      = static_cast<std::uint16_t>(key.mods);
 	return event;
 }
 
@@ -194,16 +198,16 @@ tr::TextEditEvent::TextEditEvent(const std::array<char, 32>& text, std::string_v
 
 tr::TextEditEvent::TextEditEvent(const Event& event) noexcept
 {
-	auto& sdl{((const SDL_Event*)(event._impl))->edit};
+	const SDL_TextEditingEvent& sdl{reinterpret_cast<const SDL_Event*>(event._impl)->edit};
 	assert(event.type() == event_type::TEXT_EDIT);
 	std::ranges::copy(std::string_view{sdl.text}, text.begin());
-	selected = {text.data() + sdl.start, std::size_t(sdl.length)};
+	selected = {text.data() + sdl.start, static_cast<std::size_t>(sdl.length)};
 }
 
 tr::TextEditEvent::operator Event() const noexcept
 {
-	Event event;
-	auto& sdl{((SDL_Event*)(event._impl))->edit};
+	Event                 event;
+	SDL_TextEditingEvent& sdl{reinterpret_cast<SDL_Event*>(event._impl)->edit};
 	sdl.type = SDL_TEXTEDITING;
 	std::ranges::copy(text, sdl.text);
 	sdl.text[text.size()] = '\0';
@@ -219,15 +223,15 @@ tr::TextInputEvent::TextInputEvent(const std::array<char, 32>& text) noexcept
 
 tr::TextInputEvent::TextInputEvent(const Event& event) noexcept
 {
-	auto& sdl{((const SDL_Event*)(event._impl))->text};
+	const SDL_TextInputEvent& sdl{reinterpret_cast<const SDL_Event*>(event._impl)->text};
 	assert(event.type() == event_type::TEXT_INPUT);
 	std::ranges::copy(std::string_view{sdl.text}, text.begin());
 }
 
 tr::TextInputEvent::operator Event() const noexcept
 {
-	Event event;
-	auto& sdl{((SDL_Event*)(event._impl))->text};
+	Event               event;
+	SDL_TextInputEvent& sdl{reinterpret_cast<SDL_Event*>(event._impl)->text};
 	sdl.type = SDL_TEXTINPUT;
 	std::ranges::copy(text, sdl.text);
 	sdl.text[text.size()] = '\0';
@@ -241,19 +245,19 @@ tr::MouseMotionEvent::MouseMotionEvent(MouseButtonMask buttons, glm::ivec2 pos, 
 
 tr::MouseMotionEvent::MouseMotionEvent(const Event& event) noexcept
 {
-	auto& sdl{((SDL_Event*)(event._impl))->motion};
+	const SDL_MouseMotionEvent& sdl{reinterpret_cast<const SDL_Event*>(event._impl)->motion};
 	assert(event.type() == event_type::MOUSE_MOTION);
-	buttons = MouseButtonMask(sdl.state);
+	buttons = static_cast<MouseButtonMask>(sdl.state);
 	pos     = {sdl.x, sdl.y};
 	delta   = {sdl.xrel, sdl.yrel};
 }
 
 tr::MouseMotionEvent::operator Event() const noexcept
 {
-	Event event;
-	auto& sdl{((SDL_Event*)(event._impl))->motion};
+	Event                 event;
+	SDL_MouseMotionEvent& sdl{reinterpret_cast<SDL_Event*>(event._impl)->motion};
 	sdl.type  = SDL_MOUSEMOTION;
-	sdl.state = std::uint32_t(buttons);
+	sdl.state = static_cast<std::uint32_t>(buttons);
 	sdl.x     = pos.x;
 	sdl.y     = pos.y;
 	sdl.xrel  = delta.x;
@@ -268,19 +272,19 @@ tr::MouseDownEvent::MouseDownEvent(MouseButton button, std::uint8_t clicks, glm:
 
 tr::MouseDownEvent::MouseDownEvent(const Event& event) noexcept
 {
-	auto& sdl{((const SDL_Event*)(event._impl))->button};
+	const SDL_MouseButtonEvent& sdl{reinterpret_cast<const SDL_Event*>(event._impl)->button};
 	assert(event.type() == event_type::MOUSE_DOWN);
-	button = MouseButton(sdl.button);
+	button = static_cast<MouseButton>(sdl.button);
 	clicks = sdl.clicks;
 	pos    = {sdl.x, sdl.y};
 }
 
 tr::MouseDownEvent::operator Event() const noexcept
 {
-	Event event;
-	auto& sdl{((SDL_Event*)(event._impl))->button};
+	Event                 event;
+	SDL_MouseButtonEvent& sdl{reinterpret_cast<SDL_Event*>(event._impl)->button};
 	sdl.type   = SDL_MOUSEBUTTONDOWN;
-	sdl.button = std::uint8_t(button);
+	sdl.button = static_cast<std::uint8_t>(button);
 	sdl.clicks = clicks;
 	sdl.x      = pos.x;
 	sdl.y      = pos.y;
@@ -294,18 +298,18 @@ tr::MouseUpEvent::MouseUpEvent(MouseButton button, glm::ivec2 pos) noexcept
 
 tr::MouseUpEvent::MouseUpEvent(const Event& event) noexcept
 {
-	auto& sdl{((const SDL_Event*)(event._impl))->button};
+	const SDL_MouseButtonEvent& sdl{reinterpret_cast<const SDL_Event*>(event._impl)->button};
 	assert(event.type() == event_type::MOUSE_UP);
-	button = MouseButton(sdl.button);
+	button = static_cast<MouseButton>(sdl.button);
 	pos    = {sdl.x, sdl.y};
 }
 
 tr::MouseUpEvent::operator Event() const noexcept
 {
-	Event event;
-	auto& sdl{((SDL_Event*)(event._impl))->button};
+	Event                 event;
+	SDL_MouseButtonEvent& sdl{reinterpret_cast<SDL_Event*>(event._impl)->button};
 	sdl.type   = SDL_MOUSEBUTTONUP;
-	sdl.button = std::uint8_t(button);
+	sdl.button = static_cast<std::uint8_t>(button);
 	sdl.x      = pos.x;
 	sdl.y      = pos.y;
 	return event;
@@ -318,7 +322,7 @@ tr::MouseWheelEvent::MouseWheelEvent(glm::vec2 delta, glm::ivec2 mousePos) noexc
 
 tr::MouseWheelEvent::MouseWheelEvent(const Event& event) noexcept
 {
-	auto& sdl{((const SDL_Event*)(event._impl))->wheel};
+	const SDL_MouseWheelEvent& sdl{reinterpret_cast<const SDL_Event*>(event._impl)->wheel};
 	assert(event.type() == event_type::MOUSE_WHEEL);
 	delta    = {sdl.preciseX, sdl.preciseY};
 	mousePos = {sdl.mouseX, sdl.mouseY};
@@ -326,8 +330,8 @@ tr::MouseWheelEvent::MouseWheelEvent(const Event& event) noexcept
 
 tr::MouseWheelEvent::operator Event() const noexcept
 {
-	Event event;
-	auto& sdl{((SDL_Event*)(event._impl))->wheel};
+	Event                event;
+	SDL_MouseWheelEvent& sdl{reinterpret_cast<SDL_Event*>(event._impl)->wheel};
 	sdl.type     = SDL_MOUSEWHEEL;
 	sdl.preciseX = delta.x;
 	sdl.preciseY = delta.y;
@@ -338,7 +342,7 @@ tr::MouseWheelEvent::operator Event() const noexcept
 
 tr::WindowEvent::WindowEvent(const Event& event) noexcept
 {
-	auto& sdl{((const SDL_Event*)(&event._impl))->window};
+	const SDL_WindowEvent& sdl{reinterpret_cast<const SDL_Event*>(event._impl)->window};
 
 	assert(event.type() == event_type::WINDOW);
 	switch (sdl.event) {
@@ -397,31 +401,31 @@ tr::WindowEvent::WindowEvent(const Event& event) noexcept
 
 tr::WindowEvent::operator Event() const noexcept
 {
-	Event event;
-	auto& sdl{((SDL_Event*)(event._impl))->window};
+	Event            event;
+	SDL_WindowEvent& sdl{reinterpret_cast<SDL_Event*>(event._impl)->window};
 	sdl.type = SDL_WINDOWEVENT;
-	std::visit(Overloaded{[&](const WindowEnterEvent&) { sdl.type = SDL_WINDOWEVENT_ENTER; },
-						  [&](const WindowLeaveEvent&) { sdl.type = SDL_WINDOWEVENT_LEAVE; },
-						  [&](const WindowShowEvent&) { sdl.type = SDL_WINDOWEVENT_SHOWN; },
-						  [&](const WindowHideEvent&) { sdl.type = SDL_WINDOWEVENT_HIDDEN; },
-						  [&](const WindowExposeEvent&) { sdl.type = SDL_WINDOWEVENT_EXPOSED; },
+	std::visit(Overloaded{[&](const WindowEnterEvent&) { sdl.event = SDL_WINDOWEVENT_ENTER; },
+						  [&](const WindowLeaveEvent&) { sdl.event = SDL_WINDOWEVENT_LEAVE; },
+						  [&](const WindowShowEvent&) { sdl.event = SDL_WINDOWEVENT_SHOWN; },
+						  [&](const WindowHideEvent&) { sdl.event = SDL_WINDOWEVENT_HIDDEN; },
+						  [&](const WindowExposeEvent&) { sdl.event = SDL_WINDOWEVENT_EXPOSED; },
 						  [&](const WindowMotionEvent& e) {
-							  sdl.type  = SDL_WINDOWEVENT_MOVED;
+							  sdl.event = SDL_WINDOWEVENT_MOVED;
 							  sdl.data1 = e.pos.x;
 							  sdl.data2 = e.pos.y;
 						  },
 						  [&](const WindowResizeEvent& e) {
-							  sdl.type  = SDL_WINDOWEVENT_RESIZED;
+							  sdl.event = SDL_WINDOWEVENT_RESIZED;
 							  sdl.data1 = e.size.x;
 							  sdl.data2 = e.size.y;
 						  },
-						  [&](const WindowSizeChangeEvent&) { sdl.type = SDL_WINDOWEVENT_SIZE_CHANGED; },
-						  [&](const WindowMinimizeEvent&) { sdl.type = SDL_WINDOWEVENT_MINIMIZED; },
-						  [&](const WindowMaximizeEvent&) { sdl.type = SDL_WINDOWEVENT_MAXIMIZED; },
-						  [&](const WindowRestoreEvent&) { sdl.type = SDL_WINDOWEVENT_RESTORED; },
-						  [&](const WindowGainFocusEvent&) { sdl.type = SDL_WINDOWEVENT_FOCUS_GAINED; },
-						  [&](const WindowLoseFocusEvent&) { sdl.type = SDL_WINDOWEVENT_FOCUS_LOST; },
-						  [&](const WindowCloseEvent&) { sdl.type = SDL_WINDOWEVENT_CLOSE; }},
+						  [&](const WindowSizeChangeEvent&) { sdl.event = SDL_WINDOWEVENT_SIZE_CHANGED; },
+						  [&](const WindowMinimizeEvent&) { sdl.event = SDL_WINDOWEVENT_MINIMIZED; },
+						  [&](const WindowMaximizeEvent&) { sdl.event = SDL_WINDOWEVENT_MAXIMIZED; },
+						  [&](const WindowRestoreEvent&) { sdl.event = SDL_WINDOWEVENT_RESTORED; },
+						  [&](const WindowGainFocusEvent&) { sdl.event = SDL_WINDOWEVENT_FOCUS_GAINED; },
+						  [&](const WindowLoseFocusEvent&) { sdl.event = SDL_WINDOWEVENT_FOCUS_LOST; },
+						  [&](const WindowCloseEvent&) { sdl.event = SDL_WINDOWEVENT_CLOSE; }},
 			   *this);
 	return event;
 }
@@ -455,20 +459,20 @@ tr::Timer tr::createDrawTimer(unsigned int frequency)
 std::optional<tr::Event> tr::EventQueue::poll() noexcept
 {
 	Event event;
-	return SDL_PollEvent((SDL_Event*)(&event._impl)) ? std::optional<Event>{event} : std::nullopt;
+	return SDL_PollEvent(reinterpret_cast<SDL_Event*>(event._impl)) ? std::optional<Event>{event} : std::nullopt;
 }
 
 tr::Event tr::EventQueue::wait() noexcept
 {
 	Event event;
-	SDL_WaitEvent((SDL_Event*)(&event._impl));
+	SDL_WaitEvent(reinterpret_cast<SDL_Event*>(event._impl));
 	return event;
 }
 
 std::optional<tr::Event> tr::EventQueue::wait(MillisecondsI timeout) noexcept
 {
-	Event event{};
-	if (SDL_WaitEventTimeout((SDL_Event*)(&event._impl), timeout.count())) {
+	Event event;
+	if (SDL_WaitEventTimeout(reinterpret_cast<SDL_Event*>(event._impl), timeout.count())) {
 		return event;
 	}
 	else {
@@ -486,9 +490,9 @@ void tr::EventQueue::push(const Event& event)
 	SDL_Event sdl;
 	std::ranges::copy(event._impl, asMutBytes(sdl).begin());
 	if (event.type() >= SDL_USEREVENT) {
-		auto& rsdl{((SDL_Event*)(event._impl))->user};
-		sdl.user.data1 = rsdl.data1 != nullptr ? new std::any{*(const std::any*)(rsdl.data1)} : nullptr;
-		sdl.user.data2 = rsdl.data2 != nullptr ? new std::any{*(const std::any*)(rsdl.data2)} : nullptr;
+		const SDL_UserEvent& rsdl{reinterpret_cast<const SDL_Event*>(event._impl)->user};
+		sdl.user.data1 = rsdl.data1 != nullptr ? new std::any{*static_cast<const std::any*>(rsdl.data1)} : nullptr;
+		sdl.user.data2 = rsdl.data2 != nullptr ? new std::any{*static_cast<const std::any*>(rsdl.data2)} : nullptr;
 	}
 
 	if (SDL_PushEvent(&sdl) < 0) {
@@ -505,7 +509,7 @@ void tr::EventQueue::push(Event&& event)
 	}
 
 	if (event.type() >= SDL_USEREVENT) {
-		auto& rsdl{((SDL_Event*)(event._impl))->user};
+		SDL_UserEvent& rsdl{reinterpret_cast<SDL_Event*>(event._impl)->user};
 		rsdl.data1 = nullptr;
 		rsdl.data2 = nullptr;
 	}

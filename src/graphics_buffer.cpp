@@ -10,7 +10,7 @@ tr::GraphicsBuffer::GraphicsBuffer(Target target, std::size_t size, Flag flags)
 	TR_GL_CALL(glCreateBuffers, 1, &id);
 	_id.reset(id);
 
-	TR_GL_CALL(glNamedBufferStorage, id, size, nullptr, GLenum(flags));
+	TR_GL_CALL(glNamedBufferStorage, id, size, nullptr, static_cast<GLenum>(flags));
 	if (glGetError() == GL_OUT_OF_MEMORY) {
 		throw GraphicsBufferBadAlloc{};
 	}
@@ -25,7 +25,7 @@ tr::GraphicsBuffer::GraphicsBuffer(Target target, std::span<const std::byte> dat
 	TR_GL_CALL(glCreateBuffers, 1, &id);
 	_id.reset(id);
 
-	TR_GL_CALL(glNamedBufferStorage, id, _size, data.data(), GLenum(flags));
+	TR_GL_CALL(glNamedBufferStorage, id, _size, data.data(), static_cast<GLenum>(flags));
 	if (glGetError() == GL_OUT_OF_MEMORY) {
 		throw GraphicsBufferBadAlloc{};
 	}
@@ -51,13 +51,16 @@ void tr::GraphicsBuffer::copyRegionToBase(void* ptr, std::size_t offset, std::si
 	if (size == 0) {
 		return;
 	}
+
 	assert(offset + size <= _size);
+
 	TR_GL_CALL(glGetNamedBufferSubData, _id.get(), offset, size, ptr);
 }
 
 void tr::GraphicsBuffer::setRegion(std::size_t offset, std::span<const std::byte> data) noexcept
 {
 	assert(offset + data.size() <= _size);
+
 	TR_GL_CALL(glNamedBufferSubData, _id.get(), offset, data.size(), data.data());
 }
 
@@ -73,7 +76,9 @@ tr::GraphicsBufferMap tr::GraphicsBuffer::mapRegion(std::size_t offset, std::siz
 	assert(!mapped());
 	assert(size > 0);
 	assert(offset + size <= _size);
-	std::byte* ptr{(std::byte*)(TR_RETURNING_GL_CALL(glMapNamedBufferRange, _id.get(), offset, size, GLenum(flags)))};
+
+	std::byte* ptr{static_cast<std::byte*>(
+		TR_RETURNING_GL_CALL(glMapNamedBufferRange, _id.get(), offset, size, static_cast<GLenum>(flags)))};
 	if (glGetError() == GL_OUT_OF_MEMORY) {
 		throw GraphicsBufferMapBadAlloc{};
 	}
@@ -87,18 +92,20 @@ void tr::GraphicsBuffer::resetTarget(Target newTarget) noexcept
 
 void tr::GraphicsBuffer::bind(std::optional<Target> target) const noexcept
 {
-	TR_GL_CALL(glBindBuffer, GLenum(target.value_or(_target)), _id.get());
+	TR_GL_CALL(glBindBuffer, static_cast<GLenum>(target.value_or(_target)), _id.get());
 }
 
 void tr::GraphicsBuffer::bindIndexed(std::optional<Target> target, std::uint32_t index) const noexcept
 {
-	TR_GL_CALL(glBindBufferBase, GLenum(target.value_or(_target)), index, _id.get());
+	TR_GL_CALL(glBindBufferBase, static_cast<GLenum>(target.value_or(_target)), index, _id.get());
 }
 
 void tr::GraphicsBuffer::bindIndexedRange(std::optional<Target> target, std::uint32_t index, std::size_t offset,
 										  std::size_t size) const noexcept
 {
-	TR_GL_CALL(glBindBufferRange, GLenum(target.value_or(_target)), index, _id.get(), offset, size);
+	assert(offset + size <= _size);
+
+	TR_GL_CALL(glBindBufferRange, static_cast<GLenum>(target.value_or(_target)), index, _id.get(), offset, size);
 }
 
 tr::GraphicsBufferMap::GraphicsBufferMap(unsigned int buffer, std::span<std::byte> span) noexcept

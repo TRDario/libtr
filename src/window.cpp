@@ -27,7 +27,7 @@ void tr::setSDLGLAttributes(const GraphicsProperties& gfxProperties) noexcept
 	SDL_GL_SetAttribute(SDL_GL_ALPHA_SIZE, 8);
 	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, gfxProperties.depthBits);
 	SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, gfxProperties.stencilBits);
-	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, bool(gfxProperties.multisamples));
+	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, static_cast<bool>(gfxProperties.multisamples));
 	SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, gfxProperties.multisamples);
 }
 
@@ -76,8 +76,8 @@ bool tr::initSDL(const GraphicsProperties& gfxProperties)
 
 SDL_Window* tr::openWindow(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFlag flags)
 {
-	const auto  sdlFlags{std::uint32_t(flags) | SDL_WINDOW_OPENGL | SDL_WINDOW_HIDDEN};
-	SDL_Window* window{SDL_CreateWindow(title, pos.x, pos.y, size.x, size.y, sdlFlags)};
+	const std::uint32_t sdlFlags{static_cast<std::uint32_t>(flags) | SDL_WINDOW_OPENGL | SDL_WINDOW_HIDDEN};
+	SDL_Window*         window{SDL_CreateWindow(title, pos.x, pos.y, size.x, size.y, sdlFlags)};
 	if (window == nullptr) {
 		throw WindowOpenError{std::format("Failed to open {}x{} window ({}).", size.x, size.y, SDL_GetError())};
 	}
@@ -166,15 +166,16 @@ std::optional<tr::DisplayMode> tr::Window::fullscreenMode() const noexcept
 	else {
 		SDL_DisplayMode sdlMode;
 		SDL_GetWindowDisplayMode(_impl.get(), &sdlMode);
-		return DisplayMode{{sdlMode.w, sdlMode.h}, BitmapFormat::Type(sdlMode.format), sdlMode.refresh_rate};
+		return DisplayMode{
+			{sdlMode.w, sdlMode.h}, static_cast<BitmapFormat::Type>(sdlMode.format), sdlMode.refresh_rate};
 	}
 }
 
 void tr::Window::setFullscreenMode(const DisplayMode& dmode)
 {
 	assert(_impl.get() != nullptr);
-	SDL_DisplayMode sdlMode{std::uint32_t(BitmapFormat::Type(dmode.format)), dmode.size.x, dmode.size.y,
-							dmode.refreshRate, nullptr};
+	SDL_DisplayMode sdlMode{static_cast<SDL_PixelFormatEnum>(static_cast<BitmapFormat::Type>(dmode.format)),
+							dmode.size.x, dmode.size.y, dmode.refreshRate, nullptr};
 	if (SDL_SetWindowDisplayMode(_impl.get(), &sdlMode) < 0) {
 		throw WindowError{"Failed to set window fullscreen mode"};
 	}
@@ -189,7 +190,7 @@ tr::WindowMode tr::Window::windowMode() const noexcept
 void tr::Window::setWindowMode(WindowMode mode)
 {
 	assert(_impl.get() != nullptr);
-	if (SDL_SetWindowFullscreen(_impl.get(), std::uint32_t(mode)) < 0) {
+	if (SDL_SetWindowFullscreen(_impl.get(), static_cast<std::uint32_t>(mode)) < 0) {
 		throw WindowError{"Failed to set window mode"};
 	}
 }
@@ -203,7 +204,7 @@ bool tr::Window::resizable() const noexcept
 void tr::Window::setResizable(bool resizable) noexcept
 {
 	assert(_impl.get() != nullptr);
-	SDL_SetWindowResizable(_impl.get(), SDL_bool(resizable));
+	SDL_SetWindowResizable(_impl.get(), static_cast<SDL_bool>(resizable));
 }
 
 glm::ivec2 tr::Window::minSize() const noexcept
@@ -259,7 +260,7 @@ bool tr::Window::bordered() const noexcept
 void tr::Window::setBordered(bool bordered) noexcept
 {
 	assert(_impl.get() != nullptr);
-	SDL_SetWindowBordered(_impl.get(), SDL_bool(bordered));
+	SDL_SetWindowBordered(_impl.get(), static_cast<SDL_bool>(bordered));
 }
 
 bool tr::Window::shown() const noexcept
@@ -331,13 +332,13 @@ bool tr::Window::mouseGrabbed() const noexcept
 void tr::Window::setMouseGrab(bool grab) noexcept
 {
 	assert(_impl.get() != nullptr);
-	SDL_SetWindowGrab(_impl.get(), SDL_bool(grab));
+	SDL_SetWindowGrab(_impl.get(), static_cast<SDL_bool>(grab));
 }
 
 std::optional<tr::RectI2> tr::Window::mouseConfines() const noexcept
 {
 	assert(_impl.get() != nullptr);
-	auto sdlRect{SDL_GetWindowMouseRect(_impl.get())};
+	const SDL_Rect* sdlRect{SDL_GetWindowMouseRect(_impl.get())};
 	if (sdlRect == nullptr) {
 		return std::nullopt;
 	}
@@ -349,7 +350,7 @@ std::optional<tr::RectI2> tr::Window::mouseConfines() const noexcept
 void tr::Window::setMouseConfines(const RectI2& rect) noexcept
 {
 	assert(_impl.get() != nullptr);
-	auto sdlRect{std::bit_cast<SDL_Rect>(rect)};
+	SDL_Rect sdlRect{std::bit_cast<SDL_Rect>(rect)};
 	SDL_SetWindowMouseRect(_impl.get(), &sdlRect);
 }
 
@@ -368,13 +369,13 @@ bool tr::Window::alwaysOnTop() const noexcept
 void tr::Window::setAlwaysOnTop(bool alwaysOnTop) noexcept
 {
 	assert(_impl.get() != nullptr);
-	SDL_SetWindowAlwaysOnTop(_impl.get(), SDL_bool(alwaysOnTop));
+	SDL_SetWindowAlwaysOnTop(_impl.get(), static_cast<SDL_bool>(alwaysOnTop));
 }
 
 void tr::Window::flash(FlashOperation operation) noexcept
 {
 	assert(_impl.get() != nullptr);
-	SDL_FlashWindow(_impl.get(), SDL_FlashOperation(operation));
+	SDL_FlashWindow(_impl.get(), static_cast<SDL_FlashOperation>(operation));
 }
 
 float tr::Window::opacity() const noexcept
@@ -393,12 +394,12 @@ void tr::Window::setOpacity(float opacity) noexcept
 
 tr::VSync tr::Window::vsync() const noexcept
 {
-	return VSync(SDL_GL_GetSwapInterval());
+	return static_cast<VSync>(SDL_GL_GetSwapInterval());
 }
 
 void tr::Window::setVSync(VSync vsync) noexcept
 {
-	if (SDL_GL_SetSwapInterval(int(vsync)) < 0 && vsync == VSync::ADAPTIVE) {
+	if (SDL_GL_SetSwapInterval(static_cast<int>(vsync)) < 0 && vsync == VSync::ADAPTIVE) {
 		setVSync(VSync::ENABLED);
 	}
 }
@@ -456,5 +457,6 @@ bool tr::windowOpened() noexcept
 tr::Window& tr::window() noexcept
 {
 	assert(windowOpened());
+
 	return *_window;
 }

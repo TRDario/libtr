@@ -25,7 +25,7 @@ tr::IndexBuffer::IndexBuffer() noexcept
 }
 
 tr::IndexBuffer::IndexBuffer(std::size_t capacity)
-	: _buffer{{GraphicsBuffer::Target::ELEMENT_ARRAY_BUFFER, std::size_t(capacity * sizeof(std::uint16_t)),
+	: _buffer{{GraphicsBuffer::Target::ELEMENT_ARRAY_BUFFER, capacity * sizeof(std::uint16_t),
 			   GraphicsBuffer::Flag::DYNAMIC_STORAGE | GraphicsBuffer::Flag::WRITABLE}}
 	, _size{0}
 {
@@ -34,7 +34,7 @@ tr::IndexBuffer::IndexBuffer(std::size_t capacity)
 tr::IndexBuffer::IndexBuffer(std::span<const std::uint16_t> data)
 	: _buffer{{GraphicsBuffer::Target::ELEMENT_ARRAY_BUFFER, rangeBytes(data),
 			   GraphicsBuffer::Flag::DYNAMIC_STORAGE | GraphicsBuffer::Flag::WRITABLE}}
-	, _size{std::size_t(data.size())}
+	, _size{data.size()}
 {
 }
 
@@ -61,6 +61,7 @@ void tr::IndexBuffer::clear() noexcept
 void tr::IndexBuffer::set(std::span<const std::uint16_t> data)
 {
 	assert(!data.empty());
+
 	resize(data.size());
 	_buffer->setRegion(0, rangeBytes(data));
 }
@@ -69,6 +70,7 @@ void tr::IndexBuffer::setRegion(std::size_t offset, std::span<const std::uint16_
 {
 	assert(!data.empty());
 	assert(offset + data.size() <= _size);
+
 	_buffer->setRegion(offset * sizeof(std::uint16_t), rangeBytes(data));
 }
 
@@ -87,6 +89,7 @@ tr::IndexBufferMap tr::IndexBuffer::mapNew(std::size_t size)
 tr::IndexBufferMap tr::IndexBuffer::mapRegion(std::size_t offset, std::size_t size)
 {
 	assert(offset + size <= _size);
+
 	return _buffer->mapRegion(offset * sizeof(std::uint16_t), size * sizeof(std::uint16_t),
 							  GraphicsBuffer::MapFlag::WRITABLE);
 }
@@ -94,10 +97,10 @@ tr::IndexBufferMap tr::IndexBuffer::mapRegion(std::size_t offset, std::size_t si
 void tr::IndexBuffer::resize(std::size_t newSize)
 {
 	assert(!mapped());
+
 	if (newSize > capacity()) {
-		_buffer =
-			GraphicsBuffer{GraphicsBuffer::Target::ELEMENT_ARRAY_BUFFER, std::size_t(newSize * sizeof(std::uint16_t)),
-						   GraphicsBuffer::Flag::DYNAMIC_STORAGE | GraphicsBuffer::Flag::WRITABLE};
+		_buffer = GraphicsBuffer{GraphicsBuffer::Target::ELEMENT_ARRAY_BUFFER, newSize * sizeof(std::uint16_t),
+								 GraphicsBuffer::Flag::DYNAMIC_STORAGE | GraphicsBuffer::Flag::WRITABLE};
 		if (!_label.empty()) {
 			_buffer->setLabel(_label);
 		}

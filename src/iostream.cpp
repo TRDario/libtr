@@ -59,3 +59,11 @@ std::ifstream tr::openFileR(const std::filesystem::path& path, std::ios::openmod
 	file.exceptions(std::ios::badbit | std::ios::failbit);
 	return file;
 }
+
+std::vector<std::byte> tr::flushBinary(std::istream& is)
+{
+	std::vector<std::byte> out;
+	flushBinary(is, std::back_inserter(out));
+	out.shrink_to_fit();
+	return out;
+}

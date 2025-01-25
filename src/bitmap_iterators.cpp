@@ -3,22 +3,28 @@
 #include <SDL2/SDL_image.h>
 
 namespace tr {
-	RGBA8 getPixelColor(const void* data, SDL_PixelFormat* format);
+	RGBA8 getPixelColor(const std::byte* data, SDL_PixelFormat* format);
 }
 
-tr::RGBA8 tr::getPixelColor(const void* data, SDL_PixelFormat* format)
+tr::RGBA8 tr::getPixelColor(const std::byte* data, SDL_PixelFormat* format)
 {
 	std::uint32_t value;
 	switch (format->BytesPerPixel) {
 	case 1:
-		value = *((const std::uint8_t*)(data));
+		value = *reinterpret_cast<const std::uint8_t*>(data);
+		break;
 	case 2:
-		value = *((const std::uint16_t*)(data));
-	case 3:
-		value = ((const std::uint8_t*)(data))[0] << 16 | ((const std::uint8_t*)(data))[1] << 8 |
-				((const std::uint8_t*)(data))[2];
+		value = *reinterpret_cast<const std::uint16_t*>(data);
+		break;
+	case 3: {
+		using Array = std::uint8_t[3];
+		const Array& arr{*reinterpret_cast<const Array*>(data)};
+		value = arr[0] << 16 | arr[1] << 8 | arr[2];
+		break;
+	}
 	case 4:
-		value = *((const std::uint32_t*)(data));
+		value = *reinterpret_cast<const std::uint32_t*>(data);
+		break;
 	}
 
 	RGBA8 color;
@@ -97,7 +103,7 @@ tr::SubBitmap::Iterator tr::SubBitmap::Iterator::operator++(int) noexcept
 
 tr::SubBitmap::Iterator& tr::SubBitmap::Iterator::operator+=(int diff) noexcept
 {
-	auto lines{diff / _bitmapSize.x};
+	int lines{diff / _bitmapSize.x};
 	diff %= _bitmapSize.x;
 	if (diff + _pos.x >= _bitmapSize.x) {
 		++lines;
@@ -198,21 +204,24 @@ tr::Bitmap::PixelRef::operator RGBA8() const noexcept
 
 tr::Bitmap::PixelRef& tr::Bitmap::PixelRef::operator=(RGBA8 color) noexcept
 {
-	auto formatted{SDL_MapRGBA(_format, color.r, color.g, color.b, color.a)};
+	std::uint32_t formatted{SDL_MapRGBA(_format, color.r, color.g, color.b, color.a)};
 	switch (_format->BytesPerPixel) {
 	case 1:
-		*((std::uint8_t*)(_impl)) = formatted;
+		*reinterpret_cast<std::uint8_t*>(_impl) = formatted;
 		break;
 	case 2:
-		*(std::uint16_t*)(_impl) = formatted;
+		*reinterpret_cast<std::uint16_t*>(_impl) = formatted;
 		break;
-	case 3:
-		((std::uint8_t*)(_impl))[0] = std::uint8_t(formatted >> 16);
-		((std::uint8_t*)(_impl))[1] = std::uint8_t(formatted >> 8);
-		((std::uint8_t*)(_impl))[2] = std::uint8_t(formatted);
+	case 3: {
+		using Array = std::uint8_t[3];
+		Array& arr{*reinterpret_cast<Array*>(_impl)};
+		arr[0] = static_cast<std::uint8_t>(formatted >> 16);
+		arr[1] = static_cast<std::uint8_t>(formatted >> 8);
+		arr[2] = static_cast<std::uint8_t>(formatted);
 		break;
+	}
 	case 4:
-		*(std::uint32_t*)(_impl) = formatted;
+		*reinterpret_cast<std::uint32_t*>(_impl) = formatted;
 	}
 	return *this;
 }
@@ -280,7 +289,7 @@ tr::Bitmap::MutIt& tr::Bitmap::MutIt::operator+=(int diff) noexcept
 	assert(_pixel._impl != nullptr);
 
 	const glm::ivec2 bitmapSize{_bitmap->size()};
-	auto             lines{diff / bitmapSize.x};
+	int              lines{diff / bitmapSize.x};
 	diff %= bitmapSize.x;
 	if (diff + _pos.x >= bitmapSize.x) {
 		++lines;
