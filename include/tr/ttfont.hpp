@@ -347,7 +347,12 @@ namespace tr {
 		 *
 		 * @exception TTFontError If rendering the bitmap fails.
 		 *
-		 * @param[in] cp The unicode codepoint to render.
+		 * @param[in] cp
+		 * @parblock
+		 * The unicode codepoint to render.
+		 *
+		 * @pre @em cp must not be a whitespace character.
+		 * @endparblock
 		 * @param[in] color The color of the glyph.
 		 *
 		 * @return A bitmap holding the glyph.
@@ -363,7 +368,12 @@ namespace tr {
 		 *
 		 * @exception TTFontError If rendering the bitmap fails.
 		 *
-		 * @param[in] text The line of text to render (\\n not supported).
+		 * @param[in] text
+		 * @parblock
+		 * The line of text to render (\\n not supported).
+		 *
+		 * @pre @em text must not be composed entirely of whitespace characters.
+		 * @endparblock
 		 * @param[in] color The color of the text.
 		 *
 		 * @return A bitmap holding the text.
@@ -379,7 +389,12 @@ namespace tr {
 		 *
 		 * @exception TTFontError If rendering the bitmap fails.
 		 *
-		 * @param[in] text The line of text to render (\\n supported).
+		 * @param[in] text
+		 * @parblock
+		 * The line of text to render (\\n supported).
+		 *
+		 * @pre @em text must not be composed entirely of whitespace characters.
+		 * @endparblock
 		 * @param[in] color The color of the text.
 		 * @param[in] width The bounding width of the text.
 		 *

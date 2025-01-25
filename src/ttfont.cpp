@@ -178,7 +178,12 @@ tr::TTFont::MeasureResult tr::TTFont::measure(const char* text, int maxWidth) co
 
 tr::Bitmap tr::TTFont::render(std::uint32_t cp, RGBA8 color) const
 {
-	auto ptr{TTF_RenderGlyph32_Blended(_impl.get(), cp, std::bit_cast<SDL_Color>(color))};
+#ifndef NDEBUG
+	Glyph glyph{this->glyph(cp)};
+	assert(glyph.max.x - glyph.min.x != 0);
+#endif
+
+	SDL_Surface* ptr{TTF_RenderGlyph32_Blended(_impl.get(), cp, std::bit_cast<SDL_Color>(color))};
 	if (ptr == nullptr) {
 		throw TTFontError{"Failed to render codepoint"};
 	}
@@ -188,7 +193,9 @@ tr::Bitmap tr::TTFont::render(std::uint32_t cp, RGBA8 color) const
 tr::Bitmap tr::TTFont::render(const char* text, RGBA8 color) const
 {
 	assert(!std::string_view{text}.empty());
-	auto ptr{TTF_RenderUTF8_Blended(_impl.get(), text, std::bit_cast<SDL_Color>(color))};
+	assert(textSize(text).x != 0);
+
+	SDL_Surface* ptr{TTF_RenderUTF8_Blended(_impl.get(), text, std::bit_cast<SDL_Color>(color))};
 	if (ptr == nullptr) {
 		throw TTFontError{"Failed to render text"};
 	}
@@ -202,7 +209,9 @@ tr::Bitmap tr::TTFont::render(const char* text, RGBA8 color) const
 tr::Bitmap tr::TTFont::renderWrapped(const char* text, RGBA8 color, std::uint32_t width) const
 {
 	assert(!std::string_view{text}.empty());
-	auto ptr{TTF_RenderUTF8_Blended_Wrapped(_impl.get(), text, std::bit_cast<SDL_Color>(color), width)};
+	assert(textSize(text).x != 0);
+
+	SDL_Surface* ptr{TTF_RenderUTF8_Blended_Wrapped(_impl.get(), text, std::bit_cast<SDL_Color>(color), width)};
 	if (ptr == nullptr) {
 		throw TTFontError{"Failed to render wrapped text"};
 	}
@@ -215,7 +224,7 @@ tr::Bitmap tr::TTFont::renderWrapped(const char* text, RGBA8 color, std::uint32_
 
 tr::TTFont tr::loadEmbeddedTTFont(std::span<const std::byte> data, int size, glm::uvec2 dpi)
 {
-	auto ptr{TTF_OpenFontDPIRW(SDL_RWFromConstMem(data.data(), data.size()), true, size, dpi.x, dpi.y)};
+	TTF_Font* ptr{TTF_OpenFontDPIRW(SDL_RWFromConstMem(data.data(), data.size()), true, size, dpi.x, dpi.y)};
 	if (ptr == nullptr) {
 		throw TTFontLoadError{"(embedded file)"};
 	}
@@ -229,9 +238,9 @@ tr::TTFont tr::loadTTFontFile(const std::filesystem::path& path, int size, glm::
 	}
 
 #ifdef _WIN32
-	auto ptr{TTF_OpenFontDPIRW(SDL_RWFromFP(_wfopen(path.c_str(), L"r"), true), true, size, dpi.x, dpi.y)};
+	TTF_Font* ptr{TTF_OpenFontDPIRW(SDL_RWFromFP(_wfopen(path.c_str(), L"r"), true), true, size, dpi.x, dpi.y)};
 #else
-	auto ptr{TTF_OpenFontDPI(path.c_str(), size, dpi.x, dpi.y)};
+	TTF_Font* ptr{TTF_OpenFontDPI(path.c_str(), size, dpi.x, dpi.y)};
 #endif
 	if (ptr == nullptr) {
 		throw TTFontLoadError{path};
