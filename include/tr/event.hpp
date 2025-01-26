@@ -861,6 +861,21 @@ namespace tr {
 	Timer createDrawTimer(unsigned int frequency);
 
 	/******************************************************************************************************************
+	 * Creates a timer that sends draw events with an automatically deduced frequency (fullscreen refresh rate or
+	 * desktop mode refresh rate).
+	 *
+	 * @par Exception Safety
+	 *
+	 * Strong exception guarantee.
+	 *
+	 * @exception std::system_error If launching a thread for the timer failed.
+	 * @exception std::bad_alloc If allocating the callback function failed.
+	 *
+	 * @return A timer that sends draw events.
+	 ******************************************************************************************************************/
+	Timer createDrawTimer();
+
+	/******************************************************************************************************************
 	 * Global event queue.
 	 *
 	 * This type cannot be directly instantiated.

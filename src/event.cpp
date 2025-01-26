@@ -456,6 +456,13 @@ tr::Timer tr::createDrawTimer(unsigned int frequency)
 	return Timer{1.0s / frequency, [] { window().events().push(CustomEventBase{event_type::DRAW}); }};
 }
 
+tr::Timer tr::createDrawTimer()
+{
+	return createDrawTimer(window().windowMode() == tr::WindowMode::FULLSCREEN
+							   ? window().fullscreenMode()->refreshRate
+							   : display().displayMode(DESKTOP_MODE).refreshRate);
+}
+
 std::optional<tr::Event> tr::EventQueue::poll() noexcept
 {
 	Event event;
