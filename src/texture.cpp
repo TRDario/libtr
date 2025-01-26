@@ -71,16 +71,6 @@ void tr::Texture::setMagFilter(MagFilter filter) noexcept
 	TR_GL_CALL(glTextureParameteri, _id.get(), GL_TEXTURE_MAG_FILTER, static_cast<GLint>(filter));
 }
 
-void tr::Texture::setMinLOD(int lod) noexcept
-{
-	TR_GL_CALL(glTextureParameteri, _id.get(), GL_TEXTURE_MIN_LOD, lod);
-}
-
-void tr::Texture::setMaxLOD(int lod) noexcept
-{
-	TR_GL_CALL(glTextureParameteri, _id.get(), GL_TEXTURE_MAX_LOD, lod);
-}
-
 void tr::Texture::disableComparison() noexcept
 {
 	TR_GL_CALL(glTextureParameteri, _id.get(), GL_TEXTURE_COMPARE_MODE, GL_NONE);

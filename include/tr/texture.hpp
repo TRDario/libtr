@@ -285,20 +285,6 @@ namespace tr {
 		void setMagFilter(MagFilter filter) noexcept;
 
 		/**************************************************************************************************************
-		 * Sets the minimum allowed level-of-detail parameter used by the texture sampler.
-		 *
-		 * @param[in] lod The new minimum LOD.
-		 **************************************************************************************************************/
-		void setMinLOD(int lod) noexcept;
-
-		/**************************************************************************************************************
-		 * Sets the maximum allowed level-of-detail parameter used by the texture sampler.
-		 *
-		 * @param[in] lod The new maximum LOD.
-		 **************************************************************************************************************/
-		void setMaxLOD(int lod) noexcept;
-
-		/**************************************************************************************************************
 		 * Disables the use of depth comparison.
 		 **************************************************************************************************************/
 		void disableComparison() noexcept;
