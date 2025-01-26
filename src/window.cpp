@@ -10,7 +10,8 @@ namespace tr {
 	bool        initSDL(const GraphicsProperties& gfxProperties);
 	void        setSDLGLAttributes(const GraphicsProperties& gfxProperties) noexcept;
 	void        suppressUnsupportedEvents() noexcept;
-	SDL_Window* openWindow(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFlag flags);
+	SDL_Window* openWindowedWindow(const char* title, glm::ivec2 size, WindowFlag flags);
+	SDL_Window* openFullscreenWindow(const char* title, WindowFlag flags);
 } // namespace tr
 
 void tr::setSDLGLAttributes(const GraphicsProperties& gfxProperties) noexcept
@@ -74,19 +75,39 @@ bool tr::initSDL(const GraphicsProperties& gfxProperties)
 	return true;
 }
 
-SDL_Window* tr::openWindow(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFlag flags)
+SDL_Window* tr::openWindowedWindow(const char* title, glm::ivec2 size, WindowFlag flags)
 {
 	const std::uint32_t sdlFlags{static_cast<std::uint32_t>(flags) | SDL_WINDOW_OPENGL | SDL_WINDOW_HIDDEN};
-	SDL_Window*         window{SDL_CreateWindow(title, pos.x, pos.y, size.x, size.y, sdlFlags)};
+	SDL_Window*         window{
+        SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, size.x, size.y, sdlFlags)};
 	if (window == nullptr) {
 		throw WindowOpenError{std::format("Failed to open {}x{} window ({}).", size.x, size.y, SDL_GetError())};
 	}
 	return window;
 }
 
-tr::Window::Window(const char* title, glm::ivec2 size, glm::ivec2 pos, WindowFlag flags,
-				   const GraphicsProperties& gfxProperties)
-	: _sdl{initSDL(gfxProperties)}, _impl{openWindow(title, size, pos, flags)}, _glContext{_impl.get()}
+SDL_Window* tr::openFullscreenWindow(const char* title, WindowFlag flags)
+{
+	const glm::ivec2    size{displaySize()};
+	const std::uint32_t sdlFlags{static_cast<std::uint32_t>(flags) | SDL_WINDOW_FULLSCREEN_DESKTOP | SDL_WINDOW_OPENGL |
+								 SDL_WINDOW_HIDDEN};
+	SDL_Window*         window{
+        SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, size.x, size.y, sdlFlags)};
+	if (window == nullptr) {
+		throw WindowOpenError{std::format("Failed to open fullscreen window ({}).", SDL_GetError())};
+	}
+	return window;
+}
+
+tr::Window::Window(const char* title, glm::ivec2 size, WindowFlag flags, const GraphicsProperties& gfxProperties)
+	: _sdl{initSDL(gfxProperties)}, _impl{openWindowedWindow(title, size, flags)}, _glContext{_impl.get()}
+{
+	assert(!windowOpened());
+	_window = this;
+}
+
+tr::Window::Window(const char* title, WindowFlag flags, const GraphicsProperties& gfxProperties)
+	: _sdl{initSDL(gfxProperties)}, _impl{openFullscreenWindow(title, flags)}, _glContext{_impl.get()}
 {
 	assert(!windowOpened());
 	_window = this;
@@ -156,43 +177,16 @@ void tr::Window::setSize(glm::ivec2 size) noexcept
 	SDL_SetWindowSize(_impl.get(), size.x, size.y);
 }
 
-std::optional<tr::DisplayMode> tr::Window::fullscreenMode() const noexcept
+bool tr::Window::fullscreen() const noexcept
 {
 	assert(_impl.get() != nullptr);
-
-	if (windowMode() == WindowMode::WINDOWED) {
-		return std::nullopt;
-	}
-	else {
-		SDL_DisplayMode sdlMode;
-		SDL_GetWindowDisplayMode(_impl.get(), &sdlMode);
-		return DisplayMode{
-			{sdlMode.w, sdlMode.h}, static_cast<BitmapFormat::Type>(sdlMode.format), sdlMode.refresh_rate};
-	}
+	return SDL_GetWindowFlags(_impl.get()) & SDL_WINDOW_FULLSCREEN_DESKTOP;
 }
 
-void tr::Window::setFullscreenMode(const DisplayMode& dmode)
+void tr::Window::setFullscreen(bool fullscreen) noexcept
 {
 	assert(_impl.get() != nullptr);
-	SDL_DisplayMode sdlMode{static_cast<SDL_PixelFormatEnum>(static_cast<BitmapFormat::Type>(dmode.format)),
-							dmode.size.x, dmode.size.y, dmode.refreshRate, nullptr};
-	if (SDL_SetWindowDisplayMode(_impl.get(), &sdlMode) < 0) {
-		throw WindowError{"Failed to set window fullscreen mode"};
-	}
-}
-
-tr::WindowMode tr::Window::windowMode() const noexcept
-{
-	assert(_impl.get() != nullptr);
-	return WindowMode(SDL_GetWindowFlags(_impl.get()) & (SDL_WINDOW_FULLSCREEN | SDL_WINDOW_FULLSCREEN_DESKTOP));
-}
-
-void tr::Window::setWindowMode(WindowMode mode)
-{
-	assert(_impl.get() != nullptr);
-	if (SDL_SetWindowFullscreen(_impl.get(), static_cast<std::uint32_t>(mode)) < 0) {
-		throw WindowError{"Failed to set window mode"};
-	}
+	SDL_SetWindowFullscreen(_impl.get(), fullscreen ? SDL_WINDOW_FULLSCREEN_DESKTOP : 0);
 }
 
 bool tr::Window::resizable() const noexcept
@@ -235,20 +229,6 @@ void tr::Window::setMaxSize(glm::ivec2 maxSize) noexcept
 	assert(_impl.get() != nullptr);
 	assert(maxSize.x > 0 && maxSize.y > 0);
 	SDL_SetWindowMaximumSize(_impl.get(), maxSize.x, maxSize.y);
-}
-
-glm::ivec2 tr::Window::position() const noexcept
-{
-	assert(_impl.get() != nullptr);
-	glm::ivec2 pos;
-	SDL_GetWindowPosition(_impl.get(), &pos.x, &pos.y);
-	return pos;
-}
-
-void tr::Window::setPosition(glm::ivec2 pos) noexcept
-{
-	assert(_impl.get() != nullptr);
-	SDL_SetWindowPosition(_impl.get(), pos.x, pos.y);
 }
 
 bool tr::Window::bordered() const noexcept

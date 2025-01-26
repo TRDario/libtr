@@ -1,12 +1,10 @@
 #pragma once
 #include "bitmap.hpp"
-#include "display.hpp"
 #include "event.hpp"
 #include "framebuffer.hpp"
 #include "graphics_context.hpp"
 #include "mouse.hpp"
 #include "sdl.hpp"
-#include <magic_enum/magic_enum.hpp>
 
 struct SDL_Window;
 
@@ -38,15 +36,6 @@ namespace tr {
 	 ******************************************************************************************************************/
 	struct WindowError : SDLError {
 		using SDLError::SDLError;
-	};
-
-	/******************************************************************************************************************
-	 * Window modes.
-	 ******************************************************************************************************************/
-	enum class WindowMode : std::uint32_t {
-		WINDOWED,
-		FULLSCREEN = 0x1,
-		BORDERLESS = 0x10'01
 	};
 
 	/******************************************************************************************************************
@@ -138,11 +127,6 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Sentinel for a centered position on the screen.
-	 ******************************************************************************************************************/
-	inline constexpr glm::ivec2 CENTERED_POS{0x2FFF0000, 0x2FFF0000};
-
-	/******************************************************************************************************************
 	 * The main application window.
 	 *
 	 * This class handles most of the basic functionality of the application, not just the window itself. Single
@@ -158,7 +142,7 @@ namespace tr {
 	class Window {
 	  public:
 		/**************************************************************************************************************
-		 * Opens a window.
+		 * Opens a windowed window.
 		 *
 		 * @note The window starts hidden and show() must be called.
 		 *
@@ -170,13 +154,28 @@ namespace tr {
 		 *
 		 * @param[in] title The title of the window.
 		 * @param[in] size The size of the window in pixels.
-		 * @param[in] pos The position of the window, offset to the top-left corner of the window in pixels.
-		 *                Several special sentinels exist, such as CENTERED_POS, as well as DisplayInfo::centeredPos().
 		 * @param[in] flags The flags of the window.
 		 * @param[in] gfxProperties The properties of the window's graphics context.
 		 **************************************************************************************************************/
-		Window(const char* title, glm::ivec2 size, glm::ivec2 pos = CENTERED_POS,
-			   WindowFlag flags = WindowFlag::DEFAULT, const GraphicsProperties& gfxProperties = {});
+		Window(const char* title, glm::ivec2 size, WindowFlag flags = WindowFlag::DEFAULT,
+			   const GraphicsProperties& gfxProperties = {});
+
+		/**************************************************************************************************************
+		 * Opens a fullscreen window.
+		 *
+		 * @note The window starts hidden and show() must be called.
+		 *
+		 * @par Exception Safety
+		 *
+		 * Strong exception guarantee.
+		 *
+		 * @exception WindowOpenError If opening the window fails.
+		 *
+		 * @param[in] title The title of the window.
+		 * @param[in] flags The flags of the window.
+		 * @param[in] gfxProperties The properties of the window's graphics context.
+		 **************************************************************************************************************/
+		Window(const char* title, WindowFlag flags = WindowFlag::DEFAULT, const GraphicsProperties& gfxProperties = {});
 
 		/**************************************************************************************************************
 		 * Gets the title of the window.
@@ -228,46 +227,18 @@ namespace tr {
 		void setSize(glm::ivec2 size) noexcept;
 
 		/**************************************************************************************************************
-		 * Gets the window's fullscreen display mode.
+		 * Gets whether the window is fullscreen.
 		 *
-		 * @return The window's fullscreen display mode, or std::nullopt if the window isn't fullscreen.
+		 * @return True if the window is fullscreen, and false otherwise.
 		 **************************************************************************************************************/
-		std::optional<DisplayMode> fullscreenMode() const noexcept;
+		bool fullscreen() const noexcept;
 
 		/**************************************************************************************************************
-		 * Sets the window's fullscreen display mode.
+		 * Sets whether the window is fullscreen or not.
 		 *
-		 * This function sets the window to fullscreen if it isn't already.
-		 *
-		 * @par Exception Safety
-		 *
-		 * Strong exception guarantee.
-		 *
-		 * @exception WindowError If setting the fullscreen mode fails.
-		 *
-		 * @param[in] dmode The new fullscreen mode.
+		 * @param[in] fullscreen Whether the window should be fullscreen.
 		 **************************************************************************************************************/
-		void setFullscreenMode(const DisplayMode& dmode);
-
-		/**************************************************************************************************************
-		 * Gets the window's window mode.
-		 *
-		 * @return The window's display mode.
-		 **************************************************************************************************************/
-		WindowMode windowMode() const noexcept;
-
-		/**************************************************************************************************************
-		 * Sets the window's window mode.
-		 *
-		 * @par Exception Safety
-		 *
-		 * Strong exception guarantee.
-		 *
-		 * @exception WindowError If setting the window mode fails.
-		 *
-		 * @param[in] mode The new display mode.
-		 **************************************************************************************************************/
-		void setWindowMode(WindowMode mode);
+		void setFullscreen(bool fullscreen) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets whether the window is resizable.
@@ -310,20 +281,6 @@ namespace tr {
 		 * @param[in] maxSize The maximum resiable size of the window.
 		 **************************************************************************************************************/
 		void setMaxSize(glm::ivec2 maxSize) noexcept;
-
-		/**************************************************************************************************************
-		 * Gets the position of the window relative to the top-left corner of the display.
-		 *
-		 * @return The position of the window relative to the top-left corner of the display in pixels.
-		 **************************************************************************************************************/
-		glm::ivec2 position() const noexcept;
-
-		/**************************************************************************************************************
-		 * Sets the position of the window relative to the top-left corner of the display.
-		 *
-		 * @param[in] pos The new position of the window relative to the top-left corner of the display in pixels.
-		 **************************************************************************************************************/
-		void setPosition(glm::ivec2 pos) noexcept;
 
 		/**************************************************************************************************************
 		 * Gets whether the window is bordered.
@@ -590,12 +547,3 @@ namespace tr {
 
 	/// @}
 } // namespace tr
-
-/// @cond IMPLEMENTATION
-
-template <> struct magic_enum::customize::enum_range<tr::WindowMode> {
-	static constexpr int min = static_cast<int>(tr::WindowMode::WINDOWED);
-	static constexpr int max = static_cast<int>(tr::WindowMode::BORDERLESS);
-};
-
-/// @endcond
