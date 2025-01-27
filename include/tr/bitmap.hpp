@@ -26,7 +26,7 @@ namespace tr {
 		 *
 		 * @return An explanatory error message.
 		 **************************************************************************************************************/
-		constexpr virtual const char* what() const noexcept;
+		constexpr const char* what() const noexcept override;
 	};
 
 	/******************************************************************************************************************
@@ -40,7 +40,7 @@ namespace tr {
 		 *
 		 * @return An explanatory error message.
 		 **************************************************************************************************************/
-		virtual const char* what() const noexcept;
+		const char* what() const noexcept override;
 	};
 
 	/******************************************************************************************************************
@@ -54,7 +54,7 @@ namespace tr {
 		 *
 		 * @return An explanatory error message.
 		 **************************************************************************************************************/
-		virtual const char* what() const noexcept;
+		const char* what() const noexcept override;
 	};
 
 	/******************************************************************************************************************

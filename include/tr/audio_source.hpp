@@ -20,7 +20,7 @@ namespace tr {
 		 *
 		 * @return An explanatory error message.
 		 **************************************************************************************************************/
-		virtual constexpr const char* what() const noexcept;
+		constexpr const char* what() const noexcept override;
 	};
 
 	/******************************************************************************************************************

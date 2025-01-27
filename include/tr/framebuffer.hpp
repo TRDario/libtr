@@ -149,7 +149,7 @@ namespace tr {
 		 **************************************************************************************************************/
 		Framebuffer& operator=(Framebuffer&& move) noexcept;
 
-		virtual glm::ivec2 size() const noexcept;
+		glm::ivec2 size() const noexcept override;
 
 		/**************************************************************************************************************
 		 * Attaches a 1D texture to a slot on the framebuffer.
@@ -248,7 +248,7 @@ namespace tr {
 	 ******************************************************************************************************************/
 	class Backbuffer : public BasicFramebuffer {
 	  public:
-		virtual glm::ivec2 size() const noexcept;
+		glm::ivec2 size() const noexcept override;
 
 	  private:
 		Backbuffer() noexcept;
