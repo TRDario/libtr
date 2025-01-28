@@ -11,6 +11,5 @@ var searchData=
   ['bitmapview_8',['BitmapView',['../classtr_1_1BitmapView.html#ae9f74be53589928a064dbb58923ff3ea',1,'tr::BitmapView::BitmapView(std::span&lt; const std::byte &gt; rawData, glm::ivec2 size, BitmapFormat format)'],['../classtr_1_1BitmapView.html#a7352c735396e897b100acf4f4629347b',1,'tr::BitmapView::BitmapView(T &amp;&amp;range, glm::ivec2 size, BitmapFormat format)'],['../classtr_1_1BitmapView.html#a247fdbe53753ed936632a4b7320c51cc',1,'tr::BitmapView::BitmapView(const std::byte *rawDataStart, int pitch, glm::ivec2 size, BitmapFormat format)']]],
   ['blit_9',['blit',['../classtr_1_1Bitmap.html#a72b36d6f1f472d18d46cc4197999190a',1,'tr::Bitmap']]],
   ['bordered_10',['bordered',['../classtr_1_1Window.html#aff0d28a97ee51ec3a7bc37a9142d5561',1,'tr::Window']]],
-  ['bounds_11',['bounds',['../classtr_1_1DisplayInfo.html#a62c2fe3448dd63da8df36571ffebe4ef',1,'tr::DisplayInfo']]],
-  ['buttons_12',['buttons',['../classtr_1_1Mouse.html#a80d63409950a746ff6768f0153d5ba6c',1,'tr::Mouse']]]
+  ['buttons_11',['buttons',['../classtr_1_1Mouse.html#a80d63409950a746ff6768f0153d5ba6c',1,'tr::Mouse']]]
 ];

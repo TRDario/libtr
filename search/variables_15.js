@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['v_0',['v',['../structtr_1_1HSV.html#a637352bb0de0defa6d9bf8724cea50a4',1,'tr::HSV']]],
-  ['view_1',['view',['../structtr_1_1Orientation.html#a8b12aff88062616a0f0d2727a77d7f91',1,'tr::Orientation']]]
+  ['width_0',['width',['../structtr_1_1TTFont_1_1MeasureResult.html#a3998914f9b390409553199e1ff4d86a4',1,'tr::TTFont::MeasureResult']]],
+  ['window_1',['WINDOW',['../namespacetr_1_1event__type.html#a39b734a4c85067c0867fc998443c1dc2',1,'tr::event_type']]]
 ];

@@ -112,9 +112,7 @@ $(function(){initNavTree('group__display.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">Display<div class="ingroups"><a class="el" href="group__system.html">System</a></div></div></div>
 </div><!--header-->
 <div class="contents">
@@ -122,41 +120,20 @@ $(function(){initNavTree('group__display.html',''); initResizable(true); });
 <p>Display querying functionality.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1DisplayMode.html">tr::DisplayMode</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display mode datatype.  <a href="structtr_1_1DisplayMode.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1DisplayInfo.html">tr::DisplayInfo</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display information querying object.  <a href="classtr_1_1DisplayInfo.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga9a6f207d79a36e6b83c9c709b13af14b" id="r_ga9a6f207d79a36e6b83c9c709b13af14b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga9a6f207d79a36e6b83c9c709b13af14b">tr::displayCount</a> () noexcept</td></tr>
-<tr class="memdesc:ga9a6f207d79a36e6b83c9c709b13af14b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of available displays.  <br /></td></tr>
-<tr class="separator:ga9a6f207d79a36e6b83c9c709b13af14b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad51a17a225484bc25b2fadc3e778330e" id="r_gad51a17a225484bc25b2fadc3e778330e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gad51a17a225484bc25b2fadc3e778330e">tr::display</a> (int display=0)</td></tr>
-<tr class="memdesc:gad51a17a225484bc25b2fadc3e778330e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a display querying object.  <br /></td></tr>
-<tr class="separator:gad51a17a225484bc25b2fadc3e778330e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga20c45eb884ef47bf3ba3824698ff2af1" id="r_ga20c45eb884ef47bf3ba3824698ff2af1"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga20c45eb884ef47bf3ba3824698ff2af1">tr::display</a> (glm::ivec2 globalCoords) noexcept</td></tr>
-<tr class="memdesc:ga20c45eb884ef47bf3ba3824698ff2af1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to determine a display from global coordinates.  <br /></td></tr>
-<tr class="separator:ga20c45eb884ef47bf3ba3824698ff2af1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ga358e16e96eb853ad393b10bbc9b9a7b7" id="r_ga358e16e96eb853ad393b10bbc9b9a7b7"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga358e16e96eb853ad393b10bbc9b9a7b7">tr::HIGHEST_MODE</a> {-1}</td></tr>
-<tr class="memdesc:ga358e16e96eb853ad393b10bbc9b9a7b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sentinel for getting the highest available display mode for a display.  <br /></td></tr>
-<tr class="separator:ga358e16e96eb853ad393b10bbc9b9a7b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5f87abb661ca3280aa64f73b1395589b" id="r_ga5f87abb661ca3280aa64f73b1395589b"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga5f87abb661ca3280aa64f73b1395589b">tr::DESKTOP_MODE</a> {-2}</td></tr>
-<tr class="memdesc:ga5f87abb661ca3280aa64f73b1395589b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sentinel for getting the desktop display mode for a display.  <br /></td></tr>
-<tr class="separator:ga5f87abb661ca3280aa64f73b1395589b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga37e2a7246fcaf72022d6edf8bc547a93" id="r_ga37e2a7246fcaf72022d6edf8bc547a93"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga37e2a7246fcaf72022d6edf8bc547a93">tr::displaySize</a> () noexcept</td></tr>
+<tr class="memdesc:ga37e2a7246fcaf72022d6edf8bc547a93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the display.  <br /></td></tr>
+<tr class="separator:ga37e2a7246fcaf72022d6edf8bc547a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae99f46209a9f35f5bc243b35cce94965" id="r_gae99f46209a9f35f5bc243b35cce94965"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#gae99f46209a9f35f5bc243b35cce94965">tr::refreshRate</a> () noexcept</td></tr>
+<tr class="memdesc:gae99f46209a9f35f5bc243b35cce94965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the refresh rate of the display.  <br /></td></tr>
+<tr class="separator:gae99f46209a9f35f5bc243b35cce94965"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Display querying functionality. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga9a6f207d79a36e6b83c9c709b13af14b" name="ga9a6f207d79a36e6b83c9c709b13af14b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9a6f207d79a36e6b83c9c709b13af14b">&#9670;&#160;</a></span>displayCount()</h2>
+<a id="ga37e2a7246fcaf72022d6edf8bc547a93" name="ga37e2a7246fcaf72022d6edf8bc547a93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga37e2a7246fcaf72022d6edf8bc547a93">&#9670;&#160;</a></span>displaySize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -165,7 +142,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int tr::displayCount </td>
+          <td class="memname">glm::ivec2 tr::displaySize </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -178,15 +155,13 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the number of available displays. </p>
-<dl class="section return"><dt>Returns</dt><dd>The number of available displays. </dd></dl>
-
-<p class="reference">Referenced by <a class="el" href="#ga9a6f207d79a36e6b83c9c709b13af14b">displayCount()</a>.</p>
+<p>Gets the size of the display. </p>
+<dl class="section return"><dt>Returns</dt><dd>The size of the display in pixels. </dd></dl>
 
 </div>
 </div>
-<a id="gad51a17a225484bc25b2fadc3e778330e" name="gad51a17a225484bc25b2fadc3e778330e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad51a17a225484bc25b2fadc3e778330e">&#9670;&#160;</a></span>display() <span class="overload">[1/2]</span></h2>
+<a id="gae99f46209a9f35f5bc243b35cce94965" name="gae99f46209a9f35f5bc243b35cce94965"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae99f46209a9f35f5bc243b35cce94965">&#9670;&#160;</a></span>refreshRate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,9 +170,9 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a> tr::display </td>
+          <td class="memname">int tr::refreshRate </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>display</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -208,102 +183,10 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets a display querying object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">display</td><td><p class="starttd">The index of the display to query.</p>
-<p class="endtd"></p>
-</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section pre"><dt>Precondition</dt><dd><em>display</em> must be in the range [0, <a class="el" href="#ga9a6f207d79a36e6b83c9c709b13af14b" title="Gets the number of available displays.">displayCount()</a>). </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>A querying object for the desired display. </dd></dl>
+<p>Gets the refresh rate of the display. </p>
+<dl class="section return"><dt>Returns</dt><dd>The refresh rate of the display in Hz. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="#ga20c45eb884ef47bf3ba3824698ff2af1">display()</a>, and <a class="el" href="#gad51a17a225484bc25b2fadc3e778330e">display()</a>.</p>
-
-</div>
-</div>
-<a id="ga20c45eb884ef47bf3ba3824698ff2af1" name="ga20c45eb884ef47bf3ba3824698ff2af1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga20c45eb884ef47bf3ba3824698ff2af1">&#9670;&#160;</a></span>display() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::optional&lt; <a class="el" href="classtr_1_1DisplayInfo.html">DisplayInfo</a> &gt; tr::display </td>
-          <td>(</td>
-          <td class="paramtype">glm::ivec2</td>          <td class="paramname"><span class="paramname"><em>globalCoords</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Tries to determine a display from global coordinates. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">globalCoords</td><td>The global coordinates.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A querying object for the display in which the global coordinates are located, or std::nullopt if the coordinates are not in the bounds of any display. </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ga358e16e96eb853ad393b10bbc9b9a7b7" name="ga358e16e96eb853ad393b10bbc9b9a7b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga358e16e96eb853ad393b10bbc9b9a7b7">&#9670;&#160;</a></span>HIGHEST_MODE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int tr::HIGHEST_MODE {-1}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sentinel for getting the highest available display mode for a display. </p>
-
-</div>
-</div>
-<a id="ga5f87abb661ca3280aa64f73b1395589b" name="ga5f87abb661ca3280aa64f73b1395589b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5f87abb661ca3280aa64f73b1395589b">&#9670;&#160;</a></span>DESKTOP_MODE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int tr::DESKTOP_MODE {-2}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sentinel for getting the desktop display mode for a display. </p>
+<p class="reference">Referenced by <a class="el" href="group__event.html#ga758f0e8b5e0ab89e1060976edd48b77b">createDrawTimer()</a>, and <a class="el" href="#gae99f46209a9f35f5bc243b35cce94965">refreshRate()</a>.</p>
 
 </div>
 </div>

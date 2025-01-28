@@ -124,8 +124,8 @@ $(function(){initNavTree('group__stream.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1BinaryFlushableContainer.html">tr::BinaryFlushableContainer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept that denotes a binaryFlush-compatible container. <br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="concepttr_1_1BinaryFlushableIterator.html">tr::BinaryFlushableIterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concept that denotes a binaryFlush-compatible iterator. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -160,14 +160,13 @@ Functions</h2></td></tr>
 <tr class="memitem:ga21d194e8831d9b864d9c8449ca981f7a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga21d194e8831d9b864d9c8449ca981f7a">tr::readBinaryRange</a> (std::istream &amp;is, Range &amp;&amp;out)</td></tr>
 <tr class="memdesc:ga21d194e8831d9b864d9c8449ca981f7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads binary data into a contiguous range.  <br /></td></tr>
 <tr class="separator:ga21d194e8831d9b864d9c8449ca981f7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9cb9e3658a32a63b88f0575c32bfc104" id="r_ga9cb9e3658a32a63b88f0575c32bfc104"><td class="memTemplParams" colspan="2">template&lt;std::output_iterator&lt; char &gt; It&gt; </td></tr>
+<tr class="memitem:ga9cb9e3658a32a63b88f0575c32bfc104" id="r_ga9cb9e3658a32a63b88f0575c32bfc104"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="concepttr_1_1BinaryFlushableIterator.html">tr::BinaryFlushableIterator</a> It&gt; </td></tr>
 <tr class="memitem:ga9cb9e3658a32a63b88f0575c32bfc104"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ga9cb9e3658a32a63b88f0575c32bfc104">tr::flushBinary</a> (std::istream &amp;is, It out)</td></tr>
 <tr class="memdesc:ga9cb9e3658a32a63b88f0575c32bfc104"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flushes the rest of the stream into an output iterator.  <br /></td></tr>
 <tr class="separator:ga9cb9e3658a32a63b88f0575c32bfc104"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabe01d793d646480829aa01f15c0b04f6" id="r_gabe01d793d646480829aa01f15c0b04f6"><td class="memTemplParams" colspan="2">template&lt;BinaryFlushableContainer Container&gt; </td></tr>
-<tr class="memitem:gabe01d793d646480829aa01f15c0b04f6"><td class="memTemplItemLeft" align="right" valign="top">Container&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gabe01d793d646480829aa01f15c0b04f6">tr::flushBinary</a> (std::istream &amp;is)</td></tr>
-<tr class="memdesc:gabe01d793d646480829aa01f15c0b04f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flushes the rest of the stream into a container.  <br /></td></tr>
-<tr class="separator:gabe01d793d646480829aa01f15c0b04f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga548b073a3f83477231cfbf3cf3dd47c7" id="r_ga548b073a3f83477231cfbf3cf3dd47c7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::byte &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga548b073a3f83477231cfbf3cf3dd47c7">tr::flushBinary</a> (std::istream &amp;is)</td></tr>
+<tr class="memdesc:ga548b073a3f83477231cfbf3cf3dd47c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flushes the rest of the stream into a vector of bytes.  <br /></td></tr>
+<tr class="separator:ga548b073a3f83477231cfbf3cf3dd47c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab409e56d6da2e1919ad0a7dd46cecdc2" id="r_gab409e56d6da2e1919ad0a7dd46cecdc2"><td class="memTemplParams" colspan="2">template&lt;StandardLayout T&gt; </td></tr>
 <tr class="memitem:gab409e56d6da2e1919ad0a7dd46cecdc2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#gab409e56d6da2e1919ad0a7dd46cecdc2">tr::writeBinary</a> (std::ostream &amp;os, const T &amp;in)</td></tr>
 <tr class="memdesc:gab409e56d6da2e1919ad0a7dd46cecdc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an object's binary data to stream.  <br /></td></tr>
@@ -386,7 +385,7 @@ template&lt;StandardLayoutRange Range&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::output_iterator&lt; char &gt; It&gt; </div>
+template&lt;<a class="el" href="concepttr_1_1BinaryFlushableIterator.html">tr::BinaryFlushableIterator</a> It&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void tr::flushBinary </td>
@@ -416,20 +415,18 @@ template&lt;std::output_iterator&lt; char &gt; It&gt; </div>
   </dd>
 </dl>
 
-<p class="reference">Referenced by <a class="el" href="#gabe01d793d646480829aa01f15c0b04f6">flushBinary()</a>, and <a class="el" href="#ga9cb9e3658a32a63b88f0575c32bfc104">flushBinary()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#ga548b073a3f83477231cfbf3cf3dd47c7">flushBinary()</a>, and <a class="el" href="#ga9cb9e3658a32a63b88f0575c32bfc104">flushBinary()</a>.</p>
 
 </div>
 </div>
-<a id="gabe01d793d646480829aa01f15c0b04f6" name="gabe01d793d646480829aa01f15c0b04f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabe01d793d646480829aa01f15c0b04f6">&#9670;&#160;</a></span>flushBinary() <span class="overload">[2/2]</span></h2>
+<a id="ga548b073a3f83477231cfbf3cf3dd47c7" name="ga548b073a3f83477231cfbf3cf3dd47c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga548b073a3f83477231cfbf3cf3dd47c7">&#9670;&#160;</a></span>flushBinary() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;BinaryFlushableContainer Container&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Container tr::flushBinary </td>
+          <td class="memname">std::vector&lt; std::byte &gt; tr::flushBinary </td>
           <td>(</td>
           <td class="paramtype">std::istream &amp;</td>          <td class="paramname"><span class="paramname"><em>is</em></span></td><td>)</td>
           <td></td>
@@ -437,12 +434,11 @@ template&lt;BinaryFlushableContainer Container&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Flushes the rest of the stream into a container. </p>
-<p><em>Container</em> must satisfy <em><a class="el" href="concepttr_1_1BinaryFlushableContainer.html" title="Concept that denotes a binaryFlush-compatible container.">BinaryFlushableContainer</a></em>.</p>
+<p>Flushes the rest of the stream into a vector of bytes. </p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::ios_base::failure</td><td>If the stream throws an error. </td></tr>
-    <tr><td class="paramname">std::bad_alloc</td><td>If container construction fails.</td></tr>
+    <tr><td class="paramname">std::bad_alloc</td><td>If vector construction fails.</td></tr>
   </table>
   </dd>
 </dl>
@@ -452,7 +448,7 @@ template&lt;BinaryFlushableContainer Container&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A container with the rest of the stream data. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A byte vector with the rest of the stream data. </dd></dl>
 
 </div>
 </div>

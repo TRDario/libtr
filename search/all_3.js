@@ -25,7 +25,7 @@ var searchData=
   ['bgra_5fui16_5f5_5f5_5f5_5f1_22',['BGRA_Ui16_5_5_5_1',['../structtr_1_1BGRA__Ui16__5__5__5__1.html',1,'tr']]],
   ['bgra_5fui32_5f10_5f10_5f10_5f2_23',['BGRA_Ui32_10_10_10_2',['../structtr_1_1BGRA__Ui32__10__10__10__2.html',1,'tr']]],
   ['bgrx_5f8888_24',['BGRX_8888',['../classtr_1_1BitmapFormat.html#afb6f4ddc91be7ee64f77839687376464a5810131ba0ad55dd9881e43a8060ab11',1,'tr::BitmapFormat']]],
-  ['binaryflushablecontainer_25',['BinaryFlushableContainer',['../concepttr_1_1BinaryFlushableContainer.html',1,'tr']]],
+  ['binaryflushableiterator_25',['BinaryFlushableIterator',['../concepttr_1_1BinaryFlushableIterator.html',1,'tr']]],
   ['bindread_26',['bindRead',['../classtr_1_1BasicFramebuffer.html#a14699d00a8ced423a814a6ad6a927255',1,'tr::BasicFramebuffer']]],
   ['bindwrite_27',['bindWrite',['../classtr_1_1BasicFramebuffer.html#aeaa76aac76fb7bcc2d6af4513727cc4d',1,'tr::BasicFramebuffer']]],
   ['bitmap_28',['Bitmap',['../classtr_1_1Bitmap.html',1,'tr::Bitmap'],['../classtr_1_1Bitmap.html#ad4477aa1de38ee50e3b15985e907c00c',1,'tr::Bitmap::Bitmap(glm::ivec2 size, BitmapFormat format=BitmapFormat::RGBA_8888)'],['../classtr_1_1Bitmap.html#a05fe41a0c87c57e7298ef94e4b10a718',1,'tr::Bitmap::Bitmap(const Bitmap &amp;bitmap, BitmapFormat format=BitmapFormat::RGBA_8888)'],['../classtr_1_1Bitmap.html#a31300d2dbfe2fd571d467f7a6a3b822d',1,'tr::Bitmap::Bitmap(const BitmapView &amp;view, BitmapFormat format=BitmapFormat::RGBA_8888)'],['../classtr_1_1Bitmap.html#a8e7b30986037e73679090dc743be915c',1,'tr::Bitmap::Bitmap(const SubBitmap &amp;source, BitmapFormat format=BitmapFormat::RGBA_8888)'],['../classtr_1_1Bitmap.html#a3e3f0ba4a112de9fb675848e9b8076f4',1,'tr::Bitmap::Bitmap(Bitmap &amp;&amp;bitmap) noexcept=default']]],
@@ -45,12 +45,11 @@ var searchData=
   ['bold_42',['BOLD',['../classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06a2909dd0e0336f10b6da9735b859a3d19',1,'tr::TTFont']]],
   ['border_5fclamp_43',['BORDER_CLAMP',['../group__texture.html#gga68fa0648b9a72034f88944a16cadaea8a02a0692f237a0bd7f39d7b7d87762510',1,'tr']]],
   ['bordered_44',['bordered',['../classtr_1_1Window.html#aff0d28a97ee51ec3a7bc37a9142d5561',1,'tr::Window']]],
-  ['borderless_45',['BORDERLESS',['../group__window.html#gga0caa27a38e3d8b688a5abab875ed28f7af744a3ac16b1ac0bc9df0aa02cc1a038',1,'tr::BORDERLESS'],['../group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12faf744a3ac16b1ac0bc9df0aa02cc1a038',1,'tr::BORDERLESS']]],
+  ['borderless_45',['BORDERLESS',['../group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12faf744a3ac16b1ac0bc9df0aa02cc1a038',1,'tr']]],
   ['both_46',['BOTH',['../group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fa6328e5e3186c227a021ef2ff77e40197',1,'tr']]],
-  ['bounds_47',['bounds',['../classtr_1_1DisplayInfo.html#a62c2fe3448dd63da8df36571ffebe4ef',1,'tr::DisplayInfo']]],
-  ['brief_48',['BRIEF',['../group__window.html#gga41769bf3df85aadb5d910148498e9585ab1a77c57539b9a5abd20aeecedec8b5e',1,'tr']]],
-  ['buffer_49',['Buffer',['../group__audio__buffer.html',1,'Audio Buffer'],['../group__graphics__buffer.html',1,'Graphics Buffer'],['../group__index__buffer.html',1,'Index Buffer'],['../group__shader__buffer.html',1,'Shader Buffer'],['../group__vertex__buffer.html',1,'Vertex Buffer']]],
-  ['builtincolor_50',['BuiltinColor',['../concepttr_1_1BuiltinColor.html',1,'tr']]],
-  ['button_51',['button',['../structtr_1_1MouseDownEvent.html#af218454d2882136136da2903b0ffa677',1,'tr::MouseDownEvent::button'],['../structtr_1_1MouseUpEvent.html#ab01169253ee75c3aaee18564511ab802',1,'tr::MouseUpEvent::button']]],
-  ['buttons_52',['buttons',['../structtr_1_1MouseMotionEvent.html#a5e5930cb46f490967bda04fe55ffcf2c',1,'tr::MouseMotionEvent::buttons'],['../classtr_1_1Mouse.html#a80d63409950a746ff6768f0153d5ba6c',1,'tr::Mouse::buttons()']]]
+  ['brief_47',['BRIEF',['../group__window.html#gga41769bf3df85aadb5d910148498e9585ab1a77c57539b9a5abd20aeecedec8b5e',1,'tr']]],
+  ['buffer_48',['Buffer',['../group__audio__buffer.html',1,'Audio Buffer'],['../group__graphics__buffer.html',1,'Graphics Buffer'],['../group__index__buffer.html',1,'Index Buffer'],['../group__shader__buffer.html',1,'Shader Buffer'],['../group__vertex__buffer.html',1,'Vertex Buffer']]],
+  ['builtincolor_49',['BuiltinColor',['../concepttr_1_1BuiltinColor.html',1,'tr']]],
+  ['button_50',['button',['../structtr_1_1MouseDownEvent.html#af218454d2882136136da2903b0ffa677',1,'tr::MouseDownEvent::button'],['../structtr_1_1MouseUpEvent.html#ab01169253ee75c3aaee18564511ab802',1,'tr::MouseUpEvent::button']]],
+  ['buttons_51',['buttons',['../structtr_1_1MouseMotionEvent.html#a5e5930cb46f490967bda04fe55ffcf2c',1,'tr::MouseMotionEvent::buttons'],['../classtr_1_1Mouse.html#a80d63409950a746ff6768f0153d5ba6c',1,'tr::Mouse::buttons()']]]
 ];

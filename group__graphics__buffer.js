@@ -2,10 +2,10 @@ var group__graphics__buffer =
 [
     [ "tr::GraphicsBufferCopyOutputIterator", "concepttr_1_1GraphicsBufferCopyOutputIterator.html", null ],
     [ "tr::GraphicsBufferBadAlloc", "structtr_1_1GraphicsBufferBadAlloc.html", [
-      [ "what", "structtr_1_1GraphicsBufferBadAlloc.html#a96ef77cd330ad4f2c61c736fe71399b2", null ]
+      [ "what", "structtr_1_1GraphicsBufferBadAlloc.html#a24f0dad07ff87a36957f7eba5f2c1a76", null ]
     ] ],
     [ "tr::GraphicsBufferMapBadAlloc", "structtr_1_1GraphicsBufferMapBadAlloc.html", [
-      [ "what", "structtr_1_1GraphicsBufferMapBadAlloc.html#a1c8b908bd89be070df4c2eeec648858e", null ]
+      [ "what", "structtr_1_1GraphicsBufferMapBadAlloc.html#ab5ba90b94879f459133aaa839cc546a3", null ]
     ] ],
     [ "tr::GraphicsBuffer", "classtr_1_1GraphicsBuffer.html", [
       [ "Shader", "classtr_1_1GraphicsBuffer.html#a03c2d524ace9ade9c3f55b43c99bcea1", null ],

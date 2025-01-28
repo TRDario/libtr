@@ -16,7 +16,7 @@ var classtr_1_1Framebuffer =
     [ "Framebuffer", "classtr_1_1Framebuffer.html#a8e2a07fae9ed3f1f8c5d7fbd3f4bb45f", null ],
     [ "~Framebuffer", "classtr_1_1Framebuffer.html#a2bbb8f8143b9583d94d2b368a7a3c457", null ],
     [ "operator=", "classtr_1_1Framebuffer.html#acaabb8f246b40594807d4ee2e7a55db1", null ],
-    [ "size", "classtr_1_1Framebuffer.html#a6546d0ff0844f29baf86a122c7b6b9c3", null ],
+    [ "size", "classtr_1_1Framebuffer.html#a73acd37c6a48176e870c6303a2b4a883", null ],
     [ "attach", "classtr_1_1Framebuffer.html#a683d51b23a97d5b4ecb81d8d39b2b6fc", null ],
     [ "attach", "classtr_1_1Framebuffer.html#a12e3a9a4a9a3c3eb4b26c7150e7fef75", null ],
     [ "attach", "classtr_1_1Framebuffer.html#ac536939272ac8cd5168c5cdc9abf80ff", null ],

@@ -19,6 +19,5 @@ var searchData=
   ['fp32_16',['FP32',['../structtr_1_1VertexAttributeF.html#a7b487c740a8828ab7bfc927e1c2383a2a693aa0bef84c25fe81c7e62e72f9313d',1,'tr::VertexAttributeF']]],
   ['fp64_17',['FP64',['../structtr_1_1VertexAttributeF.html#a7b487c740a8828ab7bfc927e1c2383a2a3fc58a0c61fb59a7689728a045f2edbb',1,'tr::VertexAttributeF']]],
   ['fragment_18',['FRAGMENT',['../group__shader.html#ggafcfa3e5f9682128a25a9ac5eb1de2579a7345a249ed5c2f850d85dc1727c24716',1,'tr']]],
-  ['front_19',['FRONT',['../group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fabb2fe5c916efb43aab8cbb68f997d2ee',1,'tr']]],
-  ['fullscreen_20',['FULLSCREEN',['../group__window.html#gga0caa27a38e3d8b688a5abab875ed28f7ab89c3d897b196ffff1537331bc659a97',1,'tr']]]
+  ['front_19',['FRONT',['../group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fabb2fe5c916efb43aab8cbb68f997d2ee',1,'tr']]]
 ];

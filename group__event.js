@@ -133,6 +133,6 @@ var group__event =
       [ "Window", "classtr_1_1EventQueue.html#a553f958a25683445088050a69d3de8e9", null ]
     ] ],
     [ "tr::createTickerTimer", "group__event.html#ga9a17702cc6fbb19961fe8a7924d6eb6e", null ],
-    [ "tr::createDrawTimer", "group__event.html#ga3f565b2a19a888e83b2703fde793de7f", null ],
+    [ "tr::createDrawTimer", "group__event.html#ga758f0e8b5e0ab89e1060976edd48b77b", null ],
     [ "tr::USER_EVENT_START", "group__event.html#gad6f655f03f325a9e44c1d39e1a25728e", null ]
 ];

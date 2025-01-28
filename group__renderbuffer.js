@@ -1,7 +1,7 @@
 var group__renderbuffer =
 [
     [ "tr::RenderbufferBadAlloc", "structtr_1_1RenderbufferBadAlloc.html", [
-      [ "what", "structtr_1_1RenderbufferBadAlloc.html#ac43821bd644119e7a6c76c67507cf8f0", null ]
+      [ "what", "structtr_1_1RenderbufferBadAlloc.html#a35d66ca197d9cdced029b60da9c35259", null ]
     ] ],
     [ "tr::Renderbuffer", "classtr_1_1Renderbuffer.html", [
       [ "Renderbuffer", "classtr_1_1Renderbuffer.html#a6c619a4ada19a780cbaaa014023e0fe1", null ],

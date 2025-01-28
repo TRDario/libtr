@@ -40,8 +40,6 @@ var hierarchy =
       [ "tr::Handle< bool, false, SDLDeleter >", "classtr_1_1Handle.html", null ],
       [ "tr::Handle< T, EmptyValue, Deleter >", "classtr_1_1Handle.html", null ]
     ] ],
-    [ "tr::DisplayInfo", "classtr_1_1DisplayInfo.html", null ],
-    [ "tr::DisplayMode", "structtr_1_1DisplayMode.html", null ],
     [ "tr::Event", "classtr_1_1Event.html", null ],
     [ "tr::EventQueue", "classtr_1_1EventQueue.html", null ],
     [ "std::exception", null, [

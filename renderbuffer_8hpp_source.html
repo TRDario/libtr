@@ -123,7 +123,7 @@ $(function(){initNavTree('renderbuffer_8hpp_source.html',''); initResizable(true
 <div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structtr_1_1RenderbufferBadAlloc.html">   14</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structtr_1_1RenderbufferBadAlloc.html">RenderbufferBadAlloc</a> : std::bad_alloc {</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structtr_1_1RenderbufferBadAlloc.html#ac43821bd644119e7a6c76c67507cf8f0">   20</a></span>        <span class="keyword">constexpr</span> <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1RenderbufferBadAlloc.html#ac43821bd644119e7a6c76c67507cf8f0">what</a>() const noexcept;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structtr_1_1RenderbufferBadAlloc.html#a35d66ca197d9cdced029b60da9c35259">   20</a></span>        <span class="keyword">constexpr</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="structtr_1_1RenderbufferBadAlloc.html#a35d66ca197d9cdced029b60da9c35259">what</a>() const noexcept override;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    };</div>
 </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
@@ -157,7 +157,7 @@ $(function(){initNavTree('renderbuffer_8hpp_source.html',''); initResizable(true
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>} <span class="comment">// namespace tr</span></div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span></div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>constexpr const <span class="keywordtype">char</span>* <a class="code hl_namespace" href="namespacetr.html">tr</a>::<a class="code hl_struct" href="structtr_1_1RenderbufferBadAlloc.html">RenderbufferBadAlloc</a>::<a class="code hl_function" href="structtr_1_1RenderbufferBadAlloc.html#ac43821bd644119e7a6c76c67507cf8f0">what</a>() const noexcept</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>constexpr const <span class="keywordtype">char</span>* <a class="code hl_namespace" href="namespacetr.html">tr</a>::<a class="code hl_struct" href="structtr_1_1RenderbufferBadAlloc.html">RenderbufferBadAlloc</a>::<a class="code hl_function" href="structtr_1_1RenderbufferBadAlloc.html#a35d66ca197d9cdced029b60da9c35259">what</a>() const noexcept</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>{</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;failed renderbuffer allocation&quot;</span>;</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>}</div>
@@ -171,7 +171,7 @@ $(function(){initNavTree('renderbuffer_8hpp_source.html',''); initResizable(true
 <div class="ttc" id="agroup__texture_html_gga2e9ae2f935462a45286798ae6fd5def9ab4b279046a02077466fa26cabb00c642"><div class="ttname"><a href="group__texture.html#gga2e9ae2f935462a45286798ae6fd5def9ab4b279046a02077466fa26cabb00c642">tr::TextureFormat::RGBA8</a></div><div class="ttdeci">@ RGBA8</div><div class="ttdef"><b>Definition</b> texture.hpp:43</div></div>
 <div class="ttc" id="anamespacetr_html"><div class="ttname"><a href="namespacetr.html">tr</a></div><div class="ttdoc">Namespace containing all libtr functionality.</div><div class="ttdef"><b>Definition</b> angle.hpp:5</div></div>
 <div class="ttc" id="astructtr_1_1RenderbufferBadAlloc_html"><div class="ttname"><a href="structtr_1_1RenderbufferBadAlloc.html">tr::RenderbufferBadAlloc</a></div><div class="ttdoc">Error thrown if a failed renderbuffer allocation fails.</div><div class="ttdef"><b>Definition</b> renderbuffer.hpp:14</div></div>
-<div class="ttc" id="astructtr_1_1RenderbufferBadAlloc_html_ac43821bd644119e7a6c76c67507cf8f0"><div class="ttname"><a href="structtr_1_1RenderbufferBadAlloc.html#ac43821bd644119e7a6c76c67507cf8f0">tr::RenderbufferBadAlloc::what</a></div><div class="ttdeci">virtual constexpr const char * what() const noexcept</div><div class="ttdoc">Gets an error message.</div></div>
+<div class="ttc" id="astructtr_1_1RenderbufferBadAlloc_html_a35d66ca197d9cdced029b60da9c35259"><div class="ttname"><a href="structtr_1_1RenderbufferBadAlloc.html#a35d66ca197d9cdced029b60da9c35259">tr::RenderbufferBadAlloc::what</a></div><div class="ttdeci">constexpr const char * what() const noexcept override</div><div class="ttdoc">Gets an error message.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

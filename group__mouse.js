@@ -1,7 +1,7 @@
 var group__mouse =
 [
     [ "tr::CursorBadAlloc", "structtr_1_1CursorBadAlloc.html", [
-      [ "what", "structtr_1_1CursorBadAlloc.html#aebaad8a6df772a38dba5f4ea7862e418", null ]
+      [ "what", "structtr_1_1CursorBadAlloc.html#a716bb5099dbe413afd9a685813b9ceaa", null ]
     ] ],
     [ "tr::Mouse", "classtr_1_1Mouse.html", [
       [ "position", "classtr_1_1Mouse.html#a6cc3731b955789ed3963fc9b8919b329", null ],

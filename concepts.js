@@ -18,7 +18,7 @@ var concepts =
       [ "HandleType", "concepttr_1_1HandleType.html", null ],
       [ "HandleDeleter", "concepttr_1_1HandleDeleter.html", null ],
       [ "DefaultConstructibleHandleDeleter", "concepttr_1_1DefaultConstructibleHandleDeleter.html", null ],
-      [ "BinaryFlushableContainer", "concepttr_1_1BinaryFlushableContainer.html", null ],
+      [ "BinaryFlushableIterator", "concepttr_1_1BinaryFlushableIterator.html", null ],
       [ "PositionsRange", "concepttr_1_1PositionsRange.html", null ],
       [ "UVsRange", "concepttr_1_1UVsRange.html", null ],
       [ "ColorsRange", "concepttr_1_1ColorsRange.html", null ]

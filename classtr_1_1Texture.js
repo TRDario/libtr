@@ -4,8 +4,6 @@ var classtr_1_1Texture =
     [ "setSwizzle", "classtr_1_1Texture.html#aadca619fe504034fdc1ee3e8b0d1e591", null ],
     [ "setMinFilter", "classtr_1_1Texture.html#a9afa852b1ec0f76b99fc33a0748d28ed", null ],
     [ "setMagFilter", "classtr_1_1Texture.html#a02323cd69a9a5afe5ccf9f22f4629fc6", null ],
-    [ "setMinLOD", "classtr_1_1Texture.html#a962eaeb632eac660d3b66ad23def08e1", null ],
-    [ "setMaxLOD", "classtr_1_1Texture.html#a221d92756d66183f43d0198231c119ab", null ],
     [ "disableComparison", "classtr_1_1Texture.html#aa338fc3c718fe6774f47a0480c1c969c", null ],
     [ "setComparisonMode", "classtr_1_1Texture.html#a96b1f33aad43e55e29878f6db9d4aea5", null ],
     [ "setWrap", "classtr_1_1Texture.html#a6563319cc0d89575466eff2ca1aa20d0", null ],

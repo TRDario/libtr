@@ -33,10 +33,10 @@ var searchData=
   ['flash_30',['flash',['../classtr_1_1Window.html#aec0cff489adce095bf131094f0144197',1,'tr::Window']]],
   ['flashoperation_31',['FlashOperation',['../group__window.html#ga41769bf3df85aadb5d910148498e9585',1,'tr']]],
   ['floatingpoint_32',['FloatingPoint',['../concepttr_1_1FloatingPoint.html',1,'tr']]],
-  ['flushbinary_33',['flushBinary',['../group__stream.html#ga9cb9e3658a32a63b88f0575c32bfc104',1,'tr::flushBinary(std::istream &amp;is, It out)'],['../group__stream.html#gabe01d793d646480829aa01f15c0b04f6',1,'tr::flushBinary(std::istream &amp;is)']]],
+  ['flushbinary_33',['flushBinary',['../group__stream.html#ga9cb9e3658a32a63b88f0575c32bfc104',1,'tr::flushBinary(std::istream &amp;is, It out)'],['../group__stream.html#ga548b073a3f83477231cfbf3cf3dd47c7',1,'tr::flushBinary(std::istream &amp;is)']]],
   ['font_34',['Font',['../group__ttfont.html',1,'']]],
   ['format_35',['Vertex Format',['../group__vertex__format.html',1,'']]],
-  ['format_36',['format',['../structtr_1_1DisplayMode.html#a65274fb2a3c7f12036df2ad458f87f7f',1,'tr::DisplayMode::format'],['../classtr_1_1SubBitmap.html#ab9565fdf79d2e9f839cade3310d98994',1,'tr::SubBitmap::format()'],['../classtr_1_1BitmapView.html#a3b74f85bb1aab0b71cff1151ba4eaad1',1,'tr::BitmapView::format()'],['../classtr_1_1Bitmap.html#a10ed1ee277822c5aafa78d5413916024',1,'tr::Bitmap::format()'],['../classtr_1_1Texture.html#a9e77cc52c0cf1cc4d6aa3e7639ee39a5',1,'tr::Texture::format()']]],
+  ['format_36',['format',['../classtr_1_1SubBitmap.html#ab9565fdf79d2e9f839cade3310d98994',1,'tr::SubBitmap::format()'],['../classtr_1_1BitmapView.html#a3b74f85bb1aab0b71cff1151ba4eaad1',1,'tr::BitmapView::format()'],['../classtr_1_1Bitmap.html#a10ed1ee277822c5aafa78d5413916024',1,'tr::Bitmap::format()'],['../classtr_1_1Texture.html#a9e77cc52c0cf1cc4d6aa3e7639ee39a5',1,'tr::Texture::format()']]],
   ['fp10_5f11_5f11_37',['FP10_11_11',['../structtr_1_1VertexAttributeF.html#a7b487c740a8828ab7bfc927e1c2383a2a34076d573c7eb667b8bd91eb86dc4571',1,'tr::VertexAttributeF']]],
   ['fp16_38',['FP16',['../structtr_1_1VertexAttributeF.html#a7b487c740a8828ab7bfc927e1c2383a2aa4bf99d6945c25077fd6660d536af8a0',1,'tr::VertexAttributeF']]],
   ['fp32_39',['FP32',['../structtr_1_1VertexAttributeF.html#a7b487c740a8828ab7bfc927e1c2383a2a693aa0bef84c25fe81c7e62e72f9313d',1,'tr::VertexAttributeF']]],
@@ -48,6 +48,5 @@ var searchData=
   ['framebuffers_45',['Framebuffers',['../group__framebuffer.html',1,'']]],
   ['frombuiltin_46',['fromBuiltin',['../structtr_1_1ColorCaster_3_01HSV_01_4.html#a38f84621ecf947aa45d0e6e19e955f86',1,'tr::ColorCaster&lt; HSV &gt;']]],
   ['front_47',['FRONT',['../group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fabb2fe5c916efb43aab8cbb68f997d2ee',1,'tr']]],
-  ['fullscreen_48',['FULLSCREEN',['../group__window.html#gga0caa27a38e3d8b688a5abab875ed28f7ab89c3d897b196ffff1537331bc659a97',1,'tr']]],
-  ['fullscreenmode_49',['fullscreenMode',['../classtr_1_1Window.html#a16c255f64116b5f7da41d2a35b9dfa3a',1,'tr::Window']]]
+  ['fullscreen_48',['fullscreen',['../classtr_1_1Window.html#af4dc12f2f632d45bae0cbf06dc868b82',1,'tr::Window']]]
 ];

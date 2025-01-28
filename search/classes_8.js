@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['indexbuffer_0',['IndexBuffer',['../classtr_1_1IndexBuffer.html',1,'tr']]],
-  ['indexbuffermap_1',['IndexBufferMap',['../classtr_1_1IndexBufferMap.html',1,'tr']]],
-  ['iterator_2',['Iterator',['../classtr_1_1SubBitmap_1_1Iterator.html',1,'tr::SubBitmap']]]
+  ['keyboard_0',['Keyboard',['../classtr_1_1Keyboard.html',1,'tr']]],
+  ['keycode_1',['Keycode',['../classtr_1_1Keycode.html',1,'tr']]],
+  ['keydownevent_2',['KeyDownEvent',['../structtr_1_1KeyDownEvent.html',1,'tr']]],
+  ['keyinfo_3',['KeyInfo',['../structtr_1_1KeyInfo.html',1,'tr']]],
+  ['keyupevent_4',['KeyUpEvent',['../structtr_1_1KeyUpEvent.html',1,'tr']]]
 ];

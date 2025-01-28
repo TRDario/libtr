@@ -21,9 +21,8 @@ var searchData=
   ['held_18',['held',['../classtr_1_1Keyboard.html#ac8099b5db6759e0b16f7519f10b461fb',1,'tr::Keyboard::held()'],['../classtr_1_1Mouse.html#a9c73c157a458ce22a0b392bb7c2a4115',1,'tr::Mouse::held(MouseButton button) const noexcept'],['../classtr_1_1Mouse.html#aace08d10e184d01e2a6fab9f0843fb01',1,'tr::Mouse::held(MouseButton button, MouseButtonMask mask) const noexcept']]],
   ['heldmods_19',['heldMods',['../classtr_1_1Keyboard.html#a9c8903e6e5880e1b662c9b7ce6b46026',1,'tr::Keyboard']]],
   ['hide_20',['hide',['../classtr_1_1Window.html#a986960d679b679be1136ed0a4a7ef978',1,'tr::Window']]],
-  ['highest_5fmode_21',['HIGHEST_MODE',['../group__display.html#ga358e16e96eb853ad393b10bbc9b9a7b7',1,'tr']]],
-  ['hint_22',['Hint',['../classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2',1,'tr::TTFont']]],
-  ['hinting_23',['hinting',['../classtr_1_1TTFont.html#ace8154ed7bc4cc26a813ba85fe431c19',1,'tr::TTFont']]],
-  ['home_24',['HOME',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204da710533dd879dd1202e5c73b27705bf02',1,'tr::Scancode::HOME'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a710533dd879dd1202e5c73b27705bf02',1,'tr::Keycode::HOME']]],
-  ['hsv_25',['HSV',['../structtr_1_1HSV.html',1,'tr']]]
+  ['hint_21',['Hint',['../classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2',1,'tr::TTFont']]],
+  ['hinting_22',['hinting',['../classtr_1_1TTFont.html#ace8154ed7bc4cc26a813ba85fe431c19',1,'tr::TTFont']]],
+  ['home_23',['HOME',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204da710533dd879dd1202e5c73b27705bf02',1,'tr::Scancode::HOME'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a710533dd879dd1202e5c73b27705bf02',1,'tr::Keycode::HOME']]],
+  ['hsv_24',['HSV',['../structtr_1_1HSV.html',1,'tr']]]
 ];

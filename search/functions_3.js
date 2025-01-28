@@ -5,12 +5,9 @@ var searchData=
   ['delta_2',['delta',['../classtr_1_1Mouse.html#a2e581ff4a8c7b77b8e478e863ed7b9cc',1,'tr::Mouse']]],
   ['descent_3',['descent',['../classtr_1_1TTFont.html#a623c591b19256f3e1da47b28382539bf',1,'tr::TTFont']]],
   ['disablecomparison_4',['disableComparison',['../classtr_1_1Texture.html#aa338fc3c718fe6774f47a0480c1c969c',1,'tr::Texture']]],
-  ['display_5',['display',['../group__display.html#gad51a17a225484bc25b2fadc3e778330e',1,'tr::display(int display=0)'],['../group__display.html#ga20c45eb884ef47bf3ba3824698ff2af1',1,'tr::display(glm::ivec2 globalCoords) noexcept']]],
-  ['displaycount_6',['displayCount',['../group__display.html#ga9a6f207d79a36e6b83c9c709b13af14b',1,'tr']]],
-  ['displaymode_7',['displayMode',['../classtr_1_1DisplayInfo.html#aeefb31fc56c2ad8790dfcb680d74fbc5',1,'tr::DisplayInfo']]],
-  ['displaymodecount_8',['displayModeCount',['../classtr_1_1DisplayInfo.html#abf825c4dfb82beafd4d3638d31aa3f16',1,'tr::DisplayInfo']]],
-  ['draw_9',['draw',['../classtr_1_1GraphicsContext.html#a5970005bd6ddce59d45e997605e7b4b9',1,'tr::GraphicsContext::draw()'],['../namespacetr_1_1ImGui.html#a85e81d2346dc870f483f878402b7f711',1,'tr::ImGui::draw()']]],
-  ['drawindexed_10',['drawIndexed',['../classtr_1_1GraphicsContext.html#afa1468174c1e4ad836bc8fda094783ea',1,'tr::GraphicsContext']]],
-  ['drawindexedinstances_11',['drawIndexedInstances',['../classtr_1_1GraphicsContext.html#a609e8e26979d1b15443229da132e0a67',1,'tr::GraphicsContext']]],
-  ['drawinstances_12',['drawInstances',['../classtr_1_1GraphicsContext.html#a0c29c83e3771c767391b9bbb2f5c284b',1,'tr::GraphicsContext']]]
+  ['displaysize_5',['displaySize',['../group__display.html#ga37e2a7246fcaf72022d6edf8bc547a93',1,'tr']]],
+  ['draw_6',['draw',['../classtr_1_1GraphicsContext.html#a5970005bd6ddce59d45e997605e7b4b9',1,'tr::GraphicsContext::draw()'],['../namespacetr_1_1ImGui.html#a85e81d2346dc870f483f878402b7f711',1,'tr::ImGui::draw()']]],
+  ['drawindexed_7',['drawIndexed',['../classtr_1_1GraphicsContext.html#afa1468174c1e4ad836bc8fda094783ea',1,'tr::GraphicsContext']]],
+  ['drawindexedinstances_8',['drawIndexedInstances',['../classtr_1_1GraphicsContext.html#a609e8e26979d1b15443229da132e0a67',1,'tr::GraphicsContext']]],
+  ['drawinstances_9',['drawInstances',['../classtr_1_1GraphicsContext.html#a0c29c83e3771c767391b9bbb2f5c284b',1,'tr::GraphicsContext']]]
 ];

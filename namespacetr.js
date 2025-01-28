@@ -90,8 +90,6 @@ var namespacetr =
     [ "Cursor", "classtr_1_1Cursor.html", "classtr_1_1Cursor" ],
     [ "CursorBadAlloc", "structtr_1_1CursorBadAlloc.html", "structtr_1_1CursorBadAlloc" ],
     [ "CustomEventBase", "structtr_1_1CustomEventBase.html", "structtr_1_1CustomEventBase" ],
-    [ "DisplayInfo", "classtr_1_1DisplayInfo.html", "classtr_1_1DisplayInfo" ],
-    [ "DisplayMode", "structtr_1_1DisplayMode.html", "structtr_1_1DisplayMode" ],
     [ "Event", "classtr_1_1Event.html", "classtr_1_1Event" ],
     [ "EventPushError", "structtr_1_1EventPushError.html", "structtr_1_1EventPushError" ],
     [ "EventQueue", "classtr_1_1EventQueue.html", "classtr_1_1EventQueue" ],
@@ -207,7 +205,7 @@ var namespacetr =
     [ "HandleType", "concepttr_1_1HandleType.html", null ],
     [ "HandleDeleter", "concepttr_1_1HandleDeleter.html", null ],
     [ "DefaultConstructibleHandleDeleter", "concepttr_1_1DefaultConstructibleHandleDeleter.html", null ],
-    [ "BinaryFlushableContainer", "concepttr_1_1BinaryFlushableContainer.html", null ],
+    [ "BinaryFlushableIterator", "concepttr_1_1BinaryFlushableIterator.html", null ],
     [ "PositionsRange", "concepttr_1_1PositionsRange.html", null ],
     [ "UVsRange", "concepttr_1_1UVsRange.html", null ],
     [ "ColorsRange", "concepttr_1_1ColorsRange.html", null ],
@@ -451,11 +449,6 @@ var namespacetr =
       [ "B", "group__texture.html#gga228d86137368dd348340097c8a515439a9d5ed678fe57bcca610140957afab571", null ],
       [ "A", "group__texture.html#gga228d86137368dd348340097c8a515439a7fc56270e7a70fa81a5935b72eacbe29", null ]
     ] ],
-    [ "WindowMode", "group__window.html#ga0caa27a38e3d8b688a5abab875ed28f7", [
-      [ "WINDOWED", "group__window.html#gga0caa27a38e3d8b688a5abab875ed28f7adaa43822b2c6abbb5d4eaf867ff6e4a4", null ],
-      [ "FULLSCREEN", "group__window.html#gga0caa27a38e3d8b688a5abab875ed28f7ab89c3d897b196ffff1537331bc659a97", null ],
-      [ "BORDERLESS", "group__window.html#gga0caa27a38e3d8b688a5abab875ed28f7af744a3ac16b1ac0bc9df0aa02cc1a038", null ]
-    ] ],
     [ "WindowFlag", "group__window.html#gad463b226a0cad7ea3e64dd5b07ecf12f", [
       [ "DEFAULT", "group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee", null ],
       [ "BORDERLESS", "group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12faf744a3ac16b1ac0bc9df0aa02cc1a038", null ],
@@ -529,9 +522,8 @@ var namespacetr =
     [ "color_cast", "group__color.html#gaa4933a8943b2739b731c91c0fcd42acd", null ],
     [ "color_cast", "group__color.html#ga6e8b77a06bd2099c4a9fa3d8e77a773b", null ],
     [ "color_cast", "group__color.html#gaf2a145bbc70fe506676a2d4ff5cc35bb", null ],
-    [ "displayCount", "group__display.html#ga9a6f207d79a36e6b83c9c709b13af14b", null ],
-    [ "display", "group__display.html#gad51a17a225484bc25b2fadc3e778330e", null ],
-    [ "display", "group__display.html#ga20c45eb884ef47bf3ba3824698ff2af1", null ],
+    [ "displaySize", "group__display.html#ga37e2a7246fcaf72022d6edf8bc547a93", null ],
+    [ "refreshRate", "group__display.html#gae99f46209a9f35f5bc243b35cce94965", null ],
     [ "smoothPolygonVerticesCount", "group__drawing.html#ga644ab8dc72e622681c312cf80e7499ac", null ],
     [ "smoothArcVerticesCount", "group__drawing.html#gadf57b2c3ad506f210ddc0a354f52c32c", null ],
     [ "fillPolygonIndices", "group__drawing.html#gabf7893749b4f25b9d2efe92af6ab2fef", null ],
@@ -546,7 +538,7 @@ var namespacetr =
     [ "fillPolygonVertices", "group__drawing.html#gaa0359bffc10f0f8585a1d905896c4700", null ],
     [ "fillPolygonOutlineVertices", "group__drawing.html#ga939c187251bd195bcfc3a3deac3f0679", null ],
     [ "createTickerTimer", "group__event.html#ga9a17702cc6fbb19961fe8a7924d6eb6e", null ],
-    [ "createDrawTimer", "group__event.html#ga3f565b2a19a888e83b2703fde793de7f", null ],
+    [ "createDrawTimer", "group__event.html#ga758f0e8b5e0ab89e1060976edd48b77b", null ],
     [ "collinear", "group__geometry.html#ga739b0c376af3ce29f16b8c3f825ac599", null ],
     [ "intersecting", "group__geometry.html#ga0c949dcf0ebc1f2d07a33619e9b7996a", null ],
     [ "intersecting", "group__geometry.html#ga12aaf84446780fd2865784a14a72736c", null ],
@@ -581,7 +573,7 @@ var namespacetr =
     [ "readBinary", "group__stream.html#ga5a5a266fb0a9988c099579df154d2a24", null ],
     [ "readBinaryRange", "group__stream.html#ga21d194e8831d9b864d9c8449ca981f7a", null ],
     [ "flushBinary", "group__stream.html#ga9cb9e3658a32a63b88f0575c32bfc104", null ],
-    [ "flushBinary", "group__stream.html#gabe01d793d646480829aa01f15c0b04f6", null ],
+    [ "flushBinary", "group__stream.html#ga548b073a3f83477231cfbf3cf3dd47c7", null ],
     [ "writeBinary", "group__stream.html#gab409e56d6da2e1919ad0a7dd46cecdc2", null ],
     [ "writeBinaryRange", "group__stream.html#ga4d2a4dfa9cd9afca524a24e28957ce20", null ],
     [ "writeBinary", "group__stream.html#gac5f90bbe1a5a9410262b417a1ba4e8d3", null ],
@@ -617,8 +609,6 @@ var namespacetr =
     [ "operator|", "group__vertex.html#ga1d2b652c0f4a54def34182d8b433aa56", null ],
     [ "windowOpened", "group__window.html#ga144af6b640e6cc19613f5347942cacc8", null ],
     [ "window", "group__window.html#ga1b5287dbdc177a5306c50acbda2573c8", null ],
-    [ "HIGHEST_MODE", "group__display.html#ga358e16e96eb853ad393b10bbc9b9a7b7", null ],
-    [ "DESKTOP_MODE", "group__display.html#ga5f87abb661ca3280aa64f73b1395589b", null ],
     [ "USER_EVENT_START", "group__event.html#gad6f655f03f325a9e44c1d39e1a25728e", null ],
     [ "X_AXIS", "group__geometry.html#gad9cf1feaffaf287bb81e633aeb5fa58f", null ],
     [ "Y_AXIS", "group__geometry.html#ga14a1d007443269c085460bdbdd7099f7", null ],
@@ -628,6 +618,5 @@ var namespacetr =
     [ "NO_EMPTY_HANDLE_CHECK", "group__handle.html#ga1e7ac718fa682f5f24962b1ff9394da7", null ],
     [ "positions", "group__vertex.html#ga31a7b1cca56e3c10e4478f5b45ceb5bb", null ],
     [ "uvs", "group__vertex.html#ga5b6d376f9261a7e0ce800c9292ae43ec", null ],
-    [ "colors", "group__vertex.html#gae217c35009c80b033d79c54b66c6329b", null ],
-    [ "CENTERED_POS", "group__window.html#ga3d79ab32d9b1afaebc7c4f45002ae5b6", null ]
+    [ "colors", "group__vertex.html#gae217c35009c80b033d79c54b66c6329b", null ]
 ];

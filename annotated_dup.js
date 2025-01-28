@@ -41,8 +41,6 @@ var annotated_dup =
       [ "Cursor", "classtr_1_1Cursor.html", "classtr_1_1Cursor" ],
       [ "CursorBadAlloc", "structtr_1_1CursorBadAlloc.html", "structtr_1_1CursorBadAlloc" ],
       [ "CustomEventBase", "structtr_1_1CustomEventBase.html", "structtr_1_1CustomEventBase" ],
-      [ "DisplayInfo", "classtr_1_1DisplayInfo.html", "classtr_1_1DisplayInfo" ],
-      [ "DisplayMode", "structtr_1_1DisplayMode.html", "structtr_1_1DisplayMode" ],
       [ "Event", "classtr_1_1Event.html", "classtr_1_1Event" ],
       [ "EventPushError", "structtr_1_1EventPushError.html", "structtr_1_1EventPushError" ],
       [ "EventQueue", "classtr_1_1EventQueue.html", "classtr_1_1EventQueue" ],

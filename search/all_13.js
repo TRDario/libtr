@@ -42,7 +42,7 @@ var searchData=
   ['rectf3_39',['RectF3',['../group__geometry.html#ga2365f401a0c3c72f48fa4b636573ad77',1,'tr']]],
   ['recti2_40',['RectI2',['../group__geometry.html#ga386ecd8029d58f09791896b6421218d9',1,'tr']]],
   ['recti3_41',['RectI3',['../group__geometry.html#ga390b094b8bc7eb8fb107168f2ce8a6c0',1,'tr']]],
-  ['refreshrate_42',['refreshRate',['../structtr_1_1DisplayMode.html#a46dd1b13f1d671ecf14fe5a4c32dc2a7',1,'tr::DisplayMode']]],
+  ['refreshrate_42',['refreshRate',['../group__display.html#gae99f46209a9f35f5bc243b35cce94965',1,'tr']]],
   ['release_43',['release',['../classtr_1_1Handle.html#ad337cdca4f3215dce14cb517597b01ac',1,'tr::Handle']]],
   ['removenoexceptt_44',['RemoveNoexceptT',['../group__concepts.html#ga185c90a9b4288cb80012632e3f775811',1,'tr']]],
   ['render_45',['render',['../classtr_1_1TTFont.html#abe28f80837b1793585d04f6455b4f89f',1,'tr::TTFont::render(std::uint32_t cp, RGBA8 color) const'],['../classtr_1_1TTFont.html#a383f2fb68eb5481acdc5786f3cf42293',1,'tr::TTFont::render(const char *text, RGBA8 color) const']]],

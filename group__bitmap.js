@@ -1,16 +1,16 @@
 var group__bitmap =
 [
     [ "tr::BitmapBadAlloc", "structtr_1_1BitmapBadAlloc.html", [
-      [ "what", "structtr_1_1BitmapBadAlloc.html#a45909a8566bbeb327511c9770d693ad4", null ]
+      [ "what", "structtr_1_1BitmapBadAlloc.html#a323d06a9a3fbe02a851e96f2c9e0f1ac", null ]
     ] ],
     [ "tr::BitmapLoadError", "structtr_1_1BitmapLoadError.html", [
-      [ "what", "structtr_1_1BitmapLoadError.html#ace88d265afefbd7ca3c311f6596906e7", null ],
+      [ "what", "structtr_1_1BitmapLoadError.html#aa01b25c6242f52eee600dbe53e8730d5", null ],
       [ "FileError", "structtr_1_1BitmapLoadError.html#afdc352e7cd537ad610e937393246c310", null ],
       [ "FileError", "structtr_1_1BitmapLoadError.html#a40619fbc37d069161d0d1215061ca56c", null ],
       [ "FileError", "structtr_1_1BitmapLoadError.html#a2721806b29b337df88b1872d26c235a9", null ]
     ] ],
     [ "tr::BitmapSaveError", "structtr_1_1BitmapSaveError.html", [
-      [ "what", "structtr_1_1BitmapSaveError.html#af20b3a2264436da0f630a2399d7fbec5", null ],
+      [ "what", "structtr_1_1BitmapSaveError.html#a421c58fdca806e339438223953f4c73d", null ],
       [ "FileError", "structtr_1_1BitmapSaveError.html#afdc352e7cd537ad610e937393246c310", null ],
       [ "FileError", "structtr_1_1BitmapSaveError.html#a40619fbc37d069161d0d1215061ca56c", null ],
       [ "FileError", "structtr_1_1BitmapSaveError.html#a2721806b29b337df88b1872d26c235a9", null ]

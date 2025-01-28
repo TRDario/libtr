@@ -5,7 +5,8 @@ var group__window =
       [ "SDLError", "structtr_1_1WindowError.html#a78397e28638efd10cac278a160395583", null ]
     ] ],
     [ "tr::Window", "classtr_1_1Window.html", [
-      [ "Window", "classtr_1_1Window.html#ada54ab84d957e835581c52f0c7eb57f4", null ],
+      [ "Window", "classtr_1_1Window.html#a980723e210a8dc65e3ce55e4adc76ea6", null ],
+      [ "Window", "classtr_1_1Window.html#a9ab601281c0bcf1f283e8b1c94e16a8b", null ],
       [ "title", "classtr_1_1Window.html#a3645839730d3b741dcc0b0c7eb2ed96e", null ],
       [ "setTitle", "classtr_1_1Window.html#a8e79db6579292020949791516b621e67", null ],
       [ "setTitle", "classtr_1_1Window.html#af3e348ca7897f4380bcaecadc13e9598", null ],
@@ -13,18 +14,14 @@ var group__window =
       [ "setIcon", "classtr_1_1Window.html#a65beced020f454d115e6699aa8e35742", null ],
       [ "size", "classtr_1_1Window.html#a42ac3eed9253802bb8234558685ebce0", null ],
       [ "setSize", "classtr_1_1Window.html#af8547a82b3491d105df596c22a192160", null ],
-      [ "fullscreenMode", "classtr_1_1Window.html#a16c255f64116b5f7da41d2a35b9dfa3a", null ],
-      [ "setFullscreenMode", "classtr_1_1Window.html#a029f96b565245ffce88b2a6376905a8d", null ],
-      [ "windowMode", "classtr_1_1Window.html#a404633860ec939e811ff40781107a870", null ],
-      [ "setWindowMode", "classtr_1_1Window.html#a6a4d349ff73159313d28b0e3c7d9eb69", null ],
+      [ "fullscreen", "classtr_1_1Window.html#af4dc12f2f632d45bae0cbf06dc868b82", null ],
+      [ "setFullscreen", "classtr_1_1Window.html#a1b7a458623a0f74c212bde50500c8f73", null ],
       [ "resizable", "classtr_1_1Window.html#a979ddf5859aa194fe3e434763e018c94", null ],
       [ "setResizable", "classtr_1_1Window.html#af3f4caee919d9c81c1c8a960bc3430e7", null ],
       [ "minSize", "classtr_1_1Window.html#a45d0b99d4482f754caf61511a94610e3", null ],
       [ "setMinSize", "classtr_1_1Window.html#a766ab41bc0b661762b63d457e36d8232", null ],
       [ "maxSize", "classtr_1_1Window.html#a0a57fc71462dad2d8e0b7538bf91af89", null ],
       [ "setMaxSize", "classtr_1_1Window.html#a7f3efb08023630f46846d534d155e661", null ],
-      [ "position", "classtr_1_1Window.html#a10387f6bfa191a30b6ea050c57628298", null ],
-      [ "setPosition", "classtr_1_1Window.html#a7467038f6491dae53f8e9c4116a927a8", null ],
       [ "bordered", "classtr_1_1Window.html#aff0d28a97ee51ec3a7bc37a9142d5561", null ],
       [ "setBordered", "classtr_1_1Window.html#ae2f89e9fd1f1b2512b74d42c0e90e5a9", null ],
       [ "shown", "classtr_1_1Window.html#a5dba5cab2d27c6cceb6ee2e4df2bf495", null ],
@@ -62,11 +59,6 @@ var group__window =
       [ "GraphicsContext", "classtr_1_1Window.html#a8fffd8ec74983da6e71d9f81690cea11", null ],
       [ "ImGui::initialize", "classtr_1_1Window.html#a9a20e3a345f19520f5e9e58b742eefe4", null ]
     ] ],
-    [ "tr::WindowMode", "group__window.html#ga0caa27a38e3d8b688a5abab875ed28f7", [
-      [ "tr::WindowMode::WINDOWED", "group__window.html#gga0caa27a38e3d8b688a5abab875ed28f7adaa43822b2c6abbb5d4eaf867ff6e4a4", null ],
-      [ "tr::WindowMode::FULLSCREEN", "group__window.html#gga0caa27a38e3d8b688a5abab875ed28f7ab89c3d897b196ffff1537331bc659a97", null ],
-      [ "tr::WindowMode::BORDERLESS", "group__window.html#gga0caa27a38e3d8b688a5abab875ed28f7af744a3ac16b1ac0bc9df0aa02cc1a038", null ]
-    ] ],
     [ "tr::WindowFlag", "group__window.html#gad463b226a0cad7ea3e64dd5b07ecf12f", [
       [ "tr::WindowFlag::DEFAULT", "group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12fa5b39c8b553c821e7cddc6da64b5bd2ee", null ],
       [ "tr::WindowFlag::BORDERLESS", "group__window.html#ggad463b226a0cad7ea3e64dd5b07ecf12faf744a3ac16b1ac0bc9df0aa02cc1a038", null ],
@@ -88,6 +80,5 @@ var group__window =
       [ "tr::VSync::ENABLED", "group__window.html#ggac6c470285a932bb2ce74499f1ff07ac5ac8cf6eea8f096ed51160b484d97c5bbd", null ]
     ] ],
     [ "tr::windowOpened", "group__window.html#ga144af6b640e6cc19613f5347942cacc8", null ],
-    [ "tr::window", "group__window.html#ga1b5287dbdc177a5306c50acbda2573c8", null ],
-    [ "tr::CENTERED_POS", "group__window.html#ga3d79ab32d9b1afaebc7c4f45002ae5b6", null ]
+    [ "tr::window", "group__window.html#ga1b5287dbdc177a5306c50acbda2573c8", null ]
 ];

@@ -1135,7 +1135,15 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">cp</td><td>The unicode codepoint to render. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cp</td><td><p class="starttd">The unicode codepoint to render.</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>cp</em> must not be a whitespace character. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>The color of the glyph.</td></tr>
   </table>
   </dd>
@@ -1174,7 +1182,15 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td>The line of text to render (\n not supported). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td><p class="starttd">The line of text to render (\n not supported).</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>text</em> must not be composed entirely of whitespace characters. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>The color of the text.</td></tr>
   </table>
   </dd>
@@ -1218,7 +1234,15 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td>The line of text to render (\n supported). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td><p class="starttd">The line of text to render (\n supported).</p>
+<p class="endtd"></p>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>text</em> must not be composed entirely of whitespace characters. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>The color of the text. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">width</td><td>The bounding width of the text.</td></tr>
   </table>
