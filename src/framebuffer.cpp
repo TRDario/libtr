@@ -6,7 +6,6 @@
 
 namespace tr {
 	GLuint createFramebuffer() noexcept;
-	GLenum getGLAttachment(Framebuffer::Slot slot) noexcept;
 } // namespace tr
 
 GLuint tr::createFramebuffer() noexcept
@@ -14,18 +13,6 @@ GLuint tr::createFramebuffer() noexcept
 	GLuint id;
 	TR_GL_CALL(glCreateFramebuffers, 1, &id);
 	return id;
-}
-
-GLenum tr::getGLAttachment(Framebuffer::Slot slot) noexcept
-{
-	switch (slot) {
-	case Framebuffer::Slot::DEPTH:
-		return GL_DEPTH_ATTACHMENT;
-	case Framebuffer::Slot::STENCIL:
-		return GL_STENCIL_ATTACHMENT;
-	default:
-		return GL_COLOR_ATTACHMENT0 + static_cast<int>(slot);
-	}
 }
 
 tr::BasicFramebuffer::BasicFramebuffer(GLuint id) noexcept
@@ -90,50 +77,60 @@ glm::ivec2 tr::Framebuffer::size() const noexcept
 	return _size;
 }
 
-void tr::Framebuffer::attach(ColorTexture1D& tex, Slot slot) noexcept
+void tr::Framebuffer::attach(ColorTexture1D& tex, int slot) noexcept
 {
-	TR_GL_CALL(glNamedFramebufferTexture, _id, getGLAttachment(slot), static_cast<Texture&>(tex)._id.get(), 0);
-	_attachSizes[static_cast<int>(slot)] = {tex.size(), 1};
+	assert(slot >= 0 && slot < 8);
+
+	TR_GL_CALL(glNamedFramebufferTexture, _id, slot, static_cast<Texture&>(tex)._id.get(), 0);
+	_attachSizes[slot] = {tex.size(), 1};
 	calcSize();
 }
 
-void tr::Framebuffer::attach(ArrayColorTexture1D& tex, int layer, Slot slot) noexcept
+void tr::Framebuffer::attach(ArrayColorTexture1D& tex, int layer, int slot) noexcept
 {
+	assert(slot >= 0 && slot < 8);
 	assert(layer >= 0 && layer < tex.layers());
-	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, getGLAttachment(slot), static_cast<Texture&>(tex)._id.get(), 0,
-			   layer);
-	_attachSizes[static_cast<int>(slot)] = {tex.size(), 1};
+
+	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, slot, static_cast<Texture&>(tex)._id.get(), 0, layer);
+	_attachSizes[slot] = {tex.size(), 1};
 	calcSize();
 }
 
-void tr::Framebuffer::attach(ColorTexture2D& tex, Slot slot) noexcept
+void tr::Framebuffer::attach(ColorTexture2D& tex, int slot) noexcept
 {
-	TR_GL_CALL(glNamedFramebufferTexture, _id, getGLAttachment(slot), static_cast<Texture&>(tex)._id.get(), 0);
-	_attachSizes[static_cast<int>(slot)] = tex.size();
+	assert(slot >= 0 && slot < 8);
+
+	TR_GL_CALL(glNamedFramebufferTexture, _id, slot, static_cast<Texture&>(tex)._id.get(), 0);
+	_attachSizes[slot] = tex.size();
 	calcSize();
 }
 
-void tr::Framebuffer::attach(ArrayColorTexture2D& tex, int layer, Slot slot) noexcept
+void tr::Framebuffer::attach(ArrayColorTexture2D& tex, int layer, int slot) noexcept
 {
+	assert(slot >= 0 && slot < 8);
 	assert(layer >= 0 && layer < tex.layers());
-	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, getGLAttachment(slot), static_cast<Texture&>(tex)._id.get(), 0,
-			   layer);
-	_attachSizes[static_cast<int>(slot)] = tex.size();
+
+	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, slot, static_cast<Texture&>(tex)._id.get(), 0, layer);
+	_attachSizes[slot] = tex.size();
 	calcSize();
 }
 
-void tr::Framebuffer::attach(ColorTexture3D& tex, int z, Slot slot) noexcept
+void tr::Framebuffer::attach(ColorTexture3D& tex, int z, int slot) noexcept
 {
+	assert(slot >= 0 && slot < 8);
 	assert(z >= 0 && z < tex.size().z);
-	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, getGLAttachment(slot), static_cast<Texture&>(tex)._id.get(), 0, z);
-	_attachSizes[static_cast<int>(slot)] = {tex.size().x, tex.size().y};
+
+	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, slot, static_cast<Texture&>(tex)._id.get(), 0, z);
+	_attachSizes[slot] = {tex.size().x, tex.size().y};
 	calcSize();
 }
 
-void tr::Framebuffer::clear(Slot slot) noexcept
+void tr::Framebuffer::clear(int slot) noexcept
 {
-	TR_GL_CALL(glNamedFramebufferTexture, _id, getGLAttachment(slot), 0, 0);
-	_attachSizes[static_cast<int>(slot)] = EMPTY_ATTACHMENT;
+	assert(slot >= 0 && slot < 8);
+
+	TR_GL_CALL(glNamedFramebufferTexture, _id, slot, 0, 0);
+	_attachSizes[slot] = EMPTY_ATTACHMENT;
 	calcSize();
 }
 

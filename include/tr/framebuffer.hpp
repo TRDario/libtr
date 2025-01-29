@@ -68,61 +68,6 @@ namespace tr {
 	class Framebuffer : public BasicFramebuffer {
 	  public:
 		/**************************************************************************************************************
-		 * Framebuffer attachment slots.
-		 **************************************************************************************************************/
-		enum class Slot {
-			/**********************************************************************************************************
-			 * Color attachment slot 0.
-			 **********************************************************************************************************/
-			COLOR0,
-
-			/**********************************************************************************************************
-			 * Color attachment slot 1.
-			 **********************************************************************************************************/
-			COLOR1,
-
-			/**********************************************************************************************************
-			 * Color attachment slot 2.
-			 **********************************************************************************************************/
-			COLOR2,
-
-			/**********************************************************************************************************
-			 * Color attachment slot 3.
-			 **********************************************************************************************************/
-			COLOR3,
-
-			/**********************************************************************************************************
-			 * Color attachment slot 4.
-			 **********************************************************************************************************/
-			COLOR4,
-
-			/**********************************************************************************************************
-			 * Color attachment slot 5.
-			 **********************************************************************************************************/
-			COLOR5,
-
-			/**********************************************************************************************************
-			 * Color attachment slot 6.
-			 **********************************************************************************************************/
-			COLOR6,
-
-			/**********************************************************************************************************
-			 * Color attachment slot 7.
-			 **********************************************************************************************************/
-			COLOR7,
-
-			/**********************************************************************************************************
-			 * Depth attachment slot.
-			 **********************************************************************************************************/
-			DEPTH,
-
-			/**********************************************************************************************************
-			 * Stencil attachment slot.
-			 **********************************************************************************************************/
-			STENCIL
-		};
-
-		/**************************************************************************************************************
 		 * Constructs an empty framebuffer.
 		 **************************************************************************************************************/
 		Framebuffer() noexcept;
@@ -156,9 +101,14 @@ namespace tr {
 		 * @note The viewport of the framebuffer will be clamped to the minimum size of all attachments.
 		 *
 		 * @param tex The texture to attach.
-		 * @param slot The slot to attach the texture to.
+		 * @param slot
+		 * @parblock
+		 * The slot to attach the texture to.
+		 *
+		 * @pre @em slot must be a value in the range [0, 8).
+		 * @endparblock
 		 **************************************************************************************************************/
-		void attach(ColorTexture1D& tex, Slot slot) noexcept;
+		void attach(ColorTexture1D& tex, int slot) noexcept;
 
 		/**************************************************************************************************************
 		 * Attaches a layer of a 1D array texture to a slot on the framebuffer.
@@ -167,9 +117,14 @@ namespace tr {
 		 *
 		 * @param tex The texture to attach.
 		 * @param[in] layer The layer of the texture to attach.
-		 * @param slot The slot to attach the texture to.
+		 * @param slot
+		 * @parblock
+		 * The slot to attach the texture to.
+		 *
+		 * @pre @em slot must be a value in the range [0, 8).
+		 * @endparblock
 		 **************************************************************************************************************/
-		void attach(ArrayColorTexture1D& tex, int layer, Slot slot) noexcept;
+		void attach(ArrayColorTexture1D& tex, int layer, int slot) noexcept;
 
 		/**************************************************************************************************************
 		 * Attaches a 2D texture to a slot on the framebuffer.
@@ -177,9 +132,14 @@ namespace tr {
 		 * @note The viewport of the framebuffer will be clamped to the minimum size of all attachments.
 		 *
 		 * @param tex The texture to attach.
-		 * @param slot The slot to attach the texture to.
+		 * @param slot
+		 * @parblock
+		 * The slot to attach the texture to.
+		 *
+		 * @pre @em slot must be a value in the range [0, 8).
+		 * @endparblock
 		 **************************************************************************************************************/
-		void attach(ColorTexture2D& tex, Slot slot) noexcept;
+		void attach(ColorTexture2D& tex, int slot) noexcept;
 
 		/**************************************************************************************************************
 		 * Attaches a layer of a 2D array texture to a slot on the framebuffer.
@@ -188,9 +148,14 @@ namespace tr {
 		 *
 		 * @param tex The texture to attach.
 		 * @param[in] layer The layer of the texture to attach.
-		 * @param slot The slot to attach the texture to.
+		 * @param slot
+		 * @parblock
+		 * The slot to attach the texture to.
+		 *
+		 * @pre @em slot must be a value in the range [0, 8).
+		 * @endparblock
 		 **************************************************************************************************************/
-		void attach(ArrayColorTexture2D& tex, int layer, Slot slot) noexcept;
+		void attach(ArrayColorTexture2D& tex, int layer, int slot) noexcept;
 
 		/**************************************************************************************************************
 		 * Attaches a layer of a 3D texture to a slot on the framebuffer.
@@ -199,18 +164,28 @@ namespace tr {
 		 *
 		 * @param tex The texture to attach.
 		 * @param z The z layer of the texture to attach.
-		 * @param slot The slot to attach the texture to.
+		 * @param slot
+		 * @parblock
+		 * The slot to attach the texture to.
+		 *
+		 * @pre @em slot must be a value in the range [0, 8).
+		 * @endparblock
 		 **************************************************************************************************************/
-		void attach(ColorTexture3D& tex, int z, Slot slot) noexcept;
+		void attach(ColorTexture3D& tex, int z, int slot) noexcept;
 
 		/**************************************************************************************************************
 		 * Clears a slot of attachments.
 		 *
 		 * @note The viewport of the framebuffer will be clamped to the minimum size of all attachments.
 		 *
-		 * @param slot The slot to clear.
+		 * @param slot
+		 * @parblock
+		 * The slot to attach the texture to.
+		 *
+		 * @pre @em slot must be a value in the range [0, 8).
+		 * @endparblock
 		 **************************************************************************************************************/
-		void clear(Slot slot) noexcept;
+		void clear(int slot) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the debug label of the framebuffer.
@@ -221,7 +196,7 @@ namespace tr {
 
 	  private:
 		static constexpr glm::ivec2 EMPTY_ATTACHMENT{-1, -1};
-		std::array<glm::ivec2, 10>  _attachSizes; // The sizes of the framebuffer attachments.
+		std::array<glm::ivec2, 8>   _attachSizes; // The sizes of the framebuffer attachments.
 		glm::ivec2                  _size;
 
 		// Recalculates the size of the framebuffer.
