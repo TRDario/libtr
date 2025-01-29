@@ -1,5 +1,4 @@
 #pragma once
-#include "renderbuffer.hpp"
 #include "texture.hpp"
 
 namespace tr {
@@ -203,16 +202,6 @@ namespace tr {
 		 * @param slot The slot to attach the texture to.
 		 **************************************************************************************************************/
 		void attach(Texture3D& tex, int z, Slot slot) noexcept;
-
-		/**************************************************************************************************************
-		 * Attaches a renderbuffer to a slot on the framebuffer.
-		 *
-		 * @note The viewport of the framebuffer will be clamped to the minimum size of all attachments.
-		 *
-		 * @param buffer The renderbuffer to attach.
-		 * @param slot The slot to attach the texture to.
-		 **************************************************************************************************************/
-		void attach(Renderbuffer& buffer, Slot slot) noexcept;
 
 		/**************************************************************************************************************
 		 * Clears a slot of attachments.

@@ -130,13 +130,6 @@ void tr::Framebuffer::attach(Texture3D& tex, int z, Slot slot) noexcept
 	calcSize();
 }
 
-void tr::Framebuffer::attach(Renderbuffer& buffer, Slot slot) noexcept
-{
-	TR_GL_CALL(glNamedFramebufferRenderbuffer, _id, getGLAttachment(slot), GL_RENDERBUFFER, buffer._id.get());
-	_attachSizes[static_cast<int>(slot)] = buffer.size();
-	calcSize();
-}
-
 void tr::Framebuffer::clear(Slot slot) noexcept
 {
 	TR_GL_CALL(glNamedFramebufferTexture, _id, getGLAttachment(slot), 0, 0);
