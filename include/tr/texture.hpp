@@ -17,9 +17,9 @@ namespace tr {
 	 */
 
 	/******************************************************************************************************************
-	 * Texture format types.
+	 * Color texture format types.
 	 ******************************************************************************************************************/
-	enum class TextureFormat {
+	enum class ColorTextureFormat {
 		R8          = 0x8229,
 		R8_SNORM    = 0x8F94,
 		R16         = 0x822A,
@@ -76,10 +76,15 @@ namespace tr {
 		RGBA_UI16   = 0x8D76,
 		RGBA_SI32   = 0x8D82,
 		RGBA_UI32   = 0x8D70,
-		DEPTH16     = 0x81A5,
-		DEPTH24     = 0x81A6,
-		DEPTH_FP32  = 0x8CAC,
-		STENCIL8    = 0x8D48
+	};
+
+	/******************************************************************************************************************
+	 * Depth texture format types.
+	 ******************************************************************************************************************/
+	enum class DepthTextureFormat {
+		D16    = 0x81A5,
+		D24    = 0x81A6,
+		D_FP32 = 0x8CAC
 	};
 
 	/******************************************************************************************************************
@@ -257,20 +262,6 @@ namespace tr {
 	class Texture {
 	  public:
 		/**************************************************************************************************************
-		 * Gets the format of the texture.
-		 *
-		 * @return The texture format.
-		 **************************************************************************************************************/
-		TextureFormat format() const noexcept;
-
-		/**************************************************************************************************************
-		 * Sets the swizzle parameters of the texture.
-		 *
-		 * @param[in] r, g, b, a The new swizzles.
-		 **************************************************************************************************************/
-		void setSwizzle(Swizzle r, Swizzle g, Swizzle b, Swizzle a) noexcept;
-
-		/**************************************************************************************************************
 		 * Sets the minifying filter used by the texture sampler.
 		 *
 		 * @param[in] filter The new minifying filter type.
@@ -285,30 +276,11 @@ namespace tr {
 		void setMagFilter(MagFilter filter) noexcept;
 
 		/**************************************************************************************************************
-		 * Disables the use of depth comparison.
-		 **************************************************************************************************************/
-		void disableComparison() noexcept;
-
-		/**************************************************************************************************************
-		 * Enables the use of depth comparison and sets the depth comparison operator of the texture sampler.
-		 *
-		 * @param[in] op The function to use for comparison.
-		 **************************************************************************************************************/
-		void setComparisonMode(Compare op) noexcept;
-
-		/**************************************************************************************************************
 		 * Sets the wrapping used for by the texture sampler.
 		 *
 		 * @param[in] wrap The new wrapping type.
 		 **************************************************************************************************************/
 		void setWrap(Wrap wrap) noexcept;
-
-		/**************************************************************************************************************
-		 * Sets the border color of the texture sampler (used when Wrap::BORDER_CLAMP is in use).
-		 *
-		 * @param[in] color The border color in floating point RGBA format.
-		 **************************************************************************************************************/
-		void setBorderColor(RGBAF color) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets the debug label of the texture.
@@ -331,6 +303,8 @@ namespace tr {
 		int width() const noexcept;
 		int height() const noexcept;
 		int depth() const noexcept;
+
+		void copyRegion(const glm::ivec3& offset, const Texture& src, const RectI3& rect) noexcept;
 		/// @endcond
 
 		friend class BasicFramebuffer;
@@ -341,11 +315,68 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * One-dimensional texture.
+	 * Base color texture class.
+	 *
+	 * @note This class cannot be constructed directly.
 	 ******************************************************************************************************************/
-	struct Texture1D : Texture {
+	class ColorTexture : public Texture {
+	  public:
 		/**************************************************************************************************************
-		 * Allocates an uninitialized 1D texture.
+		 * Sets the swizzle parameters of the texture.
+		 *
+		 * @param[in] r, g, b, a The new swizzles.
+		 **************************************************************************************************************/
+		void setSwizzle(Swizzle r, Swizzle g, Swizzle b, Swizzle a) noexcept;
+
+		/**************************************************************************************************************
+		 * Sets the border color of the texture sampler (used when Wrap::BORDER_CLAMP is in use).
+		 *
+		 * @param[in] color The border color in floating point RGBA format.
+		 **************************************************************************************************************/
+		void setBorderColor(RGBAF color) noexcept;
+
+		/**************************************************************************************************************
+		 * Clears the texture.
+		 *
+		 * @param[in] color The color to clear the texture to.
+		 **************************************************************************************************************/
+		void clear(const RGBAF& color) noexcept;
+
+	  protected:
+		using Texture::Texture;
+
+		void clearRegion(const RectI3& region, const RGBAF& color) noexcept;
+	};
+
+	// struct DepthTexture : Texture {
+	// 	void setBorderDepth(float depth) noexcept;
+
+	// 	/**************************************************************************************************************
+	// 	 * Disables the use of depth comparison.
+	// 	 **************************************************************************************************************/
+	// 	void disableComparison() noexcept;
+
+	// 	/**************************************************************************************************************
+	// 	 * Enables the use of depth comparison and sets the depth comparison operator of the texture sampler.
+	// 	 *
+	// 	 * @param[in] op The function to use for comparison.
+	// 	 **************************************************************************************************************/
+	// 	void setComparisonMode(Compare op) noexcept;
+
+	// 	void clear(float depth) noexcept;
+	// };
+
+	// struct StencilTexture : Texture {
+	// 	void clear(std::uint8_t index) noexcept;
+	// };
+
+	/******************************************************************************************************************
+	 * One-dimensional color texture.
+	 ******************************************************************************************************************/
+	class ColorTexture1D : public ColorTexture {
+	  public:
+		/**************************************************************************************************************
+		 * Allocates an uninitialized 1D color texture.
 		 *
 		 * @par Exception Safety
 		 *
@@ -357,10 +388,10 @@ namespace tr {
 		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		Texture1D(int size, bool mipmapped = false, TextureFormat format = TextureFormat::RGBA8);
+		ColorTexture1D(int size, bool mipmapped = false, ColorTextureFormat format = ColorTextureFormat::RGBA8);
 
 		/**************************************************************************************************************
-		 * Constructs a 1D texture with data uploaded from a bitmap.
+		 * Constructs a 1D color texture with data uploaded from a bitmap.
 		 *
 		 * @par Exception Safety
 		 *
@@ -377,7 +408,7 @@ namespace tr {
 		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		Texture1D(SubBitmap bitmap, bool mipmapped = false, TextureFormat format = TextureFormat::RGBA8);
+		ColorTexture1D(SubBitmap bitmap, bool mipmapped = false, ColorTextureFormat format = ColorTextureFormat::RGBA8);
 
 		/**************************************************************************************************************
 		 * Gets the size of the texture.
@@ -387,6 +418,29 @@ namespace tr {
 		int size() const noexcept;
 
 		/**************************************************************************************************************
+		 * Clears a region of the texture.
+		 *
+		 * @pre The region must fully be inside the bounds of the texture.
+		 *
+		 * @param[in] offset The starting offset within the texture.
+		 * @param[in] size The size of the region to clear.
+		 * @param[in] color The color to clear the region to.
+		 **************************************************************************************************************/
+		void clearRegion(int offset, int size, const tr::RGBAF& color) noexcept;
+
+		/**************************************************************************************************************
+		 * Copies a region from another texture.
+		 *
+		 * @pre The region must fully be inside the bounds of the texture.
+		 *
+		 * @param offset The starting offset within the texture.
+		 * @param src The texture to copy from.
+		 * @param srcOffset The starting offset within the source texture.
+		 * @param size The size of the copied region.
+		 **************************************************************************************************************/
+		void copyRegion(int offset, const ColorTexture1D& src, int srcOffset, int size) noexcept;
+
+		/**************************************************************************************************************
 		 * Sets a region of the texture.
 		 *
 		 * @pre The region must fully be inside the bounds of the texture.
@@ -394,7 +448,7 @@ namespace tr {
 		 * @param[in] offset The starting offset within the texture.
 		 * @param[in] bitmap
 		 * @parblock
-		 * The bitmap data to set the region so.
+		 * The bitmap data to set the region to.
 		 *
 		 * @pre The bitmap must be 1 pixel tall.
 		 * @endparblock
@@ -403,11 +457,12 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * One-dimensional array texture.
+	 * One-dimensional array color texture.
 	 ******************************************************************************************************************/
-	struct ArrayTexture1D : Texture {
+	class ArrayColorTexture1D : public ColorTexture {
+	  public:
 		/**************************************************************************************************************
-		 * Allocates an uninitialized 1D array texture.
+		 * Allocates an uninitialized 1D array color texture.
 		 *
 		 * @par Exception Safety
 		 *
@@ -420,10 +475,11 @@ namespace tr {
 		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		ArrayTexture1D(int size, int layers, bool mipmapped = false, TextureFormat format = TextureFormat::RGBA8);
+		ArrayColorTexture1D(int size, int layers, bool mipmapped = false,
+							ColorTextureFormat format = ColorTextureFormat::RGBA8);
 
 		/**************************************************************************************************************
-		 * Constructs a 1D array texture with data uploaded from a bitmap.
+		 * Constructs a 1D array color texture with data uploaded from a bitmap.
 		 *
 		 * @par Exception Safety
 		 *
@@ -435,7 +491,8 @@ namespace tr {
 		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		ArrayTexture1D(SubBitmap bitmap, bool mipmapped = false, TextureFormat format = TextureFormat::RGBA8);
+		ArrayColorTexture1D(SubBitmap bitmap, bool mipmapped = false,
+							ColorTextureFormat format = ColorTextureFormat::RGBA8);
 
 		/**************************************************************************************************************
 		 * Gets the size of the texture.
@@ -452,6 +509,27 @@ namespace tr {
 		int layers() const noexcept;
 
 		/**************************************************************************************************************
+		 * Clears a region of the texture.
+		 *
+		 * @pre The region must fully be inside the bounds of the texture.
+		 *
+		 * @param[in] rect The region to clear.
+		 * @param[in] color The color to clear the region to.
+		 **************************************************************************************************************/
+		void clearRegion(const RectI2& rect, const tr::RGBAF& color) noexcept;
+
+		/**************************************************************************************************************
+		 * Copies a region from another texture.
+		 *
+		 * @pre The region must fully be inside the bounds of the texture.
+		 *
+		 * @param[in] tl The top-left corner of the region within the texture.
+		 * @param[in] src The texture to copy from.
+		 * @param[in] rect The bounds of the copied region within the source texture.
+		 **************************************************************************************************************/
+		void copyRegion(glm::ivec2 tl, const ArrayColorTexture1D& src, const RectI2& rect) noexcept;
+
+		/**************************************************************************************************************
 		 * Sets a region of the texture as if it were a 2D texture.
 		 *
 		 * @pre The region must fully be inside the bounds of the texture.
@@ -463,11 +541,12 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Two-dimensional texture.
+	 * Two-dimensional color texture.
 	 ******************************************************************************************************************/
-	struct Texture2D : Texture {
+	class ColorTexture2D : public ColorTexture {
+	  public:
 		/**************************************************************************************************************
-		 * Allocates an uninitialized 2D texture.
+		 * Allocates an uninitialized 2D color texture.
 		 *
 		 * @par Exception Safety
 		 *
@@ -479,10 +558,10 @@ namespace tr {
 		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		Texture2D(glm::ivec2 size, bool mipmapped = false, TextureFormat format = TextureFormat::RGBA8);
+		ColorTexture2D(glm::ivec2 size, bool mipmapped = false, ColorTextureFormat format = ColorTextureFormat::RGBA8);
 
 		/**************************************************************************************************************
-		 * Constructs a 2D texture with data uploaded from a bitmap.
+		 * Constructs a 2D color texture with data uploaded from a bitmap.
 		 *
 		 * @par Exception Safety
 		 *
@@ -494,7 +573,7 @@ namespace tr {
 		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		Texture2D(SubBitmap bitmap, bool mipmapped = false, TextureFormat format = TextureFormat::RGBA8);
+		ColorTexture2D(SubBitmap bitmap, bool mipmapped = false, ColorTextureFormat format = ColorTextureFormat::RGBA8);
 
 		/**************************************************************************************************************
 		 * Gets the size of the texture.
@@ -502,6 +581,27 @@ namespace tr {
 		 * @return The size of the texture in texels.
 		 **************************************************************************************************************/
 		glm::ivec2 size() const noexcept;
+
+		/**************************************************************************************************************
+		 * Clears a region of the texture.
+		 *
+		 * @pre The region must fully be inside the bounds of the texture.
+		 *
+		 * @param[in] rect The region to clear.
+		 * @param[in] color The color to clear the region to.
+		 **************************************************************************************************************/
+		void clearRegion(const RectI2& rect, const tr::RGBAF& color) noexcept;
+
+		/**************************************************************************************************************
+		 * Copies a region from another texture.
+		 *
+		 * @pre The region must fully be inside the bounds of the texture.
+		 *
+		 * @param[in] tl The top-left corner of the region within the texture.
+		 * @param[in] src The texture to copy from.
+		 * @param[in] rect The bounds of the copied region within the source texture.
+		 **************************************************************************************************************/
+		void copyRegion(glm::ivec2 tl, const ColorTexture2D& src, const RectI2& rect) noexcept;
 
 		/**************************************************************************************************************
 		 * Sets a region of the texture.
@@ -515,11 +615,12 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Two-dimensional array texture.
+	 * Two-dimensional array color texture.
 	 ******************************************************************************************************************/
-	struct ArrayTexture2D : Texture {
+	class ArrayColorTexture2D : public ColorTexture {
+	  public:
 		/**************************************************************************************************************
-		 * Allocates an uninitialized 1D array texture.
+		 * Allocates an uninitialized 2D array color texture.
 		 *
 		 * @par Exception Safety
 		 *
@@ -532,11 +633,11 @@ namespace tr {
 		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		ArrayTexture2D(glm::ivec2 size, int layers, bool mipmapped = false,
-					   TextureFormat format = TextureFormat::RGBA8);
+		ArrayColorTexture2D(glm::ivec2 size, int layers, bool mipmapped = false,
+							ColorTextureFormat format = ColorTextureFormat::RGBA8);
 
 		/**************************************************************************************************************
-		 * Constructs a 2D array texture with data uploaded from a list of bitmaps.
+		 * Constructs a 2D array color texture with data uploaded from a list of bitmaps.
 		 *
 		 * @par Exception Safety
 		 *
@@ -553,8 +654,8 @@ namespace tr {
 		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		ArrayTexture2D(std::span<SubBitmap> layers, bool mipmapped = false,
-					   TextureFormat format = TextureFormat::RGBA8);
+		ArrayColorTexture2D(std::span<SubBitmap> layers, bool mipmapped = false,
+							ColorTextureFormat format = ColorTextureFormat::RGBA8);
 
 		/**************************************************************************************************************
 		 * Gets the size of the texture.
@@ -571,6 +672,28 @@ namespace tr {
 		int layers() const noexcept;
 
 		/**************************************************************************************************************
+		 * Clears a region of the texture.
+		 *
+		 * @pre The region must fully be inside the bounds of the texture.
+		 *
+		 * @param[in] rect The region to clear (layers are treated as the Z coordinate).
+		 * @param[in] color The color to clear the region to.
+		 **************************************************************************************************************/
+		void clearRegion(const RectI3& rect, const tr::RGBAF& color) noexcept;
+
+		/**************************************************************************************************************
+		 * Copies a region from another texture.
+		 *
+		 * @pre The region must fully be inside the bounds of the texture.
+		 *
+		 * @param[in] offset The offset within the texture (layers are treated as the Z coordinate).
+		 * @param[in] src The texture to copy from.
+		 * @param[in] rect The bounds of the copied region within the source texture (layers are treated as the Z
+		 *                 coordinate).
+		 **************************************************************************************************************/
+		void copyRegion(const glm::ivec3& offset, const ArrayColorTexture2D& src, const RectI3& rect) noexcept;
+
+		/**************************************************************************************************************
 		 * Sets a region of a layer.
 		 *
 		 * @pre The region must fully be inside the bounds of the texture.
@@ -583,11 +706,12 @@ namespace tr {
 	};
 
 	/******************************************************************************************************************
-	 * Three-dimensional texture.
+	 * Three-dimensional color texture.
 	 ******************************************************************************************************************/
-	struct Texture3D : Texture {
+	class ColorTexture3D : public ColorTexture {
+	  public:
 		/**************************************************************************************************************
-		 * Allocates an uninitialized 2D texture.
+		 * Allocates an uninitialized 3D color texture.
 		 *
 		 * @par Exception Safety
 		 *
@@ -599,10 +723,10 @@ namespace tr {
 		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		Texture3D(glm::ivec3 size, bool mipmapped = false, TextureFormat format = TextureFormat::RGBA8);
+		ColorTexture3D(glm::ivec3 size, bool mipmapped = false, ColorTextureFormat format = ColorTextureFormat::RGBA8);
 
 		/**************************************************************************************************************
-		 * Constructs a 3D texture with data uploaded from a list of bitmaps.
+		 * Constructs a 3D color texture with data uploaded from a list of bitmaps.
 		 *
 		 * @par Exception Safety
 		 *
@@ -619,7 +743,8 @@ namespace tr {
 		 * @param[in] mipmapped Whether the texture will be mipmapped.
 		 * @param[in] format The internal format of the texture.
 		 **************************************************************************************************************/
-		Texture3D(std::span<SubBitmap> layers, bool mipmapped = false, TextureFormat format = TextureFormat::RGBA8);
+		ColorTexture3D(std::span<SubBitmap> layers, bool mipmapped = false,
+					   ColorTextureFormat format = ColorTextureFormat::RGBA8);
 
 		/**************************************************************************************************************
 		 * Gets the size of the texture.
@@ -629,6 +754,27 @@ namespace tr {
 		glm::ivec3 size() const noexcept;
 
 		/**************************************************************************************************************
+		 * Clears a region of the texture.
+		 *
+		 * @pre The region must fully be inside the bounds of the texture.
+		 *
+		 * @param[in] rect The region to clear.
+		 * @param[in] color The color to clear the region to.
+		 **************************************************************************************************************/
+		void clearRegion(const RectI3& rect, const tr::RGBAF& color) noexcept;
+
+		/**************************************************************************************************************
+		 * Copies a region from another texture.
+		 *
+		 * @pre The region must fully be inside the bounds of the texture.
+		 *
+		 * @param[in] offset The offset within the texture.
+		 * @param[in] src The texture to copy from.
+		 * @param[in] rect The bounds of the copied region within the source texture.
+		 **************************************************************************************************************/
+		void copyRegion(const glm::ivec3& offset, const ColorTexture3D& src, const RectI3& rect) noexcept;
+
+		/**************************************************************************************************************
 		 * Sets a region of a Z layer.
 		 *
 		 * @pre The region must fully be inside the bounds of the texture.
@@ -636,7 +782,7 @@ namespace tr {
 		 * @param[in] tl The top-left corner of the region within the texture.
 		 * @param[in] bitmap The bitmap data to set the region to.
 		 **************************************************************************************************************/
-		void setLayerRegion(glm::ivec3 tl, SubBitmap bitmap) noexcept;
+		void setLayerRegion(const glm::ivec3& tl, SubBitmap bitmap) noexcept;
 	};
 
 	/// @}
@@ -645,58 +791,18 @@ namespace tr {
 /// @cond IMPLEMENTATION
 
 template <> struct std::hash<tr::Texture> {
-	inline std::size_t operator()(const tr::Texture& texture) const noexcept;
+	inline std::size_t operator()(const tr::Texture& texture) const noexcept
+	{
+		return std::hash<decltype(texture._id)>{}(texture._id);
+	}
 };
 
-template <> struct std::hash<tr::Texture1D> {
-	inline std::size_t operator()(const tr::Texture1D& texture) const noexcept;
+template <std::derived_from<tr::Texture> Texture> struct std::hash<Texture> {
+	inline std::size_t operator()(const Texture& texture) const noexcept
+	{
+		return std::hash<tr::Texture>{}(texture);
+	}
 };
-
-template <> struct std::hash<tr::ArrayTexture1D> {
-	inline std::size_t operator()(const tr::ArrayTexture1D& texture) const noexcept;
-};
-
-template <> struct std::hash<tr::Texture2D> {
-	inline std::size_t operator()(const tr::Texture2D& texture) const noexcept;
-};
-
-template <> struct std::hash<tr::ArrayTexture2D> {
-	inline std::size_t operator()(const tr::ArrayTexture2D& texture) const noexcept;
-};
-
-template <> struct std::hash<tr::Texture3D> {
-	inline std::size_t operator()(const tr::Texture3D& texture) const noexcept;
-};
-
-std::size_t std::hash<tr::Texture>::operator()(const tr::Texture& texture) const noexcept
-{
-	return std::hash<decltype(texture._id)>{}(texture._id);
-}
-
-std::size_t std::hash<tr::Texture1D>::operator()(const tr::Texture1D& texture) const noexcept
-{
-	return std::hash<tr::Texture>{}(texture);
-}
-
-std::size_t std::hash<tr::ArrayTexture1D>::operator()(const tr::ArrayTexture1D& texture) const noexcept
-{
-	return std::hash<tr::Texture>{}(texture);
-}
-
-std::size_t std::hash<tr::Texture2D>::operator()(const tr::Texture2D& texture) const noexcept
-{
-	return std::hash<tr::Texture>{}(texture);
-}
-
-std::size_t std::hash<tr::ArrayTexture2D>::operator()(const tr::ArrayTexture2D& texture) const noexcept
-{
-	return std::hash<tr::Texture>{}(texture);
-}
-
-std::size_t std::hash<tr::Texture3D>::operator()(const tr::Texture3D& texture) const noexcept
-{
-	return std::hash<tr::Texture>{}(texture);
-}
 
 constexpr const char* tr::TextureBadAlloc::what() const noexcept
 {

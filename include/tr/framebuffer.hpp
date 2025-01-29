@@ -47,7 +47,7 @@ namespace tr {
 		 * @param[out] texture The texture to copy the pixels to.
 		 * @param[in] textureTL The coordinates of the top-left corner of the rect within the texture.
 		 **************************************************************************************************************/
-		void copyRegion(const RectI2& rect, Texture2D& texture, glm::ivec2 textureTL) const noexcept;
+		void copyRegion(const RectI2& rect, ColorTexture2D& texture, glm::ivec2 textureTL) const noexcept;
 
 	  protected:
 		unsigned int _id;
@@ -158,7 +158,7 @@ namespace tr {
 		 * @param tex The texture to attach.
 		 * @param slot The slot to attach the texture to.
 		 **************************************************************************************************************/
-		void attach(Texture1D& tex, Slot slot) noexcept;
+		void attach(ColorTexture1D& tex, Slot slot) noexcept;
 
 		/**************************************************************************************************************
 		 * Attaches a layer of a 1D array texture to a slot on the framebuffer.
@@ -169,7 +169,7 @@ namespace tr {
 		 * @param[in] layer The layer of the texture to attach.
 		 * @param slot The slot to attach the texture to.
 		 **************************************************************************************************************/
-		void attach(ArrayTexture1D& tex, int layer, Slot slot) noexcept;
+		void attach(ArrayColorTexture1D& tex, int layer, Slot slot) noexcept;
 
 		/**************************************************************************************************************
 		 * Attaches a 2D texture to a slot on the framebuffer.
@@ -179,7 +179,7 @@ namespace tr {
 		 * @param tex The texture to attach.
 		 * @param slot The slot to attach the texture to.
 		 **************************************************************************************************************/
-		void attach(Texture2D& tex, Slot slot) noexcept;
+		void attach(ColorTexture2D& tex, Slot slot) noexcept;
 
 		/**************************************************************************************************************
 		 * Attaches a layer of a 2D array texture to a slot on the framebuffer.
@@ -190,7 +190,7 @@ namespace tr {
 		 * @param[in] layer The layer of the texture to attach.
 		 * @param slot The slot to attach the texture to.
 		 **************************************************************************************************************/
-		void attach(ArrayTexture2D& tex, int layer, Slot slot) noexcept;
+		void attach(ArrayColorTexture2D& tex, int layer, Slot slot) noexcept;
 
 		/**************************************************************************************************************
 		 * Attaches a layer of a 3D texture to a slot on the framebuffer.
@@ -201,7 +201,7 @@ namespace tr {
 		 * @param z The z layer of the texture to attach.
 		 * @param slot The slot to attach the texture to.
 		 **************************************************************************************************************/
-		void attach(Texture3D& tex, int z, Slot slot) noexcept;
+		void attach(ColorTexture3D& tex, int z, Slot slot) noexcept;
 
 		/**************************************************************************************************************
 		 * Clears a slot of attachments.

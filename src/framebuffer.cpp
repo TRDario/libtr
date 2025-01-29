@@ -42,7 +42,7 @@ tr::Bitmap tr::BasicFramebuffer::readRegion(const RectI2& rect, BitmapFormat for
 	return bitmap;
 }
 
-void tr::BasicFramebuffer::copyRegion(const RectI2& rect, Texture2D& texture, glm::ivec2 textureTL) const noexcept
+void tr::BasicFramebuffer::copyRegion(const RectI2& rect, ColorTexture2D& texture, glm::ivec2 textureTL) const noexcept
 {
 	bindRead();
 	TR_GL_CALL(glCopyTextureSubImage2D, static_cast<Texture&>(texture)._id.get(), 0, textureTL.x, textureTL.y,
@@ -90,14 +90,14 @@ glm::ivec2 tr::Framebuffer::size() const noexcept
 	return _size;
 }
 
-void tr::Framebuffer::attach(Texture1D& tex, Slot slot) noexcept
+void tr::Framebuffer::attach(ColorTexture1D& tex, Slot slot) noexcept
 {
 	TR_GL_CALL(glNamedFramebufferTexture, _id, getGLAttachment(slot), static_cast<Texture&>(tex)._id.get(), 0);
 	_attachSizes[static_cast<int>(slot)] = {tex.size(), 1};
 	calcSize();
 }
 
-void tr::Framebuffer::attach(ArrayTexture1D& tex, int layer, Slot slot) noexcept
+void tr::Framebuffer::attach(ArrayColorTexture1D& tex, int layer, Slot slot) noexcept
 {
 	assert(layer >= 0 && layer < tex.layers());
 	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, getGLAttachment(slot), static_cast<Texture&>(tex)._id.get(), 0,
@@ -106,14 +106,14 @@ void tr::Framebuffer::attach(ArrayTexture1D& tex, int layer, Slot slot) noexcept
 	calcSize();
 }
 
-void tr::Framebuffer::attach(Texture2D& tex, Slot slot) noexcept
+void tr::Framebuffer::attach(ColorTexture2D& tex, Slot slot) noexcept
 {
 	TR_GL_CALL(glNamedFramebufferTexture, _id, getGLAttachment(slot), static_cast<Texture&>(tex)._id.get(), 0);
 	_attachSizes[static_cast<int>(slot)] = tex.size();
 	calcSize();
 }
 
-void tr::Framebuffer::attach(ArrayTexture2D& tex, int layer, Slot slot) noexcept
+void tr::Framebuffer::attach(ArrayColorTexture2D& tex, int layer, Slot slot) noexcept
 {
 	assert(layer >= 0 && layer < tex.layers());
 	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, getGLAttachment(slot), static_cast<Texture&>(tex)._id.get(), 0,
@@ -122,7 +122,7 @@ void tr::Framebuffer::attach(ArrayTexture2D& tex, int layer, Slot slot) noexcept
 	calcSize();
 }
 
-void tr::Framebuffer::attach(Texture3D& tex, int z, Slot slot) noexcept
+void tr::Framebuffer::attach(ColorTexture3D& tex, int z, Slot slot) noexcept
 {
 	assert(z >= 0 && z < tex.size().z);
 	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, getGLAttachment(slot), static_cast<Texture&>(tex)._id.get(), 0, z);
