@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['keymods_0',['Keymods',['../group__keyboard.html#ga1e5a857eb2f40e2b55bfb43225cbc658',1,'tr']]]
+  ['hint_0',['Hint',['../classtr_1_1TTFont.html#aad356ceae9d21b8b20f98de5b47e45b2',1,'tr::TTFont']]]
 ];

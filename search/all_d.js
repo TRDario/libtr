@@ -4,7 +4,7 @@ var searchData=
   ['lalt_1',['LALT',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204dac71417d2a3afe1a18b66cfa57a662df9',1,'tr::Scancode::LALT'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88ac71417d2a3afe1a18b66cfa57a662df9',1,'tr::Keycode::LALT'],['../group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658ac71417d2a3afe1a18b66cfa57a662df9',1,'tr::LALT']]],
   ['lap_2',['lap',['../classtr_1_1Stopwatch.html#a72dd57d6a8e6862296d21aab1b2bdcca',1,'tr::Stopwatch']]],
   ['latest_3',['latest',['../classtr_1_1Benchmark.html#af7422b7ea19e5b9d8b8bef5329cad0b9',1,'tr::Benchmark']]],
-  ['layers_4',['layers',['../structtr_1_1ArrayTexture1D.html#a2773fb8788020a4ccb1d4c64a1ab15bd',1,'tr::ArrayTexture1D::layers()'],['../structtr_1_1ArrayTexture2D.html#a1a878ab66709a956d0dc90dc62dfa63f',1,'tr::ArrayTexture2D::layers()']]],
+  ['layers_4',['layers',['../classtr_1_1ArrayColorTexture1D.html#a209fda80a6cfd25262505d6d847c23b1',1,'tr::ArrayColorTexture1D::layers()'],['../classtr_1_1ArrayColorTexture2D.html#aec44522b1f6311879018d5407e5fe66a',1,'tr::ArrayColorTexture2D::layers()']]],
   ['layout_5',['Layout',['../classtr_1_1BitmapFormat.html#a079a4959fd2fefb871a55b43c888c054',1,'tr::BitmapFormat']]],
   ['layout_6',['layout',['../classtr_1_1BitmapFormat.html#ae6c977ac1f6067f1dd6282750f1251c6',1,'tr::BitmapFormat']]],
   ['lctrl_7',['LCTRL',['../classtr_1_1Scancode.html#aade8f0ca5b87ef97c304d52f7abf204daa0ff1131b5e3e765b0b5151de87cb6b2',1,'tr::Scancode::LCTRL'],['../classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88aa0ff1131b5e3e765b0b5151de87cb6b2',1,'tr::Keycode::LCTRL'],['../group__keyboard.html#gga1e5a857eb2f40e2b55bfb43225cbc658aa0ff1131b5e3e765b0b5151de87cb6b2',1,'tr::LCTRL']]],

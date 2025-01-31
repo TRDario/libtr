@@ -4,7 +4,6 @@ var group__graphics =
     [ "Graphics Buffer", "group__graphics__buffer.html", "group__graphics__buffer" ],
     [ "Graphics Context", "group__graphics__context.html", "group__graphics__context" ],
     [ "Index Buffer", "group__index__buffer.html", "group__index__buffer" ],
-    [ "Renderbuffer", "group__renderbuffer.html", "group__renderbuffer" ],
     [ "Shader", "group__shader.html", "group__shader" ],
     [ "Shader Buffer", "group__shader__buffer.html", "group__shader__buffer" ],
     [ "Shader Pipelines", "group__shader__pipeline.html", "group__shader__pipeline" ],

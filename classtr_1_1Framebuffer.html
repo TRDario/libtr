@@ -112,7 +112,6 @@ $(function(){initNavTree('classtr_1_1Framebuffer.html',''); initResizable(true);
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classtr_1_1Framebuffer-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">tr::Framebuffer Class Reference<div class="ingroups"><a class="el" href="group__system.html">System</a> &raquo; <a class="el" href="group__graphics.html">Graphics</a> &raquo; <a class="el" href="group__framebuffer.html">Framebuffers</a></div></div></div>
@@ -133,26 +132,6 @@ $(function(){initNavTree('classtr_1_1Framebuffer.html',''); initResizable(true);
   </map>
 </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a83dfe57520b21bf6c260b789d965f973" id="r_a83dfe57520b21bf6c260b789d965f973"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83dfe57520b21bf6c260b789d965f973">Slot</a> { <br />
-&#160;&#160;<a class="el" href="#a83dfe57520b21bf6c260b789d965f973aba7a1dd52afecaa2d5a6a31e5ee9decf">COLOR0</a>
-, <a class="el" href="#a83dfe57520b21bf6c260b789d965f973a1a01c93974e718790cb47c6c10e31e9a">COLOR1</a>
-, <a class="el" href="#a83dfe57520b21bf6c260b789d965f973a4a2fcb89267ea728554ab63422e5635d">COLOR2</a>
-, <a class="el" href="#a83dfe57520b21bf6c260b789d965f973afee555b25392f301ad635a8ff03cf285">COLOR3</a>
-, <br />
-&#160;&#160;<a class="el" href="#a83dfe57520b21bf6c260b789d965f973a92499a5b2dd6a9f26a7d74115c432424">COLOR4</a>
-, <a class="el" href="#a83dfe57520b21bf6c260b789d965f973ae187e8bc50f77c8e670dcde129a0ccfa">COLOR5</a>
-, <a class="el" href="#a83dfe57520b21bf6c260b789d965f973adaa8c2d42a4371ce85b462edf712c005">COLOR6</a>
-, <a class="el" href="#a83dfe57520b21bf6c260b789d965f973a46cf557e3f064fadf3b054ec8a24242f">COLOR7</a>
-, <br />
-&#160;&#160;<a class="el" href="#a83dfe57520b21bf6c260b789d965f973aaa1780b4fcce2d5d9af13dc25386d111">DEPTH</a>
-, <a class="el" href="#a83dfe57520b21bf6c260b789d965f973a301b25ea9a653329b5d5d727f92514c4">STENCIL</a>
-<br />
- }</td></tr>
-<tr class="memdesc:a83dfe57520b21bf6c260b789d965f973"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtr_1_1Framebuffer.html" title="User framebuffer.">Framebuffer</a> attachment slots.  <a href="#a83dfe57520b21bf6c260b789d965f973">More...</a><br /></td></tr>
-<tr class="separator:a83dfe57520b21bf6c260b789d965f973"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6bc919f939e4d0a899cf379acd16ebac" id="r_a6bc919f939e4d0a899cf379acd16ebac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bc919f939e4d0a899cf379acd16ebac">Framebuffer</a> () noexcept</td></tr>
@@ -170,27 +149,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a73acd37c6a48176e870c6303a2b4a883" id="r_a73acd37c6a48176e870c6303a2b4a883"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73acd37c6a48176e870c6303a2b4a883">size</a> () const noexcept override</td></tr>
 <tr class="memdesc:a73acd37c6a48176e870c6303a2b4a883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the framebuffer.  <br /></td></tr>
 <tr class="separator:a73acd37c6a48176e870c6303a2b4a883"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a683d51b23a97d5b4ecb81d8d39b2b6fc" id="r_a683d51b23a97d5b4ecb81d8d39b2b6fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a683d51b23a97d5b4ecb81d8d39b2b6fc">attach</a> (<a class="el" href="structtr_1_1Texture1D.html">Texture1D</a> &amp;tex, <a class="el" href="#a83dfe57520b21bf6c260b789d965f973">Slot</a> slot) noexcept</td></tr>
-<tr class="memdesc:a683d51b23a97d5b4ecb81d8d39b2b6fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches a 1D texture to a slot on the framebuffer.  <br /></td></tr>
-<tr class="separator:a683d51b23a97d5b4ecb81d8d39b2b6fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12e3a9a4a9a3c3eb4b26c7150e7fef75" id="r_a12e3a9a4a9a3c3eb4b26c7150e7fef75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12e3a9a4a9a3c3eb4b26c7150e7fef75">attach</a> (<a class="el" href="structtr_1_1ArrayTexture1D.html">ArrayTexture1D</a> &amp;tex, int layer, <a class="el" href="#a83dfe57520b21bf6c260b789d965f973">Slot</a> slot) noexcept</td></tr>
-<tr class="memdesc:a12e3a9a4a9a3c3eb4b26c7150e7fef75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches a layer of a 1D array texture to a slot on the framebuffer.  <br /></td></tr>
-<tr class="separator:a12e3a9a4a9a3c3eb4b26c7150e7fef75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac536939272ac8cd5168c5cdc9abf80ff" id="r_ac536939272ac8cd5168c5cdc9abf80ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac536939272ac8cd5168c5cdc9abf80ff">attach</a> (<a class="el" href="structtr_1_1Texture2D.html">Texture2D</a> &amp;tex, <a class="el" href="#a83dfe57520b21bf6c260b789d965f973">Slot</a> slot) noexcept</td></tr>
-<tr class="memdesc:ac536939272ac8cd5168c5cdc9abf80ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches a 2D texture to a slot on the framebuffer.  <br /></td></tr>
-<tr class="separator:ac536939272ac8cd5168c5cdc9abf80ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a594c81e7400eecaeaaded8eb188aa906" id="r_a594c81e7400eecaeaaded8eb188aa906"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a594c81e7400eecaeaaded8eb188aa906">attach</a> (<a class="el" href="structtr_1_1ArrayTexture2D.html">ArrayTexture2D</a> &amp;tex, int layer, <a class="el" href="#a83dfe57520b21bf6c260b789d965f973">Slot</a> slot) noexcept</td></tr>
-<tr class="memdesc:a594c81e7400eecaeaaded8eb188aa906"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches a layer of a 2D array texture to a slot on the framebuffer.  <br /></td></tr>
-<tr class="separator:a594c81e7400eecaeaaded8eb188aa906"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d87f22e902daafcdf6efa51c7b8ee3e" id="r_a0d87f22e902daafcdf6efa51c7b8ee3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d87f22e902daafcdf6efa51c7b8ee3e">attach</a> (<a class="el" href="structtr_1_1Texture3D.html">Texture3D</a> &amp;tex, int z, <a class="el" href="#a83dfe57520b21bf6c260b789d965f973">Slot</a> slot) noexcept</td></tr>
-<tr class="memdesc:a0d87f22e902daafcdf6efa51c7b8ee3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches a layer of a 3D texture to a slot on the framebuffer.  <br /></td></tr>
-<tr class="separator:a0d87f22e902daafcdf6efa51c7b8ee3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a342a88ddc9dbf6fb34fc1ce1e1762e0b" id="r_a342a88ddc9dbf6fb34fc1ce1e1762e0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a342a88ddc9dbf6fb34fc1ce1e1762e0b">attach</a> (<a class="el" href="classtr_1_1Renderbuffer.html">Renderbuffer</a> &amp;buffer, <a class="el" href="#a83dfe57520b21bf6c260b789d965f973">Slot</a> slot) noexcept</td></tr>
-<tr class="memdesc:a342a88ddc9dbf6fb34fc1ce1e1762e0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches a renderbuffer to a slot on the framebuffer.  <br /></td></tr>
-<tr class="separator:a342a88ddc9dbf6fb34fc1ce1e1762e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a69b813dd314bc1cfb8404467703337" id="r_a9a69b813dd314bc1cfb8404467703337"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a69b813dd314bc1cfb8404467703337">clear</a> (<a class="el" href="#a83dfe57520b21bf6c260b789d965f973">Slot</a> slot) noexcept</td></tr>
-<tr class="memdesc:a9a69b813dd314bc1cfb8404467703337"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears a slot of attachments.  <br /></td></tr>
-<tr class="separator:a9a69b813dd314bc1cfb8404467703337"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62c0a50f56be3ffed04fd158510cac18" id="r_a62c0a50f56be3ffed04fd158510cac18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62c0a50f56be3ffed04fd158510cac18">attach</a> (<a class="el" href="classtr_1_1ColorTexture1D.html">ColorTexture1D</a> &amp;tex, int slot) noexcept</td></tr>
+<tr class="memdesc:a62c0a50f56be3ffed04fd158510cac18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches a 1D texture to a slot on the framebuffer.  <br /></td></tr>
+<tr class="separator:a62c0a50f56be3ffed04fd158510cac18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00c8d96389cd98229a71b473907eeec4" id="r_a00c8d96389cd98229a71b473907eeec4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00c8d96389cd98229a71b473907eeec4">attach</a> (<a class="el" href="classtr_1_1ArrayColorTexture1D.html">ArrayColorTexture1D</a> &amp;tex, int layer, int slot) noexcept</td></tr>
+<tr class="memdesc:a00c8d96389cd98229a71b473907eeec4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches a layer of a 1D array texture to a slot on the framebuffer.  <br /></td></tr>
+<tr class="separator:a00c8d96389cd98229a71b473907eeec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3262e56f70e4b93b4dce3772a418e9a2" id="r_a3262e56f70e4b93b4dce3772a418e9a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3262e56f70e4b93b4dce3772a418e9a2">attach</a> (<a class="el" href="classtr_1_1ColorTexture2D.html">ColorTexture2D</a> &amp;tex, int slot) noexcept</td></tr>
+<tr class="memdesc:a3262e56f70e4b93b4dce3772a418e9a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches a 2D texture to a slot on the framebuffer.  <br /></td></tr>
+<tr class="separator:a3262e56f70e4b93b4dce3772a418e9a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab35eb2daff859944f088c1006ec8f6ac" id="r_ab35eb2daff859944f088c1006ec8f6ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab35eb2daff859944f088c1006ec8f6ac">attach</a> (<a class="el" href="classtr_1_1ArrayColorTexture2D.html">ArrayColorTexture2D</a> &amp;tex, int layer, int slot) noexcept</td></tr>
+<tr class="memdesc:ab35eb2daff859944f088c1006ec8f6ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches a layer of a 2D array texture to a slot on the framebuffer.  <br /></td></tr>
+<tr class="separator:ab35eb2daff859944f088c1006ec8f6ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add3e0922af291fe0ddb47978ff501abe" id="r_add3e0922af291fe0ddb47978ff501abe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add3e0922af291fe0ddb47978ff501abe">attach</a> (<a class="el" href="classtr_1_1ColorTexture3D.html">ColorTexture3D</a> &amp;tex, int z, int slot) noexcept</td></tr>
+<tr class="memdesc:add3e0922af291fe0ddb47978ff501abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches a layer of a 3D texture to a slot on the framebuffer.  <br /></td></tr>
+<tr class="separator:add3e0922af291fe0ddb47978ff501abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f671f6e691e6173ff64907b75ad7363" id="r_a9f671f6e691e6173ff64907b75ad7363"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f671f6e691e6173ff64907b75ad7363">clear</a> (int slot) noexcept</td></tr>
+<tr class="memdesc:a9f671f6e691e6173ff64907b75ad7363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears a slot of attachments.  <br /></td></tr>
+<tr class="separator:a9f671f6e691e6173ff64907b75ad7363"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8091ab80673bc228af6e21202be77ffe" id="r_a8091ab80673bc228af6e21202be77ffe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8091ab80673bc228af6e21202be77ffe">setLabel</a> (std::string_view label) noexcept</td></tr>
 <tr class="memdesc:a8091ab80673bc228af6e21202be77ffe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the debug label of the framebuffer.  <br /></td></tr>
 <tr class="separator:a8091ab80673bc228af6e21202be77ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,9 +174,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a45154380c3eba0ce3f9113200266d82c inherit pub_methods_classtr_1_1BasicFramebuffer" id="r_a45154380c3eba0ce3f9113200266d82c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtr_1_1Bitmap.html">Bitmap</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1BasicFramebuffer.html#a45154380c3eba0ce3f9113200266d82c">readRegion</a> (const <a class="el" href="group__geometry.html#ga386ecd8029d58f09791896b6421218d9">RectI2</a> &amp;rect, <a class="el" href="classtr_1_1BitmapFormat.html">BitmapFormat</a> format) const</td></tr>
 <tr class="memdesc:a45154380c3eba0ce3f9113200266d82c inherit pub_methods_classtr_1_1BasicFramebuffer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads pixels into a bitmap.  <br /></td></tr>
 <tr class="separator:a45154380c3eba0ce3f9113200266d82c inherit pub_methods_classtr_1_1BasicFramebuffer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adda4945795fe43e231173b220bd2945b inherit pub_methods_classtr_1_1BasicFramebuffer" id="r_adda4945795fe43e231173b220bd2945b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1BasicFramebuffer.html#adda4945795fe43e231173b220bd2945b">copyRegion</a> (const <a class="el" href="group__geometry.html#ga386ecd8029d58f09791896b6421218d9">RectI2</a> &amp;rect, <a class="el" href="structtr_1_1Texture2D.html">Texture2D</a> &amp;texture, glm::ivec2 textureTL) const noexcept</td></tr>
-<tr class="memdesc:adda4945795fe43e231173b220bd2945b inherit pub_methods_classtr_1_1BasicFramebuffer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies pixels to a texture.  <br /></td></tr>
-<tr class="separator:adda4945795fe43e231173b220bd2945b inherit pub_methods_classtr_1_1BasicFramebuffer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0f20b41f08eac49b741542261594699 inherit pub_methods_classtr_1_1BasicFramebuffer" id="r_aa0f20b41f08eac49b741542261594699"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1BasicFramebuffer.html#aa0f20b41f08eac49b741542261594699">copyRegion</a> (const <a class="el" href="group__geometry.html#ga386ecd8029d58f09791896b6421218d9">RectI2</a> &amp;rect, <a class="el" href="classtr_1_1ColorTexture2D.html">ColorTexture2D</a> &amp;texture, glm::ivec2 textureTL) const noexcept</td></tr>
+<tr class="memdesc:aa0f20b41f08eac49b741542261594699 inherit pub_methods_classtr_1_1BasicFramebuffer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies pixels to a texture.  <br /></td></tr>
+<tr class="separator:aa0f20b41f08eac49b741542261594699 inherit pub_methods_classtr_1_1BasicFramebuffer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -217,54 +193,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>User framebuffer. </p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="a83dfe57520b21bf6c260b789d965f973" name="a83dfe57520b21bf6c260b789d965f973"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83dfe57520b21bf6c260b789d965f973">&#9670;&#160;</a></span>Slot</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#a83dfe57520b21bf6c260b789d965f973">tr::Framebuffer::Slot</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p><a class="el" href="classtr_1_1Framebuffer.html" title="User framebuffer.">Framebuffer</a> attachment slots. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a83dfe57520b21bf6c260b789d965f973aba7a1dd52afecaa2d5a6a31e5ee9decf" name="a83dfe57520b21bf6c260b789d965f973aba7a1dd52afecaa2d5a6a31e5ee9decf"></a>COLOR0&#160;</td><td class="fielddoc"><p>Color attachment slot 0. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a83dfe57520b21bf6c260b789d965f973a1a01c93974e718790cb47c6c10e31e9a" name="a83dfe57520b21bf6c260b789d965f973a1a01c93974e718790cb47c6c10e31e9a"></a>COLOR1&#160;</td><td class="fielddoc"><p>Color attachment slot 1. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a83dfe57520b21bf6c260b789d965f973a4a2fcb89267ea728554ab63422e5635d" name="a83dfe57520b21bf6c260b789d965f973a4a2fcb89267ea728554ab63422e5635d"></a>COLOR2&#160;</td><td class="fielddoc"><p>Color attachment slot 2. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a83dfe57520b21bf6c260b789d965f973afee555b25392f301ad635a8ff03cf285" name="a83dfe57520b21bf6c260b789d965f973afee555b25392f301ad635a8ff03cf285"></a>COLOR3&#160;</td><td class="fielddoc"><p>Color attachment slot 3. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a83dfe57520b21bf6c260b789d965f973a92499a5b2dd6a9f26a7d74115c432424" name="a83dfe57520b21bf6c260b789d965f973a92499a5b2dd6a9f26a7d74115c432424"></a>COLOR4&#160;</td><td class="fielddoc"><p>Color attachment slot 4. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a83dfe57520b21bf6c260b789d965f973ae187e8bc50f77c8e670dcde129a0ccfa" name="a83dfe57520b21bf6c260b789d965f973ae187e8bc50f77c8e670dcde129a0ccfa"></a>COLOR5&#160;</td><td class="fielddoc"><p>Color attachment slot 5. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a83dfe57520b21bf6c260b789d965f973adaa8c2d42a4371ce85b462edf712c005" name="a83dfe57520b21bf6c260b789d965f973adaa8c2d42a4371ce85b462edf712c005"></a>COLOR6&#160;</td><td class="fielddoc"><p>Color attachment slot 6. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a83dfe57520b21bf6c260b789d965f973a46cf557e3f064fadf3b054ec8a24242f" name="a83dfe57520b21bf6c260b789d965f973a46cf557e3f064fadf3b054ec8a24242f"></a>COLOR7&#160;</td><td class="fielddoc"><p>Color attachment slot 7. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a83dfe57520b21bf6c260b789d965f973aaa1780b4fcce2d5d9af13dc25386d111" name="a83dfe57520b21bf6c260b789d965f973aaa1780b4fcce2d5d9af13dc25386d111"></a>DEPTH&#160;</td><td class="fielddoc"><p>Depth attachment slot. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a83dfe57520b21bf6c260b789d965f973a301b25ea9a653329b5d5d727f92514c4" name="a83dfe57520b21bf6c260b789d965f973a301b25ea9a653329b5d5d727f92514c4"></a>STENCIL&#160;</td><td class="fielddoc"><p>Stencil attachment slot. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6bc919f939e4d0a899cf379acd16ebac" name="a6bc919f939e4d0a899cf379acd16ebac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6bc919f939e4d0a899cf379acd16ebac">&#9670;&#160;</a></span>Framebuffer() <span class="overload">[1/2]</span></h2>
 
@@ -421,8 +350,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a683d51b23a97d5b4ecb81d8d39b2b6fc" name="a683d51b23a97d5b4ecb81d8d39b2b6fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a683d51b23a97d5b4ecb81d8d39b2b6fc">&#9670;&#160;</a></span>attach() <span class="overload">[1/6]</span></h2>
+<a id="a62c0a50f56be3ffed04fd158510cac18" name="a62c0a50f56be3ffed04fd158510cac18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62c0a50f56be3ffed04fd158510cac18">&#9670;&#160;</a></span>attach() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -433,12 +362,12 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void tr::Framebuffer::attach </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structtr_1_1Texture1D.html">Texture1D</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tex</em></span>, </td>
+          <td class="paramtype"><a class="el" href="classtr_1_1ColorTexture1D.html">ColorTexture1D</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tex</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a83dfe57520b21bf6c260b789d965f973">Slot</a></td>          <td class="paramname"><span class="paramname"><em>slot</em></span>&#160;)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>slot</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -453,17 +382,20 @@ Additional Inherited Members</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tex</td><td>The texture to attach. </td></tr>
-    <tr><td class="paramname">slot</td><td>The slot to attach the texture to. </td></tr>
+    <tr><td class="paramname">slot</td><td><p class="starttd">The slot to attach the texture to.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>slot</em> must be a value in the range [0, 8). </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="#a12e3a9a4a9a3c3eb4b26c7150e7fef75">attach()</a>, <a class="el" href="#a594c81e7400eecaeaaded8eb188aa906">attach()</a>, <a class="el" href="#a342a88ddc9dbf6fb34fc1ce1e1762e0b">attach()</a>, <a class="el" href="#a683d51b23a97d5b4ecb81d8d39b2b6fc">attach()</a>, <a class="el" href="#ac536939272ac8cd5168c5cdc9abf80ff">attach()</a>, and <a class="el" href="#a0d87f22e902daafcdf6efa51c7b8ee3e">attach()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#a00c8d96389cd98229a71b473907eeec4">attach()</a>, <a class="el" href="#ab35eb2daff859944f088c1006ec8f6ac">attach()</a>, <a class="el" href="#a62c0a50f56be3ffed04fd158510cac18">attach()</a>, <a class="el" href="#a3262e56f70e4b93b4dce3772a418e9a2">attach()</a>, and <a class="el" href="#add3e0922af291fe0ddb47978ff501abe">attach()</a>.</p>
 
 </div>
 </div>
-<a id="a12e3a9a4a9a3c3eb4b26c7150e7fef75" name="a12e3a9a4a9a3c3eb4b26c7150e7fef75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12e3a9a4a9a3c3eb4b26c7150e7fef75">&#9670;&#160;</a></span>attach() <span class="overload">[2/6]</span></h2>
+<a id="a00c8d96389cd98229a71b473907eeec4" name="a00c8d96389cd98229a71b473907eeec4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00c8d96389cd98229a71b473907eeec4">&#9670;&#160;</a></span>attach() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -474,7 +406,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void tr::Framebuffer::attach </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structtr_1_1ArrayTexture1D.html">ArrayTexture1D</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tex</em></span>, </td>
+          <td class="paramtype"><a class="el" href="classtr_1_1ArrayColorTexture1D.html">ArrayColorTexture1D</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tex</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -484,7 +416,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a83dfe57520b21bf6c260b789d965f973">Slot</a></td>          <td class="paramname"><span class="paramname"><em>slot</em></span>&#160;)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>slot</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -500,15 +432,18 @@ Additional Inherited Members</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">tex</td><td>The texture to attach. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">layer</td><td>The layer of the texture to attach. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">slot</td><td>The slot to attach the texture to. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">slot</td><td><p class="starttd">The slot to attach the texture to.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>slot</em> must be a value in the range [0, 8). </dd></dl>
 
 </div>
 </div>
-<a id="ac536939272ac8cd5168c5cdc9abf80ff" name="ac536939272ac8cd5168c5cdc9abf80ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac536939272ac8cd5168c5cdc9abf80ff">&#9670;&#160;</a></span>attach() <span class="overload">[3/6]</span></h2>
+<a id="a3262e56f70e4b93b4dce3772a418e9a2" name="a3262e56f70e4b93b4dce3772a418e9a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3262e56f70e4b93b4dce3772a418e9a2">&#9670;&#160;</a></span>attach() <span class="overload">[3/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -519,12 +454,12 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void tr::Framebuffer::attach </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structtr_1_1Texture2D.html">Texture2D</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tex</em></span>, </td>
+          <td class="paramtype"><a class="el" href="classtr_1_1ColorTexture2D.html">ColorTexture2D</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tex</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a83dfe57520b21bf6c260b789d965f973">Slot</a></td>          <td class="paramname"><span class="paramname"><em>slot</em></span>&#160;)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>slot</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -539,15 +474,18 @@ Additional Inherited Members</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tex</td><td>The texture to attach. </td></tr>
-    <tr><td class="paramname">slot</td><td>The slot to attach the texture to. </td></tr>
+    <tr><td class="paramname">slot</td><td><p class="starttd">The slot to attach the texture to.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>slot</em> must be a value in the range [0, 8). </dd></dl>
 
 </div>
 </div>
-<a id="a594c81e7400eecaeaaded8eb188aa906" name="a594c81e7400eecaeaaded8eb188aa906"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a594c81e7400eecaeaaded8eb188aa906">&#9670;&#160;</a></span>attach() <span class="overload">[4/6]</span></h2>
+<a id="ab35eb2daff859944f088c1006ec8f6ac" name="ab35eb2daff859944f088c1006ec8f6ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab35eb2daff859944f088c1006ec8f6ac">&#9670;&#160;</a></span>attach() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -558,7 +496,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void tr::Framebuffer::attach </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structtr_1_1ArrayTexture2D.html">ArrayTexture2D</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tex</em></span>, </td>
+          <td class="paramtype"><a class="el" href="classtr_1_1ArrayColorTexture2D.html">ArrayColorTexture2D</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tex</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -568,7 +506,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a83dfe57520b21bf6c260b789d965f973">Slot</a></td>          <td class="paramname"><span class="paramname"><em>slot</em></span>&#160;)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>slot</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -584,15 +522,18 @@ Additional Inherited Members</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">tex</td><td>The texture to attach. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">layer</td><td>The layer of the texture to attach. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">slot</td><td>The slot to attach the texture to. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">slot</td><td><p class="starttd">The slot to attach the texture to.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>slot</em> must be a value in the range [0, 8). </dd></dl>
 
 </div>
 </div>
-<a id="a0d87f22e902daafcdf6efa51c7b8ee3e" name="a0d87f22e902daafcdf6efa51c7b8ee3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d87f22e902daafcdf6efa51c7b8ee3e">&#9670;&#160;</a></span>attach() <span class="overload">[5/6]</span></h2>
+<a id="add3e0922af291fe0ddb47978ff501abe" name="add3e0922af291fe0ddb47978ff501abe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add3e0922af291fe0ddb47978ff501abe">&#9670;&#160;</a></span>attach() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -603,7 +544,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void tr::Framebuffer::attach </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structtr_1_1Texture3D.html">Texture3D</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tex</em></span>, </td>
+          <td class="paramtype"><a class="el" href="classtr_1_1ColorTexture3D.html">ColorTexture3D</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tex</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -613,7 +554,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a83dfe57520b21bf6c260b789d965f973">Slot</a></td>          <td class="paramname"><span class="paramname"><em>slot</em></span>&#160;)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>slot</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -629,54 +570,18 @@ Additional Inherited Members</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">tex</td><td>The texture to attach. </td></tr>
     <tr><td class="paramname">z</td><td>The z layer of the texture to attach. </td></tr>
-    <tr><td class="paramname">slot</td><td>The slot to attach the texture to. </td></tr>
+    <tr><td class="paramname">slot</td><td><p class="starttd">The slot to attach the texture to.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>slot</em> must be a value in the range [0, 8). </dd></dl>
 
 </div>
 </div>
-<a id="a342a88ddc9dbf6fb34fc1ce1e1762e0b" name="a342a88ddc9dbf6fb34fc1ce1e1762e0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a342a88ddc9dbf6fb34fc1ce1e1762e0b">&#9670;&#160;</a></span>attach() <span class="overload">[6/6]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void tr::Framebuffer::attach </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classtr_1_1Renderbuffer.html">Renderbuffer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#a83dfe57520b21bf6c260b789d965f973">Slot</a></td>          <td class="paramname"><span class="paramname"><em>slot</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Attaches a renderbuffer to a slot on the framebuffer. </p>
-<dl class="section note"><dt>Note</dt><dd>The viewport of the framebuffer will be clamped to the minimum size of all attachments.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">buffer</td><td>The renderbuffer to attach. </td></tr>
-    <tr><td class="paramname">slot</td><td>The slot to attach the texture to. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a9a69b813dd314bc1cfb8404467703337" name="a9a69b813dd314bc1cfb8404467703337"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a69b813dd314bc1cfb8404467703337">&#9670;&#160;</a></span>clear()</h2>
+<a id="a9f671f6e691e6173ff64907b75ad7363" name="a9f671f6e691e6173ff64907b75ad7363"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f671f6e691e6173ff64907b75ad7363">&#9670;&#160;</a></span>clear()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -687,7 +592,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void tr::Framebuffer::clear </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a83dfe57520b21bf6c260b789d965f973">Slot</a></td>          <td class="paramname"><span class="paramname"><em>slot</em></span></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>slot</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -702,12 +607,15 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>The viewport of the framebuffer will be clamped to the minimum size of all attachments.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">slot</td><td>The slot to clear. </td></tr>
+    <tr><td class="paramname">slot</td><td><p class="starttd">The slot to attach the texture to.</p>
+<p class="endtd"></p>
+</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd><em>slot</em> must be a value in the range [0, 8). </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="#a9a69b813dd314bc1cfb8404467703337">clear()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="#a9f671f6e691e6173ff64907b75ad7363">clear()</a>.</p>
 
 </div>
 </div>

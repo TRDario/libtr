@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['primitive_0',['Primitive',['../group__graphics__context.html#ga836d6a68316285fa5bde27908d9d9184',1,'tr']]]
+  ['order_0',['Order',['../classtr_1_1BitmapFormat.html#a6f7347e916c518fe1cbafa81510b29ac',1,'tr::BitmapFormat']]]
 ];

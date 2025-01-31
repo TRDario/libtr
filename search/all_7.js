@@ -36,7 +36,7 @@ var searchData=
   ['flushbinary_33',['flushBinary',['../group__stream.html#ga9cb9e3658a32a63b88f0575c32bfc104',1,'tr::flushBinary(std::istream &amp;is, It out)'],['../group__stream.html#ga548b073a3f83477231cfbf3cf3dd47c7',1,'tr::flushBinary(std::istream &amp;is)']]],
   ['font_34',['Font',['../group__ttfont.html',1,'']]],
   ['format_35',['Vertex Format',['../group__vertex__format.html',1,'']]],
-  ['format_36',['format',['../classtr_1_1SubBitmap.html#ab9565fdf79d2e9f839cade3310d98994',1,'tr::SubBitmap::format()'],['../classtr_1_1BitmapView.html#a3b74f85bb1aab0b71cff1151ba4eaad1',1,'tr::BitmapView::format()'],['../classtr_1_1Bitmap.html#a10ed1ee277822c5aafa78d5413916024',1,'tr::Bitmap::format()'],['../classtr_1_1Texture.html#a9e77cc52c0cf1cc4d6aa3e7639ee39a5',1,'tr::Texture::format()']]],
+  ['format_36',['format',['../classtr_1_1SubBitmap.html#ab9565fdf79d2e9f839cade3310d98994',1,'tr::SubBitmap::format()'],['../classtr_1_1BitmapView.html#a3b74f85bb1aab0b71cff1151ba4eaad1',1,'tr::BitmapView::format()'],['../classtr_1_1Bitmap.html#a10ed1ee277822c5aafa78d5413916024',1,'tr::Bitmap::format()']]],
   ['fp10_5f11_5f11_37',['FP10_11_11',['../structtr_1_1VertexAttributeF.html#a7b487c740a8828ab7bfc927e1c2383a2a34076d573c7eb667b8bd91eb86dc4571',1,'tr::VertexAttributeF']]],
   ['fp16_38',['FP16',['../structtr_1_1VertexAttributeF.html#a7b487c740a8828ab7bfc927e1c2383a2aa4bf99d6945c25077fd6660d536af8a0',1,'tr::VertexAttributeF']]],
   ['fp32_39',['FP32',['../structtr_1_1VertexAttributeF.html#a7b487c740a8828ab7bfc927e1c2383a2a693aa0bef84c25fe81c7e62e72f9313d',1,'tr::VertexAttributeF']]],

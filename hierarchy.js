@@ -49,7 +49,6 @@ var hierarchy =
         [ "tr::CursorBadAlloc", "structtr_1_1CursorBadAlloc.html", null ],
         [ "tr::GraphicsBufferBadAlloc", "structtr_1_1GraphicsBufferBadAlloc.html", null ],
         [ "tr::GraphicsBufferMapBadAlloc", "structtr_1_1GraphicsBufferMapBadAlloc.html", null ],
-        [ "tr::RenderbufferBadAlloc", "structtr_1_1RenderbufferBadAlloc.html", null ],
         [ "tr::TextureBadAlloc", "structtr_1_1TextureBadAlloc.html", null ]
       ] ],
       [ "std::runtime_error", null, [
@@ -110,7 +109,6 @@ var hierarchy =
     [ "tr::Positions", "structtr_1_1Positions.html", null ],
     [ "tr::R< T >", "structtr_1_1R.html", null ],
     [ "tr::Rect< S, T >", "structtr_1_1Rect.html", null ],
-    [ "tr::Renderbuffer", "classtr_1_1Renderbuffer.html", null ],
     [ "tr::RG< T >", "structtr_1_1RG.html", null ],
     [ "tr::RGB< T >", "structtr_1_1RGB.html", null ],
     [ "tr::RGB_Ui16_5_6_5", "structtr_1_1RGB__Ui16__5__6__5.html", null ],
@@ -127,11 +125,13 @@ var hierarchy =
     [ "tr::TextEditEvent", "structtr_1_1TextEditEvent.html", null ],
     [ "tr::TextInputEvent", "structtr_1_1TextInputEvent.html", null ],
     [ "tr::Texture", "classtr_1_1Texture.html", [
-      [ "tr::ArrayTexture1D", "structtr_1_1ArrayTexture1D.html", null ],
-      [ "tr::ArrayTexture2D", "structtr_1_1ArrayTexture2D.html", null ],
-      [ "tr::Texture1D", "structtr_1_1Texture1D.html", null ],
-      [ "tr::Texture2D", "structtr_1_1Texture2D.html", null ],
-      [ "tr::Texture3D", "structtr_1_1Texture3D.html", null ]
+      [ "tr::ColorTexture", "classtr_1_1ColorTexture.html", [
+        [ "tr::ArrayColorTexture1D", "classtr_1_1ArrayColorTexture1D.html", null ],
+        [ "tr::ArrayColorTexture2D", "classtr_1_1ArrayColorTexture2D.html", null ],
+        [ "tr::ColorTexture1D", "classtr_1_1ColorTexture1D.html", null ],
+        [ "tr::ColorTexture2D", "classtr_1_1ColorTexture2D.html", null ],
+        [ "tr::ColorTexture3D", "classtr_1_1ColorTexture3D.html", null ]
+      ] ]
     ] ],
     [ "tr::TextureUnit", "classtr_1_1TextureUnit.html", null ],
     [ "tr::TexVtx2", "structtr_1_1TexVtx2.html", null ],
