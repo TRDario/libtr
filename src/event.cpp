@@ -51,6 +51,7 @@ tr::CustomEventBase::CustomEventBase(Event&& event) noexcept
 	if (sdl.data2 != nullptr) {
 		any2 = std::move(*static_cast<std::any*>(sdl.data2));
 	}
+	sdl.type = 0;
 }
 
 tr::CustomEventBase::operator Event() const&
@@ -95,6 +96,7 @@ tr::Event::Event(Event&& r) noexcept
 		SDL_UserEvent& rsdl{reinterpret_cast<SDL_Event*>(r._impl)->user};
 		rsdl.data1 = nullptr;
 		rsdl.data2 = nullptr;
+		rsdl.type  = 0;
 	}
 }
 
@@ -458,21 +460,21 @@ tr::Timer tr::createDrawTimer(unsigned int frequency)
 
 std::optional<tr::Event> tr::EventQueue::poll() noexcept
 {
-	Event event;
-	return SDL_PollEvent(reinterpret_cast<SDL_Event*>(event._impl)) ? std::optional<Event>{event} : std::nullopt;
+	Event event{};
+	return SDL_PollEvent(reinterpret_cast<SDL_Event*>(&event)) ? std::optional<Event>{std::move(event)} : std::nullopt;
 }
 
 tr::Event tr::EventQueue::wait() noexcept
 {
 	Event event;
-	SDL_WaitEvent(reinterpret_cast<SDL_Event*>(event._impl));
+	SDL_WaitEvent(reinterpret_cast<SDL_Event*>(&event));
 	return event;
 }
 
 std::optional<tr::Event> tr::EventQueue::wait(MillisecondsI timeout) noexcept
 {
-	Event event;
-	if (SDL_WaitEventTimeout(reinterpret_cast<SDL_Event*>(event._impl), timeout.count())) {
+	Event event{};
+	if (SDL_WaitEventTimeout(reinterpret_cast<SDL_Event*>(&event), timeout.count())) {
 		return event;
 	}
 	else {
