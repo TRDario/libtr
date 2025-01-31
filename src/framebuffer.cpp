@@ -5,6 +5,8 @@
 #include <SDL2/SDL.h>
 
 namespace tr {
+	inline constexpr glm::i16vec2 EMPTY_ATTACHMENT{-1, -1};
+
 	GLuint createFramebuffer() noexcept;
 } // namespace tr
 
@@ -141,14 +143,14 @@ void tr::Framebuffer::setLabel(std::string_view label) noexcept
 
 glm::ivec2 tr::Framebuffer::calcSize() noexcept
 {
-	auto attachments{std::views::filter(_attachSizes, [](glm::ivec2 size) { return size != EMPTY_ATTACHMENT; })};
+	auto attachments{std::views::filter(_attachSizes, [](glm::i16vec2 size) { return size != EMPTY_ATTACHMENT; })};
 	if (attachments.empty()) {
 		_size = {0, 0};
 	}
 	else {
 		_size = *attachments.begin();
-		for (const glm::ivec2& attach : attachments) {
-			_size = {std::min(_size.x, attach.x), std::min(_size.y, attach.y)};
+		for (const glm::i16vec2& attach : attachments) {
+			_size = {std::min<int>(_size.x, attach.x), std::min<int>(_size.y, attach.y)};
 		}
 	}
 	return _size;

@@ -195,8 +195,7 @@ namespace tr {
 		void setLabel(std::string_view label) noexcept;
 
 	  private:
-		static constexpr glm::ivec2 EMPTY_ATTACHMENT{-1, -1};
-		std::array<glm::ivec2, 8>   _attachSizes; // The sizes of the framebuffer attachments.
+		std::array<glm::i16vec2, 8> _attachSizes; // The sizes of the framebuffer attachments.
 		glm::ivec2                  _size;
 
 		// Recalculates the size of the framebuffer.
