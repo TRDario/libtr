@@ -58,7 +58,7 @@ target_sources(tr PUBLIC
         include/tr/texture.hpp include/tr/timer.hpp include/tr/tr.hpp include/tr/ttfont.hpp include/tr/utf8.hpp
         include/tr/vertex_buffer.hpp include/tr/vertex_format.hpp include/tr/vertex.hpp include/tr/window.hpp
 )
-target_precompile_headers(tr PRIVATE include/tr/common.hpp include/tr/color.hpp include/tr/geometry.hpp include/tr/ranges.hpp)
+target_precompile_headers(tr PRIVATE include/tr/color.hpp include/tr/geometry.hpp include/tr/ranges.hpp)
 
 if(TR_DEAR_IMGUI_INTEGRATION)
     target_sources(tr PUBLIC
