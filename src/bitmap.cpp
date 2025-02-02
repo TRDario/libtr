@@ -2,7 +2,6 @@
 #include "../include/tr/bitmap_iterators.hpp"
 #include "SDL2/SDL_image.h"
 #include <SDL2/SDL.h>
-#include <format>
 
 #ifdef _WIN32
 #include <windows.h>

@@ -1,7 +1,6 @@
 #pragma once
 #include "color.hpp"
 #include "vertex_format.hpp"
-#include <glm/glm.hpp>
 
 namespace tr {
 	/** @ingroup misc

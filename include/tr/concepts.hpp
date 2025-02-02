@@ -1,6 +1,5 @@
 #pragma once
-#include "dependencies/half.hpp"
-#include <concepts>
+#include "common.hpp"
 
 namespace tr {
 	/** @ingroup misc

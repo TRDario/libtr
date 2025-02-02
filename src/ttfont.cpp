@@ -1,6 +1,6 @@
+#include "../include/tr/bitmap.hpp"
 #include "../include/tr/ttfont.hpp"
 #include <SDL2/SDL_ttf.h>
-#include <format>
 
 namespace tr {
 	// Fixes certain edge artifacts when rendering partially transparent text.

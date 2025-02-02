@@ -1,3 +1,4 @@
+#include "../include/tr/bitmap.hpp"
 #include "../include/tr/mouse.hpp"
 #include <SDL2/SDL.h>
 

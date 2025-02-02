@@ -1,7 +1,9 @@
 #pragma once
-#include "texture.hpp"
+#include "handle.hpp"
 
 namespace tr {
+	class Texture;
+
 	/** @ingroup graphics
 	 *  @defgroup texture_unit Texture Unit
 	 *  Texture unit class.

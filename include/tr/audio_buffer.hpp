@@ -3,7 +3,6 @@
 #include "handle.hpp"
 #include "iostream.hpp"
 #include "ranges.hpp"
-#include <span>
 
 namespace tr {
 	/** @ingroup audio

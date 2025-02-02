@@ -1,7 +1,14 @@
 #pragma once
-#include "texture.hpp"
+#include "geometry.hpp"
 
 namespace tr {
+	class Bitmap;
+	class BitmapFormat;
+	class ColorTexture1D;
+	class ColorTexture2D;
+	class ColorTexture3D;
+	class ArrayColorTexture1D;
+	class ArrayColorTexture2D;
 	class Window;
 
 	/** @ingroup graphics

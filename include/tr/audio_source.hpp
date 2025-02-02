@@ -1,10 +1,11 @@
 #pragma once
 #include "angle.hpp"
-#include "audio_buffer.hpp"
 #include "chrono.hpp"
-#include <glm/glm.hpp>
+#include "handle.hpp"
 
 namespace tr {
+	class AudioBufferView;
+
 	/** @ingroup audio
 	 *  @defgroup audio_source Audio Source
 	 *  Audio source class and related functionality.

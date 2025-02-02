@@ -1,7 +1,5 @@
 #pragma once
 #include "listener.hpp"
-#include <memory>
-#include <stdexcept>
 
 struct ALCdevice;
 struct ALCcontext;

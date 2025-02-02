@@ -1,10 +1,5 @@
 #pragma once
 #include "handle.hpp"
-#include "ranges.hpp"
-#include <cstdint>
-#include <optional>
-#include <span>
-#include <string_view>
 
 namespace tr {
 	class GraphicsBufferMap;

@@ -1,9 +1,5 @@
 #pragma once
 #include "handle.hpp"
-#include <cstdint>
-#include <span>
-#include <string_view>
-#include <variant>
 
 namespace tr {
 	/** @ingroup graphics

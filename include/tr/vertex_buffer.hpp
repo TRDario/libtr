@@ -1,6 +1,5 @@
 #pragma once
 #include "graphics_buffer.hpp"
-#include <string>
 
 namespace tr {
 	/** @ingroup graphics

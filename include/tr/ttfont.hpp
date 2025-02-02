@@ -1,11 +1,13 @@
 #pragma once
-#include "bitmap.hpp"
-#include "dependencies/EnumBitmask.hpp"
+#include "color.hpp"
+#include "iostream.hpp"
 #include "sdl.hpp"
 
 struct TTF_Font;
 
 namespace tr {
+	class Bitmap;
+
 	/** @ingroup system
 	 *  @defgroup ttfont Font
 	 *  TrueType font class and related functionality.

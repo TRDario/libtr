@@ -1,4 +1,6 @@
+#include "../include/tr/bitmap.hpp"
 #include "../include/tr/framebuffer.hpp"
+#include "../include/tr/texture.hpp"
 #include "../include/tr/window.hpp"
 #include "bitmap_to_gl_format.hpp"
 #include "gl_call.hpp"

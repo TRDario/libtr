@@ -1,6 +1,5 @@
 #include "../include/tr/listener.hpp"
 #include <AL/al.h>
-#include <glm/ext.hpp>
 
 float tr::Listener::gain() const noexcept
 {

@@ -1,6 +1,5 @@
 #include "../include/tr/audio_system.hpp"
 #include <AL/alc.h>
-#include <format>
 
 namespace tr {
 	AudioSystem* _audioSystem{nullptr};

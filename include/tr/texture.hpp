@@ -1,8 +1,10 @@
 #pragma once
-#include "bitmap.hpp"
+#include "color.hpp"
+#include "geometry.hpp"
 #include "handle.hpp"
 
 namespace tr {
+	class SubBitmap;
 	class Texture;
 	namespace ImGui {
 		std::uint64_t getTextureID(const Texture& texture) noexcept;
@@ -426,7 +428,7 @@ namespace tr {
 		 * @param[in] size The size of the region to clear.
 		 * @param[in] color The color to clear the region to.
 		 **************************************************************************************************************/
-		void clearRegion(int offset, int size, const tr::RGBAF& color) noexcept;
+		void clearRegion(int offset, int size, const RGBAF& color) noexcept;
 
 		/**************************************************************************************************************
 		 * Copies a region from another texture.
@@ -516,7 +518,7 @@ namespace tr {
 		 * @param[in] rect The region to clear.
 		 * @param[in] color The color to clear the region to.
 		 **************************************************************************************************************/
-		void clearRegion(const RectI2& rect, const tr::RGBAF& color) noexcept;
+		void clearRegion(const RectI2& rect, const RGBAF& color) noexcept;
 
 		/**************************************************************************************************************
 		 * Copies a region from another texture.
@@ -590,7 +592,7 @@ namespace tr {
 		 * @param[in] rect The region to clear.
 		 * @param[in] color The color to clear the region to.
 		 **************************************************************************************************************/
-		void clearRegion(const RectI2& rect, const tr::RGBAF& color) noexcept;
+		void clearRegion(const RectI2& rect, const RGBAF& color) noexcept;
 
 		/**************************************************************************************************************
 		 * Copies a region from another texture.
@@ -679,7 +681,7 @@ namespace tr {
 		 * @param[in] rect The region to clear (layers are treated as the Z coordinate).
 		 * @param[in] color The color to clear the region to.
 		 **************************************************************************************************************/
-		void clearRegion(const RectI3& rect, const tr::RGBAF& color) noexcept;
+		void clearRegion(const RectI3& rect, const RGBAF& color) noexcept;
 
 		/**************************************************************************************************************
 		 * Copies a region from another texture.
@@ -761,7 +763,7 @@ namespace tr {
 		 * @param[in] rect The region to clear.
 		 * @param[in] color The color to clear the region to.
 		 **************************************************************************************************************/
-		void clearRegion(const RectI3& rect, const tr::RGBAF& color) noexcept;
+		void clearRegion(const RectI3& rect, const RGBAF& color) noexcept;
 
 		/**************************************************************************************************************
 		 * Copies a region from another texture.

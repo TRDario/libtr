@@ -1,10 +1,5 @@
 #pragma once
 #include "concepts.hpp"
-#include <cassert>
-#include <functional>
-#include <tuple>
-#include <type_traits>
-#include <utility>
 
 namespace tr {
 	/** @ingroup misc

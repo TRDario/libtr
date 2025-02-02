@@ -1,3 +1,4 @@
+#include "../include/tr/bitmap.hpp"
 #include "../include/tr/texture.hpp"
 #include "bitmap_to_gl_format.hpp"
 #include "gl_call.hpp"

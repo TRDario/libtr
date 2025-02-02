@@ -1,6 +1,5 @@
 #pragma once
 #include "angle.hpp"
-#include <numbers>
 
 template <tr::AngleBase T>
 constexpr tr::Angle<T>::Angle(T rads) noexcept

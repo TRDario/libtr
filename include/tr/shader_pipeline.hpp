@@ -1,6 +1,5 @@
 #pragma once
 #include "shader.hpp"
-#include <string_view>
 
 namespace tr {
 	/** @ingroup graphics

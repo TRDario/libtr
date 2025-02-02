@@ -1,6 +1,5 @@
 #pragma once
-#include <exception>
-#include <filesystem>
+#include "common.hpp"
 
 namespace tr {
 	/** @ingroup system

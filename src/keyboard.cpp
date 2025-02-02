@@ -1,7 +1,5 @@
 #include "../include/tr/keyboard.hpp"
 #include <SDL2/SDL.h>
-#include <cassert>
-#include <memory>
 
 tr::Scancode::Scancode(Enum base) noexcept
 	: _enum{base}

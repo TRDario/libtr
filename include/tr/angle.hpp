@@ -1,6 +1,5 @@
 #pragma once
 #include "concepts.hpp"
-#include <concepts>
 
 namespace tr {
 	/** @defgroup misc Miscellaneous

@@ -1,8 +1,7 @@
-#include "../include/tr/ranges.hpp"
 #include "../include/tr/shader.hpp"
+#include "../include/tr/shader_buffer.hpp"
+#include "../include/tr/texture_unit.hpp"
 #include "gl_call.hpp"
-#include <format>
-#include <glm/ext.hpp>
 
 namespace tr {
 	// Loads, compiles and links a shader program. Returns 0 on failure.

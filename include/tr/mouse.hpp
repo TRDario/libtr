@@ -1,9 +1,11 @@
 #pragma once
-#include "bitmap.hpp"
+#include "ranges.hpp"
 
 struct SDL_Cursor;
 
 namespace tr {
+	class Bitmap;
+	class BitmapView;
 	class Cursor;
 
 	/** @ingroup system

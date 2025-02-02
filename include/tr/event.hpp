@@ -1,14 +1,14 @@
 #pragma once
+#include "chrono.hpp"
 #include "display.hpp"
 #include "keyboard.hpp"
 #include "mouse.hpp"
 #include "sdl.hpp"
-#include "timer.hpp"
-#include <any>
 
 namespace tr {
 	class Event;
 	class EventQueue;
+	class Timer;
 
 	/** @ingroup system
 	 *  @defgroup event Events

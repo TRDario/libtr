@@ -1,7 +1,5 @@
 #pragma once
-#include "dependencies/EnumBitmask.hpp"
-#include <cstdint>
-#include <string>
+#include "common.hpp"
 
 namespace tr {
 	class Keycode;

@@ -1,3 +1,4 @@
+#include "../include/tr/texture.hpp"
 #include "../include/tr/texture_unit.hpp"
 #include "gl_call.hpp"
 #include <bitset>

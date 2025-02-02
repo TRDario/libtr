@@ -1,8 +1,12 @@
+#include "../include/tr/framebuffer.hpp"
 #include "../include/tr/graphics_context.hpp"
+#include "../include/tr/index_buffer.hpp"
+#include "../include/tr/shader_pipeline.hpp"
+#include "../include/tr/vertex_buffer.hpp"
+#include "../include/tr/vertex_format.hpp"
 #include "../include/tr/window.hpp"
 #include "gl_call.hpp"
 #include <SDL2/SDL.h>
-#include <format>
 
 namespace tr {
 	// Initializes the GL context and GLEW.

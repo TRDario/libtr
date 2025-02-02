@@ -1,7 +1,5 @@
 #pragma once
 #include "angle.hpp"
-#include "concepts.hpp"
-#include <cstdint>
 
 namespace tr {
 	/** @ingroup misc

@@ -1,8 +1,5 @@
 #pragma once
 #include "concepts.hpp"
-#include <cassert>
-#include <ranges>
-#include <span>
 
 namespace tr {
 	/** @ingroup misc
@@ -88,7 +85,7 @@ namespace tr {
 	 *
 	 * @return An adaptor for the projection transformer.
 	 ******************************************************************************************************************/
-	template <class R> constexpr auto project(auto R::*ptr) noexcept;
+	template <class R> constexpr auto project(auto R::* ptr) noexcept;
 
 	/******************************************************************************************************************
 	 * Creates a transformed view over a range as a range of one of its members.
@@ -101,7 +98,7 @@ namespace tr {
 	 * @return The transformed view.
 	 ******************************************************************************************************************/
 	template <std::ranges::range R>
-	constexpr auto project(R&& range, auto std::ranges::range_value_t<R>::*ptr) noexcept;
+	constexpr auto project(R&& range, auto std::ranges::range_value_t<R>::* ptr) noexcept;
 
 	/// @}
 } // namespace tr
@@ -152,12 +149,13 @@ template <tr::StandardLayout T, std::size_t S> auto tr::asObjects(std::span<cons
 	}
 }
 
-template <class R> constexpr auto tr::project(auto R::*ptr) noexcept
+template <class R> constexpr auto tr::project(auto R::* ptr) noexcept
 {
 	return std::views::transform([=](auto&& val) -> auto&& { return val.*ptr; });
 }
 
-template <std::ranges::range R> constexpr auto tr::project(R&& range, auto std::ranges::range_value_t<R>::*ptr) noexcept
+template <std::ranges::range R>
+constexpr auto tr::project(R&& range, auto std::ranges::range_value_t<R>::* ptr) noexcept
 {
 	return std::views::transform(std::forward<R&&>(range), [=](auto&& val) -> auto&& { return val.*ptr; });
 }

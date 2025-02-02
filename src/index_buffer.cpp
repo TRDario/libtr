@@ -1,6 +1,5 @@
 #include "../include/tr/index_buffer.hpp"
 #include "../include/tr/ranges.hpp"
-#include <magic_enum/magic_enum.hpp>
 
 using namespace magic_enum::bitwise_operators;
 

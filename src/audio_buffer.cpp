@@ -1,6 +1,5 @@
 #include "../include/tr/audio_buffer.hpp"
 #include <AL/al.h>
-#include <format>
 #include <sndfile.h>
 
 #ifdef _WIN32

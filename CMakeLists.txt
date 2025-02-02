@@ -3,7 +3,7 @@ if(POLICY CMP0167)
   cmake_policy(SET CMP0167 NEW)
 endif()
 
-project(tr LANGUAGES C CXX VERSION 0.1.0)
+project(tr LANGUAGES CXX VERSION 0.1.0)
 
 option(TR_ENABLE_INSTALL "whether to enable the install rule" ON)
 option(TR_DEAR_IMGUI_INTEGRATION "whether to include Dear ImGui integration" OFF)
@@ -58,6 +58,7 @@ target_sources(tr PUBLIC
         include/tr/texture.hpp include/tr/timer.hpp include/tr/tr.hpp include/tr/ttfont.hpp include/tr/utf8.hpp
         include/tr/vertex_buffer.hpp include/tr/vertex_format.hpp include/tr/vertex.hpp include/tr/window.hpp
 )
+target_precompile_headers(tr PRIVATE include/tr/common.hpp include/tr/color.hpp include/tr/geometry.hpp include/tr/ranges.hpp)
 
 if(TR_DEAR_IMGUI_INTEGRATION)
     target_sources(tr PUBLIC

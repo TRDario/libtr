@@ -1,8 +1,8 @@
+#include "../include/tr/bitmap.hpp"
 #include "../include/tr/window.hpp"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
-#include <format>
 
 namespace tr {
 	Window* _window{nullptr};

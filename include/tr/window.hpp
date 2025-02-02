@@ -1,9 +1,8 @@
 #pragma once
-#include "bitmap.hpp"
 #include "event.hpp"
 #include "framebuffer.hpp"
 #include "graphics_context.hpp"
-#include "mouse.hpp"
+#include "handle.hpp"
 #include "sdl.hpp"
 
 struct SDL_Window;

@@ -1,5 +1,5 @@
 #pragma once
-#include <chrono>
+#include "common.hpp"
 
 namespace tr {
 	/** @ingroup misc

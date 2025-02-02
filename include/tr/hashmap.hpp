@@ -1,5 +1,4 @@
 #pragma once
-#define BOOST_STATIC_STRING_STANDALONE
 #include "concepts.hpp"
 
 namespace tr {

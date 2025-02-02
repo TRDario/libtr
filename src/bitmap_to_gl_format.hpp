@@ -1,8 +1,7 @@
 #pragma once
 #include "../include/tr/bitmap_format.hpp"
+#include "../include/tr/common.hpp"
 #include "gl_call.hpp"
-#include <cassert>
-#include <utility>
 
 namespace tr {
 	inline std::pair<GLenum, GLenum> bitmapToGLFormat(BitmapFormat format) noexcept;

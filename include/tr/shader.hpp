@@ -1,8 +1,11 @@
 #pragma once
-#include "shader_buffer.hpp"
-#include "texture_unit.hpp"
+#include "handle.hpp"
+#include "iostream.hpp"
 
 namespace tr {
+	class ShaderBuffer;
+	class TextureUnit;
+
 	/** @ingroup graphics
 	 *  @defgroup shader Shader
 	 *  Shader class and related functionality.

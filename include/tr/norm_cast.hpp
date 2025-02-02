@@ -1,7 +1,5 @@
 #pragma once
 #include "concepts.hpp"
-#include <cassert>
-#include <limits>
 
 namespace tr {
 	/** @ingroup misc
@@ -54,6 +52,7 @@ namespace tr {
 template <tr::FloatingPoint To, tr::FloatingPoint From> constexpr To tr::norm_cast(From from) noexcept
 {
 	assert(from >= 0 && from <= 1);
+
 	return static_cast<To>(from);
 }
 

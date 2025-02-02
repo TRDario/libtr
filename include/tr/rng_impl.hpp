@@ -1,6 +1,5 @@
 #pragma once
 #include "rng.hpp"
-#include <cassert>
 
 constexpr tr::Xorshiftr128p::Xorshiftr128p(std::uint64_t seed) noexcept
 	: _state{seed++ >> 32, seed << 32}

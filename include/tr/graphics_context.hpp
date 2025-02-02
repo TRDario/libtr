@@ -1,10 +1,6 @@
 #pragma once
-#include "dependencies/EnumBitmask.hpp"
-#include "framebuffer.hpp"
-#include "index_buffer.hpp"
-#include "shader_pipeline.hpp"
-#include "vertex_buffer.hpp"
-#include "vertex_format.hpp"
+#include "color.hpp"
+#include "geometry.hpp"
 
 struct SDL_Window;
 
@@ -13,6 +9,13 @@ namespace tr::ImGui {
 }
 
 namespace tr {
+	class BasicFramebuffer;
+	class ShaderPipeline;
+	class VertexFormat;
+	class VertexBuffer;
+	class IndexBuffer;
+	enum class Compare;
+
 	/** @ingroup system
 	 *  @defgroup graphics Graphics
 	 *  Graphics context manipulation and drawing functionality.

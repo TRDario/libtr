@@ -1,8 +1,5 @@
 #pragma once
 #include "angle.hpp"
-#include <glm/ext.hpp>
-#include <glm/glm.hpp>
-#include <optional>
 
 namespace tr {
 	/** @ingroup misc

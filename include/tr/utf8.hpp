@@ -1,10 +1,5 @@
 #pragma once
-#include <cassert>
-#include <compare>
-#include <cstddef>
-#include <cstdint>
-#include <ranges>
-#include <string_view>
+#include "common.hpp"
 
 namespace tr {
 	/** @ingroup misc
