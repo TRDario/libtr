@@ -345,9 +345,11 @@ namespace tr {
 		void clear(const RGBAF& color) noexcept;
 
 	  protected:
+		/// @cond IMPLEMENTATION
 		using Texture::Texture;
 
 		void clearRegion(const RectI3& region, const RGBAF& color) noexcept;
+		/// @endcond
 	};
 
 	// struct DepthTexture : Texture {
