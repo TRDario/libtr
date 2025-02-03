@@ -85,7 +85,7 @@ void tr::Framebuffer::attach(ColorTexture1D& tex, int slot) noexcept
 {
 	assert(slot >= 0 && slot < 8);
 
-	TR_GL_CALL(glNamedFramebufferTexture, _id, slot, static_cast<Texture&>(tex)._id.get(), 0);
+	TR_GL_CALL(glNamedFramebufferTexture, _id, GL_COLOR_ATTACHMENT0 + slot, static_cast<Texture&>(tex)._id.get(), 0);
 	_attachSizes[slot] = {tex.size(), 1};
 	calcSize();
 }
@@ -95,7 +95,8 @@ void tr::Framebuffer::attach(ArrayColorTexture1D& tex, int layer, int slot) noex
 	assert(slot >= 0 && slot < 8);
 	assert(layer >= 0 && layer < tex.layers());
 
-	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, slot, static_cast<Texture&>(tex)._id.get(), 0, layer);
+	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, GL_COLOR_ATTACHMENT0 + slot, static_cast<Texture&>(tex)._id.get(),
+			   0, layer);
 	_attachSizes[slot] = {tex.size(), 1};
 	calcSize();
 }
@@ -104,7 +105,7 @@ void tr::Framebuffer::attach(ColorTexture2D& tex, int slot) noexcept
 {
 	assert(slot >= 0 && slot < 8);
 
-	TR_GL_CALL(glNamedFramebufferTexture, _id, slot, static_cast<Texture&>(tex)._id.get(), 0);
+	TR_GL_CALL(glNamedFramebufferTexture, _id, GL_COLOR_ATTACHMENT0 + slot, static_cast<Texture&>(tex)._id.get(), 0);
 	_attachSizes[slot] = tex.size();
 	calcSize();
 }
@@ -114,7 +115,8 @@ void tr::Framebuffer::attach(ArrayColorTexture2D& tex, int layer, int slot) noex
 	assert(slot >= 0 && slot < 8);
 	assert(layer >= 0 && layer < tex.layers());
 
-	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, slot, static_cast<Texture&>(tex)._id.get(), 0, layer);
+	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, GL_COLOR_ATTACHMENT0 + slot, static_cast<Texture&>(tex)._id.get(),
+			   0, layer);
 	_attachSizes[slot] = tex.size();
 	calcSize();
 }
@@ -124,7 +126,8 @@ void tr::Framebuffer::attach(ColorTexture3D& tex, int z, int slot) noexcept
 	assert(slot >= 0 && slot < 8);
 	assert(z >= 0 && z < tex.size().z);
 
-	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, slot, static_cast<Texture&>(tex)._id.get(), 0, z);
+	TR_GL_CALL(glNamedFramebufferTextureLayer, _id, GL_COLOR_ATTACHMENT0 + slot, static_cast<Texture&>(tex)._id.get(),
+			   0, z);
 	_attachSizes[slot] = {tex.size().x, tex.size().y};
 	calcSize();
 }
@@ -133,7 +136,7 @@ void tr::Framebuffer::clear(int slot) noexcept
 {
 	assert(slot >= 0 && slot < 8);
 
-	TR_GL_CALL(glNamedFramebufferTexture, _id, slot, 0, 0);
+	TR_GL_CALL(glNamedFramebufferTexture, _id, GL_COLOR_ATTACHMENT0 + slot, 0, 0);
 	_attachSizes[slot] = EMPTY_ATTACHMENT;
 	calcSize();
 }
