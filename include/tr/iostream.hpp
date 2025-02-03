@@ -231,7 +231,7 @@ template <tr::StandardLayoutRange Range> void tr::readBinaryRange(std::istream& 
 
 template <tr::BinaryFlushableIterator It> void tr::flushBinary(std::istream& is, It out)
 {
-	while (!is.eof()) {
+	while (is.peek() != EOF) {
 		if constexpr (std::output_iterator<It, char>) {
 			*out++ = static_cast<char>(is.get());
 		}
