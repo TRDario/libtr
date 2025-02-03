@@ -57,17 +57,17 @@ tr::Framebuffer::Framebuffer() noexcept
 }
 
 tr::Framebuffer::Framebuffer(Framebuffer&& r) noexcept
-	: BasicFramebuffer{r}, _attachSizes{r._attachSizes}, _size{r._size}
+	: BasicFramebuffer{r._id}, _attachSizes{r._attachSizes}, _size{r._size}
 {
 	r._id = 0;
 }
 
 tr::Framebuffer& tr::Framebuffer::operator=(Framebuffer&& r) noexcept
 {
-	Framebuffer temp{std::move(*this)};
+	std::ignore = Framebuffer{std::move(*this)};
 	std::swap(_id, r._id);
-	std::swap(_attachSizes, r._attachSizes);
-	std::swap(_size, r._size);
+	_attachSizes = r._attachSizes;
+	_size        = r._size;
 	return *this;
 }
 
