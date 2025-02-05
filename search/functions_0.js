@@ -21,6 +21,7 @@ var searchData=
   ['audio_18',['audio',['../group__audio__system.html#gaaca0122512499c4bd265f7357ccaaa04',1,'tr']]],
   ['audioactive_19',['audioActive',['../group__audio__system.html#gaa5f35c8a137531fb28267c6da7f9b0bd',1,'tr']]],
   ['audiobuffer_20',['AudioBuffer',['../classtr_1_1AudioBuffer.html#a4e69169af6c5aebd2b17146a49bcd6a1',1,'tr::AudioBuffer::AudioBuffer()'],['../classtr_1_1AudioBuffer.html#a8caacbcab381d4cde49a98c2b9d47db4',1,'tr::AudioBuffer::AudioBuffer(std::span&lt; const std::int16_t &gt; data, AudioFormat format, int frequency)'],['../classtr_1_1AudioBuffer.html#addc42f2a07dbf3f70f5746ad6bd1bb6c',1,'tr::AudioBuffer::AudioBuffer(AudioBuffer &amp;&amp;r) noexcept=default']]],
-  ['audiosystem_21',['AudioSystem',['../classtr_1_1AudioSystem.html#a16373dde0779e413bca5695f5f5fdbe8',1,'tr::AudioSystem']]],
-  ['average_22',['average',['../classtr_1_1Benchmark.html#a672c6dffc1bea90d7bafb4a768c9ab4c',1,'tr::Benchmark']]]
+  ['audiosource_21',['AudioSource',['../classtr_1_1AudioSource.html#a12740a36e2d94435845dc7478eee2122',1,'tr::AudioSource::AudioSource()'],['../classtr_1_1AudioSource.html#abaf955a3d8bf088ccdd81f2dc90ca379',1,'tr::AudioSource::AudioSource(AudioBufferView buffer)']]],
+  ['audiosystem_22',['AudioSystem',['../classtr_1_1AudioSystem.html#a16373dde0779e413bca5695f5f5fdbe8',1,'tr::AudioSystem']]],
+  ['average_23',['average',['../classtr_1_1Benchmark.html#a672c6dffc1bea90d7bafb4a768c9ab4c',1,'tr::Benchmark']]]
 ];

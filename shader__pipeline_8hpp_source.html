@@ -116,77 +116,76 @@ $(function(){initNavTree('shader__pipeline_8hpp_source.html',''); initResizable(
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;shader.hpp&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string_view&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetr.html">tr</a> {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span></div>
-<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderPipeline.html">   17</a></span>    <span class="keyword">class </span><a class="code hl_function" href="classtr_1_1ShaderPipeline.html#a97b39dd85970525568b659b17f5029a4">ShaderPipeline</a> {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>      <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderPipeline.html#a97b39dd85970525568b659b17f5029a4">   27</a></span>        <a class="code hl_function" href="classtr_1_1ShaderPipeline.html#a97b39dd85970525568b659b17f5029a4">ShaderPipeline</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>&amp; vertexShader, <span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>&amp; fragmentShader) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderPipeline.html#acc22c081966d36d420b4a42d95ab0f51">   34</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1ShaderPipeline.html#acc22c081966d36d420b4a42d95ab0f51">setLabel</a>(std::string_view label) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>      <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keyword">struct </span>Deleter {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordtype">void</span> operator()(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        };</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <a class="code hl_class" href="classtr_1_1Handle.html">Handle&lt;unsigned int, 0, Deleter&gt;</a> _id;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordtype">void</span> bind() const noexcept;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderPipeline.html#a8fffd8ec74983da6e71d9f81690cea11">   45</a></span>        friend class <a class="code hl_friend" href="classtr_1_1ShaderPipeline.html#a8fffd8ec74983da6e71d9f81690cea11">GraphicsContext</a>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    };</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetr.html">tr</a> {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span></div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderPipeline.html">   16</a></span>    <span class="keyword">class </span><a class="code hl_function" href="classtr_1_1ShaderPipeline.html#a97b39dd85970525568b659b17f5029a4">ShaderPipeline</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderPipeline.html#a97b39dd85970525568b659b17f5029a4">   26</a></span>        <a class="code hl_function" href="classtr_1_1ShaderPipeline.html#a97b39dd85970525568b659b17f5029a4">ShaderPipeline</a>(<span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>&amp; vertexShader, <span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>&amp; fragmentShader) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderPipeline.html#acc22c081966d36d420b4a42d95ab0f51">   33</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1ShaderPipeline.html#acc22c081966d36d420b4a42d95ab0f51">setLabel</a>(std::string_view label) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>      <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keyword">struct </span>Deleter {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <span class="keywordtype">void</span> operator()(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        };</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <a class="code hl_class" href="classtr_1_1Handle.html">Handle&lt;unsigned int, 0, Deleter&gt;</a> _id;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordtype">void</span> bind() const noexcept;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classtr_1_1ShaderPipeline.html#a8fffd8ec74983da6e71d9f81690cea11">   44</a></span>        friend class <a class="code hl_friend" href="classtr_1_1ShaderPipeline.html#a8fffd8ec74983da6e71d9f81690cea11">GraphicsContext</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    };</div>
 </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
-<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classtr_1_1OwningShaderPipeline.html">   53</a></span>    class <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#a5f0e8ce353a79671a12e1ba10b638256">OwningShaderPipeline</a> {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>      <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classtr_1_1OwningShaderPipeline.html#a5f0e8ce353a79671a12e1ba10b638256">   63</a></span>        <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#a5f0e8ce353a79671a12e1ba10b638256">OwningShaderPipeline</a>(<a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>&amp;&amp; <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#af1f56f28c624616e4fae9b21e9e00348">vertexShader</a>, <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>&amp;&amp; <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#a374853ed741e37a95a104c26bffe39bf">fragmentShader</a>) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classtr_1_1OwningShaderPipeline.html#a4b494e1b71ab8b33a6d408a3de0e8b8f">   70</a></span>        <span class="keyword">operator</span> <span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1ShaderPipeline.html">ShaderPipeline</a>&amp;() <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classtr_1_1OwningShaderPipeline.html#af1f56f28c624616e4fae9b21e9e00348">   77</a></span>        <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>&amp; <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#af1f56f28c624616e4fae9b21e9e00348">vertexShader</a>() noexcept;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classtr_1_1OwningShaderPipeline.html#a1b6e53aa7f676e7a4b77141631f09c6a">   84</a></span>        const <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>&amp; <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#af1f56f28c624616e4fae9b21e9e00348">vertexShader</a>() const noexcept;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classtr_1_1OwningShaderPipeline.html#a374853ed741e37a95a104c26bffe39bf">   91</a></span>        <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>&amp; <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#a374853ed741e37a95a104c26bffe39bf">fragmentShader</a>() noexcept;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="classtr_1_1OwningShaderPipeline.html#a5231a2cde9ae0b69683e0f2a07dbd28b">   98</a></span>        const <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>&amp; <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#a374853ed741e37a95a104c26bffe39bf">fragmentShader</a>() const noexcept;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classtr_1_1OwningShaderPipeline.html#a789cca0771eb146d446a061cce4cf288">  105</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#a789cca0771eb146d446a061cce4cf288">setLabel</a>(std::string_view label) noexcept;</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>      private:</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>         _vertexShader;</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>         _fragmentShader;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <a class="code hl_class" href="classtr_1_1ShaderPipeline.html">ShaderPipeline</a> _pipeline;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    };</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="};">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classtr_1_1OwningShaderPipeline.html">   52</a></span>    class <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#a5f0e8ce353a79671a12e1ba10b638256">OwningShaderPipeline</a> {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>      <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classtr_1_1OwningShaderPipeline.html#a5f0e8ce353a79671a12e1ba10b638256">   62</a></span>        <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#a5f0e8ce353a79671a12e1ba10b638256">OwningShaderPipeline</a>(<a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>&amp;&amp; <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#af1f56f28c624616e4fae9b21e9e00348">vertexShader</a>, <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>&amp;&amp; <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#a374853ed741e37a95a104c26bffe39bf">fragmentShader</a>) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classtr_1_1OwningShaderPipeline.html#a4b494e1b71ab8b33a6d408a3de0e8b8f">   69</a></span>        <span class="keyword">operator</span> <span class="keyword">const</span> <a class="code hl_class" href="classtr_1_1ShaderPipeline.html">ShaderPipeline</a>&amp;() <span class="keyword">const</span> <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classtr_1_1OwningShaderPipeline.html#af1f56f28c624616e4fae9b21e9e00348">   76</a></span>        <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>&amp; <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#af1f56f28c624616e4fae9b21e9e00348">vertexShader</a>() noexcept;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classtr_1_1OwningShaderPipeline.html#a1b6e53aa7f676e7a4b77141631f09c6a">   83</a></span>        const <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>&amp; <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#af1f56f28c624616e4fae9b21e9e00348">vertexShader</a>() const noexcept;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classtr_1_1OwningShaderPipeline.html#a374853ed741e37a95a104c26bffe39bf">   90</a></span>        <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>&amp; <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#a374853ed741e37a95a104c26bffe39bf">fragmentShader</a>() noexcept;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classtr_1_1OwningShaderPipeline.html#a5231a2cde9ae0b69683e0f2a07dbd28b">   97</a></span>        const <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>&amp; <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#a374853ed741e37a95a104c26bffe39bf">fragmentShader</a>() const noexcept;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classtr_1_1OwningShaderPipeline.html#a789cca0771eb146d446a061cce4cf288">  104</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classtr_1_1OwningShaderPipeline.html#a789cca0771eb146d446a061cce4cf288">setLabel</a>(std::string_view label) noexcept;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>      private:</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>         _vertexShader;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <a class="code hl_class" href="classtr_1_1Shader.html">Shader</a>         _fragmentShader;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <a class="code hl_class" href="classtr_1_1ShaderPipeline.html">ShaderPipeline</a> _pipeline;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    };</div>
 </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>} <span class="comment">// namespace tr</span></div>
-<div class="ttc" id="aclasstr_1_1Handle_html"><div class="ttname"><a href="classtr_1_1Handle.html">tr::Handle</a></div><div class="ttdoc">RAII wrapper over non-pointer handles.</div><div class="ttdef"><b>Definition</b> handle.hpp:60</div></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>} <span class="comment">// namespace tr</span></div>
+<div class="ttc" id="aclasstr_1_1Handle_html"><div class="ttname"><a href="classtr_1_1Handle.html">tr::Handle</a></div><div class="ttdoc">RAII wrapper over non-pointer handles.</div><div class="ttdef"><b>Definition</b> handle.hpp:55</div></div>
 <div class="ttc" id="aclasstr_1_1OwningShaderPipeline_html_a374853ed741e37a95a104c26bffe39bf"><div class="ttname"><a href="classtr_1_1OwningShaderPipeline.html#a374853ed741e37a95a104c26bffe39bf">tr::OwningShaderPipeline::fragmentShader</a></div><div class="ttdeci">Shader &amp; fragmentShader() noexcept</div><div class="ttdoc">Gets the fragment shader.</div></div>
 <div class="ttc" id="aclasstr_1_1OwningShaderPipeline_html_a5f0e8ce353a79671a12e1ba10b638256"><div class="ttname"><a href="classtr_1_1OwningShaderPipeline.html#a5f0e8ce353a79671a12e1ba10b638256">tr::OwningShaderPipeline::OwningShaderPipeline</a></div><div class="ttdeci">OwningShaderPipeline(Shader &amp;&amp;vertexShader, Shader &amp;&amp;fragmentShader) noexcept</div><div class="ttdoc">Creates an owning shader pipeline.</div></div>
 <div class="ttc" id="aclasstr_1_1OwningShaderPipeline_html_a789cca0771eb146d446a061cce4cf288"><div class="ttname"><a href="classtr_1_1OwningShaderPipeline.html#a789cca0771eb146d446a061cce4cf288">tr::OwningShaderPipeline::setLabel</a></div><div class="ttdeci">void setLabel(std::string_view label) noexcept</div><div class="ttdoc">Sets the debug label of the pipeline.</div></div>
 <div class="ttc" id="aclasstr_1_1OwningShaderPipeline_html_af1f56f28c624616e4fae9b21e9e00348"><div class="ttname"><a href="classtr_1_1OwningShaderPipeline.html#af1f56f28c624616e4fae9b21e9e00348">tr::OwningShaderPipeline::vertexShader</a></div><div class="ttdeci">Shader &amp; vertexShader() noexcept</div><div class="ttdoc">Gets the vertex shader.</div></div>
-<div class="ttc" id="aclasstr_1_1ShaderPipeline_html"><div class="ttname"><a href="classtr_1_1ShaderPipeline.html">tr::ShaderPipeline</a></div><div class="ttdoc">Shader program pipeline.</div><div class="ttdef"><b>Definition</b> shader_pipeline.hpp:17</div></div>
-<div class="ttc" id="aclasstr_1_1ShaderPipeline_html_a8fffd8ec74983da6e71d9f81690cea11"><div class="ttname"><a href="classtr_1_1ShaderPipeline.html#a8fffd8ec74983da6e71d9f81690cea11">tr::ShaderPipeline::GraphicsContext</a></div><div class="ttdeci">friend class GraphicsContext</div><div class="ttdef"><b>Definition</b> shader_pipeline.hpp:45</div></div>
+<div class="ttc" id="aclasstr_1_1ShaderPipeline_html"><div class="ttname"><a href="classtr_1_1ShaderPipeline.html">tr::ShaderPipeline</a></div><div class="ttdoc">Shader program pipeline.</div><div class="ttdef"><b>Definition</b> shader_pipeline.hpp:16</div></div>
+<div class="ttc" id="aclasstr_1_1ShaderPipeline_html_a8fffd8ec74983da6e71d9f81690cea11"><div class="ttname"><a href="classtr_1_1ShaderPipeline.html#a8fffd8ec74983da6e71d9f81690cea11">tr::ShaderPipeline::GraphicsContext</a></div><div class="ttdeci">friend class GraphicsContext</div><div class="ttdef"><b>Definition</b> shader_pipeline.hpp:44</div></div>
 <div class="ttc" id="aclasstr_1_1ShaderPipeline_html_a97b39dd85970525568b659b17f5029a4"><div class="ttname"><a href="classtr_1_1ShaderPipeline.html#a97b39dd85970525568b659b17f5029a4">tr::ShaderPipeline::ShaderPipeline</a></div><div class="ttdeci">ShaderPipeline(const Shader &amp;vertexShader, const Shader &amp;fragmentShader) noexcept</div><div class="ttdoc">Creates a shader pipeline.</div></div>
 <div class="ttc" id="aclasstr_1_1ShaderPipeline_html_acc22c081966d36d420b4a42d95ab0f51"><div class="ttname"><a href="classtr_1_1ShaderPipeline.html#acc22c081966d36d420b4a42d95ab0f51">tr::ShaderPipeline::setLabel</a></div><div class="ttdeci">void setLabel(std::string_view label) noexcept</div><div class="ttdoc">Sets the debug label of the pipeline.</div></div>
-<div class="ttc" id="aclasstr_1_1Shader_html"><div class="ttname"><a href="classtr_1_1Shader.html">tr::Shader</a></div><div class="ttdoc">GPU shader program.</div><div class="ttdef"><b>Definition</b> shader.hpp:40</div></div>
-<div class="ttc" id="anamespacetr_html"><div class="ttname"><a href="namespacetr.html">tr</a></div><div class="ttdoc">Namespace containing all libtr functionality.</div><div class="ttdef"><b>Definition</b> angle.hpp:5</div></div>
+<div class="ttc" id="aclasstr_1_1Shader_html"><div class="ttname"><a href="classtr_1_1Shader.html">tr::Shader</a></div><div class="ttdoc">GPU shader program.</div><div class="ttdef"><b>Definition</b> shader.hpp:43</div></div>
+<div class="ttc" id="anamespacetr_html"><div class="ttname"><a href="namespacetr.html">tr</a></div><div class="ttdoc">Namespace containing all libtr functionality.</div><div class="ttdef"><b>Definition</b> angle.hpp:4</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

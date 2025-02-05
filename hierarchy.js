@@ -9,6 +9,7 @@ var hierarchy =
     [ "tr::ARGB_Ui32_2_10_10_10", "structtr_1_1ARGB__Ui32__2__10__10__10.html", null ],
     [ "tr::AudioBuffer", "classtr_1_1AudioBuffer.html", null ],
     [ "tr::AudioBufferView", "classtr_1_1AudioBufferView.html", null ],
+    [ "tr::AudioSource", "classtr_1_1AudioSource.html", null ],
     [ "tr::AudioSystem", "classtr_1_1AudioSystem.html", null ],
     [ "tr::B< T >", "structtr_1_1B.html", null ],
     [ "tr::BasicFramebuffer", "classtr_1_1BasicFramebuffer.html", [
@@ -45,6 +46,7 @@ var hierarchy =
     [ "std::exception", null, [
       [ "std::bad_alloc", null, [
         [ "tr::AudioBufferBadAlloc", "structtr_1_1AudioBufferBadAlloc.html", null ],
+        [ "tr::AudioSourceBadAlloc", "structtr_1_1AudioSourceBadAlloc.html", null ],
         [ "tr::BitmapBadAlloc", "structtr_1_1BitmapBadAlloc.html", null ],
         [ "tr::CursorBadAlloc", "structtr_1_1CursorBadAlloc.html", null ],
         [ "tr::GraphicsBufferBadAlloc", "structtr_1_1GraphicsBufferBadAlloc.html", null ],

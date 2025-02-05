@@ -56,13 +56,14 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classtr_1_1Bitmap_1_1PixelRef.html#a91376fae63927ead9c54625ccdecc97e",
-"classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a853f8ded7a96b5a765704974e6a3ca96",
-"classtr_1_1Shader.html#aaa50a3daf6f5d1fdd906e12628b4f23a",
-"concepttr_1_1AngleBase.html",
-"group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fabb2fe5c916efb43aab8cbb68f997d2ee",
-"namespacemembers_o.html",
-"structtr_1_1HSV.html#a637352bb0de0defa6d9bf8724cea50a4"
+"classtr_1_1BitmapView.html#a512b1862a22fbedcdb1e5cee3e8a4aee",
+"classtr_1_1Keycode.html#ad07f16e91373bf58c647cf4ca113ae88a2e6edb38f454ce4d1903cb0353e2394c",
+"classtr_1_1Shader.html#a0d0612f23bbce16739051347dae2facd",
+"classtr_1_1Window.html#a4ae3a7a39eb676d91e51c10764e92ce2",
+"group__geometry.html#ga8a827623b51153bdb19d62d1ec2a317f",
+"group__texture__unit.html",
+"structtr_1_1BlendMode.html#abb86ded01daaa9c6a9e98bcbdc1300bb",
+"structtr_1_1VertexAttributeI.html#a8610f928ad3245436853fe984198383a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

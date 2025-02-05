@@ -179,6 +179,12 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1AudioBufferView.html">AudioBufferView</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-owning audio buffer view.  <a href="classtr_1_1AudioBufferView.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1AudioSource.html">AudioSource</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D Audio source.  <a href="classtr_1_1AudioSource.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtr_1_1AudioSourceBadAlloc.html">AudioSourceBadAlloc</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error thrown when allocating an audio source fails.  <a href="structtr_1_1AudioSourceBadAlloc.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtr_1_1AudioSystem.html">AudioSystem</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio device and context manager required for using audio classes.  <a href="classtr_1_1AudioSystem.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -759,6 +765,18 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ga0cd93ec18a3882266f1c6cd2657e7cfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio data format.  <a href="group__audio__buffer.html#ga0cd93ec18a3882266f1c6cd2657e7cfe">More...</a><br /></td></tr>
 <tr class="separator:ga0cd93ec18a3882266f1c6cd2657e7cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac94c6d9def358bc33348c409be0a151a" id="r_gac94c6d9def358bc33348c409be0a151a"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__audio__source.html#gac94c6d9def358bc33348c409be0a151a">AudioOrigin</a> : bool { <a class="el" href="group__audio__source.html#ggac94c6d9def358bc33348c409be0a151aa3a0bc063b6db8cae0361657958be836f">AudioOrigin::ABSOLUTE</a>
+, <a class="el" href="group__audio__source.html#ggac94c6d9def358bc33348c409be0a151aa2a00683857d97bace1f195120c3eb4fb">AudioOrigin::LISTENER</a>
+ }</td></tr>
+<tr class="memdesc:gac94c6d9def358bc33348c409be0a151a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio source position origin types.  <a href="group__audio__source.html#gac94c6d9def358bc33348c409be0a151a">More...</a><br /></td></tr>
+<tr class="separator:gac94c6d9def358bc33348c409be0a151a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6c94829f0dfe0e9696cc57a3c7aff830" id="r_ga6c94829f0dfe0e9696cc57a3c7aff830"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__audio__source.html#ga6c94829f0dfe0e9696cc57a3c7aff830">AudioState</a> : std::uint8_t { <a class="el" href="group__audio__source.html#gga6c94829f0dfe0e9696cc57a3c7aff830a91d26e4b2b105c74655093c9becd30b7">AudioState::INITIAL</a>
+, <a class="el" href="group__audio__source.html#gga6c94829f0dfe0e9696cc57a3c7aff830a50366a49630a416ab3ccaa004196027e">AudioState::PLAYING</a>
+, <a class="el" href="group__audio__source.html#gga6c94829f0dfe0e9696cc57a3c7aff830a99b2439e63f73ad515f7ab2447a80673">AudioState::PAUSED</a>
+, <a class="el" href="group__audio__source.html#gga6c94829f0dfe0e9696cc57a3c7aff830a09d4d696b4e935115b9313e3c412509a">AudioState::STOPPED</a>
+ }</td></tr>
+<tr class="memdesc:ga6c94829f0dfe0e9696cc57a3c7aff830"><td class="mdescLeft">&#160;</td><td class="mdescRight">Audio source states.  <a href="group__audio__source.html#ga6c94829f0dfe0e9696cc57a3c7aff830">More...</a><br /></td></tr>
+<tr class="separator:ga6c94829f0dfe0e9696cc57a3c7aff830"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae1a255c2dd97c61884a0c90d6e7aae8f" id="r_gae1a255c2dd97c61884a0c90d6e7aae8f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__graphics__context.html#gae1a255c2dd97c61884a0c90d6e7aae8f">StencilFace</a> { <a class="el" href="group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fabb2fe5c916efb43aab8cbb68f997d2ee">StencilFace::FRONT</a> = 0x404
 , <a class="el" href="group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fa1dd26f1f1790f0b56d5752fb0fbecef0">StencilFace::BACK</a> = 0x405
 , <a class="el" href="group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fa6328e5e3186c227a021ef2ff77e40197">StencilFace::BOTH</a> = 0x408
@@ -1572,6 +1590,12 @@ requires SpecializationOf&lt;From, <a class="el" href="structtr_1_1RGBA.html">RG
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:gae9d633f69281a1e21914af48238b4e8d" id="r_gae9d633f69281a1e21914af48238b4e8d"><td class="memItemLeft" align="right" valign="top">constexpr glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__audio__source.html#gae9d633f69281a1e21914af48238b4e8d">OMNIDIRECTIONAL</a> {0, 0, 0}</td></tr>
+<tr class="memdesc:gae9d633f69281a1e21914af48238b4e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">0-length direction vector representing an omnidirectional audio source.  <br /></td></tr>
+<tr class="separator:gae9d633f69281a1e21914af48238b4e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6340a356507e099bafcf3cdfe72dcc52" id="r_ga6340a356507e099bafcf3cdfe72dcc52"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__audio__source.html#ga6340a356507e099bafcf3cdfe72dcc52">UNQUEUE_PROCESSED</a> {std::numeric_limits&lt;std::size_t&gt;().max()}</td></tr>
+<tr class="memdesc:ga6340a356507e099bafcf3cdfe72dcc52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sentinel value that tells the unqueueBuffers function to unqueue all processed buffers.  <br /></td></tr>
+<tr class="separator:ga6340a356507e099bafcf3cdfe72dcc52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad6f655f03f325a9e44c1d39e1a25728e" id="r_gad6f655f03f325a9e44c1d39e1a25728e"><td class="memItemLeft" align="right" valign="top">constexpr std::uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__event.html#gad6f655f03f325a9e44c1d39e1a25728e">USER_EVENT_START</a> {0x9000}</td></tr>
 <tr class="memdesc:gad6f655f03f325a9e44c1d39e1a25728e"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID of the first user defined event.  <br /></td></tr>
 <tr class="separator:gad6f655f03f325a9e44c1d39e1a25728e"><td class="memSeparator" colspan="2">&#160;</td></tr>

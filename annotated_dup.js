@@ -13,6 +13,8 @@ var annotated_dup =
       [ "AudioBuffer", "classtr_1_1AudioBuffer.html", "classtr_1_1AudioBuffer" ],
       [ "AudioBufferBadAlloc", "structtr_1_1AudioBufferBadAlloc.html", "structtr_1_1AudioBufferBadAlloc" ],
       [ "AudioBufferView", "classtr_1_1AudioBufferView.html", "classtr_1_1AudioBufferView" ],
+      [ "AudioSource", "classtr_1_1AudioSource.html", "classtr_1_1AudioSource" ],
+      [ "AudioSourceBadAlloc", "structtr_1_1AudioSourceBadAlloc.html", "structtr_1_1AudioSourceBadAlloc" ],
       [ "AudioSystem", "classtr_1_1AudioSystem.html", "classtr_1_1AudioSystem" ],
       [ "AudioSystemInitializationError", "structtr_1_1AudioSystemInitializationError.html", null ],
       [ "B", "structtr_1_1B.html", "structtr_1_1B" ],

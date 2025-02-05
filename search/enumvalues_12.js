@@ -24,6 +24,7 @@ var searchData=
   ['srgba8_21',['SRGBA8',['../group__texture.html#gga580f9cb4789f195655829a47c2b234b4aad2ecedf63a30a8f4201f44431d3e2f3',1,'tr']]],
   ['stencil_22',['STENCIL',['../group__graphics__context.html#ggaeaf2735d38842f598e12fe0e884992eda301b25ea9a653329b5d5d727f92514c4',1,'tr']]],
   ['stereo16_23',['STEREO16',['../group__audio__buffer.html#gga0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7',1,'tr']]],
-  ['strikethrough_24',['STRIKETHROUGH',['../classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06aad166989fa2b7da7d238b3e7105c64f8',1,'tr::TTFont']]],
-  ['subtract_25',['SUBTRACT',['../group__graphics__context.html#ggab02487840c576fc68a93203882127279a23ebcc4776b613af25dfbe7c8ce4813e',1,'tr']]]
+  ['stopped_24',['STOPPED',['../group__audio__source.html#gga6c94829f0dfe0e9696cc57a3c7aff830a09d4d696b4e935115b9313e3c412509a',1,'tr']]],
+  ['strikethrough_25',['STRIKETHROUGH',['../classtr_1_1TTFont.html#ae9e3791321570e21b34dc1578608df06aad166989fa2b7da7d238b3e7105c64f8',1,'tr::TTFont']]],
+  ['subtract_26',['SUBTRACT',['../group__graphics__context.html#ggab02487840c576fc68a93203882127279a23ebcc4776b613af25dfbe7c8ce4813e',1,'tr']]]
 ];

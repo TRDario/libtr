@@ -15,6 +15,8 @@ var searchData=
   ['audiobuffer_12',['AudioBuffer',['../classtr_1_1AudioBuffer.html',1,'tr']]],
   ['audiobufferbadalloc_13',['AudioBufferBadAlloc',['../structtr_1_1AudioBufferBadAlloc.html',1,'tr']]],
   ['audiobufferview_14',['AudioBufferView',['../classtr_1_1AudioBufferView.html',1,'tr']]],
-  ['audiosystem_15',['AudioSystem',['../classtr_1_1AudioSystem.html',1,'tr']]],
-  ['audiosysteminitializationerror_16',['AudioSystemInitializationError',['../structtr_1_1AudioSystemInitializationError.html',1,'tr']]]
+  ['audiosource_15',['AudioSource',['../classtr_1_1AudioSource.html',1,'tr']]],
+  ['audiosourcebadalloc_16',['AudioSourceBadAlloc',['../structtr_1_1AudioSourceBadAlloc.html',1,'tr']]],
+  ['audiosystem_17',['AudioSystem',['../classtr_1_1AudioSystem.html',1,'tr']]],
+  ['audiosysteminitializationerror_18',['AudioSystemInitializationError',['../structtr_1_1AudioSystemInitializationError.html',1,'tr']]]
 ];

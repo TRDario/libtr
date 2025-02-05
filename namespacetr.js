@@ -62,6 +62,8 @@ var namespacetr =
     [ "AudioBuffer", "classtr_1_1AudioBuffer.html", "classtr_1_1AudioBuffer" ],
     [ "AudioBufferBadAlloc", "structtr_1_1AudioBufferBadAlloc.html", "structtr_1_1AudioBufferBadAlloc" ],
     [ "AudioBufferView", "classtr_1_1AudioBufferView.html", "classtr_1_1AudioBufferView" ],
+    [ "AudioSource", "classtr_1_1AudioSource.html", "classtr_1_1AudioSource" ],
+    [ "AudioSourceBadAlloc", "structtr_1_1AudioSourceBadAlloc.html", "structtr_1_1AudioSourceBadAlloc" ],
     [ "AudioSystem", "classtr_1_1AudioSystem.html", "classtr_1_1AudioSystem" ],
     [ "AudioSystemInitializationError", "structtr_1_1AudioSystemInitializationError.html", null ],
     [ "B", "structtr_1_1B.html", "structtr_1_1B" ],
@@ -250,6 +252,16 @@ var namespacetr =
     [ "AudioFormat", "group__audio__buffer.html#ga0cd93ec18a3882266f1c6cd2657e7cfe", [
       [ "MONO16", "group__audio__buffer.html#gga0cd93ec18a3882266f1c6cd2657e7cfea59e5ab3f0c1c59504cf28fc887787eab", null ],
       [ "STEREO16", "group__audio__buffer.html#gga0cd93ec18a3882266f1c6cd2657e7cfead5190b906ac55686db8812dad0ec42d7", null ]
+    ] ],
+    [ "AudioOrigin", "group__audio__source.html#gac94c6d9def358bc33348c409be0a151a", [
+      [ "ABSOLUTE", "group__audio__source.html#ggac94c6d9def358bc33348c409be0a151aa3a0bc063b6db8cae0361657958be836f", null ],
+      [ "LISTENER", "group__audio__source.html#ggac94c6d9def358bc33348c409be0a151aa2a00683857d97bace1f195120c3eb4fb", null ]
+    ] ],
+    [ "AudioState", "group__audio__source.html#ga6c94829f0dfe0e9696cc57a3c7aff830", [
+      [ "INITIAL", "group__audio__source.html#gga6c94829f0dfe0e9696cc57a3c7aff830a91d26e4b2b105c74655093c9becd30b7", null ],
+      [ "PLAYING", "group__audio__source.html#gga6c94829f0dfe0e9696cc57a3c7aff830a50366a49630a416ab3ccaa004196027e", null ],
+      [ "PAUSED", "group__audio__source.html#gga6c94829f0dfe0e9696cc57a3c7aff830a99b2439e63f73ad515f7ab2447a80673", null ],
+      [ "STOPPED", "group__audio__source.html#gga6c94829f0dfe0e9696cc57a3c7aff830a09d4d696b4e935115b9313e3c412509a", null ]
     ] ],
     [ "StencilFace", "group__graphics__context.html#gae1a255c2dd97c61884a0c90d6e7aae8f", [
       [ "FRONT", "group__graphics__context.html#ggae1a255c2dd97c61884a0c90d6e7aae8fabb2fe5c916efb43aab8cbb68f997d2ee", null ],
@@ -609,6 +621,8 @@ var namespacetr =
     [ "operator|", "group__vertex.html#ga1d2b652c0f4a54def34182d8b433aa56", null ],
     [ "windowOpened", "group__window.html#ga144af6b640e6cc19613f5347942cacc8", null ],
     [ "window", "group__window.html#ga1b5287dbdc177a5306c50acbda2573c8", null ],
+    [ "OMNIDIRECTIONAL", "group__audio__source.html#gae9d633f69281a1e21914af48238b4e8d", null ],
+    [ "UNQUEUE_PROCESSED", "group__audio__source.html#ga6340a356507e099bafcf3cdfe72dcc52", null ],
     [ "USER_EVENT_START", "group__event.html#gad6f655f03f325a9e44c1d39e1a25728e", null ],
     [ "X_AXIS", "group__geometry.html#gad9cf1feaffaf287bb81e633aeb5fa58f", null ],
     [ "Y_AXIS", "group__geometry.html#ga14a1d007443269c085460bdbdd7099f7", null ],

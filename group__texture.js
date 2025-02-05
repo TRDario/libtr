@@ -17,14 +17,13 @@ var group__texture =
     [ "tr::ColorTexture", "classtr_1_1ColorTexture.html", [
       [ "setSwizzle", "classtr_1_1ColorTexture.html#a4bda8e3aea2e9699fd7ed839a81597ea", null ],
       [ "setBorderColor", "classtr_1_1ColorTexture.html#a681172d07fa82af91bd902e35ce2e567", null ],
-      [ "clear", "classtr_1_1ColorTexture.html#a74d3b709df7c3dfc25be5624a8642297", null ],
-      [ "clearRegion", "classtr_1_1ColorTexture.html#a2da9bff25fb287bb09f434bebc4e539c", null ]
+      [ "clear", "classtr_1_1ColorTexture.html#a74d3b709df7c3dfc25be5624a8642297", null ]
     ] ],
     [ "tr::ColorTexture1D", "classtr_1_1ColorTexture1D.html", [
       [ "ColorTexture1D", "classtr_1_1ColorTexture1D.html#a4c13df6697a89ec9cd5be5ff7d5cf4fb", null ],
       [ "ColorTexture1D", "classtr_1_1ColorTexture1D.html#ada6246504851c143696e864f0f3b9080", null ],
       [ "size", "classtr_1_1ColorTexture1D.html#a106954b06f16e4034b16820ba2b38dbe", null ],
-      [ "clearRegion", "classtr_1_1ColorTexture1D.html#a78e145b2bd1a3fbc8eb2d8bb72c2e358", null ],
+      [ "clearRegion", "classtr_1_1ColorTexture1D.html#afae8caccef325277fa2d23dfcf7a8cff", null ],
       [ "copyRegion", "classtr_1_1ColorTexture1D.html#a52c078aa9f62eb4c81b2cd5cfaf10a9c", null ],
       [ "setRegion", "classtr_1_1ColorTexture1D.html#acdb2fe2dad10c60267711205a5ba37f4", null ]
     ] ],
@@ -33,7 +32,7 @@ var group__texture =
       [ "ArrayColorTexture1D", "classtr_1_1ArrayColorTexture1D.html#aba30b3c2e9466ba5eb8d9bba966d62f2", null ],
       [ "size", "classtr_1_1ArrayColorTexture1D.html#a08b491f16c89cca5d85803b247e97478", null ],
       [ "layers", "classtr_1_1ArrayColorTexture1D.html#a209fda80a6cfd25262505d6d847c23b1", null ],
-      [ "clearRegion", "classtr_1_1ArrayColorTexture1D.html#a1f8ac72648033c23b64bf51ac6e3a815", null ],
+      [ "clearRegion", "classtr_1_1ArrayColorTexture1D.html#a252f355e1adbd48786cd1fa426ce5614", null ],
       [ "copyRegion", "classtr_1_1ArrayColorTexture1D.html#ab57dae5f6aff1c70e6da82ad574cbdb3", null ],
       [ "setRegion", "classtr_1_1ArrayColorTexture1D.html#a73d10409d341bafdb73bc4efcd198282", null ]
     ] ],
@@ -41,7 +40,7 @@ var group__texture =
       [ "ColorTexture2D", "classtr_1_1ColorTexture2D.html#af8217bf60745502a36c307fac1f67ab6", null ],
       [ "ColorTexture2D", "classtr_1_1ColorTexture2D.html#a6196efc63e6823392617822d2ac420e9", null ],
       [ "size", "classtr_1_1ColorTexture2D.html#a8e4971a88ec183451959b028b236c137", null ],
-      [ "clearRegion", "classtr_1_1ColorTexture2D.html#a0886f81f59545ad1997c2cf0ad93b5ea", null ],
+      [ "clearRegion", "classtr_1_1ColorTexture2D.html#a4b574601b75f110a8733c29e0724de6f", null ],
       [ "copyRegion", "classtr_1_1ColorTexture2D.html#adec7057dfdb83358afde48bbe7e6af6a", null ],
       [ "setRegion", "classtr_1_1ColorTexture2D.html#a18acda94aa5a82406b44939b90b6d384", null ]
     ] ],
@@ -50,7 +49,7 @@ var group__texture =
       [ "ArrayColorTexture2D", "classtr_1_1ArrayColorTexture2D.html#ac721fc9bb6cffdb602d449dccbd8f3eb", null ],
       [ "size", "classtr_1_1ArrayColorTexture2D.html#af88a99f5562d85f9e8dd0ac22278501a", null ],
       [ "layers", "classtr_1_1ArrayColorTexture2D.html#aec44522b1f6311879018d5407e5fe66a", null ],
-      [ "clearRegion", "classtr_1_1ArrayColorTexture2D.html#a8de616e8b10fd9bf40089ca6484c96e5", null ],
+      [ "clearRegion", "classtr_1_1ArrayColorTexture2D.html#a708a52922a7d24340d621d9aa84cfefc", null ],
       [ "copyRegion", "classtr_1_1ArrayColorTexture2D.html#aa2f0d2f6d1427896240341e331f8a090", null ],
       [ "setLayerRegion", "classtr_1_1ArrayColorTexture2D.html#ae25d58298fa8d6095d51c533b84de707", null ]
     ] ],
@@ -58,7 +57,7 @@ var group__texture =
       [ "ColorTexture3D", "classtr_1_1ColorTexture3D.html#a89728693afef95e348c2d9a115aeca1b", null ],
       [ "ColorTexture3D", "classtr_1_1ColorTexture3D.html#a74662dffc58290445b12522939d95338", null ],
       [ "size", "classtr_1_1ColorTexture3D.html#ac280db5a4e11933b6e19aa172fb1adac", null ],
-      [ "clearRegion", "classtr_1_1ColorTexture3D.html#a9085ea81052334b6846d8c53902316f4", null ],
+      [ "clearRegion", "classtr_1_1ColorTexture3D.html#a5637e21412fb9dc5a8e890cec892b025", null ],
       [ "copyRegion", "classtr_1_1ColorTexture3D.html#a8de293b1db5d8dcf9d26b875faa0691f", null ],
       [ "setLayerRegion", "classtr_1_1ColorTexture3D.html#adb72564bdef6271d14b62679b591aa1b", null ]
     ] ],

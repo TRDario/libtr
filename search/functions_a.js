@@ -13,5 +13,6 @@ var searchData=
   ['loadembeddedshader_10',['loadEmbeddedShader',['../group__shader.html#ga6fd66e945040bc4569193abac0e12b2b',1,'tr::loadEmbeddedShader(std::span&lt; const std::byte &gt; data, ShaderType type)'],['../group__shader.html#ga1f5ccb99d703e9044f56f62015440755',1,'tr::loadEmbeddedShader(Range &amp;&amp;range, ShaderType type) noexcept']]],
   ['loadembeddedttfont_11',['loadEmbeddedTTFont',['../group__ttfont.html#ga5e6cbed415deec01182020294c5c880c',1,'tr::loadEmbeddedTTFont(std::span&lt; const std::byte &gt; data, int size, glm::uvec2 dpi={72, 72})'],['../group__ttfont.html#gaffba8eab826600c5745dfa61ec2485bb',1,'tr::loadEmbeddedTTFont(Range &amp;&amp;range, int size, glm::uvec2 dpi={72, 72})']]],
   ['loadshaderfile_12',['loadShaderFile',['../group__shader.html#gae6427ef54d00279e92afeaf185fd4481',1,'tr']]],
-  ['loadttfontfile_13',['loadTTFontFile',['../group__ttfont.html#ga3a95aba068895a29c0677719705da99c',1,'tr']]]
+  ['loadttfontfile_13',['loadTTFontFile',['../group__ttfont.html#ga3a95aba068895a29c0677719705da99c',1,'tr']]],
+  ['looping_14',['looping',['../classtr_1_1AudioSource.html#a9dabda8dce22df5564f37b714e06b928',1,'tr::AudioSource']]]
 ];
